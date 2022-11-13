@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <>
       <nav id="navbar">
+        <img id='logo' src="/src/assets/logo.png" alt="logo" />
         <ul>
           <li>Home</li>
           <li>About</li>
