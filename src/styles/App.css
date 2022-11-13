@@ -1,3 +1,7 @@
+#navbar{
+    display: flex;
+}
+
 #navbar ul{
     position: absolute;
     display: flex;
@@ -20,4 +24,10 @@
     text-align: center;
     padding: 10px 0 10px 0;
     margin-right: 10px;
+}
+
+#logo{
+    margin: 20px 0 0 30px;
+    height: 80px;
+    width: 80px;
 }
