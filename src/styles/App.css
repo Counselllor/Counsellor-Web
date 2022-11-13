@@ -1,0 +1,26 @@
+
+
+#navbar ul{
+    position: absolute;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    font-size: 28px;
+    color: #ffffff;
+    background-color: #6cbdfa;
+    gap: 50px;
+    right: 60px;
+    padding: 15px 15px 15px 25px;
+    border-radius: 50px;
+}
+
+.loginSignUpBtn{
+    display: inline-block;
+    background-color: #12229d;
+    border-radius: 8px;
+    width: 8rem;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin-right: 10px;
+}
+
