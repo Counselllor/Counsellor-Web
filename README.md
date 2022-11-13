@@ -1,0 +1,3 @@
+# Counsellor System
+## This Web app is based on ReactJS and focues on helping students in choosing right stream/branch for them in undergrad studies.  
+## This app also helps students in choosing right and nearby college with real and honest insights from college students themselves....
