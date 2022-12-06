@@ -55,11 +55,3 @@
     font-weight: bold;
     color: white;
 }
-
-#homeTxt::after{
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background-color: white;
-}
