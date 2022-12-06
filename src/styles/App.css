@@ -7,13 +7,18 @@
     display: flex;
     list-style-type: none;
     align-items: center;
-    font-size: 28px;
-    color: #ffffff;
     background-color: #6cbdfa;
     gap: 50px;
     right: 60px;
     padding: 15px 15px 15px 25px;
     border-radius: 50px;
+}
+
+#navbar ul li * {
+    font-family: 'Livvic';
+    font-size: 28px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .loginSignUpBtn{
@@ -30,4 +35,31 @@
     margin: 20px 0 0 30px;
     height: 80px;
     width: 80px;
+}
+
+#meetingImg{
+    position: absolute;
+    top: 300px;
+    left: 120px;
+    height: 500px;
+    width: 500px;
+}
+
+#homeTxt{
+    position: absolute;
+    width: 750px;
+    top: 250px;
+    right: 100px;
+    font-family: 'ABeeZee';
+    font-size: 110px;
+    font-weight: bold;
+    color: white;
+}
+
+#homeTxt::after{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: white;
 }
