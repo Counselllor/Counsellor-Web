@@ -1,19 +1,18 @@
-import '../styles/App.css'
 import { Link } from 'react-router-dom'
+import '../styles/App.css'
+import Logo from '../assets/logo.png'
 
 const Navbar = () => {
   return (
     <>
       <nav id="navbar">
-        <img id='logo' src="/src/assets/logo.png" alt="logo" />
+        <img id='logo' src={Logo} alt="logo" />
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Pages</li>
-          <li>Contact</li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/about'>About</Link></li>
           <li>
-            <div className='loginSignUpBtn'>Login</div>
-            <div className='loginSignUpBtn'>Sign Up</div>
+            <div className='loginSignUpBtn'><Link to='/login'>Login</Link></div>
+            <div className='loginSignUpBtn'><Link to='/signup'>Sign Up</Link></div>
           </li>
         </ul>
       </nav>
