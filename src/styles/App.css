@@ -51,7 +51,18 @@
     right: 8rem;
     font-family: 'ABeeZee';
     font-size: 10rem;
-    /* font-size: 5.5rem; */
     font-weight: bold;
     color: white;
+}
+
+#homeCircle{
+    position: absolute;
+    height: 100rem;
+    width: 100rem;
+    border-radius: 100%;
+    background-color: #6cbdfa;
+    right: -20rem;
+    top: 20rem;
+    overflow: hidden;
+    z-index: -999;
 }
