@@ -6,6 +6,7 @@ const Home = () => {
         <>
             <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />
             <p id='homeTxt'>Still Confused with College Choice?</p>
+            <div id='homeCircle'></div>
         </>
     )
 }
