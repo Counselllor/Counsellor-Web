@@ -5,7 +5,7 @@ const Home = () => {
     return(
         <>
             <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />
-            <p id='homeTxt'>Still Confused with College Choice?</p>
+            <p id='homeTxt'>aStill Confused with College Choice?</p>
             <div id='homeCircle'></div>
             <div id='homeCircleScnd'></div>
         </>
