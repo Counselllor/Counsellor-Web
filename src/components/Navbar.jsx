@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../styles/App.css'
 import Logo from '../assets/logo.png'
 
@@ -8,11 +8,11 @@ const Navbar = () => {
       <nav id="navbar">
         <img id='logo' src={Logo} alt="logo" />
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/about'>About</Link></li>
+          <li><NavLink activeClassName='active' exact to='/'>Home</NavLink></li>
+          <li><NavLink activeClassName='active' to='/about'>About</NavLink></li>
           <li>
-            <div className='loginSignUpBtn'><Link to='/login'>Login</Link></div>
-            <div className='loginSignUpBtn'><Link to='/signup'>Sign Up</Link></div>
+            <div className='loginSignUpBtn'><NavLink activeClassName='active' to='/login'>Login</NavLink></div>
+            <div className='loginSignUpBtn'><NavLink activeClassName='active' to='/signup'>Sign Up</NavLink></div>
           </li>
         </ul>
       </nav>
