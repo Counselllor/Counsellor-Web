@@ -21,6 +21,10 @@
     text-decoration: none;
 }
 
+#navbar ul li > *:active {
+    font-weight: bold;
+}
+
 .loginSignUpBtn{
     display: inline-block;
     background-color: #12229d;
@@ -63,6 +67,18 @@
     background-color: #6cbdfa;
     right: -20rem;
     top: 20rem;
+    overflow: hidden;
+    z-index: -999;
+}
+
+#homeCircleScnd{
+    position: absolute;
+    height: 100rem;
+    width: 100rem;
+    border-radius: 100%;
+    background-color: #6cbdfa;
+    left: -40rem;
+    bottom: 40rem;
     overflow: hidden;
     z-index: -999;
 }
