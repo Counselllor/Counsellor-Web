@@ -49,22 +49,35 @@
     width: 8rem;
 }
 
+#homeContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* position: absolute; */
+    
+    margin: 9.2rem 7.4rem 0 11.2rem;
+}
+
 #meetingImg{
-    position: absolute;
-    top: 20rem;
-    left: 12rem;
+    /* position: absolute; */
+    position: relative;
+    /* top: 20rem; */
+    /* left: 12rem; */
     height: 64rem;
+    float: left;
 }
 
 #homeTxt{
-    position: absolute;
+    position: relative;
     width: 75rem;
-    top: 25rem;
-    right: 8rem;
+    /* top: 14rem; */
+    /* right: 8rem; */
     font-family: 'ABeeZee';
     font-size: 10rem;
     font-weight: bold;
     color: var(--white);
+    float: right;
 }
 
 #homeCircle{
