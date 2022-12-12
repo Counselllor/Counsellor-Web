@@ -8,23 +8,25 @@
 
 #navbar{
     display: flex;
+    justify-content: space-between;
 }
 
 #navbar ul{
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     list-style-type: none;
     align-items: center;
-    background-color: var(--pageColor);
-    gap: 5rem;
-    right: 6rem;
-    padding: 1.5rem 1.5rem 1.5rem 2.5rem;
-    border-radius: 5rem;
+    background-color: var(--secPageColor);
+    gap: 2.5vw;
+    /* right: 6rem; */
+    /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+    padding: .78vw .78vw .78vw 1.3vw;
+    border-radius: 2.6vw;
 }
 
 #navbar ul li * {
     font-family: 'Livvic';
-    font-size: 2.2rem;
+    font-size: 1.14vw;
     color: var(--white);
     text-decoration: none;
 }
@@ -36,17 +38,18 @@
 .loginSignUpBtn{
     display: inline-block;
     background-color: var(--btnColor);
-    border-radius: .8rem;
-    width: 10rem;
+    border-radius: .4vw;
+    width: 5.2vw;
     text-align: center;
-    padding: 1rem 0 1rem 0;
-    margin-right: 1rem;
+    padding: .5vw 0 .5vw 0;
+    margin-right: .5vw;
 }
 
 #logo{
-    margin: 2rem 0 0 3rem;
-    height: 8rem;
-    width: 8rem;
+    margin: 1.04vw 0 0 1.56vw;
+    height: 4.16vw;
+    width: 4.16vw;
+    display: block;
 }
 
 #homeContainer{
@@ -54,52 +57,42 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* position: absolute; */
-    
-    margin: 9.2rem 7.4rem 0 11.2rem;
+    margin: 4.79vw 3.85vw 0 5.83vw;
 }
 
 #meetingImg{
-    /* position: absolute; */
-    position: relative;
-    /* top: 20rem; */
-    /* left: 12rem; */
-    height: 64rem;
-    float: left;
+    height: 54%;
+    width: 37.3%;
 }
 
 #homeTxt{
-    position: relative;
-    width: 75rem;
-    /* top: 14rem; */
-    /* right: 8rem; */
+    width: 39.06vw;
     font-family: 'ABeeZee';
-    font-size: 10rem;
+    font-size: 5.2vw;
     font-weight: bold;
     color: var(--white);
-    float: right;
 }
 
 #homeCircle{
     position: absolute;
-    height: 100rem;
-    width: 100rem;
+    height: 52.08vw;
+    width: 52.08vw;
     border-radius: 100%;
     background-color: var(--secPageColor);
-    right: -20rem;
-    top: 20rem;
+    right: -10.41vw;
+    top: 10.41vw;
     overflow: hidden;
     z-index: -999;
 }
 
 #homeCircleScnd{
     position: absolute;
-    height: 100rem;
-    width: 100rem;
+    height: 52.08vw;
+    width: 52.08vw;
     border-radius: 100%;
     background-color: var(--secPageColor);
-    left: -40rem;
-    bottom: 40rem;
+    left: -20.83vw;
+    bottom: 20.83vw;
     overflow: hidden;
     z-index: -999;
 }
