@@ -8,6 +8,7 @@ import SignUp from './components/SignUp'
 import PageNotFound from './components/PageNotFound'
 
 const App = () => {
+  
 
   return (
     <Router>

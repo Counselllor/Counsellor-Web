@@ -3,6 +3,7 @@ import '../styles/App.css'
 
 const Home = () => {
     return(
+        
         <>
             <div id='homeCircle'></div>
             <div id='homeContainer'>

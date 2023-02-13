@@ -1,9 +1,59 @@
-const Login = () => {
-    return(
-        <>
+import React, { useState } from 'react';
+import ElementPhoto from '../assets/element1.png'
+import Logo from '../assets/logo.png'
+import ElementPhoto4 from '../assets/element 4.png'
 
-        </>
-    )
-}
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-export default Login
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Do some authentication here...
+  };
+
+  return (
+    <div className="login-container">
+      <div className="shadow-box">
+
+        {/* This is the left side of the login page   */}
+        <div className="left-side">
+        <div className="left-side-logo">
+          <img id='logo' src={Logo} alt="logo" />
+          <p id='logintxt_leftside' >For the Students By the Students</p>
+        </div>
+        <img id='element1Img' src={ElementPhoto} alt="Element Image" />
+        </div>
+
+
+        {/* This is the right side of the login page   */}
+        <div className="right-side">
+        <div className="counsellor-text-container">Counsellor</div>
+        <div className='lets-signin-text-container'>Let's You Sign In!</div>
+        <div className='needhelp-container'>Need Help?</div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Password"
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginForm;
+
+
+
+
