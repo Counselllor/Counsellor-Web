@@ -4,7 +4,6 @@ import Logo from '../assets/logo.png'
 import GoogleLogo from '../assets/googleicon.png'
 import WindowLogo from '../assets/windowicon.png'
 import Githublogo from '../assets/githubicon2.png'
-import ElementPhoto4 from '../assets/element 4.png'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -35,7 +34,7 @@ const LoginForm = () => {
           <div className="lets-signin-text-container">Let's You Sign In!</div>
           <div className='needhelp-container'>Need Help?</div>
 
-          {/* Login with */}
+          {/* Login form */}
 
 
           <form onSubmit={handleSubmit}>
@@ -52,6 +51,8 @@ const LoginForm = () => {
               placeholder="Password"
             />
             <button type="submit">Login</button>
+
+            {/*Login Option */}
             <div className='loginOptions'>
               <div classname="or-login-with">Or login with </div>
               <div classname="login-with-icons">

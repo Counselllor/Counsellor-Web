@@ -220,7 +220,7 @@ input[type="password"] {
   padding: 8px;
   margin: 11px 0;
   font-size: 16px;
-  border: 2px solid #cae8ff;
+  border: 2px solid #5CB6F9;
   border-radius: 25px;
   outline: none;
 }
@@ -231,7 +231,7 @@ button[type="submit"] {
   margin: 7px 0;
   bottom: 25px;
   font-size: 16px;
-  background-color: #5cb6F9;
+  background-color: #1877f2;
   color: white;
   border: none;
   border-radius: 25px;
@@ -239,7 +239,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #FAFAFA;
+  background-color: #12229D;
 }
 
 .loginOptions{
@@ -247,6 +247,7 @@ button[type="submit"]:hover {
   text-align: center;
   font-family: 'HK Grotesk Medium';
   font-size: 12px;
+  margin-top: 39px;
 
 }
 
@@ -302,12 +303,166 @@ button[type="submit"]:hover {
 
 .signup-line {
   border-top: 1px solid black;
-  margin-top: 71px;
-  width: 100%;
+position: relative;
+top: 70px;
+left: 1%;
+width: 101%;
+height: 1px;
 }
 
+.form-container {
+  display: flex;
+  width: 98%;
+    height: 77%;;
+  margin-top: -2%;
+  margin-left: -96%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input.firstname-text[type="text"]{
+  width: 38%;
+  padding: 12px;
+  margin: 11px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position:relative;
+  top: -33px;
+  left: -22%;
+  background-color: #D8D8D8;
+}
+
+input.surname-text[type="text"]{
+  width: 38%;
+  padding: 12px;
+  margin: 6px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: -104px;
+  right: -28%;
+  background-color: #D8D8D8;
+}
+
+input[type="email"]{
+  width: 88%;
+  padding: 12px;
+  margin: 13px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  background-color: #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: -108px;
+  right: -3%;
+}
+
+input.password-text[type="password"]{
+  width:88%;
+  padding:12px;
+  margin:6px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  background-color: #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: -113px;
+  right: -3%;
+}
+
+input[type="date"]{
+  width: 38%;
+  padding: 12px;
+  margin: 6px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  background-color: #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  left:-22%;
+  top: -112px;
 
 
+}
 
+select[type="gender"]{
+  width: 41%;
+  padding: 12px;
+  margin: 6px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: -176px;
+  right: -28%;
+  background-color: #D8D8D8;
+}
+
+label[for="counsellor-option"]{
+  width: 38%;
+  padding: 12px;
+  font-family: 'HK Grotesk Medium';
+  margin: 6px 0;
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: 64px;
+  right: 52%;
+  background-color: #D8D8D8;
+}
+
+label[for="student-option"]{
+  width: 38%;
+  padding: 12px;
+  margin: 19px 0;
+  font-family: 'HK Grotesk Medium';
+  font-size: 16px;
+  border: 2px solid #D8D8D8;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  top: 246px;
+  right: 102%;
+  background-color: #D8D8D8;
+}
+
+label[for="are-you-student-or-counsellor"]{
+  font-family: 'HK Grotesk Medium';
+  font-size: 14px;
+  position: relative;
+  top: -162px;
+  right: 29%;;
+}
+button.submit-button[type="submit"] {
+  width: 69%;
+  padding: 16px;
+  margin: 7px 0;
+  position: relative;
+  top: -27px;
+  left: -76%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button.submit-button[type="submit"]:hover {
+  background-color: #12229D;
+}
 
 
