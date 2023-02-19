@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'HK Grotesk Medium';
+  src: url('./font-family/hk-grotesk-medium.ttf') format('truetype');
+}
+
 #pageNotFound {
   position: relative;
   font-family: 'ABeeZee';
@@ -145,10 +150,6 @@
   z-index: 0;
 }
 
-@font-face {
-  font-family: 'HK Grotesk Medium';
-  src: url('./font-family/hk-grotesk-medium.ttf') format('truetype');
-}
 
 #logintxt_leftside {
   position: fixed;
@@ -227,7 +228,7 @@ input[type="password"] {
 button[type="submit"] {
   width: 69%;
   padding: 16px;
-  margin: 31px 0;
+  margin: 7px 0;
   bottom: 25px;
   font-size: 16px;
   background-color: #5cb6F9;
@@ -240,4 +241,73 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #FAFAFA;
 }
+
+.loginOptions{
+  display: grid;
+  text-align: center;
+  font-family: 'HK Grotesk Medium';
+  font-size: 12px;
+
+}
+
+
+#googleicon {
+  margin-right: 10px;
+  width: 22%;
+}
+
+#windowicon {
+  margin: 0 auto;
+  width: 22%;
+
+}
+
+#githubicon {
+  margin-left: 10px;
+  width: 22%;
+}
+
+
+/* Sign up container*/
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.parent {
+  position: relative;
+}
+
+.signuptxt {
+  position: absolute;
+  top: 21px;
+  left: 76px;
+  font-size: 17px;
+  font-family: 'HK Grotesk Medium';
+  width: 56px;
+}
+
+.signuptxt2{
+  position: absolute;
+  top: 43px;
+  left: 39px;
+  font-size: 17px;
+  font-family: 'HK Grotesk Medium';
+  width: 140px;
+  
+}
+
+.signup-line {
+  border-top: 1px solid black;
+  margin-top: 71px;
+  width: 100%;
+}
+
+
+
+
+
 
