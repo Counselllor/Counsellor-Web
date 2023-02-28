@@ -1,7 +1,23 @@
-const mongoose = require('mongoose')
-const {ObjectId} = mongoose.Schema.Types
-const userSchema = new mongoose.Schema({
-    name:{
+const mongoose =require("mongoose")
+
+const userSchema=new mongoose.Schema({
+    fname:{
+        type:String,
+        required:true
+    },
+    lname:{
+        type:String,
+        required:true
+    },
+    sc:{
+        type:String,
+        required:true
+    },
+    gender:{
+        type:String,
+        required:true
+    },
+    date:{
         type:String,
         required:true
     },
@@ -12,14 +28,8 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true
-    },
-    resetToken:String,
-    expireToken:Date,
-    pic:{
-     type:String,
-     default:"http://res.cloudinary.com/dcyysbj41/image/upload/v1666777119/n5tnxchnqaynj25wrb7n.jpg"
+        
     }
-    
 })
 
 mongoose.model("User",userSchema)

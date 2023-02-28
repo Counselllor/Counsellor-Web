@@ -4,6 +4,10 @@ const mongoose =require('mongoose')
 const PORT =4000
 const {MONGOURI}=require("./Key")
 
+require('./models/User')
+
+app.use(express.json())
+app.use(require('./routes/Auth'))
 
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
@@ -15,10 +19,6 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log("error connecting",err)
 })
-
-
-app.use(express.json())
-app.use(require('./routes/Auth'))
 
 
 app.listen(PORT,()=>{
