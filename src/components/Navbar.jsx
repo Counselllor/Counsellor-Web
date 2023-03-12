@@ -8,11 +8,11 @@ const Navbar = () => {
       <nav id="navbar">
         <img id='logo' src={Logo} alt="logo" />
         <ul>
-          <li><NavLink activeClassName='active' to='/'>Home</NavLink></li>
-          <li><NavLink activeClassName='active' to='/about'>About</NavLink></li>
+          <li><NavLink className={({isActive})=>isActive?'active': 'none'} to='/'>Home</NavLink></li>
+          <li><NavLink className={({isActive})=>isActive?'active': 'none'} to='/about'>About</NavLink></li>
           <li>
-            <div className='loginSignUpBtn'><NavLink activeClassName='active' to='/login'>Login</NavLink></div>
-            <div className='loginSignUpBtn'><NavLink activeClassName='active' to='/signup'>Sign Up</NavLink></div>
+            <div className='loginSignUpBtn'><NavLink className={({isActive})=>isActive?'active': 'none'} to='/login'>Login</NavLink></div>
+            <div className='loginSignUpBtn'><NavLink className={({isActive})=>isActive?'active': 'none'} to='/signup'>Sign Up</NavLink></div>
           </li>
         </ul>
       </nav>
