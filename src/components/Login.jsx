@@ -54,8 +54,8 @@ const LoginForm = () => {
 
             {/*Login Option */}
             <div className='loginOptions'>
-              <div classname="or-login-with">Or login with </div>
-              <div classname="login-with-icons">
+              <div className="or-login-with">Or login with </div>
+              <div className="login-with-icons">
                 <img id='googleicon' src={GoogleLogo} alt="gogoleicon" />
                 <img id='windowicon' src={WindowLogo} alt="windowicon" />
                 < img id="githubicon" src={Githublogo} alt="githubicon" />

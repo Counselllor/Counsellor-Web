@@ -3,12 +3,23 @@
   src: url('./font-family/hk-grotesk-medium.ttf') format('truetype');
 }
 
-#pageNotFound {
-  position: relative;
-  font-family: 'ABeeZee';
-  font-size: 5rem;
-  color: var(--white);
+.ErrorPage{
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.ErrorPage h1{
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.ErrorPage p{
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 #navbar {
@@ -36,7 +47,7 @@
   text-decoration: none;
 }
 
-.active {
+.active{
   font-weight: bold;
 }
 

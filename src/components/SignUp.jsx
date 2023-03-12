@@ -22,7 +22,7 @@ const SignUpForm = () => {
   return (
     <div className="signup-container">
       <div className="shadow-box">
-        <div class="parent">
+        <div className="parent">
           <div className="signuptxt">Sign up</div>
           <div className="signuptxt2">It's quick and easy</div>
         </div>
@@ -81,9 +81,9 @@ const SignUpForm = () => {
             <option value="Other">Other</option>
           </select>
 
-          <label for="are-you-student-or-counsellor">Are you Student and Counsellor ? </label>
-          <label for="student-option">Student</label>
-          <label for="counsellor-option">Counsellor</label>
+          <label htmlFor="are-you-student-or-counsellor">Are you Student and Counsellor ? </label>
+          <label htmlFor="student-option">Student</label>
+          <label htmlFor="counsellor-option">Counsellor</label>
 
           <button type="submit" className='submit-button'>Sign Up</button>
 
