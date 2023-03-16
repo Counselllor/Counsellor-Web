@@ -9,6 +9,10 @@ require('./models/User')
 app.use(express.json())
 app.use(require('./routes/Auth'))
 
+app.use(cors({
+    origin:"http://localhost:4000"
+}))
+
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
     useUnifiedTopology:true

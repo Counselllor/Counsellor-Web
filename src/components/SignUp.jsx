@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+
 
 
 const SignUpForm = () => {
@@ -8,17 +11,53 @@ const SignUpForm = () => {
   const [password,setPassword]=useState('');
   const [dob, setDob] = useState('');
   const [gender, setGender] = useState('');
+  const [sc, setSc] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  let navigate =useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
     console.log('First name:', firstName);
     console.log('Surname:', surname);
     console.log('Email address:', email);
     console.log('Password:', password);
     console.log('DOB:', dob);
-    console.log('Gender:', gender);
+    console.log('Gender:', gender);}
+  
+  const PostData =()=>{
+    if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+     console.log({html: "Invalid Email", classes:"#d32f2f red darken-2"})
+     return
+    }  
+    fetch("http://localhost:4000/signup",{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json",
+        // 'Access-Control-Allow-Origin': '/api/signup',
+      },
+      body:JSON.stringify({
+        fname:firstName,
+        lname:surname,
+        email,
+        date:dob,
+        gender,
+        sc,
+        password
+       
+      })
+    }).then(res=>res.json())
+    .then(data=>{
+     if(data.error){
+      console.log({html: data.error, classes:"#d32f2f red darken-2"})
+      }else{
+      // console.log({html: data.message, classes:"#43a047 green darken-1"})
+      console.log(data)
+      navigate("/signin");
+    }
+    })
+  
   }
-
+  
   return (
     <div className="signup-container">
       <div className="shadow-box">
@@ -30,11 +69,13 @@ const SignUpForm = () => {
 
 
 
-        <form className="form-container" onSubmit={handleSubmit}>
+        <form className="form-container" 
+        onSubmit={handleSubmit}
+        >
               <input
                 type="text"
                 value={firstName}
-                onChange={(event) => setFirstName(event.target.value)}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder="First Name"
                 className='firstname-text'
               />
@@ -42,7 +83,7 @@ const SignUpForm = () => {
               <input 
               type="text"
               value={surname}
-              onChange={(event) => setSurname(event.target.value)}
+              onChange={(e) => setSurname(e.target.value)}
               placeholder="Surname"
               className='surname-text'
             />
@@ -50,14 +91,14 @@ const SignUpForm = () => {
             <input 
             type="email"
             value={email}
-            onChange={(event)=>setEmail(event.target.value)}
+            onChange={(e)=>setEmail(e.target.value)}
             placeholder="Email address"
             />
 
             <input
             type="password"
             value={password}
-            onChange={(event)=>setPassword(event.target.value)}
+            onChange={(e)=>setPassword(e.target.value)}
             placeholder="Password"
             className='password-text'
             />
@@ -66,14 +107,14 @@ const SignUpForm = () => {
             <input
             type="date"
             value={dob}
-            onChange={(event)=>setDob(event.target.value)}
+            onChange={(e)=>setDob(e.target.value)}
             className='dob'
             />
 
           <select
           type="gender"
           value={gender}
-          onChange={(event)=>setGender(event.target.value)}
+          onChange={(e)=>setGender(e.target.value)}
           >
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
@@ -82,10 +123,18 @@ const SignUpForm = () => {
           </select>
 
           <label htmlFor="are-you-student-or-counsellor">Are you Student and Counsellor ? </label>
-          <label htmlFor="student-option">Student</label>
-          <label htmlFor="counsellor-option">Counsellor</label>
+          <label htmlFor="student-option"
+          //  value={sc="stu"}
+          //  onChange={(e)=>setSc(e.target.value)}
+          //  placeholder="SC"
+          >Student</label>
+          <label htmlFor="counsellor-option"
+          //  value={sc="cou"}
+          //  onChange={(e)=>setSc(e.target.value)}
+          //  placeholder="SC"
+            >Counsellor</label>
 
-          <button type="submit" className='submit-button'>Sign Up</button>
+          <button type="submit" className='submit-button' onClick={()=>PostData()}>Sign Up</button>
 
               
         </form>
