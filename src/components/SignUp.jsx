@@ -31,9 +31,11 @@ const SignUpForm = () => {
     }  
     fetch("http://localhost:4000/signup",{
       method:"post",
+      "Access-Control-Allow-Origin":"http://localhost:4000/signup",
       headers:{
         "Content-Type":"application/json",
         // 'Access-Control-Allow-Origin': '/api/signup',
+        "Access-Control-Allow-Origin":"http://localhost:4000/signup"
       },
       body:JSON.stringify({
         fname:firstName,
