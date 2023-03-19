@@ -1,6 +1,7 @@
 {
   "name": "counsellingsystem",
   "private": true,
+  "proxy": "http://localhost:4000",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0"
