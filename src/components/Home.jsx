@@ -1,4 +1,4 @@
-import MeetingPhoto from '../assets/meeting.png'
+import MeetingPhoto from '../assets/meeting.webp'
 import '../styles/App.css'
 
 const Home = () => {

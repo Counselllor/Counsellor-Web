@@ -138,6 +138,8 @@ const SignUpForm = () => {
 
           <button type="submit" className='submit-button' onClick={()=>PostData()}>Sign Up</button>
 
+          
+
               
         </form>
       </div>
