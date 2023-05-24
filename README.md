@@ -1,5 +1,27 @@
 # Counsellor System
 
+
+<br/>
+<div align="center">
+  <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+  <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+  <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+  <br/>
+  <img src="https://img.shields.io/github/repo-size/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/license/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed-raw/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/forks/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/contributors/thestarsahil/Counsellor?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/thestarsahil/Counsellor?style=for-the-badge" />
+
+</div>
+<br/>
+
 The web application, built using ReactJS, is designed to assist students in making informed decisions regarding their undergraduate studies. It provides a platform for students to explore and choose the right stream/branch that aligns with their interests and career aspirations. Additionally, the app leverages real and honest insights from current college students to help students choose the right and convenient college based on their specific needs and preferences. This app serves as a valuable resource for students looking to make the most of their undergraduate education and embark on a successful career path.
  
 
