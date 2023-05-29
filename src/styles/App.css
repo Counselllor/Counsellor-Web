@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'HK Grotesk Medium';
-  src: url('./font-family/hk-grotesk-medium.ttf') format('truetype');
+  font-family: "HK Grotesk Medium";
+  src: url("./font-family/hk-grotesk-medium.ttf") format("truetype");
 }
 
-.ErrorPage{
+.ErrorPage {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -12,12 +12,12 @@
   height: 100vh;
 }
 
-.ErrorPage h1{
+.ErrorPage h1 {
   font-size: 50px;
   margin-bottom: 20px;
 }
 
-.ErrorPage p{
+.ErrorPage p {
   font-size: 20px;
   margin-bottom: 20px;
 }
@@ -36,29 +36,29 @@
   gap: 2.5vw;
   /* right: 6rem; */
   /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
-  padding: .78vw .78vw .78vw 1.3vw;
+  padding: 0.78vw 0.78vw 0.78vw 1.3vw;
   border-radius: 2.6vw;
 }
 
 #navbar ul li * {
-  font-family: 'Livvic';
+  font-family: "Livvic";
   font-size: 1.14vw;
   color: var(--white);
   text-decoration: none;
 }
 
-.active{
+.active {
   font-weight: bold;
 }
 
 .loginSignUpBtn {
   display: inline-block;
   background-color: var(--btnColor);
-  border-radius: .4vw;
+  border-radius: 0.4vw;
   width: 5.2vw;
   text-align: center;
-  padding: .5vw 0 .5vw 0;
-  margin-right: .5vw;
+  padding: 0.5vw 0 0.5vw 0;
+  margin-right: 0.5vw;
 }
 
 #logo {
@@ -83,7 +83,7 @@
 
 #homeTxt {
   width: 39.06vw;
-  font-family: 'ABeeZee';
+  font-family: "ABeeZee";
   font-size: 5.2vw;
   font-weight: bold;
   color: var(--white);
@@ -113,14 +113,13 @@
   z-index: -999;
 }
 
- /*  Login container */
+/*  Login container */
 .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-
 
 .shadow-box {
   display: flex;
@@ -161,7 +160,6 @@
   z-index: 0;
 }
 
-
 #logintxt_leftside {
   position: fixed;
   bottom: 265px;
@@ -169,9 +167,8 @@
   right: 0px;
   text-align: center;
   font-size: 17px;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
 }
-
 
 /* Right side container of login page */
 .counsellor-text-container {
@@ -180,30 +177,28 @@
   font-size: 20px;
   background-color: var(--secPageColor);
   border-radius: 2.6vw;
-  padding: .78vw;
-  font-family:'HK Grotesk Bold';
+  padding: 0.78vw;
+  font-family: "HK Grotesk Bold";
   width: 74%;
   text-align: center;
-  color:#050A30;
+  color: #050a30;
 }
-.lets-signin-text-container{
-  position:absolute;
+.lets-signin-text-container {
+  position: absolute;
   font-size: 17px;
-  color:#050A30;
+  color: #050a30;
   text-align: center;
   padding: 1.6vw;
-  top:95px;
-
+  top: 95px;
 }
-.needhelp-container{
-  position:absolute;
+.needhelp-container {
+  position: absolute;
   font-size: 17px;
-  color:#050A30;
+  color: #050a30;
   text-align: center;
   padding: 1.6vw;
-  bottom:10px;
-  font-family:'HK Grotesk Medium';
-
+  bottom: 10px;
+  font-family: "HK Grotesk Medium";
 }
 .right-side {
   flex: 1;
@@ -211,7 +206,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #5cb6F9;
+  background-color: #5cb6f9;
   position: relative;
 }
 
@@ -224,14 +219,13 @@ form {
   padding-top: 130px;
 }
 
-
 input[type="text"],
 input[type="password"] {
   width: 112%;
   padding: 8px;
   margin: 11px 0;
   font-size: 16px;
-  border: 2px solid #5CB6F9;
+  border: 2px solid #5cb6f9;
   border-radius: 25px;
   outline: none;
 }
@@ -250,18 +244,16 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #12229D;
+  background-color: #12229d;
 }
 
-.loginOptions{
+.loginOptions {
   display: grid;
   text-align: center;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
   font-size: 12px;
   margin-top: 39px;
-
 }
-
 
 #googleicon {
   margin-right: 10px;
@@ -271,7 +263,6 @@ button[type="submit"]:hover {
 #windowicon {
   margin: 0 auto;
   width: 22%;
-
 }
 
 #githubicon {
@@ -279,12 +270,11 @@ button[type="submit"]:hover {
   width: 22%;
 }
 
-
 /* Sign up container*/
 
 .signup-container {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   height: 120vh;
   margin-top: -60px;
@@ -299,33 +289,32 @@ button[type="submit"]:hover {
   top: 21px;
   left: 76px;
   font-size: 17px;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
   width: 56px;
 }
 
-.signuptxt2{
+.signuptxt2 {
   position: absolute;
   top: 43px;
   left: 39px;
   font-size: 17px;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
   width: 140px;
-  
 }
 
 .signup-line {
   border-top: 1px solid black;
-position: relative;
-top: 70px;
-left: 1%;
-width: 101%;
-height: 1px;
+  position: relative;
+  top: 70px;
+  left: 1%;
+  width: 101%;
+  height: 1px;
 }
 
 .form-container {
   display: flex;
   width: 98%;
-    height: 90%;;
+  height: 90%;
   margin-top: -1%;
   margin-left: -96%;
   flex-wrap: wrap;
@@ -333,42 +322,41 @@ height: 1px;
   align-items: center;
 }
 
-
-input.firstname-text[type="text"]{
+input.firstname-text[type="text"] {
   width: 38%;
   padding: 12px;
   margin: 11px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
   border-radius: 25px;
   outline: none;
-  position:relative;
+  position: relative;
   top: -38px;
   left: -22%;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
 
-input.surname-text[type="text"]{
+input.surname-text[type="text"] {
   width: 38%;
   padding: 12px;
   margin: 11px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
   top: -114px;
   right: -28%;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
 
-input[type="email"]{
+input[type="email"] {
   width: 88%;
   padding: 12px;
   margin: 13px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
-  background-color: #D8D8D8;
+  border: 2px solid #d8d8d8;
+  background-color: #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
@@ -376,13 +364,13 @@ input[type="email"]{
   right: -3%;
 }
 
-input.password-text[type="password"]{
-  width:88%;
-  padding:12px;
-  margin:6px 0;
+input.password-text[type="password"] {
+  width: 88%;
+  padding: 12px;
+  margin: 6px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
-  background-color: #D8D8D8;
+  border: 2px solid #d8d8d8;
+  background-color: #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
@@ -390,74 +378,71 @@ input.password-text[type="password"]{
   right: -3%;
 }
 
-input[type="date"]{
+input[type="date"] {
   width: 38%;
   padding: 12px;
   margin: 6px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
-  background-color: #D8D8D8;
+  border: 2px solid #d8d8d8;
+  background-color: #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
-  left:-22%;
+  left: -22%;
   top: -142px;
-
-
 }
 
-select[type="gender"]{
+select[type="gender"] {
   width: 41%;
   padding: 12px;
   margin: 6px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
   top: -209px;
   right: -28%;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
 
-label[for="are-you-student-or-counsellor"]{
-  font-family: 'HK Grotesk Medium';
+label[for="are-you-student-or-counsellor"] {
+  font-family: "HK Grotesk Medium";
   font-size: 14px;
   position: relative;
   top: -200px;
-  right: 29%;;
+  right: 29%;
 }
 
-label[for="counsellor-option"]{
+label[for="counsellor-option"] {
   width: 38%;
   padding: 12px;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
   margin: 6px 0;
   font-size: 16px;
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
   top: 60px;
   right: 52%;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
 
-label[for="student-option"]{
+label[for="student-option"] {
   width: 38%;
   padding: 12px;
   margin: 19px 0;
-  font-family: 'HK Grotesk Medium';
+  font-family: "HK Grotesk Medium";
   font-size: 16px;
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
   border-radius: 25px;
   outline: none;
   position: relative;
   top: 280px;
   right: 102%;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
-
 
 button.submit-button[type="submit"] {
   width: 69%;
@@ -477,26 +462,25 @@ button.submit-button[type="submit"] {
 }
 
 button.submit-button[type="submit"]:hover {
-  background-color: #12229D;
+  background-color: #12229d;
 }
 
-
-.errorMsg{
+.errorMsg {
   color: red;
   font-size: 16px;
   margin-top: -10px;
   margin-left: -100px;
 }
 
-input.inputField{
+input.inputField {
   border-color: red;
 }
 
-.errorShow{
+.errorShow {
   width: 80%;
-  margin-top:-50px;
-  margin-bottom:20px;
-  height:40px;
+  margin-top: -50px;
+  margin-bottom: 20px;
+  height: 40px;
 }
 
 .errorShow p {
@@ -506,21 +490,26 @@ input.inputField{
   padding-top: -25px;
 }
 
-input.firstname-text.inputField{
+input.firstname-text.inputField {
   border-color: red;
 }
 
-input.surname-text.inputField{
+input.surname-text.inputField {
   border-color: red;
 }
-input.password-text.inputField
-{
+input.password-text.inputField {
   border-color: red;
 }
-input.dob.inputField{
-  border-color: red; 
+input.dob.inputField {
+  border-color: red;
 }
 
-select.inputField{
+select.inputField {
   border-color: red;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
