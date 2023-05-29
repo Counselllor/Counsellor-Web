@@ -284,9 +284,10 @@ button[type="submit"]:hover {
 
 .signup-container {
   display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: center;
-  height: 100vh;
+  height: 120vh;
+  margin-top: -60px;
 }
 
 .parent {
@@ -324,13 +325,14 @@ height: 1px;
 .form-container {
   display: flex;
   width: 98%;
-    height: 77%;;
-  margin-top: -2%;
+    height: 90%;;
+  margin-top: -1%;
   margin-left: -96%;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+
 
 input.firstname-text[type="text"]{
   width: 38%;
@@ -341,7 +343,7 @@ input.firstname-text[type="text"]{
   border-radius: 25px;
   outline: none;
   position:relative;
-  top: -33px;
+  top: -38px;
   left: -22%;
   background-color: #D8D8D8;
 }
@@ -349,13 +351,13 @@ input.firstname-text[type="text"]{
 input.surname-text[type="text"]{
   width: 38%;
   padding: 12px;
-  margin: 6px 0;
+  margin: 11px 0;
   font-size: 16px;
   border: 2px solid #D8D8D8;
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: -104px;
+  top: -114px;
   right: -28%;
   background-color: #D8D8D8;
 }
@@ -370,7 +372,7 @@ input[type="email"]{
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: -108px;
+  top: -130px;
   right: -3%;
 }
 
@@ -384,7 +386,7 @@ input.password-text[type="password"]{
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: -113px;
+  top: -143px;
   right: -3%;
 }
 
@@ -399,7 +401,7 @@ input[type="date"]{
   outline: none;
   position: relative;
   left:-22%;
-  top: -112px;
+  top: -142px;
 
 
 }
@@ -413,9 +415,17 @@ select[type="gender"]{
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: -176px;
+  top: -209px;
   right: -28%;
   background-color: #D8D8D8;
+}
+
+label[for="are-you-student-or-counsellor"]{
+  font-family: 'HK Grotesk Medium';
+  font-size: 14px;
+  position: relative;
+  top: -200px;
+  right: 29%;;
 }
 
 label[for="counsellor-option"]{
@@ -428,7 +438,7 @@ label[for="counsellor-option"]{
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: 64px;
+  top: 60px;
   right: 52%;
   background-color: #D8D8D8;
 }
@@ -443,24 +453,18 @@ label[for="student-option"]{
   border-radius: 25px;
   outline: none;
   position: relative;
-  top: 246px;
+  top: 280px;
   right: 102%;
   background-color: #D8D8D8;
 }
 
-label[for="are-you-student-or-counsellor"]{
-  font-family: 'HK Grotesk Medium';
-  font-size: 14px;
-  position: relative;
-  top: -162px;
-  right: 29%;;
-}
+
 button.submit-button[type="submit"] {
   width: 69%;
   padding: 16px;
   margin: 7px 0;
   position: relative;
-  top: -27px;
+  top: -80px;
   left: -76%;
   display: flex;
   justify-content: center;
@@ -477,3 +481,46 @@ button.submit-button[type="submit"]:hover {
 }
 
 
+.errorMsg{
+  color: red;
+  font-size: 16px;
+  margin-top: -10px;
+  margin-left: -100px;
+}
+
+input.inputField{
+  border-color: red;
+}
+
+.errorShow{
+  width: 80%;
+  margin-top:-50px;
+  margin-bottom:20px;
+  height:40px;
+}
+
+.errorShow p {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+  padding-top: -25px;
+}
+
+input.firstname-text.inputField{
+  border-color: red;
+}
+
+input.surname-text.inputField{
+  border-color: red;
+}
+input.password-text.inputField
+{
+  border-color: red;
+}
+input.dob.inputField{
+  border-color: red; 
+}
+
+select.inputField{
+  border-color: red;
+}
