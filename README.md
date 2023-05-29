@@ -39,3 +39,17 @@ The web application, built using ReactJS, is designed to assist students in maki
 ![6](https://user-images.githubusercontent.com/84167034/218539183-e6cffd7d-08bc-45e9-a042-e7025172df8e.png)
 
 ![7](https://user-images.githubusercontent.com/84167034/218539211-7e425cb0-5bec-41b9-bee3-c419469f7828.png)
+<div align="center">
+<h1>Main Tech Stack</h1>
+
+<div>
+
+<!-- bash,jest,materialui,sass -->
+ <img src="https://skillicons.dev/icons?i=js,react,html,css,nodejs,mongodb,firebase" alt="Tech Stack" /> 
+ 
+</div>
+  
+  <br />
+  
+
+</div>
