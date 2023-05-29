@@ -8,10 +8,25 @@ import Githublogo from '../assets/githubicon2.webp'
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, seterror] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Do some authentication here...
+
+    if(username === '')
+    { seterror("User name is Required!");}
+  
+    else if(password === '')
+    { seterror("Password is Required!");}
+
+    else
+    {
+      seterror("");
+      setUsername("");
+      setPassword("");
+    }
+    
   };
 
   return (
@@ -43,13 +58,25 @@ const LoginForm = () => {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               placeholder="Username"
+              className={`${error === 'User name is Required!' && "inputField"}`}
             />
+            {
+              error === 'User name is Required!' && (
+                <small className='errorMsg'>Name is Required</small>
+              ) 
+            }
             <input
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
+              className={`${error === 'Password is Required!' && "inputField"}`}
             />
+             {
+              error === 'Password is Required!' && (
+                <small className='errorMsg'>Password is Required</small>
+              ) 
+            }
             <button type="submit">Login</button>
 
             {/*Login Option */}
