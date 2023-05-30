@@ -13,7 +13,7 @@ return (
 	<Typewriter
 	  onInit={(typewriter)=> {
 	  typewriter.typeString("Still Confused with College Choice?")
-	  .pauseFor(10)
+	  .pauseFor(5)
 	  .start();
 	}}
 	/>
