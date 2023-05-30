@@ -61,4 +61,9 @@ The web application, built using ReactJS, is designed to assist students in maki
 ![7](https://user-images.githubusercontent.com/84167034/218539211-7e425cb0-5bec-41b9-bee3-c419469f7828.png)
 
 
-
+## Contributors
+<p align="center">
+  <a href="https://github.com/thestarsahil/Counsellor/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=thestarsahil/Counsellor" />
+</a>
+</p>
