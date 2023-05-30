@@ -81,14 +81,6 @@
   width: 37.3%;
 }
 
-#homeTxt {
-  width: 39.06vw;
-  font-family: 'ABeeZee';
-  font-size: 5.2vw;
-  font-weight: bold;
-  color: var(--white);
-}
-
 #homeCircle {
   position: absolute;
   height: 52.08vw;
@@ -524,3 +516,18 @@ input.dob.inputField{
 select.inputField{
   border-color: red;
 }
+
+.MainText{
+  width: 36vw;
+  font-family: 'ABeeZee';
+  font-size: 5.2vw;
+  font-weight: bold;
+  color: var(--white);
+  position:absolute;
+  top: 40vh;
+  right:70px;
+  }
+
+
+  
+  
