@@ -12,6 +12,7 @@ const SignUpForm = () => {
   const [dob, setDob] = useState('');
   const [gender, setGender] = useState('');
   const [error, seterror]  = useState('');
+  const [role,setRole] = useState('');
 
   let navigate =useNavigate();
   function handleSubmit(e) {
@@ -26,7 +27,7 @@ const SignUpForm = () => {
     else if(email === '')
     { seterror("**Email is Required!");}
   
-    else if(password === '')
+    else if(password === '' || password.length<8)
     { seterror("**Password is Required!");}
 
     else if(dob === '')
@@ -43,8 +44,22 @@ const SignUpForm = () => {
       console.log('Password:', password);
       console.log('DOB:', dob);
       console.log('Gender:', gender);
+      console.log("Role: ", role);
       seterror('');
         PostData();
+    }
+  }
+
+  const handleChangeRole = (event)=>{
+    if(event.target.innerHTML=="Student"){
+      document.getElementById("Student").style.background = "#5cb6F9";
+      document.getElementById("Counsellor").style.background = "none";
+      setRole("student");
+    }
+    else{
+      document.getElementById("Counsellor").style.background = "#5cb6F9";
+      document.getElementById("Student").style.background = "none";
+      setRole("Counsellor");
     }
   }
 
@@ -67,7 +82,7 @@ const SignUpForm = () => {
           email,
           date:dob,
           gender,
-          sc,
+          sc:role,
           password
          
         })
@@ -156,23 +171,13 @@ const SignUpForm = () => {
           </select>
 
           <label htmlFor="are-you-student-or-counsellor">Are you Student or Counsellor ? </label>
-          <label htmlFor="student-option"
-          //  value={sc="stu"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-          >Student</label>
+          <br></br>
+          <label htmlFor="student-option" value="Student" id="Student" onClick={handleChangeRole}>Student</label>
 
-          <label htmlFor="counsellor-option"
-          //  value={sc="cou"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-            >Counsellor</label>
+          <label htmlFor="counsellor-option" id="Counsellor" onClick={handleChangeRole}>Counsellor</label>
 
           <button type="submit" className='submit-button'>Sign Up</button>
-
-          
-
-              
+   
         </form>
       </div>
     </div>
