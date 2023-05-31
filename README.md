@@ -130,7 +130,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact 📞
 
 ## Contributing 
-For any inquiries or questions regarding Counsellor, please contact the project owner: [Sahil Kumar](https://github.com/thestarsahil).
+For any inquiries or questions regarding Counsellor, please contact the project owner: [Sahil Ali ](https://github.com/thestarsahil).
 
 Thank you for your interest in Counsellor! We hope it can provide valuable support to those in need.
 =======
