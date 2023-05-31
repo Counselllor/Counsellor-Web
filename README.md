@@ -86,7 +86,8 @@ Once the application is running, users can register or log in to their accounts.
 
 <hr>
 
-## Demo -> [Live site](https://www.counsellor-startup.netlify.app/)
+## Demo -> [Live site](https://counsellor-startup.netlify.app/)
+
 
 ![1](https://user-images.githubusercontent.com/84167034/218538992-73b4ce4f-18da-45fe-b923-5005a0ca089f.png)
 
