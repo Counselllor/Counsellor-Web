@@ -1,5 +1,7 @@
 import {Link, useRouteError} from 'react-router-dom'
-import '../styles/App.css'
+// import '../styles/App.css'
+import '../styles/errorStyles.css'
+import img from '../assets/error404.svg';
 
 const ErrorPage = () => {
     const error = useRouteError()
@@ -7,13 +9,14 @@ const ErrorPage = () => {
     return(
         <div className="ErrorPage">
             <h1>Oops! Something went wrong</h1>
+            <img className='Image' src={img} alt='404'></img>
             <p>Sorry, an unexpected error has occured.</p>
             <p>
                 <i>
                     {error?.statusText || error?.message}
                 </i>
             </p>
-            <Link to={'/'}>Go back to home</Link>
+            <Link className='Btn' to={'/'}>Go back to home</Link>
         </div>
     )
 }
