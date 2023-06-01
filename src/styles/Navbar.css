@@ -1,0 +1,52 @@
+/* CSS for Navbar */
+
+@font-face {
+    font-family: 'HK Grotesk Medium';
+    src: url('./font-family/hk-grotesk-medium.ttf') format('truetype');
+  }
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #navbar ul {
+    /* position: absolute; */
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    background-color: var(--secPageColor);
+    gap: 2.5vw;
+    /* right: 6rem; */
+    /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+    padding: .78vw .78vw .78vw 1.3vw;
+    border-radius: 2.6vw;
+  }
+  
+  #navbar ul li * {
+    font-family: 'Livvic';
+    font-size: 1.14vw;
+    color: var(--white);
+    text-decoration: none;
+  }
+  
+  .active{
+    font-weight: bold;
+  }
+  
+  .loginSignUpBtn {
+    display: inline-block;
+    background-color: var(--btnColor);
+    border-radius: .4vw;
+    width: 5.2vw;
+    text-align: center;
+    padding: .5vw 0 .5vw 0;
+    margin-right: .5vw;
+  }
+  
+  #logo {
+    margin: 1.04vw 0 0 1.56vw;
+    height: 4.16vw;
+    width: 4.16vw;
+    display: block;
+  }

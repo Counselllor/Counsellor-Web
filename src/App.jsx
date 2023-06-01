@@ -1,6 +1,11 @@
 import { Outlet } from "react-router-dom";
-import "./styles/App.css";
+import "./styles/Home.css"
+import "./styles/About.css"
+import "./styles/Login.css"
+import "./styles/Signup.css"
+import "./styles/ErrorPage.css"
 import Navbar from "./components/Navbar";
+
 
 const App = () => {
   return (
