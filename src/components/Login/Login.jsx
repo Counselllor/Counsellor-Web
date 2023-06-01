@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import ElementPhoto from '../assets/element1.webp'
-import Logo from '../assets/logo.webp'
-import GoogleLogo from '../assets/googleicon.webp'
-import WindowLogo from '../assets/windowicon.webp'
-import Githublogo from '../assets/githubicon2.webp'
+import ElementPhoto from '../../assets/element1.webp'
+import Logo from '../../assets/logo.webp'
+import GoogleLogo from '../../assets/googleicon.webp'
+import WindowLogo from '../../assets/windowicon.webp'
+import Githublogo from '../../assets/githubicon2.webp'
+import './Login.css'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
