@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import "./styles/App.css";
-import Navbar from "./components/Navbar";
+import {Navbar} from "./components/index";
 import React, { useState, useEffect } from "react";
 
 import HashLoader from "react-spinners/HashLoader";

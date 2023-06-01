@@ -1,5 +1,5 @@
-import MeetingPhoto from '../assets/meeting.webp'
-import '../styles/App.css'
+import MeetingPhoto from '../../assets/meeting.webp'
+import './Home.css'
 
 const Home = () => {
     return(

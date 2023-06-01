@@ -2,7 +2,7 @@
   font-family: "HK Grotesk Medium";
   src: url("./font-family/hk-grotesk-medium.ttf") format("truetype");
 }
-
+/* 
 
 .ErrorPage {
   display: flex;
@@ -21,33 +21,33 @@
 .ErrorPage p {
   font-size: 20px;
   margin-bottom: 20px;
-}
-
+} */
+/* 
 #navbar {
   display: flex;
   justify-content: space-between;
-}
+} */
 
-#navbar ul {
-  /* position: absolute; */
+/* #navbar ul {
+  position: absolute;
   display: flex;
   list-style-type: none;
   align-items: center;
   background-color: var(--secPageColor);
   gap: 2.5vw;
-  /* right: 6rem; */
-  /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+  right: 6rem;
+  padding: 1.5rem 1.5rem 1.5rem 2.5rem;
   padding: 0.78vw 0.78vw 0.78vw 1.3vw;
   border-radius: 2.6vw;
-}
+} */
 
-#navbar ul li * {
+/* #navbar ul li * {
   font-family: "Livvic";
   font-size: 1.14vw;
   color: var(--white);
   text-decoration: none;
-}
-
+} */
+/* 
 .active {
   font-weight: bold;
 }
@@ -67,8 +67,8 @@
   height: 4.16vw;
   width: 4.16vw;
   display: block;
-}
-
+} */
+/* 
 #homeContainer {
   display: flex;
   flex-direction: row;
@@ -112,10 +112,10 @@
   top: -3.17vw;
   overflow: hidden;
   z-index: -999;
-}
+} */
 
 /*  Login container */
-.login-container {
+/* .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +133,7 @@
 }
 
 /* Left side container of login page */
-.left-side {
+/* .left-side {
   flex: 1;
   display: flex;
   align-items: center;
@@ -169,10 +169,10 @@
   text-align: center;
   font-size: 17px;
   font-family: "HK Grotesk Medium";
-}
+} */ 
 
 /* Right side container of login page */
-.counsellor-text-container {
+/* .counsellor-text-container {
   position: absolute;
   top: 40px;
   font-size: 20px;
@@ -269,10 +269,10 @@ button[type="submit"]:hover {
 #githubicon {
   margin-left: 10px;
   width: 22%;
-}
+} */
 
 /* Sign up container*/
-
+/* 
 .signup-container {
   display: flex;
   align-items: center;
@@ -513,4 +513,4 @@ select.inputField {
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+} */
