@@ -1,0 +1,47 @@
+
+.ErrorPage{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.ErrorPage p{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'ABeeZee';
+}
+
+.Image {
+  width: 600px;
+  max-width: 75%;
+}
+
+.ErrorPage h1 {
+  margin: 40px 0;
+  font-size: 50px;
+  /* font-family:'HK Grotesk Medium'; */
+  font-family: 'ABeeZee';
+
+}
+
+.Btn {
+  padding: 15px;
+  background-color: #12229d;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-family: 'ABeeZee';
+}
+
+.Btn:hover{
+    background-color: white;
+    color: #12229d;
+}
+

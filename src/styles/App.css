@@ -3,6 +3,7 @@
   src: url("./font-family/hk-grotesk-medium.ttf") format("truetype");
 }
 
+
 .ErrorPage {
   display: flex;
   flex-direction: column;
