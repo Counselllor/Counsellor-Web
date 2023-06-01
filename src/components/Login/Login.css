@@ -153,3 +153,10 @@
     margin-left: 10px;
     width: 22%;
   }
+
+  .toggle-button{
+    position:absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 25%;
+  }
