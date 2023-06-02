@@ -9,27 +9,37 @@
   
   .parent {
     position: relative;
+    margin-left: .5rem;
+    margin-bottom: 20px !important;
   }
   
   .signuptxt {
     position: absolute;
     top: 21px;
     left: 76px;
-    font-size: 17px;
+    font-size: 29px;
     font-family: "HK Grotesk Medium";
-    width: 56px;
+    width: 90px ;
+    color: #12229d;
+    font-style: bold !important;
   }
   
   .signuptxt2 {
     position: absolute;
+    margin-top: 15px;
+    margin-left: 3.8rem;
     top: 43px;
     left: 39px;
     font-size: 17px;
     font-family: "HK Grotesk Medium";
     width: 140px;
+    height: 20px;
+    padding-bottom: 16px;
+    
   }
   
   .signup-line {
+    margin-top: 20px;
     border-top: 1px solid black;
     position: relative;
     top: 70px;
@@ -40,6 +50,7 @@
   
   .form-container {
     display: flex;
+    flex-direction: column;
     width: 98%;
     height: 90%;
     margin-top: -1%;
@@ -135,10 +146,10 @@
   
   label[for="are-you-student-or-counsellor"] {
     font-family: "HK Grotesk Medium";
-    font-size: 14px;
+    font-size: 20px;
     position: relative;
     top: -200px;
-    right: 29%;
+    right: 25%;
   }
   
   label[for="counsellor-option"] {
@@ -156,28 +167,15 @@
     background-color: #d8d8d8;
   }
   
-  label[for="student-option"] {
-    width: 38%;
-    padding: 12px;
-    margin: 19px 0;
-    font-family: "HK Grotesk Medium";
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: 280px;
-    right: 102%;
-    background-color: #d8d8d8;
-  }
+ 
   
   button.submit-button[type="submit"] {
-    width: 69%;
+    width: 49%;
     padding: 16px;
     margin: 7px 0;
     position: relative;
-    top: -80px;
-    left: -76%;
+    right: 65%;
+    top: 65%;
     display: flex;
     justify-content: center;
     font-size: 16px;
@@ -240,4 +238,26 @@
     align-items: center;
     height: 100vh;
   }
+  .choice input{
+    letter-spacing: 5px !important;
+  }
   
+@media (max-width:550px) {
+  .signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px !important;
+    height: 110vh;
+    scroll-behavior: smooth;
+  }
+  .choice{
+    margin-left: 30%;
+    
+  }
+  /* .choice input{
+    margin-left: .9%;
+   
+  } */
+}

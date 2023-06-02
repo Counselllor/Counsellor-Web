@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    
     "cors": "^2.8.5",
+    
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",

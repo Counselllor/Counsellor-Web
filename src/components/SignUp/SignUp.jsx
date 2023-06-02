@@ -103,15 +103,14 @@ const SignUpForm = () => {
             }</div>
        
       
-                  <input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
-                    className={`firstname-text  ${error==='**First Name is Required!' && "inputField"}`}
-                  />
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="First Name"                    className={`firstname-text  ${error==='**First Name is Required!' && "inputField"}`}
+            />
               
-              <input 
+            <input 
               type="text"
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
@@ -155,18 +154,13 @@ const SignUpForm = () => {
             <option value="Other">Other</option>
           </select>
 
-          <label htmlFor="are-you-student-or-counsellor">Are you Student or Counsellor ? </label>
-          <label htmlFor="student-option"
-          //  value={sc="stu"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-          >Student</label>
+          <label htmlFor="are-you-student-or-counsellor" className='choice'>Are you Student or Counsellor ?
+          <br />
+          <input type="radio" value="Student" name="choice" />Student
+          <input type="radio" value="Counsellor" name="choice" />Counsellor
+          </label>
 
-          <label htmlFor="counsellor-option"
-          //  value={sc="cou"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-            >Counsellor</label>
+          
 
           <button type="submit" className='submit-button'>Sign Up</button>
 
