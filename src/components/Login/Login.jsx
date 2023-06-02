@@ -5,6 +5,8 @@ import GoogleLogo from '../../assets/googleicon.webp'
 import WindowLogo from '../../assets/windowicon.webp'
 import Githublogo from '../../assets/githubicon2.webp'
 import './Login.css'
+import show from "../../assets/show.png"
+import hide from "../../assets/hide.png"
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -28,6 +30,16 @@ const LoginForm = () => {
       setPassword("");
     }
     
+  };
+
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    }
+    else
+      setPasswordType("password");
   };
 
   return (
@@ -67,7 +79,7 @@ const LoginForm = () => {
               ) 
             }
             <input
-              type="password"
+              type={passwordType}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
@@ -78,6 +90,9 @@ const LoginForm = () => {
                 <small className='errorMsg'>Password is Required</small>
               ) 
             }
+            <div onClick={passwordToggle} className="toggle-button">
+                <img height={20} width={20} src={passwordType === "password"?hide:show}/>
+            </div>
             <button type="submit">Login</button>
 
             {/*Login Option */}
