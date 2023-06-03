@@ -43,3 +43,15 @@
     overflow: hidden;
     z-index: -999;
   }
+
+  /* For Typewriter effect */
+  .MainText{
+    width: 36vw;
+    font-family: 'ABeeZee';
+    font-size: 5.2vw;
+    font-weight: bold;
+    color: var(--white);
+    position:absolute;
+    top: 40vh;
+    right:70px;
+    }
