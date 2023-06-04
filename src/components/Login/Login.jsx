@@ -59,18 +59,20 @@ const LoginForm = () => {
         {/* This is the right side of the login page   */}
         <div className="right-side">
           <div className="counsellor-text-container">Counsellor</div>
-          <div className="lets-signin-text-container">Let's You Sign In!</div>
+          <div className="lets-signin-text-container">Let's Get You Sign In!</div>
           <div className='needhelp-container'>Need Help?</div>
 
           {/* Login form */}
 
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} class='form'>
+          <div class="input-group">
+			      <label for="username">Username</label>
             <input
               type="text"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
-              placeholder="Username"
+              placeholder=""
               className={`${error === 'User name is Required!' && "inputField"}`}
             />
             {
@@ -78,11 +80,14 @@ const LoginForm = () => {
                 <small className='errorMsg'>Name is Required</small>
               ) 
             }
+          </div>
+          <div class='input-group'>
+            <label for="password">Password</label>
             <input
               type={passwordType}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Password"
+              placeholder=""
               className={`${error === 'Password is Required!' && "inputField"}`}
             />
              {
@@ -93,15 +98,23 @@ const LoginForm = () => {
             <div onClick={passwordToggle} className="toggle-button">
                 <img height={20} width={20} src={passwordType === "password"?hide:show}/>
             </div>
-            <button type="submit">Login</button>
+          </div>
+           
+          <button type="submit">Login</button>
 
             {/*Login Option */}
             <div className='loginOptions'>
-              <div className="or-login-with">Or login with </div>
+              <div class="line"></div>
+              <div className="or-login-with">Login with Social Accounts </div>
+              <div class="line"></div>
               <div className="login-with-icons">
+              <a href="https://your-google-signin-url">
                 <img id='googleicon' src={GoogleLogo} alt="gogoleicon" />
+              </a>
                 <img id='windowicon' src={WindowLogo} alt="windowicon" />
+              <a href="https://your-github-signin-url">
                 < img id="githubicon" src={Githublogo} alt="githubicon" />
+              </a>
               </div>
             </div>
           </form>
