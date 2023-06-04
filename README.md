@@ -89,13 +89,13 @@ Once the application is running, users can register or log in to their accounts.
 ## Demo -> [Live site](https://counsellor-startup.netlify.app/)
 
 
-![1](https://user-images.githubusercontent.com/84167034/218538992-73b4ce4f-18da-45fe-b923-5005a0ca089f.png)
 
-![2](https://user-images.githubusercontent.com/84167034/218539016-57799712-06c4-480e-abb8-ea5affc4537d.png)
+![8](https://github.com/Counselllor/Counsellor-Web/assets/84167034/5af1c0ec-1cfe-4fc4-a0b1-78f1b147705d)
+![9](https://github.com/Counselllor/Counsellor-Web/assets/84167034/18fa9adc-84d8-45e9-be7a-1db8f288bd57)
+![10](https://github.com/Counselllor/Counsellor-Web/assets/84167034/a7cb258c-d1c0-4ddd-858f-760313edc2a7)
+![11](https://github.com/Counselllor/Counsellor-Web/assets/84167034/c0f96ef1-84e3-44a3-82e8-1df100ee30fa)
 
-![3](https://user-images.githubusercontent.com/84167034/218539154-bfdac9d9-a8e1-4ef5-8842-67bd0966add5.png)
 
-![4](https://user-images.githubusercontent.com/84167034/218539165-13f9a072-7b43-4329-b12d-3ac02f0a8367.png)
 
 ![5](https://user-images.githubusercontent.com/84167034/218539171-2469465b-d840-4c10-99e9-df3af37c49d4.png)
 
