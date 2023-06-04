@@ -156,17 +156,15 @@ const SignUpForm = () => {
           </select>
 
           <label htmlFor="are-you-student-or-counsellor">Are you Student or Counsellor ? </label>
-          <label htmlFor="student-option"
-          //  value={sc="stu"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-          >Student</label>
+          <span htmlFor="student-option">Student
+          <input type="radio" class="student-option" name="student" value="1" id=""></input>
+          </span>
 
-          <label htmlFor="counsellor-option"
-          //  value={sc="cou"}
-          //  onChange={(e)=>setSc(e.target.value)}
-          //  placeholder="SC"
-            >Counsellor</label>
+          <span htmlFor="counsellor-option">Counsellor
+          <input type="radio" class="counsellor-option" name="Counsellor" value="2" id=""></input>
+
+          </span>
+
 
           <button type="submit" className='submit-button'>Sign Up</button>
 

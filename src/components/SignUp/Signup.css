@@ -141,7 +141,7 @@
     right: 29%;
   }
   
-  label[for="counsellor-option"] {
+  span[for="counsellor-option"] {
     width: 38%;
     padding: 12px;
     font-family: "HK Grotesk Medium";
@@ -156,7 +156,7 @@
     background-color: #d8d8d8;
   }
   
-  label[for="student-option"] {
+  span[for="student-option"] {
     width: 38%;
     padding: 12px;
     margin: 19px 0;
