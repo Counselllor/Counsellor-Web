@@ -1,0 +1,76 @@
+*{
+    margin : 0;
+    padding: 0;
+    }
+    form{
+        width: 90%;
+        max-width: 600px;
+    }
+    .head{
+        font-size: 20px;
+        padding: 20px 20px;
+    }
+    
+    .input-grp{
+        margin-bottom: 15px;
+        position: relative;
+        width:100px;
+    }
+    input, textarea{
+        padding: 5px 5px;
+        outline: 0;
+        color: #fff;
+        background: transparent;
+        font-size: 15px;
+        width: 400px;
+        display: center;
+        border-radius: 5px;
+    }
+    label{
+        height: 100%;
+        position:sticky;
+        left: 0;
+        right: 0;
+        padding: 5px;
+        color: #fff;
+        cursor: text;
+        transition: 0.2s;
+        font-size: 15px;
+    }
+    button{
+        padding: 10px 0;
+        color:white;
+        outline: none;
+        background: transparent;
+        border: 1px solid #fff;
+        width: 100%;
+        cursor:  pointer;
+        border-radius: 20px;
+    }
+    .button-submit{
+        width: 100%;
+        padding: 10px 80px;
+    }
+    button:hover{
+        color: black;
+    }
+    input:focus~label,
+    input:valid~label,
+    textarea:focus~label,
+    textarea:valid~label{
+        top:-25px;
+        font-size: 14px;
+    }
+    .row{
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 55px;
+    }
+    .row .input-grp{
+        flex-basis: 48%;
+    }
+    .para{
+        font-size: 50px;
+        padding: 200px 130px;
+    }

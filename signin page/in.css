@@ -1,0 +1,9 @@
+:root{
+    --pageColor: #5cb6f9;
+    --secPageColor: #6cbdfa;
+    --white: #ffffff;
+    --btnColor: #12229d;
+    background-color: var(--pageColor);
+    font-size: 62.5%;
+    overflow: hidden;
+}
