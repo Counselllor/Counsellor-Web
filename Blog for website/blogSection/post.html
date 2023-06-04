@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Blog</title>
+	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/Con-blog.css" rel="stylesheet">
+
+</head>
+<body>
+	<header class="tm-header" id="tm-header">
+        <div class="tm-header-wrapper">
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="tm-site-header">
+               
+                <img src="img/logo.png" alt="logo" class="center" width="100" >
+            </div>
+            <nav class="tm-nav" id="tm-nav">            
+                <ul>
+                    <li class="tm-nav-item"><a href="index.html" class="tm-nav-link">
+                        <i class="fas fa-home"></i>
+                        Blog Home
+                    </a></li>
+                    <li class="tm-nav-item active"><a href="post.html" class="tm-nav-link">
+                        <i class="fas fa-pen"></i>
+                        Single Post
+                    </a></li>
+                    <li class="tm-nav-item"><a href="about.html" class="tm-nav-link">
+                        <i class="fas fa-users"></i>
+                        About 
+                    </a></li>
+                   
+                </ul>
+            </nav>
+           
+        </div>
+    </header>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <!-- <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">                
+                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>                                
+                    </form>
+                </div>                
+            </div>             -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <hr class="tm-hr-primary tm-mb-55">
+                    
+                    <img src="img/image4.jpeg" alt="Image" class="img-fluid">
+                </div>
+                <br>
+            </div>
+            <div class="row tm-row">
+                <div class="col-lg-8 tm-post-col">
+                    <div class="tm-post-full">                    
+                        <div class="mb-4">
+                        <br>
+                            <a href="https://collegelifemadeeasy.com/" class="pt-2 tm-color-primary tm-post-title">College Life Made Easy</a>
+                            <p class="tm-mb-40"> by Charlie & Jen</p>
+                            <p>
+                                This blog has you covered whether you're a new college student or a returning one, with tips, scholarships, dorm room deals, and back to college accessories.
+                            </p>
+                            <p>
+                               It is a blog brimming with ideas and strategies for making your college experience the greatest it can be. College Life Made Easy blogs can be valuable resources for students seeking practical advice, inspiration, and support during their college journey. They aim to empower students with the knowledge and tools to overcome challenges, thrive academically, and make the most of their college experience.<br><br>
+                                <a href="https://collegelifemadeeasy.com/" class="pt-2 tm-color-primary tm-post-title">Check Out -> College Life Made Easy</a>
+                            </p>
+                            <span class="d-block text-right tm-color-primary">Scholarships . Finance</span>
+                        </div>
+                        
+                        <!-- Comments -->
+                        <div>
+                            <h2 class="tm-color-primary tm-post-title">Comments</h2>
+                            <hr class="tm-hr-primary tm-mb-45">
+                            <div id="comments" class="mb-5 tm-comment-form"></div>
+                            
+                            <form id="commentForm">
+                                <h2 class="tm-color-primary tm-post-title mb-4">Your comment</h2>
+                                <div class="mb-5 tm-comment-form">
+                                
+                                    <input class="form-control" id="name" name="name" placeholder="name" type="text"  required >
+                                 </div>
+                                <div class="mb-5 tm-comment-form">
+                                    <input class="form-control" placeholder="email" type="text">
+                                </div>
+                                <div class="mb-5 tm-comment-form"> 
+                                    <textarea class="form-control" id="message" placeholder="message" rows="6"  required ></textarea>
+                                </div>
+                                <div class="text-right">
+                                    <button class="tm-btn tm-btn-primary tm-btn-small" id="post" type="submit">
+                                        Submit
+                                    </button> 
+                                                          
+                                </div> 
+                                                          
+                            </form>
+                                              
+                        </div>
+                    </div>
+                </div>
+                <aside class="col-lg-4 tm-aside-col">
+                    <div class="tm-post-sidebar">
+                        <hr class="mb-3 tm-hr-primary">
+                        <h2 class="mb-4 tm-post-title tm-color-primary">Categories</h2>
+                        <ul class="tm-mb-75 pl-5 tm-category-list">
+                            <li><a href="post.html" class="tm-color-primary">Scholarships</a></li>
+                            <li><a href="post.html" class="tm-color-primary">Finance</a></li>
+                            <li><a href="post2.html" class="tm-color-primary">Career guidance</a></li>
+                            <li><a href="post3.html" class="tm-color-primary">Technology</a></li>
+                            <li><a href="post3.html" class="tm-color-primary">Productivity</a></li>
+                            <li><a href="post4.html" class="tm-color-primary">Higher Education</a></li>
+                        </ul>
+                        <hr class="mb-3 tm-hr-primary">
+                        <h2 class="tm-mb-40 tm-post-title tm-color-primary">Related Posts</h2>
+                        <a href="post2.html" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="img/image22.jpg" alt="Image" class="mb-3 img-fluid">
+                                <figcaption class="tm-color-primary">Campus Grotto</figcaption>
+                            </figure>
+                        </a>
+                        <a href="post3.html" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="img/image23.jpg" alt="Image" class="mb-3 img-fluid">
+                                <figcaption class="tm-color-primary">Study Hacks</figcaption>
+                            </figure>
+                        </a>
+                        <a href="post4.html" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="img/image24.jpg" alt="Image" class="mb-3 img-fluid">
+                                <figcaption class="tm-color-primary">Inside Higher Ed</figcaption>
+                            </figure>
+                        </a>
+                    </div>                    
+                </aside>
+            </div>
+            
+        </main>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Con-script.js"></script>
+</body>
+</html>
