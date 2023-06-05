@@ -2,6 +2,11 @@
   font-family: "HK Grotesk Medium";
   src: url("./font-family/hk-grotesk-medium.ttf") format("truetype");
 }
+
+.App{
+  height: 900px;
+  width: auto;
+}
 /* 
 
 .ErrorPage {

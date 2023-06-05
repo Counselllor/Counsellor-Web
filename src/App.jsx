@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./styles/App.css";
 import {Navbar} from "./components/index";
 import React, { useState, useEffect } from "react";
+import ScrollButton from "./components/Home/BackToTop";
 
 import HashLoader from "react-spinners/HashLoader";
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <div className="App">
           <Navbar />
           <Outlet />
+          <ScrollButton />
         </div>
       )}
     </div>

@@ -5,7 +5,7 @@
     --btnColor: #12229d;
     background-color: var(--pageColor);
     font-size: 62.5%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
