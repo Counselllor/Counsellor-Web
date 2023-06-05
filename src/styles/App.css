@@ -169,7 +169,7 @@
   text-align: center;
   font-size: 17px;
   font-family: "HK Grotesk Medium";
-} */ 
+} */
 
 /* Right side container of login page */
 /* .counsellor-text-container {
@@ -508,10 +508,11 @@ input.dob.inputField {
 select.inputField {
   border-color: red;
 }
+*/
+
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-} */
-
+}
