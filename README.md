@@ -55,13 +55,13 @@ To run Counsellor locally, follow these steps:
 1. Clone this repository to your local machine using:
 
    ```
-   git clone https://github.com/thestarsahil/Counsellor.git
+   git clone https://github.com/Counselllor/Counsellor-Web.git
    ```
 
 2. Navigate to the project directory:
 
    ```
-   cd Counsellor
+   cd Counsellor-Web
    ```
 
 3. Install the required dependencies using npm:
@@ -76,7 +76,7 @@ To run Counsellor locally, follow these steps:
    npm run dev
    ```
 
-5. Open your web browser and visit `http://localhost:3000` to access the Counsellor application.
+5. Open your web browser and visit `http://localhost:5173` to access the Counsellor application.
 
 <hr>
 
