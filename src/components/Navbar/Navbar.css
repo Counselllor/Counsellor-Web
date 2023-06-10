@@ -43,4 +43,5 @@
     height: 4.16vw;
     width: 4.16vw;
     display: block;
+    filter: drop-shadow(0 -0.15rem#000);
   }
