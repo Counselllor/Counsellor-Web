@@ -4,12 +4,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 4.79vw 3.85vw 0 5.83vw;
+    margin: 3.35vw 3.85vw 0 5.83vw;
   }
   
+.tiltImg{
+  display: inline;
+  width: 45%;
+}
+
   #meetingImg {
-    height: 54%;
-    width: 37.3%;
+    display: inline;
+    /* height: 54%; */
+    width: 100%;
+    filter: drop-shadow(0 0 1rem #000);
+    cursor: pointer;
   }
   
   #homeTxt {
@@ -30,6 +38,7 @@
     top: 10.41vw;
     overflow: hidden;
     z-index: -999;
+    filter: drop-shadow(0 0 0.5rem #000);
   }
   
   #homeCircleScnd {
@@ -42,6 +51,7 @@
     top: -3.17vw;
     overflow: hidden;
     z-index: -999;
+    filter: drop-shadow(0 0 0.5rem #000);
   }
 
   /* For Typewriter effect */
