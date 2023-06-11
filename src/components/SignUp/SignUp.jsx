@@ -38,6 +38,7 @@ const SignUpForm = () => {
       console.log("Gender:", gender);
       seterror("");
       PostData();
+      navigate("/");
     }
   }
 
@@ -188,7 +189,7 @@ const SignUpForm = () => {
                 Sign Up
               </button>
               <div className="already-account">
-                <Link to="/">Already have an account?</Link>
+                <Link to="/login">Already have an account?</Link>
               </div>
             </div>
           </form>
