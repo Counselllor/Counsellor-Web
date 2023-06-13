@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogo from "../../assets/googleicon.webp";
 import "./Login.css";
 import show from "../../assets/show.png";
@@ -13,6 +13,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [error, seterror] = useState("");
 
+  let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Do some authentication here...
@@ -25,6 +27,7 @@ const LoginForm = () => {
       seterror("");
       setUsername("");
       setPassword("");
+      navigate("/");
     }
   };
 
@@ -47,7 +50,7 @@ const LoginForm = () => {
 
         {/* This is the right side of the login page   */}
         <div className="right">
-        <h1 className="counsellor">Counsellor</h1>
+          <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
           <div className="google">
             <img className="googleicon" src={GoogleLogo} alt="gogoleicon" />
@@ -96,8 +99,13 @@ const LoginForm = () => {
             </div>
             <div className="btn">
               <button type="submit">Login</button>
-              <Link to="/" className="forgot-password">
+              <Link to="/login" className="forgot-password">
                 Forgot Your password?
+              </Link>
+            </div>
+            <div className="dont-have-account">
+              <Link to="/signup" className="forgot-password">
+                Don't have an account?
               </Link>
             </div>
             <div className="get-app">

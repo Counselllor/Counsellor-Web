@@ -59,7 +59,7 @@ form {
 .login-container input[type="password"] {
   width: 95%;
   padding: 12px;
-  margin: 5px 0 20px;
+  margin: 5px 0 10px;
   border-radius: 6px;
   font-size: 16px;
   border: 2px solid #d8d8d8;
@@ -97,6 +97,11 @@ label[for="remember-me"] {
   text-decoration: none;
   color: #1877f2;
   font-size: 15px;
+}
+
+.login-container .dont-have-account {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .login-container .toggle-button {
