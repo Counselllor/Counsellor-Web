@@ -1,162 +1,158 @@
 .login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  font-family: "ABeeZee";
+  margin-top: 10px;
+  width: 100vw;
+}
+
+/* Left side container of login page => same as signup page */
+
+/* Right side container of login page */
+.sign-in {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+
+.right .google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #1877f2;
+  margin: 3% 20%;
+  padding: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.googleicon {
+  width: 30px;
+}
+
+.right .login-with-google {
+  font-size: 16px;
+}
+
+.or-line {
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
+
+.or-line hr {
+  width: 27%;
+  margin: auto 10px;
+  border-width: 0;
+  height: 1px;
+  background: gray;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20%;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 95%;
+  padding: 12px;
+  margin: 5px 0 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  outline: none;
+}
+
+.login-container input[type="checkbox"] {
+  width: unset;
+}
+
+label[for="user-name"],
+label[for="password"],
+label[for="remember-me"] {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.login-container button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  margin: 7px 0;
+  font-size: 16px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #12229d;
+}
+
+.login-container .forgot-password {
+  text-decoration: none;
+  color: #1877f2;
+  font-size: 15px;
+}
+
+.login-container .dont-have-account {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login-container .toggle-button {
+  cursor: pointer;
+}
+
+.get-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.get-app-title {
+  font-size: 16px;
+  color: gray;
+}
+
+.get-app .apps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.microsoft-logo {
+  width: 110px;
+}
+
+.google-play-logo {
+  width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .login-container form {
+    padding: 0 10%;
   }
-  
-  .shadow-box {
-    display: flex;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 76px;
-    width: 850px;
-    height: 550px;
-    margin-top: -110px;
+  .right .google {
+    margin: 3% 10%;
+    padding: 10px 0;
   }
-  
-  /* Left side container of login page */
-  .left-side {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #cae8ff;
-    border-bottom-left-radius: 26px;
-    border-top-left-radius: 26px;
-  }
-  #element1Img {
-    height: 61%;
-    width: 84.3%;
-    object-fit: cover;
-    margin-top: -214px;
-    margin-right: 89px;
-    border-top-left-radius: 26px;
-    z-index: 1;
-  }
-  .left-side-logo {
-    height: 15%;
-    width: 47.3%;
-    position: absolute;
-    bottom: 40%;
-    right: 19%;
-    border-top-left-radius: 26px;
-    z-index: 0;
-  }
-  
-  #logintxt_leftside {
-    position: fixed;
-    bottom: 265px;
-    left: -351px;
-    right: 0px;
-    text-align: center;
-    font-size: 17px;
-    font-family: "HK Grotesk Medium";
-  }
-  
-  /* Right side container of login page */
-  .counsellor-text-container {
-    position: absolute;
-    top: 40px;
-    font-size: 20px;
-    background-color: var(--secPageColor);
-    border-radius: 2.6vw;
-    padding: 0.78vw;
-    font-family: "HK Grotesk Bold";
-    width: 74%;
-    text-align: center;
-    color: #050a30;
-  }
-  .lets-signin-text-container {
-    position: absolute;
-    font-size: 17px;
-    color: #050a30;
-    text-align: center;
-    padding: 1.6vw;
-    top: 95px;
-  }
-  .needhelp-container {
-    position: absolute;
-    font-size: 17px;
-    color: #050a30;
-    text-align: center;
-    padding: 1.6vw;
-    bottom: 10px;
-    font-family: "HK Grotesk Medium";
-  }
-  .right-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #5cb6f9;
-    position: relative;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    padding-top: 130px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 112%;
-    padding: 8px;
-    margin: 11px 0;
-    font-size: 16px;
-    border: 2px solid #5cb6f9;
-    border-radius: 25px;
-    outline: none;
-  }
-  
-  button[type="submit"] {
-    width: 69%;
-    padding: 16px;
-    margin: 7px 0;
-    bottom: 25px;
-    font-size: 16px;
-    background-color: #1877f2;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #12229d;
-  }
-  
-  .loginOptions {
-    display: grid;
-    text-align: center;
-    font-family: "HK Grotesk Medium";
-    font-size: 12px;
-    margin-top: 39px;
-  }
-  
-  #googleicon {
-    margin-right: 10px;
-    width: 22%;
-  }
-  
-  #windowicon {
-    margin: 0 auto;
-    width: 22%;
-  }
-  
-  #githubicon {
-    margin-left: 10px;
-    width: 22%;
+}
+
+@media screen and (max-width: 450px) {
+  .login-container form input {
+    width: 90% !important;
   }
 
-  .toggle-button{
-    position:absolute;
-    cursor: pointer;
-    top: 50%;
-    right: 25%;
+  .login-container form input[type="checkbox"] {
+    width: unset;
   }
+}
