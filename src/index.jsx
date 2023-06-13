@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {Home,About,LoginForm,SignUpForm,ErrorPage} from './components/index'
 import App from './App'
+import HashLoader from "react-spinners/HashLoader";
 
 import './index.css'
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Suspense fallback={<div className="loader ">
+                          <HashLoader aria-label="Loading Spinner"
+                            data-testid="loader" color={"#0603a9"} />
+                        </div>}>
+      <RouterProvider router={router}/>
+    </Suspense>
   </React.StrictMode>
 )

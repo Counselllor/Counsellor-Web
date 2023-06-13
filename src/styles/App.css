@@ -508,10 +508,12 @@ input.dob.inputField {
 select.inputField {
   border-color: red;
 }
+*/
+
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-} */
+} 
 
