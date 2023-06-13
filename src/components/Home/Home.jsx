@@ -2,11 +2,13 @@ import MeetingPhoto from '../../assets/meeting.webp'
 import './Home.css'
 import React from 'react';
 import Typewriter from 'typewriter-effect';
+import Navbar from '../Navbar/Navbar';
 
 const Home = () => {
     return(
         
         <>
+        <Navbar />
             <div id='homeCircle'></div>
             <div id='homeContainer'>
                 <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />  
