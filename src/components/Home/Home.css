@@ -4,11 +4,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 4.79vw 3.85vw 0 5.83vw;
+    margin: 10vw 3.85vw 0 5.83vw;
   }
   
   #meetingImg {
-    height: 54%;
     width: 37.3%;
   }
   
@@ -51,7 +50,23 @@
     font-size: 5.2vw;
     font-weight: bold;
     color: var(--white);
-    position:absolute;
-    top: 40vh;
-    right:70px;
     }
+
+  /* Media queries */
+  
+
+  @media screen and (max-width: 800px) {
+    #homeContainer {
+      flex-direction: column;
+      margin: 12rem 0 0 0;
+    }
+    #meetingImg {
+      width: 75%;
+    }
+    .MainText {
+      width: 100%;
+      font-size: 8.2vw;
+      text-align: center;
+    }
+  }
+  
