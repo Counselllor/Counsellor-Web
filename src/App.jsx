@@ -4,15 +4,9 @@ import {Navbar} from "./components/index";
 import React, { useState, useEffect } from "react";
 import ScrollButton from "./components/Home/BackToTop";
 
-import HashLoader from "react-spinners/HashLoader";
+
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+
   return (
     <div>
       {loading ? (
@@ -31,8 +25,14 @@ const App = () => {
           <ScrollButton />
         </div>
       )}
+
     </div>
   );
 };
 
+
+
 export default App;
+
+
+

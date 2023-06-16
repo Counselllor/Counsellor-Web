@@ -1,243 +1,231 @@
-
 .signup-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120vh;
-    margin-top: -60px;
+  font-family: "ABeeZee";
+  width: 100vw;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+/* left part */
+
+.parent .left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parent .left img {
+  width: 450px;
+}
+
+.parent .left .left-text {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0 50px;
+  width: 50%;
+  text-align: center;
+}
+
+/* right part */
+
+.parent .right {
+  background: #fff;
+  width: 50%;
+  height: 105vh;
+}
+
+h1.counsellor {
+  font-size: 40px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.signuptxt {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+
+.signuptxt2 {
+  font-size: 17px;
+  text-align: center;
+  color: gray;
+}
+
+.form-container {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding: 0 15% 3%;
+}
+
+.form-container .name {
+  display: flex;
+  gap: 15px;
+  width: 95%;
+}
+
+.form-container input,
+select[type="gender"] {
+  width: 90%;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  outline: none;
+}
+
+select[type="gender"] {
+  width: unset;
+}
+
+.form-container input[type="date"] {
+  cursor: pointer;
+  width: unset;
+}
+
+label[for="student-or-counsellor"],
+label[for="date-of-birth"] {
+  margin-top: 10px;
+  font-size: 16px;
+  color: gray;
+}
+
+span[for="counsellor-option"],
+span[for="student-option"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  border-radius: 6px;
+  outline: none;
+  padding: 8px 10px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.right .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3% 0;
+}
+
+.right .btn .already-account a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #1877f2;
+}
+
+button.submit-button[type="submit"] {
+  font-size: 16px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 12px 50px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+button.submit-button[type="submit"]:hover {
+  background-color: #12229d;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+.errorShow {
+  height: 40px;
+}
+
+.errorShow p {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+input.inputField,
+input.firstname-text.inputField,
+input.surname-text.inputField,
+input.password-text.inputField,
+input.dob.inputField,
+select.inputField {
+  border-color: red;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* media query */
+
+@media screen and (max-width: 992px) {
+  .parent .left img {
+    width: 400px;
   }
-  
+}
+
+@media screen and (max-width: 768px) {
   .parent {
-    position: relative;
+    margin-left: -10px;
+  }
+
+  .parent .left {
+    display: none;
   }
   
+  .parent .right {
+    width: 100%;
+  }
+
+  .parent .right .form-container {
+    padding: 0 7% 3%;
+  }
+
+  .parent .right input[type="date"] {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  h1.counsellor {
+    font-size: 30px;
+    margin: 20px;
+  }
+
   .signuptxt {
-    position: absolute;
-    top: 21px;
-    left: 76px;
-    font-size: 17px;
-    font-family: "HK Grotesk Medium";
-    width: 56px;
+    font-size: 20px;
   }
-  
-  .signuptxt2 {
-    position: absolute;
-    top: 43px;
-    left: 39px;
-    font-size: 17px;
-    font-family: "HK Grotesk Medium";
-    width: 140px;
+
+  .parent .right input[type="date"] {
+    width: unset;
   }
-  
-  .signup-line {
-    border-top: 1px solid black;
-    position: relative;
-    top: 70px;
-    left: 1%;
-    width: 101%;
-    height: 1px;
-  }
-  
-  .form-container {
-    display: flex;
+}
+
+@media screen and (max-width: 450px) {
+  .parent .right .form-container .name {
     width: 98%;
-    height: 90%;
-    margin-top: -1%;
-    margin-left: -96%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
   }
-  
-  input.firstname-text[type="text"] {
-    width: 38%;
-    padding: 12px;
-    margin: 11px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: -38px;
-    left: -22%;
-    background-color: #d8d8d8;
-  }
-  
-  input.surname-text[type="text"] {
-    width: 38%;
-    padding: 12px;
-    margin: 11px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: -114px;
-    right: -28%;
-    background-color: #d8d8d8;
-  }
-  
-  input[type="email"] {
-    width: 88%;
-    padding: 12px;
-    margin: 13px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    background-color: #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: -130px;
-    right: -3%;
-  }
-  
-  input.password-text[type="password"] {
-    width: 88%;
-    padding: 12px;
-    margin: 6px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    background-color: #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: -143px;
-    right: -3%;
-  }
-  
-  input[type="date"] {
-    width: 38%;
-    padding: 12px;
-    margin: 6px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    background-color: #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    left: -22%;
-    top: -142px;
-  }
-  
-  select[type="gender"] {
-    width: 41%;
-    padding: 12px;
-    margin: 6px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: -209px;
-    right: -28%;
-    background-color: #d8d8d8;
-  }
-  
-  label[for="are-you-student-or-counsellor"] {
-    font-family: "HK Grotesk Medium";
-    font-size: 14px;
-    position: relative;
-    top: -200px;
-    right: 29%;
-  }
-  
-  span[for="counsellor-option"] {
-    width: 38%;
-    padding: 12px;
-    font-family: "HK Grotesk Medium";
-    margin: 6px 0;
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: 60px;
-    right: 52%;
-    background-color: #d8d8d8;
-  }
-  
-  span[for="student-option"] {
-    width: 38%;
-    padding: 12px;
-    margin: 19px 0;
-    font-family: "HK Grotesk Medium";
-    font-size: 16px;
-    border: 2px solid #d8d8d8;
-    border-radius: 25px;
-    outline: none;
-    position: relative;
-    top: 280px;
-    right: 102%;
-    background-color: #d8d8d8;
-  }
-  
-  button.submit-button[type="submit"] {
-    width: 69%;
-    padding: 16px;
-    margin: 7px 0;
-    position: relative;
-    top: -80px;
-    left: -76%;
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    background-color: #1877f2;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-  }
-  
-  button.submit-button[type="submit"]:hover {
-    background-color: #12229d;
-  }
-  
-  .errorMsg {
-    color: red;
-    font-size: 16px;
-    margin-top: -10px;
-    margin-left: -100px;
-  }
-  
-  input.inputField {
-    border-color: red;
-  }
-  
-  .errorShow {
-    width: 80%;
-    margin-top: -50px;
-    margin-bottom: 20px;
-    height: 40px;
-  }
-  
-  .errorShow p {
-    color: red;
-    text-align: center;
-    font-size: 16px;
-    padding-top: -25px;
-  }
-  
-  input.firstname-text.inputField {
-    border-color: red;
-  }
-  
-  input.surname-text.inputField {
-    border-color: red;
-  }
-  input.password-text.inputField {
-    border-color: red;
-  }
-  input.dob.inputField {
-    border-color: red;
-  }
-  
-  select.inputField {
-    border-color: red;
-  }
-  .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+}
