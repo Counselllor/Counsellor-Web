@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Home,About,LoginForm,SignUpForm,ErrorPage} from './components/index'
+import {Home,About,LoginForm,SignUpForm,ErrorPage,Dashboard} from './components/index'
 import App from './App'
 import Loading from './components/Loading/Loading'
 
@@ -19,6 +19,11 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: '/dashboard',
+        errorElement: <ErrorPage/>,
+        element: <Dashboard/>
+      },
+      {
         path: '/about',
         errorElement: <ErrorPage/>,
         element: <About/>
@@ -32,7 +37,7 @@ const router = createBrowserRouter([
         path: '/signup',
         errorElement: <ErrorPage/>,
         element: <SignUpForm/>
-      }
+      } 
     ]
   }
 ])
