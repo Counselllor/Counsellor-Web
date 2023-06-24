@@ -28,6 +28,8 @@
   }
 
   
+
+  
 .loginSignUpBtn {
     display: inline-block;
     background-color: var(--btnColor);
@@ -36,6 +38,12 @@
     text-align: center;
     padding: 0.5vw 0 0.5vw 0;
     margin-right: 0.5vw;
+    transition: background-color 0.4s ease;
+  }
+
+  .loginSignUpBtn:hover {
+    box-shadow: 1px 1px 1px 1px rgb(36, 83, 86);
+    background: blue;
   }
   
   #logo {
