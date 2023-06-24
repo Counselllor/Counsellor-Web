@@ -4,9 +4,6 @@
   width: 100vw;
 }
 
-/* Left side container of login page => same as signup page */
-
-/* Right side container of login page */
 .sign-in {
   font-size: 30px;
   text-align: center;
@@ -55,8 +52,7 @@ form {
   padding: 0 20%;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
+.login-container input.common-input {
   width: 95%;
   padding: 12px;
   margin: 5px 0 10px;
@@ -64,6 +60,7 @@ form {
   font-size: 16px;
   border: 2px solid #d8d8d8;
   outline: none;
+  box-sizing: border-box;
 }
 
 .login-container input[type="checkbox"] {
@@ -104,7 +101,20 @@ label[for="remember-me"] {
   margin-bottom: 15px;
 }
 
-.login-container .toggle-button {
+.password-input {
+  position: relative;
+  width: 95%;
+}
+
+.password-input input.common-input {
+  width: 100%;
+}
+
+.password-input .toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -148,11 +158,19 @@ label[for="remember-me"] {
 }
 
 @media screen and (max-width: 450px) {
-  .login-container form input {
+  .login-container form input.common-input {
     width: 90% !important;
   }
 
   .login-container form input[type="checkbox"] {
     width: unset;
   }
+}
+
+.inputField {
+  border-color: red !important;
+}
+
+.errorMsg {
+  color: red;
 }

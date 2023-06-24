@@ -70,32 +70,36 @@ const LoginForm = () => {
               placeholder="Username"
               className={`${
                 error === "User name is Required!" && "inputField"
-              }`}
+              } common-input`}
             />
             {error === "User name is Required!" && (
               <small className="errorMsg">Name is Required</small>
             )}
             <label htmlFor="password">Password</label>
-            <input
-              type={passwordType}
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="Password"
-              className={`${error === "Password is Required!" && "inputField"}`}
-            />
+            <div className="password-input">
+              <input
+                type={passwordType}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Password"
+                className={`${
+                  error === "Password is Required!" && "inputField"
+                } common-input`}
+              />
+              <div onClick={passwordToggle} className="toggle-button">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                />
+              </div>
+            </div>
             {error === "Password is Required!" && (
               <small className="errorMsg">Password is Required</small>
             )}
-            <div onClick={passwordToggle} className="toggle-button">
-              <img
-                height={20}
-                width={20}
-                src={passwordType === "password" ? hide : show}
-              />
-            </div>
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me"> Remember me</label>
+              <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
               <button type="submit">Login</button>
