@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import meeting from "../../assets/meeting.png";
 import "./Signup.css";
@@ -84,6 +85,10 @@ const SignUpForm = () => {
   return (
     <div className="signup-container">
       <div className="parent">
+        {/* Home icon */}
+        <Link to="/" className="home-icon">
+          <FaHome />
+        </Link>
         <div className="left">
           <img src={meeting} alt="meeting" />
           <p className="left-text">Still Confused with College Choice?</p>

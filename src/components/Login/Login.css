@@ -4,6 +4,27 @@
   width: 100vw;
 }
 
+.home-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  font-size: 24px;
+}
+
+.home-icon:hover {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
+
 .sign-in {
   font-size: 30px;
   text-align: center;

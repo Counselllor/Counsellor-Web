@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 import GoogleLogo from "../../assets/googleicon.webp";
 import "./Login.css";
 import show from "../../assets/show.png";
@@ -42,6 +43,10 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       <div className="parent">
+        {/* Home icon */}
+        <Link to="/" className="home-icon">
+          <FaHome />
+        </Link>
         {/* This is the left side of the login page   */}
         <div className="left">
           <img src={meeting} alt="meeting" />
@@ -53,7 +58,7 @@ const LoginForm = () => {
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
           <div className="google">
-            <img className="googleicon" src={GoogleLogo} alt="gogoleicon" />
+            <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
           </div>
           <div className="or-line">
@@ -91,6 +96,7 @@ const LoginForm = () => {
                   height={20}
                   width={20}
                   src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
                 />
               </div>
             </div>
