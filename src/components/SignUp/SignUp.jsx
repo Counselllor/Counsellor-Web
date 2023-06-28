@@ -167,8 +167,8 @@ const SignUpForm = () => {
                 <input
                   type="radio"
                   class="student-option"
-                  name="student"
-                  value="1"
+                  name="occupation"
+                  value="student"
                   id=""
                 ></input>
               </span>
@@ -178,8 +178,8 @@ const SignUpForm = () => {
                 <input
                   type="radio"
                   class="counsellor-option"
-                  name="Counsellor"
-                  value="2"
+                  name="occupation"
+                  value="counsellor"
                   id=""
                 ></input>
               </span>
