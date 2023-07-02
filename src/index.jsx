@@ -1,46 +1,60 @@
-import React, {Suspense} from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Home,About,LoginForm,SignUpForm,ErrorPage} from './components/index'
-import App from './App'
-import Loading from './components/Loading/Loading'
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Home,
+  About,
+  LoginForm,
+  SignUpForm,
+  ErrorPage,
+} from "./components/index";
+import App from "./App";
+import Loading from "./components/Loading/Loading";
+import { ChakraProvider } from "@chakra-ui/react";
 
-import './index.css'
+import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    errorElement: <ErrorPage/>,
-    element: <Suspense fallback={<Loading/>}><App/></Suspense>,
+    path: "/",
+    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <App />
+      </Suspense>
+    ),
     children: [
       {
-        path: '/',
-        errorElement: <ErrorPage/>,
-        element: <Home/>
+        path: "/",
+        errorElement: <ErrorPage />,
+        element: <Home />,
       },
       {
-        path: '/about',
-        errorElement: <ErrorPage/>,
-        element: <About/>
+        path: "/about",
+        errorElement: <ErrorPage />,
+        element: <About />,
       },
       {
-        path: '/login',
-        errorElement: <ErrorPage/>,
-        element: <LoginForm/>
+        path: "/login",
+        errorElement: <ErrorPage />,
+        element: <LoginForm />,
       },
       {
-        path: '/signup',
-        errorElement: <ErrorPage/>,
-        element: <SignUpForm/>
-      }
-    ]
-  }
-])
+        path: "/signup",
+        errorElement: <ErrorPage />,
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+        element: (
+          <ChakraProvider>
+            <SignUpForm />
+          </ChakraProvider>
+        ),
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    
-    <RouterProvider router={router}/>
-  
+    <RouterProvider router={router} />
   </React.StrictMode>
-)
+);
