@@ -44,9 +44,6 @@ const LoginForm = () => {
     <div className="login-container">
       <div className="parent">
         {/* Home icon */}
-        <Link to="/" className="home-icon">
-          <FaHome />
-        </Link>
         {/* This is the left side of the login page   */}
         <div className="left">
           <img src={meeting} alt="meeting" />

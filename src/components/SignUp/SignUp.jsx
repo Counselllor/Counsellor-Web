@@ -97,9 +97,6 @@ const SignUpForm = () => {
     <div className="signup-container">
       <div className="parent">
         {/* Home icon */}
-        <Link to="/" className="home-icon">
-          <FaHome />
-        </Link>
         <div className="left">
           <img src={meeting} alt="meeting" />
           <p className="left-text">Still Confused with College Choice?</p>
