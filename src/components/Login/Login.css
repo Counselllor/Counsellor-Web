@@ -176,11 +176,17 @@ label[for="remember-me"] {
     margin: 3% 10%;
     padding: 10px 0;
   }
+  .login-container form input.common-input {
+    width: 100% !important;
+  }
+  .password-input .toggle-button {
+    right: 5px;
+  }
 }
 
 @media screen and (max-width: 450px) {
   .login-container form input.common-input {
-    width: 90% !important;
+    width: 100% !important;
   }
 
   .login-container form input[type="checkbox"] {
