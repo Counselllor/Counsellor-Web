@@ -152,7 +152,7 @@ const SignUpForm = () => {
                   error === "**Password is Required!" && "inputField"
                 }`}
               />
-              <div onClick={passwordToggle} className="toggle-button">
+              <div onClick={passwordToggle} className="toggle-button1">
                 <img
                   height={20}
                   width={20}

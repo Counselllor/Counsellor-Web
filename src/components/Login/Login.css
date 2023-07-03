@@ -134,7 +134,7 @@ label[for="remember-me"] {
 .password-input .toggle-button {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 10px !important;
   transform: translateY(-50%);
   cursor: pointer;
 }
@@ -168,6 +168,7 @@ label[for="remember-me"] {
   width: 150px;
 }
 
+
 @media screen and (max-width: 768px) {
   .login-container form {
     padding: 0 10%;
@@ -180,7 +181,8 @@ label[for="remember-me"] {
     width: 100% !important;
   }
   .password-input .toggle-button {
-    right: 5px;
+    /* right: 5px; */
+    right:5px !important;
   }
 }
 
@@ -193,6 +195,13 @@ label[for="remember-me"] {
     width: unset;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .password-input .toggle-button {
+    right: 10px !important;
+  }
+}
+
 
 .inputField {
   border-color: red !important;

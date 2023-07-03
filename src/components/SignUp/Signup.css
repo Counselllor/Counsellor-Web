@@ -194,6 +194,36 @@ select.inputField {
   height: 100vh;
 }
 
+.password-input {
+  position: relative;
+}
+
+.password-input .toggle-button1 {
+  position: absolute;
+  top: 50%;
+  right: 40px !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .password-input .toggle-button1 {
+    right: 50px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .password-input .toggle-button1 {
+    right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .password-input .toggle-button1 {
+    right: 15px;
+  }
+}
+
 /* media query */
 
 @media screen and (max-width: 992px) {
