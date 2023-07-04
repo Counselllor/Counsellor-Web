@@ -11,12 +11,17 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^9.23.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.9.0",
     "react-spinners": "^0.13.8",
-    "typewriter-effect": "^2.20.1"
+    "require": "^2.4.20",
+    "typewriter-effect": "^2.20.1",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

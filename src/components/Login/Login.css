@@ -48,15 +48,16 @@
   background: gray;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 20%;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container input[type="text"] {
   width: 95%;
   padding: 12px;
   margin: 5px 0 10px;
@@ -77,7 +78,7 @@ label[for="remember-me"] {
   font-size: 16px;
 }
 
-.login-container button[type="submit"] {
+.login-container .login_btn {
   width: 100%;
   padding: 16px;
   margin: 7px 0;
@@ -89,7 +90,7 @@ label[for="remember-me"] {
   cursor: pointer;
 }
 
-.login-container button[type="submit"]:hover {
+.login-container .login_btn:hover {
   background-color: #12229d;
 }
 
@@ -138,7 +139,7 @@ label[for="remember-me"] {
 }
 
 @media screen and (max-width: 768px) {
-  .login-container form {
+  .login-container .form {
     padding: 0 10%;
   }
   .right .google {
@@ -148,11 +149,11 @@ label[for="remember-me"] {
 }
 
 @media screen and (max-width: 450px) {
-  .login-container form input {
+  .login-container .form input {
     width: 90% !important;
   }
 
-  .login-container form input[type="checkbox"] {
+  .login-container .form input[type="checkbox"] {
     width: unset;
   }
 }

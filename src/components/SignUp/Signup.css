@@ -63,6 +63,7 @@ h1.counsellor {
   align-items: start;
   justify-content: start;
   padding: 0 15% 3%;
+  flex-direction: column;
 }
 
 .form-container .name {
@@ -126,7 +127,7 @@ span[for="student-option"] {
   color: #1877f2;
 }
 
-button.submit-button[type="submit"] {
+.submit-button {
   font-size: 16px;
   background-color: #1877f2;
   color: white;
@@ -138,7 +139,7 @@ button.submit-button[type="submit"] {
   transition: all 0.3s ease;
 }
 
-button.submit-button[type="submit"]:hover {
+.submit-button:hover {
   background-color: #12229d;
 }
 
