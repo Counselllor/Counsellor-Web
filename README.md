@@ -41,7 +41,7 @@ The web application, built using ReactJS, is designed to assist students in maki
 </p>
 
 -  **Frontend:** HTML, CSS, JavaScript
--  **Backend:** Node.js, Express.js
+-  **Backend:** Node.js, Express.js,Firebase 
 -  **Database:** MongoDB
 -  **Real-time Messaging:** Socket.IO
 -  **Encryption:** bcrypt, crypto
