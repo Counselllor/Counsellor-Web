@@ -61,7 +61,11 @@ export default function Login() {
       .then(() => {
             navigate("/dashboard");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => {
+        if(err == "FirebaseError: Firebase: Error (auth/wrong-password)."){
+          seterror("Incorrect Password!");
+        }
+      });
     }
   };
   // Popup Google signin
@@ -123,7 +127,7 @@ export default function Login() {
                 onChange={handlePasswordChange}
                 value={password}
                 placeholder="Password"
-                className={`${error === "Password is Required!" && "inputField"}  common-input`}
+                className={`${error === "Password is Required!" && "inputField"} ${error === "Incorrect Password!" && "inputField"}`}
               />
               <div onClick={passwordToggle} className="toggle-button">
                 <img
@@ -136,6 +140,9 @@ export default function Login() {
             </div>
             {error === "Password is Required!" && (
               <small className="errorMsg">Password is Required</small>
+            )}
+            {error === "Incorrect Password!" && (
+              <small className="errorMsg">Incorrect Password</small>
             )}
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
