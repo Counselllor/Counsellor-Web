@@ -189,6 +189,30 @@ label[for="remember-me"] {
   }
 }
 
+.errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+.errorShow {
+  height: 40px;
+}
+
+.errorShow p {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+input.inputField,
+input.firstname-text.inputField,
+input.surname-text.inputField,
+input.password-text.inputField,
+input.dob.inputField,
+select.inputField {
+  border-color: red;
+}
+
 @media screen and (max-width: 450px) {
   .login-container .form input input.common-input {
     width: 100% !important;
