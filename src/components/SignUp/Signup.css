@@ -3,6 +3,27 @@
   width: 100vw;
 }
 
+.home-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  font-size: 24px;
+}
+
+.home-icon:hover {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
+
 .parent {
   display: flex;
   align-items: center;
@@ -172,6 +193,36 @@ select.inputField {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input .toggle-button1 {
+  position: absolute;
+  top: 50%;
+  right: 40px !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .password-input .toggle-button1 {
+    right: 50px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .password-input .toggle-button1 {
+    right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .password-input .toggle-button1 {
+    right: 15px;
+  }
 }
 
 /* media query */

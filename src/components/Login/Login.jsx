@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 import GoogleLogo from "../../assets/googleicon.webp";
 import "./Login.css";
 import show from "../../assets/show.png";
@@ -75,6 +76,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="parent">
+        {/* Home icon */}
         {/* This is the left side of the login page   */}
         <div className="left">
           <img src={meeting} alt="meeting" />
@@ -88,6 +90,9 @@ export default function Login() {
           {/* <div className="google">
             <img className="googleicon" src={GoogleLogo} alt="gogoleicon" />
             <div className="login-with-google" onClick={SignInGoogle}>Login with Google</div>
+          <div className="google">
+            <img className="googleicon" src={GoogleLogo} alt="googleicon" />
+            <div className="login-with-google">Login with Google</div>
           </div>
           <div className="or-line">
             <hr noshade /> OR <hr noshade />
@@ -104,33 +109,37 @@ export default function Login() {
               placeholder="Email"
               className={`${
                 error === "User name is Required!" && "inputField"
-              }`}
+              } common-input`}
             />
             {error === "User name is Required!" && (
               <small className="errorMsg">Email is Required</small>
             )}
             <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type={passwordType}
-              onChange={handlePasswordChange}
-              value={password}
-              placeholder="Password"
-              className={`${error === "Password is Required!" && "inputField"}`}
-            />
+
+            <div className="password-input">
+              <input
+                id="password"
+                type={passwordType}
+                onChange={handlePasswordChange}
+                value={password}
+                placeholder="Password"
+                className={`${error === "Password is Required!" && "inputField"}  common-input`}
+              />
+              <div onClick={passwordToggle} className="toggle-button">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
+                />
+              </div>
+            </div>
             {error === "Password is Required!" && (
               <small className="errorMsg">Password is Required</small>
             )}
-            <div onClick={passwordToggle} className="toggle-button">
-              <img
-                height={20}
-                width={20}
-                src={passwordType === "password" ? hide : show}
-              />
-            </div>
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me"> Remember me</label>
+              <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
               <button className="login_btn" onClick={handleSignIn}>Login</button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import meeting from "../../assets/meeting.png";
 import "./Signup.css";
@@ -7,6 +8,8 @@ import { auth, database } from "../../firebase/auth";
 import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
+import show from "../../assets/show.png";
+import hide from "../../assets/hide.png";
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -39,7 +42,7 @@ const SignUpForm = () => {
       return;
     }
     if (firstName === "") {
-      seterror("**First Name is Required!");
+      setError("**First Name is Required!");
     } else if (surname === "") {
       seterror("**Surname is Required!");
     } else if (registerInformation.email === "") {
@@ -47,7 +50,7 @@ const SignUpForm = () => {
     } else if (registerInformation.password === "") {
       seterror("**Password is Required!");
     } else if (dob === "") {
-      seterror("**D.O.B is Required!");
+      setError("**D.O.B is Required!");
     } else if (gender === "") {
       seterror("**Select Gender!");
     } else if (usertype === "") {
@@ -70,12 +73,13 @@ const SignUpForm = () => {
   return (
     <div className="signup-container">
       <div className="parent">
+        {/* Home icon */}
         <div className="left">
           <img src={meeting} alt="meeting" />
           <p className="left-text">Still Confused with College Choice?</p>
         </div>
         <div className="right">
-        <h1 className="counsellor">Counsellor</h1>
+          <h1 className="counsellor">Counsellor</h1>
           <div className="signuptxt">Create a new account</div>
           <div className="signuptxt2">It's quick and easy.</div>
 
@@ -116,8 +120,9 @@ const SignUpForm = () => {
               placeholder="Email"
               className={error === "**Email is Required!" && "inputField"}
             />
-
-            <input
+            
+            <div className="password-input">
+              <input
               type="password"
               value={registerInformation.password}
               onChange={(e) =>
@@ -146,7 +151,16 @@ const SignUpForm = () => {
                 error === "**Password is Required!" && "inputField"
               }`}
             />
-
+              <div onClick={passwordToggle} className="toggle-button1">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
+                />
+              </div>
+            </div>
+            
             <label htmlFor="date-of-birth">Date of birth</label>
             <input
               type="date"
@@ -170,7 +184,7 @@ const SignUpForm = () => {
             </select>
 
             <label htmlFor="student-or-counsellor">
-              Are you Student or Counsellor ?{" "}
+              Are you a Student or Counsellor?
             </label>
             <div className="name soc">
               <span htmlFor="student-option">
