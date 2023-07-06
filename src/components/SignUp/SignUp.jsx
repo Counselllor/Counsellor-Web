@@ -38,7 +38,7 @@ const SignUpForm = () => {
   let navigate = useNavigate();
   const handleRegister = () => {
     if (registerInformation.password !== registerInformation.confirmPassword) {
-      alert("Please confirm that password are the same");
+      seterror("**Password not same!");
       return;
     }
     if (firstName === "") {
@@ -134,6 +134,8 @@ const SignUpForm = () => {
               placeholder="Password"
               className={`password-text  ${
                 error === "**Password is Required!" && "inputField"
+              } ${
+                error === "**Password not same!" && "inputField"
               }`}
             />
 
@@ -149,6 +151,8 @@ const SignUpForm = () => {
               placeholder="Confirm Password"
               className={`password-text  ${
                 error === "**Password is Required!" && "inputField"
+              } ${
+                error === "**Password not same!" && "inputField"
               }`}
             />
               <div onClick={passwordToggle} className="toggle-button1">
@@ -220,7 +224,7 @@ const SignUpForm = () => {
                 Sign Up
               </button>
               <div className="already-account">
-                <Link to="/login">Already have an account?</Link>
+                <Link to="/">Already have an account?</Link>
               </div>
             </div>
           </div>
