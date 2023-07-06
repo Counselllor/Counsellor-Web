@@ -6,6 +6,7 @@ import App from './App'
 import Loading from './components/Loading/Loading'
 
 import './index.css'
+import Login from './components/Login/Login'
 
 const router = createBrowserRouter([
   {
@@ -16,23 +17,23 @@ const router = createBrowserRouter([
       {
         path: '/',
         errorElement: <ErrorPage/>,
-        element: <Home/>
+        element: <Login/>
       },
       {
         path: '/dashboard',
         errorElement: <ErrorPage/>,
         element: <Dashboard/>
       },
-      {
-        path: '/about',
-        errorElement: <ErrorPage/>,
-        element: <About/>
-      },
-      {
-        path: '/login',
-        errorElement: <ErrorPage/>,
-        element: <LoginForm/>
-      },
+      // {
+      //   path: '/about',
+      //   errorElement: <ErrorPage/>,
+      //   element: <About/>
+      // },
+      // {
+      //   path: '/login',
+      //   errorElement: <ErrorPage/>,
+      //   element: <LoginForm/>
+      // },
       {
         path: '/signup',
         errorElement: <ErrorPage/>,
