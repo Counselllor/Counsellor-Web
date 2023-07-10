@@ -1,7 +1,7 @@
 .login-container {
   font-family: "ABeeZee";
-  margin-top: 10px;
   width: 100vw;
+  overflow-y: scroll;
 }
 
 .home-icon {

@@ -1,10 +1,11 @@
 .signup-container {
   font-family: "ABeeZee";
   width: 100vw;
+  overflow-y: scroll;
 }
 
 .home-icon {
-  position: fixed;
+  position: relative;
   top: 20px;
   left: 20px;
   display: flex;
@@ -57,7 +58,9 @@
 .parent .right {
   background: #fff;
   width: 50%;
-  height: 105vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1.counsellor {
