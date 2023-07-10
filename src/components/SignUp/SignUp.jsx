@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import meeting from "../../assets/meeting.png";
 import "./Signup.css";
+import show from "../../assets/show.png";
+import hide from "../../assets/hide.png";
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -11,24 +14,25 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
-  const [error, seterror] = useState("");
+  const [error, setError] = useState("");
 
   let navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
 
     if (firstName === "") {
-      seterror("**First Name is Required!");
+      setError("**First Name is Required!");
     } else if (surname === "") {
-      seterror("**Surname is Required!");
+      setError("**Surname is Required!");
     } else if (email === "") {
-      seterror("**Email is Required!");
+      setError("**Email is Required!");
     } else if (password === "") {
-      seterror("**Password is Required!");
+      setError("**Password is Required!");
     } else if (dob === "") {
-      seterror("**D.O.B is Required!");
+      setError("**D.O.B is Required!");
     } else if (gender === "") {
-      seterror("**Select Gender!");
+      setError("**Select Gender!");
     } else {
       console.log("First name:", firstName);
       console.log("Surname:", surname);
@@ -36,11 +40,19 @@ const SignUpForm = () => {
       console.log("Password:", password);
       console.log("DOB:", dob);
       console.log("Gender:", gender);
-      seterror("");
+      setError("");
       PostData();
       navigate("/");
     }
   }
+
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
 
   const PostData = () => {
     if (
@@ -84,12 +96,13 @@ const SignUpForm = () => {
   return (
     <div className="signup-container">
       <div className="parent">
+        {/* Home icon */}
         <div className="left">
           <img src={meeting} alt="meeting" />
           <p className="left-text">Still Confused with College Choice?</p>
         </div>
         <div className="right">
-        <h1 className="counsellor">Counsellor</h1>
+          <h1 className="counsellor">Counsellor</h1>
           <div className="signuptxt">Create a new account</div>
           <div className="signuptxt2">It's quick and easy.</div>
 
@@ -126,15 +139,25 @@ const SignUpForm = () => {
               className={error === "**Email is Required!" && "inputField"}
             />
 
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="New password"
-              className={`password-text  ${
-                error === "**Password is Required!" && "inputField"
-              }`}
-            />
+            <div className="password-input">
+              <input
+                type={passwordType}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="New password"
+                className={`password-text  ${
+                  error === "**Password is Required!" && "inputField"
+                }`}
+              />
+              <div onClick={passwordToggle} className="toggle-button1">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
+                />
+              </div>
+            </div>
 
             <label htmlFor="date-of-birth">Date of birth</label>
             <input
@@ -159,17 +182,16 @@ const SignUpForm = () => {
             </select>
 
             <label htmlFor="student-or-counsellor">
-              Are you Student or Counsellor ?{" "}
+              Are you a Student or Counsellor?
             </label>
             <div className="name soc">
               <span htmlFor="student-option">
                 Student
                 <input
                   type="radio"
-                  class="student-option"
+                  className="student-option"
                   name="student"
                   value="1"
-                  id=""
                 ></input>
               </span>
 
@@ -177,10 +199,9 @@ const SignUpForm = () => {
                 Counsellor
                 <input
                   type="radio"
-                  class="counsellor-option"
+                  className="counsellor-option"
                   name="Counsellor"
                   value="2"
-                  id=""
                 ></input>
               </span>
             </div>

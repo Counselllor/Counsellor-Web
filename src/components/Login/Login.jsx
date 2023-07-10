@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 import GoogleLogo from "../../assets/googleicon.webp";
 import "./Login.css";
 import show from "../../assets/show.png";
@@ -42,6 +43,7 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       <div className="parent">
+        {/* Home icon */}
         {/* This is the left side of the login page   */}
         <div className="left">
           <img src={meeting} alt="meeting" />
@@ -53,7 +55,7 @@ const LoginForm = () => {
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
           <div className="google">
-            <img className="googleicon" src={GoogleLogo} alt="gogoleicon" />
+            <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
           </div>
           <div className="or-line">
@@ -70,32 +72,37 @@ const LoginForm = () => {
               placeholder="Username"
               className={`${
                 error === "User name is Required!" && "inputField"
-              }`}
+              } common-input`}
             />
             {error === "User name is Required!" && (
               <small className="errorMsg">Name is Required</small>
             )}
             <label htmlFor="password">Password</label>
-            <input
-              type={passwordType}
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="Password"
-              className={`${error === "Password is Required!" && "inputField"}`}
-            />
+            <div className="password-input">
+              <input
+                type={passwordType}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Password"
+                className={`${
+                  error === "Password is Required!" && "inputField"
+                } common-input`}
+              />
+              <div onClick={passwordToggle} className="toggle-button">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
+                />
+              </div>
+            </div>
             {error === "Password is Required!" && (
               <small className="errorMsg">Password is Required</small>
             )}
-            <div onClick={passwordToggle} className="toggle-button">
-              <img
-                height={20}
-                width={20}
-                src={passwordType === "password" ? hide : show}
-              />
-            </div>
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me"> Remember me</label>
+              <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
               <button type="submit">Login</button>
