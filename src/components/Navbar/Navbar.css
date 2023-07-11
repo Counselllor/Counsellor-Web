@@ -31,6 +31,8 @@
 .loginSignUpBtn {
     display: inline-block;
     background-color: var(--btnColor);
+    border: none;
+    cursor: pointer;
     border-radius: 0.4vw;
     width: 5.2vw;
     text-align: center;

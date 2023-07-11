@@ -1,23 +1,56 @@
-import { NavLink } from 'react-router-dom'
-import './Navbar.css'
-import Logo from '../../assets/logo.webp'
+import { NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import Logo from "../../assets/logo.webp";
+import { auth } from "../../firebase/firebase";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <nav id="navbar">
-        <img id='logo' src={Logo} alt="logo" />
+        <img id="logo" src={Logo} alt="logo" />
         <ul>
-          <li><NavLink className={({isActive})=>isActive?'active': 'none'} to='/'>Home</NavLink></li>
-          <li><NavLink className={({isActive})=>isActive?'active': 'none'} to='/about'>About</NavLink></li>
           <li>
-            <div className='loginSignUpBtn'><NavLink className={({isActive})=>isActive?'active': 'none'} to='/login'>Login</NavLink></div>
-            <div className='loginSignUpBtn'><NavLink className={({isActive})=>isActive?'active': 'none'} to='/signup'>Sign Up</NavLink></div>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "none")}
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "none")}
+              to="/about"
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <button
+              className={`loginSignUpBtn ({isActive})=>isActive?'active': 'none'`}
+              onClick={logout}
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

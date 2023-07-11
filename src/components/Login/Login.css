@@ -88,7 +88,7 @@ form {
   width: unset;
 }
 
-label[for="user-name"],
+label[for="email"],
 label[for="password"],
 label[for="remember-me"] {
   margin-top: 10px;
@@ -111,15 +111,23 @@ label[for="remember-me"] {
   background-color: #12229d;
 }
 
+button.submit-button[type="submit"]:disabled {
+  background-color: gray !important;
+}
+
 .login-container .forgot-password {
   text-decoration: none;
   color: #1877f2;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .login-container .dont-have-account {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
   text-align: center;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .password-input {

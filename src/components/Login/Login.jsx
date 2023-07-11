@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
 import GoogleLogo from "../../assets/googleicon.webp";
 import "./Login.css";
 import show from "../../assets/show.png";
@@ -8,28 +7,70 @@ import hide from "../../assets/hide.png";
 import meeting from "../../assets/meeting.png";
 import microsoft from "../../assets/microsoft.png";
 import googlePlay from "../../assets/google-play.png";
+import { auth } from "../../firebase/firebase";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, seterror] = useState("");
-
   let navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Do some authentication here...
+  const [user, setUser] = useState({
+    email: "",
+    pass: "",
+  });
 
-    if (username === "") {
-      seterror("User name is Required!");
-    } else if (password === "") {
-      seterror("Password is Required!");
-    } else {
-      seterror("");
-      setUsername("");
-      setPassword("");
-      navigate("/");
+  const [error, setError] = useState("");
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    if (!user.email) {
+      setError("**Email is Required!");
+      return;
+    } else if (!user.pass) {
+      setError("**Password is Required!");
+      return;
     }
+
+    setError("");
+    setSubmitButtonDisabled(true);
+
+    signInWithEmailAndPassword(auth, user.email, user.pass)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+
+    setSubmitButtonDisabled(false);
+  };
+
+  const loginWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   };
 
   const [passwordType, setPasswordType] = useState("password");
@@ -54,38 +95,39 @@ const LoginForm = () => {
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
-          <div className="google">
+          <div className="google" onClick={loginWithGoogle}>
             <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
           </div>
           <div className="or-line">
-            <hr noshade /> OR <hr noshade />
+            <hr /> OR <hr />
           </div>
 
           {/* Login form */}
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="user-name">User Name</label>
+          <form>
+            <div className="errorMsg"> {error && <p>{error}</p>}</div>
+
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-              placeholder="Username"
+              type="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              placeholder="Email"
               className={`${
-                error === "User name is Required!" && "inputField"
+                error === "**Email is Required!" && "inputField"
               } common-input`}
             />
-            {error === "User name is Required!" && (
-              <small className="errorMsg">Name is Required</small>
-            )}
             <label htmlFor="password">Password</label>
             <div className="password-input">
               <input
                 type={passwordType}
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                name="pass"
+                value={user.pass}
+                onChange={handleChange}
                 placeholder="Password"
                 className={`${
-                  error === "Password is Required!" && "inputField"
+                  error === "**Password is Required!" && "inputField"
                 } common-input`}
               />
               <div onClick={passwordToggle} className="toggle-button">
@@ -97,22 +139,26 @@ const LoginForm = () => {
                 />
               </div>
             </div>
-            {error === "Password is Required!" && (
-              <small className="errorMsg">Password is Required</small>
-            )}
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
               <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
-              <button type="submit">Login</button>
+              <button
+                type="submit"
+                onClick={handleClick}
+                disabled={submitButtonDisabled}
+              >
+                Login
+              </button>
               <Link to="/login" className="forgot-password">
                 Forgot Your password?
               </Link>
             </div>
             <div className="dont-have-account">
+              Dont have an account?
               <Link to="/signup" className="forgot-password">
-                Don't have an account?
+                Sign Up
               </Link>
             </div>
             <div className="get-app">
