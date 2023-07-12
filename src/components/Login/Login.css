@@ -199,6 +199,11 @@ label[for="remember-me"] {
   .password-input .toggle-button {
     right: 10px !important;
   }
+
+  .login-container{
+    width: 102vw;
+    overflow-x: hidden;
+  }
 }
 
 
