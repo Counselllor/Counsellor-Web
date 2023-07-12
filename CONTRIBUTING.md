@@ -21,7 +21,7 @@ Below you will find the process and workflow used to review and merge your chang
   
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>  
+git clone https://github.com/Counselllor/Counsellor-Web.git
 ```
 
 - Keep a reference to the original project in `upstream` remote.

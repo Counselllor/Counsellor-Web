@@ -18,16 +18,16 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-loader-spinner": "^5.3.4",
-    "react-router-dom": "^6.9.0",
+    "react-router-dom": "^6.14.1",
     "react-spinners": "^0.13.8",
     "require": "^2.4.20",
     "typewriter-effect": "^2.20.1",
     "uid": "^2.0.2"
   },
   "devDependencies": {
-    "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.8",
-    "@vitejs/plugin-react": "^2.2.0",
-    "vite": "^3.2.5"
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.3"
   }
 }
