@@ -3,23 +3,17 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
-// import dotenv from "dotenv";
-// dotenv.config();
 
-// CounsellorWeb: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// const firebaseConfig = {
-//   apiKey: process.env.YOUR_API_KEY,
-//   authDomain: process.env.YOUR_AUTH_DOMAIN,
-//   databaseURL: process.env.YOUR_DATABASE_URL,
-//   projectId: process.env.YOUR_PROJECT_ID,
-//   storageBucket: process.env.YOUR_STORAGE_BUCKET,
-//   messagingSenderId: process.env.YOUR_MASSAGING_SENDER_ID,
-//   appId: process.env.YOUR_APP_ID,
-//   measurementId: process.env.YOUR_MEASUREMENT_ID
-// };
-
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
+  authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_REACT_APP_DATABASE_URL,
+  projectId: import.meta.env.VITE_REACT_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_MASSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_REACT_APP_APP_ID,
+  measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
