@@ -15,6 +15,14 @@ const SignUpForm = () => {
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
   const [error, setError] = useState("");
+  
+  const [studop, setOption] = useState();
+  const handleChange = e => {
+    const target = e.target;
+    if (target.checked) {
+      setOption(target.value);
+    }
+  };
 
   let navigate = useNavigate();
 
@@ -192,7 +200,9 @@ const SignUpForm = () => {
                   className="student-option"
                   name="student"
                   value="1"
-                ></input>
+                  checked={studop == '1'}
+                  onChange={handleChange}>
+                </input>
               </span>
 
               <span htmlFor="counsellor-option">
@@ -202,7 +212,9 @@ const SignUpForm = () => {
                   className="counsellor-option"
                   name="Counsellor"
                   value="2"
-                ></input>
+                  checked={studop == '2'}
+                  onChange={handleChange}>
+                </input>
               </span>
             </div>
             <div className="btn">
