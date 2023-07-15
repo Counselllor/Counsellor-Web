@@ -168,6 +168,18 @@ select.inputField {
   border-color: red;
 }
 
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input .toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 4% !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
   .login-container form {
