@@ -1,7 +1,13 @@
 .login-container {
   font-family: "ABeeZee";
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 100vw;
+}
+
+.left {
+  height: 100vh;
+  justify-content: center;
+  background-color: #5CB6F9;
 }
 
 /* Left side container of login page => same as signup page */
@@ -162,22 +168,45 @@ select.inputField {
   border-color: red;
 }
 
+
 @media screen and (max-width: 768px) {
-  .login-container .form {
+  .login-container form {
     padding: 0 10%;
   }
   .right .google {
     margin: 3% 10%;
     padding: 10px 0;
   }
+  .login-container form input.common-input {
+    width: 100% !important;
+  }
+  .password-input .toggle-button {
+    /* right: 5px; */
+    right:5px !important;
+  }
 }
 
 @media screen and (max-width: 450px) {
-  .login-container .form input {
+  .login-container form input.common-input {
     width: 100% !important;
   }
 
-  .login-container .form input[type="checkbox"] {
+  .login-container form input[type="checkbox"] {
     width: unset;
   }
+}
+
+@media screen and (max-width: 500px) {
+  .password-input .toggle-button {
+    right: 10px !important;
+  }
+}
+
+
+.inputField {
+  border-color: red !important;
+}
+
+.errorMsg {
+  color: red;
 }

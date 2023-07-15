@@ -18,6 +18,7 @@ const SignUpForm = () => {
   const [gender, setGender] = useState("");
   const [usertype, setUserType] = useState("");
   const [error, seterror] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
   const [registerInformation, setRegisterInformation] = useState({
     email: "",
     password: "",
@@ -70,6 +71,11 @@ const SignUpForm = () => {
         catch(err){alert(err.message)}; 
     }
   };
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
   return (
     <div className="signup-container">
       <div className="parent">
@@ -119,9 +125,9 @@ const SignUpForm = () => {
               placeholder="Email"
               className={error === "**Email is Required!" && "inputField"}
             />
-
+            <div className="password-input">
             <input
-              type="password"
+              type={passwordType}
               value={registerInformation.password}
               onChange={(e) =>
                 setRegisterInformation({
@@ -136,9 +142,18 @@ const SignUpForm = () => {
                 error === "**Password not same!" && "inputField"
               }`}
             />
-
+            <div onClick={passwordToggle} className="toggle-button1">
+                <img
+                  height={20}
+                  width={20}
+                  src={passwordType === "password" ? hide : show}
+                  alt="password-toggle"
+                />
+              </div>
+            </div>
+            
             <input
-              type="password"
+              type={passwordType}
               value={registerInformation.confirmPassword}
               onChange={(e) =>
                 setRegisterInformation({
@@ -213,7 +228,7 @@ const SignUpForm = () => {
                 Sign Up
               </button>
               <div className="already-account">
-                <Link to="#">Already have an account?</Link>
+                <Link to="/">Already have an account?</Link>
               </div>
             </div>
           </div>
