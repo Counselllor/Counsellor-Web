@@ -54,10 +54,10 @@ const LoginForm = () => {
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
-          <div className="google">
+          {/* <div className="google">
             <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
-          </div>
+          </div> */}
           <div className="or-line">
             <hr noshade /> OR <hr noshade />
           </div>
