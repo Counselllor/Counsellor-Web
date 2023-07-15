@@ -3,27 +3,6 @@
   width: 100vw;
 }
 
-.home-icon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 999;
-  font-size: 24px;
-}
-
-.home-icon:hover {
-  background-color: #f1f1f1;
-  border-radius: 50%;
-}
-
 .parent {
   display: flex;
   align-items: center;
@@ -37,10 +16,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-right: 15px;
 }
 
 .parent .left img {
   width: 450px;
+  margin-bottom: 32px;
 }
 
 .parent .left .left-text {
@@ -50,6 +31,7 @@
   padding: 0 50px;
   width: 50%;
   text-align: center;
+  margin: 0 32px;
 }
 
 /* right part */
@@ -84,6 +66,7 @@ h1.counsellor {
   align-items: start;
   justify-content: start;
   padding: 0 15% 3%;
+  flex-direction: column;
 }
 
 .form-container .name {
@@ -147,7 +130,7 @@ span[for="student-option"] {
   color: #1877f2;
 }
 
-button.submit-button[type="submit"] {
+.submit-button {
   font-size: 16px;
   background-color: #1877f2;
   color: white;
@@ -159,7 +142,7 @@ button.submit-button[type="submit"] {
   transition: all 0.3s ease;
 }
 
-button.submit-button[type="submit"]:hover {
+.submit-button:hover {
   background-color: #12229d;
 }
 
@@ -196,15 +179,18 @@ select.inputField {
 
 .password-input {
   position: relative;
+  width: 100%;
 }
 
 .password-input .toggle-button1 {
   position: absolute;
   top: 50%;
-  right: 40px !important;
+  right: 9% !important;
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+/* media query */
 
 @media screen and (max-width: 768px) {
   .password-input .toggle-button1 {

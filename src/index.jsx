@@ -1,11 +1,11 @@
 import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Home,About,LoginForm,SignUpForm,ErrorPage} from './components/index'
+import {Home,About,LoginForm,SignUpForm,ErrorPage,Dashboard} from './components/index'
 import App from './App'
 import Loading from './components/Loading/Loading'
-
 import './index.css'
+import Login from './components/Login/Login'
 
 const router = createBrowserRouter([
   {
@@ -16,23 +16,28 @@ const router = createBrowserRouter([
       {
         path: '/',
         errorElement: <ErrorPage/>,
-        element: <Home/>
+        element: <Login/>
       },
       {
-        path: '/about',
+        path: '/dashboard',
         errorElement: <ErrorPage/>,
-        element: <About/>
+        element: <Dashboard/>
       },
-      {
-        path: '/login',
-        errorElement: <ErrorPage/>,
-        element: <LoginForm/>
-      },
+      // {
+      //   path: '/about',
+      //   errorElement: <ErrorPage/>,
+      //   element: <About/>
+      // },
+      // {
+      //   path: '/login',
+      //   errorElement: <ErrorPage/>,
+      //   element: <LoginForm/>
+      // },
       {
         path: '/signup',
         errorElement: <ErrorPage/>,
         element: <SignUpForm/>
-      }
+      } 
     ]
   }
 ])

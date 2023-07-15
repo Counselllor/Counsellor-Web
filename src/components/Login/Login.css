@@ -1,30 +1,18 @@
 .login-container {
   font-family: "ABeeZee";
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 100vw;
 }
 
-.home-icon {
-  position: relative;
-  top: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
+.left {
+  height: 100vh;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 999;
-  font-size: 24px;
+  background-color: #5CB6F9;
 }
 
-.home-icon:hover {
-  background-color: #f1f1f1;
-  border-radius: 50%;
-}
+/* Left side container of login page => same as signup page */
 
+/* Right side container of login page */
 .sign-in {
   font-size: 30px;
   text-align: center;
@@ -66,22 +54,23 @@
   background: gray;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 20%;
 }
 
-.login-container input.common-input {
-  width: 100%;
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container input[type="text"] {
+  width: 95%;
   padding: 12px;
   margin: 5px 0 10px;
   border-radius: 6px;
   font-size: 16px;
   border: 2px solid #d8d8d8;
   outline: none;
-  box-sizing: border-box;
 }
 
 .login-container input[type="checkbox"] {
@@ -95,7 +84,7 @@ label[for="remember-me"] {
   font-size: 16px;
 }
 
-.login-container button[type="submit"] {
+.login-container .login_btn {
   width: 100%;
   padding: 16px;
   margin: 7px 0;
@@ -107,7 +96,7 @@ label[for="remember-me"] {
   cursor: pointer;
 }
 
-.login-container button[type="submit"]:hover {
+.login-container .login_btn:hover {
   background-color: #12229d;
 }
 
@@ -122,20 +111,7 @@ label[for="remember-me"] {
   margin-bottom: 15px;
 }
 
-.password-input {
-  position: relative;
-  width: 100%;
-}
-
-.password-input input.common-input {
-  width: 100%;
-}
-
-.password-input .toggle-button {
-  position: absolute;
-  top: 50%;
-  right: 10px !important;
-  transform: translateY(-50%);
+.login-container .toggle-button {
   cursor: pointer;
 }
 
@@ -168,6 +144,42 @@ label[for="remember-me"] {
   width: 150px;
 }
 
+.errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+.errorShow {
+  height: 40px;
+}
+
+.errorShow p {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+input.inputField,
+input.firstname-text.inputField,
+input.surname-text.inputField,
+input.password-text.inputField,
+input.dob.inputField,
+select.inputField {
+  border-color: red;
+}
+
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input .toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 4% !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
   .login-container form {
