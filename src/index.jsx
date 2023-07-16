@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Home,About,LoginForm,SignUpForm,ErrorPage,Dashboard, ForgotPasswordForm} from './components/index'
+import {Home,About,LoginForm,SignUpForm,ErrorPage,Dashboard} from './components/index'
 import App from './App'
 import Loading from './components/Loading/Loading'
 import './index.css'
@@ -37,11 +37,6 @@ const router = createBrowserRouter([
         path: '/signup',
         errorElement: <ErrorPage/>,
         element: <SignUpForm/>
-      } ,
-      {
-        path: '/forgotpassword',
-        errorElement: <ErrorPage />,
-        element: <ForgotPasswordForm />
       }
     ]
   }
