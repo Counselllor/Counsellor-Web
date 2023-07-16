@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/src/assets/logo.png" />
     <!-- Importing Fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Livvic&family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Livvic&family=Roboto&family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./preloading.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Counsellor Portal</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="center-loader">
+        <img src="./src/assets/logo.webp" alt="logo" />
+        <div class="pre-text">
+          <p>Welcome to <span>Counsellor web</span></p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>
