@@ -92,10 +92,10 @@ export default function Login() {
           {/* <div className="google">
             <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
-          </div>
-          <div className="or-line">
-            <hr noshade /> OR <hr noshade />
           </div> */}
+          {/* <div className="or-line">
+            <hr noshade /> OR <hr noshade />
+          </div>  */}
 
           {/* Login form */}
           <div className="form">
