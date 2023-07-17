@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import GoogleLogo from "../../assets/googleicon.webp";
@@ -8,36 +8,73 @@ import hide from "../../assets/hide.png";
 import meeting from "../../assets/meeting.png";
 import microsoft from "../../assets/microsoft.png";
 import googlePlay from "../../assets/google-play.png";
+import { auth,googleAuthProvider } from "../../firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup
+} from "firebase/auth";
 
-const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default function Login() {
   const [error, seterror] = useState("");
-
-  let navigate = useNavigate();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Do some authentication here...
-
-    if (username === "") {
-      seterror("User name is Required!");
-    } else if (password === "") {
-      seterror("Password is Required!");
-    } else {
-      seterror("");
-      setUsername("");
-      setPassword("");
-      navigate("/");
-    }
-  };
-
   const [passwordType, setPasswordType] = useState("password");
-
   const passwordToggle = () => {
     if (passwordType === "password") {
       setPasswordType("text");
     } else setPasswordType("password");
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [registerInformation, setRegisterInformation] = useState({
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+  const navigate = useNavigate();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigate("/dashboard");
+      }
+    });
+  }, []);
+
+  // when email change set email to target value
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  // when password change set password to target value
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  // if signin with EmailId/password success then navigate to /dashboard
+  const handleSignIn = () => {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    if (email === "") {
+      seterror("User name is Required!");
+    } else if (password === "") {
+      seterror("Password is Required!");
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+            navigate("/dashboard");
+      })
+      .catch((err) => {
+        if(err == "FirebaseError: Firebase: Error (auth/wrong-password)."){
+          seterror("Incorrect Password!");
+        }
+      });
+    }
+  };
+  // Popup Google signin
+  const SignInGoogle = () => {
+    signInWithPopup(auth, googleAuthProvider)
+      .then(() => {
+        navigate("/dashboard");
+      })
+      .catch((err) => alert(err.message));
   };
 
   return (
@@ -54,39 +91,39 @@ const LoginForm = () => {
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
-          <div className="google">
+          {/* <div className="google">
             <img className="googleicon" src={GoogleLogo} alt="googleicon" />
             <div className="login-with-google">Login with Google</div>
-          </div>
-          <div className="or-line">
+          </div> */}
+          {/* <div className="or-line">
             <hr noshade /> OR <hr noshade />
-          </div>
+          </div>  */}
 
           {/* Login form */}
-          <form onSubmit={handleSubmit}>
+          <div className="form">
             <label htmlFor="user-name">User Name</label>
             <input
+              id = "email"
               type="text"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-              placeholder="Username"
+              onChange={handleEmailChange}
+              value={email}
+              placeholder="Email"
               className={`${
                 error === "User name is Required!" && "inputField"
-              } common-input`}
+              }`}
             />
             {error === "User name is Required!" && (
-              <small className="errorMsg">Name is Required</small>
+              <small className="errorMsg">Email is Required</small>
             )}
             <label htmlFor="password">Password</label>
             <div className="password-input">
               <input
+                id="password"
                 type={passwordType}
+                onChange={handlePasswordChange}
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
                 placeholder="Password"
-                className={`${
-                  error === "Password is Required!" && "inputField"
-                } common-input`}
+                className={`${error === "Password is Required!" && "inputField"} ${error === "Incorrect Password!" && "inputField"}`}
               />
               <div onClick={passwordToggle} className="toggle-button">
                 <img
@@ -98,14 +135,17 @@ const LoginForm = () => {
               </div>
             </div>
             {error === "Password is Required!" && (
-              <small className="errorMsg">Password is Required</small>
-            )}
+                <small className="errorMsg">Password is Required</small>
+              )}
+              {error === "Incorrect Password!" && (
+                <small className="errorMsg">Incorrect Password</small>
+              )}
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
               <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
-              <button type="submit">Login</button>
+              <button className="login_btn" onClick={handleSignIn}>Login</button>
               <Link to="/login" className="forgot-password">
                 Forgot Your password?
               </Link>
@@ -126,11 +166,9 @@ const LoginForm = () => {
                 </Link>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default LoginForm;

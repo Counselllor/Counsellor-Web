@@ -1,0 +1,235 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #CAE8FF;
+    height: 100vh;
+    width: 100vw;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #navbar ul {
+    /* position: absolute; */
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    background-color: #CFEAFF;
+    gap: 5.5vw;
+    /* right: 6rem; */
+    /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+    padding: 0.78vw 0.78vw 0.78vw 1.3vw;
+    border-radius: 2.6vw;
+  }
+  
+  #navbar ul li * {
+    font-family: "Livvic";
+    font-size: 1.14vw;
+    color: #3C39B9;
+    text-decoration: none;
+    font-weight: 600;
+
+  }
+  .active {
+    font-weight: bold;
+  }
+
+  .dot {
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 20px;
+  }
+  
+.myProfileBtn {
+    display: inline-block;
+    background-color: var(--btnColor);
+    border-radius: 0.4vw;
+    width: 5.2vw;
+    color: #F4F6FC;
+    text-align: center;
+    padding: 0.5vw 20px 0.5vw 20px;
+    margin-right: 0.5vw;
+  }
+
+  
+  #logo {
+    margin: 1.04vw 0 0 1.56vw;
+    height: 4.16vw;
+    width: 4.16vw;
+    display: block;
+  }
+
+  .maintxt h1{
+    width: 36vw;
+    font-family: 'ABeeZee';
+    font-size: 70px;
+    color: #050A30;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .blue {
+    color: #3C38B9;
+  }
+
+  .maintxt p {
+    font-family: 'ABeeZee';
+    font-size: 25px;
+    color: #050A30;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .search {
+    width: 70vw;
+    background-color: #5CB6F9;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+  }
+
+  .vl {
+    position: relative;
+    top: 1px;
+    right: -40px;
+    border-left: 2px solid #306094;
+    height: 70px;
+  }
+
+  .search img {
+    width: 30px;
+    height: 36px;
+    position: relative;
+    top: 18px;
+    right: -10px;
+    color: #306094;
+  }
+
+  .search input {
+    width: 78%;
+    height: 70px;
+    background-color: #5CB6F9;
+    appearance: none;
+    border: none;
+    font-size: 25px;
+    font-family: 'ABeeZee';
+    color: #F4F6FC;
+    padding-left: 35px;
+    margin-left: 35px;
+  }
+
+  .search input::placeholder {
+    color: #306094;
+  }
+
+  .search button {
+    background-color: var(--btnColor);
+    border-radius: 15px;
+    color: #F4F6FC;
+    text-align: center;
+    padding: 20px 50px 20px 50px;
+    margin-right: 0.5vw;
+    border: none;
+    font-size: 25px;
+    float: right;
+    cursor: pointer;
+  }
+
+  .navigator {
+    font-size: 40px;
+    font-family: 'ABeeZee';
+    font-weight: 600;
+    width: 70vw;
+    margin: auto;
+    background-color: #CAE8FF;
+  }
+  
+  .nearby {
+    float: left;
+    color: #050A30;
+    background-color: #CAE8FF;
+  }
+
+  .seeall {
+    float: right;
+    color: #303B5E;
+    background-color: #CAE8FF;
+  }
+
+  .colleges {
+    display: flex;
+    margin: auto;
+    width: 70vw;
+    margin-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+  }
+
+  .college {
+    font-family: 'ABeeZee';
+    width: 300px;
+    height: 170px;
+    border-radius: 12px;
+    background-color: #5CB6F9;
+    padding: 30px;
+  }
+
+  .up {
+    display: flex;
+  }
+
+  .up img {
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    margin-right: 20px;
+  }
+
+  .context {
+    margin: auto;
+  }
+
+  .context p {
+    font-size: 20px;
+    font-family: 'ABeeZee';
+    margin-bottom: 20px;
+  }
+
+  .context span {
+    font-size: 14px;
+    background-color: #F4F6FC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    color: #3E3ABA;
+    font-family: 'ABeeZee';
+  }
+
+  .down {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+
+  .ctc {
+    font-family: 'ABeeZee';
+    font-size: 18px;
+    color: #050A30;
+  }
+
+  .time {
+    font-size: 15px;
+    font-family: 'ABeeZee';
+    color: #050a3079;
+  }
