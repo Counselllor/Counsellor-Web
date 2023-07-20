@@ -4,20 +4,57 @@
   width: 100vw;
 }
 
-.left {
+.parent {
+  display: flex;
+  align-items: center;
   height: 100vh;
+}
+
+.parent .left {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #5CB6F9;
+}
+
+.parent .left img {
+  width: 450px;
+  margin-bottom: 32px;
+}
+
+.parent .left .left-text {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0 50px;
+  width: 50%;
+  text-align: center;
+  margin: 0 32px;
 }
 
 /* Left side container of login page => same as signup page */
 
 /* Right side container of login page */
+.parent .right {
+  background: #fff;
+  width: 50%;
+  height: 100vh;
+}
+
+h1.counsellor {
+  font-size: 40px;
+  text-align: center;
+  margin: 40px auto;
+}
+
 .sign-in {
   font-size: 30px;
   text-align: center;
   font-weight: bolder;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 
 .right .google {
@@ -82,6 +119,13 @@ label[for="password"],
 label[for="remember-me"] {
   margin-top: 10px;
   font-size: 16px;
+}
+.right .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3% 0;
 }
 
 .login-container .login_btn {
@@ -181,9 +225,27 @@ select.inputField {
   cursor: pointer;
 }
 
+@media screen and (max-width: 992px) {
+  .parent .left img {
+    width: 400px;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  .login-container form {
-    padding: 0 10%;
+  .parent {
+    margin-left: -10px;
+  }
+
+  .parent .left {
+    display: none;
+  }
+  
+  .parent .right {
+    width: 100%;
+  }
+
+  .parent .right .form-container {
+    padding: 0 7% 3%;
   }
   .right .google {
     margin: 3% 10%;
@@ -195,6 +257,31 @@ select.inputField {
   .password-input .toggle-button {
     /* right: 5px; */
     right:5px !important;
+  }
+  .password-input .toggle-button1 {
+    right: 50px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  h1.counsellor {
+    font-size: 30px;
+    margin: 20px;
+  }
+  .sign-in {
+    font-size: 20px;
+  }
+  .password-input .toggle-button {
+    right: 10px !important;
+  }
+  .password-input .toggle-button1 {
+    right: 20px !important;
   }
 }
 
@@ -208,12 +295,11 @@ select.inputField {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .password-input .toggle-button {
-    right: 10px !important;
+@media screen and (max-width: 414px) {
+  .password-input .toggle-button1 {
+    right: 15px;
   }
 }
-
 
 .inputField {
   border-color: red !important;

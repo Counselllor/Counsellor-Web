@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import Navbar from "./Navbar/Navbar.jsx";
-import LoginForm from './Login/Login.jsx';
-import SignUpForm from './SignUp/SignUp.jsx';
+const LoginForm = lazy(() => import('./Login/Login.jsx'));
+const SignUpForm = lazy(() => import('./SignUp/SignUp.jsx'));
 import Dashboard from './Dashboard/Dashboard.jsx'
 
 const Home = lazy(() => import("./Home/Home.jsx"));
