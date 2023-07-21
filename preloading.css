@@ -1,0 +1,29 @@
+.center-loader {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #5cb6f9;
+}
+
+.center-loader img {
+  width: 10vw;
+}
+
+.center-loader .pre-text {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.center-loader p {
+  font-size: 1.8rem;
+}
+
+.center-loader span {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+}
