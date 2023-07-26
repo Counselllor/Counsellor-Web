@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import GoogleLogo from "../../assets/googleicon.webp";
-import "./Login.css";
-import show from "../../assets/show.png";
-import hide from "../../assets/hide.png";
-import meeting from "../../assets/meeting.png";
-import microsoft from "../../assets/microsoft.png";
-import googlePlay from "../../assets/google-play.png";
-import { auth,googleAuthProvider } from "../../firebase/auth";
 import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import googlePlay from "../../assets/google-play.png";
+import hide from "../../assets/hide.png";
+import meeting from "../../assets/meeting.png";
+import microsoft from "../../assets/microsoft.png";
+import show from "../../assets/show.png";
+import { auth, googleAuthProvider } from "../../firebase/auth";
+import "./Login.css";
 
 export default function Login() {
   const [error, seterror] = useState("");
@@ -58,14 +56,14 @@ export default function Login() {
       seterror("Password is Required!");
     } else {
       signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-            navigate("/dashboard");
-      })
-      .catch((err) => {
-        if(err == "FirebaseError: Firebase: Error (auth/wrong-password)."){
-          seterror("Incorrect Password!");
-        }
-      });
+        .then(() => {
+          navigate("/dashboard");
+        })
+        .catch((err) => {
+          if (err == "FirebaseError: Firebase: Error (auth/wrong-password).") {
+            seterror("Incorrect Password!");
+          }
+        });
     }
   };
   // Popup Google signin
@@ -103,14 +101,13 @@ export default function Login() {
           <div className="form">
             <label htmlFor="user-name">User Name</label>
             <input
-              id = "email"
+              id="email"
               type="text"
               onChange={handleEmailChange}
               value={email}
               placeholder="Email"
-              className={`${
-                error === "User name is Required!" && "inputField"
-              }`}
+              className={`${error === "User name is Required!" && "inputField"
+                }`}
             />
             {error === "User name is Required!" && (
               <small className="errorMsg">Email is Required</small>
@@ -135,18 +132,18 @@ export default function Login() {
               </div>
             </div>
             {error === "Password is Required!" && (
-                <small className="errorMsg">Password is Required</small>
-              )}
-              {error === "Incorrect Password!" && (
-                <small className="errorMsg">Incorrect Password</small>
-              )}
+              <small className="errorMsg">Password is Required</small>
+            )}
+            {error === "Incorrect Password!" && (
+              <small className="errorMsg">Incorrect Password</small>
+            )}
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
               <label htmlFor="remember-me"> Remember me</label>
             </div>
             <div className="btn">
               <button className="login_btn" onClick={handleSignIn}>Login</button>
-              <Link to="/login" className="forgot-password">
+              <Link to="/forgotpassword" className="forgot-password">
                 Forgot Your password?
               </Link>
             </div>
@@ -158,10 +155,10 @@ export default function Login() {
             <div className="get-app">
               <div className="get-app-title">Get the app.</div>
               <div className="apps">
-                <Link to="/login">
+                <Link to="/">
                   <img className="microsoft-logo" src={microsoft} alt="" />
                 </Link>
-                <Link to="/login">
+                <Link to="/">
                   <img className="google-play-logo" src={googlePlay} alt="" />
                 </Link>
               </div>

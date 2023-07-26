@@ -1,21 +1,46 @@
-
 .ErrorPage {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
+  font-family: "ABeeZee";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.ErrorPage h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.ErrorPage p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.ErrorPage .Btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #1877f2;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
   .ErrorPage h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 10px;
   }
-  
+
   .ErrorPage p {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
+}
+
+
 
   
