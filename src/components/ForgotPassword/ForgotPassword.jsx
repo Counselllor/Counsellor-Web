@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import meeting from "../../assets/meeting.png";
-import './style.css';
+import "./ForgotPassword.css";
+
 
 
 function ForgotPassword() {
@@ -34,8 +35,8 @@ function ForgotPassword() {
                             placeholder="Email" className='common-input '
                         />
                         <div className="btn">
-                            <button type="submit">Forgot Password</button>
-                            <Link to="/" className="forgot-password">
+                            <button className="forgot_btn" type="submit">Forgot Password</button>
+                            <Link to="/" className="back_to_sign_in">
                                 Back to sign in
                             </Link>
                         </div>
