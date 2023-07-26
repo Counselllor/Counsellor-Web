@@ -155,10 +155,10 @@ export default function Login() {
             <div className="get-app">
               <div className="get-app-title">Get the app.</div>
               <div className="apps">
-                <Link to="/login">
+                <Link to="/">
                   <img className="microsoft-logo" src={microsoft} alt="" />
                 </Link>
-                <Link to="/login">
+                <Link to="/">
                   <img className="google-play-logo" src={googlePlay} alt="" />
                 </Link>
               </div>
