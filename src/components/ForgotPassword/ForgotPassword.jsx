@@ -29,10 +29,10 @@ function ForgotPassword() {
 
                     {/* forgot password form */}
                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="Email" style={{ fontSize: "1.8rem" }}>Email</label>
+                        <label className="forgot_text" htmlFor="Email">Please enter your email address and and we'll send you a link to get back into your account.</label>
                         <input type="email" value={email}
                             onChange={(event) => setEmail(event.target.value)}
-                            placeholder="Email" className='common-input '
+                            placeholder="Enter your email address" className='common-input '
                         />
                         <div className="btn">
                             <button className="forgot_btn" type="submit">Forgot Password</button>
