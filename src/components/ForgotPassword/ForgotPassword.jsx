@@ -2,14 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import meeting from "../../assets/meeting.png";
 import "./ForgotPassword.css";
-
-
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 function ForgotPassword() {
 
     const [email, setEmail] = useState();
+    const auth = getAuth();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert('Please check your email for instructions on resetting your password.');
+            })
+            .catch((error) => {
+                console.error(error);
+                alert('Error resetting password');
+            });
     }
 
     return (
