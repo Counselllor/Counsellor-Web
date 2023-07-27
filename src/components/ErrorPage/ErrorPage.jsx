@@ -9,11 +9,11 @@ const ErrorPage = () => {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
       <div className="ErrorPage">
         <h1>Oops! Something went wrong</h1>
-        <img className="Image" src={img} alt="404"></img>
-        <p>Sorry, an unexpected error has occured.</p>
+        {/* <img className="Image" src={img} alt="404"></img> */}
+        <p>The link you followed may be broken, or the page may have been removed. Go back .</p>
         <p>
           <i>{error?.statusText || error?.message}</i>
         </p>

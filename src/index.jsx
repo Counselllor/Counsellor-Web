@@ -1,27 +1,27 @@
-import React, {Suspense} from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Home,About,LoginForm,SignUpForm,ErrorPage,Dashboard} from './components/index'
 import App from './App'
+import { Dashboard, ErrorPage, ForgotPasswordForm, SignUpForm } from './components/index'
 import Loading from './components/Loading/Loading'
-import './index.css'
 import Login from './components/Login/Login'
+import './index.css'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    errorElement: <ErrorPage/>,
-    element: <Suspense fallback={<Loading/>}><App/></Suspense>,
+    errorElement: <ErrorPage />,
+    element: <Suspense fallback={<Loading />}><App /></Suspense>,
     children: [
       {
         path: '/',
-        errorElement: <ErrorPage/>,
-        element: <Login/>
+        errorElement: <ErrorPage />,
+        element: <Login />
       },
       {
         path: '/dashboard',
-        errorElement: <ErrorPage/>,
-        element: <Dashboard/>
+        errorElement: <ErrorPage />,
+        element: <Dashboard />
       },
       // {
       //   path: '/about',
@@ -35,17 +35,22 @@ const router = createBrowserRouter([
       // },
       {
         path: '/signup',
-        errorElement: <ErrorPage/>,
-        element: <SignUpForm/>
-      } 
+        errorElement: <ErrorPage />,
+        element: <SignUpForm />
+      },
+      {
+        path: '/forgotpassword',
+        errorElement: <ErrorPage />,
+        element: <ForgotPasswordForm />
+      }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
-    <RouterProvider router={router}/>
-  
+
+    <RouterProvider router={router} />
+
   </React.StrictMode>
 )
