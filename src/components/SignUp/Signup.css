@@ -1,12 +1,13 @@
 .signup-container {
   font-family: "ABeeZee";
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .parent {
   display: flex;
   align-items: center;
-  height: 103vh;
+  width: 100vw;
 }
 
 /* left part */
@@ -42,9 +43,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.parent .right::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb{
+  background-color: var(--secPageColor);
 }
 
 h1.counsellor {
@@ -199,12 +209,22 @@ select.inputField {
 /* media query */
 
 @media screen and (max-width: 768px) {
+  .signup-container{
+    height: 100%;
+    background-color: var(--white);
+  }
   .password-input .toggle-button1 {
     right: 50px !important;
   }
 }
 
 @media screen and (max-width: 500px) {
+
+  .parent{
+    width: 104vw;
+    overflow-x: hidden;
+  }
+
   .password-input .toggle-button1 {
     right: 20px !important;
   }
@@ -231,6 +251,7 @@ select.inputField {
   
   .parent .right {
     width: 100%;
+    height: auto;
   }
 
   .parent .right .form-container {

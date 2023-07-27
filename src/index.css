@@ -4,15 +4,21 @@
     --white: #ffffff;
     --btnColor: #12229d;
     font-size: 62.5%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-body{
+body, html{
     margin: 0;
+    min-width: 100vw;
 }
 
-#root{
+#root, .App{
     background-color: var(--pageColor);
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
 }
+
+
 
 

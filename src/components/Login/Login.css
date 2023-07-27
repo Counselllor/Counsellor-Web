@@ -1,12 +1,20 @@
 .login-container {
   font-family: "ABeeZee";
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .left {
-  height: 100vh;
-  justify-content: center;
   background-color: #5CB6F9;
+}
+
+.parent .right::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb{
+  background-color: var(--secPageColor);
 }
 
 /* Left side container of login page => same as signup page */
@@ -17,6 +25,7 @@
   text-align: center;
   font-weight: bolder;
   margin-top: 30px;
+  overflow-x: hidden;
 }
 
 .right .google {
@@ -182,6 +191,10 @@ select.inputField {
 }
 
 @media screen and (max-width: 768px) {
+  .login-container{
+    height: 100%;
+    background-color: var(--white);
+  }
   .login-container form {
     padding: 0 10%;
   }
