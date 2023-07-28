@@ -138,6 +138,7 @@ label[for="remember-me"] {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .login-container .login_btn:hover {

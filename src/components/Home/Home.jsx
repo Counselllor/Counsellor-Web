@@ -1,17 +1,16 @@
-import MeetingPhoto from '../../assets/meeting.webp'
-import './Home.css'
 import React from 'react';
 import Typewriter from 'typewriter-effect';
+import MeetingPhoto from '../../assets/meeting.webp';
 import Navbar from '../Navbar/Navbar';
+import './Home.css';
 
 const Home = () => {
-    return(
-        
+    return (
         <>
-        <Navbar />
+            <Navbar />
             <div id='homeCircle'></div>
             <div id='homeContainer'>
-                <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />  
+                <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />
                 <div className="MainText">
                     <Typewriter
                         onInit={(typewriter) => {
@@ -22,7 +21,8 @@ const Home = () => {
                     />
                 </div>
             </div>
-            <div id='homeCircleScnd'></div>
+            <div id='homeCircleScnd'>
+            </div>
         </>
     )
 }
