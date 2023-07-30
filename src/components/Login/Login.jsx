@@ -11,6 +11,7 @@ import microsoft from "../../assets/microsoft.png";
 import show from "../../assets/show.png";
 import { auth, googleAuthProvider } from "../../firebase/auth";
 import "./Login.css";
+import { FaSyncAlt } from "react-icons/fa";
 
 export default function Login() {
   const [error, seterror] = useState("");
@@ -26,7 +27,11 @@ export default function Login() {
     email: "",
     password: "",
     confirmPassword: ""
-  });
+  }); 
+
+   const [captchaVal, setCaptchaVal] = useState("");
+  const [captchaText, setCaptchaText] = useState("");
+
   const navigate = useNavigate();
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -47,8 +52,33 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
+  const genrateCaptcha = ()=>
+    {
+      let captcha = "";
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (let i = 0; i < 6; i++) {
+      var randomIndex = Math.floor(Math.random() * charset.length);
+      captcha += charset.charAt(randomIndex);
+    }
+    setCaptchaText(captcha)
+    }
+
+    useEffect(()=>{
+      genrateCaptcha();
+    }, [])
+
   // if signin with EmailId/password success then navigate to /dashboard
-  const handleSignIn = () => {
+  const handleSignIn = (e) => {
+     e.preventDefault();
+     
+     if(captchaVal !== captchaText){
+      alert("Wrong Captcha")
+      setCaptchaVal("");
+      genrateCaptcha();
+      return;
+    }
+
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email === "") {
@@ -99,29 +129,39 @@ export default function Login() {
           </div>  */}
 
           {/* Login form */}
-          <div className="form">
-            <label htmlFor="user-name">User Name</label>
+          <form className="form" onSubmit={handleSignIn}>
+          <div>
+          <label htmlFor="email">Email</label>
             <input
               id="email"
               type="text"
+              name="email"
               onChange={handleEmailChange}
               value={email}
               placeholder="Email"
-              className={`${error === "User name is Required!" && "inputField"
-                }`}
+              required
+              className={`${
+                error === "User name is Required!" && "inputField"
+              }`}
             />
             {error === "User name is Required!" && (
               <small className="errorMsg">Email is Required</small>
             )}
-            <label htmlFor="password">Password</label>
+          </div>
+             <div>
+             <label htmlFor="password">Password</label>
             <div className="password-input">
-              <input
+            <div style={{position: "relative"}}>
+            <input
                 id="password"
                 type={passwordType}
                 onChange={handlePasswordChange}
                 value={password}
+                required
                 placeholder="Password"
-                className={`${error === "Password is Required!" && "inputField"} ${error === "Incorrect Password!" && "inputField"}`}
+                className={`${
+                  error === "Password is Required!" && "inputField"
+                } ${error === "Incorrect Password!" && "inputField"}`}
               />
               <div onClick={passwordToggle} className="toggle-button">
                 <img
@@ -132,18 +172,46 @@ export default function Login() {
                 />
               </div>
             </div>
+         
+            </div>
             {error === "Password is Required!" && (
               <small className="errorMsg">Password is Required</small>
             )}
             {error === "Incorrect Password!" && (
               <small className="errorMsg">Incorrect Password</small>
             )}
+             </div>
+            <div id="captcha-container">
+              <label htmlFor="captcha">Captcha</label>
+              <div
+                className="flex flex-row gap-3 justify-center items-center"
+                id="captchaBox"
+              >
+                <div id="captcha">{captchaText}</div>
+                <FaSyncAlt
+                id="captchaIcon"
+                  onClick={genrateCaptcha}
+                />
+                <input
+                  type="text"
+                  name="captch"
+                  value={captchaVal}
+                  placeholder="Enter Captcha Here"
+                  onChange={(e) => setCaptchaVal(e.target.value)}
+                  className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
+                  required
+                />
+              </div>
+            </div>
             <div className="remember-me">
               <input type="checkbox" id="remember-me" />
               <label htmlFor="remember-me"> Remember me</label>
             </div>
+              <button className="login_btn" type="submit">
+                Login
+              </button>
+          </form>
             <div className="btn">
-              <button className="login_btn" onClick={handleSignIn}>Login</button>
               <Link to="/forgotpassword" className="forgot-password">
                 Forgot Your password?
               </Link>
@@ -164,7 +232,6 @@ export default function Login() {
                 </Link>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
