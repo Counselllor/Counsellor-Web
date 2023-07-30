@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ import { auth, database } from "../../firebase/auth";
 import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
+import { FaSyncAlt } from "react-icons/fa";
+
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -24,6 +26,8 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: ""
   });
+  const [captchaVal, setCaptchaVal] = useState("");
+  const [captchaText, setCaptchaText] = useState("");
 
   function writeUserData(userId, email, firstname, surname, dob, gender, user_type) {
     set(ref(database, 'users/' + userId), {
@@ -37,7 +41,35 @@ const SignUpForm = () => {
   }
   
   let navigate = useNavigate();
-  const handleRegister = () => {
+
+
+  const genrateCaptcha = ()=>
+  {
+    let captcha = "";
+    const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (let i = 0; i < 6; i++) {
+    var randomIndex = Math.floor(Math.random() * charset.length);
+    captcha += charset.charAt(randomIndex);
+  }
+  setCaptchaText(captcha)
+  }
+
+  useEffect(()=>{
+    genrateCaptcha();
+  }, [])
+
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    if(captchaVal !== captchaText){
+      alert("Wrong Captcha")
+      setCaptchaVal("");
+      genrateCaptcha();
+      return;
+    }
+
     if (registerInformation.password !== registerInformation.confirmPassword) {
       seterror("**Password not same!");
       return;
@@ -88,7 +120,7 @@ const SignUpForm = () => {
           <div className="signuptxt">Create a new account</div>
           <div className="signuptxt2">It's quick and easy.</div>
 
-          <div className="form-container">
+          <form className="form-container" onSubmit={handleRegister}>
             <div className="errorShow"> {error && <p>{error}</p>}</div>
 
             <div className="name">
@@ -100,6 +132,7 @@ const SignUpForm = () => {
                 className={`firstname-text  ${
                   error === "**First Name is Required!" && "inputField"
                 }`}
+                required
               />
 
               <input
@@ -110,6 +143,7 @@ const SignUpForm = () => {
                 className={`surname-text  ${
                   error === "**Surname is Required!" && "inputField"
                 }`}
+                required
               />
             </div>
 
@@ -122,6 +156,7 @@ const SignUpForm = () => {
                   email: e.target.value
                 })
               }
+              required
               placeholder="Email"
               className={error === "**Email is Required!" && "inputField"}
             />
@@ -141,6 +176,7 @@ const SignUpForm = () => {
               } ${
                 error === "**Password not same!" && "inputField"
               }`}
+              required
             />
             <div onClick={passwordToggle} className="toggle-button1">
                 <img
@@ -161,6 +197,7 @@ const SignUpForm = () => {
                   confirmPassword: e.target.value
                 })
               }
+              required
               placeholder="Confirm Password"
               className={`password-text  ${
                 error === "**Password is Required!" && "inputField"
@@ -177,6 +214,7 @@ const SignUpForm = () => {
               className={`dob  ${
                 error === "**D.O.B is Required!" && "inputField"
               }`}
+              required
             />
 
             <select
@@ -184,6 +222,7 @@ const SignUpForm = () => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
               className={error === "**Select Gender!" && "inputField"}
+              required
             >
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
@@ -223,15 +262,37 @@ const SignUpForm = () => {
                 ></input>
               </span>
             </div>
+            <div id="captcha-container">
+              <label htmlFor="captcha">Captcha</label>
+              <div
+                className="flex flex-row gap-3 justify-center items-center"
+                id="captchaBox"
+              >
+                <div id="captcha">{captchaText}</div>
+                <FaSyncAlt
+                 id="captchaIcon"
+                  onClick={genrateCaptcha}
+                />
+                <input
+                  type="text"
+                  name="captcha"
+                  value={captchaVal}
+                  placeholder="Enter Captcha Here"
+                  onChange={(e) => setCaptchaVal(e.target.value)}
+                  className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
+                  required
+                />
+              </div>
+            </div>
             <div className="btn">
-              <button className="submit-button" onClick={handleRegister}>
+              <button className="submit-button" type="submit">
                 Sign Up
               </button>
               <div className="already-account">
                 <Link to="/">Already have an account?</Link>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
