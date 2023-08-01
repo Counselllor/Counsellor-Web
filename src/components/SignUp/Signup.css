@@ -135,6 +135,7 @@ span[for="student-option"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 100%;
   padding: 3% 0;
 }
@@ -200,10 +201,43 @@ select.inputField {
 
 .password-input .toggle-button1 {
   position: absolute;
+  width: fit-content;
   top: 50%;
   right: 9% !important;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+#captcha-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#captchaBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#captcha{
+  width: 40%;
+  background: url(/src/assets/captcha.webp);
+  padding: 9px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(108 110 113);
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+#captchaIcon{
+  font-size: 3rem !important;
+  cursor: pointer !important;
+  margin: 10px !important;
 }
 
 /* media query */
@@ -288,6 +322,7 @@ select.inputField {
   .parent .right .form-container .name {
     width: 98%;
   }
+
 
   .signup-container{
     width: 102vw;
