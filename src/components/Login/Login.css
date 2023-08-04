@@ -1,13 +1,20 @@
 .login-container {
   font-family: "ABeeZee";
-  /* margin-top: 10px; */
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .left {
-  height: 100vh;
-  justify-content: center;
   background-color: #5CB6F9;
+}
+
+.parent .right::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb{
+  background-color: var(--secPageColor);
 }
 
 /* Left side container of login page => same as signup page */
@@ -17,6 +24,7 @@
   font-size: 30px;
   text-align: center;
   font-weight: bolder;
+  margin-bottom: 10%;
   margin-top: 30px;
 }
 
@@ -217,6 +225,10 @@ form div {
 }
 
 @media screen and (max-width: 768px) {
+  .login-container{
+    height: 100%;
+    background-color: var(--white);
+  }
   .login-container form {
     padding: 0 10%;
   }
@@ -246,6 +258,11 @@ form div {
 @media screen and (max-width: 500px) {
   .password-input .toggle-button {
     right: 10px !important;
+  }
+
+  .login-container{
+    width: 102vw;
+    overflow-x: hidden;
   }
 }
 
