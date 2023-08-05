@@ -22,7 +22,7 @@ const validate = {
       password: (value)=>{
         return passwordRegex.test(value)
           ? { password: false, passwordError: false }
-          : { password: true, passwordError: "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)." }
+          : { password: true, passwordError: "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*) and 1 number (0-9)." }
       },
       loginPassword: (value)=>{
         return(!value.trim())

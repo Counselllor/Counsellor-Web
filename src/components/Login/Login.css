@@ -159,6 +159,8 @@ label {
   color: red;
   text-align: center;
   font-size: 12px;
+  width: 90%;
+  margin: auto;
 }
 
 input.inputField,
