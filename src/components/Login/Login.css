@@ -155,14 +155,10 @@ label {
   font-size: 16px;
 }
 
-.errorShow {
-  height: 40px;
-}
-
-.errorShow p {
+.errorShow{
   color: red;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 input.inputField,
@@ -182,7 +178,7 @@ select.inputField {
 .password-input .toggle-button {
   position: absolute;
   width: fit-content;
-  top: 50%;
+  top: 30px;
   right: 4% !important;
   transform: translateY(-50%);
   cursor: pointer;

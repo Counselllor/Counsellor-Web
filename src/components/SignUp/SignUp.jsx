@@ -11,15 +11,19 @@ import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
 import { FaSyncAlt } from "react-icons/fa";
+import validate from "../../common/validation";
 
 
 const SignUpForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
-  const [usertype, setUserType] = useState("");
-  const [error, seterror] = useState("");
+  // Input fields state value
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    surname: "",
+    dob: "",
+    gender: "",
+    "user-type": ""
+  })
+  const [error, setError] = useState({});
   const [passwordType, setPasswordType] = useState("password");
   const [registerInformation, setRegisterInformation] = useState({
     email: "",
@@ -29,9 +33,41 @@ const SignUpForm = () => {
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
 
-  function writeUserData(userId, email, firstname, surname, dob, gender, user_type) {
+  // Functions for handleling inputs
+  const handelUserInfo = (e)=>{
+    const {name, value} = e.target;
+    setUserInfo((prev)=>{
+      return {...prev, [name]: value}
+    })
+
+    if(name !== "dob" && name !== "user-type" && name !== "gender"){
+         const errObj = validate[name](value);
+         setError((prev)=>{
+          return {...prev, ...errObj};
+         })
+    }
+
+  }
+
+  const handleRegisterInformation = (e)=>{
+    const {name, value} = e.target;
+    setRegisterInformation((prev)=>{
+      return {...prev, [name]: value}
+    })
+   
+    let errObj = validate[name](value);
+    if(name === "confirmPassword"){
+      errObj = validate.confirmPassword(value, registerInformation.password);
+    }
+    setError((prev)=>{
+      return {...prev, ...errObj}
+    })
+  }
+
+  function writeUserData(userId, email, userInfo) {
+    const {firstName, surname, dob, gender, user_type} = userInfo;
     set(ref(database, 'users/' + userId), {
-      firstname: firstname,
+      firstname: firstName,
       surname: surname,
       email: email,
       dob: dob,
@@ -62,7 +98,7 @@ const SignUpForm = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
+    let submitable = true;
     if(captchaVal !== captchaText){
       alert("Wrong Captcha")
       setCaptchaVal("");
@@ -70,27 +106,17 @@ const SignUpForm = () => {
       return;
     }
 
-    if (registerInformation.password !== registerInformation.confirmPassword) {
-      seterror("**Password not same!");
-      return;
-    }
-    if (firstName === "") {
-      seterror("**First Name is Required!");
-    } else if (surname === "") {
-      seterror("**Surname is Required!");
-    } else if (registerInformation.email === "") {
-      seterror("**Email is Required!");
-    } else if (registerInformation.password === "") {
-      seterror("**Password is Required!");
-    } else if (dob === "") {
-      seterror("**D.O.B is Required!");
-    } else if (gender === "") {
-      seterror("**Select Gender!");
-    } else if (usertype === "") {
-      seterror("**Required");
-    } else {
+    Object.values(error).forEach((err)=>{
+      if(err !== false){
+        submitable = false;
+        return;
+      }
+    })
+
+    if(submitable){
         const userId = uid();
-        writeUserData(userId, registerInformation.email, firstName, surname, dob, gender, usertype)
+        const {firstName, surname, dob, gender, usertype} = userInfo;
+        writeUserData(userId, registerInformation.email, userInfo)
         try {
           createUserWithEmailAndPassword(
             auth,
@@ -101,8 +127,11 @@ const SignUpForm = () => {
           navigate("/");
         }
         catch(err){alert(err.message)}; 
-    }
+      }else{
+        alert("Please fill all Fields with Valid Data.")
+      }
   };
+
   const passwordToggle = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -121,60 +150,64 @@ const SignUpForm = () => {
           <div className="signuptxt2">It's quick and easy.</div>
 
           <form className="form-container" onSubmit={handleRegister}>
-            <div className="errorShow"> {error && <p>{error}</p>}</div>
+            {/* <div className="errorShow"> {error && <p>{error}</p>}</div> */}
 
             <div className="name">
-              <input
+            <div>
+            <input
                 type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                name="firstName"
+                value={userInfo.firstName}
+                onChange={handelUserInfo}
                 placeholder="First Name"
                 className={`firstname-text  ${
-                  error === "**First Name is Required!" && "inputField"
+                  error.firstNameError && "inputField"
                 }`}
                 required
               />
-
-              <input
+                {error.firstName && error.firstNameError && <p className="errorShow">{error.firstNameError}</p>}
+            </div>
+           
+            <div>
+            <input
                 type="text"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
+                name="surname"
+                value={userInfo.surname}
+                onChange={handelUserInfo}
                 placeholder="Last Name"
                 className={`surname-text  ${
-                  error === "**Surname is Required!" && "inputField"
+                  error.surnameError && "inputField"
                 }`}
                 required
               />
+              {error.surname && error.surnameError && <p className="errorShow">{error.surnameError}</p>}
+            </div>
+             
             </div>
 
-            <input
+          <div>
+          <input
               type="email"
+              name="email"
               value={registerInformation.email}
-              onChange={(e) =>
-                setRegisterInformation({
-                  ...registerInformation,
-                  email: e.target.value
-                })
-              }
+              onChange={handleRegisterInformation}
               required
               placeholder="Email"
-              className={error === "**Email is Required!" && "inputField"}
+              className={error.emailError && "inputField"}
             />
+            {error.email && error.emailError && <p className="errorShow">{error.emailError}</p>}
+          </div>
+           
             <div className="password-input">
+            <div style={{position: "relative"}}>
             <input
               type={passwordType}
+              name="password"
               value={registerInformation.password}
-              onChange={(e) =>
-                setRegisterInformation({
-                  ...registerInformation,
-                  password: e.target.value
-                })
-              }
+              onChange={handleRegisterInformation}
               placeholder="Password"
               className={`password-text  ${
-                error === "**Password is Required!" && "inputField"
-              } ${
-                error === "**Password not same!" && "inputField"
+                error.passwordError && "inputField"
               }`}
               required
             />
@@ -186,42 +219,42 @@ const SignUpForm = () => {
                   alt="password-toggle"
                 />
               </div>
+              
+            </div>
+            {error.password && error.passwordError && <p className="errorShow">{error.passwordError}</p>}
+          
             </div>
             
+            <div>
             <input
               type={passwordType}
+              name="confirmPassword"
               value={registerInformation.confirmPassword}
-              onChange={(e) =>
-                setRegisterInformation({
-                  ...registerInformation,
-                  confirmPassword: e.target.value
-                })
-              }
+              onChange={handleRegisterInformation}
               required
               placeholder="Confirm Password"
               className={`password-text  ${
-                error === "**Password is Required!" && "inputField"
-              } ${
-                error === "**Password not same!" && "inputField"
+                error.confirmPasswordError && "inputField"
               }`}
             />
+             {error.confirmPassword && error.confirmPasswordError && <p className="errorShow">{error.confirmPasswordError}</p>}
+            </div>
+          
 
             <label htmlFor="date-of-birth">Date of birth</label>
             <input
               type="date"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-              className={`dob  ${
-                error === "**D.O.B is Required!" && "inputField"
-              }`}
+              value={userInfo.dob}
+              name="dob"
+              onChange={handelUserInfo}
               required
             />
 
             <select
               type="gender"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              className={error === "**Select Gender!" && "inputField"}
+              name="gender"
+              value={userInfo.gender}
+              onChange={handelUserInfo}
               required
             >
               <option value="">Select Gender</option>
@@ -242,9 +275,8 @@ const SignUpForm = () => {
                   name="user-type"
                   value="student"
                   id = "student-option"
-                  onChange={(e)=>{
-                    setUserType(e.target.value)
-                  }}
+                  onChange={handelUserInfo}
+                  required
                 ></input>
               </span>
 
@@ -256,9 +288,8 @@ const SignUpForm = () => {
                   name="user-type"
                   value="counsellor"
                   id = "counsellor-option"
-                  onChange={(e)=>{
-                    setUserType(e.target.value)
-                  }}
+                  onChange={handelUserInfo}
+                  required
                 ></input>
               </span>
             </div>

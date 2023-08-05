@@ -12,25 +12,38 @@ import show from "../../assets/show.png";
 import { auth, googleAuthProvider } from "../../firebase/auth";
 import "./Login.css";
 import { FaSyncAlt } from "react-icons/fa";
+import validate from "../../common/validation";
 
 export default function Login() {
-  const [error, seterror] = useState("");
+  const [error, setError] = useState({});
   const [passwordType, setPasswordType] = useState("password");
+  const [captchaVal, setCaptchaVal] = useState("");
+  const [captchaText, setCaptchaText] = useState("");
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  }); 
+
+  // Function for handelling inputs
+  const handleLoginInfo = (e)=>{
+    const {name, value} = e.target;
+    setLoginInfo((prev)=>{
+      return {...prev, [name]: value}
+    })
+    let errObj = validate[name](value);
+    if(name === "password"){
+      errObj = validate.loginPassword(value);
+    }
+    setError((prev)=>{
+      return {...prev, ...errObj}
+    })
+  }
+
   const passwordToggle = () => {
     if (passwordType === "password") {
       setPasswordType("text");
     } else setPasswordType("password");
   };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [registerInformation, setRegisterInformation] = useState({
-    email: "",
-    password: "",
-    confirmPassword: ""
-  }); 
-
-   const [captchaVal, setCaptchaVal] = useState("");
-  const [captchaText, setCaptchaText] = useState("");
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -40,17 +53,6 @@ export default function Login() {
       }
     });
   }, []);
-  
-
-  // when email change set email to target value
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  // when password change set password to target value
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
 
   const genrateCaptcha = ()=>
     {
@@ -71,7 +73,7 @@ export default function Login() {
   // if signin with EmailId/password success then navigate to /dashboard
   const handleSignIn = (e) => {
      e.preventDefault();
-     
+     let submitable = true;
      if(captchaVal !== captchaText){
       alert("Wrong Captcha")
       setCaptchaVal("");
@@ -79,23 +81,25 @@ export default function Login() {
       return;
     }
 
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    if (email === "") {
-      seterror("User name is Required!");
-    } else if (password === "") {
-      seterror("Password is Required!");
-    } else {
-      signInWithEmailAndPassword(auth, email, password)
+    Object.values(error).forEach((err)=>{
+      if(err !== false){
+        submitable = false;
+        return;
+      }
+    })
+    if(submitable){
+      signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
           navigate("/dashboard");
         })
         .catch((err) => {
           if (err == "FirebaseError: Firebase: Error (auth/wrong-password).") {
-            seterror("Incorrect Password!");
+            alert("Incorrect Password!");
           }
         });
-    }
+      }else{
+        alert("Please fill all Fields with Valid Data.")
+      }
   };
   // Popup Google signin
   const SignInGoogle = () => {
@@ -120,13 +124,6 @@ export default function Login() {
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
-          {/* <div className="google">
-            <img className="googleicon" src={GoogleLogo} alt="googleicon" />
-            <div className="login-with-google">Login with Google</div>
-          </div> */}
-          {/* <div className="or-line">
-            <hr noshade /> OR <hr noshade />
-          </div>  */}
 
           {/* Login form */}
           <form className="form" onSubmit={handleSignIn}>
@@ -136,17 +133,14 @@ export default function Login() {
               id="email"
               type="text"
               name="email"
-              onChange={handleEmailChange}
-              value={email}
+              onChange={handleLoginInfo}
+              value={loginInfo.email}
               placeholder="Email"
               required
-              className={`${
-                error === "User name is Required!" && "inputField"
-              }`}
+              className={`${error.emailError && "inputField"}`}
             />
-            {error === "User name is Required!" && (
-              <small className="errorMsg">Email is Required</small>
-            )}
+            {error.email && error.emailError && <p className="errorShow">{error.emailError}</p>}
+
           </div>
              <div>
              <label htmlFor="password">Password</label>
@@ -154,14 +148,13 @@ export default function Login() {
             <div style={{position: "relative"}}>
             <input
                 id="password"
+                name="password"
                 type={passwordType}
-                onChange={handlePasswordChange}
-                value={password}
+                onChange={handleLoginInfo}
+                value={loginInfo.password}
                 required
                 placeholder="Password"
-                className={`${
-                  error === "Password is Required!" && "inputField"
-                } ${error === "Incorrect Password!" && "inputField"}`}
+                className={`${error.passwordError && "inputField"}`}
               />
               <div onClick={passwordToggle} className="toggle-button">
                 <img
@@ -171,15 +164,9 @@ export default function Login() {
                   alt="password-toggle"
                 />
               </div>
+              {error.password && error.passwordError && <p className="errorShow">{error.passwordError}</p>}
+            </div>       
             </div>
-         
-            </div>
-            {error === "Password is Required!" && (
-              <small className="errorMsg">Password is Required</small>
-            )}
-            {error === "Incorrect Password!" && (
-              <small className="errorMsg">Incorrect Password</small>
-            )}
              </div>
             <div id="captcha-container">
               <label htmlFor="captcha">Captcha</label>
