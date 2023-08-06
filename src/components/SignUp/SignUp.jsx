@@ -65,7 +65,8 @@ const SignUpForm = () => {
   }
 
   function writeUserData(userId, email, userInfo) {
-    const {firstName, surname, dob, gender, user_type} = userInfo;
+    const {firstName, surname, dob, gender} = userInfo;
+    const user_type = userInfo["user-type"];
     set(ref(database, 'users/' + userId), {
       firstname: firstName,
       surname: surname,
@@ -96,7 +97,7 @@ const SignUpForm = () => {
   }, [])
 
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     let submitable = true;
     if(captchaVal !== captchaText){
@@ -115,18 +116,16 @@ const SignUpForm = () => {
 
     if(submitable){
         const userId = uid();
-        const {firstName, surname, dob, gender, usertype} = userInfo;
-        writeUserData(userId, registerInformation.email, userInfo)
+        writeUserData(userId, registerInformation.email, userInfo);
         try {
-          createUserWithEmailAndPassword(
+         const createUser = await createUserWithEmailAndPassword(
             auth,
             registerInformation.email,
             registerInformation.password
-          )
-          // alert('User Created!!')
+          );
           navigate("/");
         }
-        catch(err){alert(err.message)}; 
+        catch(err){alert(err.message); console.log(err)}; 
       }else{
         alert("Please fill all Fields with Valid Data.")
       }
