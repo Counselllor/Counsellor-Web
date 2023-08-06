@@ -23,16 +23,16 @@ The web application, built using ReactJS, is designed to assist students in maki
 <hr>
 
 ## Table of Contents
-- [About **Councellor** 🧑‍🎓🧑‍🎓](https://github.com/Counselllor/Counsellor-Web/#counsellor-)
-- [Features 🎊🎊](https://github.com/Counselllor/Counsellor-Web/Counsellor/#features)
-- [Technologies Used 🧑‍💻🧑‍💻](https://github.com/Counselllor/Counsellor-Web/Counsellor/#technologies-used-)
+- [About **Councellor** 🧑‍🎓](https://github.com/Counselllor/Counsellor-Web/#counsellor-)
+- [Features 🎊](https://github.com/Counselllor/Counsellor-Web/Counsellor/#features)
+- [Technologies Used 🧑‍💻](https://github.com/Counselllor/Counsellor-Web/Counsellor/#technologies-used-)
 - [Installation Guide 👩‍💻⚙️](https://github.com/Counselllor/Counsellor-Web/Counsellor/#installation)
-- [How to use? 👤👤](https://github.com/Counselllor/Counsellor-Web/Counsellor/#usage)
+- [How to use? 👤](https://github.com/Counselllor/Counsellor-Web/Counsellor/#usage)
 - [View our site live! 🤩🤩](https://github.com/Counselllor/Counsellor-Web/Counsellor/#demo---live-site)
-- [View Contributing Guidlines 📜📜](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contributing-)
+- [View Contributing Guidlines 📜](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contributing-)
 - [Licenses 🗞️🗞️](https://github.com/Counselllor/Counsellor-Web/Counsellor/#license-)
-- [Let's Connect 🔗🔗](https://github.com/Counselllor/Counsellor-Web/Counsellor/#connect-with-us-%EF%B8%8F)
-- [Contact Project Admin 📞📞](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contact-)
+- [Let's Connect 🔗](https://github.com/Counselllor/Counsellor-Web/Counsellor/#connect-with-us-%EF%B8%8F)
+- [Contact Project Admin 📞](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contact-)
 - [Our Valuable Contributors 🌟🌟](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contributors)
 
 ## Features
