@@ -22,6 +22,19 @@ The web application, built using ReactJS, is designed to assist students in maki
 </div>
 <hr>
 
+## Table of Contents
+- [About **Councellor** 🧑‍🎓](https://github.com/Counselllor/Counsellor-Web#counsellor-)
+- [Features 🎊](https://github.com/Counselllor/Counsellor-Web#features)
+- [Technologies Used 🧑‍💻](https://github.com/Counselllor/Counsellor-Web#technologies-used-)
+- [Installation Guide 👩‍💻⚙️](https://github.com/Counselllor/Counsellor-Web#installation)
+- [How to use? 👤](https://github.com/Counselllor/Counsellor-Web#usage)
+- [View our site live! 🤩🤩](https://github.com/Counselllor/Counsellor-Web#demo---live-site)
+- [View Contributing Guidelines 📜](https://github.com/Counselllor/Counsellor-Web#contributing-)
+- [Licenses 🗞️🗞️](https://github.com/Counselllor/Counsellor-Web#license-)
+- [Let's Connect 🔗](https://github.com/Counselllor/Counsellor-Web#connect-with-us-%EF%B8%8F)
+- [Contact Project Admin 📞](https://github.com/Counselllor/Counsellor-Web#contact-)
+- [Our Valuable Contributors 🌟🌟](https://github.com/Counselllor/Counsellor-Web#contributors)
+
 ## Features
 
 -  User registration and login system
