@@ -31,16 +31,11 @@ class _MyLoginState extends State<MyLogin> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  // padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.5),
-                  // margin: EdgeInsets.only(top: 105,),
-                  //   top: MediaQuery.of(context).size.height * 0.5),
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Log in to your account', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'OFL'),),
                       SizedBox(
-                        // height: 8,
+                        height: 8,
                       ),
                       SizedBox(
                         width: 340,
@@ -69,14 +64,11 @@ class _MyLoginState extends State<MyLogin> {
                   Container(
                     margin: EdgeInsets.only(top: 250,left: 30,right: 30,),
                     child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextFormField(
-                          // initialValue: 'Input text',
                           decoration: InputDecoration(
                             labelText: 'E-Mail',
                             hintText: "Enter Email",
-                            // errorText: 'Error message',
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -84,12 +76,10 @@ class _MyLoginState extends State<MyLogin> {
                           height: 20,
                         ),
                         TextFormField(
-                          // initialValue: 'Input text',
                           obscureText: true,
                           decoration: InputDecoration(
                             labelText: 'Password',
                             hintText: "Enter Password",
-                            // errorText: 'Error message',
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -113,7 +103,6 @@ class _MyLoginState extends State<MyLogin> {
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 440,),
                     child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           width: 340,
@@ -147,28 +136,20 @@ class _MyLoginState extends State<MyLogin> {
                         Container(
                           width: 180,
                           height: 100,
-                          // alignment: Alignment.centerLeft,
                           margin: EdgeInsets.only(left: 34,top: 540),
-                          // padding: EdgeInsets.only(right: 30, left: 30,),
                           decoration: BoxDecoration(
-                              // shape: BoxShape.circle,
                               image: DecorationImage(
                                 image: AssetImage('assets/img.png'),
-                                // fit: BoxFit.cover,
                               )
                           ),
                         ),
                         Container(
                           width: 136,
                           height: 130,
-                          // alignment: Alignment.centerLeft,
                           margin: EdgeInsets.only(top: 540,),
-                          // padding: EdgeInsets.only(right: 30, left: 30,),
                           decoration: BoxDecoration(
-                            // shape: BoxShape.circle,
                               image: DecorationImage(
                                 image: AssetImage('assets/img_1.png'),
-                                // fit: BoxFit.cover,
                               )
                           ),
                         ),
