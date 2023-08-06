@@ -23,17 +23,17 @@ The web application, built using ReactJS, is designed to assist students in maki
 <hr>
 
 ## Table of Contents
-- [About](https://github.com/arcVaishali/Counsellor/#counsellor-)
-- [Features](https://github.com/arcVaishali/Counsellor/#features)
-- [Technologies Used](https://github.com/arcVaishali/Counsellor/#technologies-used-)
-- [Installation Guide](https://github.com/arcVaishali/Counsellor/#installation)
-- [How to use?](https://github.com/arcVaishali/Counsellor/#usage)
-- [View our site live!](https://github.com/arcVaishali/Counsellor/#demo---live-site)
-- [View Contributing Guidlines](https://github.com/arcVaishali/Counsellor/#contributing-)
-- [Licenses](https://github.com/arcVaishali/Counsellor/#license-)
-- [Let's Connect](https://github.com/arcVaishali/Counsellor/#connect-with-us-%EF%B8%8F)
-- [Contact Project Admin](https://github.com/arcVaishali/Counsellor/#contact-)
-- [Our Valuable Contributors](https://github.com/arcVaishali/Counsellor/#contributors)
+- [About](https://github.com/Counselllor/Counsellor-Web/#counsellor-)
+- [Features](https://github.com/Counselllor/Counsellor-Web/Counsellor/#features)
+- [Technologies Used](https://github.com/Counselllor/Counsellor-Web/Counsellor/#technologies-used-)
+- [Installation Guide](https://github.com/Counselllor/Counsellor-Web/Counsellor/#installation)
+- [How to use?](https://github.com/Counselllor/Counsellor-Web/Counsellor/#usage)
+- [View our site live!](https://github.com/Counselllor/Counsellor-Web/Counsellor/#demo---live-site)
+- [View Contributing Guidlines](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contributing-)
+- [Licenses](https://github.com/Counselllor/Counsellor-Web/Counsellor/#license-)
+- [Let's Connect](https://github.com/Counselllor/Counsellor-Web/Counsellor/#connect-with-us-%EF%B8%8F)
+- [Contact Project Admin](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contact-)
+- [Our Valuable Contributors](https://github.com/Counselllor/Counsellor-Web/Counsellor/#contributors)
 
 ## Features
 
