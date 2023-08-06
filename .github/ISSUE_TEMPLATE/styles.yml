@@ -33,7 +33,8 @@ body:
       description: By submitting this issue, you agree to follow our Code of Conduct
       options:
         - label: I agree to follow this project's Code of Conduct
-        required: true
+          required: true
+          
         - label: I have read the [Contributing Guidelines](https://github.com/Counselllor/Counsellor-Web/blob/master/CONTRIBUTING.md)
           required: true
 
