@@ -200,7 +200,7 @@ select.inputField {
 .password-input .toggle-button1 {
   position: absolute;
   width: fit-content;
-  top: 50%;
+  top: 30px;
   right: 9% !important;
   transform: translateY(-50%);
   cursor: pointer;
