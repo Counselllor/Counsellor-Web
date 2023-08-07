@@ -1,0 +1,33 @@
+.content{
+    
+    display: flex;
+    justify-content: center;
+    font-family: "Livvic";
+    font-size: 1.14vw;
+    color: var(--white);
+    text-decoration: none;
+}
+.Text{
+    font-family: 'ABeeZee';
+    font-size: 2.44vw;
+    display:grid;
+    color: var(--white);
+    }
+.ending{
+    font-family: 'ABeeZee';
+    text-align: center;
+    color: var(--white);
+    font-size: 2.14vw;
+}
+#homeCircleScnd {
+    position: absolute;
+    height: 52.08vw;
+    width: 52.08vw;
+    border-radius: 100%;
+    background-color: var(--secPageColor);
+    left: -20.83vw;
+    top: -3.17vw;
+    overflow: hidden;
+    z-index: -999;
+  }
+  
