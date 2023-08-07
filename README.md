@@ -85,10 +85,10 @@ To run Counsellor locally, follow these steps:
 
 4. Configure Firebase: Create an account on firebase [https://console.firebase.google.com/](https://console.firebase.google.com/) and craete a project in it.
 
-    - **Useful Resource:** [A ChatGPT chat for configuring firebase](https://chat.openai.com/share/4f1645a4-b6a0-40d0-b42b-9263236824f0)
+    - **Useful Resource:** [A ChatGPT chat for configuring firebase.](https://chat.openai.com/share/4f1645a4-b6a0-40d0-b42b-9263236824f0)
  
 
-5. Create **.env file** add all the firebase environment variables listed in **.env.example**  file
+5. Create **.env file** and add all the firebase environment variables listed in **.env.example**  file with valid values.
 
 6. Start the server:
 
