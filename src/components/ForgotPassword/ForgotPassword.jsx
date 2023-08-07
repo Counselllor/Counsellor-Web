@@ -20,8 +20,8 @@ function ForgotPassword() {
     const handleSubmit = (e) => {
         e.preventDefault();
      
-        if (!validEmail(email)) {
-        setError("**Enter a valid E-mail!");}
+        if (email===undefined) {
+        setError("**Enter a E-mail!");}
         else
         {
             setError("");
@@ -56,10 +56,19 @@ function ForgotPassword() {
                     <form onSubmit={handleSubmit}>
                         <label className="forgot_text" htmlFor="Email">Please enter your email address and and we'll send you a link to get back into your account.</label>
                         <input type="email" value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            placeholder="Enter your email address" className={`common-input ${error === '**Enter a valid E-mail!'?'error':''}`}
+                            onChange={(event) => 
+                                { setEmail(event.target.value)
+                                 if (!validEmail(event.target.value)) {
+                                setError("**Enter a valid E-mail!");
+                                } else {
+                                setError("");
+                                }
+                            }}
+                            placeholder="Enter your email address" className={`common-input ${error === '**Enter a valid E-mail!'?'error':''}  ${error === '**Enter a E-mail!'?'error':''}`}
                         />
-                         
+                        {error === "**Enter a E-mail!" && (
+                            <small className="errorMsg">**E-mail is required!</small>
+                        )} 
                         {error === "**Enter a valid E-mail!" && (
                             <small className="errorMsg">**Enter a valid E-mail!</small>
                         )}
