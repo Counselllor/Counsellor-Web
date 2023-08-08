@@ -18,32 +18,18 @@ The web application, built using ReactJS, is designed to assist students in maki
   <img src="https://img.shields.io/github/last-commit/thestarsahil/Counsellor?style=for-the-badge" />
   <img src="https://img.shields.io/github/contributors/thestarsahil/Counsellor?style=for-the-badge" />
   <img src="https://img.shields.io/github/issues-pr-closed-raw/thestarsahil/Counsellor?style=for-the-badge" />
-
 </div>
 <hr>
 
-## Table of Contents
-- [About **Councellor** 🧑‍🎓](https://github.com/Counselllor/Counsellor-Web#counsellor-)
-- [Features 🎊](https://github.com/Counselllor/Counsellor-Web#features)
-- [Technologies Used 🧑‍💻](https://github.com/Counselllor/Counsellor-Web#technologies-used-)
-- [Installation Guide 👩‍💻⚙️](https://github.com/Counselllor/Counsellor-Web#installation)
-- [How to use? 👤](https://github.com/Counselllor/Counsellor-Web#usage)
-- [View our site live! 🤩🤩](https://github.com/Counselllor/Counsellor-Web#demo---live-site)
-- [View Contributing Guidelines 📜](https://github.com/Counselllor/Counsellor-Web#contributing-)
-- [Licenses 🗞️🗞️](https://github.com/Counselllor/Counsellor-Web#license-)
-- [Let's Connect 🔗](https://github.com/Counselllor/Counsellor-Web#connect-with-us-%EF%B8%8F)
-- [Contact Project Admin 📞](https://github.com/Counselllor/Counsellor-Web#contact-)
-- [Our Valuable Contributors 🌟🌟](https://github.com/Counselllor/Counsellor-Web#contributors)
-
 ## Features
 
--  User registration and login system
--  Anonymously connect users with trained counsellors
--  Real-time messaging between users and counsellors
--  Secure and private communication using encryption
--  User-friendly interface for easy navigation
--  User profile customization options
--  Easy access to previous chat history
+-  User registration and login system 💻
+-  Anonymously connect users with trained counsellors 🧑‍🤝‍🧑
+-  Real-time messaging between users and counsellors 📬
+-  Secure and private communication using encryption 🔒
+-  User-friendly interface for easy navigation 👱‍♂️
+-  User profile customization options 👨‍🦱
+-  Easy access to previous chat history 📧
 
 <hr>
 
@@ -60,6 +46,22 @@ The web application, built using ReactJS, is designed to assist students in maki
 -  **Encryption:** bcrypt, crypto
 
 <hr>
+
+
+## Table of Contents
+- [About **Councellor** 🧑‍🎓](https://github.com/Counselllor/Counsellor-Web#counsellor-)
+- [Features 🎊](https://github.com/Counselllor/Counsellor-Web#features)
+- [Technologies Used 🧑‍💻](https://github.com/Counselllor/Counsellor-Web#technologies-used-)
+- [Installation Guide 👩‍💻⚙️](https://github.com/Counselllor/Counsellor-Web#installation)
+- [How to use? 👤](https://github.com/Counselllor/Counsellor-Web#usage)
+- [View our site live! 🤩🤩](https://github.com/Counselllor/Counsellor-Web#demo---live-site)
+- [View Contributing Guidelines 📜](https://github.com/Counselllor/Counsellor-Web#contributing-)
+- [Licenses 🗞️🗞️](https://github.com/Counselllor/Counsellor-Web#license-)
+- [Let's Connect 🔗](https://github.com/Counselllor/Counsellor-Web#connect-with-us-%EF%B8%8F)
+- [Contact Project Admin 📞](https://github.com/Counselllor/Counsellor-Web#contact-)
+- [Our Valuable Contributors 🌟🌟](https://github.com/Counselllor/Counsellor-Web#contributors)
+
+  <hr>
 
 ## Installation
 
@@ -108,34 +110,25 @@ Once the application is running, users can register or log in to their accounts.
 
 ## Demo -> [Live site](https://counsellor-startup.netlify.app/)
 
-
-
 ![8](https://github.com/Counselllor/Counsellor-Web/assets/84167034/5af1c0ec-1cfe-4fc4-a0b1-78f1b147705d)
 ![9](https://github.com/Counselllor/Counsellor-Web/assets/84167034/18fa9adc-84d8-45e9-be7a-1db8f288bd57)
 ![10](https://github.com/Counselllor/Counsellor-Web/assets/84167034/a7cb258c-d1c0-4ddd-858f-760313edc2a7)
 ![11](https://github.com/Counselllor/Counsellor-Web/assets/84167034/c0f96ef1-84e3-44a3-82e8-1df100ee30fa)
 
-
-
 ![5](https://user-images.githubusercontent.com/84167034/218539171-2469465b-d840-4c10-99e9-df3af37c49d4.png)
 ![13](https://github.com/Counselllor/Counsellor-Web/assets/84167034/de11c594-ac0b-46e6-baa2-d1f9d80ebdf2)
-
 
 ![6](https://user-images.githubusercontent.com/84167034/218539183-e6cffd7d-08bc-45e9-a042-e7025172df8e.png)
 ![15](https://github.com/Counselllor/Counsellor-Web/assets/84167034/22cb6ecd-9bb9-4e3d-a42b-d0acfef7f1b9)
 
-
 ![7](https://user-images.githubusercontent.com/84167034/218539211-7e425cb0-5bec-41b9-bee3-c419469f7828.png)
 ![17](https://github.com/Counselllor/Counsellor-Web/assets/84167034/2a480bcd-bf26-4a8c-b83b-6542674bfd9f)
-
 
 ![18](https://github.com/Counselllor/Counsellor-Web/assets/84167034/8f61f99e-586a-4811-b7b0-b66d4b884569)
 ![19](https://github.com/Counselllor/Counsellor-Web/assets/84167034/dfd02c13-7e8c-4f6b-8082-09264312bfe4)
 
 ![20](https://github.com/Counselllor/Counsellor-Web/assets/84167034/1cc0af59-b3c2-4307-a1bc-636004ecb23b)
 ![21](https://github.com/Counselllor/Counsellor-Web/assets/84167034/ffec5f50-c87d-4812-b7cb-5e0b02d09115)
-
-
 
 <hr>
 
