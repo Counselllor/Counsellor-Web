@@ -97,7 +97,7 @@ select[type="gender"] {
 }
 
 select[type="gender"] {
-  width: unset;
+  width: 97%;
 }
 
 .form-container input[type="date"] {
@@ -106,10 +106,17 @@ select[type="gender"] {
 }
 
 label[for="student-or-counsellor"],
-label[for="date-of-birth"] {
+label[for="date-of-birth"]
+label[for="age"] {
   margin-top: 10px;
   font-size: 16px;
-  color: gray;
+}
+
+.twoFields{
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 15px;
+  width: 95%;
 }
 
 span[for="counsellor-option"],
