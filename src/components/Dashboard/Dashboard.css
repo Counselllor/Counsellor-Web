@@ -21,8 +21,8 @@ body{
     align-items: center;
     background-color: #CFEAFF;
     gap: 5.5vw;
-    /* right: 6rem; */
-    /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+    right: 6rem; 
+    padding: 1.5rem 1.5rem 1.5rem 2.5rem;
     padding: 0.78vw 0.78vw 0.78vw 1.3vw;
     border-radius: 2.6vw;
   }
@@ -40,9 +40,9 @@ body{
   }
 
   .dot {
-    font-size: 50px;
-    font-weight: 900;
-    padding-bottom: 20px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-bottom: 5px;
   }
   
 .myProfileBtn {
@@ -123,8 +123,14 @@ body{
     font-family: 'ABeeZee';
     color: #F4F6FC;
     padding-left: 35px;
+    margin-top: -55px;
     margin-left: 35px;
   }
+
+  .search.dark input {
+    background-color: #222222;
+    color: #ffffff;
+}
 
   .search input::placeholder {
     color: #306094;
@@ -136,6 +142,7 @@ body{
     color: #F4F6FC;
     text-align: center;
     padding: 20px 50px 20px 50px;
+    margin-top: -55px;
     margin-right: 0.5vw;
     border: none;
     font-size: 25px;
@@ -232,4 +239,12 @@ body{
     font-size: 15px;
     font-family: 'ABeeZee';
     color: #050a3079;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top : 30px;
+    font-size: 2.4rem;
+    width: 4rem;
+    height: 4rem;
   }
