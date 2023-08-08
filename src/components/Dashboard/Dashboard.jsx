@@ -1,10 +1,12 @@
 import './Dashboard.css'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { MdSunny, MdBrightness2 } from "react-icons/md";
+import '../../index'
 const Dashboard = () => {
     const navigate = useNavigate();
 
@@ -28,9 +30,61 @@ const Dashboard = () => {
             alert(err.message);
           });
       };
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+
+    const root = document.documentElement;
+    root.style.setProperty(
+      "--pageColor",
+      isDarkMode ? "#222222" : "#5cb6f9"
+    );
+
+    root.style.setProperty(
+      "--secPageColor",
+      isDarkMode ? "#333333" : "#6cbdfa"
+    );
+
+  };
+  
+  const themeStyles = `
+    .theme-toggle {
+      position: fixed;
+     top : 80px;
+    }
+    .theme-toggle button {
+      font-size: 2.4rem;
+      width: 4rem;
+      height: 4rem;
+      color: #fff;
+      background-color: black;
+      box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 15px 5px;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 200px;
+      top: 30px;
+      left: 650px;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: white;
+    }
+  `;
+
     return(
         
         <>
+        <style>{themeStyles}</style>
+          <div className="theme-toggle">
+            <button onClick={toggleTheme}>
+              {isDarkMode ? <MdSunny/>: <MdBrightness2/>}
+            </button>
+          </div>
+          
         <nav id="navbar">
         <img id='logo' src={Logo} alt="logo" />
         <ul>

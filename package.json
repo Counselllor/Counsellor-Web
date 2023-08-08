@@ -1,8 +1,7 @@
 {
   "name": "counsellingsystem",
   "private": true,
-  "proxy": "http://localhost:4000",
-  "version": "0.0.0",
+    "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
