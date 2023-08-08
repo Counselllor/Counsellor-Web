@@ -40,8 +40,6 @@
 .parent .right {
   background: #fff;
   width: 50%;
-  height: 100vh;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 
