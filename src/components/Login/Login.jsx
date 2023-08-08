@@ -13,6 +13,7 @@ import { auth, googleAuthProvider } from "../../firebase/auth";
 import "./Login.css";
 import { FaSyncAlt } from "react-icons/fa";
 import validate from "../../common/validation";
+import Footer from "../Footer/Footer";
 
 export default function Login() {
   const [error, setError] = useState({});
@@ -111,15 +112,10 @@ export default function Login() {
   };
 
   return (
+    <main>
     <div className="login-container">
       <div className="parent">
         {/* Home icon */}
-        {/* This is the left side of the login page   */}
-        <div className="left">
-          <img src={meeting} alt="meeting" />
-          <p className="left-text">Still Confused with College Choice?</p>
-        </div>
-
         {/* This is the right side of the login page   */}
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
@@ -220,7 +216,14 @@ export default function Login() {
               </div>
             </div>
         </div>
+           {/* This is the left side of the login page   */}
+           <div className="left">
+          <img src={meeting} alt="meeting" />
+          <p className="left-text">Still Confused with College Choice?</p>
+        </div>
       </div>
     </div>
+    <Footer />
+    </main>
   );
 };

@@ -12,6 +12,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
 import { FaSyncAlt } from "react-icons/fa";
 import validate from "../../common/validation";
+import Footer from "../Footer/Footer";
 
 
 const SignUpForm = () => {
@@ -137,12 +138,9 @@ const SignUpForm = () => {
     } else setPasswordType("password");
   };
   return (
+    <main>
     <div className="signup-container">
       <div className="parent">
-        <div className="left">
-          <img src={meeting} alt="meeting" />
-          <p className="left-text">Still Confused with College Choice?</p>
-        </div>
         <div className="right">
         <h1 className="counsellor">Counsellor</h1>
           <div className="signuptxt">Create a new account</div>
@@ -324,8 +322,14 @@ const SignUpForm = () => {
             </div>
           </form>
         </div>
+        <div className="left">
+          <img src={meeting} alt="meeting" />
+          <p className="left-text">Still Confused with College Choice?</p>
+        </div>
       </div>
     </div>
+        <Footer />
+    </main>
   );
 };
 
