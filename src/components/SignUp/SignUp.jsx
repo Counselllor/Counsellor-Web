@@ -22,6 +22,7 @@ const SignUpForm = () => {
     surname: "",
     dob: "",
     gender: "",
+    age: null,
     "user-type": ""
   })
   const [error, setError] = useState({});
@@ -41,13 +42,21 @@ const SignUpForm = () => {
       return {...prev, [name]: value}
     })
 
-    if(name !== "dob" && name !== "user-type" && name !== "gender"){
+    if(name !== "user-type" && name !== "gender"){
          const errObj = validate[name](value);
          setError((prev)=>{
           return {...prev, ...errObj};
          })
     }
 
+    if(name === "dob") {
+       let calculateAge = ageCalculator(e.target.value);
+       (calculateAge === null) ?calculateAge= "":null;
+       setUserInfo((prev)=>{
+        return {...prev, age: calculateAge }
+      })   
+  }
+    console.log(typeof userInfo.age)
   }
 
   const handleRegisterInformation = (e)=>{
@@ -66,7 +75,7 @@ const SignUpForm = () => {
   }
 
   function writeUserData(userId, email, userInfo) {
-    const {firstName, surname, dob, gender} = userInfo;
+    const {firstName, surname, dob, gender, age} = userInfo;
     const user_type = userInfo["user-type"];
     set(ref(database, 'users/' + userId), {
       firstname: firstName,
@@ -74,6 +83,7 @@ const SignUpForm = () => {
       email: email,
       dob: dob,
       gender: gender,
+      age: age,
       user_type: user_type
     });
   }
@@ -137,6 +147,24 @@ const SignUpForm = () => {
       setPasswordType("text");
     } else setPasswordType("password");
   };
+
+  const ageCalculator = (dob)=>{
+    const birthDate = new Date(dob);
+    const currentDate = new Date();
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+  
+    const birthMonth = birthDate.getMonth();
+    const currentMonth = currentDate.getMonth();
+  
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    if(age < 1){
+      age = null;
+    }
+    return age;
+  }
   return (
     <main>
     <div className="signup-container">
@@ -237,15 +265,30 @@ const SignUpForm = () => {
              {error.confirmPassword && error.confirmPasswordError && <p className="errorShow">{error.confirmPasswordError}</p>}
             </div>
           
-
-            <label htmlFor="date-of-birth">Date of birth</label>
-            <input
-              type="date"
-              value={userInfo.dob}
-              name="dob"
-              onChange={handelUserInfo}
-              required
-            />
+           <div className="twoFields">
+              <div>
+               <label htmlFor="date-of-birth">Date of birth</label>
+               <input
+                 type="date"
+                 value={userInfo.dob}
+                 name="dob"
+                 onChange={handelUserInfo}
+                 required
+               />
+              </div>
+              <div>
+               <label htmlFor="age">Your Age</label>
+               <input
+                type="text"
+                value={userInfo.age}
+                name="age"
+                placeholder="Auto Generted"
+                readOnly
+              />
+               </div>
+           </div>
+           {error.dob && error.dobError && <p className="errorShow">{error.dobError}</p>}
+           
 
             <select
               type="gender"
@@ -253,13 +296,14 @@ const SignUpForm = () => {
               value={userInfo.gender}
               onChange={handelUserInfo}
               required
+              className=""
             >
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
-
+           
             <label htmlFor="student-or-counsellor">
               Are you Student or Counsellor ?{" "}
             </label>
