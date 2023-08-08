@@ -199,8 +199,9 @@ select.inputField {
   position: absolute;
   width: fit-content;
   font-size: 20px;
+  padding: 10px 20px;
   top: 28px;
-  right: 8% !important;
+  right: 5% !important;
   transform: translateY(-50%);
   cursor: pointer;
 }
