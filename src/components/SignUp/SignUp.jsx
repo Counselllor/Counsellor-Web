@@ -21,8 +21,10 @@ const SignUpForm = () => {
     surname: "",
     dob: "",
     gender: "",
-    "user-type": "",
-  });
+    age: null,
+    "user-type": ""
+  })
+
   const [error, setError] = useState({});
   const [passwordType, setPasswordType] = useState("password");
   const [confrimPasswordType, setConfirmPasswordType] = useState("password");
@@ -51,20 +53,26 @@ const SignUpForm = () => {
     setUserInfo((prev) => {
       return { ...prev, [name]: value };
     });
+    if(name !== "user-type" && name !== "gender"){
+         const errObj = validate[name](value);
+         setError((prev)=>{
+          return {...prev, ...errObj};
+         })
 
-    if (name !== "dob" && name !== "user-type" && name !== "gender") {
-      const errObj = validate[name](value);
-      setError((prev) => {
-        return { ...prev, ...errObj };
-      });
     }
   };
 
-  const handleRegisterInformation = (e) => {
-    const { name, value } = e.target;
-    setRegisterInformation((prev) => {
-      return { ...prev, [name]: value };
-    });
+
+    if(name === "dob") {
+       let calculateAge = ageCalculator(e.target.value);
+       (calculateAge === null) ?calculateAge= "":null;
+       setUserInfo((prev)=>{
+        return {...prev, age: calculateAge }
+      })   
+  }
+    console.log(typeof userInfo.age)
+  }
+
 
     let errObj = validate[name](value);
     if (name === "confirmPassword") {
@@ -76,7 +84,9 @@ const SignUpForm = () => {
   };
 
   function writeUserData(userId, email, userInfo) {
-    const { firstName, surname, dob, gender } = userInfo;
+
+    const {firstName, surname, dob, gender, age} = userInfo;
+
     const user_type = userInfo["user-type"];
     set(ref(database, "users/" + userId), {
       firstname: firstName,
@@ -84,7 +94,10 @@ const SignUpForm = () => {
       email: email,
       dob: dob,
       gender: gender,
-      user_type: user_type,
+
+      age: age,
+      user_type: user_type
+
     });
   }
 
@@ -141,6 +154,30 @@ const SignUpForm = () => {
       alert("Please fill all Fields with Valid Data.");
     }
   };
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
+
+  const ageCalculator = (dob)=>{
+    const birthDate = new Date(dob);
+    const currentDate = new Date();
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+  
+    const birthMonth = birthDate.getMonth();
+    const currentMonth = currentDate.getMonth();
+  
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    if(age < 1){
+      age = null;
+    }
+    return age;
+  }
 
   return (
     <main>
@@ -205,6 +242,7 @@ const SignUpForm = () => {
                 )}
               </div>
 
+
               <div className="password-input">
                 <div style={{ position: "relative" }}>
                   <input
@@ -265,15 +303,61 @@ const SignUpForm = () => {
                 )}
               </div>
 
-              <label htmlFor="date-of-birth">Date of birth</label>
-              <input
-                type="date"
-                value={userInfo.dob}
-                name="dob"
-                onChange={handelUserInfo}
-                required
+           <div className="twoFields">
+              <div>
+               <label htmlFor="date-of-birth">Date of birth</label>
+               <input
+                 type="date"
+                 value={userInfo.dob}
+                 name="dob"
+                 onChange={handelUserInfo}
+                 required
+               />
+              </div>
+              <div>
+               <label htmlFor="age">Your Age</label>
+               <input
+                type="text"
+                value={userInfo.age}
+                name="age"
+                placeholder="Auto Generted"
+                readOnly
               />
+               </div>
+           </div>
+           {error.dob && error.dobError && <p className="errorShow">{error.dobError}</p>}
+           
 
+            <select
+              type="gender"
+              name="gender"
+              value={userInfo.gender}
+              onChange={handelUserInfo}
+              required
+              className=""
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+           
+            <label htmlFor="student-or-counsellor">
+              Are you Student or Counsellor ?{" "}
+            </label>
+            <div className="name soc">
+              <span htmlFor="student-option">
+                Student
+                <input
+                  type="radio"
+                  className= "student-option"
+                  name="user-type"
+                  value="student"
+                  id = "student-option"
+                  onChange={handelUserInfo}
+                  required
+                ></input>
+              </span>
               <select
                 type="gender"
                 name="gender"

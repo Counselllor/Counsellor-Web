@@ -34,6 +34,16 @@ const validate = {
                  {confirmPassword: true, confirmPasswordError: "Password does not match"}:
                  { confirmPassword: false, confirmPasswordError: false }
       },
+      dob: (value)=>{
+        const dob = new Date(value);
+        const today = new Date();
+
+        if((dob.getFullYear()+10) < today.getFullYear()){
+          return { dob: false, dobError: false }
+        }else{
+          return {dob: true, dobError: "Invalid Date-of-Birth. Age must be atleast 10 years."}
+        }
+      }
 }
 
 export default validate;
