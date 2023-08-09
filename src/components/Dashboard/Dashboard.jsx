@@ -77,9 +77,11 @@ const Dashboard = () => {
         <p>For the Students, By the Students</p>
       </div>
 
-        <div className="search">
+      
+        <div className={`search ${isDarkMode ? "dark" : ""}`}>
             <img src="src/assets/search_icon.png" alt="" />
             <div className="vl"></div>
+            
             <div className={`search ${isDarkMode ? "dark" : ""}`}>
             <input type="text" placeholder='Type college name or university name'/>
             <button>Search</button>
@@ -91,8 +93,9 @@ const Dashboard = () => {
         </div>
         <br />
         <br />
+        
         <div className="colleges">
-            <div className="college">
+            <div className={`college ${isDarkMode ? "dark" : ""}`}>
                 <div className="up">
                 <img src='https://i.postimg.cc/cg4NH0pV/image.png' border='0' alt='image'/>
                     <div className="context">
@@ -105,7 +108,7 @@ const Dashboard = () => {
                     <div className="time">3 min ago</div>
                 </div>
             </div>
-            <div className="college">
+            <div className={`college ${isDarkMode ? "dark" : ""}`}>
                 <div className="up">
                 <img src='https://i.postimg.cc/cg4NH0pV/image.png' border='0' alt='image'/>
                     <div className="context">
@@ -118,7 +121,7 @@ const Dashboard = () => {
                     <div className="time">3 min ago</div>
                 </div>
             </div>
-            <div className="college">
+            <div className={`college ${isDarkMode ? "dark" : ""}`}>
                 <div className="up">
                 <img src='https://i.postimg.cc/cg4NH0pV/image.png' border='0' alt='image'/>
                     <div className="context">
