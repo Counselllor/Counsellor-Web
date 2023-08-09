@@ -21,8 +21,8 @@ body{
     align-items: center;
     background-color: #CFEAFF;
     gap: 5.5vw;
-    /* right: 6rem; */
-    /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
+    right: 6rem; 
+    padding: 1.5rem 1.5rem 1.5rem 2.5rem;
     padding: 0.78vw 0.78vw 0.78vw 1.3vw;
     border-radius: 2.6vw;
   }
@@ -40,9 +40,9 @@ body{
   }
 
   .dot {
-    font-size: 50px;
-    font-weight: 900;
-    padding-bottom: 20px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-bottom: 5px;
   }
   
 .myProfileBtn {
@@ -95,7 +95,14 @@ body{
     margin-bottom: 50px;
     display: flex;
   }
-
+  .search.dark  {
+    background-color: #222222;
+    color: #ffffff;
+}
+.search.dark input{
+  background-color: #222222;
+  color: #ffffff;
+}
   .vl {
     position: relative;
     top: 1px;
@@ -174,6 +181,9 @@ body{
     justify-content: space-between;
   }
 
+  .college.dark{
+    background-color: #393636;
+  }
   .college {
     font-family: 'ABeeZee';
     width: 300px;
@@ -216,6 +226,13 @@ body{
     font-family: 'ABeeZee';
   }
 
+
+  .context.dark {
+    font-size: 20px;
+    font-family: 'ABeeZee';
+    margin-bottom: 20px;
+  }
+
   .down {
     display: flex;
     margin-top: 20px;
@@ -228,6 +245,11 @@ body{
     color: #050A30;
   }
 
+  .ctc.dark {
+    font-family: 'ABeeZee';
+    font-size: 18px;
+    color: #fff;
+  }
   .time {
     font-size: 15px;
     font-family: 'ABeeZee';
