@@ -15,6 +15,7 @@ export {
     About, Dashboard, ErrorPage, ForgotPasswordForm, Home,
     LoginForm,
     Navbar,
+    
     SignUpForm
 };
 
