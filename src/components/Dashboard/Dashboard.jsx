@@ -5,19 +5,22 @@ import React, { useEffect } from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
+
+
 const Dashboard = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-          if (user) {
-            // read
-            console.log("");
-          } else if (!user) {
-            navigate("/");
-          }
-        });
-      }, []);
+    // useEffect(() => {
+    //     auth.onAuthStateChanged((user) => {
+    //       if (user) {
+    //         // read
+    //         console.log("");
+    //       } else if (!user) {
+    //         navigate("/");
+    //       }
+    //     });
+    //   }, []);
 
     const handleSignOut = () => {
         signOut(auth)
@@ -31,6 +34,7 @@ const Dashboard = () => {
     return(
         
         <>
+        <main>
         <nav id="navbar">
         <img id='logo' src={Logo} alt="logo" />
         <ul>
@@ -105,6 +109,8 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        <Footer />
+        </main>
         </>
     )
 }
