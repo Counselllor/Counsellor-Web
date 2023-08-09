@@ -81,11 +81,8 @@ const Dashboard = () => {
         <div className={`search ${isDarkMode ? "dark" : ""}`}>
             <img src="src/assets/search_icon.png" alt="" />
             <div className="vl"></div>
-            
-            <div className={`search ${isDarkMode ? "dark" : ""}`}>
             <input type="text" placeholder='Type college name or university name'/>
             <button>Search</button>
-        </div>
         </div>
         <div className="navigator">
             <span className='nearby'>Nearby</span>
