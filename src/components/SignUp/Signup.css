@@ -1,12 +1,13 @@
 .signup-container {
   font-family: "ABeeZee";
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .parent {
   display: flex;
   align-items: center;
-  height: 100vh;
+  width: 100vw;
 }
 
 /* left part */
@@ -39,7 +40,16 @@
 .parent .right {
   background: #fff;
   width: 50%;
-  height: 105vh;
+  overflow-x: hidden;
+}
+
+.parent .right::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb{
+  background-color: var(--secPageColor);
 }
 
 h1.counsellor {
@@ -87,7 +97,7 @@ select[type="gender"] {
 }
 
 select[type="gender"] {
-  width: unset;
+  width: 97%;
 }
 
 .form-container input[type="date"] {
@@ -96,10 +106,17 @@ select[type="gender"] {
 }
 
 label[for="student-or-counsellor"],
-label[for="date-of-birth"] {
+label[for="date-of-birth"]
+label[for="age"] {
   margin-top: 10px;
   font-size: 16px;
-  color: gray;
+}
+
+.twoFields{
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 15px;
+  width: 95%;
 }
 
 span[for="counsellor-option"],
@@ -120,6 +137,7 @@ span[for="student-option"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 100%;
   padding: 3% 0;
 }
@@ -132,15 +150,16 @@ span[for="student-option"] {
 
 .submit-button {
   font-size: 16px;
+  width: 100%;
   background-color: #1877f2;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  
+  margin-top: 8px;
   padding: 12px 50px;
   margin-bottom: 8px;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .submit-button:hover {
@@ -185,21 +204,64 @@ select.inputField {
 
 .password-input .toggle-button1 {
   position: absolute;
-  top: 50%;
+  width: fit-content;
+  top: 30px;
   right: 9% !important;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
+#captcha-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#captchaBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#captcha{
+  width: 40%;
+  background: url(/src/assets/captcha.webp);
+  padding: 9px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(108 110 113);
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+#captchaIcon{
+  font-size: 3rem !important;
+  cursor: pointer !important;
+  margin: 10px !important;
+}
+
 /* media query */
 
 @media screen and (max-width: 768px) {
+  .signup-container{
+    height: 100%;
+    background-color: var(--white);
+  }
   .password-input .toggle-button1 {
     right: 50px !important;
   }
 }
 
 @media screen and (max-width: 500px) {
+
+  .parent{
+    width: 104vw;
+    overflow-x: hidden;
+  }
+
   .password-input .toggle-button1 {
     right: 20px !important;
   }
@@ -220,16 +282,13 @@ select.inputField {
 }
 
 @media screen and (max-width: 768px) {
-  .parent {
-    margin-left: -10px;
-  }
-
   .parent .left {
     display: none;
   }
   
   .parent .right {
     width: 100%;
+    height: auto;
   }
 
   .parent .right .form-container {
@@ -265,5 +324,11 @@ select.inputField {
 @media screen and (max-width: 450px) {
   .parent .right .form-container .name {
     width: 98%;
+  }
+
+
+  .signup-container{
+    width: 102vw;
+    overflow-x: hidden;
   }
 }

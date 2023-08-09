@@ -22,6 +22,19 @@ The web application, built using ReactJS, is designed to assist students in maki
 </div>
 <hr>
 
+## Table of Contents
+- [About **Councellor** 🧑‍🎓](https://github.com/Counselllor/Counsellor-Web#counsellor-)
+- [Features 🎊](https://github.com/Counselllor/Counsellor-Web#features)
+- [Technologies Used 🧑‍💻](https://github.com/Counselllor/Counsellor-Web#technologies-used-)
+- [Installation Guide 👩‍💻⚙️](https://github.com/Counselllor/Counsellor-Web#installation)
+- [How to use? 👤](https://github.com/Counselllor/Counsellor-Web#usage)
+- [View our site live! 🤩🤩](https://github.com/Counselllor/Counsellor-Web#demo---live-site)
+- [View Contributing Guidelines 📜](https://github.com/Counselllor/Counsellor-Web#contributing-)
+- [Licenses 🗞️🗞️](https://github.com/Counselllor/Counsellor-Web#license-)
+- [Let's Connect 🔗](https://github.com/Counselllor/Counsellor-Web#connect-with-us-%EF%B8%8F)
+- [Contact Project Admin 📞](https://github.com/Counselllor/Counsellor-Web#contact-)
+- [Our Valuable Contributors 🌟🌟](https://github.com/Counselllor/Counsellor-Web#contributors)
+
 ## Features
 
 -  User registration and login system
@@ -70,13 +83,20 @@ To run Counsellor locally, follow these steps:
    npm install
    ```
 
-4. Start the server:
+4. Configure Firebase: Create an account on firebase [https://console.firebase.google.com/](https://console.firebase.google.com/) and craete a project in it.
+
+    - **Useful Resource:** [A ChatGPT chat for configuring firebase.](https://chat.openai.com/share/4f1645a4-b6a0-40d0-b42b-9263236824f0)
+ 
+
+5. Create **.env file** and add all the firebase environment variables listed in **.env.example**  file with valid values.
+
+6. Start the server:
 
    ```
    npm run dev
    ```
 
-5. Open your web browser and visit `http://localhost:3000` to access the Counsellor application.
+7. Open your web browser and visit `http://localhost:5173` to access the Counsellor application.
 
 <hr>
 
