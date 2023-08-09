@@ -1,12 +1,25 @@
 import './Dashboard.css'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(window.innerWidth >= 768); // Set to true on mobile, false on desktop
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMenuOpen(window.innerWidth >= 768);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -28,22 +41,34 @@ const Dashboard = () => {
             alert(err.message);
           });
       };
+
+      const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+      };
+
     return(
         
         <>
         <nav id="navbar">
         <img id='logo' src={Logo} alt="logo" />
-        <ul>
+        <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <div className="bar" />
+          <div className="bar" />
+          <div className="bar" />
+        </div>
+        {isMenuOpen && ( 
+        <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <li><NavLink className={({isActive})=>isActive?'active': 'none'} >Top Universities</NavLink></li>
         <li><NavLink className={({isActive})=>isActive?'active': 'none'} >Jobs</NavLink></li>
           <li><NavLink className={({isActive})=>isActive?'active': 'none'} >Courses</NavLink></li>
           <li><NavLink className={({isActive})=>isActive?'active': 'none'} >Carrier Support</NavLink></li>
-          <li className='dot'>.</li>
+          <li className='dot'> | </li>
           <li><NavLink className={({isActive})=>isActive?'active': 'none'} onClick={handleSignOut}>Log Out</NavLink></li>
           <li>
             <div className='myProfileBtn'><NavLink className={({isActive})=>isActive?'active': 'none'} >My Profile</NavLink></div>
           </li>
         </ul>
+        )}
       </nav>
 
       <div className="maintxt">
