@@ -15,7 +15,9 @@ body, html{
 #root, .App{
     background-color: var(--pageColor);
     overflow-x: hidden;
+
     height: 100%;
+    
     width: 100%;
 }
 
