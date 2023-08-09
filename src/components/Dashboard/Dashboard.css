@@ -95,7 +95,14 @@ body{
     margin-bottom: 50px;
     display: flex;
   }
-
+  .search.dark  {
+    background-color: #222222;
+    color: #ffffff;
+}
+.search.dark input{
+  background-color: #222222;
+  color: #ffffff;
+}
   .vl {
     position: relative;
     top: 1px;
