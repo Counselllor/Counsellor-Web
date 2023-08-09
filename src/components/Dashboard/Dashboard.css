@@ -127,11 +127,6 @@ body{
     margin-left: 35px;
   }
 
-  .search.dark input {
-    background-color: #222222;
-    color: #ffffff;
-}
-
   .search input::placeholder {
     color: #306094;
   }
@@ -181,6 +176,9 @@ body{
     justify-content: space-between;
   }
 
+  .college.dark{
+    background-color: #393636;
+  }
   .college {
     font-family: 'ABeeZee';
     width: 300px;
@@ -223,6 +221,13 @@ body{
     font-family: 'ABeeZee';
   }
 
+
+  .context.dark {
+    font-size: 20px;
+    font-family: 'ABeeZee';
+    margin-bottom: 20px;
+  }
+
   .down {
     display: flex;
     margin-top: 20px;
@@ -235,16 +240,13 @@ body{
     color: #050A30;
   }
 
+  .ctc.dark {
+    font-family: 'ABeeZee';
+    font-size: 18px;
+    color: #fff;
+  }
   .time {
     font-size: 15px;
     font-family: 'ABeeZee';
     color: #050a3079;
-  }
-
-  .theme-toggle {
-    position: fixed;
-    top : 30px;
-    font-size: 2.4rem;
-    width: 4rem;
-    height: 4rem;
   }
