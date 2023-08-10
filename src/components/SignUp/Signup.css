@@ -235,6 +235,7 @@ select.inputField {
   color: rgb(108 110 113);
   border: 2px solid black;
   border-radius: 6px;
+  user-select: none;
 }
 
 #captchaIcon{
