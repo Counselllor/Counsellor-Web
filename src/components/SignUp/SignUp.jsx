@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaHome, FaEye, FaEyeSlash, FaUser, FaIdCard, FaEnvelope, FaLock, FaCheckCircle, FaBirthdayCake, FaHourglass, FaVideo, FaVenusMars, FaGraduationCap, FaUserTie, FaShieldVirus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import meeting from "../../assets/meeting.png";
 import "./Signup.css";
@@ -178,7 +178,7 @@ const SignUpForm = () => {
             {/* <div className="errorShow"> {error && <p>{error}</p>}</div> */}
 
             <div className="name">
-            <div>
+            <div className="iconContainer">
             <input
                 type="text"
                 name="firstName"
@@ -190,10 +190,11 @@ const SignUpForm = () => {
                 }`}
                 required
               />
+              <FaUser className="icons" />
                 {error.firstName && error.firstNameError && <p className="errorShow">{error.firstNameError}</p>}
             </div>
            
-            <div>
+            <div className="iconContainer">
             <input
                 type="text"
                 name="surname"
@@ -205,12 +206,13 @@ const SignUpForm = () => {
                 }`}
                 required
               />
+              <FaIdCard className="icons"/>
               {error.surname && error.surnameError && <p className="errorShow">{error.surnameError}</p>}
             </div>
              
             </div>
 
-          <div>
+          <div className="iconContainer">
           <input
               type="email"
               name="email"
@@ -220,11 +222,12 @@ const SignUpForm = () => {
               placeholder="Email"
               className={error.emailError && "inputField"}
             />
+            <FaEnvelope className="icons" />
             {error.email && error.emailError && <p className="errorShow">{error.emailError}</p>}
           </div>
            
             <div className="password-input">
-            <div style={{position: "relative"}}>
+            <div className="iconContainer">
             <input
               type={passwordType}
               name="password"
@@ -236,6 +239,7 @@ const SignUpForm = () => {
               }`}
               required
             />
+            <FaLock className="icons" />
             <div onClick={passwordToggle} className="toggle-button1">
                 <img
                   height={20}
@@ -250,7 +254,7 @@ const SignUpForm = () => {
           
             </div>
             
-            <div>
+            <div className="iconContainer">
             <input
               type={passwordType}
               name="confirmPassword"
@@ -262,12 +266,14 @@ const SignUpForm = () => {
                 error.confirmPasswordError && "inputField"
               }`}
             />
+            <FaCheckCircle className="icons"/>
              {error.confirmPassword && error.confirmPasswordError && <p className="errorShow">{error.confirmPasswordError}</p>}
             </div>
           
            <div className="twoFields">
               <div>
                <label htmlFor="date-of-birth">Date of birth</label>
+               <div className="iconContainer">
                <input
                  type="date"
                  value={userInfo.dob}
@@ -275,9 +281,12 @@ const SignUpForm = () => {
                  onChange={handelUserInfo}
                  required
                />
+               <FaBirthdayCake className="icons" />
+               </div>
               </div>
               <div>
                <label htmlFor="age">Your Age</label>
+               <div className="iconContainer">
                <input
                 type="text"
                 value={userInfo.age}
@@ -285,11 +294,14 @@ const SignUpForm = () => {
                 placeholder="Auto Generted"
                 readOnly
               />
+              <FaHourglass className="icons"/>
+               </div>
+              
                </div>
            </div>
            {error.dob && error.dobError && <p className="errorShow">{error.dobError}</p>}
            
-
+            <div className="iconContainer">
             <select
               type="gender"
               name="gender"
@@ -303,11 +315,16 @@ const SignUpForm = () => {
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
+
+            <FaVenusMars className="icons"/>
+            </div>
+          
            
             <label htmlFor="student-or-counsellor">
               Are you Student or Counsellor ?{" "}
             </label>
             <div className="name soc">
+              <div className="iconContainer">
               <span htmlFor="student-option">
                 Student
                 <input
@@ -320,7 +337,10 @@ const SignUpForm = () => {
                   required
                 ></input>
               </span>
+               <FaGraduationCap className="icons" style={{fontSize: "20px"}}/>
+              </div>
 
+              <div className="iconContainer">
               <span htmlFor="counsellor-option">
                 Counsellor
                 <input
@@ -333,6 +353,9 @@ const SignUpForm = () => {
                   required
                 ></input>
               </span>
+              <FaUserTie className="icons"/>
+              </div>
+             
             </div>
             <div id="captcha-container">
               <label htmlFor="captcha">Captcha</label>
@@ -345,6 +368,7 @@ const SignUpForm = () => {
                  id="captchaIcon"
                   onClick={genrateCaptcha}
                 />
+                <div className="iconContainer">
                 <input
                   type="text"
                   name="captcha"
@@ -354,6 +378,8 @@ const SignUpForm = () => {
                   className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
                   required
                 />
+                <FaShieldVirus className="icons" />
+                </div>
               </div>
             </div>
             <div className="btn">
