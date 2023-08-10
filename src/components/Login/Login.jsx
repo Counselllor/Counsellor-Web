@@ -11,7 +11,7 @@ import microsoft from "../../assets/microsoft.png";
 import show from "../../assets/show.png";
 import { auth, googleAuthProvider } from "../../firebase/auth";
 import "./Login.css";
-import { FaSyncAlt } from "react-icons/fa";
+import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
 
@@ -125,7 +125,8 @@ export default function Login() {
           <form className="form" onSubmit={handleSignIn}>
           <div>
           <label htmlFor="email">Email</label>
-            <input
+          <div className="iconContainer">
+          <input
               id="email"
               type="text"
               name="email"
@@ -135,13 +136,16 @@ export default function Login() {
               required
               className={`${error.emailError && "inputField"}`}
             />
+            <FaEnvelope className="icons"/>
+          </div>
+           
             {error.email && error.emailError && <p className="errorShow">{error.emailError}</p>}
 
           </div>
              <div>
              <label htmlFor="password">Password</label>
             <div className="password-input">
-            <div style={{position: "relative"}}>
+            <div className="iconContainer">
             <input
                 id="password"
                 name="password"
@@ -152,6 +156,7 @@ export default function Login() {
                 placeholder="Password"
                 className={`${error.passwordError && "inputField"}`}
               />
+              <FaKey className="icons"/>
               <div onClick={passwordToggle} className="toggle-button">
                 <img
                   height={20}
@@ -175,6 +180,7 @@ export default function Login() {
                 id="captchaIcon"
                   onClick={genrateCaptcha}
                 />
+                <div className="iconContainer">
                 <input
                   type="text"
                   name="captch"
@@ -184,6 +190,9 @@ export default function Login() {
                   className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
                   required
                 />
+                <FaShieldVirus className="icons"/>
+                </div>
+               
               </div>
             </div>
             <div className="remember-me">

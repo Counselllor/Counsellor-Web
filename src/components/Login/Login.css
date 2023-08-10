@@ -72,13 +72,15 @@
 .login-container input[type="email"],
 .login-container input[type="password"],
 .login-container input[type="text"] {
-  width: 95%;
+  width: 100%;
   padding: 12px;
   margin: 5px 0 10px;
   border-radius: 6px;
   font-size: 16px;
   border: 2px solid #d8d8d8;
   outline: none;
+  box-sizing: border-box;
+  padding-left: 35px;
 }
 
 .login-container input[type="checkbox"] {
@@ -220,6 +222,19 @@ form div {
   font-size: 3rem !important;
   cursor: pointer !important;
   margin: 10px !important;
+}
+
+/* Form Icons */
+.iconContainer{
+  position: relative;
+}
+
+.iconContainer .icons{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  color: #1877f2;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {
