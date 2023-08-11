@@ -3,9 +3,24 @@
     --secPageColor: #6cbdfa;
     --white: #ffffff;
     --btnColor: #12229d;
-    background-color: var(--pageColor);
     font-size: 62.5%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
+
+body, html{
+    margin: 0;
+    min-width: 100vw;
+}
+
+#root, .App{
+    background-color: var(--pageColor);
+    overflow-x: hidden;
+
+    height: 100%;
+    
+    width: 100%;
+}
+
+
 
 

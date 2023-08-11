@@ -1,13 +1,20 @@
 .login-container {
   font-family: "ABeeZee";
-  /* margin-top: 10px; */
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .left {
-  height: 100vh;
-  justify-content: center;
   background-color: #5CB6F9;
+}
+
+.parent .right::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb{
+  background-color: var(--secPageColor);
 }
 
 /* Left side container of login page => same as signup page */
@@ -17,6 +24,7 @@
   font-size: 30px;
   text-align: center;
   font-weight: bolder;
+  margin-bottom: 10%;
   margin-top: 30px;
 }
 
@@ -64,22 +72,21 @@
 .login-container input[type="email"],
 .login-container input[type="password"],
 .login-container input[type="text"] {
-  width: 95%;
+  width: 100%;
   padding: 12px;
   margin: 5px 0 10px;
   border-radius: 6px;
   font-size: 16px;
   border: 2px solid #d8d8d8;
   outline: none;
+  box-sizing: border-box;
+  padding-left: 35px;
 }
 
 .login-container input[type="checkbox"] {
   width: unset;
 }
-
-label[for="user-name"],
-label[for="password"],
-label[for="remember-me"] {
+label {
   margin-top: 10px;
   font-size: 16px;
 }
@@ -94,6 +101,7 @@ label[for="remember-me"] {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .login-container .login_btn:hover {
@@ -149,14 +157,12 @@ label[for="remember-me"] {
   font-size: 16px;
 }
 
-.errorShow {
-  height: 40px;
-}
-
-.errorShow p {
+.errorShow{
   color: red;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
+  width: 90%;
+  margin: auto;
 }
 
 input.inputField,
@@ -175,13 +181,68 @@ select.inputField {
 
 .password-input .toggle-button {
   position: absolute;
-  top: 50%;
+  width: fit-content;
+  top: 30px;
   right: 4% !important;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
+form div {
+  width: 100%;
+}
+
+#captcha-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#captchaBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#captcha{
+  width: 40%;
+  background: url(/src/assets/captcha.webp);
+  padding: 9px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(108 110 113);
+  border: 2px solid black;
+  border-radius: 6px;
+  user-select: none;
+}
+
+#captchaIcon{
+  font-size: 3rem !important;
+  cursor: pointer !important;
+  margin: 10px !important;
+}
+
+/* Form Icons */
+.iconContainer{
+  position: relative;
+}
+
+.iconContainer .icons{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  color: #1877f2;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 768px) {
+  .login-container{
+    height: 100%;
+    background-color: var(--white);
+  }
   .login-container form {
     padding: 0 10%;
   }
@@ -211,6 +272,11 @@ select.inputField {
 @media screen and (max-width: 500px) {
   .password-input .toggle-button {
     right: 10px !important;
+  }
+
+  .login-container{
+    width: 102vw;
+    overflow-x: hidden;
   }
 }
 

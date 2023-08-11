@@ -12,20 +12,20 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "firebase": "^10.0.0",
+    "firebase": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-loader-spinner": "^5.3.4",
-    "react-router-dom": "^6.14.1",
+    "react-router-dom": "^6.14.2",
     "react-spinners": "^0.13.8",
     "typewriter-effect": "^2.20.1",
     "uid": "^2.0.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
+    "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "vite": "^4.4.4"
+    "@vitejs/plugin-react": "^4.0.4",
+    "vite": "^4.4.9"
   }
 }
