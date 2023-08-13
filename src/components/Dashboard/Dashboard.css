@@ -155,18 +155,17 @@ body{
   .nearby {
     float: left;
     color: #050A30;
-    background-color: #CAE8FF;
   }
 
   .seeall {
     float: right;
     color: #303B5E;
-    background-color: #CAE8FF;
   }
 
   .colleges {
     display: flex;
     margin: auto;
+    margin-bottom:60px ;
     width: 70vw;
     margin-top: 100px;
     padding-left: 50px;
@@ -176,6 +175,7 @@ body{
 
   .college {
     font-family: 'ABeeZee';
+    margin:0px 5px;
     width: 300px;
     height: 170px;
     border-radius: 12px;
@@ -232,4 +232,8 @@ body{
     font-size: 15px;
     font-family: 'ABeeZee';
     color: #050a3079;
+  }
+
+  .remove-outline-when-selected:focus{
+    outline: none;
   }
