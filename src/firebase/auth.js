@@ -4,14 +4,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
-  authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
-  databaseURL: import.meta.env.VITE_REACT_APP_DATABASE_URL,
-  projectId: import.meta.env.VITE_REACT_APP_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_REACT_APP_MASSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_REACT_APP_APP_ID,
-  measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID
+  apiKey: "AIzaSyDPhcXaBHNZvVyiAuM-E7QZwHj88XlquQE",
+  authDomain: "smart-road-394307.firebaseapp.com",
+  projectId: "smart-road-394307",
+  storageBucket: "smart-road-394307.appspot.com",
+  messagingSenderId: "688615482410",
+  appId: "1:688615482410:web:c5fbfdbd3c30bf66f74f53",
+  measurementId: "G-C98GEJ8GFN"
 };
 
 // Initialize Firebase

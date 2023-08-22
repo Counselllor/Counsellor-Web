@@ -29,6 +29,13 @@ footer li{
 footer li:hover{
     cursor: pointer;
     text-decoration: underline;
+    color: aqua;
+}
+.footer_text{
+    align-items: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    
 }
 
 #icons{
