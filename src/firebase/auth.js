@@ -4,14 +4,14 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
-  authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
-  databaseURL: import.meta.env.VITE_REACT_APP_DATABASE_URL,
-  projectId: import.meta.env.VITE_REACT_APP_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_REACT_APP_MASSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_REACT_APP_APP_ID,
-  measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID
+  apiKey: "AIzaSyCL_bwyE7_rwnAbuEJl5Vr7FD1_e_cOZxw",
+  authDomain: "counsellor-web-e81b7.firebaseapp.com",
+  databaseURL: "https://counsellor-web-e81b7-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "counsellor-web-e81b7",
+  storageBucket: "counsellor-web-e81b7.appspot.com",
+  messagingSenderId: "1055143292636",
+  appId: "1:1055143292636:web:1397f7974a27bd486e0e19",
+  measurementId: "G-MJST0MPDZ3"
 };
 
 // Initialize Firebase
