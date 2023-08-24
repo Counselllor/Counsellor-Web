@@ -203,10 +203,12 @@ select.inputField {
 }
 
 .password-input .toggle-button1 {
+  color: #1877f2;
   position: absolute;
-  width: fit-content;
-  top: 30px;
-  right: 9% !important;
+  font-size: 20px;
+  padding: 10px 20px;
+  top: 28px;
+  right: -6px;
   transform: translateY(-50%);
   cursor: pointer;
 }
