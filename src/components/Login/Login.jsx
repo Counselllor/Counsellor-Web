@@ -4,9 +4,11 @@ import {
 } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import meeting2 from "../../assets/meeting2.png";
+
 import googlePlay from "../../assets/google-play.png";
 import hide from "../../assets/hide.png";
-import meeting from "../../assets/meeting.png";
+// import meeting from "../../assets/meeting.png";
 import microsoft from "../../assets/microsoft.png";
 import show from "../../assets/show.png";
 import { auth, googleAuthProvider } from "../../firebase/auth";
@@ -227,7 +229,7 @@ export default function Login() {
         </div>
            {/* This is the left side of the login page   */}
            <div className="left">
-          <img src={meeting} alt="meeting" />
+           <img src={meeting2} alt="meeting" />
           <p className="left-text">Still Confused with College Choice?</p>
         </div>
       </div>
