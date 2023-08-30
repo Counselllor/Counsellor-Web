@@ -1,12 +1,13 @@
 footer{
-    background-color: #16206b;
+    background-color: #ffffff;
     bottom: 0px;
     left: 0px;
-    color: whitesmoke;
+    color: rgba(155, 155, 155, 0.8);
     padding: 16px;
     z-index: 0;
     text-align: center;
     font-size: 15px;
+    font-family: sans-serif;
 }
 
 footer ul{

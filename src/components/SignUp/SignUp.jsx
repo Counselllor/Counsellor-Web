@@ -18,7 +18,7 @@ import {
   FaShieldVirus,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import meeting from "../../assets/meeting.png";
+import meeting2 from "../../assets/meeting2.png";
 import "./Signup.css";
 import show from "../../assets/show.png";
 import hide from "../../assets/hide.png";
@@ -441,7 +441,7 @@ const SignUpForm = () => {
             </form>
           </div>
           <div className="left">
-            <img src={meeting} alt="meeting" />
+            <img src={meeting2} alt="meeting" />
             <p className="left-text">Still Confused with College Choice?</p>
           </div>
         </div>
