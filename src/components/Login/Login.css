@@ -190,6 +190,7 @@ select.inputField {
 
 form div {
   width: 100%;
+  text-align: start;
 }
 
 #captcha-container{

@@ -188,6 +188,7 @@
   color: #050A30;
   text-align: center;
   margin: 30px 0 0 0;
+  padding-bottom: 30px;
 }
 
 .search {
@@ -261,7 +262,7 @@
 
   .search {
     flex-direction: column;
-    background-color: #CAE7FE;
+    background-color: #ffffff;
   }
 
   .search img {
@@ -319,13 +320,11 @@
 .nearby {
   float: left;
   color: #050A30;
-  background-color: #CAE8FF;
 }
 
 .seeall {
   float: right;
   color: #303B5E;
-  background-color: #CAE8FF;
 }
 
 .colleges {
