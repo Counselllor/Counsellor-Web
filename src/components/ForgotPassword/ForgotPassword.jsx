@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import meeting from "../../assets/meeting.png";
+import meeting2 from "../../assets/meeting2.png";
 import "./ForgotPassword.css";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
@@ -43,7 +43,7 @@ function ForgotPassword() {
                 {/* Home icon */}
                 {/* This is the left side of the login page   */}
                 <div className="left">
-                    <img src={meeting} alt="meeting" />
+                    <img src={meeting2} alt="meeting" />
                     <p className="left-text">Still Confused with College Choice?</p>
                 </div>
 
