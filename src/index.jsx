@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
-import { Dashboard, ErrorPage, ForgotPasswordForm, SignUpForm,Profile } from './components/index'
+import { Dashboard, ErrorPage, ForgotPasswordForm, SignUpForm,Profile,Contact } from './components/index'
 import Loading from './components/Loading/Loading'
 import Login from './components/Login/Login'
 import './index.css'
@@ -47,6 +47,11 @@ const router = createBrowserRouter([
         path: '/profile',
         // errorElement: <ErrorPage />,
         element: <Profile />
+      },
+      {
+        path: '/contact',
+        // errorElement: <ErrorPage />,
+        element: <Contact />
       }
       
     ]

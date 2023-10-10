@@ -48,9 +48,9 @@ const Dashboard = () => {
           <div className={`menu ${menuOpen ? 'show' : ''}`}>
             <ul>
               <li><a href="#">Top Universities</a></li>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Carrier Support</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="/contact">Contact</a></li>
+              {/* <li><a href="#">Carrier Support</a></li> */}
               <li className='dot'><a href="#">•</a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
               <li><a href="/profile"><button className='profile_btn'>Profile</button></a></li>
