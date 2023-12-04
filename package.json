@@ -17,7 +17,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-loader-spinner": "^5.4.5",
-    "react-router-dom": "^6.20.0",
+    "react-router-dom": "^6.20.1",
     "react-spinners": "^0.13.8",
     "typewriter-effect": "^2.21.0",
     "uid": "^2.0.2"
