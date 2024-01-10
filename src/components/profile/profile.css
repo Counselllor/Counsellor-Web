@@ -1,0 +1,153 @@
+/* Left Column Styles */
+/* ------------------ */
+
+/* Overall Page Styling */
+body {
+    background-color: #CAE7FE; /* Light Gray Background */
+    font-family: Arial, sans-serif;
+}
+
+.card-header1{
+    font-family: 'ABeeZee';
+
+    background-color: #000000;
+    width: 10vw;
+    margin-left: 23.5vw;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    height: 3vh;
+    color: rgb(201, 196, 196);
+    font-weight: 100;
+    font-size: large;
+}
+.card-header2{
+    background-color: #4a4e91;
+    width: 25vw;
+    margin-left: 20vw;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+    height: 3vh;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: large;
+    font-family: 'ABeeZee';
+
+}
+.container-xl {
+    margin-top: 20px;
+}
+.row1{margin-top: 5vh;
+    margin-right: 40vw;
+}
+.row2{
+    margin-left: 30vw;
+    margin-top: -38vh;
+}
+#profile {
+    /* background: linear-gradient(to bottom, #939aa1, #d1d1d1); Replace these colors with your desired gradient */
+    margin-top: -5vh;
+    background-color: #CAE7FE;
+    /* background-color: #0056b3; */
+    padding: 20px; /* Add some padding for better visual separation */
+}
+
+/* Profile Picture Styling */
+.card-header {
+    font-weight: bold;
+    background-color: #98a4b1; /* Blue Header */
+    color: #fff; /* White Text */
+}
+
+.img-account-profile {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 4px solid #fff; /* White Border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Light Shadow */
+}
+
+.btn-primary {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #007bff; /* Blue Button */
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+.row45{
+    margin-bottom: 2vh;
+    /* width: 5vw; */
+}
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker Blue on Hover */
+}
+
+/* Account Details Styling */
+.card-header {
+    width: 50vw;
+    margin-left: 25vw;
+    font-weight: bold;
+    background-color: #000000; /* Dark Gray Header */
+    color: #fff; /* White Text */
+    font-size: 20px;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    background-color: #fff; /* White Input Background */
+    color: #333; /* Dark Text */
+}
+
+.small {
+    font-family: 'ABeeZee';
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 100;
+    color: #000000;
+    padding-bottom: 15px;
+}
+
+/* Add color and style to the Submit button */
+button[type="submit"] {
+    background-color: #28a745; /* Green Button */
+    border-color: #28a745;
+    color: #fff; /* White Text */
+    font-weight: bold;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1e7e34; /* Darker Green on Hover */
+}
+/* Add these styles for the input boxes */
+.form-control {
+    padding: 10px;
+    border: 1px solid #5070c7;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    background-color: #fff; /* White Input Background */
+    color: #333; /* Dark Text */
+    transition: border-color 0.3s ease; /* Add a smooth transition for border color */
+}
+
+/* Add focus styles for the input boxes */
+.form-control:focus {
+    border-color: #007bff; /* Blue border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
+}
+
+/* Right Column Styles */
+/* ------------------- */
+
+/* Add styles for the right column here */

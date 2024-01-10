@@ -53,7 +53,7 @@ const Dashboard = () => {
               <li><a href="#">Carrier Support</a></li>
               <li className='dot'><a href="#">•</a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
+              <li><a href="/profile"><button className='profile_btn'>Profile</button></a></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
@@ -66,6 +66,8 @@ const Dashboard = () => {
           <h1><span className="blue">Find your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
           <p>For the Students, By the Students</p>
         </div>
+        <div className="middle"style={{backgroundColor:"#CAE8FF", marginTop: "-10vh"}}>
+        <div className='searchbg' >
         <div className="search">
           <div className="s_bar_c">
             <img src="src/assets/search_icon.png" alt="" />
@@ -74,6 +76,9 @@ const Dashboard = () => {
           </div>
           <button>Search</button>
         </div>
+
+        </div>
+        <div>
         <div className="navigator">
           <span className='nearby'>Nearby</span>
           <span className='seeall'>See All</span>
@@ -94,6 +99,8 @@ const Dashboard = () => {
               </div>
             </div>
           ))}
+        </div>
+        </div>
         </div>
         <Footer />
       </main>
