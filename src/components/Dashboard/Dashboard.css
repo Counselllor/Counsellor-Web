@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #CAE7FE;
+
 }
 
 .navbar {
@@ -10,7 +11,10 @@
   padding: 10px;
   color: white;
   background-color: #CAE7FE;
+  font-family: 'ABeeZee';
+  font-size: 2px;
 }
+
 
 .logo img {
   width: 75px;
@@ -21,7 +25,7 @@
   flex-direction: column;
   align-items: center;
   top: 70px;
-  width: 100%;
+  width: 206%;
 }
 
 .menu.show {
@@ -39,6 +43,10 @@
   background-color: #f4f6fcb8;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-right: 25vw;
+
 }
 
 .menu li {
@@ -50,19 +58,23 @@
   border-radius: 15px;
   color: #F4F6FC;
   text-align: center;
-  padding: 10px 50px;
+  padding: 7px 40px;
   margin-right: 0.5vw;
   border: none;
-  font-size: 25px;
+  font-size: 15px;
   float: right;
   cursor: pointer;
+  width: 95%;
 }
 
 .menu a {
   text-decoration: none;
   color: #12229d;
-  font-size: 22px;
+  font-size: 15px;
 }
+/* .menu a:hover{
+  background-color: rgb(4, 12, 58);
+} */
 
 .hamburger {
   cursor: pointer;
@@ -125,11 +137,12 @@
 
   .menu.show {
     display: flex;
-    background: #cae7fe45;
+    background: #6bbb0945;
     border-radius: 10px;
     padding: 75px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
+    margin-left: 100%;
   }
 
   .menu ul {
@@ -167,6 +180,8 @@
 
 .maintxt {
   background-color: #CAE7FE;
+  padding-top: 10%;
+  padding-bottom: 20%;
 }
 
 .maintxt h1 {
@@ -225,7 +240,7 @@
   background-color: #5CB6F9;
   appearance: none;
   border: none;
-  font-size: 25px;
+  font-size: 22px;
   font-family: 'ABeeZee';
   color: #F4F6FC;
   padding-left: 35px;
@@ -319,14 +334,25 @@
 
 .nearby {
   float: left;
-  color: #050A30;
+  color: #47578a;
+  font-size: 21px;
+  cursor: pointer;
+  padding: 20px;
+}
+.nearby:hover{
+  color: black;
 }
 
 .seeall {
+  padding: 20px;
   float: right;
-  color: #303B5E;
+  color: #47578a;
+  font-size: 19px; 
+  cursor: pointer;
 }
-
+.seeall:hover{
+  color: black;
+}
 .colleges {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -339,63 +365,67 @@
   row-gap: 30px;
   margin-bottom: 50px;
 }
+/* Add styles for the college boxes */
+/* Add styles for the college boxes */
+.colleges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between college boxes */
+}
+.middle{
+
+}
+/* Add styles for the college boxes */
+.colleges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between college boxes */
+  justify-content: space-between; /* Spread the boxes evenly in the row */
+}
 
 .college {
-  font-family: 'ABeeZee';
-  width: 300px;
-  height: 170px;
-  border-radius: 12px;
-  background-color: #5CB6F9;
-  padding: 30px;
-  margin: auto;
+  background-color:#ffffff; /* White background color */
+  border-radius: 8px;
+  box-shadow: 15px 54px 52px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 20px;
+  width: calc(30% - 20px); /* Set the width to 30% (one-third of the container) minus gap */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition on hover */
 }
 
-.up {
-  display: flex;
+.college:hover {
+  transform: translateY(-5px); /* Lift the box on hover */
 }
 
-.up img {
-  width: 130px;
-  height: 130px;
-  border-radius: 12px;
-  margin-right: 20px;
+.college img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .context p {
-  font-size: 20px;
-  font-family: 'ABeeZee';
-  margin-bottom: 20px;
+  font-weight: bold;
+  margin: 5px 0;
 }
 
 .context span {
-  font-size: 14px;
-  background-color: #F4F6FC;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 20px;
-  color: #3E3ABA;
   font-family: 'ABeeZee';
-}
-
-.down {
-  display: flex;
-  margin-top: 20px;
-  justify-content: space-between;
+  color:#000000;
+  font-size: 16px;
 }
 
 .ctc {
-  font-family: 'ABeeZee';
   font-size: 18px;
-  color: #050A30;
+  font-weight: bold;
+  color: #1f69b8; /* Blue color for CTC */
 }
 
 .time {
-  font-size: 15px;
-  font-family: 'ABeeZee';
-  color: #050a3079;
+  font-size: 16px;
+  color: #555;
 }
+
+/* Add any additional styles you need for your college boxes */
+
 
 @media (max-width: 1400px) {
   .colleges {
