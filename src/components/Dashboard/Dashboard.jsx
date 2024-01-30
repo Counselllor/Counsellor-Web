@@ -47,6 +47,7 @@ const Dashboard = () => {
           </div>
           <div className={`menu ${menuOpen ? 'show' : ''}`}>
             <ul>
+              <li><a href="/about">About</a></li>
               <li><a href="#">Top Universities</a></li>
               <li><a href="#">Jobs</a></li>
               <li><a href="#">Courses</a></li>
