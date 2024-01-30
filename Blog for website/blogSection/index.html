@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Blog</title>
+	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/Con-blog.css" rel="stylesheet">
+
+</head>
+<body>
+	<header class="tm-header" id="tm-header">
+        <div class="tm-header-wrapper">
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="tm-site-header">
+                
+                <img src="img/logo.png" alt="logo" class="center" width="100" >
+                
+                
+            </div>
+            <nav class="tm-nav" id="tm-nav">            
+                <ul>
+                    <li class="tm-nav-item active"><a href="index.html" class="tm-nav-link">
+                        <i class="fas fa-home"></i>
+                        Blog Home
+                    </a></li>
+                    <li class="tm-nav-item"><a href="post.html" class="tm-nav-link">
+                        <i class="fas fa-pen"></i>
+                        Single Post
+                    </a></li>
+                    <li class="tm-nav-item"><a href="#" class="tm-nav-link">
+                        <i class="fas fa-users"></i>
+                        About 
+                    </a></li>
+                    <!-- <li class="tm-nav-item"><a href="contact.html" class="tm-nav-link">
+                        <i class="far fa-comments"></i>
+                        Contact Us
+                    </a></li> -->
+                </ul>
+            </nav>
+            
+    </header>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form  class="form-inline tm-mb-80 tm-search-form">                
+                        <input class="form-control tm-search-input" name="" id="search-item" type="text" placeholder="Search..." onkeyup="search()" aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>                                
+                    </form>
+                </div>                
+            </div> 
+            <div class="blog-list" id="blog-list" >         
+            <div class="row tm-row">
+               
+                <article class="col-12 col-md-6 tm-post">
+                    <div class="blog">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="img/image4.jpeg" alt="Image" class="img-fluid">                            
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">College Life Made Easy</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        This blog has you covered whether you're a new college student or a returning one, with tips, scholarships, dorm room deals, and back to college accessories.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Scholarships . Finance</span>
+                        <span class="tm-color-primary">May 26, 2023</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by Charlie & Jen</span>
+                    </div>
+                </div>
+                </article>
+          
+            
+                <article class="col-12 col-md-6 tm-post">
+                    <div class="blog">
+                    <hr class="tm-hr-primary">
+                    <a href="post2.html" class="effect-lily tm-post-link tm-pt-60">
+                        <div class=" tm-post-link-inner">
+                            <img src="img/image22.jpg" alt="Image" class="img-fluid" height="140">                            
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Campus Grotto</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        It helps students succeed in college. This blog has it all, from assisting students before college to navigating and succeeding in college to preparing for life after college.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Career guidance . Planning </span>
+                        <span class="tm-color-primary">May 24, 2023</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by Ted Reimers</span>
+                    </div>
+                </div>
+                </article>
+           
+            
+                <article class="col-12 col-md-6 tm-post">
+                    <div class="blog">
+                    <hr class="tm-hr-primary">
+                    <a href="post3.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/image23.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Study Hacks</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        Focuses on strategies for academic success, time management, and building effective study habits. This blog is all about technology and productivity. It has all the tips to ace in your academics.   
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Technology . Productivity</span>
+                        <span class="tm-color-primary">May 22, 2023</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by Cal Newport</span>
+                    </div>
+                </div>
+                </article>
+           
+            
+                <article class="col-12 col-md-6 tm-post">
+                    <div class="blog">
+                    <hr class="tm-hr-primary">
+                    <a href="post4.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/image24.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Inside Higher Ed</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        It provides analysis, and opinion pieces on higher education and issues affecting college students. Focuses on mental health, coping up with stress and everything a student go through while pursuing higher education. 
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Higher Education</span>
+                        <span class="tm-color-primary">May 17, 2023</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by Dari Gessner</span>
+                    </div>
+                </div>
+                </article>
+           
+            
+               
+            </div>
+        </div> 
+            <div class="row tm-row tm-mt-100 tm-mb-75">
+                <div class="tm-prev-next-wrapper">
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                </div>
+                <div class="tm-paging-wrapper">
+                    <span class="d-inline-block mr-3">Page</span>
+                    <nav class="tm-paging-nav d-inline-block">
+                        <ul>
+                            <li class="tm-paging-item active">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>                
+            </div>            
+           
+        </main>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Con-script.js"></script>
+</body>
+</html>
