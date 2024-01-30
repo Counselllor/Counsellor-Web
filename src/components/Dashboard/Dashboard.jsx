@@ -65,7 +65,7 @@ const Dashboard = () => {
           </div>
         </nav>
         <div className="maintxt">
-          <h1><span className="blue">Find. your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
+          <h1><span className="blue">Find your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
           <p>For the Students, By the Students</p>
         </div>
         <div className="search">
