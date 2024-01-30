@@ -59,7 +59,7 @@ const About = () => {
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
           </div>
         </nav>
-        <div className="maintxt" style={{padding: '0rem 11rem 15rem 11rem'}}>
+        <div className="maintxt" style={{padding: '0rem 11vw 15vw 11vw'}}>
           <h1><span className="blue">About </span>Us<br/></h1>
           <p>For the Students, By the Students</p>
           <p>
