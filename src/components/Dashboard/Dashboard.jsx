@@ -7,6 +7,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
+import ScrollToTop from "react-scroll-to-top";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const Dashboard = () => {
 
     <>
       <main>
+      <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
         <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
@@ -63,7 +65,7 @@ const Dashboard = () => {
           </div>
         </nav>
         <div className="maintxt">
-          <h1><span className="blue">Find your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
+          <h1><span className="blue">Find. your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
           <p>For the Students, By the Students</p>
         </div>
         <div className="search">
