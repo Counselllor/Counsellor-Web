@@ -1,21 +1,4 @@
-/*
-0 - 600px: phone
-600 - 900px: tablet portrait
-900 - 1200px: tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + : Big Desktop
 
-$breakpoint arguments choices:
-- phone
-- tablet-portrait
-- tablet-landscape
-- big-desktop
-
-ORDER TO SET MEDIA QUERIES: 
-base + typography > general layout + grid > page layout > components
-
-//1em = 16px
-*/
 @keyframes moveInLeft {
     0% {
       opacity: 0;
@@ -46,13 +29,13 @@ base + typography > general layout + grid > page layout > components
       transform: translate(0);
     }
   }
-  *,
+  /* *,
   *::after,
   *::before {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-  }
+  } */
   
   /*This defines what 1rem is. This setting allow users to maximize and minimize their 
   screen sizes*/
@@ -92,7 +75,7 @@ base + typography > general layout + grid > page layout > components
   body {
     font-family: "Arial", sans-serif;
     font-weight: 400;
-    /*font-size: 16px;*/
+    font-size: 16px;
     line-height: 1.7;
     color: #777;
   }

@@ -250,7 +250,7 @@ const About = () => {
             </div>
 
             <div class="u-center-text u-margin-top-huge">
-                <a href="#" class="btn btn--green">Discover all Tours</a>
+                <a href="./dashboard" class="btn btn--green">Discover All</a>
             </div>
         </section>
 
