@@ -15,15 +15,16 @@
     "firebase": "^10.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.12.0",
-    "react-loader-spinner": "^5.4.5",
+    "react-icons": "^5.0.1",
+    "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.21.1",
+    "react-scroll-to-top": "^3.0.0",
     "react-spinners": "^0.13.8",
     "typewriter-effect": "^2.21.0",
     "uid": "^2.0.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.47",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.0.11"
