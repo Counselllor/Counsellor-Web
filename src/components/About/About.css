@@ -181,7 +181,7 @@
     object-fit: cover;
   }
   
-  .btn, .btn:link, .btn:visited {
+  .abtn, .abtn:link, .abtn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -193,33 +193,33 @@
     border: none;
     cursor: pointer;
   }
-  .btn:hover {
+  .abtn:hover {
     transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   }
-  .btn:hover::after {
+  .abtn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
   }
-  .btn:active {
+  .abtn:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
   }
-  .btn--white {
+  .abtn--white {
     background-color: #fff;
     color: #777;
   }
-  .btn--white::after {
+  .abtn--white::after {
     background-color: #fff;
   }
-  .btn--green {
+  .abtn--green {
     background-color: #3B4BB1;
     color: #fff;
   }
-  .btn--green::after {
+  .abtn--green::after {
     background-color: #3B4BB1;
   }
-  .btn::after {
+  .abtn::after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -231,12 +231,12 @@
     z-index: -1;
     transition: all 0.4s;
   }
-  .btn--animated {
+  .abtn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
   }
   
-  .btn-text:link, .btn-text:visited {
+  .abtn-text:link, .abtn-text:visited {
     font-size: 1.6rem;
     color: #55c57a;
     display: inline-block;
@@ -245,13 +245,13 @@
     padding: 3px;
     transition: all 0.2s;
   }
-  .btn-text:hover {
+  .abtn-text:hover {
     background-color: #55c57a;
     color: white;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
   }
-  .btn-text:active {
+  .abtn-text:active {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
     transform: translateY(0);
   }

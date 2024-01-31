@@ -51,7 +51,7 @@ const About = () => {
               <li><a href="#">Carrier Support</a></li>
               <li className='dot'><a href="#">•</a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
+              <li><a href="#"><button className='profile_abtn'>Profile</button></a></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
@@ -74,7 +74,7 @@ const About = () => {
              
             </h1>
 
-            <a href="#" class="btn btn--white btn--animated">Discover Who We Are?</a>
+            <a href="#" class="abtn abtn--white abtn--animated">Discover Who We Are?</a>
         </div>
     </header>
 
@@ -182,7 +182,7 @@ const About = () => {
                                     <p class="card__price-only">Explore Colleges</p>
                                     <p class="card__price-value">3000+</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">Explore Now!</a>
+                                <a href="#popup" class="abtn abtn--white">Explore Now!</a>
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@ const About = () => {
                                     <p class="card__price-only">Explore Colleges</p>
                                     <p class="card__price-value">300+</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">Explore Now!</a>
+                                <a href="#popup" class="abtn abtn--white">Explore Now!</a>
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ const About = () => {
                                     <p class="card__price-only">Explore Colleges</p>
                                     <p class="card__price-value">100+</p>
                                 </div>
-                                <a href="#popup" class="btn btn--white">Explore Now!</a>
+                                <a href="#popup" class="abtn abtn--white">Explore Now!</a>
                             </div>
                         </div>
                     </div>
@@ -250,7 +250,7 @@ const About = () => {
             </div>
 
             <div class="u-center-text u-margin-top-huge">
-                <a href="./dashboard" class="btn btn--green">Discover All</a>
+                <a href="./dashboard" class="abtn abtn--green">Discover All</a>
             </div>
         </section>
 
