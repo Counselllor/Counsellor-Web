@@ -7,6 +7,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
+import ScrollToTop from "react-scroll-to-top";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const Dashboard = () => {
 
     <>
       <main>
+      <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
         <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
