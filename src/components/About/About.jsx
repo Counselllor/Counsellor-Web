@@ -8,14 +8,12 @@ import "./About.css";
 
 const About = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        // read
-        console.log("");
-      } else if (!user) {
-        navigate("/");
+        setUser(user);
       }
     });
   }, []);
@@ -59,16 +57,24 @@ const About = () => {
               <li className="dot">
                 <a href="#">•</a>
               </li>
-              <li>
-                <a href="#" onClick={handleSignOut}>
-                  Log Out
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <button className="profile_btn">Profile</button>
-                </a>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <a href="#" onClick={handleSignOut}>
+                      Log Out
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <button className="profile_btn">Profile</button>
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <a href="/">Login</a>
+                </li>
+              )}
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
