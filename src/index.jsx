@@ -6,7 +6,6 @@ import { Dashboard, ErrorPage, ForgotPasswordForm, SignUpForm } from './componen
 import Loading from './components/Loading/Loading'
 import Login from './components/Login/Login'
 import './index.css'
-import About from './components/About/About'
 
 const router = createBrowserRouter([
   {
@@ -24,11 +23,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <Dashboard />
       },
-      {
-        path: '/about',
-        errorElement: <ErrorPage/>,
-        element: <About/>
-      },
+      // {
+      //   path: '/about',
+      //   errorElement: <ErrorPage/>,
+      //   element: <About/>
+      // },
       // {
       //   path: '/login',
       //   errorElement: <ErrorPage/>,
