@@ -1,56 +1,64 @@
-import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App'
-import { Dashboard, ErrorPage, ForgotPasswordForm, SignUpForm } from './components/index'
-import Loading from './components/Loading/Loading'
-import Login from './components/Login/Login'
-import './index.css'
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import {
+  About,
+  Dashboard,
+  ErrorPage,
+  ForgotPasswordForm,
+  SignUpForm,
+} from "./components/index";
+import Loading from "./components/Loading/Loading";
+import Login from "./components/Login/Login";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     errorElement: <ErrorPage />,
-    element: <Suspense fallback={<Loading />}><App /></Suspense>,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <App />
+      </Suspense>
+    ),
     children: [
       {
-        path: '/',
+        path: "/",
         errorElement: <ErrorPage />,
-        element: <Login />
+        element: <Login />,
       },
       {
-        path: '/dashboard',
+        path: "/dashboard",
         errorElement: <ErrorPage />,
-        element: <Dashboard />
+        element: <Dashboard />,
       },
-      // {
-      //   path: '/about',
-      //   errorElement: <ErrorPage/>,
-      //   element: <About/>
-      // },
+      {
+        path: "/about",
+        errorElement: <ErrorPage />,
+        element: <About />,
+      },
       // {
       //   path: '/login',
       //   errorElement: <ErrorPage/>,
       //   element: <LoginForm/>
       // },
       {
-        path: '/signup',
+        path: "/signup",
         errorElement: <ErrorPage />,
-        element: <SignUpForm />
+        element: <SignUpForm />,
       },
       {
-        path: '/forgotpassword',
+        path: "/forgotpassword",
         errorElement: <ErrorPage />,
-        element: <ForgotPasswordForm />
-      }
-    ]
-  }
-])
+        element: <ForgotPasswordForm />,
+      },
+    ],
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-
     <RouterProvider router={router} />
-
   </React.StrictMode>
-)
+);
