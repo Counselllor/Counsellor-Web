@@ -7,6 +7,7 @@ import Loading from './components/Loading/Loading'
 import Login from './components/Login/Login'
 import './index.css'
 import About from './components/About/About'
+import Contact from './components/Contact/Contact'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         path: '/about',
         errorElement: <ErrorPage/>,
         element: <About/>
+      },
+      {
+        path: '/contact',
+        errorElement: <ErrorPage/>,
+        element: <Contact/>
       },
       // {
       //   path: '/login',

@@ -51,7 +51,7 @@ const About = () => {
               <li><a href="#">Carrier Support</a></li>
               <li className='dot'><a href="#">•</a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_abtn'>Profile</button></a></li>
+              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
@@ -62,7 +62,7 @@ const About = () => {
         </nav>
 
 
-        <div>
+        <div className='about-page'>
     
     
 

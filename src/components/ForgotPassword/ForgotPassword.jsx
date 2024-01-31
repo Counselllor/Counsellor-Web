@@ -53,7 +53,7 @@ function ForgotPassword() {
                     <div className="sign-in">Log in to your account</div>
 
                     {/* forgot password form */}
-                    <form onSubmit={handleSubmit}>
+                    <form className='fp-form' onSubmit={handleSubmit}>
                         <label className="forgot_text" htmlFor="Email">Please enter your email address and and we'll send you a link to get back into your account.</label>
                         <input type="email" value={email}
                             onChange={(event) => 

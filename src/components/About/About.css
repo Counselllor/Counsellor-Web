@@ -62,18 +62,21 @@
       font-size: 75%;
     }
   }
-  body {
+  /* body {
     box-sizing: border-box;
     padding: 3rem;
-  }
+  } */
   
   @media only screen and (max-width: 56.25em) {
     body {
       padding: 0;
     }
   }
-  body {
+  .about-page{
     font-family: "Arial", sans-serif;
+  }
+  body {
+    /* font-family: "Arial", sans-serif; */
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
