@@ -70,7 +70,9 @@ const Dashboard = () => {
         </div>
         <div className="search">
           <div className="s_bar_c">
-            <img src="src/assets/search_icon.png" alt="" />
+          <a href="">
+  <img src="src/assets/icons8-search-50.png" />
+</a>
             <div className="vl"></div>
             <input type="text" placeholder='Type college name or university name' />
           </div>

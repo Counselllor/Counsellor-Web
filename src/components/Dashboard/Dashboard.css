@@ -250,6 +250,10 @@
   cursor: pointer;
 }
 
+.search button:hover {
+  background-color: #000000
+}
+
 .s_bar_c {
   display: contents;
 }
