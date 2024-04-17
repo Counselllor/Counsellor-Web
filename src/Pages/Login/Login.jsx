@@ -62,7 +62,7 @@ export default function Login() {
       var randomIndex = Math.floor(Math.random() * charset.length);
       captcha += charset.charAt(randomIndex);
     }
-    setCaptchaText("");
+    setCaptchaText(captcha);
   };
 
   useEffect(() => {
@@ -186,7 +186,7 @@ export default function Login() {
                       placeholder="Enter Captcha Here"
                       onChange={(e) => setCaptchaVal(e.target.value)}
                       className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
-                      // required
+                      required
                     />
                     <FaShieldVirus className="icons" />
                   </div>
