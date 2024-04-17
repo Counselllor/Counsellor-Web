@@ -1,0 +1,28 @@
+.colleges {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  width: 80vw;
+  margin-top: 120px;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: space-between;
+  row-gap: 30px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1400px) {
+  .colleges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 960px) {
+  .colleges {
+    padding-left: 30px;
+    padding-right: 30px;
+    grid-template-columns: 1fr;
+  }
+}

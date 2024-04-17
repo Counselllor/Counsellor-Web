@@ -1,50 +1,83 @@
-footer{
-    background-color: #ffffff;
-    bottom: 0px;
-    left: 0px;
-    color: rgba(155, 155, 155, 0.8);
-    padding: 16px;
-    z-index: 0;
-    text-align: center;
-    font-size: 15px;
-    font-family: sans-serif;
+footer {
+  /* background-color: #cae7fe; */
+  bottom: 0px;
+  left: 0px;
+  /* color: #050a30; */
+  /* padding-bottom: 30px; */
+  z-index: 0;
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
 }
 
-footer ul{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    column-gap: 30px;
-    row-gap: 10px;
+footer ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 30px;
+  padding: 0;
 }
 
-footer li{
-    align-items: stretch;
-    list-style: none;
-    text-align: center;
+footer li {
+  align-items: stretch;
+  list-style: none;
+  text-align: center;
 }
 
-footer li:hover{
-    cursor: pointer;
-    text-decoration: underline;
+footer li:hover {
+  cursor: pointer;
+  /* text-decoration: underline; */
 }
 
-#icons{
-    margin-top: 10px;
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#icons *{
-    margin: auto 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: white;
+.link {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease; /* Transition color change */
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust the distance of the underline from the text */
+  width: 0;
+  height: 2px; /* Adjust the thickness of the underline */
+  background-color: #050a30; /* Default underline color */
+  transition: width 0.3s ease; /* Transition underline width change */
+}
+
+.link:hover {
+  color: #050a30; /* Change color on hover */
+}
+
+.link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+#icons {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#icons * {
+  margin: auto 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #3c38b9;
 }
 
 @media (max-width: 900px) {
-   footer ul{
-      width: 80%;
-    }
+  footer ul {
+    width: 70%;
+  }
 }

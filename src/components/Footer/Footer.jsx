@@ -1,12 +1,12 @@
 import "./Footer.css";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
-function Footer() {
+function Footer({ color }) {
   return (
     <footer>
-      <div>
+      <div className="footer" style={{ backgroundColor: color }}>
         <ul>
-          <li>
+          <li className="link">
             <a
               style={{ textDecoration: "none", color: "inherit" }}
               href="./about"
@@ -14,11 +14,11 @@ function Footer() {
               About
             </a>
           </li>
-          <li>Blog</li>
-          <li>Help</li>
-          <li>Privacy</li>
-          <li>Terms</li>
-          <li>
+          <li className="link">Blog</li>
+          <li className="link">Help</li>
+          <li className="link">Privacy</li>
+          <li className="link">Terms</li>
+          <li className="link">
             <a
               style={{ textDecoration: "none", color: "inherit" }}
               href="./contact"
@@ -26,8 +26,8 @@ function Footer() {
               Contact
             </a>
           </li>
-          <li>Our Countributors</li>
-          <li>Join Us</li>
+          <li className="link">Our Countributors</li>
+          <li className="link">Join Us</li>
         </ul>
         <p>© 2023 Counsellor</p>
         <div id="icons">

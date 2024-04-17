@@ -1,0 +1,19 @@
+.collegeDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 60vh;
+}
+
+.sideDetails {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sideDetails p {
+  text-align: left;
+  font-size: 22px;
+}

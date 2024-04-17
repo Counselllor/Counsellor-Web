@@ -1,0 +1,93 @@
+main {
+  background-color: #cae7fe;
+}
+
+.App {
+  text-align: center;
+  background-color: #cae7fe;
+}
+
+.maintxt {
+  background-color: #cae7fe;
+}
+
+.maintxt h1 {
+  width: 66vw;
+  font-family: "ABeeZee";
+  font-size: 70px;
+  color: #050a30;
+  margin: 0 auto;
+  padding-top: 64px;
+}
+
+.blue {
+  color: #3c38b9;
+}
+
+.maintxt p {
+  font-family: "ABeeZee";
+  font-size: 22px;
+  color: #050a30;
+  text-align: center;
+  margin: 20px 0 0 0;
+  padding-bottom: 30px;
+}
+
+.navigator {
+  font-size: 40px;
+  font-family: "ABeeZee";
+  font-weight: 600;
+  width: 70vw;
+  margin: auto;
+  background-color: #cae8ff;
+}
+
+.nearby {
+  float: left;
+  color: #303b5e;
+  cursor: pointer;
+}
+.link {
+  position: relative;
+  text-decoration: none;
+  /* color: #333; Default color */
+  transition: color 0.3s ease; /* Transition color change */
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust the distance of the underline from the text */
+  width: 0;
+  height: 2px; /* Adjust the thickness of the underline */
+  background-color: #050a30; /* Default underline color */
+  transition: width 0.3s ease; /* Transition underline width change */
+}
+
+.link:hover {
+  color: #050a30; /* Change color on hover */
+}
+
+.link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.seeall {
+  float: right;
+  color: #303b5e;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .maintxt h1 {
+    font-size: 40px;
+    padding-top: 30px;
+  }
+  .navigator {
+    font-size: 30px;
+  }
+  .maintxt p {
+    font-size: 18px;
+  }
+}

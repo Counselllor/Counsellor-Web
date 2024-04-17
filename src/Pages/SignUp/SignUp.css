@@ -1,0 +1,347 @@
+.signup-container {
+  font-family: "ABeeZee";
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.parent {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+
+/* left part */
+
+.parent .left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.parent .left img {
+  width: 580px;
+  margin-bottom: 32px;
+}
+
+.parent .left .left-text {
+  color: #000000;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0 50px;
+  width: 50%;
+  text-align: center;
+  margin: 0 32px;
+}
+
+/* right part */
+
+.parent .right {
+  background: #fff;
+  width: 50%;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}
+
+.parent .right::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+.parent .right::-webkit-scrollbar-thumb {
+  background-color: var(--secPageColor);
+}
+
+h1.counsellor {
+  font-size: 40px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.signuptxt {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+
+.signuptxt2 {
+  font-size: 17px;
+  text-align: center;
+  color: gray;
+}
+
+.form-container {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding: 0 20%;
+  flex-direction: column;
+}
+
+.form-container .name {
+  display: flex;
+  gap: 15px;
+}
+
+.form-container input,
+select[type="gender"] {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  outline: none;
+  box-sizing: border-box;
+  padding-left: 35px;
+}
+
+.form-container input[type="date"] {
+  cursor: pointer;
+  width: unset;
+}
+
+label[for="student-or-counsellor"],
+label[for="date-of-birth"] label[for="age"] {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.twoFields {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 15px;
+}
+
+span[for="counsellor-option"],
+span[for="student-option"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  padding-left: 35px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.right .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 3% 0;
+}
+
+.right .btn .already-account a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #1877f2;
+}
+
+.submit-button {
+  font-size: 16px;
+  width: 100%;
+  background-color: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 12px 50px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #12229d;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+/* .errorShow {
+  height: 40px;
+} */
+
+.errorShow p {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+input.inputField,
+input.firstname-text.inputField,
+input.surname-text.inputField,
+input.password-text.inputField,
+input.dob.inputField,
+select.inputField {
+  border-color: red;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input .toggle-button1 {
+  color: #1877f2;
+  position: absolute;
+  font-size: 20px;
+  padding: 10px 20px;
+  top: 28px;
+  right: -6px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+#captcha-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#captchaBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#captcha {
+  width: 40%;
+  background: url(/src/assets/captcha.webp);
+  padding: 9px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(108 110 113);
+  border: 2px solid black;
+  border-radius: 6px;
+  user-select: none;
+}
+
+#captchaIcon {
+  font-size: 3rem !important;
+  cursor: pointer !important;
+  margin: 10px !important;
+}
+
+/* Icon Styles  */
+.iconContainer {
+  position: relative;
+}
+
+.iconContainer .icons {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  font-size: 16px;
+  color: #1877f2;
+}
+
+/* media query */
+
+@media screen and (max-width: 768px) {
+  .signup-container {
+    height: 100%;
+    background-color: var(--white);
+  }
+  .password-input .toggle-button1 {
+    right: 50px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .parent {
+    width: 104vw;
+    overflow-x: hidden;
+  }
+
+  .password-input .toggle-button1 {
+    right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .password-input .toggle-button1 {
+    right: 15px;
+  }
+}
+
+/* media query */
+
+@media screen and (max-width: 992px) {
+  .parent .left img {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .parent .left {
+    display: none;
+  }
+
+  .parent .right {
+    width: 100%;
+    height: auto;
+  }
+
+  .parent .right .form-container {
+    padding: 0 7% 3%;
+  }
+
+  .parent .right input[type="date"] {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1.counsellor {
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  .signuptxt {
+    font-size: 20px;
+  }
+
+  .parent .right input[type="date"] {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .parent .right .form-container .name {
+    width: 98%;
+  }
+
+  .signup-container {
+    width: 102vw;
+    overflow-x: hidden;
+  }
+}

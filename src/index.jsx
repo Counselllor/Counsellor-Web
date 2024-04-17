@@ -2,17 +2,22 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import "../src/index.css";
+import "./styles/App.css";
+import "./styles/errorStyles.css";
+
 import {
-  About,
   Dashboard,
+  About,
+  Contact,
   ErrorPage,
   ForgotPasswordForm,
   SignUpForm,
-} from "./components/index";
+  Login,
+  CounsellorAddUpdatePage,
+  ViewCollege,
+} from "./Pages/index";
 import Loading from "./components/Loading/Loading";
-import Login from "./components/Login/Login";
-import "./index.css";
-import Contact from "./components/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -40,15 +45,15 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: '/contact',
-        errorElement: <ErrorPage/>,
-        element: <Contact/>
+        path: "/contact",
+        errorElement: <ErrorPage />,
+        element: <Contact />,
       },
-      // {
-      //   path: '/login',
-      //   errorElement: <ErrorPage/>,
-      //   element: <LoginForm/>
-      // },
+      {
+        path: "/login",
+        errorElement: <ErrorPage />,
+        element: <Login />,
+      },
       {
         path: "/signup",
         errorElement: <ErrorPage />,
@@ -58,6 +63,16 @@ const router = createBrowserRouter([
         path: "/forgotpassword",
         errorElement: <ErrorPage />,
         element: <ForgotPasswordForm />,
+      },
+      {
+        path: "/new",
+        errorElement: <ErrorPage />,
+        element: <CounsellorAddUpdatePage />,
+      },
+      {
+        path: "/college/:id",
+        errorElement: <ErrorPage />,
+        element: <ViewCollege />,
       },
     ],
   },
