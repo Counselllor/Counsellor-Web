@@ -11,7 +11,8 @@ import ScrollToTop from "react-scroll-to-top";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredColleges, setFilteredColleges] = useState(collegesData);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -22,6 +23,14 @@ const Dashboard = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    const results = collegesData.filter(college =>
+      college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      college.location.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredColleges(results);
+  }, [searchTerm]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -74,7 +83,9 @@ const Dashboard = () => {
   <img src="src/assets/icons8-search-50.png" />
 </a>
             <div className="vl"></div>
-            <input type="text" placeholder='Type college name or university name' />
+            <input type="text" placeholder='Type college name or university name' 
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}/>
           </div>
           <button>Search</button>
         </div>
@@ -83,7 +94,7 @@ const Dashboard = () => {
           <span className='seeall'>See All</span>
         </div>
         <div className="colleges">
-          {collegesData.map((college, index) => (
+          {filteredColleges.map((college, index) => (
             <div className="college" key={index}>
               <div className="up">
                 <img src={college.imageURL} alt="College Logo" />
