@@ -48,8 +48,6 @@ const Dashboard = () => {
     setMenuOpen(!menuOpen);
   };
   return (
-
-    <>
       <main>
       <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
         <nav className="navbar">
@@ -112,7 +110,7 @@ const Dashboard = () => {
         </div>
         <Footer />
       </main>
-    </>
+
   )
 }
 
