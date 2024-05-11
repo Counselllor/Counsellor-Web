@@ -13,6 +13,10 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
+
+  function handleChange(e){
+     setSearchTerm(e.target.value)
+  }
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -85,7 +89,7 @@ const Dashboard = () => {
             <div className="vl"></div>
             <input type="text" placeholder='Type college name or university name' 
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}/>
+            onChange={handleChange}/>
           </div>
           <button>Search</button>
         </div>
