@@ -36,13 +36,24 @@
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color: #f4f6fcb8;
+  /* background-color: #f4f6fcb8; */
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
 .menu li {
   margin: 15px 0;
+  transition: 1s ease-in-out;
+
+
+}
+
+.menu button{
+  transition: 0.1s ease-in;
+
+  &:hover{
+    background-color: #1a92ee;
+  }
 }
 
 .profile_btn {
@@ -200,6 +211,8 @@
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
+
+ 
 }
 
 .vl {
@@ -248,11 +261,17 @@
   font-size: 25px;
   float: right;
   cursor: pointer;
-}
+  transition: 0.1s ease-in;
 
+  &:hover{
+    background-color: #1a92ee;
+  }
+  
+}
+/* 
 .search button:hover {
   background-color: #000000
-}
+} */
 
 .s_bar_c {
   display: contents;
