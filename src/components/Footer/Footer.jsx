@@ -2,6 +2,9 @@ import "./Footer.css";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
+
+  var date = new Date().getFullYear();
+
   return (
     <footer>
       <div>
@@ -29,7 +32,7 @@ function Footer() {
           <li>Our Countributors</li>
           <li>Join Us</li>
         </ul>
-        <p>© 2023 Counsellor</p>
+        <p>© {date} Counsellor</p>
         <div id="icons">
           <a
             href="https://github.com/Counselllor/Counsellor-Web"
