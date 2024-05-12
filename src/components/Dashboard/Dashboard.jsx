@@ -1,14 +1,14 @@
 import './Dashboard.css'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback} from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
 import ScrollToTop from "react-scroll-to-top";
-import { useCallback } from 'react';
+
 import CollegeCard from './CollegeCard';
 
 const Dashboard = () => {

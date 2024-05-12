@@ -1,4 +1,5 @@
-import React from 'react'
+
+// function to return college card
 
 function CollegeCard({college}) {
   return (
