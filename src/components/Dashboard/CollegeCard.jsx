@@ -1,6 +1,7 @@
 
-// function to return college card
+import './Dashboard.css'
 
+// function to return college card
 function CollegeCard({college}) {
   return (
     <div className="college">

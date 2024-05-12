@@ -1,6 +1,5 @@
 import './Dashboard.css'
 import { NavLink } from 'react-router-dom'
-import Logo from '../../assets/logo.webp'
 import React, { useEffect, useState, useCallback} from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -34,21 +33,6 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
-
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
@@ -56,27 +40,7 @@ const Dashboard = () => {
   return (
       <main>
       <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
-        <nav className="navbar">
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-          <div className={`menu ${menuOpen ? 'show' : ''}`}>
-            <ul>
-              <li><a href="#">Top Universities</a></li>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Carrier Support</a></li>
-              <li className='dot'><a href="#">•</a></li>
-              <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
-            </ul>
-          </div>
-          <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-          </div>
-        </nav>
+        <Navbar/>
         <div className="maintxt">
           <h1><span className="blue">Find your </span>Dream<br></br>College <span className='blue'>here!</span></h1>
           <p>For the Students, By the Students</p>
