@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .App {
   text-align: center;
   background-color: #CAE7FE;
@@ -331,6 +332,7 @@
   color: #303B5E;
 }
 
+/* COLLEGES */
 .colleges {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -343,65 +345,82 @@
   row-gap: 30px;
   margin-bottom: 50px;
 }
-
-.college {
-  font-family: 'ABeeZee';
-  width: 300px;
-  height: 170px;
-  border-radius: 12px;
-  background-color: #5CB6F9;
-  padding: 30px;
-  margin: auto;
+/* Card styles */
+.card {
+  font-family: poppins;
+  border-radius: 10px;
+  width: 27rem;
+  height: 40rem;
+  background-color: #E8F2FD;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  margin: 0 auto;
 }
-
-.up {
+.inner-card {
+  margin: 10px;
+  padding: 0;
+}
+.inner-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.college-name {
+  font-weight: 300;
+  font-size: 2.2rem;
+  text-align: left;
+}
+.rating {
+  font-weight: 300;
+  font-size: 1.6rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
+.row-1{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
 
-.up img {
-  width: 130px;
-  height: 130px;
-  border-radius: 12px;
-  margin-right: 20px;
 }
-
-.context p {
-  font-size: 20px;
-  font-family: 'ABeeZee';
-  margin-bottom: 20px;
-}
-
-.context span {
-  font-size: 14px;
-  background-color: #F4F6FC;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 20px;
-  color: #3E3ABA;
-  font-family: 'ABeeZee';
-}
-
-.down {
+.card-body {
   display: flex;
-  margin-top: 20px;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
-
-.ctc {
-  font-family: 'ABeeZee';
-  font-size: 18px;
-  color: #050A30;
+.para{
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin:0.4rem 0;
+    text-align: left;
 }
-
-.time {
-  font-size: 15px;
-  font-family: 'ABeeZee';
-  color: #050a3079;
+.loc-ctc div{
+   
+    border-radius: 10px;
+    font-size: 1.4rem;
+    padding: 0.6rem;
+    background-color: #CAE7FE;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1.4rem;
 }
-
+.loc-ctc{
+    display: flex;
+    justify-content: space-between;
+}
 @media (max-width: 1400px) {
+  .colleges {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 30px;
+  }
+
+  .college {
+    margin: auto;
+  }
+}
+@media (max-width: 1200px) {
   .colleges {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -412,7 +431,6 @@
     margin: auto;
   }
 }
-
 @media (max-width: 960px) {
   .colleges {
     grid-template-columns: 1fr;

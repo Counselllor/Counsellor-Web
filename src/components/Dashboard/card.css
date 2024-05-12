@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  background-color:white;
+  font-family: poppins;
+  margin:0;
+  padding: 0;
+}
+.card {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 16rem;
+  height: 25.3rem;
+  background-color: white;
+  box-shadow: inset 0 -3em 3em white, 0 0 0 2px white,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.inner-card {
+  margin: 10px;
+  background-color: white;
+}
+.inner-card img {
+  width: 100%;
+  height: 20%;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+.college-name {
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.rating {
+  font-weight: 300;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row-1{
+    display: flex;
+    gap: 1.4rem;
+    border: 1px solid white;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.para{
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin:1rem 0;
+}
+.loc-ctc div{
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    background-color: rgb(218, 246, 255);
+    cursor: pointer;
+    text-align: center;
+}
+.loc-ctc{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}

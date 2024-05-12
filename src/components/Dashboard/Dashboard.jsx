@@ -42,7 +42,7 @@ const Dashboard = () => {
 
     <>
       <main>
-      <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
+        <ScrollToTop color='white' style={{ backgroundColor: "#5CB6F9" }} />
         <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
@@ -70,9 +70,9 @@ const Dashboard = () => {
         </div>
         <div className="search">
           <div className="s_bar_c">
-          <a href="">
-  <img src="src/assets/icons8-search-50.png" />
-</a>
+            <a href="">
+              <img src="src/assets/icons8-search-50.png" />
+            </a>
             <div className="vl"></div>
             <input type="text" placeholder='Type college name or university name' />
           </div>
@@ -82,23 +82,37 @@ const Dashboard = () => {
           <span className='nearby'>Nearby</span>
           <span className='seeall'>See All</span>
         </div>
+        {/* Colleges */}
         <div className="colleges">
           {collegesData.map((college, index) => (
-            <div className="college" key={index}>
-              <div className="up">
-                <img src={college.imageURL} alt="College Logo" />
-                <div className="context">
-                  <p>{college.name}</p>
-                  <span>{college.location}</span>
+            <div className="card">
+              <div className="inner-card">
+                <img
+                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  alt=""
+                />
+                <div className="card-body">
+                  <div className="row-1">
+                    <h1 className="college-name">{college.name}</h1>
+                    <div className="rating">
+                      <div>⭐</div>
+                      <p>5.0</p>
+                    </div>
+                  </div>
+                  <p className="para">
+                    Enter a freshly updated and thoughtfully furnished peaceful college
+                    surrounded by ancient trees, stone walls, and open meadows.
+                  </p>
                 </div>
-              </div>
-              <div className="down">
-                <div className="ctc">{college.ctc}</div>
-                <div className="time">{college.time}</div>
+                <div className="loc-ctc">
+                  <div>{college.location}</div>
+                  <div>{college.ctc}</div>
+                </div>
               </div>
             </div>
           ))}
         </div>
+        {/* end */}
         <Footer />
       </main>
     </>
