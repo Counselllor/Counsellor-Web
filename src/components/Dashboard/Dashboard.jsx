@@ -98,8 +98,8 @@ const Dashboard = () => {
           <span className='seeall'>See All</span>
         </div>
         <div className="colleges">
-          {filteredColleges.map((college, index) => (
-            <CollegeCard key={index} college={college} />
+          {filteredColleges.map((college) => (
+            <CollegeCard key={college.id} college={college} />
           ))}
         </div>
         <Footer />
