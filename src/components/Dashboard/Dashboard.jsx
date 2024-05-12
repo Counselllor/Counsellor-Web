@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
 import ScrollToTop from "react-scroll-to-top";
+import { useCallback } from 'react';
+import CollegeCard from './CollegeCard';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -44,9 +46,13 @@ const Dashboard = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
-  };
+  }, [menuOpen]);
+
+  const handleSearchChange = useCallback((e) => {
+    setSearchTerm(e.target.value);
+  }, []);
   return (
       <main>
       <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
@@ -83,7 +89,7 @@ const Dashboard = () => {
             <div className="vl"></div>
             <input type="text" placeholder='Type college name or university name' 
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}/>
+            onChange={handleSearchChange}/>
           </div>
           <button>Search</button>
         </div>
@@ -93,19 +99,7 @@ const Dashboard = () => {
         </div>
         <div className="colleges">
           {filteredColleges.map((college, index) => (
-            <div className="college" key={index}>
-              <div className="up">
-                <img src={college.imageURL} alt="College Logo" />
-                <div className="context">
-                  <p>{college.name}</p>
-                  <span>{college.location}</span>
-                </div>
-              </div>
-              <div className="down">
-                <div className="ctc">{college.ctc}</div>
-                <div className="time">{college.time}</div>
-              </div>
-            </div>
+            <CollegeCard key={index} college={college} />
           ))}
         </div>
         <Footer />
