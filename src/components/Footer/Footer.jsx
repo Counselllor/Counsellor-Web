@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
 
-  let date = new Date().getFullYear();
+  const date = new Date().getFullYear();
 
   return (
     <footer>
