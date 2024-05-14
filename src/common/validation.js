@@ -2,48 +2,60 @@
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
 
-// validation for each field
+// Validation for each field
 const validate = {
-    firstName: (value)=>{
-        return value.trim().length < 3
-        ? { firstName: true, firstNameError: "First Name must be atleast 3 characters long." }
-        : { firstName: false, firstNameError: false }
-      },
-      surname: (value)=>{
-        return value.trim().length < 3
-        ? { surname: true, surnameError: "Last Name must be atleast 3 characters long." }
-        : { surname: false, surnameError: false }
-      },
-      email: (value) => {
-        return emailRegex.test(value)
-          ? { email: false, emailError: false }
-          : { email: true, emailError: "Please enter a valid email address" }
-      },
-      password: (value)=>{
-        return passwordRegex.test(value)
-          ? { password: false, passwordError: false }
-          : { password: true, passwordError: "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*) and 1 number (0-9)." }
-      },
-      loginPassword: (value)=>{
-        return(!value.trim())
-        ?{ password: true, passwordError: "Please fill this field" }
-          :{ password: false, passwordError: false }
-      },
-      confirmPassword: (value, password)=>{
-          return (value !== password)?
-                 {confirmPassword: true, confirmPasswordError: "Password does not match"}:
-                 { confirmPassword: false, confirmPasswordError: false }
-      },
-      dob: (value)=>{
-        const dob = new Date(value);
-        const today = new Date();
-
-        if((dob.getFullYear()+10) < today.getFullYear()){
-          return { dob: false, dobError: false }
-        }else{
-          return {dob: true, dobError: "Invalid Date-of-Birth. Age must be atleast 10 years."}
-        }
-      }
-}
+  firstName: (value) => {
+    const isValid = value.trim().length >= 3;
+    return {
+      firstName: !isValid,
+      firstNameError: isValid ? false : "First Name must be at least 3 characters long.",
+    };
+  },
+  surname: (value) => {
+    const isValid = value.trim().length >= 3;
+    return {
+      surname: !isValid,
+      surnameError: isValid ? false : "Last Name must be at least 3 characters long.",
+    };
+  },
+  email: (value) => {
+    const isValid = emailRegex.test(value);
+    return {
+      email: !isValid,
+      emailError: isValid ? false : "Please enter a valid email address",
+    };
+  },
+  password: (value) => {
+    const isValid = passwordRegex.test(value);
+    return {
+      password: !isValid,
+      passwordError: isValid ? false : "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*) and 1 number (0-9).",
+    };
+  },
+  loginPassword: (value) => {
+    const isValid = !!value.trim();
+    return {
+      password: !isValid,
+      passwordError: isValid ? false : "Please fill this field",
+    };
+  },
+  confirmPassword: (value, password) => {
+    const isValid = value === password;
+    return {
+      confirmPassword: !isValid,
+      confirmPasswordError: isValid ? false : "Password does not match",
+    };
+  },
+  dob: (value) => {
+    const dob = new Date(value);
+    const today = new Date();
+    const isValid = (dob.getFullYear() + 10) < today.getFullYear();
+    return {
+      dob: isValid,
+      dobError: isValid ? false : "Invalid Date-of-Birth. Age must be at least 10 years.",
+    };
+  },
+};
 
 export default validate;
+
