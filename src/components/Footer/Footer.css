@@ -1,4 +1,4 @@
-footer{
+/* footer{
     background-color: #ffffff;
     bottom: 0px;
     left: 0px;
@@ -47,4 +47,27 @@ footer li:hover{
    footer ul{
       width: 80%;
     }
-}
+} */
+
+
+.footer {
+    background-color: #9cccdc; /* Change this to any color you want */
+    padding: 20px; /* Optional: Adds some padding inside the div */
+  }
+  
+  .footer footer ul {
+    list-style: none; 
+    /* padding: 0; Removes default padding */
+    padding-left: 0%;
+  }
+  
+  .footer footer ul li {
+    color: rgb(9, 15, 13);
+    margin: 10px 0; /* Adds some space between list items */
+  }
+  
+  /* Additional styling for icons if you decide to add them */
+  .footer footer ul li .icon {
+    margin-right: 10px; /* Adds space between icon and text */
+  }
+  

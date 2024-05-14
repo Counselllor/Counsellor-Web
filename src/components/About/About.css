@@ -666,8 +666,8 @@ body {
 }
 
 .footer {
-  background-color: #333;
-  padding: 10rem 0;
+  
+  padding-left: 0%;
   font-size: 1.4rem;
   color: #f7f7f7;
 }
@@ -684,9 +684,9 @@ body {
   padding-top: 2rem;
   display: inline-block;
 }
-.footer__list {
+/* .footer__list {
   list-style: none;
-}
+} */
 .footer__item {
   display: inline-block;
 }
