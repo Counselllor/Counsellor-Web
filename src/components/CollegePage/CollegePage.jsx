@@ -11,29 +11,27 @@ import { Icon } from '@iconify/react';
 
 const CollegePage = () => {
   const navigate = useNavigate();
-  const { id } = useParams(); // Retrieve the college ID from URL parameters
+  const { id } = useParams(); 
 
-  console.log("ID from URL:", id); // Log the ID from the URL parameter
+  console.log("ID from URL:", id); 
 
-  // Find the college object from collegesData based on the id
+  
   const college = collegesData.find(college => college.id === parseInt(id));
 
-  console.log("College object:", college); // Log the college object fetched
+  console.log("College object:", college); 
   console.log(college.imageURL)
 
-  // Check if college is undefined before accessing its properties
+  
   if (!college) {
-    // If college is not found, you can render a message or redirect to an error page
     return <div>College not found</div>;
   }
 
-  const [selectedCourse, setSelectedCourse] = useState('BTech'); // State for selected course
+  const [selectedCourse, setSelectedCourse] = useState('BTech'); 
 
-  // Filter students based on the selected course
   const filteredStudents = studentsData.filter(student => student.course === selectedCourse);
 
   const backgroundImageClass = `college-background-${college.id}`;
-  const [menuOpen, setMenuOpen] = useState(false); // Define menuOpen state
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const handleSignOut = () => {
     signOut(auth)
@@ -89,7 +87,7 @@ const CollegePage = () => {
           <button className="search-button">Search</button>
         </div>
         <div className="right">
-        <div class="searchCourses">
+        <div className="searchCourses">
   <input type="text" list="courseList" placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)} />
   <datalist id="courseList">
     <option value="BTech">BTech</option>
