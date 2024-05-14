@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import CollegePage from './components/CollegePage/CollegePage';
 import {
   About,
   Dashboard,
@@ -59,6 +60,13 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <ForgotPasswordForm />,
       },
+      {
+        path:"/college/:id" ,
+        errorElement: <ErrorPage />,
+        element:<CollegePage />
+          
+      }
+      
     ],
   },
 ]);

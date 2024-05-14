@@ -1,0 +1,56 @@
+[
+    {
+        "id":1,
+        "name":"Sahil Ali",
+        "course":"BTech",
+        "branch":"CSE",
+        "year":"2nd year",
+        "position":"Full Stack Web Developer"
+    },
+    {
+        "id":2,
+        "name":"Shivam",
+        "course":"BTech",
+        "branch":"CSE",
+        "year":"4th year",
+        "position":"Cloud Engineer"
+    },
+    {
+        "id":3,
+        "name":"Vidushi",
+        "course":"BTech",
+        "branch":"CSE",
+        "year":"3rd year",
+        "position":"Mern Stack Developer"
+    },
+    {
+        "id":4,
+        "name":"Ajay",
+        "course":"BTech",
+        "branch":"CSE",
+        "year":"2nd year",
+        "position":"Open Source Developer"
+    },
+    {
+        "id":5,
+        "name":"Leela",
+        "course":"BBA",
+        "year":"2nd year",
+        "position":"Mern Stack Developer"
+    },
+    {
+        "id":6,
+        "name":"Amisha",
+        "course":"BCA",
+        "year":"1st year",
+        "position":"Mern Stack Developer"
+    },
+    {
+        "id":7,
+        "name":"Hrishita Paul",
+        "course":"BTech",
+        "branch":"CSE",
+        "year":"3rd year",
+        "position":"Frontend Web Developer"
+    }
+]
