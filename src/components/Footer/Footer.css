@@ -1,73 +1,145 @@
-/* footer{
-    background-color: #ffffff;
-    bottom: 0px;
-    left: 0px;
-    color: rgba(155, 155, 155, 0.8);
-    padding: 16px;
-    z-index: 0;
-    text-align: center;
-    font-size: 15px;
-    font-family: sans-serif;
-}
-
-footer ul{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    column-gap: 30px;
-    row-gap: 10px;
-}
-
-footer li{
-    align-items: stretch;
-    list-style: none;
-    text-align: center;
-}
-
-footer li:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-#icons{
-    margin-top: 10px;
-}
-
-#icons *{
-    margin: auto 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: white;
-}
-
-@media (max-width: 900px) {
-   footer ul{
-      width: 80%;
-    }
-} */
-
-
 .footer {
-    background-color: #9cccdc; /* Change this to any color you want */
-    padding: 20px; /* Optional: Adds some padding inside the div */
+    background-color: #9cccdc;
+    padding: 20px;
   }
   
   .footer footer ul {
-    list-style: none; 
-    /* padding: 0; Removes default padding */
-    padding-left: 0%;
-  }
-  
-  .footer footer ul li {
     color: rgb(9, 15, 13);
-    margin: 10px 0; /* Adds some space between list items */
+    padding-left: 0;
   }
   
-  /* Additional styling for icons if you decide to add them */
   .footer footer ul li .icon {
-    margin-right: 10px; /* Adds space between icon and text */
+    margin-right: 10px;
+  }
+  
+  .footer-container {
+    display: flex;
+    padding-left: 5%;
+    flex-wrap: wrap;
+  }
+  
+  .footer-container ul {
+    display: flex;
+    padding: auto;
+    margin-left: 0;
+    flex-wrap: wrap;
+  }
+  
+  .footer-container li {
+    display: flex;
+    padding-left: 5%;
+    font-size: medium;
+    margin-left: 0;
+    color: rgb(9, 15, 13);
+  }
+  
+  .icons {
+    display: flex;
+    padding-left: 78px;
+  }
+  
+  .icon {
+    margin: 0 10px;
+    color: black;
+  }
+  
+  .form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: 40%;
+    border-radius: 8px;
+  }
+  
+  .form form {
+    margin: 0;
+    display: flex;
+  }
+  
+  .form input {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background-color: #9cccdc;
+    border: 2px solid #000000;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 5%;
+    }
+  
+    .footer-container ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .footer-container li {
+      padding-left: 0;
+      margin: 5px 0;
+    }
+  
+    .icons {
+      padding-left: 0;
+      margin-top: 20px;
+    }
+  
+    .form {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 5%;
+      padding: 20px;
+    }
+  
+    .form input {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  
+    .form button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      padding: 10px;
+    }
+  
+    .footer-container {
+      padding-left: 0;
+    }
+  
+    .form {
+      padding: 10px;
+      margin-left: 0;
+    }
+  
+    .form input {
+      padding: 5px;
+    }
+  
+    .form button {
+      padding: 10px;
+    }
   }
   
