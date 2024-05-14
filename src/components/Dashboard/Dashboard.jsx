@@ -1,7 +1,7 @@
 import './Dashboard.css'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback} from 'react';
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +9,12 @@ import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
 import ScrollToTop from "react-scroll-to-top";
 
+import CollegeCard from './CollegeCard';
+
 const Dashboard = () => {
   const navigate = useNavigate();
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredColleges, setFilteredColleges] = useState(collegesData);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -22,6 +25,14 @@ const Dashboard = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    const results = collegesData.filter(college =>
+      college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      college.location.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredColleges(results);
+  }, [searchTerm]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -35,12 +46,14 @@ const Dashboard = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
-  };
-  return (
+  }, [menuOpen]);
 
-    <>
+  const handleSearchChange = useCallback((e) => {
+    setSearchTerm(e.target.value);
+  }, []);
+  return (
       <main>
       <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
         <nav className="navbar">
@@ -74,7 +87,9 @@ const Dashboard = () => {
   <img src="src/assets/icons8-search-50.png" />
 </a>
             <div className="vl"></div>
-            <input type="text" placeholder='Type college name or university name' />
+            <input type="text" placeholder='Type college name or university name' 
+            value={searchTerm}
+            onChange={handleSearchChange}/>
           </div>
           <button>Search</button>
         </div>
@@ -83,25 +98,13 @@ const Dashboard = () => {
           <span className='seeall'>See All</span>
         </div>
         <div className="colleges">
-          {collegesData.map((college, index) => (
-            <div className="college" key={index}>
-              <div className="up">
-                <img src={college.imageURL} alt="College Logo" />
-                <div className="context">
-                  <p>{college.name}</p>
-                  <span>{college.location}</span>
-                </div>
-              </div>
-              <div className="down">
-                <div className="ctc">{college.ctc}</div>
-                <div className="time">{college.time}</div>
-              </div>
-            </div>
+          {filteredColleges.map((college) => (
+            <CollegeCard key={college.id} college={college} />
           ))}
         </div>
         <Footer />
       </main>
-    </>
+
   )
 }
 

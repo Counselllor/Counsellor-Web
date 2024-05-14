@@ -11,76 +11,87 @@
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":1
     },
     {
         "name": "EIT",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":2
     },
     {
         "name": "Ymca Jc Bose",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":3
     },
     {
         "name": "Manav Rachna",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":4
     },
     {
         "name": "EIT",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":5
     },
     {
         "name": "Ymca Jc Bose",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":6
     },
     {
         "name": "Manav Rachna",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":7
     },
     {
         "name": "EIT",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":8
     },
     {
         "name": "Ymca Jc Bose",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":9
     },
     {
         "name": "Manav Rachna",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":10
     },
     {
         "name": "EIT",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago"
+        "time": "3 min ago",
+        "id":11
     }
 ]
