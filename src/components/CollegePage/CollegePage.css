@@ -53,7 +53,7 @@
   font-size:30px;
   margin-top:-5px;
 }
-.hello{
+.location-depth{
   display:flex;
   flex-direction:row;
 }
@@ -112,34 +112,4 @@
  margin-left:50px; 
  width:400px;
   font-size:20px;
-}
-.searchCourses {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content select {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-}
-
-.dropdown-content select:hover {
-  background-color: #ddd;
-}
-
-.searchCourses:hover .dropdown-content {
-  display: block;
 }

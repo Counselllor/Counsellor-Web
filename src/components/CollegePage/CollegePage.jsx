@@ -80,7 +80,7 @@ const CollegePage = () => {
               <p className="description">{college.description}</p>
             </div>
             <div className="location">
-              <div className="hello">
+              <div className="location-depth">
                 <Icon icon="ion:location-outline" style={{ fontSize: '24px', marginLeft: '40px', paddingRight: '0px' }} /> <p className="location-heading">Location</p></div>
               <p className="location-text">{college['exact-location']}</p>
             </div>
