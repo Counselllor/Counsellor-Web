@@ -13,13 +13,12 @@ const CollegePage = () => {
   const navigate = useNavigate();
   const { id } = useParams(); 
 
-  console.log("ID from URL:", id); 
 
   
   const college = collegesData.find(college => college.id === parseInt(id));
 
-  console.log("College object:", college); 
-  console.log(college.imageURL)
+ 
+
 
   
   if (!college) {
