@@ -3,95 +3,83 @@
         "name": "Ymca Jc Bose",
         "location": "Faridabad",
         "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-        "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago"
+        "ctc": "Hightest CTC - 29LPA"
     },
     {
         "name": "Manav Rachna",
         "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "imageURL": "https://www.searchurcollege.com/exam/admin/search/gallery/gallery_41_4509.jpg",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago",
         "id":1
     },
     {
         "name": "EIT",
         "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "imageURL": "https://eitfaridabad.com/wp-content/uploads/2023/01/campus1.webp",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago",
         "id":2
     },
     {
-        "name": "Ymca Jc Bose",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Galgotias University",
+        "location": "GreaterNoida",
+        "imageURL": "https://gumlet.assettype.com/barandbench/2020-05/32498c63-aea1-4ec8-a3ec-2985e2196f64/Galgotia_University_17.jpg?rect=0%2C0%2C3840%2C2160&auto=format%2Ccompress&fit=max",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago",
         "id":3
     },
     {
-        "name": "Manav Rachna",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Galgotias Collge",
+        "location": "GreaterNoida",
+        "imageURL": "https://images.static-collegedunia.com/public/college_data/images/campusimage/14115532041a.jpg",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago",
         "id":4
     },
     {
-        "name": "EIT",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Sharda University",
+        "location": "GreaterNoida",
+        "imageURL": "https://i.pinimg.com/originals/3b/a6/3d/3ba63db03b1824afbf9d0f3fc476616a.jpg",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago",
         "id":5
     },
     {
-        "name": "Ymca Jc Bose",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Benett University",
+        "location": "GreaterNoida",
+        "imageURL": "https://timesofindia.indiatimes.com/photo/77444065.cms",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago",
         "id":6
     },
     {
-        "name": "Manav Rachna",
+        "name": "Birla Institute of Technology",
         "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "imageURL": "https://cache.careers360.mobi/media/colleges/reviews/IMG_20150811_151626_1.jpg",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago",
         "id":7
     },
     {
-        "name": "EIT",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "GL Bajaj ITM",
+        "location": "GreaterNoida",
+        "imageURL": "https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/4435/2018/5/8/GL-Bajaj-Institute-of-Technology-and-Management-Greater-Noida-01.jpg",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago",
         "id":8
     },
     {
-        "name": "Ymca Jc Bose",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "NSIT",
+        "location": "Delhi",
+        "imageURL": "https://th.bing.com/th/id/OIP.AX3GqC40-JkFvf4q-9XzwgHaEK?rs=1&pid=ImgDetMain",
         "ctc": "Hightest CTC - 29LPA",
-        "time": "3 min ago",
         "id":9
     },
     {
-        "name": "Manav Rachna",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Jamia Millia Islamia",
+        "location": "Delhi",
+        "imageURL": "https://www.admissionfever.com/Media/clgimg/gallery/3524_img7088727480787285.jpg",
         "ctc": "Hightest CTC - 23LPA",
-        "time": "3 min ago",
         "id":10
     },
     {
-        "name": "EIT",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "name": "Indian Institute of Management",
+        "location": "Rohtak",
+        "imageURL": "https://mycampusreview.com/images/postgallery/1687415368iimrothak.jpeg",
         "ctc": "Hightest CTC - 17LPA",
-        "time": "3 min ago",
         "id":11
     }
 ]
