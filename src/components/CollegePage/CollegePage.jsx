@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import collegesData from '../Dashboard/colleges.json';
 import studentsData from './students.json';
@@ -8,29 +8,29 @@ import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { Icon } from '@iconify/react';
+import ScrollToTop from "react-scroll-to-top";
+
 
 const CollegePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
-  const { id } = useParams(); 
+  const { id } = useParams();
 
-
-  
   const college = collegesData.find(college => college.id === parseInt(id));
 
- 
 
-
-  
   if (!college) {
     return <div>College not found</div>;
   }
 
-  const [selectedCourse, setSelectedCourse] = useState('BTech'); 
+  const [selectedCourse, setSelectedCourse] = useState('BTech');
 
-  const filteredStudents = studentsData.filter(student => student.course === selectedCourse);
+  const filteredStudents = studentsData.filter(student => student.course === selectedCourse && student.college===college.name);
 
-  const backgroundImageClass = `college-background-${college.id}`;
-  const [menuOpen, setMenuOpen] = useState(false); 
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -48,6 +48,7 @@ const CollegePage = () => {
 
   return (
     <>
+      <ScrollToTop color='white' style={{ backgroundColor: "#5CB6F9" }} />
       <nav className="navbar">
         <div className="logo">
           <img src={Logo} alt="Logo" />
@@ -76,33 +77,45 @@ const CollegePage = () => {
             <div className="description-card">
               <p className="description">{college.description}</p>
             </div>
-            <div className="location">
-              <div className="location-depth">
-                <Icon icon="ion:location-outline" style={{ fontSize: '24px', marginLeft: '40px', paddingRight: '0px' }} /> <p className="location-heading">Location</p></div>
-              <p className="location-text">{college['exact-location']}</p>
+            <div className="group">
+              <div className="location">
+                <div className="location-depth">
+                  <Icon icon="ion:location-outline" style={{ fontSize: '24px', marginLeft: '40px', paddingRight: '0px' }} />
+                  <p className="location-heading">Location</p>
+                  </div>
+                  <p className="location-text">{college['exact-location']}</p>
+              </div>
+              <div className="rating">
+              <p className="rating-heading">Rating</p>
+              <p className="rating-text">{college.rating}/10</p>
+              </div>
             </div>
+            <img className="image" src={college.imageURL} />
           </div>
-          <img className="image" src={college.imageURL} />
           <button className="search-button">Search</button>
         </div>
         <div className="right">
-        <div className="searchCourses">
-  <input type="text" list="courseList" placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)} />
-  <datalist id="courseList">
-    <option value="BTech">BTech</option>
-    <option value="BBA">BBA</option>
-    <option value="BCA">BCA</option>
-  </datalist>
-</div>
+          <div className="searchCourses">
+            <input type="text" className="input-courses" list="courseList" placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)} />
+            <datalist id="courseList">
+              <option value="BTech">BTech</option>
+              <option value="BBA">BBA</option>
+              <option value="MBA">MBA</option>
+              <option value="BCA">BCA</option>
+              <option value="BSc">BSc</option>
+              <option value="MSc">MSc</option>
+              <option value="MSc">PHD</option>
+            </datalist>
+          </div>
 
           <div className="students">
             {filteredStudents.map((student, index) => (
               <div key={index} className="student-card">
                 <h2 className="student">{student.name}</h2>
                 <div className="student-description">
-                <p className="course">{student.course}</p>
-                <p className="branch">{student.branch}</p>
-                <p className="year">{student.year}</p>
+                  <p className="course">{student.course}</p>
+                  <p className="branch">{student.branch}</p>
+                  <p className="year">{student.year}</p>
                 </div>
                 <p className="position">{student.position}</p>
               </div>

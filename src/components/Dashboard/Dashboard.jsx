@@ -10,7 +10,7 @@ import ScrollToTop from "react-scroll-to-top";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false); // Define menuOpen state
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const handleSignOut = () => {
     signOut(auth)

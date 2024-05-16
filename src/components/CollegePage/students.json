@@ -1,56 +1,179 @@
 [
     {
-        "id":1,
-        "name":"Sahil Ali",
-        "course":"BTech",
-        "branch":"CSE",
-        "year":"2nd year",
-        "position":"Full Stack Web Developer"
+        "id": 1,
+        "name": "Sahil Ali",
+        "course": "BTech",
+        "branch": "CSE",
+        "year": "2nd year",
+        "position": "Full Stack Web Developer",
+        "college": "IIT Bombay"
     },
     {
-        "id":2,
-        "name":"Shivam",
-        "course":"BTech",
-        "branch":"CSE",
-        "year":"4th year",
-        "position":"Cloud Engineer"
+        "id": 2,
+        "name": "Shivam",
+        "course": "BTech",
+        "branch": "CSE",
+        "year": "4th year",
+        "position": "Cloud Engineer",
+        "college": "IIT Kanpur"
     },
     {
-        "id":3,
-        "name":"Vidushi",
-        "course":"BTech",
-        "branch":"CSE",
-        "year":"3rd year",
-        "position":"Mern Stack Developer"
+        "id": 3,
+        "name": "Vidushi",
+        "course": "MBA",
+        "year": "2nd year",
+        "position": "Mern Stack Developer",
+        "college": "Galgotias University"
     },
     {
-        "id":4,
-        "name":"Ajay",
-        "course":"BTech",
-        "branch":"CSE",
-        "year":"2nd year",
-        "position":"Open Source Developer"
+        "id": 4,
+        "name": "Ajay",
+        "course": "BTech",
+        "branch": "CSE",
+        "year": "2nd year",
+        "position": "Open Source Developer",
+        "college": "NIT Surathkal"
     },
     {
-        "id":5,
-        "name":"Leela",
-        "course":"BBA",
-        "year":"2nd year",
-        "position":"Mern Stack Developer"
+        "id": 5,
+        "name": "Leela",
+        "course": "BBA",
+        "year": "2nd year",
+        "position": "Mern Stack Developer",
+        "college": "University of Calcutta"
     },
     {
-        "id":6,
-        "name":"Amisha",
-        "course":"BCA",
-        "year":"1st year",
-        "position":"Mern Stack Developer"
+        "id": 6,
+        "name": "Amisha",
+        "course": "BCA",
+        "year": "1st year",
+        "position": "Mern Stack Developer",
+        "college": "YMCA JC Bose"
     },
     {
-        "id":7,
-        "name":"Hrishita Paul",
-        "course":"BTech",
-        "branch":"CSE",
-        "year":"3rd year",
-        "position":"Frontend Web Developer"
+        "id": 7,
+        "name": "Hrishita Paul",
+        "course": "BTech",
+        "branch": "CSE",
+        "year": "3rd year",
+        "position": "Frontend Web Developer",
+        "college": "NIT Silchar"
+    },
+    {
+        "id": 8,
+        "name": "Rahul Singh",
+        "course": "BTech",
+        "branch": "Electrical Engineering",
+        "year": "4th year",
+        "position": "Electrical Engineer Trainee",
+        "college": "Echelon Institute of Technology"
+    },
+    {
+        "id": 9,
+        "name": "Ananya Gupta",
+        "course": "B.Arch",
+        "branch": "Architecture",
+        "year": "5th year",
+        "position": "Architectural Designer",
+        "college": "Indian Institute of Technology Kharagpur (IIT Kharagpur)"
+    },
+    {
+        "id": 10,
+        "name": "Varun Sharma",
+        "course": "MBA",
+        "branch": "Marketing",
+        "year": "2nd year",
+        "position": "Marketing Intern",
+        "college": "Indian School of Business (ISB)"
+    },
+    {
+        "id": 11,
+        "name": "Sneha Patel",
+        "course": "BSc",
+        "branch": "Chemistry",
+        "year": "3rd year",
+        "position": "Research Assistant",
+        "college": "University of Hyderabad"
+    },
+    {
+        "id": 12,
+        "name": "Alok Verma",
+        "course": "MTech",
+        "branch": "Computer Science and Engineering",
+        "year": "2nd year",
+        "position": "Software Engineer Intern",
+        "college": "Indian Institute of Technology Bombay (IIT Bombay)"
+    },
+    {
+        "id": 13,
+        "name": "Priya Singh",
+        "course": "MBA",
+        "branch": "Finance",
+        "year": "1st year",
+        "position": "Financial Analyst Intern",
+        "college": "Indian Institute of Management Bangalore (IIM Bangalore)"
+    },
+    {
+        "id": 14,
+        "name": "Rajesh Kumar",
+        "course": "BTech",
+        "branch": "Mechanical Engineering",
+        "year": "3rd year",
+        "position": "Manufacturing Engineer",
+        "college": "IIT Bombay"
+    },
+    {
+        "id": 15,
+        "name": "Neha Sharma",
+        "course": "MSc",
+        "branch": "Physics",
+        "year": "2nd year",
+        "position": "Lab Assistant",
+        "college": "IISER Kolkata"
+    },
+    {
+        "id": 16,
+        "name": "Ajay Verma",
+        "course": "BBA",
+        "branch": "Management",
+        "year": "2nd year",
+        "position": "Management Trainee",
+        "college": "Indian Institute of Management Indore (IIM Indore)"
+    },
+    {
+        "id": 17,
+        "name": "Kritika Das",
+        "course": "PHD",
+        "branch": "Biotechnology",
+        "year": "4th year",
+        "position": "Research Scholar",
+        "college": "Indian Institute of Technology Guwahati (IIT Guwahati)"
+    },
+    {
+        "id": 18,
+        "name": "Rohan Mehta",
+        "course": "BA",
+        "branch": "English",
+        "year": "3rd year",
+        "position": "Content Writer Intern",
+        "college": "University of Delhi"
+    },
+    {
+        "id": 19,
+        "name": "Shreya Singh",
+        "course": "MBA",
+        "branch": "Human Resources",
+        "year": "2nd year",
+        "position": "HR Intern",
+        "college": "Indian Institute of Management Lucknow (IIM Lucknow)"
+    },
+    {
+        "id": 20,
+        "name": "Ramesh Mukherjee",
+        "course": "BTech",
+        "branch": "Computer Science and Engineering",
+        "year": "4th year",
+        "position": "Software Developer Intern",
+        "college": "Galgotias University"
     }
 ]

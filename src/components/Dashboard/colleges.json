@@ -1,114 +1,456 @@
 [
     {
-        "id":1,
-        "name": "Ymca Jc Bose",
-        "exact-location":"Kabulpur, Kheri-Manjhawali Road, Naharpur, Faridabad",
-        "location": "Faridabad",
-        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-        "ctc": "Hightest CTC - 29LPA",
-        "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-        "time": "3 min ago"
-    },
-    {
-        "id":2,
-        "name": "Manav Rachna",
-        "exact-location":"Kabulpur, Kheri-Manjhawali Road, Naharpur, Faridabad",
-        "location": "Faridabad",
-        "imageURL": "https://images.shiksha.com/mediadata/images/articles/1675170070phpQXmix1.jpeg",
-        "ctc": "Hightest CTC - 23LPA",
-        "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-        "time": "3 min ago"
-    },
-    {
-        "id":3,
+        "id": 1,
         "name": "Echelon Institute of Technology",
-        "exact-location":"Kabulpur, Kheri-Manjhawali Road, Naharpur, Faridabad",
-        "location": "Faridabad",
+        "exact-location": "Kabulpur, Kheri-Manjhawali Road, Naharpur, Faridabad",
+        "location": "Haryana",
         "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnABzExk1tBZYCKCLK5V7YhZv19NliU5I_IrMiOxSCrw&s",
-        "ctc": "Hightest CTC - 17LPA",
-        "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
+        "ctc": "Hightest CTC - 29LPA",
+        "description": "Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
+        "rating": 7.7,
         "time": "3 min ago"
     },
-       
+    {
+        "id": 2,
+        "name": "YMCA JC Bose",
+        "exact-location": "Faridabad",
+        "location": "Haryana",
+        "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
+        "ctc": "Hightest CTC - 23LPA",
+        "description": "J.C BOSE University of Science and Technology, YMCA, Faridabad aspires to be a nationally and internationally acclaimed leader in technical and higher education in all spheres which transforms the life of students through integration of teaching, research and character building",
+        "rating": 8.5,
+        "time": "3 min ago"
+    },
+    {
+        "id": 3,
+        "name": "Galgotias University",
+        "exact-location": "Yamuna Expy, Greater Noida",
+        "location": "UP",
+        "imageURL": "https://lh3.googleusercontent.com/p/AF1QipPzmD6ZdFZxk-6c7_uZgQt6YuRdJkS9zo8p9fv1=s1360-w1360-h1020",
+        "ctc": "Hightest CTC - 29LPA",
+        "description": "Galgotias University, located in Uttar Pradesh and sponsored by Smt. Shakuntala Educational and Welfare Society, has been recognized as a leading academic institution by achieving the highest benchmark in academic excellence with NAAC A+ accreditation in the first cycle. ",
+        "rating": 8.8,
+        "time": "3 min ago"
+    },
+    {
+        "id": 4,
+        "name": "IIT Bombay",
+        "exact-location": "Powai, Mumbai",
+        "location": "Maharashtra",
+        "imageURL":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1z90pacNUqq2ODR-2dV6Ay2rrTbOang5QNaOtOe9QPQ&s",
+        "ctc": "Highest CTC - 1.5 Crore per annum",
+        "description": "IIT Bombay is one of the premier engineering institutes in India, known for its rigorous academics and top-notch research facilities.",
+        "rating":9.5
+    },
+    {
+        "id": 5,
+        "name": "Indian Institute of Management Bangalore (IIM Bangalore)",
+        "exact-location": "Bannerghatta Road",
+        "location": "Karnataka",
+        "imageURL":"https://img.etimg.com/thumb/width-640,height-480,imgsize-109227,resizemode-75,msid-49657636/jobs/iim-bangalore-concludes-summer-placements/institute-of-management-bangalore.jpg",
+        "ctc": "Highest CTC - 80 LPA",
+        "description": "IIM Bangalore is one of the leading management institutes in India, renowned for its faculty expertise and strong industry connections.",
+        "rating":9.2
+    },
+    {
+        "id": 6,
+        "name": "Delhi Technological University (DTU)",
+        "exact-location": "Shahbad Daulatpur",
+        "location": "Delhi",
+        "imageURL":"https://images.shiksha.com/mediadata/images/1632465297phpyUzixv.jpeg",
+        "ctc": "Highest CTC - INR 40 LPA",
+        "description": "DTU is a prominent technical university in Delhi, offering a wide range of undergraduate and postgraduate programs in engineering and technology.",
+        "rating":8.7
+    },
+    {
+        "id": 7,
+        "name": "Indian Institute of Science (IISc)",
+        "exact-location": "CV Raman Road, Bangalore",
+        "location": "Karnataka",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47pHOiIzvSptCBeCbbG0eh9N0qM4OM1kSYfJiFnhXgw&s",
+        "ctc": "Highest CTC - 1.2 Crore per annum",
+        "description": "IISc is India's leading institution for research and higher learning in science and engineering.",
+        "rating": 9.4
+      },
+      {
+        "id": 8,
+        "name": "University of Mumbai",
+        "exact-location": "Kalina, Santacruz East, Mumbai",
+        "location": "Maharashtra",
+        "imageURL": "https://mum.digitaluniversity.ac/user/pages/images/slides/slide1.jpg",
+        "ctc": "Highest CTC - 25 Lakhs per annum",
+        "description": "The University of Mumbai is one of the oldest and premier universities in India, offering a wide range of courses in various disciplines.",
+        "rating": 8.9
+      },
+      {
+        "id": 9,
+        "name": "Jawaharlal Nehru University (JNU)",
+        "exact-location": "New Mehrauli Road, New Delhi",
+        "location": "Delhi",
+        "imageURL": "https://images.shiksha.com/mediadata/images/articles/1677834266phpNc89ff.jpeg",
+        "ctc": "Highest CTC - 15 Lakhs per annum",
+        "description": "JNU is a renowned university known for its academic excellence and vibrant campus culture.",
+        "rating": 9.1
+      },
+      {
+        "id": 10,
+        "name": "Anna University",
+        "exact-location": "Sardar Patel Road, Guindy, Chennai",
+        "location": "Tamil Nadu",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYVljxEj6G6jFOjGoC9wClBxvSUHI-3ot6Xv0VYXiaLA&s",
+        "ctc": "Highest CTC - 20 Lakhs per annum",
+        "description": "Anna University is a prestigious technical university in Tamil Nadu, offering a wide range of engineering and technology programs.",
+        "rating": 8.5
+      },
+      {
+        "id": 11,
+        "name": "Indian Institute of Technology Delhi (IIT Delhi)",
+        "exact-location": "Hauz Khas, New Delhi",
+        "location": "Delhi",
+        "imageURL": "https://home.iitd.ac.in/public/storage/uploads/itc_1651484470.jpg",
+        "ctc": "Highest CTC - 1.4 Crore per annum",
+        "description": "IIT Delhi is one of the premier engineering institutes in India, known for its strong industry connections and innovative research.",
+        "rating": 9.3
+      },
+      {
+        "id": 12,
+        "name":"IIM Ahmedabad",
+        "exact-location": "Vastrapur, Ahmedabad",
+        "location": "Gujarat",
+        "imageURL": "https://content3.jdmagicbox.com/comp/ahmedabad/62/079pf018562/catalogue/indian-institute-of-management-ahmedabad-vastrapur-ahmedabad-management-institutes-sorrvixey6.jpg",
+        "ctc": "Highest CTC - 90 Lakhs per annum",
+        "description": "IIM Ahmedabad is one of the top management institutes in India, known for its rigorous academic curriculum and esteemed faculty.",
+        "rating": 9.6
+      },
+      {
+        "id": 13,
+        "name": "University of Delhi",
+        "exact-location": "North Campus, New Delhi",
+        "location": "Delhi",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjdk2Tte9WSwy7KyVYvtx1oGEkLA5RCZ8vZljO0cSVoQ&s",
+        "ctc": "Highest CTC - 30 Lakhs per annum",
+        "description": "The University of Delhi is one of India's largest and most prestigious universities, offering a wide range of undergraduate and postgraduate programs.",
+        "rating": 8.8
+      },
+      {
+        "id": 14,
+        "name": "IIT Madras",
+        "exact-location": "Chennai",
+        "location": "Tamil Nadu",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAf7f1xc2jUNsoehzgZcXynM1JJ7kPaWvZXmH0JgOdQ&s",
+        "ctc": "Highest CTC - 1.3 Crore per annum",
+        "description": "IIT Madras is one of the premier engineering institutes in India, known for its strong emphasis on research and innovation.",
+        "rating": 9.4
+      },
+      {
+        "id": 15,
+        "name": "Xavier Labour Relations Institute (XLRI)",
+        "exact-location": "Circuit House Area, Jamshedpur",
+        "location": "Jharkhand",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Xlri_Campus%2C_Jamshedpur.jpg",
+        "ctc": "Highest CTC - 50 Lakhs per annum",
+        "description": "XLRI is one of India's top management schools, known for its quality education and strong corporate connections.",
+        "rating": 9.0
+      },
+      {
+        "id": 16,
+        "name": "University of Calcutta",
+        "exact-location": "College Street, Kolkata",
+        "location": "West Bengal",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReuVSXpNVG3gcM2ZSNX8uylgbu-U7hmk3Pu_EePToQ4Q&s",
+        "ctc": "Highest CTC - 22 Lakhs per annum",
+        "description": "The University of Calcutta is one of the oldest universities in India, offering a wide range of courses in various disciplines.",
+        "rating": 8.6
+      },
+      {
+        "id": 17,
+        "name": "IIT Kanpur",
+        "exact-location": "Kanpur",
+        "location": "UP",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjxodn89r8sy0YqzoVi_39GieXlWdLjlWAQcOTaM2tQ&s",
+        "ctc": "Highest CTC - 1.4 Crore per annum",
+        "description": "IIT Kanpur is one of the premier engineering institutes in India, known for its academic excellence and research contributions.",
+        "rating": 9.3
+      },
+      {
+        "id": 18,
+        "name": "Indian School of Business (ISB)",
+        "exact-location": "Gachibowli, Hyderabad",
+        "location": "Telangana",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyvRVo8QTD9w8wxBISGvWq6SmR7gTf4MwUnjbc8jpTA&s",
+        "ctc": "Highest CTC - 75 Lakhs per annum",
+        "description": "ISB is one of India's top business schools, offering world-class management education and industry-oriented programs.",
+        "rating": 9.1
+      },
+      {
+        "id": 19,
+        "name": "University of Hyderabad",
+        "exact-location": "Gachibowli, Hyderabad",
+        "location": "Telangana",
+        "imageURL": "https://media.licdn.com/dms/image/C511BAQHKiyrRx5VeVw/company-background_10000/0/1584484196619/university_of_hyderabad_cover?e=2147483647&v=beta&t=cZD5XrXuF1w0wzJ-StYD5HmRJkikGJ0psyQnRlTPTrU",
+        "ctc": "Highest CTC - 18 Lakhs per annum",
+        "description": "The University of Hyderabad is a premier institution of postgraduate teaching and research, known for its multidisciplinary approach.",
+        "rating": 8.9
+      },
+      {
+        "id": 20,
+        "name": "IISER Pune",
+        "exact-location": "Pashan, Pune",
+        "location": "Maharashtra",
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj3cJCNLUIx0-vxq7W556mn4QMWCQYHv0YiN9iEhl6DA&s",
+        "ctc": "Highest CTC - 35 Lakhs per annum",
+        "description": "IISER Pune is one of the leading institutes for education and research in the field of science.",
+        "rating": 9.0
+      },
+      {
+        "id": 21,
+        "name": "Indian Institute of Management Calcutta (IIM Calcutta)",
+        "exact-location": "Joka, Kolkata",
+        "location": "West Bengal",
+        "imageURL": "https://example.com/iim_calcutta_image.jpg",
+        "ctc": "Highest CTC - 85 Lakhs per annum",
+        "description": "IIM Calcutta is one of the oldest and finest management schools in India, known for its academic rigor and industry relevance.",
+        "rating": 9.5
+      },
+      {
+        "id": 22,
+        "name": "Indian Statistical Institute (ISI)",
+        "exact-location": "Baranagar, Kolkata",
+        "location": "West Bengal",
+        "imageURL": "https://example.com/isi_kolkata_image.jpg",
+        "ctc": "Highest CTC - 1.2 Crore per annum",
+        "description": "ISI is a renowned institution for research, education, and training in statistics and related sciences.",
+        "rating": 9.2
+      },
+      {
+        "id": 23,
+        "name": "NIT Trichy",
+        "exact-location": "Tanjore Main Road, National Highway 67, Tiruchirappalli",
+        "location": "Tamil Nadu",
+        "imageURL": "https://example.com/nit_trichy_image.jpg",
+        "ctc": "Highest CTC - 28 Lakhs per annum",
+        "description": "NIT Trichy is one of the premier institutions of engineering and technology in India, known for its academic excellence and industry interface.",
+        "rating": 8.8
+      },
+      {
+        "id": 24,
+        "name": "Indian Institute of Management Lucknow (IIM Lucknow)",
+        "exact-location": "Prabandh Nagar, Lucknow",
+        "location": "Uttar Pradesh",
+        "imageURL": "https://example.com/iim_lucknow_image.jpg",
+        "ctc": "Highest CTC - 80 Lakhs per annum",
+        "description": "IIM Lucknow is one of the top-ranked management institutes in India, known for its academic rigor and leadership development programs.",
+        "rating": 9.4
+      },
+      {
+        "id": 25,
+        "name": "Indian Institute of Technology Roorkee (IIT Roorkee)",
+        "exact-location": "Roorkee",
+        "location": "Uttarakhand",
+        "imageURL": "https://example.com/iit_roorkee_image.jpg",
+        "ctc": "Highest CTC - 1.3 Crore per annum",
+        "description": "IIT Roorkee is one of the oldest and most prestigious technical institutions in India, known for its tradition of excellence in teaching and research.",
+        "rating": 9.2
+      },
+      {
+        "id": 26,
+        "name": "Indian Institute of Technology Guwahati (IIT Guwahati)",
+        "exact-location": "Guwahati",
+        "location": "Assam",
+        "imageURL": "https://example.com/iit_guwahati_image.jpg",
+        "ctc": "Highest CTC - 1.2 Crore per annum",
+        "description": "IIT Guwahati is one of the premier engineering institutes in India, known for its scenic campus and academic excellence.",
+        "rating": 9.0
+      },
+      {
+        "id": 27,
+        "name": "Tata Institute of Fundamental Research (TIFR)",
+        "exact-location": "Navy Nagar, Colaba, Mumbai",
+        "location": "Maharashtra",
+        "imageURL": "https://example.com/tifr_image.jpg",
+        "ctc": "Highest CTC - 1.1 Crore per annum",
+        "description": "TIFR is a national centre of the Government of India, under the umbrella of the Department of Atomic Energy, as well as a deemed University awarding degrees for master's and doctoral programs.",
+        "rating": 9.3
+      },
+      {
+        "id": 28,
+        "name": "Indian Institute of Management Kozhikode (IIM Kozhikode)",
+        "exact-location": "Kozhikode",
+        "location": "Kerala",
+        "imageURL": "https://example.com/iim_kozhikode_image.jpg",
+        "ctc": "Highest CTC - 75 Lakhs per annum",
+        "description": "IIM Kozhikode is one of the premier management institutes in India, known for its innovative programs and industry collaborations.",
+        "rating": 9.1
+      },
+      {
+        "id": 29,
+        "name": "Indian Institute of Management Indore (IIM Indore)",
+        "exact-location": "Rau, Indore",
+        "location": "Madhya Pradesh",
+        "imageURL": "https://example.com/iim_indore_image.jpg",
+        "ctc": "Highest CTC - 70 Lakhs per annum",
+        "description": "IIM Indore is one of the leading management institutes in India, known for its academic excellence and vibrant campus life.",
+        "rating": 9.2
+      },
+      {
+        "id": 30,
+        "name": "Banaras Hindu University (BHU)",
+        "exact-location": "Varanasi",
+        "location": "Uttar Pradesh",
+        "imageURL": "https://example.com/bhu_image.jpg",
+        "ctc": "Highest CTC - 20 Lakhs per annum",
+        "description": "BHU is a prestigious central university located in Varanasi, known for its academic excellence and rich cultural heritage.",
+        "rating": 8.7
+      },
+      {
+        "id": 31,
+        "name": "IIT Bhubaneswar",
+        "exact-location": "Bhubaneswar",
+        "location": "Odisha",
+        "imageURL": "https://example.com/iit_bhubaneswar_image.jpg",
+        "ctc": "Highest CTC - 1.1 Crore per annum",
+        "description": "IIT Bhubaneswar is one of the newer IITs in India, known for its state-of-the-art infrastructure and academic rigor.",
+        "rating": 8.9
+      },
+      {
+        "id": 32,
+        "name": "Indian Institute of Management Shillong (IIM Shillong)",
+        "exact-location": "Shillong",
+        "location": "Meghalaya",
+        "imageURL": "https://example.com/iim_shillong_image.jpg",
+        "ctc": "Highest CTC - 60 Lakhs per annum",
+        "description": "IIM Shillong is one of the premier management institutes in India, known for its focus on sustainability and social responsibility.",
+        "rating": 9.0
+      },
+      {
+        "id": 33,
+        "name": "National Institute of Technology Warangal (NIT Warangal)",
+        "exact-location": "Warangal",
+        "location": "Telangana",
+        "imageURL": "https://example.com/nit_warangal_image.jpg",
+        "ctc": "Highest CTC - 26 Lakhs per annum",
+        "description": "NIT Warangal is one of the top NITs in India, known for its excellent academic programs and placement record.",
+        "rating": 8.6
+      },
+      {
+        "id": 34,
+        "name": "Indian Institute of Management Raipur (IIM Raipur)",
+        "exact-location": "Raipur",
+        "location": "Chhattisgarh",
+        "imageURL": "https://example.com/iim_raipur_image.jpg",
+        "ctc": "Highest CTC - 65 Lakhs per annum",
+        "description": "IIM Raipur is one of the newer IIMs in India, known for its dynamic academic environment and strong industry interface.",
+        "rating": 8.8
+      },
+      {
+        "id": 35,
+        "name": "Indian Institute of Technology Patna (IIT Patna)",
+        "exact-location": "Patna",
+        "location": "Bihar",
+        "imageURL": "https://example.com/iit_patna_image.jpg",
+        "ctc": "Highest CTC - 1.0 Crore per annum",
+        "description": "IIT Patna is one of the premier technical institutes in India, known for its focus on cutting-edge research and innovation.",
+        "rating": 8.7
+      },
         {
-            "id":4,
-            "name": "Ymca Jc Bose",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 29LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":5,
-            "name": "Manav Rachna",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 23LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":6,
-            "name": "EIT",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 17LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":7,
-            "name": "Ymca Jc Bose",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 29LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":8,
-            "name": "Manav Rachna",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 23LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":9,
-            "name": "EIT",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 17LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":10,
-            "name": "Ymca Jc Bose",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 29LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":11,
-            "name": "Manav Rachna",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 23LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        },
-        {
-            "id":12,
-            "name": "EIT",
-            "location": "Faridabad",
-            "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-            "ctc": "Hightest CTC - 17LPA",
-            "description":"Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
-            "time": "3 min ago"
-        }
-    ]
+            "id": 36,
+            "name": "Indian Institute of Management Ranchi (IIM Ranchi)",
+            "exact-location": "Ranchi",
+            "location": "Jharkhand",
+            "imageURL": "https://example.com/iim_ranchi_image.jpg",
+            "ctc": "Highest CTC - 55 Lakhs per annum",
+            "description": "IIM Ranchi is one of the leading management institutes in India, known for its focus on innovation and entrepreneurship.",
+            "rating": 8.9
+          },
+          {
+            "id": 37,
+            "name": "Indian Institute of Technology Mandi (IIT Mandi)",
+            "exact-location": "Mandi",
+            "location": "Himachal Pradesh",
+            "imageURL": "https://example.com/iit_mandi_image.jpg",
+            "ctc": "Highest CTC - 1.1 Crore per annum",
+            "description": "IIT Mandi is one of the newer IITs in India, known for its picturesque campus and strong academic programs.",
+            "rating": 8.6
+          },
+          {
+            "id": 38,
+            "name": "Indian Institute of Management Nagpur (IIM Nagpur)",
+            "exact-location": "Nagpur",
+            "location": "Maharashtra",
+            "imageURL": "https://example.com/iim_nagpur_image.jpg",
+            "ctc": "Highest CTC - 60 Lakhs per annum",
+            "description": "IIM Nagpur is a newly established IIM, known for its industry-oriented curriculum and strong corporate connections.",
+            "rating": 8.7
+          },
+          {
+            "id": 39,
+            "name": "NIT Surathkal",
+            "exact-location": "Surathkal",
+            "location": "Karnataka",
+            "imageURL": "https://example.com/nit_surathkal_image.jpg",
+            "ctc": "Highest CTC - 27 Lakhs per annum",
+            "description": "NIT Surathkal is one of the premier technical institutes in India, known for its excellent infrastructure and academic rigor.",
+            "rating": 8.8
+          },
+          {
+            "id": 40,
+            "name": "Indian Institute of Management Trichy (IIM Trichy)",
+            "exact-location": "Tiruchirappalli",
+            "location": "Tamil Nadu",
+            "imageURL": "https://example.com/iim_trichy_image.jpg",
+            "ctc": "Highest CTC - 70 Lakhs per annum",
+            "description": "IIM Trichy is one of the newer IIMs in India, known for its strong industry interface and diverse student community.",
+            "rating": 9.0
+          },
+          {
+            "id": 41,
+            "name": "Indian Institute of Technology Jodhpur (IIT Jodhpur)",
+            "exact-location": "Jodhpur",
+            "location": "Rajasthan",
+            "imageURL": "https://example.com/iit_jodhpur_image.jpg",
+            "ctc": "Highest CTC - 1.0 Crore per annum",
+            "description": "IIT Jodhpur is one of the newer IITs in India, known for its focus on interdisciplinary research and innovation.",
+            "rating": 8.5
+          },
+          {
+            "id": 42,
+            "name": "IIM Bodh Gaya",
+            "exact-location": "Bodh Gaya",
+            "location": "Bihar",
+            "imageURL": "https://example.com/iim_bodh_gaya_image.jpg",
+            "ctc": "Highest CTC - 50 Lakhs per annum",
+            "description": "IIM Bodh Gaya is one of the newer IIMs in India, known for its focus on sustainable development and social entrepreneurship.",
+            "rating": 8.6
+          },
+          {
+            "id": 43,
+            "name": "Indian Institute of Technology Hyderabad (IIT Hyderabad)",
+            "exact-location": "Sangareddy district, Telangana",
+            "location": "Telangana",
+            "imageURL": "https://example.com/iit_hyderabad_image.jpg",
+            "ctc": "Highest CTC - 1.2 Crore per annum",
+            "description": "IIT Hyderabad is one of the premier technical institutes in India, known for its cutting-edge research and vibrant campus life.",
+            "rating": 9.1
+          },
+          {
+            "id": 44,
+            "name": "IIM Sambalpur",
+            "exact-location": "Sambalpur",
+            "location": "Odisha",
+            "imageURL": "https://example.com/iim_sambalpur_image.jpg",
+            "ctc": "Highest CTC - 65 Lakhs per annum",
+            "description": "IIM Sambalpur is one of the newer IIMs in India, known for its focus on rural management and sustainable development.",
+            "rating": 8.7
+          },
+          {
+                "id": 45,
+                "name": "NIT Silchar",
+                "exact-location": "Silchar",
+                "location": "Assam",
+                "imageURL": "https://example.com/nit_silchar_image.jpg",
+                "ctc": "Highest CTC - 26 Lakhs per annum",
+                "description": "NIT Silchar is one of the top NITs in India, known for its strong emphasis on research and innovation in engineering and technology.",
+                "rating": 8.7
+              }
+      
+]
