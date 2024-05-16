@@ -13,6 +13,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
+import Jobs from "./components/Jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,14 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/jobs",
+        errorElement: <ErrorPage />,
+        element: <Jobs />,
+      },
+      {
         path: '/contact',
-        errorElement: <ErrorPage/>,
-        element: <Contact/>
+        errorElement: <ErrorPage />,
+        element: <Contact />
       },
       // {
       //   path: '/login',

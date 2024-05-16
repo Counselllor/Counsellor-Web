@@ -1,0 +1,40 @@
+.jobs-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px;
+    justify-content: space-between;
+}
+
+.job-item {
+    width: calc(23% - 3px);
+    margin-bottom: 25px;
+    background-color: #2d9ddf;
+    /* Add background color */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Add border radius */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    /* Add box shadow */
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-info {
+    margin-bottom: 10px;
+}
+
+.apply-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    /* Add border radius to button */
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background-color: #d4dce2;
+}
