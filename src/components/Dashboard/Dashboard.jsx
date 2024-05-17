@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback} from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './Dashboard.css'
-import { useNavigate,NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -12,13 +12,12 @@ import CollegeCard from './CollegeCard';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false); 
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        // read
         console.log("");
       } else if (!user) {
         navigate("/");
@@ -91,9 +90,9 @@ const Dashboard = () => {
               <img src="src/assets/icons8-search-50.png" alt="Search" />
             </a>
             <div className="vl"></div>
-            <input type="text" placeholder='Type college name or university name' 
-            value={searchTerm}
-            onChange={handleSearchChange}/>
+            <input type="text" placeholder='Type college name or university name'
+              value={searchTerm}
+              onChange={handleSearchChange} />
           </div>
           <button>Search</button>
         </div>

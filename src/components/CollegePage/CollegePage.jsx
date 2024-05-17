@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import collegesData from '../Dashboard/colleges.json';
 import studentsData from './students.json';
 import './CollegePage.css';
-import { useNavigate } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -19,7 +18,7 @@ const CollegePage = () => {
   const { id } = useParams();
   const [showCourseList, setShowCourseList] = useState(false);
 
-  
+
 
   const college = collegesData.find(college => college.id === parseInt(id));
 
@@ -99,7 +98,7 @@ const CollegePage = () => {
         </div>
         <div className="right">
           <div className="searchCourses">
-            
+
             <select id="courseList" value={selectedCourse} placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)}>
               <option value="BTech">BTech</option>
               <option value="BBA">BBA</option>
