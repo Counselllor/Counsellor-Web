@@ -42,10 +42,11 @@ const Dashboard = () => {
       });
   };
 
-  const handleCollegeClick = (college) => {
+  const handleCollegeClick = useCallback((college) => {
     navigate(`/college/${college.id}`);
-  };
+  }, [filteredColleges]);
 
+  
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }
@@ -101,22 +102,22 @@ const Dashboard = () => {
           <span className='seeall'>See All</span>
         </div>
         <div className="colleges">
-          {filteredColleges.map((college, index) => (
-            <div className="college" key={index} onClick={() => handleCollegeClick(college)}>
-              <div className="up">
-                <img src={college.imageURL} alt="College Logo" />
-                <div className="context">
-                  <p className="college_name">{college.name}</p>
-                  <span>{college.location}</span>
-                </div>
-              </div>
-              <div className="down">
-                <div className="ctc">{college.ctc}</div>
-                <div className="time">{college.time}</div>
-              </div>
+      {filteredColleges.map((college, index) => (
+        <div className="college" key={index} onClick={() => handleCollegeClick(college)}>
+          <div className="up">
+            <img src={college.imageURL} alt="College Logo" />
+            <div className="context">
+              <p className="college_name">{college.name}</p>
+              <span>{college.location}</span>
             </div>
-          ))}
+          </div>
+          <div className="down">
+            <div className="ctc">{college.ctc}</div>
+            <div className="time">{college.time}</div>
+          </div>
         </div>
+      ))}
+    </div>
         <Footer />
       </main>
     </>
