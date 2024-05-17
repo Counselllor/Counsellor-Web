@@ -17,6 +17,9 @@ const CollegePage = () => {
   }, []);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [showCourseList, setShowCourseList] = useState(false);
+
+  
 
   const college = collegesData.find(college => college.id === parseInt(id));
 
@@ -27,7 +30,7 @@ const CollegePage = () => {
 
   const [selectedCourse, setSelectedCourse] = useState('BTech');
 
-  const filteredStudents = studentsData.filter(student => student.course === selectedCourse && student.college===college.name);
+  const filteredStudents = studentsData.filter(student => student.course === selectedCourse && student.college === college.name);
 
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,12 +85,12 @@ const CollegePage = () => {
                 <div className="location-depth">
                   <Icon icon="ion:location-outline" style={{ fontSize: '24px', marginLeft: '40px', paddingRight: '0px' }} />
                   <p className="location-heading">Location</p>
-                  </div>
-                  <p className="location-text">{college['exact-location']}</p>
+                </div>
+                <p className="location-text">{college['exact-location']}</p>
               </div>
               <div className="rating">
-              <p className="rating-heading">Rating</p>
-              <p className="rating-text">{college.rating}/10</p>
+                <p className="rating-heading">Rating</p>
+                <p className="rating-text">{college.rating}/10</p>
               </div>
             </div>
             <img className="image" src={college.imageURL} />
@@ -96,16 +99,16 @@ const CollegePage = () => {
         </div>
         <div className="right">
           <div className="searchCourses">
-            <input type="text" className="input-courses" list="courseList" placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)} />
-            <datalist id="courseList">
+            
+            <select id="courseList" value={selectedCourse} placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)}>
               <option value="BTech">BTech</option>
               <option value="BBA">BBA</option>
               <option value="MBA">MBA</option>
               <option value="BCA">BCA</option>
               <option value="BSc">BSc</option>
               <option value="MSc">MSc</option>
-              <option value="MSc">PHD</option>
-            </datalist>
+              <option value="PHD">PHD</option>
+            </select>
           </div>
 
           <div className="students">

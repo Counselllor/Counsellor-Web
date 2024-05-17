@@ -70,11 +70,11 @@
   padding-top: 15px;
   margin-right: 190px;
   font-size: 15px;
-  display:flex;
+  display: flex;
   justify-self: center;
   width: 200px;
   text-align: left;
-  margin-left:150px;
+  margin-left: 150px;
 }
 
 .rating {
@@ -137,10 +137,10 @@
   background-color: rgb(26, 165, 224);
   border-radius: 10px;
   margin-bottom: 40px;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-left:50px;
+  margin-left: 50px;
 }
 
 .student {
@@ -168,8 +168,8 @@
 }
 
 .position {
-  display:flex;
-  margin-left:160px;
+  display: flex;
+  margin-left: 160px;
   width: 400px;
   font-size: 20px;
 }
@@ -187,9 +187,14 @@
     width: 100vw;
   }
 
-  .description-card{
-    width:90vw;
+  .description-card {
+    width: 90vw;
     font-size: 15px;
+  }
+
+  .location-heading {
+    padding-left: 0px;
+    margin-right: 170px;
   }
 
   .location-text {
@@ -197,9 +202,10 @@
     margin-left: 50px;
   }
 
-  .group{
-    flex-direction:column;
+  .group {
+    flex-direction: column;
   }
+
   .rating {
     margin-left: 0px;
     margin-right: 200px;
@@ -213,32 +219,35 @@
   .right {
     width: 100vw;
   }
+
   .searchCourses {
     width: 80vw;
     margin-left: 10vw;
     margin-top: 50vw;
     background-color: #c5d5d4;
-    color: white;
-    padding: 10px 20px;
+     padding: 10px 20px;
     font-size: 16px;
   }
-  .student-card{
-    width:90vw;
-    margin-left:10px;
-    margin-right:10px;
+
+  .student-card {
+    width: 90vw;
+    margin-left: 10px;
+    margin-right: 10px;
   }
+
   .student {
     margin-left: 100px;
   }
+
   .course {
     margin-left: 60px;
     margin-right: 6px;
   }
-  
+
   .branch {
     margin-right: 6px;
   }
-  
+
   .position {
     margin-left: 60px;
     width: 400px;
