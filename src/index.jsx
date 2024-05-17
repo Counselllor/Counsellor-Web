@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import CollegePage from './components/CollegePage/CollegePage';
 import {
   About,
   Dashboard,
@@ -14,6 +13,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
+import Jobs from "./components/Jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -41,9 +41,14 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/jobs",
+        errorElement: <ErrorPage />,
+        element: <Jobs />,
+      },
+      {
         path: '/contact',
-        errorElement: <ErrorPage/>,
-        element: <Contact/>
+        errorElement: <ErrorPage />,
+        element: <Contact />
       },
       // {
       //   path: '/login',
@@ -60,13 +65,6 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <ForgotPasswordForm />,
       },
-      {
-        path:"/college/:id" ,
-        errorElement: <ErrorPage />,
-        element:<CollegePage />
-          
-      }
-      
     ],
   },
 ]);
