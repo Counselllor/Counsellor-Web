@@ -16,6 +16,7 @@ const Jobs = () => {
     { id: 10, title: "UX Designer", location: "New York" },
     { id: 11, title: "Backend Developer", location: "San Francisco" },
     { id: 12, title: "UX Designer", location: "Italy" },
+    
   ];
 
   const ApplyButton = () => {
