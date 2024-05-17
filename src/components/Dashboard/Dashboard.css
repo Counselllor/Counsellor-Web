@@ -98,7 +98,22 @@
   .menu {
     display: none;
   }
-
+  .colleges{
+    display:flex;
+    justify-content:left;
+    margin-left:0px;
+  }
+  .college{
+    display:flex;
+    flex-direction:column;
+    justify-content: left;
+    margin-left:0px;
+    padding-right:90px;
+  }
+  .up{
+    padding-right:120px;
+    margin-left:0px;
+  }
   .menu.show {
     display: block;
   }

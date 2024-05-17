@@ -1,0 +1,256 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  background-color: rgb(26, 165, 224);
+  width: 50vw;
+}
+
+.college-name {
+  margin-top: 80px;
+  margin-left: 20px;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 60px;
+}
+
+
+.description-card {
+  display: flex;
+  justify-content: left;
+  width: 40vw;
+}
+
+.description {
+  font-weight: bolder;
+  margin-left: 10px;
+  text-align: left;
+  font-size: 25px;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  width: 300px;
+}
+
+.location-depth {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+.location-heading {
+  padding-left: 10px;
+
+  font-size: 20px;
+  margin-top: -5px;
+
+  height: 20px;
+}
+
+.location-text {
+  margin-top: 16px;
+  padding-top: 15px;
+  margin-right: 190px;
+  font-size: 15px;
+  display: flex;
+  justify-self: center;
+  width: 200px;
+  text-align: left;
+  margin-left: 150px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.rating-heading {
+  font-size: 20px;
+}
+
+.rating-text {
+  font-size: 15px;
+}
+
+.image {
+  display: flex;
+  margin-left: 0px;
+  width: 50vw;
+  min-height: 100vh;
+}
+
+
+
+.search-button {
+  background-color: rgb(23, 23, 70);
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: -200px;
+  margin-left: 32vw;
+  width: 150px;
+}
+
+.searchCourses {
+  box-sizing: border-box;
+  border-radius: 15px;
+  width: 40vw;
+  margin-left: 5vw;
+  margin-top: 2vw;
+  background-color: #c5d5d4;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.input-courses {
+  width: 30vw;
+}
+
+.student-card {
+  margin-top: 15px;
+  padding: 15px 0px;
+  background-color: rgb(26, 165, 224);
+  border-radius: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.student {
+  margin-top: 18px;
+  border-radius: 5px;
+  margin-left: 160px;
+  width: 100px;
+  background-color: rgb(229, 234, 234);
+  color: rgb(29, 31, 155);
+}
+
+.student-description {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+.course {
+  margin-left: 160px;
+  margin-right: 6px;
+}
+
+.branch {
+  margin-right: 6px;
+}
+
+.position {
+  display: flex;
+  margin-left: 160px;
+  width: 400px;
+  font-size: 20px;
+}
+
+@media (max-width: 815px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100vw;
+  }
+
+  .left {
+    width: 100vw;
+  }
+
+  .description-card {
+    width: 90vw;
+    font-size: 15px;
+  }
+
+  .location-heading {
+    padding-left: 0px;
+    margin-right: 170px;
+  }
+
+  .location-text {
+    width: 80vw;
+    margin-left: 50px;
+  }
+
+  .group {
+    flex-direction: column;
+  }
+
+  .rating {
+    margin-left: 0px;
+    margin-right: 200px;
+  }
+
+  .image {
+    width: 100vw;
+    min-height: 60vw;
+  }
+
+  .right {
+    width: 100vw;
+  }
+
+  .searchCourses {
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 50vw;
+    background-color: #c5d5d4;
+     padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .student-card {
+    width: 90vw;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .student {
+    margin-left: 100px;
+  }
+
+  .course {
+    margin-left: 60px;
+    margin-right: 6px;
+  }
+
+  .branch {
+    margin-right: 6px;
+  }
+
+  .position {
+    margin-left: 60px;
+    width: 400px;
+    font-size: 20px;
+  }
+}
