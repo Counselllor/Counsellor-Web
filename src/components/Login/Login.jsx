@@ -216,21 +216,21 @@ export default function Login() {
               </Link>
             </div>
             <div className="get-app">
-              <div className="get-app-title">Get the app.</div>
-              <div className="apps">
+              {/* <div className="get-app-title">Get the app.</div> */}
+              {/* <div className="apps">
                 <Link to="/">
                   <img className="microsoft-logo" src={microsoft} alt="" />
                 </Link>
                 <Link to="/">
                   <img className="google-play-logo" src={googlePlay} alt="" />
                 </Link>
-              </div>
+              </div> */}
             </div>
         </div>
            {/* This is the left side of the login page   */}
            <div className="left">
            <img src={meeting2} alt="meeting" />
-          <p className="left-text">Still Confused with College Choice?</p>
+          {/* <p className="left-text">Still Confused with College Choice?</p> */}
         </div>
       </div>
     </div>
