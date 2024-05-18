@@ -92,7 +92,7 @@ const CollegePage = () => {
             </div>
             <img className="image" src={college.imageURL} />
           </div>
-          <button className="search-button"><a href={college.website} target="_blank">Search</a></button>
+          <button className="search-button"><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
         </div>
         <div className="right">
           <div className="searchCourses">
@@ -109,8 +109,8 @@ const CollegePage = () => {
           </div>
 
           <div className="students">
-            {filteredStudents.map((student, index) => (
-              <div key={index} className="student-card">
+            {filteredStudents.map(student => (
+              <div key={student.id} className="student-card">
                 <h2 className="student">{student.name}</h2>
                 <div className="student-description">
                   <p className="course">{student.course}</p>

@@ -114,7 +114,7 @@ const Dashboard = () => {
           {filteredColleges.map((college, index) => (
               <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
-              key={index}
+              key={college.id}
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
