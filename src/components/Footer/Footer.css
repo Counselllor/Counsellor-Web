@@ -80,7 +80,7 @@
   }
   
   /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .footer-container {
       flex-direction: column;
       align-items: flex-start;
@@ -120,7 +120,7 @@
     }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 400px) {
     .footer {
       padding: 10px;
     }
