@@ -46,7 +46,7 @@ const Dashboard = () => {
     navigate(`/college/${college.id}`);
   }, [filteredColleges]);
 
-  
+
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }
@@ -55,6 +55,15 @@ const Dashboard = () => {
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleTouchStart = (index) => {
+    setActiveIndex(index);
+  };
+
+  const handleTouchEnd = () => {
+    setActiveIndex(null);
+  };
 
   return (
     <>
@@ -102,22 +111,31 @@ const Dashboard = () => {
           <span className='seeall'>See All</span>
         </div>
         <div className="colleges">
-      {filteredColleges.map((college, index) => (
-        <div className="college" key={index} onClick={() => handleCollegeClick(college)}>
-          <div className="up">
-            <img src={college.imageURL} alt="College Logo" />
-            <div className="context">
-              <p className="college_name">{college.name}</p>
-              <span>{college.location}</span>
+          {filteredColleges.map((college, index) => (
+              <div
+              className={`college ${activeIndex === index ? 'active' : ''}`}
+              key={index}
+              onClick={() => handleCollegeClick(college)}
+              onTouchStart={() => handleTouchStart(index)}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="college-content">
+                <div className="up">
+                  <img src={college.imageURL} alt="College Logo" />
+                  <div className="context">
+                    <p className="college_name">{college.name}</p>
+                    <span className="college-location">{college.location}</span>
+                  </div>
+                </div>
+                <div className="down">
+                  <div className="ctc">{college.ctc}</div>
+                  <div className="time">{college.time}</div>
+                </div>
+              </div>
+              <button className="click-info-button">Click for more info</button>
             </div>
-          </div>
-          <div className="down">
-            <div className="ctc">{college.ctc}</div>
-            <div className="time">{college.time}</div>
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
         <Footer />
       </main>
     </>

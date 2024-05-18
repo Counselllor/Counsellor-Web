@@ -16,13 +16,11 @@ const CollegePage = () => {
   }, []);
   const navigate = useNavigate();
   const { id } = useParams();
-  const [showCourseList, setShowCourseList] = useState(false);
-
 
 
   const college = collegesData.find(college => college.id === parseInt(id));
 
-
+  
   if (!college) {
     return <div>College not found</div>;
   }
@@ -94,7 +92,7 @@ const CollegePage = () => {
             </div>
             <img className="image" src={college.imageURL} />
           </div>
-          <button className="search-button">Search</button>
+          <button className="search-button"><a href={college.website} target="_blank">Search</a></button>
         </div>
         <div className="right">
           <div className="searchCourses">
