@@ -26,7 +26,7 @@ export default function Login() {
     email: "",
     password: "",
   }); 
-
+  const [isLoading, setIsLoading] = useState(false);
   // Function for handelling inputs
   const handleLoginInfo = (e)=>{
     const {name, value} = e.target;
@@ -91,13 +91,26 @@ export default function Login() {
       }
     })
     if(submitable){
+      setIsLoading(true);
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
+          setIsLoading(false);
           navigate("/dashboard");
         })
         .catch((err) => {
-          if (err == "FirebaseError: Firebase: Error (auth/wrong-password).") {
-            alert("Incorrect Password!");
+          setIsLoading(false);
+          switch (err.code) {
+            case "auth/wrong-password":
+              alert("Incorrect Password!");
+              break;
+            case "auth/user-not-found":
+              alert("User not found!");
+              break;
+            default:
+              alert(
+                "Login failed! Please check your credentials and try again."
+              );
+              break;
           }
         });
       }else{
@@ -201,7 +214,7 @@ export default function Login() {
               <input type="checkbox" id="remember-me" />
               <label htmlFor="remember-me"> Remember me</label>
             </div>
-              <button className="login_btn" type="submit">
+              <button className="login_btn" type="submit" disabled={isLoading}>
                 Login
               </button>
           </form>
