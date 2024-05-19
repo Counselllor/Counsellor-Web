@@ -94,6 +94,54 @@
   transform: rotate(45deg) translate(-4px, -6px);
 }
 
+.colleges {
+  position: relative;
+}
+
+.college {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.7s ease;
+}
+
+.college:hover,
+.college.active {
+  background: linear-gradient(to right, rgba(0, 128, 255, 0.5), rgba(19, 191, 200, 0.5));
+}
+
+.college-content {
+  transition: opacity 0.7s ease;
+}
+
+.college:hover .college-content,
+.college.active .college-content {
+  opacity: 0;
+}
+
+.click-info-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: rgb(27, 27, 180);
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  font-weight: bolder;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.college:hover .click-info-button,
+.college.active .click-info-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 @media (max-width: 960px) {
   .menu {
     display: none;
@@ -305,6 +353,9 @@
     padding-left: 12px;
   }
 }
+
+
+
 
 @media (max-width: 960px) {
   .maintxt h1 {

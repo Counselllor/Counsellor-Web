@@ -111,7 +111,13 @@
   margin-left: 32vw;
   width: 150px;
 }
-
+.search-button a{
+  text-decoration:none;
+  color:white;
+}
+.search-button a:hover{
+  cursor:pointer;
+}
 .searchCourses {
   box-sizing: border-box;
   border-radius: 15px;
@@ -225,7 +231,7 @@
     margin-left: 10vw;
     margin-top: 50vw;
     background-color: #c5d5d4;
-     padding: 10px 20px;
+    padding: 10px 20px;
     font-size: 16px;
   }
 
