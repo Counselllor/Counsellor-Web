@@ -120,7 +120,21 @@
 
     let navigate = useNavigate();
 
- 
+    // const genrateCaptcha = () => {
+    //   let captcha = "";
+    //   const charset =
+    //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    //   for (let i = 0; i < 6; i++) {
+    //     var randomIndex = Math.floor(Math.random() * charset.length);
+    //     captcha += charset.charAt(randomIndex);
+    //   }
+    //   setCaptchaText(captcha);
+    // };
+
+    // useEffect(() => {
+    //   genrateCaptcha();
+    // }, []);
 
     const genrateCaptcha = () => {
       let captcha = "";
