@@ -4,14 +4,14 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDipCbgQbpSRYpxo-p_9vVdLc0Kl_JBYyk",
-  authDomain: "gssoc-24-cousellor.firebaseapp.com",
-  databaseURL: "https://gssoc-24-cousellor-default-rtdb.firebaseio.com",
-  projectId: "gssoc-24-cousellor",
-  storageBucket: "gssoc-24-cousellor.appspot.com",
-  messagingSenderId: "419613641249",
-  appId: "1:419613641249:web:4c59c6f84f7837227ff160",
-  measurementId: "G-LSDBZ4E76F"
+  apiKey: "AIzaSyCL_bwyE7_rwnAbuEJl5Vr7FD1_e_cOZxw",
+  authDomain: "counsellor-web-e81b7.firebaseapp.com",
+  databaseURL: "https://counsellor-web-e81b7-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "counsellor-web-e81b7",
+  storageBucket: "counsellor-web-e81b7.appspot.com",
+  messagingSenderId: "1055143292636",
+  appId: "1:1055143292636:web:1397f7974a27bd486e0e19",
+  measurementId: "G-MJST0MPDZ3"
 };
 
 // Initialize Firebase
