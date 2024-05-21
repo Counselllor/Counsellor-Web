@@ -81,7 +81,23 @@ const SignUpForm = () => {
   }
 
   let navigate = useNavigate();
+  const ageCalculator = (dob) => {
+    const birthDate = new Date(dob);
+    const currentDate = new Date();
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
 
+    const birthMonth = birthDate.getMonth();
+    const currentMonth = currentDate.getMonth();
+
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    if (age < 1) {
+      age = null;
+    }
+    return age;
+  };
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -127,23 +143,7 @@ const SignUpForm = () => {
     }
   };
 
-  const ageCalculator = (dob) => {
-    const birthDate = new Date(dob);
-    const currentDate = new Date();
-    let age = currentDate.getFullYear() - birthDate.getFullYear();
 
-    const birthMonth = birthDate.getMonth();
-    const currentMonth = currentDate.getMonth();
-
-    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())) {
-      age--;
-    }
-
-    if (age < 1) {
-      age = null;
-    }
-    return age;
-  };
 
   const onChange = (value) => {
     setRecaptchaValue(value);
@@ -151,7 +151,7 @@ const SignUpForm = () => {
       alert("CAPTCHA verified successfully!");
     }
   };
-  
+    
 
   return (
     <main>
