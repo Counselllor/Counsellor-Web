@@ -5,11 +5,25 @@
 
 .navbar {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px 0px;
+  width:100%;
   color: white;
-  background-color: #CAE7FE;
+  margin: 5px 5px;
+  background-color: transparent;
+  font-weight: bold;
+  z-index: 10000;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.6s;
+}
+.navbar.sticky{
+  padding: 2px 0px;
+  background-color:#c9c9cc;
+  box-shadow: 1px 1px 1px 1px rgb(149, 149, 149);
+  
 }
 
 .logo img {
@@ -36,13 +50,17 @@
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color: #f4f6fcb8;
+  background-color: transparent;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
 .menu li {
   margin: 15px 0;
+  :hover{
+    text-decoration: underline;
+  }
+  
 }
 
 .profile_btn {
@@ -62,6 +80,9 @@
   text-decoration: none;
   color: #12229d;
   font-size: 22px;
+  :active{
+    color:#303B5E;
+  }
 }
 
 .hamburger {
@@ -238,7 +259,7 @@
   font-size: 70px;
   color: #050A30;
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 180px;
 }
 
 .blue {
@@ -251,7 +272,7 @@
   color: #050A30;
   text-align: center;
   margin: 30px 0 0 0;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .search {

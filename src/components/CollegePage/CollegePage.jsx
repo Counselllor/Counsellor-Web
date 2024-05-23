@@ -54,7 +54,7 @@ const CollegePage = () => {
           <img src={Logo} alt="Logo" />
         </div>
         <div className={`menu ${menuOpen ? 'show' : ''}`}>
-          <ul >
+          <ul>
             <li><a href="#">Top Universities</a></li>
             <li><a href="#">Jobs</a></li>
             <li><a href="#">Courses</a></li>
