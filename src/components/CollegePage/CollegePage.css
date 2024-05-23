@@ -4,6 +4,83 @@
   background-color: aliceblue;
 }
 
+.navbar{
+    z-index: 1000;
+    position: relative;
+    max-width: 1450px;
+    max-height:60px;
+    margin: 5px auto;
+    padding: auto;
+    background: #d5edff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+
+}
+.dot{
+  padding: 10px;
+}
+
+.menu li button{
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  max-width: fit-content;
+  
+}
+
+.menu li button:hover{
+  background-color: #3C38B9;
+}
+.logo{
+  float:left;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    padding: 5 20px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu {
+  background-color: transparent;
+  padding: 0;
+}
+
+.menu.show {
+  background-color: rgb(255, 255, 255); 
+  padding: 10px 20px; 
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  background: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.menu ul li {
+  margin: 5px 0;
+  color: #3C38B9;  
+  :hover{
+    text-decoration: underline;
+  }
+  :active{
+    color:blue;
+  }
+}
+
+.menu ul li a {
+  text-decoration: none;
+  
+  
+}
+
+
 .left {
   display: flex;
   flex-direction: column;
@@ -98,6 +175,10 @@
   margin-left: 0px;
   width: 50vw;
   min-height: 100vh;
+}
+
+.menu{
+  background-color: none;
 }
 
 
