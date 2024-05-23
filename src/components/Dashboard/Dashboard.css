@@ -25,7 +25,7 @@
   background-color:rgba(178, 211, 229, 0.8);
   backdrop-filter: blur(0.5px);
   box-shadow: 1px 1px 1px 1px rgba(113, 113, 113, 0.5);
-  
+  border-radius: 10px;
 }
 
 .logo img {
