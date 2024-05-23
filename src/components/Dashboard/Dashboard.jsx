@@ -42,6 +42,8 @@ const Dashboard = () => {
       });
   };
 
+  
+
   const handleCollegeClick = useCallback((college) => {
     navigate(`/college/${college.id}`);
   }, [filteredColleges]);
@@ -65,24 +67,23 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
-  window.onscroll = function() {myFunction()};
+const [fix, setFix]= useState(false)
 
-var navbar = document.querySelector("nav");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
+function setFixed(){
+  if(window.scrollY>0){
+    setFix(true)
+  }else{
+    setFix(false)
   }
-};
+}
+
+window.addEventListener("scroll", setFixed)
 
   return (
     <>
       <main>
         <ScrollToTop color='white' style={{ backgroundColor: "#5CB6F9" }} />
-        <nav className="navbar">
+        <nav className={fix? 'navbar fixed' : 'navbar'}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
