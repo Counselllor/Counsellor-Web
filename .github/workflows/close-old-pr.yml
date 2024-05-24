@@ -2,7 +2,7 @@ name: Close Stale PRs
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Runs daily at midnight UTC
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
   pull_request:
     types: 
         - opened
@@ -25,7 +25,7 @@ jobs:
         with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             stale-pr-message: 'This PR has been automatically closed due to inactivity from the owner for 15 days.'
-            days-before-pr-stale: 1
+            days-before-pr-stale: 15
             days-before-pr-close: 0
             exempt-pr-author: false
             exempt-pr-labels: ''
