@@ -256,7 +256,7 @@
 
 .search {
   width: 70vw;
-  background-color: #5CB6F9;
+  background-color: #76c6f5;
   padding: 10px;
   border-radius: 15px;
   margin: 0 auto;
@@ -285,19 +285,19 @@
 .search input {
   width: 78%;
   height: 70px;
-  background-color: #5CB6F9;
+  background-color: #e4f1fe;
   appearance: none;
   border: none;
   font-size: 25px;
   font-family: 'ABeeZee';
-  color: #F4F6FC;
+  color: #25376e;
   padding-left: 35px;
   margin-left: 40px;
   margin-right: 15px;
 }
 
 .search input::placeholder {
-  color: white;
+  color: rgb(198, 190, 190);
 }
 
 .search button {
