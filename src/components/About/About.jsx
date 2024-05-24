@@ -3,10 +3,23 @@ import React, { useEffect, useState } from "react";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import explore from '../../assets/explore.png';
+import explorehover from '../../assets/explorehover.png';
+import college from '../../assets/college.png';
+import collegehover from '../../assets/collegehover.png';
+import stream from '../../assets/stream.png';
+import streamhover from '../../assets/streamhover.png';
+import life from '../../assets/life.png';
+import lifehover from '../../assets/lifehover.png';
 import Footer from "../Footer/Footer";
 import "./About.css";
 
 const About = () => {
+  const [exploreHover, setExploreHover] = useState(false);
+  const [collegeHover, setCollegeHover] = useState(false);
+  const [lifeHover, setLifeHover] = useState(false);
+  const [streamHover, setStreamHover] = useState(false);
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -149,7 +162,7 @@ const About = () => {
               </div>
             </section>
 
-            <section class="section-features">
+            {/* <section class="section-features">
               <div class="row">
                 <div class="col-1-of-4">
                   <div class="feature-box">
@@ -201,6 +214,43 @@ const About = () => {
                   </div>
                 </div>
               </div>
+            </section> */}
+
+            <section className="section-features">
+            <div id='about-us-section-features' style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+    <div className='about-us-block'>
+        <div className='about-us-community' onMouseOver={()=>setExploreHover(true)} onMouseLeave={()=>setExploreHover(false)}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                <img src={exploreHover ? explorehover : explore} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
+                <div className='about-us-blk-text'>Explore the World</div>
+            </div>
+            <p className='about-us-blk-para'>We let you know the worldwide college options which fit for you, ensuring tailored guidance and comprehensive support for your success.</p>
+        </div>
+        <div className='about-us-product' onMouseOver={()=>setStreamHover(true)} onMouseLeave={()=>setStreamHover(false)}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                <img src={streamHover ? streamhover : stream} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
+                <div className='about-us-blk-text'>Right Stream</div>
+            </div>
+            <p className='about-us-blk-para'>Choosing the right stream is necessary for your career growth, enabling you to achieve your professional goals and personal aspirations.</p>
+        </div>
+    </div>
+    <div className='about-us-block'>
+        <div className='about-us-location' onMouseOver={()=>setCollegeHover(true)} onMouseLeave={()=>setCollegeHover(false)}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                <img src={collegeHover ? collegehover : college} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
+                <div className='about-us-blk-text'>Right College</div>
+            </div>
+            <p className='about-us-blk-para'>Choosing the right college is necessary for your career growth, providing quality education and valuable networking opportunities for future success.</p>
+        </div>
+        <div className='about-us-event' onMouseOver={()=>setLifeHover(true)} onMouseLeave={()=>setLifeHover(false)}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                <img src={lifeHover ? lifehover : life} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
+                <div className='about-us-blk-text'>Live Your Life</div>
+            </div>
+            <p className='about-us-blk-para'>Choose the college which you dreamt of all your life. Kudos to achieving your aspirations and embarking on an exciting journey!</p>
+        </div>
+    </div>
+    </div>
             </section>
 
             <section class="section-tours">
