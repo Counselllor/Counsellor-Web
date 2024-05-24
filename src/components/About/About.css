@@ -1007,7 +1007,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 35%;
+  width: 38%;
+  background: transparent;
   height: 17rem;
   border: 1px solid rgba(206, 212, 218, 1);
   border-radius: 8px;
@@ -1060,7 +1061,7 @@ body {
 }
 
 .about-us-blk-para {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   font-weight: 400;
   line-height: 25px;

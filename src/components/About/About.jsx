@@ -23,10 +23,18 @@ const About = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
+  const handleMouseOver = setHover => () => {
+    setHover(true);
+};
+
+const handleMouseLeave = setHover => () => {
+    setHover(false);
+};
+
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
+    auth.onAuthStateChanged((authuser) => {
+      if (authuser) {
+        setUser(authuser);
       }
     });
   }, []);
@@ -47,7 +55,6 @@ const About = () => {
     setMenuOpen(!menuOpen);
   };
   return (
-    <>
       <main>
         <nav className="navbar">
           <div className="logo">
@@ -216,42 +223,67 @@ const About = () => {
               </div>
             </section> */}
 
-            <section className="section-features">
-            <div id='about-us-section-features' style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-    <div className='about-us-block'>
-        <div className='about-us-community' onMouseOver={()=>setExploreHover(true)} onMouseLeave={()=>setExploreHover(false)}>
-            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                <img src={exploreHover ? explorehover : explore} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
-                <div className='about-us-blk-text'>Explore the World</div>
+
+<section className="section-features">
+      <div id='about-us-section-features' style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div className='about-us-block'>
+          <button
+            className='about-us-community'
+            onMouseOver={handleMouseOver(setExploreHover)}
+            onMouseLeave={handleMouseLeave(setExploreHover)}
+            onFocus={handleMouseOver(setExploreHover)} 
+            onBlur={handleMouseLeave(setExploreHover)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <img src={exploreHover ? explorehover : explore} alt="" style={{ marginLeft: '1rem', marginTop: '1rem', width: '5rem' }} />
+              <div className='about-us-blk-text'>Explore the World</div>
             </div>
             <p className='about-us-blk-para'>We let you know the worldwide college options which fit for you, ensuring tailored guidance and comprehensive support for your success.</p>
-        </div>
-        <div className='about-us-product' onMouseOver={()=>setStreamHover(true)} onMouseLeave={()=>setStreamHover(false)}>
-            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                <img src={streamHover ? streamhover : stream} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
-                <div className='about-us-blk-text'>Right Stream</div>
+          </button>
+          <button
+            className='about-us-product'
+            onMouseOver={handleMouseOver(setStreamHover)}
+            onMouseLeave={handleMouseLeave(setStreamHover)}
+            onFocus={handleMouseOver(setStreamHover)} 
+            onBlur={handleMouseLeave(setStreamHover)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <img src={streamHover ? streamhover : stream} alt="" style={{ marginLeft: '1rem', marginTop: '1rem', width: '5rem' }} />
+              <div className='about-us-blk-text'>Right Stream</div>
             </div>
             <p className='about-us-blk-para'>Choosing the right stream is necessary for your career growth, enabling you to achieve your professional goals and personal aspirations.</p>
+          </button>
         </div>
-    </div>
-    <div className='about-us-block'>
-        <div className='about-us-location' onMouseOver={()=>setCollegeHover(true)} onMouseLeave={()=>setCollegeHover(false)}>
-            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                <img src={collegeHover ? collegehover : college} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
-                <div className='about-us-blk-text'>Right College</div>
+        <div className='about-us-block'>
+          <button
+            className='about-us-location'
+            onMouseOver={handleMouseOver(setCollegeHover)}
+            onMouseLeave={handleMouseLeave(setCollegeHover)}
+            onFocus={handleMouseOver(setCollegeHover)} 
+            onBlur={handleMouseLeave(setCollegeHover)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <img src={collegeHover ? collegehover : college} alt="" style={{ marginLeft: '1rem', marginTop: '1rem', width: '5rem' }} />
+              <div className='about-us-blk-text'>Right College</div>
             </div>
             <p className='about-us-blk-para'>Choosing the right college is necessary for your career growth, providing quality education and valuable networking opportunities for future success.</p>
-        </div>
-        <div className='about-us-event' onMouseOver={()=>setLifeHover(true)} onMouseLeave={()=>setLifeHover(false)}>
-            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                <img src={lifeHover ? lifehover : life} alt="" style={{marginLeft: '1rem', marginTop: '1rem', width: '5rem'}}/>
-                <div className='about-us-blk-text'>Live Your Life</div>
+          </button>
+          <button
+            className='about-us-event'
+            onMouseOver={handleMouseOver(setLifeHover)}
+            onMouseLeave={handleMouseLeave(setLifeHover)}
+            onFocus={handleMouseOver(setLifeHover)} 
+            onBlur={handleMouseLeave(setLifeHover)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <img src={lifeHover ? lifehover : life} alt="" style={{ marginLeft: '1rem', marginTop: '1rem', width: '5rem' }} />
+              <div className='about-us-blk-text'>Live Your Life</div>
             </div>
             <p className='about-us-blk-para'>Choose the college which you dreamt of all your life. Kudos to achieving your aspirations and embarking on an exciting journey!</p>
+          </button>
         </div>
-    </div>
-    </div>
-            </section>
+      </div>
+    </section>
 
             <section class="section-tours">
               <div class="u-center-text u-margin-bottom-large">
@@ -453,7 +485,6 @@ Enter our realm, intrepid adventurer, and let us be your guiding light in the bo
 
         <Footer />
       </main>
-    </>
   );
 };
 
