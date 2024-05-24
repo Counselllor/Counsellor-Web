@@ -23,10 +23,12 @@ const About = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
+  //Mouse Over
   const handleMouseOver = setHover => () => {
     setHover(true);
 };
 
+//Mouse Leave
 const handleMouseLeave = setHover => () => {
     setHover(false);
 };
