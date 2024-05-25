@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { signOut} from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -10,7 +10,6 @@ import Logo from "../../assets/logo.webp";
 
 export const Courses = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -50,7 +49,7 @@ export const Courses = () => {
               <li><a href="#">Jobs</a></li>
               <li><a href="#">Courses</a></li>
               <li><a href="#">Carrier Support</a></li>
-              <li className='dot'><a href="#">•</a></li>
+              <li className='dot'><a href="#"> • </a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
               <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
             </ul>
@@ -68,7 +67,7 @@ export const Courses = () => {
             <div className="about-content">
                 <h2 className="section-title">The Best Courses for Your <span className="span" >Academic</span> Journey</h2>
                 <p className="section-text">
-                    With over a decade of expertise, we're dedicated to empowering individuals worldwide through accessible and innovative online learning.
+                    With over a decade of expertise, we&aposre dedicated to empowering individuals worldwide through accessible and innovative online learning.
                     Join us on a journey of growth and opportunity today!
                 </p>
                 <button className="browse-courses-btn">Browse Courses</button>
