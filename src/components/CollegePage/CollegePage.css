@@ -2,11 +2,31 @@
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
+  padding: 20px;
+  height: 78vh;
 }
-
+@keyframes left-animate {
+  from{
+    position: relative;
+    left: -1000px;
+  }to{
+    left: 0px;
+    position: relative;
+  }
+}
+@keyframes animate{
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+}
 .left {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  animation: left-animate 2s forwards;
+  border-radius: 20px;
 }
 
 .content {
@@ -15,7 +35,7 @@
 }
 
 .college-name {
-  margin-top: 80px;
+  margin-top: 20px;
   margin-left: 20px;
   text-align: left;
   font-weight: bolder;
@@ -25,6 +45,8 @@
 
 .description-card {
   display: flex;
+  position: relative;
+  bottom: 50px;
   justify-content: left;
   width: 40vw;
 }
@@ -39,6 +61,8 @@
 .group {
   display: flex;
   flex-direction: row;
+  position: relative;
+  bottom: 57px;
 }
 
 .location {
@@ -66,8 +90,8 @@
 }
 
 .location-text {
-  margin-top: 16px;
-  padding-top: 15px;
+  margin-top: -5px;
+  /* padding-top: 15px; */
   margin-right: 190px;
   font-size: 15px;
   display: flex;
@@ -82,7 +106,7 @@
   flex-direction: column;
   margin-left: 70px;
   margin-top: -20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .rating-heading {
@@ -90,6 +114,7 @@
 }
 
 .rating-text {
+  margin-top: -11px;
   font-size: 15px;
 }
 
@@ -97,7 +122,8 @@
   display: flex;
   margin-left: 0px;
   width: 50vw;
-  min-height: 100vh;
+  position: relative;
+  bottom: 100px;
 }
 
 
@@ -126,6 +152,7 @@
   margin-top: 2vw;
   background-color: #c5d5d4;
   color: white;
+  animation: animate 1.5s forwards;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -191,6 +218,7 @@
 
   .left {
     width: 100vw;
+    overflow: hidden;
   }
 
   .description-card {
