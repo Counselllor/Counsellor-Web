@@ -11,14 +11,6 @@ import Logo from "../../assets/logo.webp";
 export const Courses = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      }
-    });
-  }, []);
-
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -43,21 +35,47 @@ export const Courses = () => {
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className={`menu ${menuOpen ? 'show' : ''}`}>
+          <div className={`menu ${menuOpen ? "show" : ""}`}>
             <ul>
-              <li><a href="#">Top Universities</a></li>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Carrier Support</a></li>
-              <li className='dot'><a href="#"> • </a></li>
-              <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
+              <li>
+                <a href="#">Top Universities</a>
+              </li>
+              <li>
+                <a href="#">Jobs</a>
+              </li>
+              <li>
+                <a href="#">Courses</a>
+              </li>
+              <li>
+                <a href="#">Carrier Support</a>
+              </li>
+              <li className="dot">
+                <a href="#">•</a>
+              </li>
+              {user ? (
+                <>
+                  <li>
+                    <a href="#" onClick={handleSignOut}>
+                      Log Out
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <button className="profile_btn">Profile</button>
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <a href="/">Login</a>
+                </li>
+              )}
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
           </div>
         </nav>
 
