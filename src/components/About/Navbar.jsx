@@ -6,7 +6,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 // Signout function
-const handleSignOut = (navigate, setError) => {
+const signOutUser = (navigate, setError) => {
   signOut(auth)
     .then(() => {
       navigate("/");
@@ -17,7 +17,7 @@ const handleSignOut = (navigate, setError) => {
 };
 
 // Toggle menu function
-const toggleMenu = (setMenuOpen, menuOpen) => {
+const toggleNavMenu = (setMenuOpen, menuOpen) => {
   setMenuOpen(!menuOpen);
 };
 
@@ -38,20 +38,20 @@ const Navbar = () => {
 
   // Define callbacks using useCallback
   const handleSignOutCallback = useCallback(() => {
-    handleSignOut(navigate, setError);
+    signOutUser(navigate, setError);
   }, [navigate, setError]);
 
-  //toggle menu callback
+  // Toggle menu callback
   const toggleMenuCallback = useCallback(() => {
-    toggleMenu(setMenuOpen, menuOpen);
+    toggleNavMenu(setMenuOpen, menuOpen);
   }, [setMenuOpen, menuOpen]);
 
   // Define handleKeyPress outside of JSX
-  const handleKeyPress = (event) => {
+  const handleKeyPress = useCallback((event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       toggleMenuCallback();
     }
-  };
+  }, [toggleMenuCallback]);
 
   return (
     <nav className="navbar">
@@ -86,7 +86,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
       <MenuItem href="#">Top Universities</MenuItem>
       <MenuItem href="#">Jobs</MenuItem>
       <MenuItem href="#">Courses</MenuItem>
-      <MenuItem href="#">Carrier Support</MenuItem>
+      <MenuItem href="#">Career Support</MenuItem>
       <MenuItem href="#" dot>•</MenuItem>
       {user ? (
         <>
@@ -96,7 +96,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
             </button>
           </MenuItem>
           <MenuItem>
-            <a href="#">
+            <a href="/profile">
               <button className="profile_btn">Profile</button>
             </a>
           </MenuItem>
