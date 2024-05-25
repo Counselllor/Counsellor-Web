@@ -1,7 +1,7 @@
 import "./About.css";
 
 // Card Front Component
-const CardFront = ({ className, pictureClass, heading, headingSpan, details }) => (
+const CardFront = ({ pictureClass, heading, headingSpan, details }) => (
   <div className="card__side card__side--front">
     <div className={`card__picture ${pictureClass}`}>&nbsp;</div>
     <h4 className="card__heading">
