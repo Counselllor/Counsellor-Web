@@ -6,7 +6,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 // Signout function
-const performSignOut = (navigate, setError) => {
+const handleSignOut = (navigate, setError) => {
   signOut(auth)
     .then(() => {
       navigate("/");
@@ -17,7 +17,7 @@ const performSignOut = (navigate, setError) => {
 };
 
 // Toggle menu function
-const handleMenuToggle = (setMenuOpen, menuOpen) => {
+const toggleMenu = (setMenuOpen, menuOpen) => {
   setMenuOpen(!menuOpen);
 };
 
@@ -29,21 +29,29 @@ const Navbar = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        setUser(authUser);
+    auth.onAuthStateChanged((authuser) => {
+      if (authuser) {
+        setUser(authuser);
       }
     });
   }, []);
 
   // Define callbacks using useCallback
   const handleSignOutCallback = useCallback(() => {
-    performSignOut(navigate, setError);
+    handleSignOut(navigate, setError);
   }, [navigate, setError]);
 
+  //toggle menu callback
   const toggleMenuCallback = useCallback(() => {
-    handleMenuToggle(setMenuOpen, menuOpen);
+    toggleMenu(setMenuOpen, menuOpen);
   }, [setMenuOpen, menuOpen]);
+
+  // Define handleKeyPress outside of JSX
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleMenuCallback();
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -54,7 +62,11 @@ const Navbar = () => {
         toggleMenu={toggleMenuCallback}
         menuOpen={menuOpen}
       />
-      <HamburgerSection toggleMenu={toggleMenuCallback} menuOpen={menuOpen} />
+      <HamburgerSection 
+        toggleMenu={toggleMenuCallback} 
+        menuOpen={menuOpen} 
+        handleKeyPress={handleKeyPress} 
+      />
       {error && <ErrorSection error={error} />}
     </nav>
   );
@@ -68,33 +80,30 @@ const LogoSection = () => (
 );
 
 // Menu Section Component
-const MenuSection = ({ user, handleSignOut, toggleMenu, menuOpen }) => (
+const MenuSection = ({ user, handleSignOut, menuOpen }) => (
   <div className={`menu ${menuOpen ? "show" : ""}`}>
     <ul>
-      <MenuItem href="/universities">Top Universities</MenuItem>
-      <MenuItem href="/jobs">Jobs</MenuItem>
-      <MenuItem href="/courses">Courses</MenuItem>
-      <MenuItem href="/support">Career Support</MenuItem>
-      <MenuItem dot>•</MenuItem>
+      <MenuItem href="#">Top Universities</MenuItem>
+      <MenuItem href="#">Jobs</MenuItem>
+      <MenuItem href="#">Courses</MenuItem>
+      <MenuItem href="#">Carrier Support</MenuItem>
+      <MenuItem href="#" dot>•</MenuItem>
       {user ? (
         <>
           <MenuItem>
-            <button 
-              onClick={handleSignOut} 
-              style={{background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman'}}
-            >
+            <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman' }}>
               Log Out
             </button>
           </MenuItem>
           <MenuItem>
-            <a href="/profile">
+            <a href="#">
               <button className="profile_btn">Profile</button>
             </a>
           </MenuItem>
         </>
       ) : (
         <MenuItem>
-          <a href="/login">Login</a>
+          <a href="/">Login</a>
         </MenuItem>
       )}
     </ul>
@@ -109,27 +118,19 @@ const MenuItem = ({ href, dot, children }) => (
 );
 
 // Hamburger Section Component
-const HamburgerSection = ({ toggleMenu, menuOpen }) => {
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      toggleMenu();
-    }
-  };
-
-  return (
-    <div
-      className="hamburger"
-      onClick={toggleMenu}
-      onKeyDown={handleKeyPress}
-      tabIndex={0}
-      role="button"
-    >
-      {[1, 2, 3].map((index) => (
-        <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
-      ))}
-    </div>
-  );
-};
+const HamburgerSection = ({ toggleMenu, menuOpen, handleKeyPress }) => (
+  <div
+    className="hamburger"
+    onClick={toggleMenu}
+    onKeyDown={handleKeyPress}
+    tabIndex={0}
+    role="button"
+  >
+    {[1, 2, 3].map((index) => (
+      <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
+    ))}
+  </div>
+);
 
 // Error Section Component
 const ErrorSection = ({ error }) => <div className="error">{error}</div>;

@@ -35,7 +35,7 @@ const CardBack = ({ priceValue }) => (
 );
 
 // Card Component
-const Card = ({ id, heading, headingSpan, pictureClass, details, priceValue }) => (
+const Card = ({ heading, headingSpan, pictureClass, details, priceValue }) => (
   <div className="col-1-of-3">
     <div className="card">
       <CardFront pictureClass={pictureClass} heading={heading} headingSpan={headingSpan} details={details} />
