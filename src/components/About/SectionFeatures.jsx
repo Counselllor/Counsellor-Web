@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import explore from '../../assets/explore.png';
 import explorehover from '../../assets/explorehover.png';
 import college from '../../assets/college.png';
@@ -7,27 +7,38 @@ import stream from '../../assets/stream.png';
 import streamhover from '../../assets/streamhover.png';
 import life from '../../assets/life.png';
 import lifehover from '../../assets/lifehover.png';
-import "./About.css";
 
 // Feature Button Component
 const FeatureButton = ({ className, image, hoverImage, altText, title, description }) => {
   const [hover, setHover] = useState(false);
 
-  const handleMouseOver = () => {
+  //mouseover
+  const handleMouseOver = useCallback(() => {
     setHover(true);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  //mouseleave
+  const handleMouseLeave = useCallback(() => {
     setHover(false);
-  };
+  }, []);
+
+  //handle focus
+  const handleFocus = useCallback(() => {
+    setHover(true);
+  }, []);
+
+  //handle blur
+  const handleBlur = useCallback(() => {
+    setHover(false);
+  }, []);
 
   return (
     <button
       className={className}
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      onFocus={handleMouseOver}
-      onBlur={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <img src={hover ? hoverImage : image} alt={altText} style={{ marginLeft: '1rem', marginTop: '1rem', width: '5rem' }} />

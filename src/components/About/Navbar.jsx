@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
@@ -21,7 +21,7 @@ const toggleMenu = (setMenuOpen, menuOpen) => {
   setMenuOpen(!menuOpen);
 };
 
-//navbar
+// Navbar Component
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -36,28 +36,39 @@ const Navbar = () => {
     });
   }, []);
 
+  // Define callbacks using useCallback
+  const handleSignOutCallback = useCallback(() => {
+    handleSignOut(navigate, setError);
+  }, [navigate, setError]);
+
+  const toggleMenuCallback = useCallback(() => {
+    toggleMenu(setMenuOpen, menuOpen);
+  }, [setMenuOpen, menuOpen]);
+
   return (
     <nav className="navbar">
       <LogoSection />
       <MenuSection
         user={user}
-        handleSignOut={() => handleSignOut(navigate, setError)}
-        toggleMenu={() => toggleMenu(setMenuOpen, menuOpen)}
+        handleSignOut={handleSignOutCallback}
+        toggleMenu={toggleMenuCallback}
         menuOpen={menuOpen}
       />
-      <HamburgerSection toggleMenu={() => toggleMenu(setMenuOpen, menuOpen)} menuOpen={menuOpen} />
+      <HamburgerSection toggleMenu={toggleMenuCallback} menuOpen={menuOpen} />
       {error && <ErrorSection error={error} />}
     </nav>
   );
 };
 
+// Logo Component
 const LogoSection = () => (
   <div className="logo">
     <img src={Logo} alt="Logo" />
   </div>
 );
 
-const MenuSection = ({ user, handleSignOut, toggleMenu, menuOpen }) => (
+// Menu Section Component
+const MenuSection = ({ user, handleSignOut, menuOpen }) => (
   <div className={`menu ${menuOpen ? "show" : ""}`}>
     <ul>
       <MenuItem href="#">Top Universities</MenuItem>
@@ -87,12 +98,14 @@ const MenuSection = ({ user, handleSignOut, toggleMenu, menuOpen }) => (
   </div>
 );
 
+// MenuItem Component
 const MenuItem = ({ href, dot, children }) => (
   <li className={dot ? "dot" : ""}>
     <a href={href}>{children}</a>
   </li>
 );
 
+// Hamburger Section Component
 const HamburgerSection = ({ toggleMenu, menuOpen }) => {
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -109,12 +122,13 @@ const HamburgerSection = ({ toggleMenu, menuOpen }) => {
       role="button"
     >
       {[1, 2, 3].map((index) => (
-        <div key={index} className={`bar ${menuOpen ? "open" : ""}`}/>
+        <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
       ))}
     </div>
   );
 };
 
+// Error Section Component
 const ErrorSection = ({ error }) => <div className="error">{error}</div>;
 
 export default Navbar;

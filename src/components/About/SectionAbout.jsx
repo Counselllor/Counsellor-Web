@@ -37,17 +37,17 @@ const SectionAbout = () => {
                     <img
                       src="https://t4.ftcdn.net/jpg/05/39/10/47/360_F_539104776_BchIZKRhIUXDY0ZaVHxaoIDvRa2eAG3d.jpg"
                       alt="photo 1"
-                      className="composition__pic composition__pic--p1"
+                      className="composition__grp composition__grp--p1"
                     />
                     <img
                       src="https://www.thestatesman.com/wp-content/uploads/2020/09/QT-Indian-students.jpg"
                       alt="photo 2"
-                      className="composition__pic composition__pic--p2"
+                      className="composition__grp composition__grp--p2"
                     />
                     <img
                       src="https://t3.ftcdn.net/jpg/03/88/97/92/360_F_388979227_lKgqMJPO5ExItAuN4tuwyPeiknwrR7t2.jpg"
                       alt="photo 3"
-                      className="composition__pic composition__pic--p3"
+                      className="composition__grp composition__grp--p3"
                     />
                   </div>
                 </div>

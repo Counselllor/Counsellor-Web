@@ -399,7 +399,7 @@ body {
 .composition {
   position: relative;
 }
-.composition__pic {
+.composition__grp {
   width: 55%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   border-radius: 2px;
@@ -408,25 +408,25 @@ body {
   transition: all 0.2s;
   outline-offset: 2rem;
 }
-.composition__pic--p1 {
+.composition__grp--p1 {
   left: 0;
   top: -2rem;
 }
-.composition__pic--p2 {
+.composition__grp--p2 {
   right: 0;
   top: 2rem;
 }
-.composition__pic--p3 {
+.composition__grp--p3 {
   left: 20%;
   top: 10rem;
 }
-.composition__pic:hover {
+.composition__grp:hover {
   outline: 1.5rem solid #3b4bb1;
   transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
 }
-.composition:hover .composition__pic:not(:hover) {
+.composition:hover .composition__grp:not(:hover) {
   transform: scale(0.95);
 }
 

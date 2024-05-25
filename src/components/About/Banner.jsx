@@ -1,20 +1,20 @@
 import "./About.css";
 
-//Banner
+// Banner Component
 const Banner = () => {
   return (
-    <header class="header">
-    <div class="header__text-box">
-      <h1 class="heading-primary">
-        <span class="heading-primary__main">ABOUT US</span>
-      </h1>
+    <header className="header">
+      <div className="header__text-box">
+        <h1 className="heading-primary">
+          <span className="heading-primary__main">ABOUT US</span>
+        </h1>
 
-      <a href="#" class="btn_ btn--white btn--animated">
-        Discover Who We Are?
-      </a>
-    </div>
-  </header>
-  )
-}
+        <button className="btn_ btn--white btn--animated">
+          Discover Who We Are?
+        </button>
+      </div>
+    </header>
+  );
+};
 
-export default Banner
+export default Banner;

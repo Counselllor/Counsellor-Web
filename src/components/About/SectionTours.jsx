@@ -1,8 +1,9 @@
 import React from 'react';
+
 import "./About.css";
 
 // Card Component
-const Card = ({ heading, headingSpan, pictureClass, details, priceValue }) => (
+const Card = ({ id, heading, headingSpan, pictureClass, details, priceValue }) => (
   <div className="col-1-of-3">
     <div className="card">
       <div className="card__side card__side--front">
@@ -14,8 +15,8 @@ const Card = ({ heading, headingSpan, pictureClass, details, priceValue }) => (
         </h4>
         <div className="card__details">
           <ul>
-            {details.map((detail, index) => (
-              <li key={index}>{detail}</li>
+            {details.map((detail) => (
+              <li key={`${id}-${detail}`}>{detail}</li>
             ))}
           </ul>
         </div>
@@ -44,6 +45,7 @@ const SectionTours = () => (
 
     <div className="row">
       <Card
+        id="indian-colleges"
         heading="Indian Colleges"
         headingSpan="card__heading-span--1"
         pictureClass="card__picture--1"
@@ -57,6 +59,7 @@ const SectionTours = () => (
         priceValue="3000+"
       />
       <Card
+        id="american-colleges"
         heading="American Colleges"
         headingSpan="card__heading-span--2"
         pictureClass="card__picture--2"
@@ -70,6 +73,7 @@ const SectionTours = () => (
         priceValue="300+"
       />
       <Card
+        id="austrian-colleges"
         heading="Austrian Colleges"
         headingSpan="card__heading-span--3"
         pictureClass="card__picture--3"
