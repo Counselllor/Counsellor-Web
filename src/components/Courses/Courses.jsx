@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { signOut} from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import "./Courses.css";
-import coursesData from "./Courses.json"; // Adjust the path as needed
+import coursesData from "./Courses.json";
 import testimonialsData from "./Testimonials.json";
 import Logo from "../../assets/logo.webp";
+import ScrollToTop from "react-scroll-to-top";
 
 export const Courses = () => {
   const navigate = useNavigate();
@@ -31,51 +32,26 @@ export const Courses = () => {
     <>
       <main>
         {/* Navigation Bar */}
+        <ScrollToTop color='white' style={{backgroundColor:"#5CB6F9"}}/>
         <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className={`menu ${menuOpen ? "show" : ""}`}>
+          <div className={`menu ${menuOpen ? 'show' : ''}`}>
             <ul>
-              <li>
-                <a href="#">Top Universities</a>
-              </li>
-              <li>
-                <a href="#">Jobs</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Carrier Support</a>
-              </li>
-              <li className="dot">
-                <a href="#">•</a>
-              </li>
-              {user ? (
-                <>
-                  <li>
-                    <a href="#" onClick={handleSignOut}>
-                      Log Out
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <button className="profile_btn">Profile</button>
-                    </a>
-                  </li>
-                </>
-              ) : (
-                <li>
-                  <a href="/">Login</a>
-                </li>
-              )}
+              <li><a href="#">Top Universities</a></li>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Courses</a></li>
+              <li><a href="#">Carrier Support</a></li>
+              <li className='dot'><a href="#">•</a></li>
+              <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
+              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
           </div>
         </nav>
 
