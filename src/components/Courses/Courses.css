@@ -74,6 +74,22 @@ body {
 }
 
 
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+  display: none;
+}
+
+.hamburger {
+  display: flex;
+  margin-right: 30px;
+}
+
 /* Navigation */
 .navigation {
   position: fixed;

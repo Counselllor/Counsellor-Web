@@ -48,7 +48,7 @@ export const Courses = () => {
               <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
             </ul>
           </div>
-          <div className="hamburger" onClick={toggleMenu}>
+          <div  onClick={toggleMenu} className="hamburger">
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
