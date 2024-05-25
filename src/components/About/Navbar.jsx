@@ -41,7 +41,6 @@ const Navbar = () => {
     performSignOut(navigate, setError);
   }, [navigate, setError]);
 
-  //toggle menu callback
   const toggleMenuCallback = useCallback(() => {
     handleMenuToggle(setMenuOpen, menuOpen);
   }, [setMenuOpen, menuOpen]);
@@ -106,4 +105,33 @@ const MenuSection = ({ user, handleSignOut, toggleMenu, menuOpen }) => (
 const MenuItem = ({ href, dot, children }) => (
   <li className={dot ? "dot" : ""}>
     <a href={href}>{children}</a>
-  </li
+  </li>
+);
+
+// Hamburger Section Component
+const HamburgerSection = ({ toggleMenu, menuOpen }) => {
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleMenu();
+    }
+  };
+
+  return (
+    <div
+      className="hamburger"
+      onClick={toggleMenu}
+      onKeyDown={handleKeyPress}
+      tabIndex={0}
+      role="button"
+    >
+      {[1, 2, 3].map((index) => (
+        <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
+      ))}
+    </div>
+  );
+};
+
+// Error Section Component
+const ErrorSection = ({ error }) => <div className="error">{error}</div>;
+
+export default Navbar;

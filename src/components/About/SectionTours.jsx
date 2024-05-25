@@ -1,35 +1,45 @@
 import "./About.css";
 
+// Card Front Component
+const CardFront = ({ pictureClass, heading, headingSpan, details }) => (
+  <div className="card__side card__side--front">
+    <div className={`card__picture ${pictureClass}`}>&nbsp;</div>
+    <h4 className="card__heading">
+      <span className={`card__heading-span ${headingSpan}`}>
+        {heading}
+      </span>
+    </h4>
+    <div className="card__details">
+      <ul>
+        {details.map((detail) => (
+          <li key={detail}>{detail}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
+// Card Back Component
+const CardBack = ({ priceValue }) => (
+  <div className="card__side card__side--back">
+    <div className="card__cta">
+      <div className="card__price-box">
+        <p className="card__price-only">Explore Colleges</p>
+        <p className="card__price-value">{priceValue}</p>
+      </div>
+      <a href="#popup" className="btn_ btn--white">
+        Explore Now!
+      </a>
+    </div>
+  </div>
+);
+
 // Card Component
 const Card = ({ id, heading, headingSpan, pictureClass, details, priceValue }) => (
   <div className="col-1-of-3">
     <div className="card">
-      <div className="card__side card__side--front">
-        <div className={`card__picture ${pictureClass}`}>&nbsp;</div>
-        <h4 className="card__heading">
-          <span className={`card__heading-span ${headingSpan}`}>
-            {heading}
-          </span>
-        </h4>
-        <div className="card__details">
-          <ul>
-            {details.map((detail) => (
-              <li key={`${id}-${detail}`}>{detail}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="card__side card__side--back">
-        <div className="card__cta">
-          <div className="card__price-box">
-            <p className="card__price-only">Explore Colleges</p>
-            <p className="card__price-value">{priceValue}</p>
-          </div>
-          <a href="#popup" className="btn_ btn--white">
-            Explore Now!
-          </a>
-        </div>
-      </div>
+      <CardFront pictureClass={pictureClass} heading={heading} headingSpan={headingSpan} details={details} />
+      <CardBack priceValue={priceValue} />
     </div>
   </div>
 );
