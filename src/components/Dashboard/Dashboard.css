@@ -254,6 +254,14 @@
   display: contents;
 }
 
+.s_bar_div {
+  padding-right: 18px;
+}
+
+.s_bar_img {
+  margin-left: 15px;
+}
+
 @media (max-width: 1050px) {
   .s_bar_c {
     display: flex;
