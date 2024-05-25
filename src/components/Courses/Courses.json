@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Computer Science",
+    "description": "Learn the basics of computer science, including programming, data structures, and algorithms.",
+    "imageURL": "https://0901.static.prezi.com/preview/v2/vkdxcde33osvpsk5kzepvgxhp76jc3sachvcdoaizecfr3dnitcq_3_0.png",
+    "badge": "Popular",
+    "rating": 4.8,
+    "price": "$100"
+  },
+  {
+    "id": 2,
+    "title": "Business Management",
+    "description": "Gain insights into the principles of business management, covering topics like leadership, finance, and marketing.",
+    "imageURL": "https://www.iqacademy.ac.za//wp-content/uploads/2021/07/sc-ibm.jpg",
+    "badge": "New",
+    "rating": 4.5,
+    "price": "$120"
+  },
+  {
+    "id": 3,
+    "title": "Mechanical Engineering",
+    "description": "Explore the fundamentals of mechanical engineering, including thermodynamics, mechanics, and materials science.",
+    "imageURL": "https://www.discoverengineering.org/wp-content/uploads/2023/12/mj_11423_3.jpg",
+    "badge": "Featured",
+    "rating": 4.7,
+    "price": "$150"
+  }
+]

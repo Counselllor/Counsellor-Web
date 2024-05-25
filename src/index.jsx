@@ -13,6 +13,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
+import { Courses } from "./components/Courses/Courses";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         errorElement: <ErrorPage />,
         element: <Dashboard />,
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
       },
       {
         path: "/about",
