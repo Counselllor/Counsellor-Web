@@ -1,17 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from 'react';
+import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-//Navbar
+// Signout function
+const handleSignOut = (navigate, setError) => {
+  signOut(auth)
+    .then(() => {
+      navigate("/");
+    })
+    .catch((err) => {
+      setError(err.message);
+    });
+};
+
+// Toggle menu function
+const toggleMenu = (setMenuOpen, menuOpen) => {
+  setMenuOpen(!menuOpen);
+};
+
+//navbar
 const Navbar = () => {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
-
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((authuser) => {
@@ -21,73 +36,85 @@ const Navbar = () => {
     });
   }, []);
 
-  //Signout
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
+  return (
+    <nav className="navbar">
+      <LogoSection />
+      <MenuSection
+        user={user}
+        handleSignOut={() => handleSignOut(navigate, setError)}
+        toggleMenu={() => toggleMenu(setMenuOpen, menuOpen)}
+        menuOpen={menuOpen}
+      />
+      <HamburgerSection toggleMenu={() => toggleMenu(setMenuOpen, menuOpen)} menuOpen={menuOpen} />
+      {error && <ErrorSection error={error} />}
+    </nav>
+  );
+};
 
-  const [menuOpen, setMenuOpen] = useState(false);
+const LogoSection = () => (
+  <div className="logo">
+    <img src={Logo} alt="Logo" />
+  </div>
+);
 
-  //Toggle Menu
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+const MenuSection = ({ user, handleSignOut, toggleMenu, menuOpen }) => (
+  <div className={`menu ${menuOpen ? "show" : ""}`}>
+    <ul>
+      <MenuItem href="#">Top Universities</MenuItem>
+      <MenuItem href="#">Jobs</MenuItem>
+      <MenuItem href="#">Courses</MenuItem>
+      <MenuItem href="#">Carrier Support</MenuItem>
+      <MenuItem href="#" dot>•</MenuItem>
+      {user ? (
+        <>
+          <MenuItem>
+            <a href="#" onClick={handleSignOut}>
+              Log Out
+            </a>
+          </MenuItem>
+          <MenuItem>
+            <a href="#">
+              <button className="profile_btn">Profile</button>
+            </a>
+          </MenuItem>
+        </>
+      ) : (
+        <MenuItem>
+          <a href="/">Login</a>
+        </MenuItem>
+      )}
+    </ul>
+  </div>
+);
+
+const MenuItem = ({ href, dot, children }) => (
+  <li className={dot ? "dot" : ""}>
+    <a href={href}>{children}</a>
+  </li>
+);
+
+const HamburgerSection = ({ toggleMenu, menuOpen }) => {
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleMenu();
+    }
   };
 
   return (
-        <nav className="navbar">
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-          <div className={`menu ${menuOpen ? "show" : ""}`}>
-            <ul>
-              <li>
-                <a href="#">Top Universities</a>
-              </li>
-              <li>
-                <a href="#">Jobs</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Carrier Support</a>
-              </li>
-              <li className="dot">
-                <a href="#">•</a>
-              </li>
-              {user ? (
-                <>
-                  <li>
-                    <a href="#" onClick={handleSignOut}>
-                      Log Out
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <button className="profile_btn">Profile</button>
-                    </a>
-                  </li>
-                </>
-              ) : (
-                <li>
-                  <a href="/">Login</a>
-                </li>
-              )}
-            </ul>
-          </div>
-          <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-          </div>
-        </nav>
-  )
-}
+    <div
+      className="hamburger"
+      onClick={toggleMenu}
+      onKeyDown={handleKeyPress}
+      tabIndex={0}
+      role="button"
+    >
+      {[1, 2, 3].map((index) => (
+        <div key={index} className={`bar ${menuOpen ? "open" : ""}`}/>
+      ))}
+    </div>
+  );
+};
 
-export default Navbar
+const ErrorSection = ({ error }) => <div className="error">{error}</div>;
+
+export default Navbar;

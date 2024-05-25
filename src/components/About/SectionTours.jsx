@@ -1,120 +1,95 @@
 import React from 'react';
 import "./About.css";
 
-//Section Tours
-const SectionTours = () => {
-  return (
-    <section class="section-tours">
-    <div class="u-center-text u-margin-bottom-large">
-      <h2 class="heading-secondary">Happy Statistics</h2>
-    </div>
-
-    <div class="row">
-      <div class="col-1-of-3">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__picture card__picture--1">&nbsp;</div>
-            <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--1">
-                Indian Colleges
-              </span>
-            </h4>
-            <div class="card__details">
-              <ul>
-                <li>3000+</li>
-                <li>Up to 500 Students</li>
-                <li>5 Guides</li>
-                <li>Choose Top Notch</li>
-                <li>Feedback: 5+ Stars</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back card__side--back-1">
-            <div class="card__cta">
-              <div class="card__price-box">
-                <p class="card__price-only">Explore Colleges</p>
-                <p class="card__price-value">3000+</p>
-              </div>
-              <a href="#popup" class="btn_ btn--white">
-                Explore Now!
-              </a>
-            </div>
-          </div>
+// Card Component
+const Card = ({ heading, headingSpan, pictureClass, details, priceValue }) => (
+  <div className="col-1-of-3">
+    <div className="card">
+      <div className="card__side card__side--front">
+        <div className={`card__picture ${pictureClass}`}>&nbsp;</div>
+        <h4 className="card__heading">
+          <span className={`card__heading-span ${headingSpan}`}>
+            {heading}
+          </span>
+        </h4>
+        <div className="card__details">
+          <ul>
+            {details.map((detail, index) => (
+              <li key={index}>{detail}</li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div class="col-1-of-3">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__picture card__picture--2">&nbsp;</div>
-            <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--2">
-                American Colleges
-              </span>
-            </h4>
-            <div class="card__details">
-              <ul>
-                <li>300+</li>
-                <li>Up to 40 Students</li>
-                <li>6 Guides</li>
-                <li>Fits Best For You</li>
-                <li>Feedback: 4+ Stars</li>
-              </ul>
-            </div>
+      <div className="card__side card__side--back">
+        <div className="card__cta">
+          <div className="card__price-box">
+            <p className="card__price-only">Explore Colleges</p>
+            <p className="card__price-value">{priceValue}</p>
           </div>
-          <div class="card__side card__side--back card__side--back-2">
-            <div class="card__cta">
-              <div class="card__price-box">
-                <p class="card__price-only">Explore Colleges</p>
-                <p class="card__price-value">300+</p>
-              </div>
-              <a href="#popup" class="btn_ btn--white">
-                Explore Now!
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-1-of-3">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__picture card__picture--3">&nbsp;</div>
-            <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--3">
-                Austrian Colleges
-              </span>
-            </h4>
-            <div class="card__details">
-              <ul>
-                <li>100+</li>
-                <li>Up to 15 Students</li>
-                <li>3 Guides</li>
-                <li>Go Worldwide</li>
-                <li>Feedback: 4+ Stars</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back card__side--back-3">
-            <div class="card__cta">
-              <div class="card__price-box">
-                <p class="card__price-only">Explore Colleges</p>
-                <p class="card__price-value">100+</p>
-              </div>
-              <a href="#popup" class="btn_ btn--white">
-                Explore Now!
-              </a>
-            </div>
-          </div>
+          <a href="#popup" className="btn_ btn--white">
+            Explore Now!
+          </a>
         </div>
       </div>
     </div>
+  </div>
+);
 
-    <div class="u-center-text u-margin-top-huge">
-      <a href="./dashboard" class="btn_ btn--green">
+// Section Tours Component
+const SectionTours = () => (
+  <section className="section-tours">
+    <div className="u-center-text u-margin-bottom-large">
+      <h2 className="heading-secondary">Happy Statistics</h2>
+    </div>
+
+    <div className="row">
+      <Card
+        heading="Indian Colleges"
+        headingSpan="card__heading-span--1"
+        pictureClass="card__picture--1"
+        details={[
+          "3000+",
+          "Up to 500 Students",
+          "5 Guides",
+          "Choose Top Notch",
+          "Feedback: 5+ Stars"
+        ]}
+        priceValue="3000+"
+      />
+      <Card
+        heading="American Colleges"
+        headingSpan="card__heading-span--2"
+        pictureClass="card__picture--2"
+        details={[
+          "300+",
+          "Up to 40 Students",
+          "6 Guides",
+          "Fits Best For You",
+          "Feedback: 4+ Stars"
+        ]}
+        priceValue="300+"
+      />
+      <Card
+        heading="Austrian Colleges"
+        headingSpan="card__heading-span--3"
+        pictureClass="card__picture--3"
+        details={[
+          "100+",
+          "Up to 15 Students",
+          "3 Guides",
+          "Go Worldwide",
+          "Feedback: 4+ Stars"
+        ]}
+        priceValue="100+"
+      />
+    </div>
+
+    <div className="u-center-text u-margin-top-huge">
+      <a href="./dashboard" className="btn_ btn--green">
         Discover All
       </a>
     </div>
   </section>
-  )
-}
+);
 
-export default SectionTours
+export default SectionTours;
