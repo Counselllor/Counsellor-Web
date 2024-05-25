@@ -9,10 +9,10 @@ import testimonialsData from "./Testimonials.json";
 import Logo from "../../assets/logo.webp";
 import ScrollToTop from "react-scroll-to-top";
 
-export const Courses = () => {
+export const Courses = () => {   // Course Page initialised
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
+  const handleSignOut = () => {   // Handles signout fn
     signOut(auth)
       .then(() => {
         navigate("/");
@@ -24,7 +24,7 @@ export const Courses = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = () => {    // toggle menu
     setMenuOpen(!menuOpen);
   };
 
