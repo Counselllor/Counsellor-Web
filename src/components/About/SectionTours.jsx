@@ -1,7 +1,7 @@
 import "./About.css";
 
 // Card Front Component
-const CardFront = ({ pictureClass, heading, headingSpan, details }) => (
+const CardFront = ({ className, pictureClass, heading, headingSpan, details }) => (
   <div className="card__side card__side--front">
     <div className={`card__picture ${pictureClass}`}>&nbsp;</div>
     <h4 className="card__heading">
@@ -20,8 +20,8 @@ const CardFront = ({ pictureClass, heading, headingSpan, details }) => (
 );
 
 // Card Back Component
-const CardBack = ({ priceValue }) => (
-  <div className="card__side card__side--back">
+const CardBack = ({ className, priceValue }) => (
+  <div className={className}>
     <div className="card__cta">
       <div className="card__price-box">
         <p className="card__price-only">Explore Colleges</p>
@@ -35,11 +35,11 @@ const CardBack = ({ priceValue }) => (
 );
 
 // Card Component
-const Card = ({ heading, headingSpan, pictureClass, details, priceValue }) => (
+const Card = ({ className, heading, headingSpan, pictureClass, details, priceValue }) => (
   <div className="col-1-of-3">
     <div className="card">
       <CardFront pictureClass={pictureClass} heading={heading} headingSpan={headingSpan} details={details} />
-      <CardBack priceValue={priceValue} />
+      <CardBack priceValue={priceValue} className={className}/>
     </div>
   </div>
 );
@@ -53,6 +53,7 @@ const SectionTours = () => (
 
     <div className="row">
       <Card
+        className="card__side card__side--back card__side--back-1"
         id="indian-colleges"
         heading="Indian Colleges"
         headingSpan="card__heading-span--1"
@@ -67,6 +68,7 @@ const SectionTours = () => (
         priceValue="3000+"
       />
       <Card
+        className="card__side card__side--back card__side--back-2"
         id="american-colleges"
         heading="American Colleges"
         headingSpan="card__heading-span--2"
@@ -81,6 +83,7 @@ const SectionTours = () => (
         priceValue="300+"
       />
       <Card
+        className="card__side card__side--back card__side--back-3"
         id="austrian-colleges"
         heading="Austrian Colleges"
         headingSpan="card__heading-span--3"

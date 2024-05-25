@@ -79,7 +79,7 @@ const SectionFeatures = () => {
             hoverImage={collegehover}
             altText="College"
             title="Right College"
-            description="Choosing the right college is necessary for your career growth, providing quality education and valuable networking opportunities for future success."
+            description="Choosing the right college is necessary for your career growth, providing quality education and networking opportunities for future success."
           />
           <FeatureButton
             className='about-us-event'
