@@ -40,27 +40,27 @@ export const Courses = () => {   // Course Page initialised
           <div className={`menu ${menuOpen ? "show" : ""}`}>
             <ul>
               <li>
-                <a>Top Universities</a>
+                <a href="#">Top Universities</a>
               </li>
               <li>
-                <a>Jobs</a>
+                <a href="#">Jobs</a>
               </li>
               <li>
-                <a>Courses</a>
+                <a href="#">Courses</a>
               </li>
               <li>
-                <a>Carrier Support</a>
+                <a href="#">Carrier Support</a>
               </li>
               <li className="dot">
-                <a> • </a>
+                <a href="#"> • </a>
               </li>
               <li>
-                <a onClick={handleSignOut}>
+                <a href="#" onClick={handleSignOut}>
                   Log Out
                 </a>
               </li>
               <li>
-                <a>
+                <a href="#">
                   <button className="profile_btn">Profile</button>
                 </a>
               </li>
