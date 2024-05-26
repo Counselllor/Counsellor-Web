@@ -9,6 +9,7 @@ import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 
 import CollegeCard from "./CollegeCard";
+import FAQS from "../FAQs/FAQS";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -163,6 +164,7 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
+        <FAQS/>
         <Footer />
       </main>
     </>
