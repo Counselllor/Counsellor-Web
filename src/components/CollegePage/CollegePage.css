@@ -114,8 +114,10 @@
 .search-button a{
   text-decoration:none;
   color:white;
+  width:auto;
+  display:block;
 }
-.search-button a:hover{
+.search-button:hover{
   cursor:pointer;
 }
 .searchCourses {
