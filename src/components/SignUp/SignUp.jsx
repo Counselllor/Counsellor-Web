@@ -327,6 +327,7 @@ const SignUpForm = () => {
                       type="date"
                       value={userInfo.dob}
                       name="dob"
+                      max={new Date().toJSON().slice(0, 10)}
                       onChange={handelUserInfo}
                       required
                     />
