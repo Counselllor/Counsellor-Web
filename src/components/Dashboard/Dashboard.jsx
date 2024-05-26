@@ -112,7 +112,7 @@ const Dashboard = () => {
         </div>
         <div className="colleges">
           {filteredColleges.map((college, index) => (
-              <div
+            <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
               onClick={() => handleCollegeClick(college)}
@@ -121,7 +121,7 @@ const Dashboard = () => {
             >
               <div className="college-content">
                 <div className="up">
-                  <img src={college.imageURL} alt="College Logo" />
+                  <img className="college-image" src={college.imageURL} alt="College Logo" />
                   <div className="context">
                     <p className="college_name">{college.name}</p>
                     <span className="college-location">{college.location}</span>
