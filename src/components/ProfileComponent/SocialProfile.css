@@ -1,0 +1,173 @@
+.social-profile-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background: rgba(173, 216, 230, 0.13);
+  border-radius: 10px;
+}
+
+.social-profile-container .social-profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+.social-profile-header .heading h2 {
+  font-size: 20px;
+  text-align: left;
+}
+.social-profile-header.heading p {
+  font-size: 14px;
+  text-align: left;
+}
+.social-profile-header button {
+  padding: 5px 6px;
+  background: rgb(0, 183, 255);
+  border: 1px solid #ffff;
+  border-radius: 5px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.profile-list {
+  margin-bottom: 20px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.profile-item .icon-details {
+  margin-right: 10px;
+  display: flex;
+  justify-content: stretch;
+  gap: 5px;
+  align-items: center;
+  min-width: 150px;
+}
+.profile-item .icon-details h4 {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  flex: 1;
+}
+
+.profile-item .icon-details span {
+  font-size: 19px;
+  font-weight: 900;
+}
+.profile-item .icon-details i {
+  font-size: 25px;
+  width: 29px;
+  margin-right: 5px;
+}
+.add-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-item input,
+select {
+  width: 100%;
+  padding: 8px;
+  outline: none;
+}
+
+.profile-item button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px !important;
+
+  padding: 5px;
+  padding-left: 12px;
+  margin: 0 8px;
+}
+
+.profile-item button .btn-icon {
+  font-size: 18px;
+}
+
+.profile-item button:hover {
+  background-color: #d32f2f;
+}
+.profile-item button.Edit {
+  background: rgb(0, 128, 255);
+}
+.profile-item button.Edit:hover {
+  background: rgb(0, 76, 255);
+}
+.profile-item button.Save {
+  background: #4caf50;
+}
+.profile-item button.Save:hover {
+  background: rgb(0, 91, 0);
+}
+.add-profile input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+.btns {
+  display: flex;
+}
+
+@media (max-width: 550px) {
+  .social-profile-container {
+    padding: 10px 15px;
+  }
+  .social-profile-container .social-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .social-profile-header .heading h2 {
+    font-size: 18px;
+  }
+  .social-profile-header .heading p {
+    font-size: 12px;
+  }
+  .social-profile-header button {
+    margin-top: 10px;
+  }
+  .profile-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile-item .icon-details {
+    margin-right: 0;
+    margin-bottom: 5px;
+    min-width: auto;
+  }
+  .profile-item button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .btns {
+    gap: 10px;
+  }
+}
