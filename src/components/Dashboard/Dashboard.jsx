@@ -87,8 +87,7 @@ window.addEventListener("scroll", setFixed)
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
-          {/* <div className={`menu ${menuOpen ? "show" : ""}`}> */}
-          <div className="menu">
+          <div className={`menu ${menuOpen ? "show" : ""}`}>
             <ul>
               <li>
                 <a href="#">Top Universities</a>
