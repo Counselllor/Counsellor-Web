@@ -36,7 +36,7 @@
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   float: right;
   padding: 0px 30px;
   align-items: center;
@@ -497,7 +497,11 @@
   color: white;
 }
 
-#dark .maintxt h1, .maintxt p{
+#dark .maintxt h1{
+  color: white;
+}
+
+#dark .maintxt h1{
   color: white;
 }
 
