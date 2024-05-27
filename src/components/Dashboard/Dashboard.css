@@ -29,7 +29,7 @@
   background-color:#fdfefe;
   width: 100%;
   margin:0;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.53);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.421);
 }
 .navbar.fixed .menu ul {
   list-style: none;
