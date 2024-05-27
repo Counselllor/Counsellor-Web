@@ -1,5 +1,4 @@
-// Import necessary dependencies and components
-import { useEffect, useState, useCallback, useContext } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
@@ -117,9 +116,9 @@ const Dashboard = () => {
           </ul>
         </div>
         <button className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         </button>
       </nav>
       <div className="maintxt">
@@ -145,9 +144,10 @@ const Dashboard = () => {
           <CollegeCard
             key={college.id}
             college={college}
-            onClick={() => handleCollegeClick(college)}
+            onClick={handleCollegeClick.bind(null, college)}
             onTouchStart={() => handleTouchStart(index)}
             onTouchEnd={handleTouchEnd}
+            onKeyDown={onKeyDown} 
             active={activeIndex === index}
           />
         ))}

@@ -262,6 +262,10 @@
   padding-bottom: 30px;
 }
 
+#dark .maintxt p {
+  color: white;
+}
+
 .search {
   width: 70vw;
   background-color: #76c6f5;
