@@ -43,8 +43,6 @@ const Dashboard = () => {
       });
   };
 
-  
-
   const handleCollegeClick = useCallback(
     (college) => {
       navigate(`/college/${college.id}`);
@@ -68,18 +66,6 @@ const Dashboard = () => {
   const handleTouchEnd = () => {
     setActiveIndex(null);
   };
-
-const [fix, setFix]= useState(false)
-
-function setFixed(){
-  if(window.scrollY>0){
-    setFix(true)
-  }else{
-    setFix(false)
-  }
-}
-
-window.addEventListener("scroll", setFixed)
 
   return (
     <>
