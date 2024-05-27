@@ -68,7 +68,7 @@ const Dashboard = () => {
   };
 
 const [fix, setFix]= useState(false)
-
+//function for appearance of background for nav menu
 function setFixed(){
   if(window.scrollY>0){
     setFix(true)
@@ -102,7 +102,7 @@ window.addEventListener("scroll", setFixed)
                 <a href="#">Career Support</a>
               </li>
               <li className="dot">
-                <a href="#"></a>
+                <a href="#"/>
               </li>
               <li>
                 <a href="#" onClick={handleSignOut}>
