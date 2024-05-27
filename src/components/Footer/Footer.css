@@ -10,6 +10,11 @@ footer{
     font-family: sans-serif;
 }
 
+#dark footer {
+    background-color: #12229D;
+    color: white;
+}
+
 footer ul{
     display: flex;
     justify-content: center;

@@ -1,9 +1,11 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useContext } from 'react';
 import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Switch } from 'antd';
+import { ThemeContext } from '../../App';
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -27,7 +29,7 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     auth.onAuthStateChanged((authuser) => {
       if (authuser) {
@@ -52,6 +54,9 @@ const Navbar = () => {
       toggleMenuCallback();
     }
   }, [toggleMenuCallback]);
+
+
+  
 
   return (
     <nav className="navbar">
@@ -80,35 +85,51 @@ const LogoSection = () => (
 );
 
 // Menu Section Component
-const MenuSection = ({ user, handleSignOut, menuOpen }) => (
-  <div className={`menu ${menuOpen ? "show" : ""}`}>
-    <ul>
-      <MenuItem href="#">Top Universities</MenuItem>
-      <MenuItem href="#">Jobs</MenuItem>
-      <MenuItem href="#">Courses</MenuItem>
-      <MenuItem href="#">Career Support</MenuItem>
-      <MenuItem href="#" dot>•</MenuItem>
-      {user ? (
-        <>
+const MenuSection = ({ user, handleSignOut, menuOpen }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext); 
+
+  const [themes, setThemes] = useState("light");
+
+  // Theme toggle function
+  const handleThemeChange = () => {
+    toggleTheme(); 
+    setThemes((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <div className={`menu ${menuOpen ? "show" : ""}`}>
+      <ul>
+        <MenuItem href="#">Top Universities</MenuItem>
+        <MenuItem href="#">Jobs</MenuItem>
+        <MenuItem href="#">Courses</MenuItem>
+        <MenuItem href="#">Career Support</MenuItem>
+        <MenuItem href="#" dot>•</MenuItem>
+        {user ? (
+          <>
+            <MenuItem>
+              <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman' }}>
+                Log Out
+              </button>
+            </MenuItem>
+            <MenuItem>
+              <a href="/profile">
+                <button className="profile_btn">Profile</button>
+              </a>
+            </MenuItem>
+          </>
+        ) : (
           <MenuItem>
-            <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman' }}>
-              Log Out
-            </button>
+            <a href="/">Login</a>
           </MenuItem>
-          <MenuItem>
-            <a href="/profile">
-              <button className="profile_btn">Profile</button>
-            </a>
-          </MenuItem>
-        </>
-      ) : (
+        )}
         <MenuItem>
-          <a href="/">Login</a>
+          <Switch style={{ backgroundColor: themes === "dark" ? "#000000" : ""}} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" />
         </MenuItem>
-      )}
-    </ul>
-  </div>
-);
+      </ul>
+    </div>
+  );
+};
+
 
 // MenuItem Component
 const MenuItem = ({ href, dot, children }) => (

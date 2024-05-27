@@ -1,19 +1,20 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import './Dashboard.css'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.webp'
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from './colleges.json';
 import ScrollToTop from "react-scroll-to-top";
-
-import CollegeCard from './CollegeCard';
+import { ThemeContext } from '../../App';
+import { Switch } from 'antd';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const { theme, toggleTheme } = useContext(ThemeContext); 
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -32,6 +33,7 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
+  //signout
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -42,27 +44,39 @@ const Dashboard = () => {
       });
   };
 
+  //college click
   const handleCollegeClick = useCallback((college) => {
     navigate(`/college/${college.id}`);
   }, [filteredColleges]);
 
-
+  //toggle menu
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }
   )
 
+  //handle search
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
   const [activeIndex, setActiveIndex] = useState(null);
 
+  //handle touch start
   const handleTouchStart = (index) => {
     setActiveIndex(index);
   };
 
+  //handle touch end
   const handleTouchEnd = () => {
     setActiveIndex(null);
+  };
+
+  const [themes, setThemes] = useState("light");
+
+  //theme
+  const handleThemeChange = () => {
+    toggleTheme(); 
+    setThemes((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -82,6 +96,7 @@ const Dashboard = () => {
               <li className='dot'><a href="#">•</a></li>
               <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
               <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
+              <li><Switch style={{ backgroundColor: themes === "dark" ? "#000000" : ""}} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" /></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>

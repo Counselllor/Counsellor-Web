@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@iconify/react": "^4.1.1",
+    "antd": "^5.17.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.1",

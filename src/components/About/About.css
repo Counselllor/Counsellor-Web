@@ -951,6 +951,11 @@ body {
   margin-top: -20vh;
 }
 
+#dark .section-about {
+  background-color: black;
+  color: white;
+}
+
 .section-features {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, #91cbfb, #3b49b0),
@@ -967,6 +972,10 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -10rem;
+}
+
+#dark .section-tours {
+  background-color: black;
 }
 
 .section-stories {

@@ -12,6 +12,10 @@
   background-color: #CAE7FE;
 }
 
+#dark .navbar {
+  background-color: black;
+}
+
 .logo img {
   width: 75px;
   padding-left: 15px;
@@ -36,9 +40,13 @@
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color: #f4f6fcb8;
+  background-color: hsla(225, 57%, 97%, 0.722);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+}
+
+#dark .menu ul {
+  background-color: white;
 }
 
 .menu li {
@@ -483,4 +491,16 @@
   .colleges {
     grid-template-columns: 1fr;
   }
+}
+
+#dark .nearby, .seeall {
+  color: white;
+}
+
+#dark .maintxt h1, .maintxt p{
+  color: white;
+}
+
+#dark .maintxt {
+  background-color: black;
 }
