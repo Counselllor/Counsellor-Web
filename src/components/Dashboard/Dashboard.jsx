@@ -83,11 +83,12 @@ window.addEventListener("scroll", setFixed)
     <>
       <main>
         <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
-        <nav className="navbar">
+        <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className={`menu ${menuOpen ? "show" : ""}`}>
+          {/* <div className={`menu ${menuOpen ? "show" : ""}`}> */}
+          <div className="menu">
             <ul>
               <li>
                 <a href="#">Top Universities</a>
@@ -102,7 +103,7 @@ window.addEventListener("scroll", setFixed)
                 <a href="#">Career Support</a>
               </li>
               <li className="dot">
-                <a href="#">•</a>
+                <a href="#"></a>
               </li>
               <li>
                 <a href="#" onClick={handleSignOut}>
