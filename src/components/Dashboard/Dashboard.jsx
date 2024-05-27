@@ -80,7 +80,8 @@ function setFixed(){
 window.addEventListener("scroll", setFixed)
 
   return (
-    
+    //scrolltotop is for scroll to top widget
+    //Then the navbar code begins
       <main>
         <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
         <nav className={`navbar ${fix ? 'fixed' : ''}`}>
