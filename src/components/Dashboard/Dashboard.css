@@ -11,12 +11,12 @@
   padding: 20px 0px;
   width:100%;
   color: white;
-  margin: 5px 5px;
+  margin: 0px;
   background-color: transparent;
   font-weight: 500;
   z-index: 10000;
   max-height: 80px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: 0.6s;
 }
@@ -26,6 +26,10 @@
   align-items: center;
   padding: 10px 0px;
   color: white;
+  background-color:#fdfefe;
+  width: 100%;
+  margin:0;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.53);
 }
 .navbar.fixed .menu ul {
   list-style: none;
@@ -35,7 +39,7 @@
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color:#d3eafd;
+  /* background-color:#d3eafd; */
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
