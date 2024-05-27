@@ -184,6 +184,14 @@
   .page {
     flex-direction: column;
   }
+  .location-depth{
+    display: flex;
+    justify-content: center;
+  }
+
+  .location{
+    width: 100% !important;
+  }
 
   .content {
     width: 100vw;
@@ -194,18 +202,25 @@
   }
 
   .description-card {
-    width: 90vw;
+    width: 100% !important;
+    text-align: center ;
     font-size: 15px;
   }
 
   .location-heading {
     padding-left: 0px;
-    margin-right: 170px;
+    /* margin-right: 170px; */
   }
-
+.iconify {
+  margin-left: 0px !important;
+}
   .location-text {
-    width: 80vw;
-    margin-left: 50px;
+    width: 100% !important;
+    text-align: center;
+    margin-left: 0px;
+    display: block;
+    margin-top: 0px;
+    padding-top: 0px;
   }
 
   .group {
@@ -214,7 +229,6 @@
 
   .rating {
     margin-left: 0px;
-    margin-right: 200px;
   }
 
   .image {
