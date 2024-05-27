@@ -80,7 +80,7 @@ function setFixed(){
 window.addEventListener("scroll", setFixed)
 
   return (
-    <>
+    
       <main>
         <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
         <nav className={`navbar ${fix ? 'fixed' : ''}`}>
@@ -177,7 +177,7 @@ window.addEventListener("scroll", setFixed)
         </div>
         <Footer />
       </main>
-    </>
+    
   );
 };
 
