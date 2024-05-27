@@ -1,0 +1,37 @@
+name: Close Issues on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  close-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Close linked issues
+      if: github.event.pull_request.merged == true
+      run: |
+        # Extract issue numbers from the PR body
+        ISSUES=$(jq -r '.pull_request.body' "$GITHUB_EVENT_PATH" | grep -Eo '#[0-9]+' | tr -d '#')
+        
+        # Loop through each extracted issue number and close the issue
+        for ISSUE in $ISSUES
+        do
+          echo "Closing issue #$ISSUE"
+
+          # Post a comment to the issue indicating it was closed by the merged PR
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE/comments \
+               -d "{\"body\":\"Closed by PR #${{ github.event.pull_request.number }}\"}"
+
+          # Close the issue by updating its state to "closed"
+          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE \
+               -d "{\"state\":\"closed\"}"
+        done

@@ -8,6 +8,7 @@ import { createContext, useState } from 'react';
 
 //theme context
 export const ThemeContext = createContext(null);
+//App
 const App = () => {
 
   const [theme, setTheme] = useState("light");
