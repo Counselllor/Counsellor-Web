@@ -29,7 +29,8 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [error, setError] = useState(null);
-  
+  const { theme, toggleTheme } = useContext(ThemeContext); 
+
   useEffect(() => {
     auth.onAuthStateChanged((authuser) => {
       if (authuser) {
@@ -55,8 +56,11 @@ const Navbar = () => {
     }
   }, [toggleMenuCallback]);
 
-
-  
+  // Theme toggle function
+  const handleThemeChange = () => {
+    toggleTheme(); 
+    setThemes((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <nav className="navbar">
@@ -66,6 +70,8 @@ const Navbar = () => {
         handleSignOut={handleSignOutCallback}
         toggleMenu={toggleMenuCallback}
         menuOpen={menuOpen}
+        theme={theme}
+        handleThemeChange={handleThemeChange}
       />
       <HamburgerSection 
         toggleMenu={toggleMenuCallback} 
@@ -85,17 +91,7 @@ const LogoSection = () => (
 );
 
 // Menu Section Component
-const MenuSection = ({ user, handleSignOut, menuOpen }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext); 
-
-  const [themes, setThemes] = useState("light");
-
-  // Theme toggle function
-  const handleThemeChange = () => {
-    toggleTheme(); 
-    setThemes((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
+const MenuSection = ({ user, handleSignOut, menuOpen, theme, handleThemeChange }) => {
   return (
     <div className={`menu ${menuOpen ? "show" : ""}`}>
       <ul>
@@ -123,7 +119,13 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => {
           </MenuItem>
         )}
         <MenuItem>
-          <Switch style={{ backgroundColor: themes === "dark" ? "#000000" : ""}} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" />
+          <Switch 
+            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}} 
+            onChange={handleThemeChange} 
+            checked={theme === "dark"} 
+            checkedChildren="Dark Mode" 
+            unCheckedChildren="Light Mode" 
+          />
         </MenuItem>
       </ul>
     </div>
