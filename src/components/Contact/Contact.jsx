@@ -88,10 +88,15 @@ const Contact = () => {
           <label className='clabel'>Email:</label>
         </div>
         <div class="cform-item">
+<<<<<<< HEAD
           <textarea id='m-textarea' className='ctextarea' class="" name="message" required/>
           <label className='clabel'>Message:</label>
+=======
+          <textarea id="m-textarea" class="ctextarea" name="message" required></textarea>
+          <label class="clabel">Message:</label>
+>>>>>>> ba3c22c4c4001e60e8cc5151d698ef31a68365e6
         </div>
-        <button class="csubmit-btn">Send</button>  
+        <button class="csubmit-btn">Send</button>
       </form>
     </div>
   </div>
