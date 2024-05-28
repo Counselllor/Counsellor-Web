@@ -85,9 +85,9 @@ const Dashboard = () => {
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
         </nav>
         <div className="maintxt">
@@ -99,7 +99,7 @@ const Dashboard = () => {
             <a href="">
               <img src="src/assets/icons8-search-50.png" alt="Search" />
             </a>
-            <div className="vl"></div>
+            <div className="vl"/>
             <input type="text" placeholder='Type college name or university name'
               value={searchTerm}
               onChange={handleSearchChange} />

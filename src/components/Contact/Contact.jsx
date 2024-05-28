@@ -54,9 +54,9 @@ const Contact = () => {
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
         </nav>
     <div className='contact-page'>
@@ -88,7 +88,7 @@ const Contact = () => {
           <label className='clabel'>Email:</label>
         </div>
         <div class="cform-item">
-          <textarea id='m-textarea' className='ctextarea' class="" name="message" required></textarea>
+          <textarea id='m-textarea' className='ctextarea' class="" name="message" required/>
           <label className='clabel'>Message:</label>
         </div>
         <button class="csubmit-btn">Send</button>  
