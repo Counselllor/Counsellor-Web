@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {
   FaHome,
   FaEye,
@@ -16,8 +16,8 @@ import {
   FaGraduationCap,
   FaUserTie,
   FaShieldVirus,
+  FaSyncAlt,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import "./Signup.css";
 import show from "../../assets/show.png";
@@ -26,7 +26,6 @@ import { auth, database } from "../../firebase/auth";
 import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
-import { FaSyncAlt } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
 
@@ -385,7 +384,7 @@ const SignUpForm = () => {
                       id="student-option"
                       onChange={handelUserInfo}
                       required
-                    ></input>
+                    />
                   </span>
                   <FaGraduationCap
                     className="icons"
@@ -404,7 +403,7 @@ const SignUpForm = () => {
                       id="counsellor-option"
                       onChange={handelUserInfo}
                       required
-                    ></input>
+                    />
                   </span>
                   <FaUserTie className="icons" />
                 </div>
