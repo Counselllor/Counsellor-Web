@@ -67,11 +67,24 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
+const [fix, setFix]= useState(false)
+//function for appearance of background for nav menu
+function setFixed(){
+  if(window.scrollY>0){
+    setFix(true)
+  }else{
+    setFix(false)
+  }
+}
+
+window.addEventListener("scroll", setFixed)
+
   return (
-    <>
+    //scrolltotop is for scroll to top widget
+    //Then the navbar code begins
       <main>
         <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
-        <nav className="navbar">
+        <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
@@ -90,7 +103,7 @@ const Dashboard = () => {
                 <a href="#">Career Support</a>
               </li>
               <li className="dot">
-                <a href="#">•</a>
+                <a href="#"/>
               </li>
               <li>
                 <a href="#" onClick={handleSignOut}>
@@ -163,7 +176,7 @@ const Dashboard = () => {
         </div>
         <Footer />
       </main>
-    </>
+    
   );
 };
 

@@ -5,19 +5,55 @@
 
 .navbar {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px 0px;
+  width:100%;
   color: white;
-  background-color: #CAE7FE;
+  margin: 0px;
+  background-color: white;
+  font-weight: 500;
+  z-index: 10000;
+  max-height: 60px;
+  /* border-radius: 5px; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.6s;
+  /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.421); */
 }
+.navbar.fixed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  color: white;
+  /* background-color:transparent; */
+  width: 100%;
+  margin:0;
+  box-shadow:  0 2px 2px rgba(0, 0, 0, 0.385);
+  
+}
+.navbar.fixed .menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 60px;
+  float: right;
+  padding: 0px 30px;
+  align-items: center;
+  /* background-color:#d3eafd; */
+  /* border-top-left-radius: 50px; */
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.385); */
+  /* border-bottom-left-radius: 50px; */
+}
+
 
 .logo img {
   width: 75px;
   padding-left: 15px;
 }
 
-.menu {
+.navbar .menu {
   flex-direction: column;
   align-items: center;
   top: 70px;
@@ -32,36 +68,54 @@
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 30px;
+  gap: 60px;
+  margin:0px;
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color: #f4f6fcb8;
+  background-color: transparent;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
 .menu li {
   margin: 15px 0;
+  :hover{
+    text-decoration: underline;
+  }
 }
 
 .profile_btn {
   background-color: var(--btnColor);
-  border-radius: 15px;
+  border-radius: 10px;
   color: #F4F6FC;
   text-align: center;
-  padding: 10px 50px;
+  padding: 10px 40px;
   margin-right: 0.5vw;
   border: none;
-  font-size: 25px;
+  font-size: 22px;
   float: right;
+  font-weight: 400;
   cursor: pointer;
+  box-shadow: 1px 2px 1px grey;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.profile_btn:hover{
+  background-color: #050A30;
 }
 
 .menu a {
   text-decoration: none;
-  color: #12229d;
+  color: #00073e;
   font-size: 22px;
+  :active{
+    color:#303B5E;
+  }
+}
+.menu a button{
+  :hover{
+    background-color: #152280;
+  }
 }
 
 .hamburger {
@@ -140,6 +194,101 @@
   opacity: 1;
   pointer-events: auto;
 }
+.dot {
+  height: 18px;
+  width: 18px;
+  background-color:#050A30;
+  border-radius: 50%;
+  
+}
+
+
+@media (max-width: 960px) {
+  .menu {
+    display: none;
+  }
+  .colleges{
+    display:flex;
+    justify-content:left;
+    margin-left:0px;
+  }
+  .college{
+    display:flex;
+    flex-direction:column;
+    justify-content: left;
+    margin-left:0px;
+    padding-right:90px;
+  }
+  .up{
+    padding-right:120px;
+    margin-left:0px;
+  }
+  .menu.show {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #12229d;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    background-color: #CAE7FE;
+  }
+
+  .menu.show {
+    display: flex;
+    background: #cae7fe45;
+    border-radius: 10px;
+    padding: 75px;
+    box-shadow: 0 0 10px #cae7fe;
+    backdrop-filter: blur(10px);
+  }
+
+  .menu ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .menu li {
+    margin: 15px 0;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #12229d;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  .bar {
+    background-color: #12229d;
+  }
+
+  .dot {
+    display: none;
+  }
+}
+
 .maintxt {
   background-color: #CAE7FE;
 }
@@ -150,7 +299,7 @@
   font-size: 70px;
   color: #050A30;
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 180px;
 }
 
 .blue {
@@ -163,7 +312,7 @@
   color: #050A30;
   text-align: center;
   margin: 30px 0 0 0;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .search {
