@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div id='homeCircle'></div>
+            <div id='homeCircle'/>
             <div id='homeContainer'>
                 <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />
                 <div className="MainText">
@@ -21,8 +21,7 @@ const Home = () => {
                     />
                 </div>
             </div>
-            <div id='homeCircleScnd'>
-            </div>
+            <div id='homeCircleScnd'/>
         </>
     )
 }

@@ -34,6 +34,7 @@ function Footer() {
           <a
             href="https://github.com/Counselllor/Counsellor-Web"
             target="_blank"
+            rel="noreferrer"
           >
             <FaGithub />
           </a>
