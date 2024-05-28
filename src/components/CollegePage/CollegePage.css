@@ -41,16 +41,6 @@
 .search-button {
   display: block;
 }
-@media (max-width: 767px) {
-  .hide {
-    display: none;
-  }
-
-  .show {
-    display: block;
-  }
-}
-
 
 .description-card {
   display: flex;

@@ -105,9 +105,9 @@ const Dashboard = () => {
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
         </nav>
         <div className="maintxt">
