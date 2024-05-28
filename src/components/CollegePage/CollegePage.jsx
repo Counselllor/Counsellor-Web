@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import collegesData from '../Dashboard/colleges.json';
 import studentsData from './students.json';
 import './CollegePage.css';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -20,7 +20,7 @@ const CollegePage = () => {
 
   const college = collegesData.find(college => college.id === parseInt(id));
 
-  
+
   if (!college) {
     return <div>College not found</div>;
   }
@@ -90,14 +90,20 @@ const CollegePage = () => {
                 <p className="rating-text">{college.rating}/10</p>
               </div>
             </div>
-            <img className="image" src={college.imageURL} />
           </div>
-          <button className="search-button"><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
+          <img className="image" src={college.imageURL} alt="College" />
+          <button className="search-button">
+            <a href={college.website} target="_blank" rel="noreferrer">Search</a>
+          </button>
         </div>
         <div className="right">
           <div className="searchCourses">
-
-            <select id="courseList" value={selectedCourse} placeholder="Search courses" onChange={(e) => setSelectedCourse(e.target.value)}>
+            <select
+              id="courseList"
+              value={selectedCourse}
+              placeholder="Search courses"
+              onChange={(e) => setSelectedCourse(e.target.value)}
+            >
               <option value="BTech">BTech</option>
               <option value="BBA">BBA</option>
               <option value="MBA">MBA</option>
@@ -107,7 +113,6 @@ const CollegePage = () => {
               <option value="PHD">PHD</option>
             </select>
           </div>
-
           <div className="students">
             {filteredStudents.map(student => (
               <div key={student.id} className="student-card">
