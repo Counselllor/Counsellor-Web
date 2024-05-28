@@ -105,15 +105,9 @@ const Dashboard = () => {
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-<<<<<<< HEAD
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-=======
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
->>>>>>> ba3c22c4c4001e60e8cc5151d698ef31a68365e6
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
           </div>
         </nav>
         <div className="maintxt">
@@ -129,15 +123,8 @@ const Dashboard = () => {
             <a href="">
               <img src="src/assets/icons8-search-50.png" alt="Search" />
             </a>
-<<<<<<< HEAD
             <div className="vl"/>
             <input type="text" placeholder='Type college name or university name'
-=======
-            <div className="vl"></div>
-            <input
-              type="text"
-              placeholder="Type college name or university name"
->>>>>>> ba3c22c4c4001e60e8cc5151d698ef31a68365e6
               value={searchTerm}
               onChange={handleSearchChange}
             />
@@ -151,11 +138,7 @@ const Dashboard = () => {
         <div className="colleges">
           {filteredColleges.map((college, index) => (
             <div
-<<<<<<< HEAD
               className={`college ${activeIndex === index ? 'active' : ''}`}
-=======
-              className={`college ${activeIndex === index ? "active" : ""}`}
->>>>>>> ba3c22c4c4001e60e8cc5151d698ef31a68365e6
               key={college.id}
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
