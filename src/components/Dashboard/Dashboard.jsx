@@ -67,11 +67,24 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
+const [fix, setFix]= useState(false)
+//function for appearance of background for nav menu
+function setFixed(){
+  if(window.scrollY>0){
+    setFix(true)
+  }else{
+    setFix(false)
+  }
+}
+
+window.addEventListener("scroll", setFixed)
+
   return (
-    <>
+    //scrolltotop is for scroll to top widget
+    //Then the navbar code begins
       <main>
         <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
-        <nav className="navbar">
+        <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
@@ -90,7 +103,7 @@ const Dashboard = () => {
                 <a href="#">Career Support</a>
               </li>
               <li className="dot">
-                <a href="#">•</a>
+                <a href="#"/>
               </li>
               <li>
                 <a href="#" onClick={handleSignOut}>
@@ -105,9 +118,9 @@ const Dashboard = () => {
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-            <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
         </nav>
         <div className="maintxt">
@@ -123,10 +136,8 @@ const Dashboard = () => {
             <a href="">
               <img src="src/assets/icons8-search-50.png" alt="Search" />
             </a>
-            <div className="vl"></div>
-            <input
-              type="text"
-              placeholder="Type college name or university name"
+            <div className="vl"/>
+            <input type="text" placeholder='Type college name or university name'
               value={searchTerm}
               onChange={handleSearchChange}
             />
@@ -140,7 +151,7 @@ const Dashboard = () => {
         <div className="colleges">
           {filteredColleges.map((college, index) => (
             <div
-              className={`college ${activeIndex === index ? "active" : ""}`}
+              className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
@@ -148,7 +159,7 @@ const Dashboard = () => {
             >
               <div className="college-content">
                 <div className="up">
-                  <img src={college.imageURL} alt="College Logo" />
+                  <img className="college-image" src={college.imageURL} alt="College Logo" />
                   <div className="context">
                     <p className="college_name">{college.name}</p>
                     <span className="college-location">{college.location}</span>
@@ -165,7 +176,7 @@ const Dashboard = () => {
         </div>
         <Footer />
       </main>
-    </>
+    
   );
 };
 
