@@ -9,6 +9,7 @@ import {
   ErrorPage,
   ForgotPasswordForm,
   SignUpForm,
+  FAQs,
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
         path: "/profile",
         errorElement: <ErrorPage />,
         element: <ProfilePage />,
+      },
+      {
+        path: "/FAQs",
+        errorElement: <ErrorPage />,
+        element: <FAQs />,
       },
     ],
   },

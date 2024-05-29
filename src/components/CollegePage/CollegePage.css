@@ -13,7 +13,17 @@
   background-color: rgb(26, 165, 224);
   width: 50vw;
 }
-
+.hide{
+  display:none;
+}
+#courseList:selected{
+  .image{
+    display:none;
+  }
+  .content{
+    display:block;
+  }
+}
 .college-name {
   margin-top: 80px;
   margin-left: 20px;
@@ -21,7 +31,16 @@
   font-weight: bolder;
   font-size: 60px;
 }
+.content{
+  display:block;
+}
+.image {
+  display: block;
+}
 
+.search-button {
+  display: block;
+}
 
 .description-card {
   display: flex;
@@ -151,10 +170,11 @@
 
 .student {
   margin-top: 18px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-left: 160px;
   width: 100px;
-  background-color: rgb(229, 234, 234);
+  background-color: rgb(172, 209, 209);
+  padding:15px;
   color: rgb(29, 31, 155);
 }
 
