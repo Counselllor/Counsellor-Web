@@ -7,7 +7,8 @@ import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
 import FAQS from "../FAQs/FAQS";
 
@@ -19,9 +20,17 @@ const Dashboard = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        toast.success("Logged in! 🚀",{
+          className: "toast-message",
+        })
         console.log("");
       } else if (!user) {
-        navigate("/");
+        toast.success("Logged out!",{
+          className: "toast-message",
+        })
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       }
     });
   }, []);
@@ -37,10 +46,17 @@ const Dashboard = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        toast.success("Logged out!",{
+          className: "toast-message",
+        })
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message,{
+          className: "toast-message",
+        });
       });
   };
 
@@ -125,6 +141,7 @@ window.addEventListener("scroll", setFixed)
           </div>
         </nav>
         <div className="maintxt">
+          <ToastContainer/>
           <h1>
             <span className="blue">Find your </span>Dream
             <br />

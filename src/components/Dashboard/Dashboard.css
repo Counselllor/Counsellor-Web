@@ -471,6 +471,13 @@
   color: #050a3079;
 }
 
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  width: 18vw;
+  padding: 10px;
+}
 
 @media (max-width: 960px) {
   .menu {
