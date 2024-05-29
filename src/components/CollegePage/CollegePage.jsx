@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { Icon } from '@iconify/react';
 import ScrollToTop from "react-scroll-to-top";
+import {FaStar,FaStarHalf} from 'react-icons/fa6'
 
 
 const CollegePage = () => {
@@ -46,6 +47,7 @@ const CollegePage = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const imgArray=['/src/assets/9.png','/src/assets/8.png','/src/assets/10.png','/src/assets/11.png','/src/assets/element 6.png','/src/assets/element 7.png']
   return (
     <>
       <ScrollToTop color='white' style={{ backgroundColor: "#5CB6F9" }} />
@@ -70,41 +72,47 @@ const CollegePage = () => {
           <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         </div>
       </nav>
+      <div style={{height:"60px"}}></div>
       <div className="page">
         <div className="left">
           <div className="content">
+            <div style={{height:"auto",width:"100%",paddingTop:"20px"}}>
+
             <h1 className="college-name">{college.name}</h1>
             <div className="description-card">
               <p className="description">{college.description}</p>
             </div>
-            <div className="group">
+            <div className="group" >
               <div className="location">
-                <div className="location-depth">
-                  <Icon icon="ion:location-outline" style={{ fontSize: '24px', marginLeft: '40px', paddingRight: '0px' }} />
-                  <p className="location-heading">Location</p>
+                <div className='icon'>
+                  <Icon icon="ion:location-outline" style={{ fontSize: '24px'}} />
                 </div>
+                <div className="location-depth">
+                  <p className="location-heading">Location</p>
                 <p className="location-text">{college['exact-location']}</p>
-              </div>
+                </div>
+                </div>
               <div className="rating">
+                <div >
+        <FaStar /><FaStar/> <FaStar/><FaStar/><FaStar/>
+                </div>
+                <div className='rate'>
+
                 <p className="rating-heading">Rating</p>
                 <p className="rating-text">{college.rating}/10</p>
+                </div>
               </div>
             </div>
+            </div>
+            <img className="image" src={college.imageURL} />
           </div>
-          <img className="image" src={college.imageURL} alt="College" />
-          <button className="search-button">
-            <a href={college.website} target="_blank" rel="noreferrer">Search</a>
-          </button>
+          <button className="search-button"><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
         </div>
         <div className="right">
-          <div className="searchCourses">
-            <select
-              id="courseList"
-              value={selectedCourse}
-              placeholder="Search courses"
-              onChange={(e) => setSelectedCourse(e.target.value)}
-            >
-              <option value="BTech">BTech</option>
+          <div className="searchCourses" style={{marginTop:"20px"}}>
+
+            <select id="courseList" value={selectedCourse} placeholder="Search courses" style={{backgroundColor:"#c5d5d4",outline:"none",border:"none",fontWeight:"600",fontSize:"20px"}} onChange={(e) => setSelectedCourse(e.target.value)}>
+              <option  value="BTech">BTech</option>
               <option value="BBA">BBA</option>
               <option value="MBA">MBA</option>
               <option value="BCA">BCA</option>
@@ -113,21 +121,24 @@ const CollegePage = () => {
               <option value="PHD">PHD</option>
             </select>
           </div>
-          <div className="students">
-            {filteredStudents.map(student => (
+
+            {filteredStudents.map((student,index) => (
               <div key={student.id} className="student-card">
-                <h2 className="student">{student.name}</h2>
+                <div style={{width:"20%",display: "flex", paddingLeft:"20px", alignitems: "center"}}><img src={`${imgArray[index]}`} style={{height:"80%",maxWidth:"80%"}}></img></div>
+                <div className='st'>
+                <p style={{textAlign:"left",width:"50%",fontSize:"15px",marginBottom:"0px",marginTop:"10px",paddingLeft:"8px",backgroundColor:"rgba(255,255,255,0.3)",borderRadius:"15px"}}>{student.name}</p>
                 <div className="student-description">
-                  <p className="course">{student.course}</p>
-                  <p className="branch">{student.branch}</p>
-                  <p className="year">{student.year}</p>
+                  <p style={{marginBottom:"0px",marginTop:"18px",fontSize:"25px",fontWeight:"600"}}>{student.course}</p>
+                  <p style={{marginBottom:"0px",marginTop:"18px",fontSize:"25px",fontWeight:"600"}}>{student.branch}</p>
+                  <p style={{marginBottom:"0px",marginTop:"18px",fontSize:"25px",fontWeight:"600"}}>{student.year}</p>
                 </div>
                 <p className="position">{student.position}</p>
+                </div>
               </div>
             ))}
-          </div>
         </div>
       </div>
+
     </>
   );
 };
