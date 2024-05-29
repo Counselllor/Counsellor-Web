@@ -9,6 +9,7 @@ import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 
 import CollegeCard from "./CollegeCard";
+import FAQS from "../FAQs/FAQS";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -174,6 +175,7 @@ window.addEventListener("scroll", setFixed)
             </div>
           ))}
         </div>
+        <FAQS/>
         <Footer />
       </main>
     
