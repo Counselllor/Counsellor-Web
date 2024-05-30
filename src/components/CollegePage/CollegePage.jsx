@@ -80,7 +80,7 @@ const CollegePage = () => {
 
             <h1 className="college-name">{college.name}</h1>
             <div className="description-card">
-              <p className="description">{college.description}</p>
+              <p className="description clipped-text">{college.description}</p>
             </div>
             <div className="group" >
               <div className="location">
@@ -89,7 +89,7 @@ const CollegePage = () => {
                 </div>
                 <div className="location-depth">
                   <p className="location-heading">Location</p>
-                <p className="location-text">{college['exact-location']}</p>
+                <p className="location-text clipped-text1">{college['exact-location']}</p>
                 </div>
                 </div>
               <div className="rating">
@@ -124,7 +124,7 @@ const CollegePage = () => {
 
             {filteredStudents.map((student,index) => (
               <div key={student.id} className="student-card">
-                <div style={{width:"20%",display: "flex", paddingLeft:"20px", alignitems: "center"}}><img src={`${imgArray[index]}`} style={{height:"80%",maxWidth:"80%"}}></img></div>
+                <div style={{width:"20%",display: "flex", paddingLeft:"20px", alignitems: "center"}}><img src={`${imgArray[index]}`} style={{height:"80%",minHeight:"66px",maxWidth:"80%"}}></img></div>
                 <div className='st'>
                 <p style={{textAlign:"left",width:"50%",fontSize:"15px",marginBottom:"0px",marginTop:"10px",paddingLeft:"8px",backgroundColor:"rgba(255,255,255,0.3)",borderRadius:"15px"}}>{student.name}</p>
                 <div className="student-description">

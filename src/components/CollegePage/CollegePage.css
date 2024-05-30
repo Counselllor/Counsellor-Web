@@ -192,7 +192,22 @@ margin-bottom: 0px;
   height: auto;
   width:38vw;
 }
-
+.clipped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  line-clamp: 5;
+  height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
+}
+.clipped-text1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  height: calc(1.2em * 2);
+}
 .student {
   background-color: rgb(229, 234, 234);
   color: rgb(29, 31, 155);
@@ -222,105 +237,69 @@ margin-bottom: 0px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-
-@media (max-width: 815px) {
-  .page {
-    flex-direction: column;
-  }
-  .location-depth{
-    display: flex;
-    justify-content: center;
-  }
-
-  .location{
-    width: 100% !important;
-
-  }
-
-  .content {
-    width: 100vw;
-    height: 50% ;
-  }
-
-  .left {
-    width: 100vw;
-    height: calc(100vh - 60px);
-    margin-top: 60px;
-  }
-
-  .description-card {
-    width: 100% !important;
-    text-align: center ;
-    font-size: 15px;
-  }
-
-  .location-heading {
-    padding-left: 0px;
-    /* margin-right: 170px; */
-  }
-.iconify {
-  margin-left: 0px !important;
+@media only screen and (max-width:829px){
+.student-card{
+  width: 80vw;
 }
-  .location-text {
-    width: 100% !important;
-    text-align: center;
-    margin-left: 0px;
-    display: block;
-    margin-top: 0px;
-    padding-top: 0px;
+.searchCourses{
+  width: 80vw;
+}
+}
+@media only screen and (max-width:314px){
+  .clipped-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3); /* 1.2em is an approximate line height, adjust as necessary */
   }
-
-  .group {
+  .clipped-text1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    height: calc(1.2em * 1);
+  }
+}
+@media only screen and (max-width:385px){
+  .student-card{
     flex-direction: column;
-    width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 10px !important;
   }
-
-  .rating {
-    margin-left: 0px;
+  .student-card img{
+    margin-top: 10px;
   }
-
-  .image {
-    width: 100vw;
-    min-height: 60vw;
+  .student-description{
+    flex-direction: column;
   }
-
-  .right {
-    width:50vw !important;
+  .st{
+    align-items: center;
     display: flex;
-    justify-content: center;
   }
+} 
 
-  .searchCourses {
-    background-color: #c5d5d4;
-    font-size: 16px;
+@media only screen and (max-width:829px){
+  .page{
+    flex-direction: column;
+    height: calc(200vh - 60px );
+    margin-top: 0px;
   }
-
-  .student-card {
-    width: 90vw;
-    margin-left: 10px;
-    margin-right: 10px;
+  .left{
+    height: 50%;
+    width: 100vw;
   }
+  .content{
+    height: 100%;
+    width: 100vw;
 
-  .student {
-    margin-left: 100px;
   }
-
-  .course {
-    margin-left: 60px;
-    margin-right: 6px;
+  .image{
+    width: 100vw;
   }
-
-  .branch {
-    margin-right: 6px;
-  }
-
-  .position {
-    margin-left: 60px;
-    width: 400px;
-    font-size: 20px;
+  .right{
+    width: 100vw;
+    height: 50%;
+    justify-content: start !important;
   }
 }
