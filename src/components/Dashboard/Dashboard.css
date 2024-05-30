@@ -478,7 +478,10 @@
   width: 18vw;
   padding: 10px;
   z-index: 100;
-  margin-top: 10px;
+}
+
+.toast-message:first-child{
+  margin-top: 90px;
 }
 
 @media (max-width: 960px) {
