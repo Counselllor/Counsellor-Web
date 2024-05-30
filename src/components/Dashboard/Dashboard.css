@@ -2,6 +2,17 @@
   text-align: center;
   background-color: #CAE7FE;
 }
+.scroll{
+  z-index: 10000;
+   padding: 1rem 1rem!important;
+  align-items: center !important;
+  justify-items: center !important;
+  right:20px !important;
+  margin-top: -2rem;
+  position: absolute;
+  box-shadow: 0 0 4px grey !important;
+  cursor: pointer;
+}
 
 .navbar {
   display: flex;
