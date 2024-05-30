@@ -46,9 +46,6 @@ const Dashboard = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Logged out!",{
-          className: "toast-message",
-        })
         setTimeout(() => {
           navigate("/");
         }, 1000);
