@@ -119,7 +119,7 @@ export default function Login() {
       <div className="parent">
         {/* Home icon */}
         {/* This is the right side of the login page   */}
-        <div className="right">
+        <div className="right" style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
 
