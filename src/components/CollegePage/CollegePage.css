@@ -25,9 +25,16 @@
  
 }
 
+  .abeezee-regular {
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+ 
 .college-name {
   font-weight: bolder;
-  font-size: 40px;
+  font-size: 30px;
   width: 90%;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -196,17 +203,17 @@ margin-bottom: 0px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   line-clamp: 5;
-  height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
+  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
 }
 .clipped-text1{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  height: calc(1.2em * 2);
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  height: calc(1.2em * 3);
 }
 .student {
   background-color: rgb(229, 234, 234);
@@ -250,17 +257,17 @@ margin-bottom: 0px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    height: calc(1.2em * 3); /* 1.2em is an approximate line height, adjust as necessary */
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
   }
   .clipped-text1{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    height: calc(1.2em * 1);
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3);
   }
 }
 @media only screen and (max-width:385px){
