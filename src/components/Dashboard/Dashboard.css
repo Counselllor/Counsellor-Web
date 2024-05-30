@@ -14,7 +14,7 @@
   margin: 0px;
   background-color: white;
   font-weight: 500;
-  z-index: 10000;
+  z-index: 10;
   max-height: 60px;
   /* border-radius: 5px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -471,6 +471,18 @@
   color: #050a3079;
 }
 
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  width: 18vw;
+  padding: 10px;
+  z-index: 100;
+}
+
+.toast-message:first-child{
+  margin-top: 90px;
+}
 
 @media (max-width: 960px) {
   .menu {

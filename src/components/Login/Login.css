@@ -289,3 +289,11 @@ form div {
 .errorMsg {
   color: red;
 }
+
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  width: 18vw;
+  padding: 10px;
+}
