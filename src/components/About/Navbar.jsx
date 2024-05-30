@@ -1,9 +1,9 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from "react";
 import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
 import { auth } from "../../firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -47,11 +47,14 @@ const Navbar = () => {
   }, [setMenuOpen, menuOpen]);
 
   // Define handleKeyPress outside of JSX
-  const handleKeyPress = useCallback((event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      toggleMenuCallback();
-    }
-  }, [toggleMenuCallback]);
+  const handleKeyPress = useCallback(
+    (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleMenuCallback();
+      }
+    },
+    [toggleMenuCallback]
+  );
 
   return (
     <nav className="navbar">
@@ -62,10 +65,10 @@ const Navbar = () => {
         toggleMenu={toggleMenuCallback}
         menuOpen={menuOpen}
       />
-      <HamburgerSection 
-        toggleMenu={toggleMenuCallback} 
-        menuOpen={menuOpen} 
-        handleKeyPress={handleKeyPress} 
+      <HamburgerSection
+        toggleMenu={toggleMenuCallback}
+        menuOpen={menuOpen}
+        handleKeyPress={handleKeyPress}
       />
       {error && <ErrorSection error={error} />}
     </nav>
@@ -75,7 +78,9 @@ const Navbar = () => {
 // Logo Component
 const LogoSection = () => (
   <div className="logo">
-    <img src={Logo} alt="Logo" />
+    <Link to={"/dashboard"}>
+      <img src={Logo} alt="Logo" />
+    </Link>
   </div>
 );
 
@@ -87,18 +92,29 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
       <MenuItem href="#">Jobs</MenuItem>
       <MenuItem href="#">Courses</MenuItem>
       <MenuItem href="#">Career Support</MenuItem>
-      <MenuItem href="#" dot>•</MenuItem>
+      <MenuItem href="#" dot>
+        •
+      </MenuItem>
       {user ? (
         <>
           <MenuItem>
-            <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman' }}>
+            <button
+              onClick={handleSignOut}
+              style={{
+                background: "transparent",
+                border: "none",
+                fontSize: "22px",
+                color: "#12229D",
+                fontFamily: "Times New Roman",
+              }}
+            >
               Log Out
             </button>
           </MenuItem>
           <MenuItem>
-            <a href="/profile">
+            <Link to="/profile">
               <button className="profile_btn">Profile</button>
-            </a>
+            </Link>
           </MenuItem>
         </>
       ) : (
@@ -113,7 +129,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
 // MenuItem Component
 const MenuItem = ({ href, dot, children }) => (
   <li className={dot ? "dot" : ""}>
-    <a href={href}>{children}</a>
+    <Link to={href}>{children}</Link>
   </li>
 );
 
