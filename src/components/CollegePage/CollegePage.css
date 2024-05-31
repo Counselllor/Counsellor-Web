@@ -53,14 +53,11 @@
 .description {
   font-weight: 600;
   font-size: 18px;
-  margin-left: 30px;
-  margin-bottom: 20px;
 }
 
 .group {
   display: flex;
   flex-direction: row;
-  margin-bottom: 30px;
 }
 
 .location {
@@ -136,26 +133,28 @@ margin-bottom: 0px;
 
 .image {
   display: flex;
-  margin-left: 50px;
+  margin-left: 0px;
+  height: 50% !important;
+  width: 40vw;
   object-fit: cover;
   margin-bottom: 0px !important;
   position: absolute;
   bottom: 0px;
-  margin-left: 50px;
-  width: 75vh;
-  height: 45vh;
+  margin-left: 5vw;
 }
 
 
 
 .search-button {
   background-color: rgb(23, 23, 70);
+  z-index: 100 !important;
   color: white;
   padding: 10px;
   border-radius: 6px;
-  margin-top: 20px;
+  margin-left: 30px;
+  height: 50px;
   width: 150px;
-  margin-bottom: 50px;
+  margin-top: 15px;
 }
 .right{
   display: flex;
