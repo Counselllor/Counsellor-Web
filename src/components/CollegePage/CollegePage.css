@@ -53,11 +53,14 @@
 .description {
   font-weight: 600;
   font-size: 18px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
 .group {
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .location {
@@ -133,13 +136,14 @@ margin-bottom: 0px;
 
 .image {
   display: flex;
-  margin-left: 0px;
-  height: 50% !important;
-  width: 50vw;
+  margin-left: 50px;
   object-fit: cover;
   margin-bottom: 0px !important;
   position: absolute;
   bottom: 0px;
+  margin-left: 50px;
+  width: 75vh;
+  height: 45vh;
 }
 
 
@@ -149,9 +153,9 @@ margin-bottom: 0px;
   color: white;
   padding: 10px;
   border-radius: 6px;
-  margin-top: -200px;
-  margin-left: 32vw;
+  margin-top: 20px;
   width: 150px;
+  margin-bottom: 50px;
 }
 .right{
   display: flex;
