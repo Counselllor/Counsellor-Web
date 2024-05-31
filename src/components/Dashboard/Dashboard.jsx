@@ -81,6 +81,9 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
+
+  
+
 const [fix, setFix]= useState(false)
 //function for appearance of background for nav menu
 function setFixed(){
@@ -97,7 +100,17 @@ window.addEventListener("scroll", setFixed)
     //scrolltotop is for scroll to top widget
     //Then the navbar code begins
       <main>
-        <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
+        <div className="scroll">
+        <ScrollToTop
+        smooth
+        viewBox="0 0 24 24"
+        svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
+        
+        color="white"
+        style={{ backgroundColor: "#5CB6F9" }}
+      />
+        {/* <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} /> */}
+        </div>
         <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
