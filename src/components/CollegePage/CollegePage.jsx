@@ -105,8 +105,8 @@ const CollegePage = () => {
             </div>
             </div>
             <img className="image" src={college.imageURL} />
+            <button className="search-button "><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
           </div>
-          <button className="search-button "><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
         </div>
         <div className="right">
           <div className="searchCourses" style={{marginTop:"20px"}}>
