@@ -102,10 +102,10 @@ const CollegePage = () => {
                 <p className="rating-text abeezee-regular" >{college.rating}/10</p>
                 </div>
               </div>
+                <button className="search-button "><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
             </div>
             </div>
             <img className="image" src={college.imageURL} />
-            <button className="search-button "><a href={college.website} target="_blank" rel="noreferrer">Search</a></button>
           </div>
         </div>
         <div className="right">
