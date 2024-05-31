@@ -7,7 +7,8 @@ import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
 import FAQS from "../FAQs/FAQS";
 
@@ -19,9 +20,17 @@ const Dashboard = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        toast.success("Logged in! 🚀",{
+          className: "toast-message",
+        })
         console.log("");
       } else if (!user) {
-        navigate("/");
+        toast.success("Logged out!",{
+          className: "toast-message",
+        })
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       }
     });
   }, []);
@@ -37,10 +46,14 @@ const Dashboard = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message,{
+          className: "toast-message",
+        });
       });
   };
 
@@ -68,6 +81,9 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
+
+  
+
 const [fix, setFix]= useState(false)
 //function for appearance of background for nav menu
 function setFixed(){
@@ -84,7 +100,17 @@ window.addEventListener("scroll", setFixed)
     //scrolltotop is for scroll to top widget
     //Then the navbar code begins
       <main>
-        <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
+        <div className="scroll">
+        <ScrollToTop
+        smooth
+        viewBox="0 0 24 24"
+        svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
+        
+        color="white"
+        style={{ backgroundColor: "#5CB6F9" }}
+      />
+        {/* <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} /> */}
+        </div>
         <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
@@ -125,6 +151,7 @@ window.addEventListener("scroll", setFixed)
           </div>
         </nav>
         <div className="maintxt">
+          <ToastContainer/>
           <h1>
             <span className="blue">Find your </span>Dream
             <br />
