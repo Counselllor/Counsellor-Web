@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
+
 function Footer() {
   return (
     <footer>
@@ -15,7 +16,7 @@ function Footer() {
             </a>
           </li>
           <li>Blog</li>
-          <li>Help</li>
+          <li><a href="./Dashboard">FAQs</a></li>
           <li>Privacy</li>
           <li>Terms</li>
           <li>
