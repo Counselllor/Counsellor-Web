@@ -142,7 +142,7 @@ export default function Login() {
       .catch((err) => toast.error(err.message,{
         className: "toast-message",
       }));
-  };
+  });
 
   return (
     <main>
