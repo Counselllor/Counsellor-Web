@@ -34,7 +34,7 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
         navigate("/");
@@ -42,7 +42,7 @@ const Dashboard = () => {
       .catch((err) => {
         alert(err.message);
       });
-  };
+  });
 
   const handleCollegeClick = useCallback(
     (college) => {

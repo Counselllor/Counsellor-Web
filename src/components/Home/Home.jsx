@@ -3,6 +3,12 @@ import Typewriter from 'typewriter-effect';
 import MeetingPhoto from '../../assets/meeting.webp';
 import Navbar from '../Navbar/Navbar';
 import './Home.css';
+ function handleOnInit(typewriter){
+  typewriter.typeString("Still Confused with College Choice?")
+ .pauseFor(10)
+ .start();
+    
+}
 
 const Home = () => {
     return (
@@ -10,14 +16,10 @@ const Home = () => {
             <Navbar />
             <div id='homeCircle'/>
             <div id='homeContainer'>
-                <img id='meetingImg' src={MeetingPhoto} alt="Meeting Image" />
+                <img id='meetingImg' src={MeetingPhoto} alt="Meeting Pic" />
                 <div className="MainText">
                     <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter.typeString("Still Confused with College Choice?")
-                                .pauseFor(10)
-                                .start();
-                        }}
+                        onInit={handleOnInit}
                     />
                 </div>
             </div>
