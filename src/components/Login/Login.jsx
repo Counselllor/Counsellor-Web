@@ -2,7 +2,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 
@@ -27,8 +27,8 @@ export default function Login() {
     password: "",
   }); 
 
-  // Function for handelling inputs
-  const handleLoginInfo = usecallback((e)=>{
+  // Function for handling inputs
+  const handleLoginInfo = useCallback((e)=>{
     const {name, value} = e.target;
     setLoginInfo((prev)=>{
       return {...prev, [name]: value}
