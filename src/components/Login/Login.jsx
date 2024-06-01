@@ -16,6 +16,8 @@ import "./Login.css";
 import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [error, setError] = useState({});
@@ -52,7 +54,12 @@ export default function Login() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        navigate("/dashboard");
+        toast.success("Authenticating your credentials… 🚀",{
+          className: "toast-message",
+        });
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
       }
     });
   }, []);
@@ -78,7 +85,9 @@ export default function Login() {
      e.preventDefault();
      let submitable = true;
      if(captchaVal !== captchaText){
-      alert("Wrong Captcha")
+      toast.error("Wrong Captcha",{
+        className: "toast-message",
+      })
       setCaptchaVal("");
       generateCaptcha();
       return;
@@ -93,25 +102,47 @@ export default function Login() {
     if(submitable){
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
-          navigate("/dashboard");
+          setTimeout(() => {
+            navigate("/dashboard");
+          }, 2000);
         })
         .catch((err) => {
-          if (err == "FirebaseError: Firebase: Error (auth/wrong-password).") {
-            alert("Incorrect Password!");
+          if (err.code === "auth/wrong-password") {
+            toast.error("Incorrect Password!",{
+              className: "toast-message",
+            });
+          } else if (err.code === "auth/user-not-found") {
+            toast.error("This email is not registered",{
+              className: "toast-message",
+            });
+          } else {
+            console.error("Sign-in error", err);
+            toast.error("An error occurred. Please try again!",{
+              className: "toast-message",
+            });
           }
         });
       }else{
-        alert("Please fill all Fields with Valid Data.")
+        toast.error("Please fill all Fields with Valid Data.",{
+          className: "toast-message",
+        })
       }
   });
   // Popup Google signin
   const SignInGoogle = useCallback(() => {
     signInWithPopup(auth, googleAuthProvider)
       .then(() => {
-        navigate("/dashboard");
+        toast.success("Login successful !",{
+          className: "toast-message",
+        })
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
       })
-      .catch((err) => alert(err.message));
-  });
+      .catch((err) => toast.error(err.message,{
+        className: "toast-message",
+      }));
+  };
 
   return (
     <main>
@@ -119,6 +150,7 @@ export default function Login() {
       <div className="parent">
         {/* Home icon */}
         {/* This is the right side of the login page   */}
+        <ToastContainer/>
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
