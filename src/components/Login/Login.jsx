@@ -54,10 +54,14 @@ export default function Login() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        toast.success("Authenticating your credentials… 🚀",{
+        toast.success("Authenticating… 🚀",{
           className: "toast-message",
+          autoClose: 1500
         });
         setTimeout(() => {
+          toast.success("Logged in… 🚀",{
+            className: "toast-message",
+          });
           navigate("/dashboard");
         }, 2000);
       }
@@ -150,7 +154,6 @@ export default function Login() {
       <div className="parent">
         {/* Home icon */}
         {/* This is the right side of the login page   */}
-        <ToastContainer/>
         <div className="right">
           <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>

@@ -16,6 +16,8 @@ import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -84,5 +86,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer/>
   </React.StrictMode>
 );

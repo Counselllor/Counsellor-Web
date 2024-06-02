@@ -20,9 +20,6 @@ const Dashboard = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        toast.success("Logged in! 🚀",{
-          className: "toast-message",
-        })
         console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
@@ -151,7 +148,6 @@ window.addEventListener("scroll", setFixed)
           </div>
         </nav>
         <div className="maintxt">
-          <ToastContainer/>
           <h1>
             <span className="blue">Find your </span>Dream
             <br />
