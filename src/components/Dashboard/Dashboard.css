@@ -2,14 +2,60 @@
   text-align: center;
   background-color: #CAE7FE;
 }
+.scroll{
+  z-index: 10000;
+   padding: 1rem 1rem!important;
+  align-items: center !important;
+  justify-items: center !important;
+  right:20px !important;
+  margin-top: -2rem;
+  position: absolute;
+  box-shadow: 0 0 4px grey !important;
+  cursor: pointer;
+}
 
 .navbar {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px 0px;
+  width:100%;
   color: white;
-  background-color: #CAE7FE;
+  margin: 0px;
+  background-color: white;
+  font-weight: 500;
+  z-index: 10;
+  max-height: 60px;
+  /* border-radius: 5px; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.6s;
+  /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.421); */
+}
+.navbar.fixed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  color: white;
+  /* background-color:transparent; */
+  width: 100%;
+  margin:0;
+  box-shadow:  0 2px 2px rgba(0, 0, 0, 0.385);
+  
+}
+.navbar.fixed .menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 60px;
+  float: right;
+  padding: 0px 30px;
+  align-items: center;
+  /* background-color:#d3eafd; */
+  /* border-top-left-radius: 50px; */
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.385); */
+  /* border-bottom-left-radius: 50px; */
 }
 
 #dark .navbar {
@@ -21,7 +67,7 @@
   padding-left: 15px;
 }
 
-.menu {
+.navbar .menu {
   flex-direction: column;
   align-items: center;
   top: 70px;
@@ -51,25 +97,42 @@
 
 .menu li {
   margin: 15px 0;
+  :hover{
+    text-decoration: underline;
+  }
 }
 
 .profile_btn {
   background-color: var(--btnColor);
-  border-radius: 15px;
+  border-radius: 10px;
   color: #F4F6FC;
   text-align: center;
-  padding: 10px 50px;
+  padding: 10px 40px;
   margin-right: 0.5vw;
   border: none;
-  font-size: 25px;
+  font-size: 22px;
   float: right;
+  font-weight: 400;
   cursor: pointer;
+  box-shadow: 1px 2px 1px grey;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.profile_btn:hover{
+  background-color: #050A30;
 }
 
 .menu a {
   text-decoration: none;
-  color: #12229d;
+  color: #00073e;
   font-size: 22px;
+  :active{
+    color:#303B5E;
+  }
+}
+.menu a button{
+  :hover{
+    background-color: #152280;
+  }
 }
 
 .hamburger {
@@ -147,6 +210,13 @@
 .college.active .click-info-button {
   opacity: 1;
   pointer-events: auto;
+}
+.dot {
+  height: 18px;
+  width: 18px;
+  background-color:#050A30;
+  border-radius: 50%;
+  
 }
 
 
@@ -246,7 +316,7 @@
   font-size: 70px;
   color: #050A30;
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 180px;
 }
 
 .blue {
@@ -259,7 +329,7 @@
   color: #050A30;
   text-align: center;
   margin: 30px 0 0 0;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 #dark .maintxt p {
@@ -333,64 +403,6 @@
 .s_bar_c {
   display: contents;
 }
-
-@media (max-width: 1050px) {
-  .s_bar_c {
-    display: flex;
-    margin-bottom: 15px;
-  }
-
-  .search {
-    flex-direction: column;
-    background-color: #ffffff;
-  }
-
-  .search img {
-    display: none;
-  }
-
-  .vl {
-    display: none;
-  }
-
-  .search button {
-    width: fit-content;
-    margin: 0 auto;
-  }
-
-  .search input {
-    margin: 0;
-    padding: 0;
-    width: -webkit-fill-available;
-    border-radius: 15px;
-    padding-left: 12px;
-  }
-}
-
-
-
-
-@media (max-width: 960px) {
-  .maintxt h1 {
-    font-size: 55px;
-  }
-
-  .search input {
-    height: 60px;
-    font-size: 22px;
-    margin: 0;
-    padding: 0;
-    width: -webkit-fill-available;
-    border-radius: 15px;
-    padding-left: 12px;
-  }
-
-  .search button {
-    height: 60px;
-    padding: 0 30px;
-  }
-}
-
 .navigator {
   font-size: 40px;
   font-family: 'ABeeZee';
@@ -480,6 +492,174 @@
   color: #050a3079;
 }
 
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  width: 18vw;
+  padding: 10px;
+  z-index: 100;
+}
+
+.toast-message:first-child{
+  margin-top: 90px;
+}
+
+@media (max-width: 960px) {
+  .menu {
+    display: none;
+  }
+  .colleges{
+    display:flex;
+    justify-content:center;
+    margin-left:0px;
+    padding-right:20px;
+    
+  }
+  .college{
+    display:flex;
+    flex-direction:column;
+    justify-content: left;
+    margin-left:0px;
+    padding: 40px;
+    width:65vw;
+  }
+  .college-content{
+    margin-right:10px;
+    padding-right:30px;
+  }
+  .up{
+    padding-right:120px;
+    margin-left:0px;
+  }
+  .context{
+    padding-right:20px;
+    margin-right:10px;
+  }
+  .college_name{
+    padding-right:20px;
+  }
+  .menu.show {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #12229d;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    background-color: #CAE7FE;
+  }
+
+  .menu.show {
+    display: flex;
+    background: #cae7fe45;
+    border-radius: 10px;
+    padding: 75px;
+    box-shadow: 0 0 10px #cae7fe;
+    backdrop-filter: blur(10px);
+  }
+
+  .menu ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .menu li {
+    margin: 15px 0;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #12229d;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  .bar {
+    background-color: #12229d;
+  }
+
+  .dot {
+    display: none;
+  }
+  .maintxt h1 {
+    font-size: 55px;
+  }
+
+  .search input {
+    height: 60px;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    padding-left: 12px;
+  }
+
+  .search button {
+    height: 60px;
+    padding: 0 30px;
+  }
+}
+
+
+
+
+  
+
+@media (max-width: 1050px) {
+  .s_bar_c {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .search {
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  .search img {
+    display: none;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .search button {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .search input {
+    margin: 0;
+    padding: 0;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    padding-left: 12px;
+  }
+}
 @media (max-width: 1400px) {
   .colleges {
     display: grid;
@@ -491,6 +671,8 @@
     margin: auto;
   }
 }
+
+
 
 @media (max-width: 960px) {
   .colleges {

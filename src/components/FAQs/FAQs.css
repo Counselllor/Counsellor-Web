@@ -1,0 +1,133 @@
+
+@import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
+
+.faqs-container {
+  padding: 2rem;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.faqs-container * {
+  box-sizing: border-box;
+}
+
+.faqs-container h2 {
+  color:#3C38B9;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: "ABeeZee", sans-serif;
+}
+.accordion-title{
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+.accordion{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.accordion .accordion-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #6ca2dc;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid #03b5d2;
+}
+
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+  transition: color 0.3s;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: #03b5d2;
+}
+
+.accordion button {
+  padding: 1em 1.5em 1em 0;
+}
+
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+  color: #03b5d2;
+}
+
+.accordion button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+}
+
+.accordion .accordion-content.active {
+  opacity: 0.8;
+  max-height: 9em;
+  text-align: left;
+  margin-left: 30px;
+  transition: opacity 200ms linear, max-height 200ms linear;
+}
+
+.accordion .accordion-content p {
+  font-family: 'Hind',sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+.repo-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }

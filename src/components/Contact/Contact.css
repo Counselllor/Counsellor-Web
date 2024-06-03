@@ -35,6 +35,7 @@
   margin: 80px 50px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 15rem;
 }
 
 .contact-clinks, .contact-form-wrapper {

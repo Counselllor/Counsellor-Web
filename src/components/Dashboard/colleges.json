@@ -5,7 +5,7 @@
     "exact-location": "Kabulpur, Kheri-Manjhawali Road, Naharpur, Faridabad",
     "location": "Haryana",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnABzExk1tBZYCKCLK5V7YhZv19NliU5I_IrMiOxSCrw&s",
-    "ctc": "Hightest CTC - 17LPA",
+    "ctc": "Highest CTC - 17LPA",
     "description": "Echelon Institute of Technology is affliated with JC Bose University of Science & Technology, Faridabad, Haryana. This college is approved by Ministry of HRD, Government of India and Directorate of Technical Education, Haryana situated in Delhi NCR.",
     "rating": 7.7,
     "website":"https://eitfaridabad.com/"
@@ -16,7 +16,7 @@
     "exact-location": "Faridabad",
     "location": "Haryana",
     "imageURL": "https://i.postimg.cc/cg4NH0pV/image.png",
-    "ctc": "Hightest CTC - 29LPA",
+    "ctc": "Highest CTC - 29LPA",
     "description": "J.C BOSE University of Science and Technology, YMCA, Faridabad aspires to be a nationally and internationally acclaimed leader in technical and higher education in all spheres which transforms the life of students through integration of teaching, research and character building",
     "rating": 8.5,
     "website":"https://www.jcboseust.ac.in/"
@@ -27,7 +27,7 @@
     "exact-location": "Yamuna Expy, Greater Noida",
     "location": "UP",
     "imageURL": "https://lh3.googleusercontent.com/p/AF1QipPzmD6ZdFZxk-6c7_uZgQt6YuRdJkS9zo8p9fv1=s1360-w1360-h1020",
-    "ctc": "Hightest CTC - 29LPA",
+    "ctc": "Highest CTC - 29LPA",
     "description": "Galgotias University, located in Uttar Pradesh and sponsored by Smt. Shakuntala Educational and Welfare Society, has been recognized as a leading academic institution by achieving the highest benchmark in academic excellence with NAAC A+ accreditation in the first cycle. ",
     "rating": 8.8,
     "website":"https://www.galgotiasuniversity.edu.in/"
@@ -61,7 +61,7 @@
     "exact-location": "Shahbad Daulatpur",
     "location": "Delhi",
     "imageURL": "https://images.shiksha.com/mediadata/images/1632465297phpyUzixv.jpeg",
-    "ctc": "Highest CTC - INR 40 LPA",
+    "ctc": "Highest CTC - 40 LPA",
     "description": "DTU is a prominent technical university in Delhi, offering a wide range of undergraduate and postgraduate programs in engineering and technology.",
     "rating": 8.7,
     "website":"https://dtu.ac.in/"
@@ -83,7 +83,7 @@
     "exact-location": "Kalina, Santacruz East, Mumbai",
     "location": "Maharashtra",
     "imageURL": "https://mum.digitaluniversity.ac/user/pages/images/slides/slide1.jpg",
-    "ctc": "Highest CTC - 25 Lakhs per annum",
+    "ctc": "Highest CTC - 25 LPA",
     "description": "The University of Mumbai is one of the oldest and premier universities in India, offering a wide range of courses in various disciplines.",
     "rating": 8.9,
     "website":"https://mu.ac.in/"
@@ -94,7 +94,7 @@
     "exact-location": "New Mehrauli Road, New Delhi",
     "location": "Delhi",
     "imageURL": "https://images.shiksha.com/mediadata/images/articles/1677834266phpNc89ff.jpeg",
-    "ctc": "Highest CTC - 15 Lakhs per annum",
+    "ctc": "Highest CTC - 15 LPA",
     "description": "JNU is a renowned university known for its academic excellence and vibrant campus culture.",
     "rating": 9.1,
     "website":"https://www.jnu.ac.in/main/"
@@ -105,7 +105,7 @@
     "exact-location": "Sardar Patel Road, Guindy, Chennai",
     "location": "Tamil Nadu",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYVljxEj6G6jFOjGoC9wClBxvSUHI-3ot6Xv0VYXiaLA&s",
-    "ctc": "Highest CTC - 20 Lakhs per annum",
+    "ctc": "Highest CTC - 20 LPA",
     "description": "Anna University is a prestigious technical university in Tamil Nadu, offering a wide range of engineering and technology programs.",
     "rating": 8.5,
     "website":"https://www.annauniv.edu/"
@@ -127,7 +127,7 @@
     "exact-location": "Vastrapur, Ahmedabad",
     "location": "Gujarat",
     "imageURL": "https://content3.jdmagicbox.com/comp/ahmedabad/62/079pf018562/catalogue/indian-institute-of-management-ahmedabad-vastrapur-ahmedabad-management-institutes-sorrvixey6.jpg",
-    "ctc": "Highest CTC - 90 Lakhs per annum",
+    "ctc": "Highest CTC - 90 LPA",
     "description": "IIM Ahmedabad is one of the top management institutes in India, known for its rigorous academic curriculum and esteemed faculty.",
     "rating": 9.6,
     "website":"https://www.iima.ac.in/"
@@ -138,7 +138,7 @@
     "exact-location": "North Campus, New Delhi",
     "location": "Delhi",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjdk2Tte9WSwy7KyVYvtx1oGEkLA5RCZ8vZljO0cSVoQ&s",
-    "ctc": "Highest CTC - 30 Lakhs per annum",
+    "ctc": "Highest CTC - 30 LPA",
     "description": "The University of Delhi is one of India's largest and most prestigious universities, offering a wide range of undergraduate and postgraduate programs.",
     "rating": 8.8,
     "website":"https://www.du.ac.in/"
@@ -160,7 +160,7 @@
     "exact-location": "Circuit House Area, Jamshedpur",
     "location": "Jharkhand",
     "imageURL": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Xlri_Campus%2C_Jamshedpur.jpg",
-    "ctc": "Highest CTC - 50 Lakhs per annum",
+    "ctc": "Highest CTC - 50 LPA",
     "description": "XLRI is one of India's top management schools, known for its quality education and strong corporate connections.",
     "rating": 9.0,
     "website":"https://xlri.ac.in/"
@@ -171,7 +171,7 @@
     "exact-location": "College Street, Kolkata",
     "location": "WB",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReuVSXpNVG3gcM2ZSNX8uylgbu-U7hmk3Pu_EePToQ4Q&s",
-    "ctc": "Highest CTC - 22 Lakhs per annum",
+    "ctc": "Highest CTC - 22 LPA",
     "description": "The University of Calcutta is one of the oldest universities in India, offering a wide range of courses in various disciplines.",
     "rating": 8.6,
     "website":"https://www.caluniv.ac.in/"
@@ -193,7 +193,7 @@
     "exact-location": "Gachibowli, Hyderabad",
     "location": "Telangana",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyvRVo8QTD9w8wxBISGvWq6SmR7gTf4MwUnjbc8jpTA&s",
-    "ctc": "Highest CTC - 75 Lakhs per annum",
+    "ctc": "Highest CTC - 75 LPA",
     "description": "ISB is one of India's top business schools, offering world-class management education and industry-oriented programs.",
     "rating": 9.1,
     "website":"https://www.isb.edu/en.html"
@@ -204,7 +204,7 @@
     "exact-location": "Gachibowli, Hyderabad",
     "location": "Telangana",
     "imageURL": "https://media.licdn.com/dms/image/C511BAQHKiyrRx5VeVw/company-background_10000/0/1584484196619/university_of_hyderabad_cover?e=2147483647&v=beta&t=cZD5XrXuF1w0wzJ-StYD5HmRJkikGJ0psyQnRlTPTrU",
-    "ctc": "Highest CTC - 18 Lakhs per annum",
+    "ctc": "Highest CTC - 18 LPA",
     "description": "The University of Hyderabad is a premier institution of postgraduate teaching and research, known for its multidisciplinary approach.",
     "rating": 8.9,
     "website":"https://uohyd.ac.in/"
@@ -215,7 +215,7 @@
     "exact-location": "Pashan, Pune",
     "location": "Maharashtra",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj3cJCNLUIx0-vxq7W556mn4QMWCQYHv0YiN9iEhl6DA&s",
-    "ctc": "Highest CTC - 35 Lakhs per annum",
+    "ctc": "Highest CTC - 35 LPA",
     "description": "IISER Pune is one of the leading institutes for education and research in the field of science.",
     "rating": 9.0,
     "website":"https://www.iiserpune.ac.in/"
@@ -226,7 +226,7 @@
     "exact-location": "Joka, Kolkata",
     "location": "WB",
     "imageURL": "https://lh3.googleusercontent.com/p/AF1QipOu95hg39kFwcgF2z_7d1EEyE6xgyTcK-Y4Lqx0=s1360-w1360-h1020",
-    "ctc": "Highest CTC - 85 Lakhs per annum",
+    "ctc": "Highest CTC - 85 LPA",
     "description": "IIM Calcutta is one of the oldest and finest management schools in India, known for its academic rigor and industry relevance.",
     "rating": 9.5,
     "website":"https://www.iimcal.ac.in/"
@@ -248,7 +248,7 @@
     "exact-location": "Tanjore Main Road, National Highway 67, Tiruchirappalli",
     "location": "TN",
     "imageURL": "https://www.nitt.edu/home/Library-2019.JPG",
-    "ctc": "Highest CTC - 28 Lakhs per annum",
+    "ctc": "Highest CTC - 28 LPA",
     "description": "NIT Trichy is one of the premier institutions of engineering and technology in India, known for its academic excellence and industry interface.",
     "rating": 8.8,
     "website":"https://www.nitt.edu/"
@@ -259,7 +259,7 @@
     "exact-location": "Prabandh Nagar, Lucknow",
     "location": "UP",
     "imageURL": "https://www.iiml.ac.in/sites/default/files/2018-05/img-slider-4.jpg",
-    "ctc": "Highest CTC - 80 Lakhs per annum",
+    "ctc": "Highest CTC - 80 LPA",
     "description": "IIM Lucknow is one of the top-ranked management institutes in India, known for its academic rigor and leadership development programs.",
     "rating": 9.4,
     "website":"https://www.iiml.ac.in/"
@@ -303,7 +303,7 @@
     "exact-location": "Kozhikode",
     "location": "Kerala",
     "imageURL": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-65774,resizemode-75,msid-21462093/industry/services/education/iim-kozhikode-to-open-classroom-centres-in-jammu-and-kashmir.jpg",
-    "ctc": "Highest CTC - 75 Lakhs per annum",
+    "ctc": "Highest CTC - 75 LPA",
     "description": "IIM Kozhikode is one of the premier management institutes in India, known for its innovative programs and industry collaborations.",
     "rating": 9.1,
     "website":"https://www.iimk.ac.in/"
@@ -314,7 +314,7 @@
     "exact-location": "Rau, Indore",
     "location": "MP",
     "imageURL": "https://img.jagranjosh.com/images/2022/April/1342022/278376058_5165109056873573_5121637013631957667_n.jpg",
-    "ctc": "Highest CTC - 70 Lakhs per annum",
+    "ctc": "Highest CTC - 70 LPA",
     "description": "IIM Indore is one of the leading management institutes in India, known for its academic excellence and vibrant campus life.",
     "rating": 9.2,
     "website":"https://www.iimidr.ac.in/"
@@ -325,7 +325,7 @@
     "exact-location": "Varanasi",
     "location": "UP",
     "imageURL": "https://cdn.siasat.com/wp-content/uploads/2020/09/download-21.jpg",
-    "ctc": "Highest CTC - 20 Lakhs per annum",
+    "ctc": "Highest CTC - 20 LPA",
     "description": "BHU is a prestigious central university located in Varanasi, known for its academic excellence and rich cultural heritage.",
     "rating": 8.7,
     "website":"https://bhu.ac.in/"
@@ -347,7 +347,7 @@
     "exact-location": "Shillong",
     "location": "Meghalaya",
     "imageURL": "https://images.shiksha.com/mediadata/images/articles/1712212194php1dFGwj.jpeg",
-    "ctc": "Highest CTC - 60 Lakhs per annum",
+    "ctc": "Highest CTC - 60 LPA",
     "description": "IIM Shillong is one of the premier management institutes in India, known for its focus on sustainability and social responsibility.",
     "rating": 9.0,
     "website":"https://www.iimshillong.ac.in/"
@@ -358,7 +358,7 @@
     "exact-location": "Warangal",
     "location": "Telangana",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7XSQSGTxH58Y0zDl4ImN6Tx89mi1VeSmuiJWBjYnAVA&s",
-    "ctc": "Highest CTC - 26 Lakhs per annum",
+    "ctc": "Highest CTC - 26 LPA",
     "description": "NIT Warangal is one of the top NITs in India, known for its excellent academic programs and placement record.",
     "rating": 8.6,
     "website":"https://www.nitw.ac.in/"
@@ -369,7 +369,7 @@
     "exact-location": "Raipur",
     "location": "Chhattisgarh",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTdPqWRZuuqLL0L9Metf2n-QK0TNYGHiaPtYYDr4UmxA&s",
-    "ctc": "Highest CTC - 65 Lakhs per annum",
+    "ctc": "Highest CTC - 65 LPA",
     "description": "IIM Raipur is one of the newer IIMs in India, known for its dynamic academic environment and strong industry interface.",
     "rating": 8.8,
     "website":"https://iimraipur.ac.in/"
@@ -391,7 +391,7 @@
     "exact-location": "Ranchi",
     "location": "Jharkhand",
     "imageURL": "https://iimranchi.ac.in/media/2023/06/Landing-IIM-Ranchi.webp",
-    "ctc": "Highest CTC - 55 Lakhs per annum",
+    "ctc": "Highest CTC - 55 LPA",
     "description": "IIM Ranchi is one of the leading management institutes in India, known for its focus on innovation and entrepreneurship.",
     "rating": 8.9,
     "website":"https://iimranchi.ac.in/"
@@ -413,7 +413,7 @@
     "exact-location": "Nagpur",
     "location": "Maharashtra",
     "imageURL": "https://www.iimnagpur.ac.in/wp-content/uploads/2022/02/Admin-Block-and-Faculty-Block-Front-View.jpg",
-    "ctc": "Highest CTC - 60 Lakhs per annum",
+    "ctc": "Highest CTC - 60 LPA",
     "description": "IIM Nagpur is a newly established IIM, known for its industry-oriented curriculum and strong corporate connections.",
     "rating": 8.7,
     "website":"https://www.iimnagpur.ac.in/"
@@ -424,7 +424,7 @@
     "exact-location": "Surathkal",
     "location": "Karnataka",
     "imageURL": "https://images.collegedunia.com/public/college_data/images/appImage/15038956701443098931NITSurathkalNew.jpg?h=260&w=360&mode=crop",
-    "ctc": "Highest CTC - 27 Lakhs per annum",
+    "ctc": "Highest CTC - 27 LPA",
     "description": "NIT Surathkal is one of the premier technical institutes in India, known for its excellent infrastructure and academic rigor.",
     "rating": 8.8,
     "website":"https://www.nitk.ac.in/"
@@ -435,7 +435,7 @@
     "exact-location": "Tiruchirappalli",
     "location": "TN",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_Iu6oO--qRo493hKG_rethVmAwBbp3E_ycccZFJuuhg&s",
-    "ctc": "Highest CTC - 70 Lakhs per annum",
+    "ctc": "Highest CTC - 70 LPA",
     "description": "IIM Trichy is one of the newer IIMs in India, known for its strong industry interface and diverse student community.",
     "rating": 9.0,
     "website":"https://www.iimtrichy.ac.in/"
@@ -479,7 +479,7 @@
     "exact-location": "Sambalpur",
     "location": "Odisha",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-A99aBWfZjdZCgXbtMoLqru05vbbhTHwstAmZDlFmLQ&s",
-    "ctc": "Highest CTC - 65 Lakhs per annum",
+    "ctc": "Highest CTC - 65 LPA",
     "description": "IIM Sambalpur is one of the newer IIMs in India, known for its focus on rural management and sustainable development.",
     "rating": 8.7,
     "website":"https://iimsambalpur.ac.in/"
@@ -490,7 +490,7 @@
     "exact-location": "Silchar",
     "location": "Assam",
     "imageURL": "https://lh3.googleusercontent.com/proxy/7LehLurtJkT37Jw-fMKcXxAXPH2sk0r_BTUIo-01hXWEzz1FtuJe3zP_igQ1Q5tQh30990Oudv_TL0OLJrp00581Zj-GMr59sPpXH0FI9tXCHa5IGzAV",
-    "ctc": "Highest CTC - 26 Lakhs per annum",
+    "ctc": "Highest CTC - 26 LPA",
     "description": "NIT Silchar is one of the top NITs in India, known for its strong emphasis on research and innovation in engineering and technology.",
     "rating": 8.7,
     "website":"http://www.nits.ac.in/"
