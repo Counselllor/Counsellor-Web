@@ -54,14 +54,6 @@ const Dashboard = () => {
     });
   }, []);
 
-  // Define function to handle keyboard event
-  const handleKeyDown = (event) => {
-    // Check if Enter key is pressed
-    if (event.key === 'Enter') {
-      onClick(); // Trigger the onClick function if Enter key is pressed
-    }
-  };
-
   useEffect(() => {
     const results = collegesData.filter(college =>
       college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -155,7 +147,7 @@ const Dashboard = () => {
             onClick={handleCollegeClick.bind(null, college)}
             onTouchStart={() => handleTouchStart(index)}
             onTouchEnd={handleTouchEnd}
-            onKeyDown={handleKeyDown} 
+            onKeyDown={onKeyDown} 
             active={activeIndex === index}
           />
         ))}
