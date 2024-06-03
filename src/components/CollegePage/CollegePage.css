@@ -2,38 +2,57 @@
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
 }
 
 .left {
   display: flex;
   flex-direction: column;
+  
+  
 }
 
 .content {
-  background-color: rgb(26, 165, 224);
+  background-color: #5cb6f9;
   width: 50vw;
+  overflow: hidden;
+  position: relative;
+  text-align: start;
+  text-wrap: wrap;
+  overflow: hidden;
+  height: 100%;
+ 
 }
 
+  .abeezee-regular {
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+ 
 .college-name {
-  margin-top: 80px;
-  margin-left: 20px;
-  text-align: left;
   font-weight: bolder;
-  font-size: 60px;
+  font-size: 30px;
+  width: 90%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 
 .description-card {
   display: flex;
-  justify-content: left;
-  width: 40vw;
+  width: 90%;
+  margin-right: 10%;
+  margin-left: 5%;
 }
 
 .description {
-  font-weight: bolder;
-  margin-left: 10px;
-  text-align: left;
-  font-size: 25px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .group {
@@ -43,61 +62,84 @@
 
 .location {
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  text-align: left;
-  width: 300px;
+  flex-direction: row;
+  width: 30%;
+  margin-left: 5%;
+  align-items: center;
+  background-color: rgba(255, 255, 255,0.2);
+  margin-bottom: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
+.icon{
+  width: 20%;
 
+}
 .location-depth {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-left: 0px;
+  width: 80%;
+  flex-direction: column;
+  width: auto;
 }
 
 .location-heading {
-  padding-left: 10px;
-
+margin-top: 0px;
   font-size: 20px;
-  margin-top: -5px;
 
-  height: 20px;
+  margin-bottom: 0px;
 }
-
-.location-text {
-  margin-top: 16px;
-  padding-top: 15px;
-  margin-right: 190px;
+.rating-text{
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 15px;
-  display: flex;
-  justify-self: center;
-  width: 200px;
-  text-align: left;
-  margin-left: 150px;
+  
+  gap: 6px;
 }
+.rating-heading{
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.location-text {
 
+  font-size: 15px;
+margin-top: 0px;
+margin-bottom: 0px;
+  
+}
+.rate{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+}
 .rating {
   display: flex;
-  flex-direction: column;
-  margin-left: 70px;
-  margin-top: -20px;
-  margin-bottom: 20px;
+  width: 30%;
+  background-color: rgba(255, 255, 255,0.2);
+  margin-bottom: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  gap: 10px;
+
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
 }
 
-.rating-heading {
-  font-size: 20px;
-}
 
-.rating-text {
-  font-size: 15px;
-}
 
 .image {
   display: flex;
   margin-left: 0px;
+  height: 50% !important;
   width: 50vw;
-  min-height: 100vh;
+  object-fit: cover;
+  margin-bottom: 0px !important;
+  position: absolute;
+  bottom: 0px;
 }
 
 
@@ -111,6 +153,13 @@
   margin-left: 32vw;
   width: 150px;
 }
+.right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  background-color: #cae8ff;
+}
 .search-button a{
   text-decoration:none;
   color:white;
@@ -119,11 +168,8 @@
   cursor:pointer;
 }
 .searchCourses {
-  box-sizing: border-box;
   border-radius: 15px;
-  width: 40vw;
-  margin-left: 5vw;
-  margin-top: 2vw;
+  width: 30vw;
   background-color: #c5d5d4;
   color: white;
   padding: 10px 20px;
@@ -136,37 +182,55 @@
 .input-courses {
   width: 30vw;
 }
-
-.student-card {
-  margin-top: 15px;
-  padding: 15px 0px;
-  background-color: rgb(26, 165, 224);
-  border-radius: 10px;
-  margin-bottom: 40px;
-  display: flex;
+.st{
+  width: 80%;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 50px;
+  gap: 4px;
+  height: 100%;
 }
 
+.student-card {
+  margin-top: 25px;
+  background-color: #5cb6f9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  width:38vw;
+}
+.clipped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
+}
+.clipped-text1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  height: calc(1.2em * 3);
+}
 .student {
-  margin-top: 18px;
-  border-radius: 5px;
-  margin-left: 160px;
-  width: 100px;
   background-color: rgb(229, 234, 234);
   color: rgb(29, 31, 155);
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .student-description {
   display: flex;
   flex-direction: row;
-  font-size: 20px;
+  font-size: 10px;
 }
 
-.course {
-  margin-left: 160px;
-  margin-right: 6px;
+.course , .branch,.year {
+  font-size: 15px;
 }
 
 .branch {
@@ -175,88 +239,74 @@
 
 .position {
   display: flex;
-  margin-left: 160px;
-  width: 400px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight:bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-
-@media (max-width: 815px) {
-  .page {
+@media only screen and (max-width:829px){
+.student-card{
+  width: 80vw;
+}
+.searchCourses{
+  width: 80vw;
+}
+}
+@media only screen and (max-width:314px){
+  .clipped-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
+  }
+  .clipped-text1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3);
+  }
+}
+@media only screen and (max-width:385px){
+  .student-card{
     flex-direction: column;
   }
-
-  .content {
-    width: 100vw;
+  .student-card img{
+    margin-top: 10px;
   }
-
-  .left {
-    width: 100vw;
-  }
-
-  .description-card {
-    width: 90vw;
-    font-size: 15px;
-  }
-
-  .location-heading {
-    padding-left: 0px;
-    margin-right: 170px;
-  }
-
-  .location-text {
-    width: 80vw;
-    margin-left: 50px;
-  }
-
-  .group {
+  .student-description{
     flex-direction: column;
   }
-
-  .rating {
-    margin-left: 0px;
-    margin-right: 200px;
+  .st{
+    align-items: center;
+    display: flex;
   }
+} 
 
-  .image {
+@media only screen and (max-width:829px){
+  .page{
+    flex-direction: column;
+    height: calc(200vh - 60px );
+    margin-top: 0px;
+  }
+  .left{
+    height: 50%;
     width: 100vw;
-    min-height: 60vw;
   }
+  .content{
+    height: 100%;
+    width: 100vw;
 
-  .right {
+  }
+  .image{
     width: 100vw;
   }
-
-  .searchCourses {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-top: 50vw;
-    background-color: #c5d5d4;
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-
-  .student-card {
-    width: 90vw;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .student {
-    margin-left: 100px;
-  }
-
-  .course {
-    margin-left: 60px;
-    margin-right: 6px;
-  }
-
-  .branch {
-    margin-right: 6px;
-  }
-
-  .position {
-    margin-left: 60px;
-    width: 400px;
-    font-size: 20px;
+  .right{
+    width: 100vw;
+    height: 50%;
+    justify-content: start !important;
   }
 }
