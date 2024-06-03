@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from "react";
 import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
@@ -47,11 +47,14 @@ const Navbar = () => {
   }, [setMenuOpen, menuOpen]);
 
   // Define handleKeyPress outside of JSX
-  const handleKeyPress = useCallback((event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      toggleMenuCallback();
-    }
-  }, [toggleMenuCallback]);
+  const handleKeyPress = useCallback(
+    (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleMenuCallback();
+      }
+    },
+    [toggleMenuCallback]
+  );
 
   return (
     <nav className="navbar">
@@ -62,10 +65,10 @@ const Navbar = () => {
         toggleMenu={toggleMenuCallback}
         menuOpen={menuOpen}
       />
-      <HamburgerSection 
-        toggleMenu={toggleMenuCallback} 
-        menuOpen={menuOpen} 
-        handleKeyPress={handleKeyPress} 
+      <HamburgerSection
+        toggleMenu={toggleMenuCallback}
+        menuOpen={menuOpen}
+        handleKeyPress={handleKeyPress}
       />
       {error && <ErrorSection error={error} />}
     </nav>
@@ -74,9 +77,12 @@ const Navbar = () => {
 
 // Logo Component
 const LogoSection = () => (
-  <div className="logo">
-    <img src={Logo} alt="Logo" />
-  </div>
+  <Link to="/dashboard">
+    {" "}
+    <div className="logo">
+      <img src={Logo} alt="Logo" />
+    </div>
+  </Link>
 );
 
 // Menu Section Component
@@ -87,11 +93,22 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
       <MenuItem href="#">Jobs</MenuItem>
       <MenuItem href="#">Courses</MenuItem>
       <MenuItem href="#">Career Support</MenuItem>
-      <MenuItem href="#" dot>•</MenuItem>
+      <MenuItem href="#" dot>
+        •
+      </MenuItem>
       {user ? (
         <>
           <MenuItem>
-            <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: "#12229D", fontFamily: 'Times New Roman' }}>
+            <button
+              onClick={handleSignOut}
+              style={{
+                background: "transparent",
+                border: "none",
+                fontSize: "22px",
+                color: "#12229D",
+                fontFamily: "Times New Roman",
+              }}
+            >
               Log Out
             </button>
           </MenuItem>
