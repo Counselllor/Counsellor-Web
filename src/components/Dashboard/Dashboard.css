@@ -46,7 +46,11 @@
 }
 
 #dark .menu ul {
-  background-color: white;
+  background-color: #1C1C1C;
+}
+
+#dark .menu a {
+  color: #E0E0E0;
 }
 
 .menu li {
@@ -64,6 +68,11 @@
   font-size: 25px;
   float: right;
   cursor: pointer;
+}
+
+#dark .profile_btn {
+  background-color: #0FFFC6;
+  color: black;
 }
 
 .menu a {
@@ -117,6 +126,10 @@
   background: linear-gradient(to right, rgba(0, 128, 255, 0.5), rgba(19, 191, 200, 0.5));
 }
 
+#dark .college:hover, .college.active {
+  background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+}
+
 .college-content {
   transition: opacity 0.7s ease;
 }
@@ -141,6 +154,12 @@
   transition: opacity 0.7s ease;
   pointer-events: none;
   cursor: pointer;
+}
+
+#dark .click-info-button {
+  background-color: #0FFFC6;
+  color: black;
+  border: none;
 }
 
 .college:hover .click-info-button,
@@ -253,6 +272,10 @@
   color: #3C38B9;
 }
 
+#dark .blue {
+  color: #0FFFC6;
+}
+
 .maintxt p {
   font-family: 'ABeeZee';
   font-size: 22px;
@@ -263,7 +286,7 @@
 }
 
 #dark .maintxt p {
-  color: white;
+  color: #E0E0E0;
 }
 
 .search {
@@ -277,12 +300,20 @@
   display: flex;
 }
 
+#dark .search {
+  background-color: #0FFFC6;
+}
+
 .vl {
   position: relative;
   top: 1px;
   right: -25px;
   border-left: 2px solid #306094;
   height: 72px;
+}
+
+#dark .vl {
+  border-left: black;
 }
 
 .search img {
@@ -309,6 +340,16 @@
   margin-right: 15px;
 }
 
+#dark .search input {
+  background-color: transparent;
+  color: black !important;
+  border: 1px solid black;
+}
+
+#dark input::placeholder{
+    color: rgb(61, 61, 61) !important;
+}
+
 .search input::placeholder {
   color: rgb(198, 190, 190);
 }
@@ -324,6 +365,14 @@
   font-size: 25px;
   float: right;
   cursor: pointer;
+}
+
+#dark .search button {
+  background-color: black;
+}
+
+#dark .search button:hover {
+  background-color: rgb(37, 37, 37);
 }
 
 .search button:hover {
@@ -433,6 +482,10 @@
   margin: auto;
 }
 
+#dark .college {
+  background-color: #2E2E2E;
+}
+
 .up {
   display: flex;
 }
@@ -450,6 +503,10 @@
   margin-bottom: 20px;
 }
 
+#dark .context p {
+  color: #E0E0E0;
+}
+
 .context span {
   font-size: 14px;
   background-color: #F4F6FC;
@@ -462,6 +519,11 @@
   font-family: 'ABeeZee';
 }
 
+#dark .context span {
+  background-color: #0FFFC6;
+  color: black;
+}
+
 .down {
   display: flex;
   margin-top: 20px;
@@ -472,6 +534,10 @@
   font-family: 'ABeeZee';
   font-size: 18px;
   color: #050A30;
+}
+
+#dark .ctc {
+  color: white;
 }
 
 .time {
@@ -499,7 +565,7 @@
 }
 
 #dark .nearby, .seeall {
-  color: white;
+  color: #E0E0E0;
 }
 
 #dark .maintxt h1{
@@ -507,7 +573,7 @@
 }
 
 #dark .maintxt h1{
-  color: white;
+  color: #E0E0E0;
 }
 
 #dark .maintxt {
