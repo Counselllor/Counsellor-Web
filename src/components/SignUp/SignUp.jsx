@@ -49,7 +49,9 @@ const SignUpForm = () => {
   });
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
-
+  const handleCaptcha=useCallback((e)=>{
+    setCaptchaVal(e.target.value)
+  });
   //password toggele
   const passwordToggle = useCallback(() => {
     if (passwordType === "password") {
@@ -421,7 +423,7 @@ const SignUpForm = () => {
                       name="captcha"
                       value={captchaVal}
                       placeholder="Enter Captcha Here"
-                      onChange={(e) => setCaptchaVal(e.target.value)}
+                      onChange={handleCaptcha}
                       className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
                       required
                     />
