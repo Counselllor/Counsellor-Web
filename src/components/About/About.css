@@ -135,7 +135,7 @@ body {
 }
 
 #dark .heading-secondary {
-  background-image: linear-gradient(to right, #01b087, #38e9c0);
+  background-image: linear-gradient(to right, #4e48f6, #0d07c3);
 }
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -231,7 +231,7 @@ body {
 }
 
 #dark .btn--white {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
   color: black !important;
 }
 .btn--white::after {
@@ -243,7 +243,7 @@ body {
 }
 
 #dark .btn--green {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
   color: black;
 }
 
@@ -1089,11 +1089,11 @@ body {
 }
 
 #dark .about-us-community,#dark .about-us-event,#dark .about-us-location,#dark .about-us-product {
-  border: 2px solid #0FFFC6;
+  border: 2px solid #3c38b9;
 }
 
 #dark .about-us-community:hover,#dark .about-us-event:hover,#dark .about-us-location:hover,#dark .about-us-product:hover {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
   color: black !important;
 }
 

@@ -71,7 +71,7 @@
 }
 
 #dark .profile_btn {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
   color: black;
 }
 
@@ -157,8 +157,8 @@
 }
 
 #dark .click-info-button {
-  background-color: #0FFFC6;
-  color: black;
+  background-color: #3c38b9;
+  color: white;
   border: none;
 }
 
@@ -273,7 +273,7 @@
 }
 
 #dark .blue {
-  color: #0FFFC6;
+  color: #3c38b9;
 }
 
 .maintxt p {
@@ -301,7 +301,7 @@
 }
 
 #dark .search {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
 }
 
 .vl {
@@ -347,7 +347,7 @@
 }
 
 #dark input::placeholder{
-    color: rgb(61, 61, 61) !important;
+    color: rgb(198, 196, 196) !important;
 }
 
 .search input::placeholder {
@@ -520,7 +520,7 @@
 }
 
 #dark .context span {
-  background-color: #0FFFC6;
+  background-color: #3c38b9;
   color: black;
 }
 
