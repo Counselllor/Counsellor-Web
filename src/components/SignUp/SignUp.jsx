@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import {
   FaHome,
@@ -41,7 +41,7 @@ const SignUpForm = () => {
   });
   const [error, setError] = useState({});
   const [passwordType, setPasswordType] = useState("password");
-  const [confrimPasswordType, setConfirmPasswordType] = useState("password");
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
   const [registerInformation, setRegisterInformation] = useState({
     email: "",
     password: "",
@@ -49,21 +49,23 @@ const SignUpForm = () => {
   });
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
-
+  const handleCaptcha=useCallback((e)=>{
+    setCaptchaVal(e.target.value)
+  });
   //password toggele
-  const passwordToggle = () => {
+  const passwordToggle = useCallback(() => {
     if (passwordType === "password") {
       setPasswordType("text");
     } else setPasswordType("password");
-  };
-  const confirmPasswordToggle = () => {
-    if (confrimPasswordType === "password") {
+  });
+  const confirmPasswordToggle = useCallback(() => {
+    if (confirmPasswordType === "password") {
       setConfirmPasswordType("text");
     } else setConfirmPasswordType("password");
-  };
+  });
 
-  // Functions for handleling inputs
-  const handelUserInfo = (e) => {
+  // Functions for handling inputs
+  const handleUserInfo = useCallback((e) => {
     const { name, value } = e.target;
     setUserInfo((prev) => {
       return { ...prev, [name]: value };
@@ -84,9 +86,9 @@ const SignUpForm = () => {
       });
     }
     console.log(typeof userInfo.age);
-  };
+  });
 
-  const handleRegisterInformation = (e) => {
+  const handleRegisterInformation = useCallback((e) => {
     const { name, value } = e.target;
     setRegisterInformation((prev) => {
       return { ...prev, [name]: value };
@@ -99,7 +101,7 @@ const SignUpForm = () => {
     setError((prev) => {
       return { ...prev, ...errObj };
     });
-  };
+  });
 
   function writeUserData(userId, email, userInfo) {
     const { firstName, surname, dob, gender, age } = userInfo;
@@ -117,7 +119,7 @@ const SignUpForm = () => {
 
   let navigate = useNavigate();
 
-  const genrateCaptcha = () => {
+  const generateCaptcha = useCallback(() => {
     let captcha = "";
     const charset =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -127,19 +129,19 @@ const SignUpForm = () => {
       captcha += charset.charAt(randomIndex);
     }
     setCaptchaText(captcha);
-  };
+  });
 
   useEffect(() => {
-    genrateCaptcha();
+    generateCaptcha();
   }, []);
 
-  const handleRegister = async (e) => {
+  const handleRegister = useCallback(async (e) => {
     e.preventDefault();
     let submitable = true;
     if (captchaVal !== captchaText) {
       alert("Wrong Captcha");
       setCaptchaVal("");
-      genrateCaptcha();
+      generateCaptcha();
       return;
     }
 
@@ -167,7 +169,7 @@ const SignUpForm = () => {
     } else {
       alert("Please fill all Fields with Valid Data.");
     }
-  };
+  });
 
   const ageCalculator = (dob) => {
     const birthDate = new Date(dob);
@@ -208,7 +210,7 @@ const SignUpForm = () => {
                     type="text"
                     name="firstName"
                     value={userInfo.firstName}
-                    onChange={handelUserInfo}
+                    onChange={handleUserInfo}
                     placeholder="First Name"
                     className={`firstname-text  ${
                       error.firstNameError && "inputField"
@@ -226,7 +228,7 @@ const SignUpForm = () => {
                     type="text"
                     name="surname"
                     value={userInfo.surname}
-                    onChange={handelUserInfo}
+                    onChange={handleUserInfo}
                     placeholder="Last Name"
                     className={`surname-text  ${
                       error.surnameError && "inputField"
@@ -290,7 +292,7 @@ const SignUpForm = () => {
               <div className="password-input">
                 <div className="iconContainer">
                   <input
-                    type={confrimPasswordType}
+                    type={confirmPasswordType}
                     name="confirmPassword"
                     value={registerInformation.confirmPassword}
                     onChange={handleRegisterInformation}
@@ -301,7 +303,7 @@ const SignUpForm = () => {
                     }`}
                   />
                   <FaCheckCircle className="icons" />
-                  {confrimPasswordType === "password" ? (
+                  {confirmPasswordType === "password" ? (
                     <FaEyeSlash
                       className="toggle-button1"
                       onClick={confirmPasswordToggle}
@@ -326,7 +328,7 @@ const SignUpForm = () => {
                       type="date"
                       value={userInfo.dob}
                       name="dob"
-                      onChange={handelUserInfo}
+                      onChange={handleUserInfo}
                       required
                     />
                     <FaBirthdayCake className="icons" />
@@ -355,7 +357,7 @@ const SignUpForm = () => {
                   type="gender"
                   name="gender"
                   value={userInfo.gender}
-                  onChange={handelUserInfo}
+                  onChange={handleUserInfo}
                   required
                   className=""
                 >
@@ -381,7 +383,7 @@ const SignUpForm = () => {
                       name="user-type"
                       value="student"
                       id="student-option"
-                      onChange={handelUserInfo}
+                      onChange={handleUserInfo}
                       required
                     />
                   </span>
@@ -400,7 +402,7 @@ const SignUpForm = () => {
                       name="user-type"
                       value="counsellor"
                       id="counsellor-option"
-                      onChange={handelUserInfo}
+                      onChange={handleUserInfo}
                       required
                     />
                   </span>
@@ -414,14 +416,14 @@ const SignUpForm = () => {
                   id="captchaBox"
                 >
                   <div id="captcha">{captchaText}</div>
-                  <FaSyncAlt id="captchaIcon" onClick={genrateCaptcha} />
+                  <FaSyncAlt id="captchaIcon" onClick={generateCaptcha} />
                   <div className="iconContainer">
                     <input
                       type="text"
                       name="captcha"
                       value={captchaVal}
                       placeholder="Enter Captcha Here"
-                      onChange={(e) => setCaptchaVal(e.target.value)}
+                      onChange={handleCaptcha}
                       className="w-[100%] bg-slate-100 py-2 px-4 focus:outline-indigo-500"
                       required
                     />

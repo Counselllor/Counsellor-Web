@@ -14,7 +14,7 @@
 }
 
 .content {
-  background-color: #5cb6f9;
+  background-color: rgb(26, 165, 224);
   width: 50vw;
   overflow: hidden;
   position: relative;
@@ -169,9 +169,10 @@ margin-bottom: 0px;
 }
 .searchCourses {
   border-radius: 15px;
-  width: 30vw;
+  width: 40vw;
+  margin-left: 5vw;
+  margin-top: 120px;
   background-color: #c5d5d4;
-  color: white;
   padding: 10px 20px;
   font-size: 16px;
   border: none;

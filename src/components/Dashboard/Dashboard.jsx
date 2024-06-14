@@ -78,7 +78,7 @@ const Dashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [navigate]);
+  });
 
   const handleCollegeClick = useCallback((college) => {
     navigate(`/college/${college.id}`);
