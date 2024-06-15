@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@iconify/react": "^5.0.0",
+    "@iconify/react": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
