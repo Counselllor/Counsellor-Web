@@ -4,7 +4,8 @@ import ForgotPasswordForm from "./ForgotPassword/ForgotPassword.jsx";
 import LoginForm from './Login/Login.jsx';
 import Navbar from "./Navbar/Navbar.jsx";
 import SignUpForm from './SignUp/SignUp.jsx';
-import FAQs from './FAQs/FAQS.jsx'
+import FAQs from './FAQs/FAQs.jsx'
+import Contribute from "./Contributors/Contribute.jsx";
 
 const Home = lazy(() => import("./Home/Home.jsx"));
 const About = lazy(() => import("./About/About.jsx"));
@@ -17,6 +18,7 @@ export {
     LoginForm,
     Navbar,
     SignUpForm,
-    FAQs
+    FAQs,
+    Contribute
 };
 

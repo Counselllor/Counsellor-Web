@@ -10,7 +10,8 @@ import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
-import FAQS from "../FAQs/FAQS";
+import FAQs from '../FAQs/FAQs';
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -202,7 +203,7 @@ window.addEventListener("scroll", setFixed)
             </div>
           ))}
         </div>
-        <FAQS/>
+        <FAQs/>
         <Footer />
       </main>
     

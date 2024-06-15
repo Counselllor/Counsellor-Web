@@ -16,8 +16,7 @@ function Footer() {
             </a>
           </li>
           <li>Blog</li>
-          <li><a href="./Dashboard">FAQs</a></li>
-          <li><a style={{ textDecoration: "none", color: "inherit" }} href="./Dashboard">FAQs</a></li>
+          <li><a style={{ textDecoration: "none", color: "inherit" }} href="./FAQs">FAQs</a></li>
           <li>Privacy</li>
           <li>Terms</li>
           <li>
@@ -28,7 +27,10 @@ function Footer() {
               Contact
             </a>
           </li>
-          <li>Our Countributors</li>
+          <li><a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./contribute"
+            >Our Countributors</a></li>
           <li>Join Us</li>
         </ul>
         <p>© 2023 Counsellor</p>
