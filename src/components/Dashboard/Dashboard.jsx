@@ -43,7 +43,7 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
         setTimeout(() => {
@@ -55,7 +55,7 @@ const Dashboard = () => {
           className: "toast-message",
         });
       });
-  };
+  });
 
   const handleCollegeClick = useCallback(
     (college) => {
