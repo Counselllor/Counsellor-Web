@@ -9,7 +9,14 @@ function validEmail(email) {
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
-
+function onChangeEvent(event){
+    setEmail(event.target.value)
+    if (!validEmail(event.target.value)) {
+        setError("**Enter a valid E-mail!");
+    } else {
+        setError("");
+    }
+}
 function ForgotPassword() {
 
     const [email, setEmail] = useState();
@@ -55,14 +62,7 @@ function ForgotPassword() {
                     <form className='fp-form' onSubmit={handleSubmit}>
                         <label className="forgot_text" htmlFor="Email">Please enter your email address and and we'll send you a link to get back into your account.</label>
                         <input type="email" value={email}
-                            onChange={(event) => {
-                                setEmail(event.target.value)
-                                if (!validEmail(event.target.value)) {
-                                    setError("**Enter a valid E-mail!");
-                                } else {
-                                    setError("");
-                                }
-                            }}
+                            onChange={onChangeEvent}
                             placeholder="Enter your email address" className={`common-input ${error === '**Enter a valid E-mail!' ? 'error' : ''}  ${error === '**Enter a E-mail!' ? 'error' : ''}`}
                         />
                         {error === "**Enter a E-mail!" && (
