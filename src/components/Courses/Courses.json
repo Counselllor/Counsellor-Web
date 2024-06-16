@@ -1,0 +1,90 @@
+[
+    {
+      "id": 1,
+      "title": "Introduction to Computer Science",
+      "imageURL": "https://0901.static.prezi.com/preview/v2/vkdxcde33osvpsk5kzepvgxhp76jc3sachvcdoaizecfr3dnitcq_3_0.png",
+      "badge": "Popular",
+      "rating": 4.8,
+      "price": "$100",
+      "level": "beginner",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 2,
+      "title": "Business Management",
+      "imageURL": "https://www.iqacademy.ac.za//wp-content/uploads/2021/07/sc-ibm.jpg",
+      "badge": "New",
+      "rating": 4.5,
+      "price": "$120",
+      "level": "expert",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 3,
+      "title": "Mechanical Engineering",
+      "imageURL": "https://www.discoverengineering.org/wp-content/uploads/2023/12/mj_11423_3.jpg",
+      "badge": "Featured",
+      "rating": 4.7,
+      "price": "$150",
+      "level": "beginner",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 4,
+      "title": "Introduction to Computer Science",
+      "imageURL": "https://0901.static.prezi.com/preview/v2/vkdxcde33osvpsk5kzepvgxhp76jc3sachvcdoaizecfr3dnitcq_3_0.png",
+      "badge": "Popular",
+      "rating": 4.8,
+      "price": "$100",
+      "level": "expert",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 5,
+      "title": "Business Management",
+      "imageURL": "https://www.iqacademy.ac.za//wp-content/uploads/2021/07/sc-ibm.jpg",
+      "badge": "New",
+      "rating": 4.5,
+      "price": "$120",
+      "level": "intermediate",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 6,
+      "title": "Mechanical Engineering",
+      "imageURL": "https://www.discoverengineering.org/wp-content/uploads/2023/12/mj_11423_3.jpg",
+      "badge": "Featured",
+      "rating": 4.7,
+      "price": "$150",
+      "level": "intermediate",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 7,
+      "title": "Business Management",
+      "imageURL": "https://www.iqacademy.ac.za//wp-content/uploads/2021/07/sc-ibm.jpg",
+      "badge": "New",
+      "rating": 4.5,
+      "price": "$120",
+      "level": "intermediate",
+      "module": 24,
+      "time": 7
+    },
+    {
+      "id": 8,
+      "title": "Mechanical Engineering",
+      "imageURL": "https://www.discoverengineering.org/wp-content/uploads/2023/12/mj_11423_3.jpg",
+      "badge": "Featured",
+      "rating": 4.7,
+      "price": "$150",
+      "level": "intermediate",
+      "module": 24,
+      "time": 7
+    }
+  ]
