@@ -1,10 +1,5 @@
 :root {
-  --padding: 3rem;
-  --width: 100%;
-  --transform: none;
   --min-width: 200px;
-  --duration: 10s;
-  --delay: 0s;
   --iteration-count: infinite;
   --play: running;
   --direction: normal;
@@ -12,8 +7,6 @@
   --white: #ffffff;
   --radius-5: 5px;
   --radius-3: 3px;
-  --transition-1: 0.3s;
-  --transition-2: 0.5s;
   --ff-league_spartan: "League Spartan", sans-serif;
   --selective-yellow: #ffba08;
   --kappel: #000;
@@ -61,6 +54,85 @@
 }
 
 /* Global Styles */
+
+.App {
+  text-align: center;
+  background-color: #CAE7FE;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  background-color: #CAE7FE;
+}
+
+.logo img {
+  width: 75px;
+  padding-left: 15px;
+}
+
+.menu {
+  flex-direction: column;
+  align-items: center;
+  top: 70px;
+  width: 100%;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  float: right;
+  padding: 0px 30px;
+  align-items: center;
+  background-color: #f4f6fcb8;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.menu li {
+  margin: 15px 0;
+}
+
+.profile_btn {
+  background-color: var(--btnColor);
+  border-radius: 15px;
+  color: #F4F6FC;
+  text-align: center;
+  padding: 10px 50px;
+  margin-right: 0.5vw;
+  border: none;
+  font-size: 25px;
+  float: right;
+  cursor: pointer;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #12229d;
+  font-size: 22px;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+  display: none;
+}
+
+
 *,
 *::after,
 *::before {
@@ -79,10 +151,10 @@ body {
   font-size: var(--fs-6);
   line-height: 1.7;
   color: var(--quick-silver);
-  padding: 3rem;
+  /* padding: 3rem; */
 }
 
-.hamburger {
+/* .hamburger {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -91,12 +163,12 @@ body {
   width: 30px;
   height: 25px;
   display: none;
-}
+} */
 
-.hamburger {
+/* .hamburger {
   display: flex;
   margin-right: 30px;
-}
+} */
 
 /* Navigation */
 .navigation {
@@ -749,6 +821,7 @@ body {
 .testimonials {
   padding: 100px 0;
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 .testimonials .container {
