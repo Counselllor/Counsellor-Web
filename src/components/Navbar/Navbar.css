@@ -9,12 +9,12 @@
     display: flex;
     list-style-type: none;
     align-items: center;
-    background-color: var(--secPageColor);
+    /* background-color: var(--secPageColor); */
     gap: 2.5vw;
     /* right: 6rem; */
     /* padding: 1.5rem 1.5rem 1.5rem 2.5rem; */
-    padding: 0.78vw 0.78vw 0.78vw 1.3vw;
-    border-radius: 2.6vw;
+    /* padding: 0.78vw 0.78vw 0.78vw 1.3vw; */
+    /* border-radius: 2.6vw; */
   }
   
   #navbar ul li * {
