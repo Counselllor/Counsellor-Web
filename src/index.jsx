@@ -37,7 +37,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        errorElement: <ErrorPage />,
         element: <Courses />,
       },
       {
