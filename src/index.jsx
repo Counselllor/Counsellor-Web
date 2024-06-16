@@ -8,12 +8,12 @@ import {
   ErrorPage,
   ForgotPasswordForm,
   SignUpForm,
-  Courses
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
+import Courses from "./components/Courses/Courses";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
+        errorElement: <ErrorPage />,
         element: <Courses />,
       },
       {
