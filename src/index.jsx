@@ -2,18 +2,21 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import CollegePage from "./components/CollegePage/CollegePage";
 import {
   About,
   Dashboard,
   ErrorPage,
   ForgotPasswordForm,
   SignUpForm,
+  FAQs,
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
 import Courses from "./components/Courses/Courses";
+import ProfilePage from "./Pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -46,9 +49,9 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: '/contact',
-        errorElement: <ErrorPage/>,
-        element: <Contact/>
+        path: "/contact",
+        errorElement: <ErrorPage />,
+        element: <Contact />,
       },
       // {
       //   path: '/login',
@@ -64,6 +67,21 @@ const router = createBrowserRouter([
         path: "/forgotpassword",
         errorElement: <ErrorPage />,
         element: <ForgotPasswordForm />,
+      },
+      {
+        path: "/college/:id",
+        errorElement: <ErrorPage />,
+        element: <CollegePage />,
+      },
+      {
+        path: "/profile",
+        errorElement: <ErrorPage />,
+        element: <ProfilePage />,
+      },
+      {
+        path: "/FAQs",
+        errorElement: <ErrorPage />,
+        element: <FAQs />,
       },
     ],
   },
