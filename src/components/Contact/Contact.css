@@ -177,8 +177,14 @@
     color: #777;
     top: -20px;
     transition: all .225s ease;
+  }
+  #m-textarea{
+  position: relative;
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #777;
+  top: 30px;
+  transition: all .225s ease;
 }
-
 
 .csubmit-btn {
   background-color: #fd917e;
