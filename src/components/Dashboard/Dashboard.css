@@ -560,6 +560,7 @@
     padding: 75px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
+    margin-top: 240px;
   }
 
   .menu ul {
@@ -572,7 +573,7 @@
   }
 
   .menu li {
-    margin: 15px 0;
+    margin: 1px 0;
   }
 
   .menu a {
