@@ -17,6 +17,7 @@ import "./index.css";
 import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
 import Privacy from "./components/Privacy-Policy/Privacy";
+import Terms from "./components/Terms/Terms";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
         path: "/privacy-policy",
         errorElement: <ErrorPage />,
         element: <Privacy />
+      },
+      {
+        path: "/terms",
+        errorElement: <ErrorPage />,
+        element: <Terms />
       },
       // {
       //   path: '/login',

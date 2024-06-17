@@ -17,9 +17,21 @@ function Footer() {
           <li>Blog</li>
           <li>Help</li>
           <li>
-            <a style={{ textDecoration: "none", color: "inherit"}} href="./privacy-policy">Privacy</a>
+            <a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./privacy-policy"
+            >
+              Privacy
+            </a>
           </li>
-          <li>Terms</li>
+          <li>
+            <a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./terms"
+            >
+              Terms
+            </a>
+          </li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
