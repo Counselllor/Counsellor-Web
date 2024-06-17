@@ -135,23 +135,26 @@ margin-bottom: 0px;
   display: flex;
   margin-left: 0px;
   height: 50% !important;
-  width: 50vw;
+  width: 40vw;
   object-fit: cover;
   margin-bottom: 0px !important;
   position: absolute;
   bottom: 0px;
+  margin-left: 5vw;
 }
 
 
 
 .search-button {
   background-color: rgb(23, 23, 70);
+  z-index: 100 !important;
   color: white;
   padding: 10px;
   border-radius: 6px;
-  margin-top: -200px;
-  margin-left: 32vw;
+  margin-left: 30px;
+  height: 50px;
   width: 150px;
+  margin-top: 15px;
 }
 .right{
   display: flex;
