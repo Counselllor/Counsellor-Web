@@ -4,6 +4,10 @@
   overflow-x: hidden;
 }
 
+#dark .login-container {
+  filter: invert(1);
+}
+
 .left {
   background-color: #ffffff;
 }

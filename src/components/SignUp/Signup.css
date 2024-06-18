@@ -4,6 +4,10 @@
   overflow-x: hidden;
 }
 
+#dark .signup-container {
+  filter: invert(1);
+}
+
 .parent {
   display: flex;
   align-items: center;
