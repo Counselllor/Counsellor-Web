@@ -56,7 +56,6 @@ export default function Login() {
       if (user) {
         toast.success("Authenticating… 🚀",{
           className: "toast-message",
-          autoClose: 1500
         });
         setTimeout(() => {
           toast.success("Logged in… 🚀",{

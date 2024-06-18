@@ -485,14 +485,13 @@
 .toast-message {
   background: #12229d;
   color: #fff;
+  width: max-content;
   font-size: 12px;
-  width: 18vw;
   padding: 10px;
-  z-index: 100;
 }
 
 .toast-message:first-child{
-  margin-top: 90px;
+  margin-top: 10rem;
 }
 
 @media (max-width: 960px) {

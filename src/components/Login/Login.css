@@ -283,6 +283,20 @@ form div {
     overflow-x: hidden;
   }
 }
+@media screen and (min-width: 481px) {
+  .toast-message{
+    margin-left: 13rem;
+    margin-right: 3rem;
+  }
+}
+@media screen and (max-width: 481px) {
+  .toast-message{
+    margin-left: 3rem;
+    margin-right: 13rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+  }
+}
 
 
 .inputField {
