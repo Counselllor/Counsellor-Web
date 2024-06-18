@@ -1,5 +1,4 @@
 // FAQs.jsx
-
 import React, { useState } from 'react';
 import './FAQs.css';
 
@@ -31,7 +30,7 @@ const FAQs = () => {
   };
 
   return (
-    <div className="faqs-container">
+    <div id="faqs" className="faqs-container">
       <h2>Frequently Asked Questions</h2>
       <div className="accordion">
         {faqs.map((faq, index) => (
