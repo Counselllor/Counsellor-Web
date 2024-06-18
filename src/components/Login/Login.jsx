@@ -2,7 +2,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 
@@ -29,8 +29,8 @@ export default function Login() {
     password: "",
   }); 
 
-  // Function for handelling inputs
-  const handleLoginInfo = (e)=>{
+  // Function for handling inputs
+  const handleLoginInfo = useCallback((e)=>{
     const {name, value} = e.target;
     setLoginInfo((prev)=>{
       return {...prev, [name]: value}
@@ -42,13 +42,13 @@ export default function Login() {
     setError((prev)=>{
       return {...prev, ...errObj}
     })
-  }
+  })
 
-  const passwordToggle = () => {
+  const passwordToggle = useCallback(() => {
     if (passwordType === "password") {
       setPasswordType("text");
     } else setPasswordType("password");
-  };
+  });
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function Login() {
     });
   }, []);
 
-  const genrateCaptcha = ()=>
+  const generateCaptcha = useCallback(()=>
     {
       let captcha = "";
       const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -77,14 +77,14 @@ export default function Login() {
       captcha += charset.charAt(randomIndex);
     }
     setCaptchaText(captcha)
-    }
+    })
 
     useEffect(()=>{
-      genrateCaptcha();
+      generateCaptcha();
     }, [])
 
   // if signin with EmailId/password success then navigate to /dashboard
-  const handleSignIn = (e) => {
+  const handleSignIn = useCallback((e) => {
      e.preventDefault();
      let submitable = true;
      if(captchaVal !== captchaText){
@@ -92,7 +92,7 @@ export default function Login() {
         className: "toast-message",
       })
       setCaptchaVal("");
-      genrateCaptcha();
+      generateCaptcha();
       return;
     }
 
@@ -130,9 +130,9 @@ export default function Login() {
           className: "toast-message",
         })
       }
-  };
+  });
   // Popup Google signin
-  const SignInGoogle = () => {
+  const SignInGoogle = useCallback(() => {
     signInWithPopup(auth, googleAuthProvider)
       .then(() => {
         toast.success("Login successful !",{
@@ -145,7 +145,7 @@ export default function Login() {
       .catch((err) => toast.error(err.message,{
         className: "toast-message",
       }));
-  };
+  });
 
   return (
     <main>
@@ -214,7 +214,7 @@ export default function Login() {
                 <div id="captcha">{captchaText}</div>
                 <FaSyncAlt
                 id="captchaIcon"
-                  onClick={genrateCaptcha}
+                  onClick={generateCaptcha}
                 />
                 <div className="iconContainer">
                 <input
