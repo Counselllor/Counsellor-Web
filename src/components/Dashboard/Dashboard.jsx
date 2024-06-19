@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -10,30 +10,34 @@ import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
-import FAQS from "../FAQs/FAQS";
+import FAQs from '../FAQs/FAQs';
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
-        })
+        });
         console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
-        })
+        });
         setTimeout(() => {
           navigate("/");
         }, 1000);
       }
     });
   }, []);
+
   useEffect(() => {
     const results = collegesData.filter(
       (college) =>
@@ -42,6 +46,15 @@ const Dashboard = () => {
     );
     setFilteredColleges(results);
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (location.hash === "#faqs1") {
+      const faqsElement = document.getElementById("faqs1");
+      if (faqsElement) {
+        faqsElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -71,6 +84,7 @@ const Dashboard = () => {
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTouchStart = (index) => {
@@ -81,26 +95,21 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
+  const [fix, setFix] = useState(false);
 
-  
+  const setFixed = () => {
+    if (window.scrollY > 0) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+  };
 
-const [fix, setFix]= useState(false)
-//function for appearance of background for nav menu
-function setFixed(){
-  if(window.scrollY>0){
-    setFix(true)
-  }else{
-    setFix(false)
-  }
-}
-
-window.addEventListener("scroll", setFixed)
+  window.addEventListener("scroll", setFixed);
 
   return (
-    //scrolltotop is for scroll to top widget
-    //Then the navbar code begins
-      <main>
-        <div className="scroll">
+    <main>
+      <div className="scroll">
         <ScrollToTop
         smooth
         viewBox="0 0 24 24"
@@ -204,6 +213,8 @@ window.addEventListener("scroll", setFixed)
           ))}
         </div>}
         <FAQS/>
+        </div>
+        <FAQs/>
         <Footer />
       </main>
     
