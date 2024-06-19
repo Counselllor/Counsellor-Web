@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import './Dashboard.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -9,6 +9,9 @@ import collegesData from './colleges.json';
 import ScrollToTop from "react-scroll-to-top";
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import FAQs from '../FAQs/FAQs'; // Adjust the path as necessary
 
 // CollegeCard component
 const CollegeCard = ({ college, onClick, onTouchStart, onTouchEnd, active }) => (
@@ -40,6 +43,7 @@ const CollegeCard = ({ college, onClick, onTouchStart, onTouchEnd, active }) => 
 // Dashboard component
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -48,19 +52,21 @@ const Dashboard = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if (!user) {
-        navigate("/");
+      if (user) {
+        toast.success("Logged in! 🚀", {
+          className: "toast-message",
+        });
+        console.log("");
+      } else if (!user) {
+        toast.success("Logged out!", {
+          className: "toast-message",
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       }
     });
-  }, []);
-
-  // Define function to handle keyboard event
-  const handleKeyDown = (event) => {
-    // Check if Enter key is pressed
-    if (event.key === 'Enter') {
-      onClick(); // Trigger the onClick function if Enter key is pressed
-    }
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const results = collegesData.filter(college =>
@@ -70,6 +76,15 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
+  useEffect(() => {
+    if (location.hash === "#faqs1") {
+      const faqsElement = document.getElementById("faqs1");
+      if (faqsElement) {
+        faqsElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
@@ -78,7 +93,7 @@ const Dashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, [navigate]);
 
   const handleCollegeClick = useCallback((college) => {
     navigate(`/college/${college.id}`);
@@ -141,26 +156,39 @@ const Dashboard = () => {
             value={searchTerm}
             onChange={handleSearchChange} />
         </div>
-        <button>Search</button>
+        <div className="navigator">
+          <span className="nearby">Nearby</span>
+          <span className="seeall">See All</span>
+        </div>
+        <div className="colleges">
+          {filteredColleges.map((college, index) => (
+            <div
+              className={`college ${activeIndex === index ? 'active' : ''}`}
+              key={college.id}
+              onClick={() => handleCollegeClick(college)}
+              onTouchStart={() => handleTouchStart(index)}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="college-content">
+                <div className="up">
+                  <img className="college-image" src={college.imageURL} alt="College Logo" />
+                  <div className="context">
+                    <p className="college_name">{college.name}</p>
+                    <span className="college-location">{college.location}</span>
+                  </div>
+                </div>
+                <div className="down">
+                  <div className="ctc">{college.ctc}</div>
+                  <div className="time">{college.time}</div>
+                </div>
+              </div>
+              <button className="click-info-button">Click for more info</button>
+            </div>
+          ))}
+        </div>
+        <FAQs />
+        <Footer />
       </div>
-      <div className="navigator">
-        <span className='nearby'>Nearby</span>
-        <span className='seeall'>See All</span>
-      </div>
-      <div className="colleges">
-        {filteredColleges.map((college, index) => (
-          <CollegeCard
-            key={college.id}
-            college={college}
-            onClick={handleCollegeClick.bind(null, college)}
-            onTouchStart={() => handleTouchStart(index)}
-            onTouchEnd={handleTouchEnd}
-            onKeyDown={handleKeyDown} 
-            active={activeIndex === index}
-          />
-        ))}
-      </div>
-      <Footer />
     </main>
   );
 };
