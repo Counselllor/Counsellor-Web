@@ -495,6 +495,28 @@
   margin-top: 90px;
 }
 
+.no-res-Found-cont{
+  text-align: center;
+  margin: auto;
+  width: 80vw;
+  margin-top: 150px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.no-res-Found-cont h1{
+  font-size: 4rem;
+  font-family: 'Roboto';
+  color:#3147ee;
+  display: inline;
+}
+
+.no-res-Found-cont p{
+  font-size: 2.1rem;
+  font-family: 'Roboto';
+  color: #8C8C8C;
+}
+
 @media (max-width: 960px) {
   .menu {
     display: none;
@@ -560,7 +582,6 @@
     padding: 75px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
-    margin-top: 240px;
   }
 
   .menu ul {
@@ -573,7 +594,7 @@
   }
 
   .menu li {
-    margin: 1px 0;
+    margin: 15px 0;
   }
 
   .menu a {
