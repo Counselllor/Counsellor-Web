@@ -5,7 +5,8 @@
 }
 
 #dark .signup-container {
-  filter: invert(1);
+  background-color: #121212;
+  color: white;
 }
 
 .parent {

@@ -5,7 +5,12 @@
 }
 
 #dark .login-container {
-  filter: invert(1);
+  background-color: #121212 !important;
+  color: white;
+}
+
+#dark .left, #dark .right {
+  background: #121212;
 }
 
 .left {
