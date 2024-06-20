@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
@@ -26,7 +26,6 @@ const Dashboard = () => {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
         });
-        console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",

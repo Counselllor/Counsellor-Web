@@ -1,7 +1,6 @@
-import React, { useState, useEffect,useCallback } from "react";
+import { useState, useEffect,useCallback } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import {
-  FaHome,
   FaEye,
   FaEyeSlash,
   FaUser,
@@ -11,7 +10,6 @@ import {
   FaCheckCircle,
   FaBirthdayCake,
   FaHourglass,
-  FaVideo,
   FaVenusMars,
   FaGraduationCap,
   FaUserTie,
@@ -20,8 +18,6 @@ import {
 } from "react-icons/fa";
 import meeting2 from "../../assets/meeting2.png";
 import "./Signup.css";
-import show from "../../assets/show.png";
-import hide from "../../assets/hide.png";
 import { auth, database } from "../../firebase/auth";
 import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -85,7 +81,6 @@ const SignUpForm = () => {
         return { ...prev, age: calculateAge };
       });
     }
-    console.log(typeof userInfo.age);
   });
 
   const handleRegisterInformation = useCallback((e) => {

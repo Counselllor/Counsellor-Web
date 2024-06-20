@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -13,7 +13,6 @@ const Contact = () => {
       auth.onAuthStateChanged((user) => {
         if (user) {
           // read
-          console.log("");
         } else if (!user) {
           navigate("/");
         }
