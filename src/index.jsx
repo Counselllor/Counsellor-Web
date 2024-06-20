@@ -10,6 +10,7 @@ import {
   ForgotPasswordForm,
   SignUpForm,
   FAQs,
+  Contribute,
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <FAQs />,
       },
+      {
+        path: "/Contribute",
+        errorElement: <ErrorPage />,
+        element: <Contribute />,
+      }
     ],
   },
 ]);
