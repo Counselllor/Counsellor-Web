@@ -41,7 +41,12 @@ function Footer() {
             </a>
           </li>
           <li>Our Countributors</li>
-          <li>Join Us</li>
+          <a
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="./join-us"
+          >
+            <li>Join Us</li>
+          </a>
         </ul>
         <p>© 2023 Counsellor</p>
         <div id="icons">

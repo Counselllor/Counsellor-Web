@@ -19,6 +19,7 @@ import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
+import JoinUs from "./components/Joinus/JoinUs";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         path: "/terms",
         errorElement: <ErrorPage />,
         element: <Terms />
+      },
+      {
+        path: "/join-us",
+        errorElement: <ErrorPage />,
+        element: <JoinUs />
       },
       // {
       //   path: '/login',
