@@ -1,30 +1,46 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useContext } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
-import FAQS from "../FAQs/FAQS";
+import FAQs from '../FAQs/FAQs';
+import { ThemeContext } from '../../App';
+import { Switch } from 'antd';
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        toast.success("Logged in! 🚀",{
+          className: "toast-message",
+        });
         console.log("");
       } else if (!user) {
-        navigate("/");
+        toast.success("Logged out!",{
+          className: "toast-message",
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       }
     });
   }, []);
+
   useEffect(() => {
     const results = collegesData.filter(
       (college) =>
@@ -34,15 +50,28 @@ const Dashboard = () => {
     setFilteredColleges(results);
   }, [searchTerm]);
 
-  const handleSignOut = () => {
+  useEffect(() => {
+    if (location.hash === "#faqs1") {
+      const faqsElement = document.getElementById("faqs1");
+      if (faqsElement) {
+        faqsElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message,{
+          className: "toast-message",
+        });
       });
-  };
+  });
 
   const handleCollegeClick = useCallback(
     (college) => {
@@ -58,6 +87,7 @@ const Dashboard = () => {
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTouchStart = (index) => {
@@ -68,54 +98,49 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
-const [fix, setFix]= useState(false)
-//function for appearance of background for nav menu
-function setFixed(){
-  if(window.scrollY>0){
-    setFix(true)
-  }else{
-    setFix(false)
-  }
-}
+  const [fix, setFix] = useState(false);
 
-window.addEventListener("scroll", setFixed)
+  const setFixed = () => {
+    if (window.scrollY > 0) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+  };
+
+  window.addEventListener("scroll", setFixed);
+
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
 
   return (
-    //scrolltotop is for scroll to top widget
-    //Then the navbar code begins
-      <main>
-        <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
+    <main>
+      <div className="scroll">
+        <ScrollToTop
+        smooth
+        viewBox="0 0 24 24"
+        svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
+        
+        color="white"
+        style={{ backgroundColor: "#5CB6F9" }}
+      />
+        {/* <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} /> */}
+        </div>
         <nav className={`navbar ${fix ? 'fixed' : ''}`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
           <div className={`menu ${menuOpen ? "show" : ""}`}>
             <ul>
-              <li>
-                <a href="#">Top Universities</a>
-              </li>
-              <li>
-                <a href="#">Jobs</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Career Support</a>
-              </li>
-              <li className="dot">
-                <a href="#"/>
-              </li>
-              <li>
-                <a href="#" onClick={handleSignOut}>
-                  Log Out
-                </a>
-              </li>
-              <li>
-                <Link to="/profile">
-                  <button className="profile_btn">Profile</button>
-                </Link>
-              </li>
+            <li><a href="/topuniversities">Top Universities</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/courses">Courses</a></li>
+             <li><a href="/careersupport">Career Support</a></li>
+            <li className='dot'><a href="error">•</a></li>
+             <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            <li><button className='profile_btn'>Profile</button></li>
+             <li><Switch style={{ backgroundColor: theme === "dark" ? "#000000" : "" }} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" /></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
@@ -125,6 +150,7 @@ window.addEventListener("scroll", setFixed)
           </div>
         </nav>
         <div className="maintxt">
+          <ToastContainer/>
           <h1>
             <span className="blue">Find your </span>Dream
             <br />
@@ -175,7 +201,7 @@ window.addEventListener("scroll", setFixed)
             </div>
           ))}
         </div>
-        <FAQS/>
+        <FAQs/>
         <Footer />
       </main>
     
