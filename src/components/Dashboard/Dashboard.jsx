@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "./Dashboard.css";
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -11,23 +10,23 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
 import FAQS from "../FAQs/FAQS";
-
 import { FaUniversity, FaBriefcase, FaBook, FaLifeRing, FaSignOutAlt, FaSearch } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa6";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
-  
+
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         toast.success("Logged in! 🚀", {
           className: "toast-message",
         });
-        console.log("");
-      } else if (!user) {
+      } else {
         toast.success("Logged out!", {
           className: "toast-message",
         });
@@ -36,6 +35,8 @@ const Dashboard = () => {
         }, 1000);
       }
     });
+
+    return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {
@@ -95,7 +96,10 @@ const Dashboard = () => {
     }
   }
 
-  window.addEventListener("scroll", setFixed);
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => window.removeEventListener("scroll", setFixed);
+  }, []);
 
   return (
     <main>
@@ -135,6 +139,11 @@ const Dashboard = () => {
               </a>
             </li>
             <li>
+  <Link to="/rateus">
+    <FaStar /> Rate Us
+  </Link>
+</li>
+            <li>
               <a href="#" onClick={handleSignOut}>
                 <FaSignOutAlt /> Log Out
               </a>
@@ -146,11 +155,7 @@ const Dashboard = () => {
             </li>
           </ul>
         </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
+      
       </nav>
       <div className="maintxt">
         <ToastContainer />
