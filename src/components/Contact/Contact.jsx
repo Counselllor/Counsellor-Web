@@ -3,6 +3,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import Navbar from '../Navbar/Navbar';
 import './Contact.css'
 import Logo from '../../assets/logo.webp'
 import emailjs from '@emailjs/browser';
@@ -47,7 +48,8 @@ const Contact = () => {
     };
   return (
     <main>
-        <nav className="navbar">
+      <Navbar/>
+        {/* <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
@@ -68,7 +70,7 @@ const Contact = () => {
             <div className={`bar ${menuOpen ? 'open' : ''}`}/>
             <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
-        </nav>
+        </nav> */}
     <div className='contact-page'>
        
       <section id="contact">

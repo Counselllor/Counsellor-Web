@@ -10,12 +10,14 @@ import {
   ForgotPasswordForm,
   SignUpForm,
   FAQs,
+  Contribute,
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
+import Privacy from "./components/Privacy-Policy/Privacy";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <Contact />,
       },
+      {
+        path: "/privacy-policy",
+        errorElement: <ErrorPage />,
+        element: <Privacy />
+      },
       // {
       //   path: '/login',
       //   errorElement: <ErrorPage/>,
@@ -77,6 +84,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <FAQs />,
       },
+      {
+        path: "/Contribute",
+        errorElement: <ErrorPage />,
+        element: <Contribute />,
+      }
     ],
   },
 ]);
