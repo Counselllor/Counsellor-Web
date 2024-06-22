@@ -16,7 +16,21 @@
 .left {
   background-color: #ffffff;
 }
-
+.left img{
+  transform: translateX(0px);
+  animation: float 6s ease-out infinite;
+}
+@keyframes float {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+  transform: translateY(-50px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
 .parent .right::-webkit-scrollbar{
   width: 5px;
   background-color: transparent;
