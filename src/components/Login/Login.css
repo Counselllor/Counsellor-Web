@@ -4,6 +4,15 @@
   overflow-x: hidden;
 }
 
+#dark .login-container {
+  background-color: #121212 !important;
+  color: white;
+}
+
+#dark .left, #dark .right {
+  background: #121212;
+}
+
 .left {
   background-color: #ffffff;
 }
