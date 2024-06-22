@@ -1,5 +1,5 @@
-import React, { useState, useEffect,useCallback, useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useCallback, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaHome,
   FaEye,
@@ -38,7 +38,7 @@ const SignUpForm = () => {
     surname: "",
     dob: "",
     gender: "",
-    age: null,
+    age: "",
     "user-type": "",
   });
   const [error, setError] = useState({});
@@ -51,61 +51,69 @@ const SignUpForm = () => {
   });
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
-  const handleCaptcha=useCallback((e)=>{
-    setCaptchaVal(e.target.value)
-  });
-  //password toggele
+
+  const handleCaptcha = useCallback((e) => {
+    setCaptchaVal(e.target.value);
+  }, []);
+  
+  // password toggle
   const passwordToggle = useCallback(() => {
-    if (passwordType === "password") {
-      setPasswordType("text");
-    } else setPasswordType("password");
-  });
+    setPasswordType((prevType) =>
+      prevType === "password" ? "text" : "password"
+    );
+  }, []);
+
   const confirmPasswordToggle = useCallback(() => {
-    if (confirmPasswordType === "password") {
-      setConfirmPasswordType("text");
-    } else setConfirmPasswordType("password");
-  });
+    setConfirmPasswordType((prevType) =>
+      prevType === "password" ? "text" : "password"
+    );
+  }, []);
 
   // Functions for handling inputs
   const handleUserInfo = useCallback((e) => {
     const { name, value } = e.target;
-    setUserInfo((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setUserInfo((prev) => ({
+      ...prev,
+      [name]: value !== null ? value : "",
+    }));
 
     if (name !== "user-type" && name !== "gender") {
       const errObj = validate[name](value);
-      setError((prev) => {
-        return { ...prev, ...errObj };
-      });
+      setError((prev) => ({
+        ...prev,
+        ...errObj,
+      }));
     }
 
     if (name === "dob") {
-      let calculateAge = ageCalculator(e.target.value);
+      let calculateAge = ageCalculator(value);
       calculateAge === null ? (calculateAge = "") : null;
-      setUserInfo((prev) => {
-        return { ...prev, age: calculateAge };
-      });
+      setUserInfo((prev) => ({
+        ...prev,
+        age: calculateAge !== null ? calculateAge : "",
+      }));
     }
-    console.log(typeof userInfo.age);
-  });
+    // console.log(typeof userInfo.age);
+  }, []);
 
   const handleRegisterInformation = useCallback((e) => {
     const { name, value } = e.target;
-    setRegisterInformation((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setRegisterInformation((prev) => ({
+      ...prev,
+      [name]: value !== null ? value : "",
+    }));
 
     let errObj = validate[name](value);
     if (name === "confirmPassword") {
       errObj = validate.confirmPassword(value, registerInformation.password);
     }
-    setError((prev) => {
-      return { ...prev, ...errObj };
-    });
-  });
+    setError((prev) => ({
+      ...prev,
+      ...errObj,
+    }));
+  }, [registerInformation.password]);
 
-  function writeUserData(userId, email, userInfo) {
+  const writeUserData = (userId, email, userInfo) => {
     const { firstName, surname, dob, gender, age } = userInfo;
     const user_type = userInfo["user-type"];
     set(ref(database, "users/" + userId), {
@@ -117,7 +125,7 @@ const SignUpForm = () => {
       age: age,
       user_type: user_type,
     });
-  }
+  };
 
   let navigate = useNavigate();
 
@@ -131,11 +139,11 @@ const SignUpForm = () => {
       captcha += charset.charAt(randomIndex);
     }
     setCaptchaText(captcha);
-  });
+  }, []);
 
   useEffect(() => {
     generateCaptcha();
-  }, []);
+  }, [generateCaptcha]);
 
   const handleRegister = useCallback(async (e) => {
     e.preventDefault();
@@ -171,7 +179,9 @@ const SignUpForm = () => {
     } else {
       alert("Please fill all Fields with Valid Data.");
     }
-  });
+  },
+  [captchaText, captchaVal, error, generateCaptcha, navigate, registerInformation.email, registerInformation.password, userInfo]
+);
 
   const ageCalculator = (dob) => {
     const birthDate = new Date(dob);
@@ -289,6 +299,7 @@ const SignUpForm = () => {
                       error.passwordError && "inputField"
                     }`}
                     required
+                    autoComplete="new-password"
                   />
                   <FaLock className="icons" />
                   {passwordType === "password" ? (
@@ -320,6 +331,7 @@ const SignUpForm = () => {
                     className={`password-text  ${
                       error.confirmPasswordError && "inputField"
                     }`}
+                    autoComplete="new-password"
                   />
                   <FaCheckCircle className="icons" />
                   {confirmPasswordType === "password" ? (
