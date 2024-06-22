@@ -11,6 +11,7 @@
     "start": "node vite.config.js"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@iconify/react": "^4.1.1",
     "antd": "^5.17.3",
     "cors": "^2.8.5",
