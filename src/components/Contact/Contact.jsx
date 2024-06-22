@@ -27,8 +27,8 @@ const Contact = () => {
         email:form.current.email.value,
         feedback:form.current.feedback.value
       }
-      emailjs.send('service_hrz8hfg',"template_na7xjc4",params ,{
-        publicKey:"rId2aw03Pj2ZNq2U5",
+      emailjs.send('service_qbiwal9',"template_u8shl9d",params ,{
+        publicKey:"rSYpY_RsF76o4MgcA",
       })
     }
     const handleSignOut = () => {
