@@ -8,8 +8,7 @@ import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CollegeCard from "./CollegeCard";
-import FAQS from "../FAQs/FAQS";
+import FAQs from "../FAQs/FAQS";
 import { FaUniversity, FaBriefcase, FaBook, FaLifeRing, FaSignOutAlt, FaSearch } from 'react-icons/fa';
 import { FaStar } from "react-icons/fa6";
 import "./Dashboard.css";
@@ -211,7 +210,7 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
-      <FAQS />
+      <FAQs />
       <Footer />
     </main>
   );
