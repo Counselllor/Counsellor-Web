@@ -10,10 +10,6 @@
 .contact-page {
   background-color: #CAE7FE;
 }
-
-#dark .contact-page {
-  background-color: black;
-}
 .contact-page * {
     margin: 0; 
     box-sizing: border-box;
@@ -24,10 +20,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#dark #contact {
-  background-color: black;
 }
 
 .contact-box {
