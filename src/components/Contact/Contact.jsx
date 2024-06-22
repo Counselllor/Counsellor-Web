@@ -27,7 +27,7 @@ const Contact = () => {
         email:form.current.email.value,
         feedback:form.current.feedback.value
       }
-      emailjs.send('service_qbiwal9',"template_u8shl9d",params ,{
+      emailjs.send('service_kszura2',"template_u8shl9d",params ,{
         publicKey:"rSYpY_RsF76o4MgcA",
       })
     }
