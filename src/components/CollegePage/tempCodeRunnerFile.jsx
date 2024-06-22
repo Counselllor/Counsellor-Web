@@ -1,0 +1,1 @@
+className={`navbar ${fix ? 'fixed' : ''}`
