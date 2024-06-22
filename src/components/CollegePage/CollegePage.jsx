@@ -5,6 +5,7 @@ import './CollegePage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
+import Navbar from "../Navbar/Navbar";
 import { auth } from "../../firebase/auth";
 import { Icon } from '@iconify/react';
 import ScrollToTop from "react-scroll-to-top";
@@ -51,7 +52,8 @@ const CollegePage = () => {
   return (
     <>
       <ScrollToTop color='white' style={{ backgroundColor: "#5CB6F9" }} />
-      <nav className="navbar">
+      <Navbar/>
+      {/* <nav className="navbar">
         <div className="logo">
           <img src={Logo} alt="Logo" />
         </div>
@@ -71,7 +73,7 @@ const CollegePage = () => {
           <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
           <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         </div>
-      </nav>
+      </nav> */}
       <div style={{height:"60px"}}></div>
       <div className="page">
         <div className="left">
