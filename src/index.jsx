@@ -17,6 +17,7 @@ import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
+import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 
 const router = createBrowserRouter([
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path: "/contact",
         errorElement: <ErrorPage />,
         element: <Contact />,
+      },
+      {
+        path: "/courses",
+        errorElement: <ErrorPage />,
+        element: <Courses />,
       },
       {
         path: "/privacy-policy",

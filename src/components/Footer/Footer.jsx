@@ -28,7 +28,14 @@ function Footer() {
               Contact
             </a>
           </li>
-          <li>Our Countributors</li>
+          <li>
+            <a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./contribute"
+            >
+              Our Contributors
+            </a>
+          </li>
           <li>Join Us</li>
         </ul>
         <p>© 2023 Counsellor</p>

@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import CollegePage from './components/CollegePage/CollegePage';
 import { createContext, useState } from 'react';
 
+
 //theme context
 export const ThemeContext = createContext(null);
 //App

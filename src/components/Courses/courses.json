@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Computer Science",
+    "description": "Learn the basics of computer science. This course will cover fundamental concepts such as algorithms, data structures, and programming languages.",
+    "imageURL": "src/components/Courses/img/computer-science.webp",
+    "instructor": "John Doe",
+    "duration": "10 weeks",
+    "price": "$300"
+  },
+  {
+    "id": 2,
+    "title": "Data Structures and Algorithms",
+    "description": "Understand the fundamental data structures and algorithms. Topics include arrays, linked lists, stacks, queues, trees, and graphs.",
+    "imageURL": "src/components/Courses/img/dsa.png",
+    "instructor": "Jane Smith",
+    "duration": "12 weeks",
+    "price": "$400"
+  },
+  {
+    "id": 3,
+    "title": "Web Development",
+    "description": "Learn how to build websites and web applications. This course covers HTML, CSS, JavaScript, and modern frameworks like React.",
+    "imageURL": "src/components/Courses/img/web-dev.jpg",
+    "instructor": "Emily Johnson",
+    "duration": "14 weeks",
+    "price": "$500"
+  }
+]
