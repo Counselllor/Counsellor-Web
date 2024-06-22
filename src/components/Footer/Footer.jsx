@@ -16,7 +16,9 @@ function Footer() {
           </li>
           <li>Blog</li>
           <li>Help</li>
-          <li>Privacy</li>
+          <li>
+            <a style={{ textDecoration: "none", color: "inherit"}} href="./privacy-policy">Privacy</a>
+          </li>
           <li>Terms</li>
           <li>
             <a
@@ -34,6 +36,7 @@ function Footer() {
           <a
             href="https://github.com/Counselllor/Counsellor-Web"
             target="_blank"
+            rel="noreferrer"
           >
             <FaGithub />
           </a>
