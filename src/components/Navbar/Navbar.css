@@ -67,7 +67,7 @@
 .navbar .menu {
   flex-direction: column;
   align-items: center;
-  top: 70px;
+  /* top: 0px; */
   width: 100%;
 }
 
@@ -262,7 +262,7 @@
     display: flex;
     background: #cae7fe45;
     border-radius: 10px;
-    padding: 75px;
+    padding: 15px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
   }
@@ -279,7 +279,11 @@
   .menu li {
     margin: 15px 0;
   }
-
+.menu .show ul{
+  gap:20px;
+  display: flex;
+  flex-direction: column;
+}
   .menu a {
     text-decoration: none;
     color: #12229d;

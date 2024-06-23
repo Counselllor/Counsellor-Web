@@ -40,13 +40,20 @@ function Footer() {
               Contact
             </a>
           </li>
-          <li>Our Countributors</li>
           <a
             style={{ textDecoration: "none", color: "inherit" }}
             href="./join-us"
           >
             <li>Join Us</li>
           </a>
+          <li>
+            <a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./contribute"
+            >
+              Our Contributors
+            </a>
+          </li>
         </ul>
         <p>© 2023 Counsellor</p>
         <div id="icons">
