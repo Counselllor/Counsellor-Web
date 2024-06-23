@@ -213,7 +213,7 @@ export default function Login() {
                 <img
                   height={20}
                   width={20}
-                  src={passwordType === "password" ? hide : show}
+                  src={passwordType === "password" ? show : hide}
                   alt="password-toggle"
                 />
               </div>

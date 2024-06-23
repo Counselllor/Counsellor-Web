@@ -292,12 +292,12 @@ const SignUpForm = () => {
                   />
                   <FaLock className="icons" />
                   {passwordType === "password" ? (
-                    <FaEyeSlash
+                    <FaEye
                       className="toggle-button1"
                       onClick={passwordToggle}
                     />
                   ) : (
-                    <FaEye
+                    <FaEyeSlash
                       className="toggle-button1"
                       onClick={passwordToggle}
                     />
@@ -323,12 +323,12 @@ const SignUpForm = () => {
                   />
                   <FaCheckCircle className="icons" />
                   {confirmPasswordType === "password" ? (
-                    <FaEyeSlash
+                    <FaEye
                       className="toggle-button1"
                       onClick={confirmPasswordToggle}
                     />
                   ) : (
-                    <FaEye
+                    <FaEyeSlash
                       className="toggle-button1"
                       onClick={confirmPasswordToggle}
                     />
