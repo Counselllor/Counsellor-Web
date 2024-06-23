@@ -52,7 +52,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         toast.success("Authenticating… 🚀",{
           className: "toast-message",
@@ -65,6 +65,7 @@ export default function Login() {
         }, 2000);
       }
     });
+    return unsubscribe;
   }, []);
 
   const genrateCaptcha = ()=>

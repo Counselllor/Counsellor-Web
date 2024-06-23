@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         console.log("");
       } else if (!user) {
@@ -30,6 +30,7 @@ const Dashboard = () => {
         }, 1000);
       }
     });
+    return unsubscribe;
   }, []);
   useEffect(() => {
     const results = collegesData.filter(
