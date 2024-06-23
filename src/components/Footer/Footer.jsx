@@ -50,7 +50,7 @@ function Footer() {
           </li>
           <li>Join Us</li>
         </ul>
-        <p>© 2023 Counsellor</p>
+        <p>© {new Date().getFullYear()} Counsellor</p>
         <div id="icons">
           <a
             href="https://github.com/Counselllor/Counsellor-Web"
