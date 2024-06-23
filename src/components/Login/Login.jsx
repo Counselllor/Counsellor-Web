@@ -2,7 +2,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
-import React, { useEffect, useState, useCallback} from "react";
+import React, { useEffect, useState, useCallback, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 
@@ -17,6 +17,8 @@ import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
+import { Switch } from 'antd';
+import { ThemeContext } from "../../App";
 // import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
@@ -144,6 +146,14 @@ export default function Login() {
       }));
   });
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  // Theme toggle function
+  const handleThemeChange = () => {
+    toggleTheme(); 
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <main>
     <div className="login-container">
@@ -152,7 +162,15 @@ export default function Login() {
         {/* This is the right side of the login page   */}
         <ToastContainer/>
         <div className="right">
-          <h1 className="counsellor">Counsellor</h1>
+          <h1 className="counsellor">Counsellor
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch 
+            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}} 
+            onChange={handleThemeChange} 
+            checked={theme === "dark"} 
+            checkedChildren="Dark Mode" 
+            unCheckedChildren="Light Mode" 
+          /></span>
+          </h1>
           <div className="sign-in">Log in to your account</div>
 
           {/* Login form */}

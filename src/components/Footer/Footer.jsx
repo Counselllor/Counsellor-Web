@@ -15,16 +15,23 @@ function Footer() {
             </a>
           </li>
           <li>Blog</li>
+          <li>Help</li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
-              href="./FAQs"
+              href="./privacy-policy"
             >
-              FAQs
+              Privacy
             </a>
           </li>
-          <li>Privacy</li>
-          <li>Terms</li>
+          <li>
+            <a
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="./terms"
+            >
+              Terms
+            </a>
+          </li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
@@ -52,27 +59,9 @@ function Footer() {
           >
             <FaGithub />
           </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin />
-          </a>
+          <FaFacebook />
+          <FaInstagram />
+          <FaLinkedin />
         </div>
       </div>
     </footer>
