@@ -10,6 +10,7 @@ import {
   ForgotPasswordForm,
   SignUpForm,
   FAQs,
+  Contribute,
 } from "./components/index";
 import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
@@ -18,6 +19,8 @@ import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Privacy from "./components/Privacy-Policy/Privacy";
+import Terms from "./components/Terms/Terms";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +52,16 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <Contact />,
       },
+      {
+        path: "/privacy-policy",
+        errorElement: <ErrorPage />,
+        element: <Privacy />
+      },
+      {
+        path: "/terms",
+        errorElement: <ErrorPage />,
+        element: <Terms />
+      },
       // {
       //   path: '/login',
       //   errorElement: <ErrorPage/>,
@@ -79,6 +92,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <FAQs />,
       },
+      {
+        path: "/Contribute",
+        errorElement: <ErrorPage />,
+        element: <Contribute />,
+      }
     ],
   },
 ]);
