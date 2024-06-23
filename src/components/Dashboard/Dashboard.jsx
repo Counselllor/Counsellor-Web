@@ -133,7 +133,7 @@ const Dashboard = () => {
             <ul>
             <li><a href="/topuniversities">Top Universities</a></li>
             <li><a href="/jobs">Jobs</a></li>
-            <li><a href="/courses">Courses</a></li>
+            <li><a href="./courses">Courses</a></li>
              <li><a href="/careersupport">Career Support</a></li>
             <li className='dot'><a href="error">•</a></li>
              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
