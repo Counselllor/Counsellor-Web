@@ -17,8 +17,6 @@ import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
-import { Switch } from 'antd';
-import { ThemeContext } from "../../App";
 // import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
@@ -162,15 +160,7 @@ export default function Login() {
         {/* This is the right side of the login page   */}
         <ToastContainer/>
         <div className="right">
-          <h1 className="counsellor">Counsellor
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch 
-            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}} 
-            onChange={handleThemeChange} 
-            checked={theme === "dark"} 
-            checkedChildren="Dark Mode" 
-            unCheckedChildren="Light Mode" 
-          /></span>
-          </h1>
+          <h1 className="counsellor">Counsellor</h1>
           <div className="sign-in">Log in to your account</div>
 
           {/* Login form */}
@@ -186,7 +176,8 @@ export default function Login() {
               value={loginInfo.email}
               placeholder="Email"
               required
-              className={`${error.emailError && "inputField"}`}
+              autoComplete="email"
+              className={`${error.email && error.emailError && "inputField"}`}
             />
             <FaEnvelope className="icons"/>
           </div>
@@ -206,7 +197,8 @@ export default function Login() {
                 value={loginInfo.password}
                 required
                 placeholder="Password"
-                className={`${error.passwordError && "inputField"}`}
+                autoComplete="current-password"
+                className={`${error.password && error.passwordError && "inputField"}`}
               />
               <FaKey className="icons"/>
               <div onClick={passwordToggle} className="toggle-button">
@@ -235,7 +227,7 @@ export default function Login() {
                 <div className="iconContainer">
                 <input
                   type="text"
-                  name="captch"
+                  name="captcha"
                   value={captchaVal}
                   placeholder="Enter Captcha Here"
                   onChange={(e) => setCaptchaVal(e.target.value)}

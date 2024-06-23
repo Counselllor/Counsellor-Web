@@ -28,19 +28,18 @@ const Dashboard = () => {
       if (user) {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
-        });
-        console.log("");
+        })
+        // console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
-        });
+        })
         setTimeout(() => {
           navigate("/");
         }, 1000);
       }
     });
   }, []);
-
   useEffect(() => {
     const results = collegesData.filter(
       (college) =>
@@ -87,7 +86,6 @@ const Dashboard = () => {
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
-
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleTouchStart = (index) => {
@@ -98,25 +96,29 @@ const Dashboard = () => {
     setActiveIndex(null);
   };
 
-  const [fix, setFix] = useState(false);
 
-  const setFixed = () => {
-    if (window.scrollY > 0) {
-      setFix(true);
-    } else {
-      setFix(false);
-    }
-  };
+  
 
-  window.addEventListener("scroll", setFixed);
+const [fix, setFix]= useState(false)
+//function for appearance of background for nav menu
+function setFixed(){
+  if(window.scrollY>0){
+    setFix(true)
+  }else{
+    setFix(false)
+  }
+}
 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+window.addEventListener("scroll", setFixed);
+const handleThemeChange = useCallback(() => {
+  toggleTheme();
+}, [toggleTheme]);
 
   return (
-    <main>
-      <div className="scroll">
+    //scrolltotop is for scroll to top widget
+    //Then the navbar code begins
+      <main>
+        <div className="scroll">
         <ScrollToTop
         smooth
         viewBox="0 0 24 24"
