@@ -30,7 +30,7 @@ git clone https://github.com/Counselllor/Counsellor-Web.git
 cd <repo-name>  
 git remote add upstream https://github.com/<upstream-owner>/<repo-name>
 git remote -v # To the check the remotes for this repository
-git pull upstream main // To pull recent changes  
+git pull upstream main # To pull recent changes  
 ```  
 
 - If the project is forked already, update the copy before working.
