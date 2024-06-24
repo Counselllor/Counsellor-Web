@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import meeting2 from "../../assets/meeting2.png";
 import "./ForgotPassword.css";
