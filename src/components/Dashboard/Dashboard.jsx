@@ -170,10 +170,16 @@ const Dashboard = () => {
           </div>
           <button>Search</button>
         </div>
-        <div className="navigator">
+        {/* <div className="navigator">
           <span className="nearby">Nearby</span>
           <span className="seeall">See All</span>
-        </div>
+        </div> */}
+  {filteredColleges.length === 0 ? (
+          <div className="no-res-Found-cont">
+            <h1>No Result Found</h1>
+            <h2>We can't find any item matching your search</h2>
+          </div>
+        ) : (
         <div className="colleges">
           {filteredColleges.map((college, index) => (
             <div
@@ -199,12 +205,12 @@ const Dashboard = () => {
               <button className="click-info-button">Click for more info</button>
             </div>
           ))}
-        </div>
-        <FAQs/>
+          </div>
+        )}
+        <FAQs />
         <Footer />
       </main>
-    
-  );
-};
+    );
+  };
 
 export default Dashboard;
