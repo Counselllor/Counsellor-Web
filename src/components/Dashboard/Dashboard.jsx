@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
-import "./Dashboard.css";
-import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
-import { FaUniversity, FaBriefcase, FaBook, FaLifeRing, FaUser, FaSignOutAlt } from 'react-icons/fa'; // Importing FontAwesome icons
+import React, { useEffect, useState, useCallback } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -10,27 +8,24 @@ import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CollegeCard from "./CollegeCard";
-import FAQs from '../FAQs/FAQs';
-import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
+import FAQs from "../FAQs/FAQS";
+import { FaUniversity, FaBriefcase, FaBook, FaLifeRing, FaSignOutAlt, FaSearch } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa6";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
-  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         toast.success("Logged in! 🚀", {
           className: "toast-message",
         });
-        console.log("");
-      } else if (!user) {
+      } else {
         toast.success("Logged out!", {
           className: "toast-message",
         });
@@ -39,7 +34,9 @@ const Dashboard = () => {
         }, 1000);
       }
     });
-  }, []);
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   useEffect(() => {
     const results = collegesData.filter(
@@ -49,15 +46,6 @@ const Dashboard = () => {
     );
     setFilteredColleges(results);
   }, [searchTerm]);
-
-  useEffect(() => {
-    if (location.hash === "#faqs1") {
-      const faqsElement = document.getElementById("faqs1");
-      if (faqsElement) {
-        faqsElement.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [location]);
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -71,18 +59,18 @@ const Dashboard = () => {
           className: "toast-message",
         });
       });
-  });
+  }, [navigate]);
 
   const handleCollegeClick = useCallback(
     (college) => {
       navigate(`/college/${college.id}`);
     },
-    [filteredColleges]
+    [navigate]
   );
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
-  });
+  }, [menuOpen]);
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
@@ -99,20 +87,18 @@ const Dashboard = () => {
   };
 
   const [fix, setFix] = useState(false);
-
-  const setFixed = () => {
+  function setFixed() {
     if (window.scrollY > 0) {
       setFix(true);
     } else {
       setFix(false);
     }
-  };
+  }
 
-  window.addEventListener("scroll", setFixed);
-
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => window.removeEventListener("scroll", setFixed);
+  }, []);
 
   return (
     <main>
@@ -121,7 +107,6 @@ const Dashboard = () => {
           smooth
           viewBox="0 0 24 24"
           svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
-
           color="white"
           style={{ backgroundColor: "#5CB6F9" }}
         />
@@ -133,52 +118,43 @@ const Dashboard = () => {
         <div className={`menu ${menuOpen ? "show" : ""}`}>
           <ul>
             <li>
-              <NavLink to="/topuniversities">
-                <FaUniversity color={theme === "dark" ? "#ffffff" : "#000000"} /> Top Universities
-              </NavLink>
+              <a href="#">
+                <FaUniversity /> Top Universities
+              </a>
             </li>
             <li>
-              <NavLink to="/jobs">
-                <FaBriefcase color={theme === "dark" ? "#ffffff" : "#000000"} /> Jobs
-              </NavLink>
+              <a href="#">
+                <FaBriefcase /> Jobs
+              </a>
             </li>
             <li>
-              <NavLink to="/courses">
-                <FaBook color={theme === "dark" ? "#ffffff" : "#000000"} /> Courses
-              </NavLink>
+              <a href="#">
+                <FaBook /> Courses
+              </a>
             </li>
             <li>
-              <NavLink to="/careersupport">
-                <FaLifeRing color={theme === "dark" ? "#ffffff" : "#000000"} /> Career Support
-              </NavLink>
-            </li>
-           
-            <li>
-              <NavLink to="/" onClick={handleSignOut}>
-                <FaSignOutAlt color={theme === "dark" ? "#ffffff" : "#000000"} /> Log Out
-              </NavLink>
+              <a href="#">
+                <FaLifeRing /> Career Support
+              </a>
             </li>
             <li>
-              <button className='profile_btn'>
-                <FaUser color={theme === "dark" ? "#ffffff" : "#000000"} /> Profile
-              </button>
+  <Link to="/rateus">
+    <FaStar /> Rate Us
+  </Link>
+</li>
+            <li>
+              <a href="#" onClick={handleSignOut}>
+                <FaSignOutAlt /> Log Out
+              </a>
             </li>
             <li>
-              <Switch
-                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                onChange={handleThemeChange}
-                checked={theme === "dark"}
-                checkedChildren="Dark Mode"
-                unCheckedChildren="Light Mode"
-              />
+              <Link to="/profile">
+                <button className="profile_btn">Profile</button>
+              </Link>
             </li>
           </ul>
         </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
+      
       </nav>
       <div className="maintxt">
         <ToastContainer />
@@ -192,10 +168,12 @@ const Dashboard = () => {
       <div className="search">
         <div className="s_bar_c">
           <a href="">
-            <img src="src/assets/icons8-search-50.png" alt="Search" />
+            <FaSearch />
           </a>
           <div className="vl" />
-          <input type="text" placeholder='Type college name or university name'
+          <input
+            type="text"
+            placeholder="Type college name or university name"
             value={searchTerm}
             onChange={handleSearchChange}
           />
@@ -228,9 +206,11 @@ const Dashboard = () => {
                 <div className="time">{college.time}</div>
               </div>
             </div>
+            <button className="click-info-button">Click for more info</button>
           </div>
         ))}
       </div>
+      <FAQs />
       <Footer />
     </main>
   );
