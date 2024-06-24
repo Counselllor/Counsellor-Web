@@ -2,14 +2,10 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
-import React, { useEffect, useState, useCallback, useContext} from "react";
+import { useEffect, useState, useCallback, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
-
-import googlePlay from "../../assets/google-play.png";
 import hide from "../../assets/hide.png";
-// import meeting from "../../assets/meeting.png";
-import microsoft from "../../assets/microsoft.png";
 import show from "../../assets/show.png";
 import { auth, googleAuthProvider } from "../../firebase/auth";
 import "./Login.css";
@@ -19,7 +15,6 @@ import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
-// import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [error, setError] = useState({});

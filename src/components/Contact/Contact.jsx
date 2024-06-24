@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useRef, useState } from 'react';
+import { signOut} from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from '../Navbar/Navbar';
 import './Contact.css'
-import Logo from '../../assets/logo.webp'
 import emailjs from '@emailjs/browser';
 const Contact = () => {
     const navigate = useNavigate();
@@ -14,7 +13,6 @@ const Contact = () => {
       auth.onAuthStateChanged((user) => {
         if (user) {
           // read
-          console.log("");
         } else if (!user) {
           navigate("/");
         }

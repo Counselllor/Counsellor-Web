@@ -22,6 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
+import JoinUs from "./components/Joinus/JoinUs";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
         path: "/terms",
         errorElement: <ErrorPage />,
         element: <Terms />
+      },
+      {
+        path: "/join-us",
+        errorElement: <ErrorPage />,
+        element: <JoinUs />
       },
       // {
       //   path: '/login',
