@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 import "./Dashboard.css";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
@@ -11,6 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
 import FAQs from '../FAQs/FAQs';
+import { ThemeContext } from '../../App';
+import { Switch } from 'antd';
 
 
 const Dashboard = () => {
@@ -19,6 +21,7 @@ const Dashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -106,6 +109,10 @@ const Dashboard = () => {
 
   window.addEventListener("scroll", setFixed);
 
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+
   return (
     <main>
       <div className="scroll">
@@ -125,31 +132,14 @@ const Dashboard = () => {
           </div>
           <div className={`menu ${menuOpen ? "show" : ""}`}>
             <ul>
-              <li>
-                <a href="#">Top Universities</a>
-              </li>
-              <li>
-                <a href="#">Jobs</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Career Support</a>
-              </li>
-              <li className="dot">
-                <a href="#"/>
-              </li>
-              <li>
-                <a href="#" onClick={handleSignOut}>
-                  Log Out
-                </a>
-              </li>
-              <li>
-                <Link to="/profile">
-                  <button className="profile_btn">Profile</button>
-                </Link>
-              </li>
+            <li><a href="/topuniversities">Top Universities</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="./courses">Courses</a></li>
+             <li><a href="/careersupport">Career Support</a></li>
+            <li className='dot'><a href="error">•</a></li>
+             <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            <li><button className='profile_btn'>Profile</button></li>
+             <li><Switch style={{ backgroundColor: theme === "dark" ? "#000000" : "" }} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" /></li>
             </ul>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
