@@ -554,7 +554,7 @@
 }
 
 .toast-message:first-child{
-  margin-top: 10rem;
+  margin-top: 6rem;
 }
 
 @media (max-width: 960px) {
