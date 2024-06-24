@@ -231,6 +231,7 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
+      <FAQs/>
       <Footer />
     </main>
   );
