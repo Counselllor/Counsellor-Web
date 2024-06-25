@@ -14,8 +14,12 @@ function Footer() {
               About
             </a>
           </li>
-          <li>Blog</li>
-          <li>Help</li>
+          <li><a 
+          style={{ textDecoration: "none", color: "inherit" }}
+          href="/">Blog</a></li>
+          <li><a 
+          style={{ textDecoration: "none", color: "inherit" }}
+          href="/">Help</a></li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
@@ -44,11 +48,14 @@ function Footer() {
             style={{ textDecoration: "none", color: "inherit" }}
             href="./join-us"
           >
-            <li>Join Us</li>
+            <li>
+              <a 
+              style={{ textDecoration: "none", color: "inherit" }}
+              href="/">Join Us</a></li>
           </a>
           <li>
             <a
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{display:"flex", justifyContent:"center", textDecoration: "none", color: "inherit" }}
               href="./contribute"
             >
               Our Contributors
