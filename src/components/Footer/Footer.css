@@ -39,6 +39,7 @@ footer li{
 footer li:hover{
     cursor: pointer;
     text-decoration: underline;
+    
     color: #66d9ef;
 }
 
