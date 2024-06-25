@@ -15,7 +15,12 @@ function Footer() {
             </a>
           </li>
           <li>Blog</li>
-          <li>Help</li>
+          <a
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="./help"
+          >
+            <li>Help</li>
+          </a>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
