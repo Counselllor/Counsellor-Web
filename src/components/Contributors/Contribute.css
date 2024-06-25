@@ -1,69 +1,163 @@
-/* Contribute.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full viewport height */
+  font-family: "ABeeZee";
+}
+
+.contribute-container {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh; /* Adjusted to use viewport height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  background: linear-gradient(135deg, #4375ff, #80ccff);
+  padding-inline: 200px;
+
+}
+
+.contributor-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .contributor-heading {
-  font-size: 3rem !important;
+  color: #fff;
+  font-family: "ABeeZee";
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.contributor-subheading {
+  font-size: 1.2em;
+  color: #fff;
+  font-family: "ABeeZee";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.thank-you-message {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  /* font-size: 20px; */
+  margin-bottom: 20px;
+}
+
+.thank-you-message h2 {
+  font-size: 1.5em;
+  color: #4375ff;
+  font-family: "ABeeZee";
+  font-weight: 600;
+}
+
+.thank-you-message p {
+  font-size: 1.2em;
+  color: #333;
 }
 
 .contributor-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 20px;
-  margin-left: 10%;
+  justify-content: center;
 }
 
-
-.contributor-member {
-  width: 180px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.contributor-card {
+  background-color: #fff;
+  width: calc(20% - 20px); /* 20% width minus margins */
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  background-color: #cce5ff; /* Light bluish background color */
-}
-
-.contributor-member:hover{
-  transform: translateY(-5px);
-  box-shadow: black 14px;
   cursor: pointer;
+  font-family: "ABeeZee";
+  transition: transform 0.2s;
 }
 
-.contributor-member img {
+.contributor-card:hover {
+  transform: scale(1.05);
+}
+
+.contributor-card img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-.contributor-member h3 {
-  font-size: 16px;
+.contributor-info h3 {
+  font-size: 1.2em;
+  color: #4375ff;
+  font-family: "ABeeZee";
 }
 
-.contributor-member p {
-  font-size: 14px;
+.contributor-info p {
+  font-size: 1em;
+  color: #333;
+  font-family: "ABeeZee";
 }
 
 .pagination {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-top: 20px;
 }
 
 .pagination-button {
+  background-color: #4375ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
   margin: 0 5px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .pagination-button.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+  background-color: #80d7ff;
 }
 
 .pagination-button:hover {
-  background-color: #e9ecef;
+  background-color: #196be6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contribute-container {
+    padding: 10px;
+  }
+
+  .contributor-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .pagination-button {
+    padding: 5px 10px;
+  }
+
+  .contributor-heading{
+    font-size: 50px;
+  }
+
+  .contributor-subheading{
+    font-size: 1.8em;
+  }
 }
