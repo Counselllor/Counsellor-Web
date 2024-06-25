@@ -152,4 +152,12 @@ body {
   .pagination-button {
     padding: 5px 10px;
   }
+
+  .contributor-heading{
+    font-size: 50px;
+  }
+
+  .contributor-subheading{
+    font-size: 1.8em;
+  }
 }
