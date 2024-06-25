@@ -1,0 +1,133 @@
+/* Blogs.css */
+
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full viewport height */
+  font-family: "ABeeZee";
+}
+
+.blogs-container {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh; /* Adjusted to use viewport height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  background: linear-gradient(135deg, #4375ff, #80ccff);
+  padding-inline: 200px;
+}
+
+.blogs-header h1 {
+  color: #fff;
+  font-family: "ABeeZee";
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.blogs-header p {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: "ABeeZee";
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.blogs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-card {
+  background-color: #fff;
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+}
+
+.blog-card h2 {
+  font-size: 1.9em;
+  font-family: "ABeeZee";
+  color: #007bff; 
+}
+
+.blog-card .blog-date {
+  font-size: 1.4em;
+  font-family: "ABeeZee";
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  font-size: 1.6em;
+  color: #333;
+  font-family: "ABeeZee";
+}
+
+.blog-author {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .blog-tags {
+    margin-top: 10px;
+  }
+  
+  .blog-tag {
+    display: inline-block;
+    background-color: #a7d0fc;
+    color: #007BFF;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color for the read more button */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.read-more:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .blogs-container{
+        padding-inline: 0;
+    }
+
+  .blog-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-card {
+    width: calc(100% - 20px);
+  }
+}

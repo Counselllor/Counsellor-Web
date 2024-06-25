@@ -22,6 +22,7 @@ import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
 import JoinUs from "./components/Joinus/JoinUs";
 import Help from "./components/Help/Help";
+import Blogs from "./components/blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -64,19 +65,24 @@ const router = createBrowserRouter([
         element: <Help />,
       },
       {
+        path: "/blogs",
+        errorElement: <ErrorPage />,
+        element: <Blogs />,
+      },
+      {
         path: "/privacy-policy",
         errorElement: <ErrorPage />,
-        element: <Privacy />
+        element: <Privacy />,
       },
       {
         path: "/terms",
         errorElement: <ErrorPage />,
-        element: <Terms />
+        element: <Terms />,
       },
       {
         path: "/join-us",
         errorElement: <ErrorPage />,
-        element: <JoinUs />
+        element: <JoinUs />,
       },
       // {
       //   path: '/login',
@@ -112,7 +118,7 @@ const router = createBrowserRouter([
         path: "/Contribute",
         errorElement: <ErrorPage />,
         element: <Contribute />,
-      }
+      },
     ],
   },
 ]);
