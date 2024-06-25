@@ -3,6 +3,8 @@ import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
+
+    
     <footer>
       <div>
         <ul>

@@ -1,13 +1,17 @@
+
+
 footer{
-    background-color: #ffffff;
+    background-color: #fcfafa;
     bottom: 0px;
     left: 0px;
+    padding-top: 50px !important;
     color: rgba(155, 155, 155, 0.8);
     padding: 16px;
     z-index: 0;
     text-align: center;
     font-size: 15px;
     font-family: sans-serif;
+    color: black;
 }
 
 #dark footer {
@@ -35,6 +39,7 @@ footer li{
 footer li:hover{
     cursor: pointer;
     text-decoration: underline;
+    color: #66d9ef;
 }
 
 #icons{
@@ -45,9 +50,14 @@ footer li:hover{
     margin: auto 10px;
     font-size: 20px;
     cursor: pointer;
-    color: white;
 }
-
+svg{
+    color: black;
+}
+svg:hover{
+    color: black;
+ shadow: 0 0 4px #03b5d2;  
+}
 @media (max-width: 900px) {
    footer ul{
       width: 80%;

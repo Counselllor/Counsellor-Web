@@ -3,7 +3,7 @@
 
 .faqs-container {
   padding: 2rem;
-  max-width: 70%;
+  max-width: 50%;
   margin: 0 auto;
 }
 
@@ -12,12 +12,23 @@
 }
 
 .faqs-container h2 {
-  color:#3C38B9;
+  color: #6ca2dc;
+  text-shadow: 0 0 4px #03b5d2;  
   font-size: 40px;
   text-align: center;
   margin-bottom: 1.5rem;
   font-family: "ABeeZee", sans-serif;
 }
+  /* border-right: 0.1rem solid aqua;
+  animation: 
+  blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+from, to { border-color: transparent }
+50% { border-color: aqua; }
+} */
+
 .accordion-title{
   font-size: 22px;
   margin: 0 10px;
@@ -55,6 +66,7 @@
 
 .accordion button:hover,
 .accordion button:focus {
+text-shadow: 0 0 20px #03b5d2;  
   cursor: pointer;
   color: #03b5d2;
 }
@@ -120,14 +132,88 @@
 }
 
 .accordion .accordion-content p {
+  color:black ;
+  text-shadow: 0 0 50px black;  
+
+  font-family: 'Hind',sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 1em 0;
+}
+#dark .accordion .accordion-content p {
+  color:white ;
+  text-shadow: 0 0 20px white;  
+
   font-family: 'Hind',sans-serif;
   font-size: 18px;
   font-weight: 300;
   margin: 1em 0;
 }
 
+
 .repo-link {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
   }
+  #dark svg{
+    color: white;
+  }
+  svg:hover{
+    transform: scale(1.5); /* increase the size of the icon on hover */
+  color: #66d9ef; /* change the color of the icon on hover */
+  cursor: pointer;
+  }
+  #dark svg:hover{
+    transform: scale(1.5); /* increase the size of the icon on hover */
+    color: #66d9ef; /* change the color of the icon on hover */
+    cursor: pointer;
+    }
+
+  .faq-header{
+    color: #6ca2dc;
+    text-shadow: 0 0 4px #03b5d2;  
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: "ABeeZee", sans-serif;
+  }
+
+  .cursor {
+    color: #66d9ef; /* change the cursor color */
+    font-size: 24px; /* change the cursor font size */
+    animation: blink 1s infinite; /* add a blinking effect */
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+
+  /* width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(15),cursor .4s step-end infinite alternate;
+}
+@keyframes cursor {
+  50%{
+    border-color: transparent;
+  }
+  
+}
+@keyframes typing {
+ from {
+  width: 0;
+ }
+  
+} */

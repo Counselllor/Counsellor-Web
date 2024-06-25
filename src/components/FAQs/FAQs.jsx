@@ -1,7 +1,8 @@
 // FAQs.jsx
 import React, { useState } from 'react';
 import './FAQs.css';
-
+import Typewriter from "typewriter-effect";
+import {Cursor} from "react-simple-typewriter";
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -18,7 +19,11 @@ const FAQs = () => {
       question: '3. Can I contribute to this page?',
       answer: (
         <>
-          Yes, of course! Here is the repository <a href="https://github.com/Counselllor/Counsellor-Web" className="repo-link" target="_blank" rel="noopener noreferrer"> link</a>.
+         Yes, of course! Here is the repository 👉 <a  class="link"   style={{
+        TextDecorationColor: 'none',
+      
+      }}
+       href="https://github.com/Counselllor/Counsellor-Web" className="repo-link" target="_blank" rel="noopener noreferrer"> link</a>.
           <br/>But make sure to follow our contribution rules and regulations before making any contribution.
         </>
       ),
@@ -31,7 +36,38 @@ const FAQs = () => {
 
   return (
     <div id="faqs" className="faqs-container">
-      <h2>Frequently Asked Questions</h2>
+      {/* <h2 
+      style={
+        {
+          margin:'50px'
+        }
+      }
+      >Frequently Asked Questions
+      <span>
+      <Cursor  />
+      </span>
+      
+      </h2> */}
+   
+
+<Typewriter
+  onInit={(typewriter) => {
+    typewriter
+     .typeString("<span class='faq-header'>Frequently Asked Questions</span>")
+     .pauseFor(1000)
+     .deleteAll()
+     .typeString("<span class='faq-header'>Frequently Asked Questions</span>")
+     .typeString("<span class='cursor'>|||</span>", { cursor: true })
+     .start();
+     <span style={{
+      color:'cyan'
+     }}>
+ <Cursor/>
+     </span>
+     }} 
+ 
+/>
+
       <div className="accordion">
         {faqs.map((faq, index) => (
           <div key={index} className="accordion-item">
