@@ -31,13 +31,13 @@ body {
 }
 
 .blogs-header p {
-    font-size: 1.2em;
-    color: #fff;
-    font-family: "ABeeZee";
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+  font-size: 1.2em;
+  color: #fff;
+  font-family: "ABeeZee";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .blogs-list {
@@ -64,7 +64,7 @@ body {
 .blog-card h2 {
   font-size: 1.9em;
   font-family: "ABeeZee";
-  color: #007bff; 
+  color: #007bff;
 }
 
 .blog-card .blog-date {
@@ -81,24 +81,24 @@ body {
 }
 
 .blog-author {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  .blog-tags {
-    margin-top: 10px;
-  }
-  
-  .blog-tag {
-    display: inline-block;
-    background-color: #a7d0fc;
-    color: #007BFF;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    font-size: 1em;
-  }
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+}
+
+.blog-tags {
+  margin-top: 10px;
+}
+
+.blog-tag {
+  display: inline-block;
+  background-color: #a7d0fc;
+  color: #007bff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 1em;
+}
 
 .read-more {
   display: inline-block;
@@ -117,9 +117,17 @@ body {
 
 /* Responsive Design */
 @media (max-width: 968px) {
-    .blogs-container{
-        padding-inline: 0;
-    }
+  .blogs-container {
+    padding-inline: 0;
+  }
+ 
+  .blogs-container h1 {
+    font-size: 40px;
+  }
+  
+  .blogs-container p {
+    font-size: 20px;
+  }
 
   .blog-card {
     width: calc(50% - 20px);
