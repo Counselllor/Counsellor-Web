@@ -25,7 +25,7 @@
   margin: 0px;
   background-color: white;
   font-weight: 500;
-  z-index: 10;
+  z-index: 99;
   max-height: 60px;
   /* border-radius: 5px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
