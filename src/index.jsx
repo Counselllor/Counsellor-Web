@@ -21,6 +21,7 @@ import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
 import JoinUs from "./components/Joinus/JoinUs";
+import Help from "./components/Help/Help";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
         path: "/courses",
         errorElement: <ErrorPage />,
         element: <Courses />,
+      },
+      {
+        path: "/help",
+        errorElement: <ErrorPage />,
+        element: <Help />,
       },
       {
         path: "/privacy-policy",
