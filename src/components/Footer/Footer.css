@@ -39,8 +39,6 @@ footer li{
 footer li:hover{
     cursor: pointer;
     text-decoration: underline;
-    
-    color: #66d9ef;
 }
 
 #icons{
@@ -55,10 +53,10 @@ footer li:hover{
 svg{
     color: black;
 }
-svg:hover{
+/* svg:hover{
     color: black;
  shadow: 0 0 4px #03b5d2;  
-}
+} */
 @media (max-width: 900px) {
    footer ul{
       width: 80%;

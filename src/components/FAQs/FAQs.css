@@ -66,7 +66,6 @@ from, to { border-color: transparent }
 
 .accordion button:hover,
 .accordion button:focus {
-text-shadow: 0 0 20px #03b5d2;  
   cursor: pointer;
   color: #03b5d2;
 }
@@ -161,12 +160,10 @@ text-shadow: 0 0 20px #03b5d2;
   }
   svg:hover{
     transform: scale(1.5); /* increase the size of the icon on hover */
-  color: #66d9ef; /* change the color of the icon on hover */
   cursor: pointer;
   }
   #dark svg:hover{
     transform: scale(1.5); /* increase the size of the icon on hover */
-    color: #66d9ef; /* change the color of the icon on hover */
     cursor: pointer;
     }
 
