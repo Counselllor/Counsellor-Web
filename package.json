@@ -23,7 +23,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.23.1",
     "react-scroll-to-top": "^3.0.0",
-    "react-spinners": "^0.13.8",
+    "react-spinners": "^0.14.0",
     "typewriter-effect": "^2.21.0",
     "uid": "^2.0.2"
   },
