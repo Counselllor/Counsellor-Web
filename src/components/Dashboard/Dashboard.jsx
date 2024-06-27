@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
@@ -29,7 +29,6 @@ const Dashboard = () => {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
         });
-        console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
@@ -171,12 +170,20 @@ const Dashboard = () => {
           </div>
           <button>Search</button>
         </div>
-        <div className="navigator">
+        {/* <div className="navigator">
           <span className="nearby">Nearby</span>
           <span className="seeall">See All</span>
         </div>
         { filteredColleges.length === 0 ? <div className="no-res-Found-cont"> <h1> No Result Found</h1><p>We Can't find way any item matching your search</p>
         </div> : <div className="colleges">
+        </div> */}
+  {filteredColleges.length === 0 ? (
+          <div className="no-res-Found-cont">
+            <h1>No Result Found</h1>
+            <h2>We can't find any item matching your search</h2>
+          </div>
+        ) : (
+        <div className="colleges">
           {filteredColleges.map((college, index) => (
             <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
@@ -205,10 +212,12 @@ const Dashboard = () => {
         <FAQS/>
         </div>
         <FAQs/>
+          </div>
+        )}
+        <FAQs />
         <Footer />
       </main>
-    
-  );
-};
+    );
+  };
 
 export default Dashboard;

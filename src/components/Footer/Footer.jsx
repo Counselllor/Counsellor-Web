@@ -14,8 +14,19 @@ function Footer() {
               About
             </a>
           </li>
-          <li>Blog</li>
-          <li>Help</li>
+          <li>
+            <a 
+          style={{ textDecoration: "none", color: "inherit" }}
+           href="./blogs">Blog
+          </a>
+</li>
+            <li><a
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="./help"
+          >
+            Help
+          </a>
+          </li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
@@ -40,17 +51,25 @@ function Footer() {
               Contact
             </a>
           </li>
+          
+            <li>
+            <a
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="./join-us"
+          >
+              Join Us
+              </a>
+              </li>
           <li>
             <a
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{display:"flex", justifyContent:"center", textDecoration: "none", color: "inherit" }}
               href="./contribute"
             >
               Our Contributors
             </a>
           </li>
-          <li>Join Us</li>
         </ul>
-        <p>© 2023 Counsellor</p>
+        <p>© {new Date().getFullYear()} Counsellor</p>
         <div id="icons">
           <a
             href="https://github.com/Counselllor/Counsellor-Web"
