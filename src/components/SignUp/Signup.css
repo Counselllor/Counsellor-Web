@@ -4,6 +4,11 @@
   overflow-x: hidden;
 }
 
+#dark .signup-container {
+  background-color: #121212;
+  color: white;
+}
+
 .parent {
   display: flex;
   align-items: center;

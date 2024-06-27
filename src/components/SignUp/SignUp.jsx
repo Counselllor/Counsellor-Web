@@ -1,7 +1,6 @@
-import React, { useState, useEffect,useCallback } from "react";
+import { useState, useEffect,useCallback, useContext } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import {
-  FaHome,
   FaEye,
   FaEyeSlash,
   FaUser,
@@ -11,7 +10,6 @@ import {
   FaCheckCircle,
   FaBirthdayCake,
   FaHourglass,
-  FaVideo,
   FaVenusMars,
   FaGraduationCap,
   FaUserTie,
@@ -20,14 +18,14 @@ import {
 } from "react-icons/fa";
 import meeting2 from "../../assets/meeting2.png";
 import "./Signup.css";
-import show from "../../assets/show.png";
-import hide from "../../assets/hide.png";
 import { auth, database } from "../../firebase/auth";
 import { ref, set } from "firebase/database";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { uid } from "uid";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
+import { Switch } from "antd";
+import { ThemeContext } from "../../App";
 
 const SignUpForm = () => {
   // Input fields state value
@@ -85,7 +83,6 @@ const SignUpForm = () => {
         return { ...prev, age: calculateAge };
       });
     }
-    console.log(typeof userInfo.age);
   });
 
   const handleRegisterInformation = useCallback((e) => {
@@ -192,12 +189,29 @@ const SignUpForm = () => {
     }
     return age;
   };
+
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  // Theme toggle function
+  const handleThemeChange = () => {
+    toggleTheme(); 
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <main>
       <div className="signup-container">
         <div className="parent">
           <div className="right">
-            <h1 className="counsellor">Counsellor</h1>
+            <h1 className="counsellor">Counsellor
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch 
+            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}} 
+            onChange={handleThemeChange} 
+            checked={theme === "dark"} 
+            checkedChildren="Dark Mode" 
+            unCheckedChildren="Light Mode" 
+          /></span>
+            </h1>
             <div className="signuptxt">Create a new account</div>
             <div className="signuptxt2">It's quick and easy.</div>
 
