@@ -160,12 +160,13 @@ const Dashboard = () => {
         <div className="search">
           <div className="s_bar_c">
             <a href="">
-              <img src="src/assets/icons8-search-50.png" alt="Search" />
+              <img src="src/assets/search_icon.png" alt="Search" />
             </a>
             <div className="vl"/>
             <input type="text" placeholder='Type college name or university name'
               value={searchTerm}
               onChange={handleSearchChange}
+              style={{ outline: "1px solid black", fontSize: "20px" }}
             />
           </div>
           <button>Search</button>
