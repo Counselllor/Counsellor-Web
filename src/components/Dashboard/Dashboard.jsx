@@ -1,15 +1,14 @@
-import React, { useEffect, useState, useCallback } from "react";
+import  { useEffect, useState, useCallback } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut} from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CollegeCard from "./CollegeCard";
 import FAQS from "../FAQs/FAQS";
 
 const Dashboard = () => {
