@@ -43,6 +43,7 @@ body {
   width: 80%;
   height: 250px;
   object-fit: cover;
+  margin-left: 4rem;
 }
 
 .course-info {
