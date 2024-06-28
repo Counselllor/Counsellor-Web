@@ -1,21 +1,33 @@
 import React from 'react';
-import './Courses.css';
 import coursesData from './courses.json';
 
 const Courses = () => {
   return (
-    <div className="courses-container">
-      <h1 className="courses-title">Available Courses</h1>
-      <div className="courses-list">
+    <div className="py-20 bg-blue-200 font-poppins">
+      <h1 className="text-center mb-12 text-6xl text-blue-900">Available Courses</h1>
+      <div className="flex flex-wrap gap-12 justify-center">
         {coursesData.map((course) => (
-          <div className="course-card" key={course.id}>
-            <img src={course.imageURL} alt={course.title} className="course-image" />
-            <div className="course-info">
-              <h2 className="course-title">{course.title}</h2>
-              <p className="course-description">{course.description}</p>
-              <p className="course-instructor"><strong>Instructor:</strong> {course.instructor}</p>
-              <p className="course-duration"><strong>Duration:</strong> {course.duration}</p>
-              <p className="course-price"><strong>Price:</strong> {course.price}</p>
+          <div
+            className="bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden w-[28rem] transition-transform transform hover:-translate-y-2 cursor-pointer"
+            key={course.id}
+          >
+            <img
+              src={course.imageURL}
+              alt={course.title}
+              className="w-full h-70 object-cover"
+            />
+            <div className="p-8">
+              <h2 className="text-3xl mb-4 text-blue-900">{course.title}</h2>
+              <p className="text-xl text-gray-700 mb-6">{course.description}</p>
+              <p className="text-xl text-gray-800 mb-3">
+                <strong>Instructor:</strong> {course.instructor}
+              </p>
+              <p className="text-xl text-gray-800 mb-3">
+                <strong>Duration:</strong> {course.duration}
+              </p>
+              <p className="text-xl font-bold text-green-600">
+                <strong>Price:</strong> {course.price}
+              </p>
             </div>
           </div>
         ))}
