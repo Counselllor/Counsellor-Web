@@ -14,13 +14,19 @@ function Footer() {
               About
             </a>
           </li>
-          <li>Blog</li>
-          <a
+          <li>
+            <a 
+          style={{ textDecoration: "none", color: "inherit" }}
+           href="./blogs">Blog
+          </a>
+</li>
+            <li><a
             style={{ textDecoration: "none", color: "inherit" }}
             href="./help"
           >
-            <li>Help</li>
+            Help
           </a>
+          </li>
           <li>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
@@ -45,15 +51,18 @@ function Footer() {
               Contact
             </a>
           </li>
-          <a
+          
+            <li>
+            <a
             style={{ textDecoration: "none", color: "inherit" }}
             href="./join-us"
           >
-            <li>Join Us</li>
-          </a>
+              Join Us
+              </a>
+              </li>
           <li>
             <a
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{display:"flex", justifyContent:"center", textDecoration: "none", color: "inherit" }}
               href="./contribute"
             >
               Our Contributors

@@ -117,7 +117,7 @@ window.addEventListener("scroll", setFixed)
               </li>
               <li>
                 <Link to="/profile">
-                  <button className="profile_btn">Profile</button>
+                  <button className="profile_btn" style={{textDecoration: 'none'}}>Profile</button>
                 </Link>
               </li>
             </ul>
@@ -155,9 +155,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
             </button>
           </MenuItem>
           <MenuItem>
-            <a href="/profile">
-              <button className="profile_btn">Profile</button>
-            </a>
+              <button className="profile_btn"><a href="/profile">Profile</a></button>
           </MenuItem>
         </>
       ) : (
