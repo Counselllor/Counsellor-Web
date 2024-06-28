@@ -113,6 +113,7 @@
 
 .colleges {
   position: relative;
+  width: 100%;
 }
 
 .college {
@@ -137,6 +138,23 @@
 .college:hover .college-content,
 .college.active .college-content {
   opacity: 0;
+}
+
+.college-content .up .college-image {
+  height: 90px;
+  width: 100px;
+}
+
+.college .up .context .college_name{
+  width: 100%;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.college .up .context span {
+  font-size: 14px;
+  width: 200px;
 }
 
 .click-info-button {
