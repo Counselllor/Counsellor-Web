@@ -26,7 +26,6 @@ const Dashboard = () => {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
         });
-        console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
@@ -106,6 +105,14 @@ const Dashboard = () => {
 
   // Apply sorting to filtered colleges
   const sortedColleges = sortCollegesByCTC(filteredColleges);
+
+  const createHandleCollegeClick = (college) => () => {
+    handleCollegeClick(college);
+  };
+
+  const createHandleTouchStart = (index) => () => {
+    handleTouchStart(index);
+  };
 
   return (
     <main>
@@ -188,8 +195,8 @@ const Dashboard = () => {
           <div
             className={`college ${activeIndex === index ? 'active' : ''}`}
             key={college.id}
-            onClick={handleCollegeClick.bind(null, college)}
-            onTouchStart={handleTouchStart.bind(null, index)}
+            onClick={createHandleCollegeClick(college)}
+            onTouchStart={createHandleTouchStart(index)}
             onTouchEnd={handleTouchEnd}
           >
             <div className="college-content">
