@@ -17,6 +17,8 @@ const Dashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [fix, setFix] = useState(false);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -74,17 +76,13 @@ const Dashboard = () => {
     setSearchTerm(e.target.value);
   }, []);
 
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleTouchStart = (index) => {
+  const handleTouchStart = useCallback((index) => {
     setActiveIndex(index);
-  };
+  }, []);
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     setActiveIndex(null);
-  };
-
-  const [fix, setFix] = useState(false);
+  }, []);
 
   // Function for appearance of background for nav menu
   function setFixed() {
@@ -190,8 +188,8 @@ const Dashboard = () => {
           <div
             className={`college ${activeIndex === index ? 'active' : ''}`}
             key={college.id}
-            onClick={() => handleCollegeClick(college)}
-            onTouchStart={() => handleTouchStart(index)}
+            onClick={handleCollegeClick.bind(null, college)}
+            onTouchStart={handleTouchStart.bind(null, index)}
             onTouchEnd={handleTouchEnd}
           >
             <div className="college-content">
