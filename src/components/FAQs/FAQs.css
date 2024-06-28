@@ -111,6 +111,10 @@
   transition: opacity 200ms linear, max-height 200ms linear;
 }
 
+#dark .accordion .accordion-content {
+  color: white;
+}
+
 .accordion .accordion-content.active {
   opacity: 0.8;
   max-height: 9em;
@@ -127,7 +131,7 @@
 }
 
 .repo-link {
-    color: blue;
+    color: rgb(59, 59, 234);
     text-decoration: underline;
     cursor: pointer;
   }
