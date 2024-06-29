@@ -44,21 +44,22 @@
 
 .privacy-policy-content h1 {
   font-family: "ABeeZee";
-  font-size: 70px;
+  font-size: 60px;
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: black;
 }
 
 .date {
   display: flex;
   justify-content: center;
+  gap: 10px;
 }
 
 .privacy-policy-content p {
-  font-size: 22px;
-  margin-bottom: 1rem;
+  font-size: 20px;
+  margin-bottom: 2rem;
   font-family: "ABeeZee";
   color: #666;
   line-height: 1.6;
@@ -66,9 +67,11 @@
 
 .title{
     font-size: 30px;
+    margin: 20px 0;
 }
 .sub-title{
     font-size: 24px;
+    margin: 20px 0;
 }
 
 .privacy-policy-sections {
@@ -108,5 +111,16 @@
 }
 
 .privacy-policy-container li{
-    font-size: 22px;
+  font-size: 22px;
+}
+
+.privacy-policy-content .definitions-list li{
+  list-style-type: decimal;
+  margin: 20px;
+  line-height: 28px;
+  font-size: 20px;
+}
+
+.personal-data li {
+  margin: 20px;
 }
