@@ -18,6 +18,11 @@
   margin-bottom: 1.5rem;
   font-family: "ABeeZee", sans-serif;
 }
+
+#dark .faqs-container h2 {
+  color:#5652d0;
+}
+
 .accordion-title{
   font-size: 22px;
   margin: 0 10px;
