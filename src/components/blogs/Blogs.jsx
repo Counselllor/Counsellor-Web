@@ -1,5 +1,6 @@
 import React from "react";
 import './Blogs.css'; // Import CSS file for styles
+import BackToHomeButton from "../backtohome";
 
 const blogsData = [
   {
@@ -102,7 +103,9 @@ const blogsData = [
 
 const Blogs = () => {
   return (
+    <>        
     <div className="blogs-container">
+    <BackToHomeButton />
       <header className="blogs-header">
         <h1>Our Latest Blogs</h1>
         <p>Stay updated with our latest news and articles on counseling.</p>
@@ -126,6 +129,7 @@ const Blogs = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
