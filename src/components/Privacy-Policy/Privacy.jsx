@@ -23,7 +23,7 @@ const Privacy = () => {
         <div className="privacy-policy-content">
           <h1>Privacy Policy</h1>
           <p className="date">
-            Last updated: <span style={{ color: "blue" }}>29/05/2024</span>
+            Last updated:<span style={{ color: "blue" }}>29/05/2024</span>
           </p>
           <p>
             This Privacy Policy describes Our policies and procedures on the
@@ -41,6 +41,7 @@ const Privacy = () => {
           </p>
           <h3 className="sub-title">Definitions</h3>
           <p>For the purposes of this Privacy Policy:</p>
+          <div className="definitions-list">
           <ul>
             <li>
               <strong>Account</strong> means a unique account created for You to
@@ -69,6 +70,7 @@ const Privacy = () => {
               an identified or identifiable individual.
             </li>
           </ul>
+          </div>
           <h2 className="title">Collecting and Using Your Personal Data</h2>
           <h3 className="sub-title">Types of Data Collected</h3>
           <h4 className="sub-title">Personal Data</h4>
@@ -78,7 +80,7 @@ const Privacy = () => {
             identify You. Personally identifiable information may include, but
             is not limited to:
           </p>
-          <ul>
+          <ul className="personal-data">
             <li>Email address</li>
             <li>First name and last name</li>
             <li>Phone number</li>

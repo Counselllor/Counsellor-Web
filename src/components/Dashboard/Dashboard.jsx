@@ -189,6 +189,7 @@ const Dashboard = () => {
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
+              style={{height: "200px", width: "300px"}}
             >
               <div className="college-content">
                 <div className="up">
