@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Contribute.css'; // Import CSS file for styles
+import BackToHomeButton from '../backtohome';
 
 const Contribute = () => {
   const owner = 'Counselllor';
@@ -60,6 +61,7 @@ const Contribute = () => {
 
   return (
     <div className="contribute-container">
+      <BackToHomeButton />
       <header className="contributor-header">
         <h1 className="contributor-heading">Our Amazing Contributors</h1>
         <p className="contributor-subheading">Meet the incredible people who make our project possible. Click on their profiles to learn more about their contributions.</p>
