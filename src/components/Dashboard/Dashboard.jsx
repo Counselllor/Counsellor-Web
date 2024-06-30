@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 import "./Dashboard.css";
-import { useNavigate, NavLink, Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
@@ -29,7 +29,6 @@ const Dashboard = () => {
         toast.success("Logged in! 🚀",{
           className: "toast-message",
         });
-        console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
@@ -135,7 +134,7 @@ const Dashboard = () => {
             <ul>
             <li><a href="/topuniversities">Top Universities</a></li>
             <li><a href="/jobs">Jobs</a></li>
-            <li><a href="/courses">Courses</a></li>
+            <li><a href="./courses">Courses</a></li>
              <li><a href="/careersupport">Career Support</a></li>
             <li className='dot'><a href="error">•</a></li>
              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
@@ -161,20 +160,27 @@ const Dashboard = () => {
         <div className="search">
           <div className="s_bar_c">
             <a href="">
-              <img src="src/assets/icons8-search-50.png" alt="Search" />
+              <img src="src/assets/search_icon.png" alt="Search" />
             </a>
             <div className="vl"/>
             <input type="text" placeholder='Type college name or university name'
               value={searchTerm}
               onChange={handleSearchChange}
+              style={{ outline: "1px solid black", fontSize: "20px" }}
             />
           </div>
           <button>Search</button>
         </div>
-        <div className="navigator">
+        {/* <div className="navigator">
           <span className="nearby">Nearby</span>
           <span className="seeall">See All</span>
-        </div>
+        </div> */}
+  {filteredColleges.length === 0 ? (
+          <div className="no-res-Found-cont">
+            <h1>No Result Found</h1>
+            <h2>We can't find any item matching your search</h2>
+          </div>
+        ) : (
         <div className="colleges">
           {filteredColleges.map((college, index) => (
             <div
@@ -183,6 +189,7 @@ const Dashboard = () => {
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
+              style={{height: "200px", width: "300px"}}
             >
               <div className="college-content">
                 <div className="up">
@@ -200,12 +207,12 @@ const Dashboard = () => {
               <button className="click-info-button">Click for more info</button>
             </div>
           ))}
-        </div>
-        <FAQs/>
+          </div>
+        )}
+        <FAQs />
         <Footer />
       </main>
-    
-  );
-};
+    );
+  };
 
 export default Dashboard;
