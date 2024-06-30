@@ -1,15 +1,11 @@
 import "./Terms.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import BackToHomeButton from '../backtohome';
 
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
-      <Link to="/" className="breadcrumb-item">
-        Home
-      </Link>
-      <span className="breadcrumb-separator">/</span>
-      <span className="breadcrumb-item active">Terms & Conditions</span>
     </nav>
   );
 };
@@ -17,10 +13,11 @@ const Breadcrumb = () => {
 const Terms = () => {
   return (
     <>
+    <BackToHomeButton />
       {/* breadcrumb */}
       <div className="terms-container">
+      
         <Breadcrumb />
-
         {/* terms page */}
         <div className="contents">
           <h1>Terms & Conditions</h1>
