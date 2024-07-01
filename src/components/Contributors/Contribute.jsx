@@ -1,6 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState , useCallback } from 'react';
 import './Contribute.css'; // Import CSS file for styles
+
+import Navbar from '../Navbar/Navbar';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Logo from "../../assets/logo.webp";
+import { ThemeContext } from '../../App';
+import { Switch } from 'antd';
+import ScrollToTop from 'react-scroll-to-top';
+
 import BackToHomeButton from '../backtohome';
+
 
 const Contribute = () => {
   const owner = 'Counselllor';
@@ -8,7 +18,35 @@ const Contribute = () => {
   const contributorsPerPage = 10; // Display 10 contributors per page
   const [contributors, setContributors] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.init({
+        duration: 1200,
+      });
+    }, 100);
+
+    // Refresh AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.init({
+        duration: 1200,
+        disable: window.innerWidth < 1724
+
+      });
+    }, 100);
+
+    // Refresh AOS on component unmount
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
   useEffect(() => {
     const fetchContributors = async () => {
       try {
@@ -31,12 +69,20 @@ const Contribute = () => {
     const profileUrl = `https://github.com/${username}`;
     window.open(profileUrl, '_blank'); // Open the GitHub profile in a new tab
   };
-
+  const displayTopContributors = () => {
+      return contributors.slice(0, 3).map(contributor => (
+      <div data-aos="fade-up" key={contributor.login} className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
+        <img src={contributor.avatar_url} alt={contributor.login} />
+        <div className="contributor-info">
+          <h3>{contributor.login}</h3>
+          <p>{contributor.contributions} contributions</p>
+        </div>
+      </div>
+    ));
+  };
   const displayContributors = () => {
-    const startIndex = (currentPage - 1) * contributorsPerPage;
-    const endIndex = startIndex + contributorsPerPage;
-    return contributors.slice(startIndex, endIndex).map(contributor => (
-      <div key={contributor.login} className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
+    return contributors.slice(0, contributors.length).map(contributor => (
+      <div key={contributor.login}  className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
         <img src={contributor.avatar_url} alt={contributor.login} />
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
@@ -58,10 +104,43 @@ const Contribute = () => {
       </button>
     ));
   };
-
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+  
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(!menuOpen);
+  });
+  const handleSignOut = useCallback(() => {
+    signOut(auth)
+      .then(() => {
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((err) => {
+        toast.error(err.message,{
+          className: "toast-message",
+        });
+      });
+  });
   return (
+    <>
+      <ScrollToTop
+        smooth
+        viewBox="0 0 24 24"
+        svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
+        
+        color="white"
+        style={{ backgroundColor: "#5CB6F9" }}
+      />
+  
     <div className="contribute-container">
+
+
+
       <BackToHomeButton />
+
       <header className="contributor-header">
         <h1 className="contributor-heading">Our Amazing Contributors</h1>
         <p className="contributor-subheading">Meet the incredible people who make our project possible. Click on their profiles to learn more about their contributions.</p>
@@ -70,13 +149,20 @@ const Contribute = () => {
         <h2>Thank You to All Our Contributors</h2>
         <p>Your hard work and dedication are truly appreciated!</p>
       </div>
-      <div className="contributor-cards">
-        {displayContributors()}
+      <div className="top-contributor-cards">
+        <h1>Our Top Contributors</h1><br></br>
+        <div className='top-contri'>
+          {displayTopContributors()}
+        </div>
+        <h1>All  Contributors</h1><br></br>
+        <div className='all'>
+
+          {displayContributors()}
+        </div>
       </div>
-      <div className="pagination">
-        {createPaginationButtons()}
-      </div>
+     
     </div>
+    </>
   );
 };
 

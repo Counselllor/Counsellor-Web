@@ -16,6 +16,7 @@ body {
 
 .contribute-container {
   background-color: #fff;
+  margin-top: 0px
   width: 100%;
   min-height: 100vh; /* Adjusted to use viewport height */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -92,7 +93,7 @@ body {
 }
 
 .contributor-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
 }
 
 .contributor-card img {
@@ -160,4 +161,76 @@ body {
   .contributor-subheading{
     font-size: 1.8em;
   }
+}
+.top-contributor-cards{
+  text-align: start;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+}
+.top-contributor-cards h1{
+  margin-bottom: 50px;
+}
+.top-contri{
+  display: flex;
+  width: 100vw;
+  min-height: 200px;
+  margin-bottom: 50px;
+  height: auto !important;
+  margin-left: 0px ;
+  padding-left: 40px;
+  flex-wrap: wrap;
+
+}
+@media only screen and (min-width:1200px){
+.top-contri{
+
+  padding-left : 200px;
+}
+}
+#dark .contribute-container{
+  background-color: black;
+  color: white ;
+}
+
+@media only screen and (max-width:700px){
+  .all{
+  
+   justify-content: center;
+  }
+  }
+.all{
+  display: flex;
+  flex-wrap: wrap;
+}
+.contributor-info h3{
+  font-size: 2.5rem;
+}
+.contributor-info p{
+  font-size: 1.7rem;
+}
+#dark .contribute-container{
+  background: black ;
+  color: white ;
+}
+#dark .contributor-card {
+  background-color: rgb(21, 19, 19) ;
+  color: white ;
+  border: solid 1px white ;
+  box-shadow: 0px 0px 5px white;
+}
+#dark .contributor-info p{
+  color: white !important;
+}
+#dark .thank-you-message{
+  background: rgb(21, 19, 19);
+  border: solid 1px white;
+  box-shadow: 0px 0px 10px white;
+}
+#dark .thank-you-message p{
+color: white;
+  
 }
