@@ -2,15 +2,11 @@ import React from "react";
 import "./Privacy.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import BackToHomeButton from "../backtohome";
 
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
-      <Link to="/" className="breadcrumb-item">
-        Home
-      </Link>
-      <span className="breadcrumb-separator">/</span>
-      <span className="breadcrumb-item active">Privacy Policy</span>
     </nav>
   );
 };
@@ -18,6 +14,7 @@ const Breadcrumb = () => {
 const Privacy = () => {
   return (
     <div>
+        <BackToHomeButton />
       <div className="privacy-policy-container">
         <Breadcrumb />
         <div className="privacy-policy-content">

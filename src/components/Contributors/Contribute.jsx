@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState , useCallback } from 'react';
 import './Contribute.css'; // Import CSS file for styles
+
 import Navbar from '../Navbar/Navbar';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -7,6 +8,10 @@ import Logo from "../../assets/logo.webp";
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 import ScrollToTop from 'react-scroll-to-top';
+
+import BackToHomeButton from '../backtohome';
+
+
 const Contribute = () => {
   const owner = 'Counselllor';
   const repo = 'Counsellor-Web';
@@ -152,6 +157,10 @@ const Contribute = () => {
           </div>
         </nav>
     <div className="contribute-container">
+
+
+
+      <BackToHomeButton />
 
       <header className="contributor-header">
         <h1 className="contributor-heading">Our Amazing Contributors</h1>
