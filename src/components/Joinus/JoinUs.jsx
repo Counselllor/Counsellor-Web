@@ -2,24 +2,25 @@ import React from "react";
 import "./Joinus.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import BackToHomeButton from "../backtohome";
 
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
-      <Link to="/" className="breadcrumb-item">
-        Home
-      </Link>
-      <span className="breadcrumb-separator">/</span>
-      <span className="breadcrumb-item active">Join Us</span>
     </nav>
   );
 };
 
 const JoinUs = () => {
   return (
+    <>
+    <BackToHomeButton />
     <div>
+       
       <div className="join-us-container">
+     
         <Breadcrumb />
+
         <div className="contents">
           <h1>Join Us</h1>
           <section id="benefits">
@@ -91,6 +92,7 @@ const JoinUs = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
