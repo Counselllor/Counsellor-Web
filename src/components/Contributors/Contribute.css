@@ -16,7 +16,7 @@ body {
 
 .contribute-container {
   background-color: #fff;
-  margin-top: 60px;
+  margin-top: 0px
   width: 100%;
   min-height: 100vh; /* Adjusted to use viewport height */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
