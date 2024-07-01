@@ -49,16 +49,20 @@ export default function Login() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        toast.success("Authenticating your credentials… 🚀",{
+        toast.success("Authenticating… 🚀",{
           className: "toast-message",
         });
         setTimeout(() => {
+          toast.success("Logged in… 🚀",{
+            className: "toast-message",
+          });
           navigate("/dashboard");
         }, 2000);
       }
     });
+    return unsubscribe;
   }, []);
 
   const generateCaptcha = useCallback(()=>
@@ -155,7 +159,6 @@ export default function Login() {
       <div className="parent">
         {/* Home icon */}
         {/* This is the right side of the login page   */}
-        <ToastContainer/>
         <div className="right">
           <h1 className="counsellor">Counsellor
           <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch 

@@ -24,11 +24,9 @@ const Dashboard = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        toast.success("Logged in! 🚀",{
-          className: "toast-message",
-        });
+        console.log("");
       } else if (!user) {
         toast.success("Logged out!",{
           className: "toast-message",
@@ -38,6 +36,7 @@ const Dashboard = () => {
         }, 1000);
       }
     });
+    return unsubscribe;
   }, []);
 
   useEffect(() => {
@@ -149,7 +148,6 @@ const Dashboard = () => {
           </div>
         </nav>
         <div className="maintxt">
-          <ToastContainer/>
           <h1>
             <span className="blue">Find your </span>Dream
             <br />

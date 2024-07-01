@@ -17,6 +17,8 @@ import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
 import ProfilePage from "./Pages/Profile";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
@@ -126,5 +128,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer autoClose={1000} hideProgressBar={true}/>
   </React.StrictMode>
 );
