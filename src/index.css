@@ -25,6 +25,12 @@ body, html{
     background-color: #121212;
 }
 
-
-
-
+::-webkit-scrollbar {
+    width: 10px; 
+    background-color: #f5f5f5; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--btnColor); 
+    border-radius: 6px; 
+  }
