@@ -18,7 +18,17 @@
     margin: 0; 
     box-sizing: border-box;
   }
-
+  
+  .clink {
+    font-size: 5rem;
+    color: #f7f1f1;
+    transition: opacity 0.3s; /* Smooth transition */
+  }
+  
+  .clink:hover {
+    opacity: 0.25;
+  }
+  
 #contact {
   background-color: #CAE7FE;
   display: flex;
