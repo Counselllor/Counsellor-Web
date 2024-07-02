@@ -16,6 +16,18 @@
   background-color: black;
 }
 
+#dark .maintxt h1 .blue{
+  color: #5652d0;
+}
+
+#dark .search .s_bar_c {
+  background-color: #5652d0;
+}
+
+#dark .search .s_bar_c .vl .search_input {
+  
+}
+
 .logo img {
   width: 75px;
   padding-left: 15px;
@@ -77,7 +89,7 @@
 
 .menu a {
   text-decoration: none;
-  color: #12229d;
+  color: #5652d0;
   font-size: 22px;
 }
 
@@ -155,6 +167,10 @@
 .college .up .context span {
   font-size: 14px;
   width: 200px;
+}
+
+#dark .context .college-location {
+  color: white;
 }
 
 .click-info-button {

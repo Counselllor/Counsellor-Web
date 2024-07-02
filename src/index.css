@@ -2,10 +2,19 @@
     --pageColor: #ffffff;
     --secPageColor: #6cbdfa;
     --white: #ffffff;
-    --btnColor: #12229d;
+    --btnColor: #5652d0;
     font-size: 62.5%;
     overflow-x: hidden;
+    --text-color: black;  /* Color for light mode */
+  --outline-color: black; 
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: white;  /* Color for dark mode */
+        --outline-color: white; /* Color for outline in dark mode */
+      }
+  }
 
 body, html{
     margin: 0;
@@ -33,4 +42,8 @@ body, html{
   ::-webkit-scrollbar-thumb {
     background-color: var(--btnColor); 
     border-radius: 6px; 
+  }
+
+#dark::-webkit-scrollbar {
+    background-color: black;
   }

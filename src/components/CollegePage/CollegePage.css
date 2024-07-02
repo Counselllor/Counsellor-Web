@@ -71,6 +71,8 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
+
 .icon{
   width: 20%;
 
@@ -107,6 +109,11 @@ margin-top: 0px;
 margin-bottom: 0px;
   
 }
+
+#dark .location .location-depth .location-text {
+  color: white;
+}
+
 .rate{
   display: flex;
   height: 100%;
@@ -218,6 +225,10 @@ margin-bottom: 0px;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   height: calc(1.2em * 3);
+}
+
+#dark .clipped-text1 {
+  color: white;
 }
 .student {
   background-color: rgb(229, 234, 234);
