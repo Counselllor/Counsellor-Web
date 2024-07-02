@@ -3,6 +3,7 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { useEffect, useState, useCallback, useContext} from "react";
+import Tilt from 'react-parallax-tilt';
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import hide from "../../assets/hide.png";
@@ -274,7 +275,9 @@ export default function Login() {
         </div>
            {/* This is the left side of the login page   */}
            <div className="left">
+           <Tilt>
            <img src={meeting2} alt="meeting" />
+           </Tilt>
           {/* <p className="left-text">Still Confused with College Choice?</p> */}
         </div>
       </div>

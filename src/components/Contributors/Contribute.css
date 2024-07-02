@@ -16,7 +16,6 @@ body {
 
 .contribute-container {
   background-color: #fff;
-  margin-top: 0px
   width: 100%;
   min-height: 100vh; /* Adjusted to use viewport height */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,7 +23,7 @@ body {
   overflow: hidden;
   padding: 20px;
   background: linear-gradient(135deg, #4375ff, #80ccff);
-  padding-inline: 200px;
+  /* padding-inline: 200px; */
 
 }
 
@@ -163,7 +162,6 @@ body {
   }
 }
 .top-contributor-cards{
-  text-align: start;
   color: white;
   display: flex;
   flex-direction: column;
@@ -181,16 +179,10 @@ body {
   margin-bottom: 50px;
   height: auto !important;
   margin-left: 0px ;
-  padding-left: 40px;
   flex-wrap: wrap;
 
 }
-@media only screen and (min-width:1200px){
-.top-contri{
 
-  padding-left : 200px;
-}
-}
 #dark .contribute-container{
   background-color: black;
   color: white ;
@@ -233,4 +225,35 @@ body {
 #dark .thank-you-message p{
 color: white;
   
+}
+#dark .profile_btn {
+  color: black !important;
+}
+
+#dark .menu ul{
+  background :none !important
+}
+#dark .menu{
+  border-radius: 0px !important;
+}
+.contributor-card{
+  width: auto !important;
+  min-width:300px !important;
+}
+.all{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.top-contributor-cards{
+  width: 100vw;
+  align-items: center;
+}
+.top-contri{
+  width: 100vw ;
+  justify-content: center;
+}
+.thank-you-message{
+  width: 64vw !important;
+  margin: auto !important;
 }
