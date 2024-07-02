@@ -619,7 +619,175 @@
   font-family: 'ABeeZee';
   color: #050a3079;
 }
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  width: 18vw;
+  padding: 10px;
+  z-index: 100;
+}
 
+.toast-message:first-child{
+  margin-top: 90px;
+}
+
+@media (max-width: 960px) {
+  .menu {
+    display: none;
+  }
+  .colleges{
+    display:flex;
+    justify-content:center;
+    margin-left:0px;
+    padding-right:20px;
+    
+  }
+  .college{
+    display:flex;
+    flex-direction:column;
+    justify-content: left;
+    margin-left:0px;
+    padding: 40px;
+    width:65vw;
+  }
+  .college-content{
+    margin-right:10px;
+    padding-right:30px;
+  }
+  .up{
+    padding-right:120px;
+    margin-left:0px;
+  }
+  .context{
+    padding-right:20px;
+    margin-right:10px;
+  }
+  .college_name{
+    padding-right:20px;
+  }
+  .menu.show {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #12229d;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    background-color: #CAE7FE;
+  }
+
+  .menu.show {
+    display: flex;
+    background: #cae7fe45;
+    border-radius: 10px;
+    padding: 75px;
+    box-shadow: 0 0 10px #cae7fe;
+    backdrop-filter: blur(10px);
+    margin-top: 240px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .menu li {
+    margin: 1px 0;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #12229d;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  .bar {
+    background-color: #12229d;
+  }
+
+  .dot {
+    display: none;
+  }
+  .maintxt h1 {
+    font-size: 55px;
+  }
+
+  .search input {
+    height: 60px;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    padding-left: 12px;
+  }
+
+  .search button {
+    height: 60px;
+    padding: 0 30px;
+  }
+}
+
+
+
+
+  
+
+@media (max-width: 1050px) {
+  .s_bar_c {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .search {
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  .search img {
+    display: none;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .search button {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .search input {
+    margin: 0;
+    padding: 0;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    padding-left: 12px;
+  }
+}
 @media (max-width: 1400px) {
   .colleges {
     display: grid;
