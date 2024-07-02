@@ -10,6 +10,7 @@ import { Switch } from 'antd';
 import ScrollToTop from 'react-scroll-to-top';
 
 import BackToHomeButton from '../backtohome';
+import Footer from '../Footer/Footer';
 
 
 const Contribute = () => {
@@ -134,7 +135,28 @@ const Contribute = () => {
         color="white"
         style={{ backgroundColor: "#5CB6F9" }}
       />
-  
+  <nav className={`navbar fixed`}>
+          <div className="logo">
+            <img src={Logo} alt="Logo" />
+          </div>
+          <div className={`menu ${menuOpen ? "show" : ""}`}>
+            <ul>
+            <li><a href="/topuniversities">Top Universities</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="./courses">Courses</a></li>
+             <li><a href="/careersupport">Career Support</a></li>
+            <li className='dot'><a href="error">•</a></li>
+             <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            <li><button className='profile_btn'>Profile</button></li>
+             <li><Switch style={{ backgroundColor: theme === "dark" ? "#000000" : "" }} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" /></li>
+            </ul>
+          </div>
+          <div className="hamburger" onClick={toggleMenu}>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
+          </div>
+        </nav>
     <div className="contribute-container">
 
 
@@ -162,6 +184,7 @@ const Contribute = () => {
       </div>
      
     </div>
+    <Footer />
     </>
   );
 };
