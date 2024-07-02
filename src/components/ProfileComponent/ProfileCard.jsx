@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./ProfileCard.css";
+import avatar1 from "../../assets/avatar1.png";
+import avatar2 from "../../assets/avatar2.png";
+import avatar3 from "../../assets/avatar3.png";
+import avatar4 from "../../assets/avatar4.png";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
+  const [name, setName] = useState(localStorage.getItem("name") || "Alex Foam");
+  const [dob, setDob] = useState(localStorage.getItem("dob") || "2000-01-21");
+  const [academicYear, setAcademicYear] = useState(localStorage.getItem("academicYear") || "3rd Year");
+  const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || avatar1);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const generateDates = () => {
@@ -25,11 +34,27 @@ const ProfileCard = () => {
     generateDates();
   }, []);
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    localStorage.setItem("name", name);
+    localStorage.setItem("dob", dob);
+    localStorage.setItem("academicYear", academicYear);
+    localStorage.setItem("avatar", avatar);
+    setIsEditing(false);
+  };
+
+  const handleAvatarChange = (newAvatar) => {
+    setAvatar(newAvatar);
+  };
+
   return (
-    <div className="profile-card-container ">
+    <div className="profile-card-container">
       <div className="greeting">
         <div className="greeting-text">
-          <h1>Hello, Alex!</h1>
+          <h1>Hello, {name}!</h1>
           <p>
             Your Profile is updated here. Dates, counselling and your Skills are
             all in one tap.
@@ -73,22 +98,25 @@ const ProfileCard = () => {
             <h3>Gender : </h3> <p>Male</p>
           </div>
           <div className="about-info">
-            <h3>BirthDate : </h3> <p>21-1-2000</p>
+            <h3>BirthDate : </h3> <p>{dob}</p>
           </div>
           <div className="about-info">
             <h3>College : </h3> <p>IIT Bombay</p>
+          </div>
+          <div className="about-info">
+            <h3>Academic Year : </h3> <p>{academicYear}</p>
           </div>
         </div>
       </div>
       <div className="profile-summary">
         <div className="profile-card">
-          <i class="bx bxs-edit"></i>
+          <i className="bx bxs-edit" onClick={handleEdit}></i>
           <img
-            src="https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg"
+            src={avatar}
             alt="Profile"
             className="profile-image"
           />
-          <h3>Alex Foam</h3>
+          <h3>{name}</h3>
           <p className="title">IIT Bombay</p>
           <p className="role">Student</p>
           <div className="skills-section">
@@ -103,6 +131,68 @@ const ProfileCard = () => {
           </div>
         </div>
       </div>
+      {isEditing && (
+        <div className="edit-modal">
+          <div className="edit-modal-content">
+            <h2>Edit Profile</h2>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <label>
+              Date of Birth:
+              <input
+                type="date"
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+              />
+            </label>
+            <label>
+              Academic Year:
+              <input
+                type="text"
+                value={academicYear}
+                onChange={(e) => setAcademicYear(e.target.value)}
+              />
+            </label>
+            <div className="avatar-selection">
+  <h3>Select Avatar:</h3>
+  <div className="avatar-options">
+    <div
+      className={`avatar-option ${avatar === avatar1 ? "selected" : ""}`}
+      onClick={() => handleAvatarChange(avatar1)}
+    >
+      <img src={avatar1} alt="Avatar 1" />
+    </div>
+    <div
+      className={`avatar-option ${avatar === avatar2 ? "selected" : ""}`}
+      onClick={() => handleAvatarChange(avatar2)}
+    >
+      <img src={avatar2} alt="Avatar 2" />
+    </div>
+    <div
+      className={`avatar-option ${avatar === avatar3 ? "selected" : ""}`}
+      onClick={() => handleAvatarChange(avatar3)}
+    >
+      <img src={avatar3} alt="Avatar 3" />
+    </div>
+    <div
+      className={`avatar-option ${avatar === avatar4 ? "selected" : ""}`}
+      onClick={() => handleAvatarChange(avatar4)}
+    >
+      <img src={avatar4} alt="Avatar 4" />
+    </div>
+  </div>
+</div>
+
+            <button onClick={handleSave}>Save</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
