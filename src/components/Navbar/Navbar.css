@@ -16,11 +16,11 @@
 
 .navbar {
   display: flex;
-  /* position: fixed; */
+  position: fixed;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  width:100%;
+  width:99.2%;
   color: white;
   margin: 0px;
   background-color: white;
@@ -130,7 +130,7 @@
   text-decoration: none;
   position: relative;
   color: #00073e;
-  font-size: 20px;
+  font-size: 18px;
   :active{
     color:#303B5E;
   }
