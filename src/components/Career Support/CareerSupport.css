@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+:root {
+  --color-primary: #12229d;
+  --color-background: #cae7fe;
+  --color-item: #76c6f5;
+  --color-text: #333;
+  --color-text-light: #fff;
+}
+
 .career-support {
-  background-color: #f8f9fa;
+  background-color: var(--color-background);
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: var(--color-text);
 }
 
 .career-support__header {
-  background: linear-gradient(135deg, #3498db, #2c3e50);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -32,7 +40,7 @@
 }
 
 .career-support__title {
-  color: #2c3e50;
+  color: var(--color-primary);
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -44,7 +52,7 @@
   display: block;
   width: 50px;
   height: 3px;
-  background-color: #3498db;
+  background-color: var(--color-primary);
   margin: 1rem auto 0;
 }
 
@@ -57,7 +65,7 @@
 }
 
 .service-card {
-  background-color: #ffffff;
+  background-color: var(--color-text-light);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
@@ -72,31 +80,31 @@
 
 .service-card__icon {
   font-size: 3.5rem;
-  color: #3498db;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
 }
 
 .service-card__title {
-  color: #2c3e50;
+  color: var(--color-primary);
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
 }
 
 .service-card__description {
-  color: #7f8c8d;
+  color: var(--color-text);
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
 .career-support__pricing {
-  background-color: #ecf0f1;
+  background-color: var(--color-item);
   padding: 6rem 2rem;
   clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
 }
 
 .career-support__pricing-title {
-  color: #2c3e50;
+  color: var(--color-text-light);
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -108,7 +116,7 @@
   display: block;
   width: 50px;
   height: 3px;
-  background-color: #3498db;
+  background-color: var(--color-text-light);
   margin: 1rem auto 0;
 }
 
@@ -121,7 +129,7 @@
 }
 
 .pricing-card {
-  background-color: #ffffff;
+  background-color: var(--color-text-light);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
@@ -137,14 +145,14 @@
 }
 
 .pricing-card__title {
-  color: #2c3e50;
+  color: var(--color-primary);
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .pricing-card__price {
-  color: #3498db;
+  color: var(--color-primary);
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
@@ -157,14 +165,14 @@
 }
 
 .pricing-card__features li {
-  color: #7f8c8d;
+  color: var(--color-text);
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
 }
 
 .pricing-card__button {
-  background-color: #3498db;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -175,16 +183,16 @@
 }
 
 .pricing-card__button:hover {
-  background-color: #2980b9;
+  background-color: var(--color-item);
 }
 
 .career-support__form-section {
-  background-color: #f8f9fa;
+  background-color: var(--color-background);
   padding: 6rem 2rem;
 }
 
 .career-support__form-title {
-  color: #2c3e50;
+  color: var(--color-primary);
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
@@ -196,14 +204,14 @@
   display: block;
   width: 50px;
   height: 3px;
-  background-color: #3498db;
+  background-color: var(--color-primary);
   margin: 1rem auto 0;
 }
 
 .career-support__form {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: var(--color-text-light);
   padding: 3rem;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -216,7 +224,7 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #34495e;
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -224,7 +232,7 @@
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #bdc3c7;
+  border: 1px solid var(--color-item);
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s ease-in-out;
@@ -233,7 +241,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: var(--color-primary);
 }
 
 .form-group textarea {
@@ -242,8 +250,8 @@
 }
 
 .career-support__form-submit {
-  background-color: #3498db;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -256,184 +264,182 @@
 }
 
 .career-support__form-submit:hover {
-  background-color: #2980b9;
+  background-color: var(--color-item);
 }
 
 .career-support__cta {
-  background: linear-gradient(135deg, #3498db, #2c3e50);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 
 .career-support__cta-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.career-support__cta-text {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.career-support__cta-button {
+  background-color: var(--color-text-light);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.career-support__cta-button:hover {
+  background-color: var(--color-item);
+  color: var(--color-text-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1200px) {
+  .career-support__services {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .career-support__cta-text {
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-support__header {
+    padding: 4rem 1rem;
+  }
+
+  .career-support__main-title {
+    font-size: 3rem;
+  }
+
+  .career-support__subtitle {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
   }
-  
-  .career-support__cta-button {
-    background-color: #e74c3c;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .career-support__content,
+  .career-support__pricing,
+  .career-support__form-section,
+  .career-support__cta {
+    padding: 4rem 1rem;
   }
-  
-  .career-support__cta-button:hover {
-    background-color: #c0392b;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+
+  .career-support__title,
+  .career-support__pricing-title,
+  .career-support__form-title,
+  .career-support__cta-title {
+    font-size: 2rem;
   }
-  
-  @media (max-width: 1200px) {
-    .career-support__services {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    .pricing-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .pricing-card {
-      max-width: 100%;
-      width: 100%;
-    }
+
+  .career-support__services {
+    grid-template-columns: 1fr;
   }
-  
-  @media (max-width: 768px) {
-    .career-support__header {
-      padding: 4rem 1rem;
-    }
-  
-    .career-support__main-title {
-      font-size: 3rem;
-    }
-  
-    .career-support__subtitle {
-      font-size: 1.2rem;
-    }
-  
-    .career-support__content,
-    .career-support__pricing,
-    .career-support__form-section,
-    .career-support__cta {
-      padding: 4rem 1rem;
-    }
-  
-    .career-support__title,
-    .career-support__pricing-title,
-    .career-support__form-title,
-    .career-support__cta-title {
-      font-size: 2rem;
-    }
-  
-    .career-support__services {
-      grid-template-columns: 1fr;
-    }
-  
-    .service-card,
-    .pricing-card {
-      padding: 2rem;
-    }
-  
-    .career-support__form {
-      padding: 2rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .career-support__main-title {
-      font-size: 2.5rem;
-    }
-  
-    .career-support__subtitle {
-      font-size: 1rem;
-    }
-  
-    .career-support__title,
-    .career-support__pricing-title,
-    .career-support__form-title,
-    .career-support__cta-title {
-      font-size: 1.75rem;
-    }
-  
-    .service-card__title,
-    .pricing-card__title {
-      font-size: 1.5rem;
-    }
-  
-    .career-support__cta-button {
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-    }
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+
   .service-card,
-  .pricing-card,
+  .pricing-card {
+    padding: 2rem;
+  }
+
   .career-support__form {
-    animation: fadeIn 0.6s ease-out;
+    padding: 2rem;
   }
-  
-  .service-card:nth-child(2),
-  .pricing-card:nth-child(2) {
-    animation-delay: 0.2s;
+}
+
+@media (max-width: 480px) {
+  .career-support__main-title {
+    font-size: 2.5rem;
   }
-  
-  .service-card:nth-child(3),
-  .pricing-card:nth-child(3) {
-    animation-delay: 0.4s;
+
+  .career-support__subtitle {
+    font-size: 1rem;
   }
-  
-  /* Accessibility improvements */
-  .career-support__cta-button:focus,
-  .career-support__form-submit:focus,
-  .pricing-card__button:focus {
-    outline: 3px solid #3498db;
-    outline-offset: 2px;
+
+  .career-support__title,
+  .career-support__pricing-title,
+  .career-support__form-title,
+  .career-support__cta-title {
+    font-size: 1.75rem;
   }
-  
-  /* Additional enhancements */
-  .service-card__icon,
-  .pricing-card__price {
-    transition: transform 0.3s ease-in-out;
+
+  .service-card__title,
+  .pricing-card__title {
+    font-size: 1.5rem;
   }
-  
-  .service-card:hover .service-card__icon,
-  .pricing-card:hover .pricing-card__price {
-    transform: scale(1.1);
+
+  .career-support__cta-button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
   }
-  
-  .career-support__form input:focus::placeholder,
-  .career-support__form textarea:focus::placeholder {
-    color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card,
+.pricing-card,
+.career-support__form {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.service-card:nth-child(2),
+.pricing-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3),
+.pricing-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.career-support__cta-button:focus,
+.career-support__form-submit:focus,
+.pricing-card__button:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.service-card__icon,
+.pricing-card__price {
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover .service-card__icon,
+.pricing-card:hover .pricing-card__price {
+  transform: scale(1.1);
+}
+
+.career-support__form input:focus::placeholder,
+.career-support__form textarea:focus::placeholder {
+  color: transparent;
+}
