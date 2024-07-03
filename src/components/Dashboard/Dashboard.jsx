@@ -138,7 +138,7 @@ const Dashboard = () => {
              <li><a href="/careersupport">Career Support</a></li>
             <li className='dot'><a href="error">•</a></li>
              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-            <li><button className='profile_btn'>Profile</button></li>
+            <li><a href="./profile"><button className='profile_btn'>Profile</button></a></li>
              <li><Switch style={{ backgroundColor: theme === "dark" ? "#000000" : "" }} onChange={handleThemeChange} checked={theme === "dark"} checkedChildren="Dark Mode" unCheckedChildren="Light Mode" /></li>
             </ul>
           </div>
