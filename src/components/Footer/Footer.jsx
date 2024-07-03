@@ -13,9 +13,9 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6 col-sm-6">
               <div className="footer-about mt-50">
                 <div className='logo'>
-                  <img src="src\assets\logo.webp" alt="logo" class="logo-image"/>
+                  <img src="/src/assets/logo.webp" alt="logo" className="logo-image"/>
                 </div>
-                <h1>Counseller</h1>
+                <h1>Counsellor</h1>
                 <p className="text">
                   We at Counsellor empower students to explore the right streams, branches, and colleges
                   through personalized insights and honest reviews.
@@ -60,7 +60,7 @@ const Footer = () => {
                 </div>
                 <ul className="link mt-3">
                   <li><a href="./contribute">Our Contributors</a></li>
-                  <p>Connect with Us</p>
+                  <li><p>Connect with Us</p></li>
                 </ul>
                 <ul className="social-icons">
                   <li><a href="https://github.com/Counselllor/Counsellor-Web" target="_blank" rel="noreferrer"><FaGithub /></a></li>
@@ -76,18 +76,21 @@ const Footer = () => {
         </div>
       </div>
 
-        {/* Copyright Column */}
-            <div className="col-lg-12">
-
-                <div className="copyright d-sm-flex justify-content-between">
-                  <div className="footer-copyright">
-                    <p className="text">
-                    <span className='line'></span>
-                      © {new Date().getFullYear()} Counsellor. All rights reserved, Built with ♥ in India
-                    </p>
-                  </div>
-                </div>
+      {/* Copyright Section */}
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="copyright d-sm-flex justify-content-between">
+              <div className="footer-copyright">
+                <p className="text">
+                  <span className='line'></span>
+                  © {new Date().getFullYear()} Counsellor. All rights reserved, Built with ♥ in India
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
