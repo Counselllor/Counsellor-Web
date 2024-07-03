@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="footer-copyright">
                 <p className="text">
                   <span className='line'></span>
-                  © {new Date().getFullYear()} Counsellor. All rights reserved, Built with ♥ in India
+                  © {new Date().getFullYear()} Counsellor. All rights reserved
                 </p>
               </div>
             </div>

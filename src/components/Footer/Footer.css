@@ -17,9 +17,9 @@ ul {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  background: url(./footer_img.png) no-repeat center, linear-gradient(to right top, #5cb6f9, #2c93e8, #006fd4, #004bbb, #12229d);
-  background-position: center bottom, center;
-  background-size: 550px 300px, cover;
+  background: linear-gradient(to right top, #5cb6f9, #2c93e8, #006fd4, #004bbb, #12229d);
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
   z-index: 0;
   border-top-right-radius: 30px;
@@ -196,7 +196,7 @@ ul {
 }
 
 .footer-copyright p {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   font-family: 'Segoe UI', 'Arial', 'sans-serif';
   color: #ffffff;
@@ -210,7 +210,6 @@ ul {
   height: 2px;
   background-color: #ffffff;
   margin: 10px;
-  box-shadow: 2px 2px 4px #1126A0;
 }
 
 @media screen and (max-width: 1200px) {
