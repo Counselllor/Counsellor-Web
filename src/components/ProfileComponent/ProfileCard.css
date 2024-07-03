@@ -6,6 +6,32 @@
   position: relative;
   min-height: 60vh;
 }
+.avatar-options {
+  display: flex;
+  gap: 10px;
+}
+
+.avatar-option {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 5px;
+}
+
+.avatar-selection h3{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.avatar-option img {
+  height: 100px; /* Adjust the height as needed */
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.avatar-option.selected {
+  border-color: #007bff; /* Change border color when selected */
+}
 
 .greeting {
   background-color: #28a745;
@@ -69,14 +95,17 @@
   width: 50px;
   font-weight: 700;
 }
+
 .calendar-date span {
   display: block;
 }
+
 .calendar-date.active {
   position: relative;
   background-color: #000000;
   color: white;
 }
+
 .calendar-date.active::after {
   content: "";
   position: absolute;
@@ -87,6 +116,7 @@
   background: rgb(64, 255, 64);
   border-radius: 50%;
 }
+
 .next-event {
   margin: 0;
   font-size: 14px;
@@ -95,9 +125,11 @@
 .profile-card-content .profile-details {
   margin: 20px 0;
 }
+
 .profile-card-content .profile-details h2 {
   font-size: 20px;
 }
+
 .profile-card-content .profile-details p {
   font-size: 14px;
   margin: 5px 0;
@@ -112,6 +144,7 @@
 .profile-card-content .profile-details .about-info h3 {
   font-size: 13px;
 }
+
 .profile-card-content .profile-details .about-info p {
   font-size: 14px;
 }
@@ -205,6 +238,7 @@
     right: 50%;
     transform: translateX(50%);
   }
+
   .profile-card {
     width: 100%;
   }
@@ -223,6 +257,7 @@
     right: 50%;
     transform: translateX(50%);
   }
+
   .profile-card {
     width: 100%;
   }

@@ -23,6 +23,7 @@ import Terms from "./components/Terms/Terms";
 import JoinUs from "./components/Joinus/JoinUs";
 import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
+import CareerSupport from "./components/Career Support/CareerSupport"
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
         path: "/courses",
         errorElement: <ErrorPage />,
         element: <Courses />,
+      },
+      {
+        path: "/careersupport",
+        errorElement: <ErrorPage />,
+        element: <CareerSupport />,
       },
       {
         path: "/help",
