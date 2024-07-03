@@ -1,6 +1,8 @@
 import React from "react";
 import './Blogs.css'; // Import CSS file for styles
 import BackToHomeButton from "../backtohome";
+import Footer from "../Footer/Footer";
+
 
 const blogsData = [
   {
@@ -129,6 +131,8 @@ const Blogs = () => {
         ))}
       </div>
     </div>
+    <Footer />
+
     </>
   );
 };

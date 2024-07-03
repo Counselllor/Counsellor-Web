@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState , useCallback } from 'react';
 import './Contribute.css'; // Import CSS file for styles
-
+import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -185,6 +185,9 @@ const Contribute = () => {
      
     </div>
     <Footer />
+
+
+
     </>
   );
 };
