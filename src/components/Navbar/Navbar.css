@@ -183,7 +183,8 @@
 }
 
 .bar.open {
-  transform: rotate(-45deg) translate(-4px, 6px);
+  transform: rotate(-45deg);
+  position: absolute;
 }
 
 .bar.open:nth-child(2) {
@@ -191,7 +192,7 @@
 }
 
 .bar.open:nth-child(3) {
-  transform: rotate(45deg) translate(-4px, -6px);
+  transform: rotate(45deg);
 }
 
 .colleges {
