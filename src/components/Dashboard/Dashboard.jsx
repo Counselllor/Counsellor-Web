@@ -199,7 +199,7 @@ const Dashboard = () => {
                   <img className="college-image" src={college.imageURL} alt="College Logo" />
                   <div className="context">
                     <p className="college_name">{college.name}</p>
-                    <button className="btn">{college.location}</button>
+                    <button className="btn1">{college.location}</button>
                   </div>
                 </div>
                 <div className="down">
@@ -207,7 +207,7 @@ const Dashboard = () => {
                   <div className="time">{college.time}</div>
                 </div>
               </div>
-              <button className="click-info-button click-btn">
+              <button className="click-info-button click-btn2">
                 <span className="text">Click for more info</span>
               </button>
             </div>
