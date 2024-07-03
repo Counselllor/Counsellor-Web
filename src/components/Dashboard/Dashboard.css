@@ -154,7 +154,7 @@
 
 .college .up .context span {
   font-size: 14px;
-  width: 200px;
+  display: ruby;
 }
 
 .click-info-button {
