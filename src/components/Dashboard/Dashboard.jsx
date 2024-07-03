@@ -5,6 +5,7 @@ import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
+
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
@@ -183,6 +184,7 @@ const Dashboard = () => {
         ) : (
         <div className="colleges">
           {filteredColleges.map((college, index) => (
+
             <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
@@ -196,7 +198,9 @@ const Dashboard = () => {
                   <img className="college-image" src={college.imageURL} alt="College Logo" />
                   <div className="context">
                     <p className="college_name">{college.name}</p>
-                    <span className="college-location">{college.location}</span>
+                    <button className="btn">
+    {college.location}
+</button>
                   </div>
                 </div>
                 <div className="down">
@@ -204,7 +208,10 @@ const Dashboard = () => {
                   <div className="time">{college.time}</div>
                 </div>
               </div>
-              <button className="click-info-button">Click for more info</button>
+              <button className="click-info-button  click-btn">
+  <span class="text">Click for more info</span>
+</button>
+              {/* <button className="click-info-button">Click for more info</button> */}
             </div>
           ))}
           </div>
