@@ -4,6 +4,24 @@ import './FAQs.css';
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+
+  function handleInput(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (email === "" || !/\S+@\S+\.\S+/.test(email)) {
+      setIsEmailValid(false);
+    } else {
+      setIsEmailValid(true);
+      alert(`Thank you for subscribing with ${email}`);
+      setEmail("");
+    }
+  }
 
   const faqs = [
     {
@@ -51,12 +69,13 @@ const FAQs = () => {
       <section class="newsletter-section">
         <h2>Stay updated with our latest news!</h2>
         <p>Subscribe to our newsletter to receive exclusive updates, promotions, and more.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email" placeholder="Enter your email address"/>
-            <button id="subscribe-btn">Subscribe</button>
+        {!isEmailValid ? <p>Please enter a valid email address</p> : null}
+        <form onSubmit={handleSubmit} id="newsletter-form">
+            <input type="email" value={email}
+          onChange={handleInput} id="email" placeholder="Enter your email address"/>
+            <p>Please fill in the email field</p>
+            <button type='submit' id="subscribe-btn">Subscribe</button>
         </form>
-        
-        <div id="newsletter-response"></div>
         </section>
 
     </div>
