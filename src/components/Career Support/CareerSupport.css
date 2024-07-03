@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.career-support {
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.career-support__header {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.career-support__main-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.career-support__subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.career-support__content {
+  padding: 6rem 2rem;
+}
+
+.career-support__title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.career-support__title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  margin: 1rem auto 0;
+}
+
+.career-support__services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card__icon {
+  font-size: 3.5rem;
+  color: #3498db;
+  margin-bottom: 1.5rem;
+}
+
+.service-card__title {
+  color: #2c3e50;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.service-card__description {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.career-support__pricing {
+  background-color: #ecf0f1;
+  padding: 6rem 2rem;
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+}
+
+.career-support__pricing-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.career-support__pricing-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  margin: 1rem auto 0;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  flex: 1;
+  max-width: 350px;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card__title {
+  color: #2c3e50;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.pricing-card__price {
+  color: #3498db;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.pricing-card__features {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.pricing-card__features li {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.pricing-card__button {
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pricing-card__button:hover {
+  background-color: #2980b9;
+}
+
+.career-support__form-section {
+  background-color: #f8f9fa;
+  padding: 6rem 2rem;
+}
+
+.career-support__form-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.career-support__form-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  margin: 1rem auto 0;
+}
+
+.career-support__form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.career-support__form-submit {
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  width: 100%;
+}
+
+.career-support__form-submit:hover {
+  background-color: #2980b9;
+}
+
+.career-support__cta {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+.career-support__cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .career-support__cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .career-support__cta-button {
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .career-support__cta-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: 1200px) {
+    .career-support__services {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .pricing-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .pricing-card {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .career-support__header {
+      padding: 4rem 1rem;
+    }
+  
+    .career-support__main-title {
+      font-size: 3rem;
+    }
+  
+    .career-support__subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .career-support__content,
+    .career-support__pricing,
+    .career-support__form-section,
+    .career-support__cta {
+      padding: 4rem 1rem;
+    }
+  
+    .career-support__title,
+    .career-support__pricing-title,
+    .career-support__form-title,
+    .career-support__cta-title {
+      font-size: 2rem;
+    }
+  
+    .career-support__services {
+      grid-template-columns: 1fr;
+    }
+  
+    .service-card,
+    .pricing-card {
+      padding: 2rem;
+    }
+  
+    .career-support__form {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .career-support__main-title {
+      font-size: 2.5rem;
+    }
+  
+    .career-support__subtitle {
+      font-size: 1rem;
+    }
+  
+    .career-support__title,
+    .career-support__pricing-title,
+    .career-support__form-title,
+    .career-support__cta-title {
+      font-size: 1.75rem;
+    }
+  
+    .service-card__title,
+    .pricing-card__title {
+      font-size: 1.5rem;
+    }
+  
+    .career-support__cta-button {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .service-card,
+  .pricing-card,
+  .career-support__form {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .service-card:nth-child(2),
+  .pricing-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .service-card:nth-child(3),
+  .pricing-card:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Accessibility improvements */
+  .career-support__cta-button:focus,
+  .career-support__form-submit:focus,
+  .pricing-card__button:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+  }
+  
+  /* Additional enhancements */
+  .service-card__icon,
+  .pricing-card__price {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-card:hover .service-card__icon,
+  .pricing-card:hover .pricing-card__price {
+    transform: scale(1.1);
+  }
+  
+  .career-support__form input:focus::placeholder,
+  .career-support__form textarea:focus::placeholder {
+    color: transparent;
+  }
