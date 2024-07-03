@@ -10,7 +10,6 @@ import { Switch } from 'antd';
 import ScrollToTop from 'react-scroll-to-top';
 
 import BackToHomeButton from '../backtohome';
-import Footer from '../Footer/Footer';
 
 
 const Contribute = () => {
