@@ -102,7 +102,7 @@ window.addEventListener("scroll", setFixed)
                 <a href="#">Jobs</a>
               </li>
               <li>
-                <a href="./courses">Courses</a>
+                <a href="#">Courses</a>
               </li>
               <li>
                 <a href="#">Career Support</a>
@@ -144,7 +144,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
     <ul>
       <MenuItem href="#">Top Universities</MenuItem>
       <MenuItem href="#">Jobs</MenuItem>
-      <MenuItem href="./courses">Courses</MenuItem>
+      <MenuItem href="#">Courses</MenuItem>
       <MenuItem href="#">Career Support</MenuItem>
       <MenuItem href="#" dot>•</MenuItem>
       {user ? (
