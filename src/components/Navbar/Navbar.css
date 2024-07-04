@@ -553,10 +553,10 @@
     padding: 40px;
     width:65vw;
   }
-  .college-content{
+  /* .college-content{
     margin-right:10px;
     padding-right:30px;
-  }
+  } */
   .up{
     padding-right:120px;
     margin-left:0px;
@@ -565,9 +565,9 @@
     padding-right:20px;
     margin-right:10px;
   }
-  .college_name{
+  /* .college_name{
     padding-right:20px;
-  }
+  } */
   .menu.show {
     display: block;
   }
