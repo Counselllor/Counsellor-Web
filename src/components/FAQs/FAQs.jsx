@@ -1,6 +1,8 @@
 // FAQs.jsx
 import React, { useState } from 'react';
 import './FAQs.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -15,10 +17,10 @@ const FAQs = () => {
     event.preventDefault();
 
     if (email === "" || !/\S+@\S+\.\S+/.test(email)) {
-      setIsEmailValid(false);
+      toast.error("Invalid Email Address")
     } else {
       setIsEmailValid(true);
-      alert(`Thank you for subscribing with ${email}`);
+      toast.success("Thank you for subscribing");
       setEmail("");
     }
   }
@@ -69,12 +71,24 @@ const FAQs = () => {
       <section class="newsletter-section">
         <h2>Stay updated with our latest news!</h2>
         <p>Subscribe to our newsletter to receive exclusive updates, promotions, and more.</p>
-        {!isEmailValid ? <p>Please enter a valid email address</p> : null}
         <form onSubmit={handleSubmit} id="newsletter-form">
             <input type="email" value={email}
           onChange={handleInput} id="email" placeholder="Enter your email address"/>
-            <p>Please fill in the email field</p>
             <button type='submit' id="subscribe-btn">Subscribe</button>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+              transition: Bounce
+              bodyClassName = "toastBody"
+              />
         </form>
         </section>
 

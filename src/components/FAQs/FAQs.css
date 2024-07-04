@@ -1,6 +1,11 @@
 
 @import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
 
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
 .faqs-container {
   padding: 2rem;
   max-width: 70%;
