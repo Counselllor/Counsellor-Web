@@ -151,6 +151,7 @@ const CareerSupport = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
+              style={{width: '100%', borderColor:'#76c6f5'}}
             />
           </div>
           <div className="form-group">

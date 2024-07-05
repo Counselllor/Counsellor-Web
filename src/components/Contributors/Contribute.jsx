@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState , useCallback } from 'react';
 import './Contribute.css'; // Import CSS file for styles
 import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Logo from "../../assets/logo.webp";
@@ -134,7 +134,7 @@ const Contribute = () => {
         color="white"
         style={{ backgroundColor: "#5CB6F9" }}
       />
-  <nav className={`navbar fixed`}>
+  {/* <nav className={`navbar fixed`}>
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
@@ -155,7 +155,7 @@ const Contribute = () => {
             <div className={`bar ${menuOpen ? 'open' : ''}`}/>
             <div className={`bar ${menuOpen ? 'open' : ''}`}/>
           </div>
-        </nav>
+        </nav> */}
     <div className="contribute-container">
 
 
