@@ -738,3 +738,128 @@
  .click-btn2:active {
   transform: scale(0.9);
  }
+
+ /* Tablet (768px) */
+@media (max-width: 768px) {
+  .colleges {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .college {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .up img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .context p {
+    font-size: 14px;
+  }
+
+  .context button {
+    font-size: 12px;
+    padding: 8px 18px;
+  }
+
+  .down {
+    margin-top: 15px;
+  }
+
+  .ctc, .time {
+    font-size: 14px;
+  }
+}
+
+/* Mobile L (425px) */
+@media (max-width: 425px) {
+  .colleges {
+    grid-template-columns: 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .college {
+    padding: 15px;
+  }
+
+  .up img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .context p {
+    font-size: 14px;
+  }
+
+  .context button {
+    font-size: 10px;
+    padding: 4px 14px;
+  }
+
+  .ctc, .time {
+    font-size: 12px;
+  }
+}
+
+/* Mobile M (375px) */
+@media (max-width: 375px) {
+
+  .colleges {
+    grid-template-columns: 1fr;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .college {
+    padding: 10px;
+  }
+
+  .up img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .context p {
+    font-size: 13px;
+  }
+
+  .context button {
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+
+  .ctc, .time {
+    font-size: 11px;
+  }
+}
+
+/* Mobile S (320px) */
+@media (max-width: 320px) {
+  .college {
+    padding: 10px;
+  }
+
+  .up img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .context p {
+    font-size: 12px;
+  }
+
+  .context button {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .ctc, .time {
+    font-size: 10px;
+  }
+}
