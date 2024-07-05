@@ -338,6 +338,7 @@
   .dot {
     display: none;
   }
+.menu ul{gap: 40px;}
 }
 
 .maintxt {
