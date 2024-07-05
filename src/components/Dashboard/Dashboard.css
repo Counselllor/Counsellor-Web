@@ -739,6 +739,37 @@
   transform: scale(0.9);
  }
 
+ .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #5CB6F9; /* Adjust this color to fit your theme */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #4a9edc; /* Slightly darker shade for hover effect */
+}
+
+.pagination button.active {
+  background-color: #3a8cc1; /* Even darker shade for active button */
+}
+
+.pagination button:disabled {
+  background-color: #cccccc; /* Disabled state */
+  cursor: not-allowed;
+}
  /* Tablet (768px) */
 @media (max-width: 768px) {
   .colleges {

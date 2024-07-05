@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useContext } from "react";
+import { useEffect, useState, useCallback, useContext, useRef } from "react";
 import "./Dashboard.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
@@ -21,6 +21,12 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const mainRef = useRef(null);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 18;
+  const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -46,6 +52,7 @@ const Dashboard = () => {
         college.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredColleges(results);
+    setCurrentPage(1); // Reset to the first page when search changes
   }, [searchTerm]);
 
   useEffect(() => {
@@ -56,6 +63,13 @@ const Dashboard = () => {
       }
     }
   }, [location]);
+
+  // Scroll to top when currentPage changes
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage]);
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -112,8 +126,18 @@ const Dashboard = () => {
     toggleTheme();
   }, [toggleTheme]);
 
+  // Pagination logic
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const paginatedColleges = filteredColleges.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
-    <main>
+    <main ref={mainRef}>
       <div className="scroll">
         <ScrollToTop
           smooth
@@ -185,7 +209,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="colleges">
-          {filteredColleges.map((college, index) => (
+          {paginatedColleges.map((college, index) => (
             <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
@@ -214,6 +238,17 @@ const Dashboard = () => {
           ))}
         </div>
       )}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
       <FAQs />
       <Footer />
     </main>
