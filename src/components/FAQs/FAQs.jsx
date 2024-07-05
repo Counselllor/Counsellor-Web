@@ -77,7 +77,7 @@ const FAQs = () => {
             <button type='submit' id="subscribe-btn">Subscribe</button>
             <ToastContainer
               position="top-center"
-              autoClose={5000}
+              autoClose={3000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
