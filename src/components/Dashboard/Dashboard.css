@@ -762,9 +762,9 @@
     font-size: 14px;
   }
 
-  .context span {
+  .context button {
     font-size: 12px;
-    padding: 5px 15px;
+    padding: 8px 18px;
   }
 
   .down {
@@ -797,9 +797,9 @@
     font-size: 14px;
   }
 
-  .context span {
+  .context button {
     font-size: 10px;
-    padding: 3px 10px;
+    padding: 4px 14px;
   }
 
   .ctc, .time {
@@ -829,9 +829,9 @@
     font-size: 13px;
   }
 
-  .context span {
+  .context button {
     font-size: 9px;
-    padding: 2px 8px;
+    padding: 3px 10px;
   }
 
   .ctc, .time {
@@ -854,7 +854,7 @@
     font-size: 12px;
   }
 
-  .context span {
+  .context button {
     font-size: 8px;
     padding: 2px 6px;
   }
