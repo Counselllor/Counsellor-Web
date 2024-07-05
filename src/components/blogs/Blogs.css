@@ -80,7 +80,6 @@ body {
 
 .blog-card:hover {
   transform: scale(1.05);
-  box-shadow: 0px 0px 15px white;
 }
 
 #dark .blog-card:hover {
