@@ -255,8 +255,7 @@
   }
   .colleges{
     display:flex;
-    justify-content:left;
-    margin-left:0px;
+    justify-content:center;
   }
   .college{
     display:flex;
@@ -541,16 +540,16 @@
   .colleges{
     display:flex;
     justify-content:center;
-    margin-left:0px;
+    margin-left:5%;
     padding-right:20px;
     
   }
   .college{
     display:flex;
     flex-direction:column;
-    justify-content: left;
+    justify-content: center;
     margin-left:0px;
-    padding: 40px;
+    padding: 30px;
     width:65vw;
   }
   /* .college-content{

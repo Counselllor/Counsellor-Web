@@ -743,14 +743,14 @@
 @media (max-width: 768px) {
   .colleges {
     grid-template-columns: 1fr 1fr;
-    padding-left: 20px;
     padding-right: 20px;
+    margin-left: 5%;
   }
 
   .college {
-    width: 100%;
+    width: 80%;
     height: auto;
-    padding: 20px;
+    padding: 15px;
   }
 
   .up img {
@@ -762,9 +762,9 @@
     font-size: 14px;
   }
 
-  .context span {
+  .context button {
     font-size: 12px;
-    padding: 5px 15px;
+    padding: 8px 18px;
   }
 
   .down {
@@ -797,9 +797,9 @@
     font-size: 14px;
   }
 
-  .context span {
+  .context button {
     font-size: 10px;
-    padding: 3px 10px;
+    padding: 4px 14px;
   }
 
   .ctc, .time {
@@ -817,7 +817,7 @@
   }
 
   .college {
-    padding: 10px;
+    padding: 8px;
   }
 
   .up img {
@@ -829,9 +829,9 @@
     font-size: 13px;
   }
 
-  .context span {
+  .context button {
     font-size: 9px;
-    padding: 2px 8px;
+    padding: 3px 10px;
   }
 
   .ctc, .time {
@@ -842,7 +842,7 @@
 /* Mobile S (320px) */
 @media (max-width: 320px) {
   .college {
-    padding: 10px;
+    padding: 5px;
   }
 
   .up img {
@@ -854,7 +854,7 @@
     font-size: 12px;
   }
 
-  .context span {
+  .context button {
     font-size: 8px;
     padding: 2px 6px;
   }
