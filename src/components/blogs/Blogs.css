@@ -17,6 +17,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
+  padding-top: 0px !important;
   background: linear-gradient(135deg, #4375ff, #80ccff);
 }
 
@@ -30,7 +31,7 @@ body {
   font-size: 70px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .blogs-header p {
@@ -40,7 +41,7 @@ body {
   font-size: 20px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .blogs-list {
@@ -109,8 +110,7 @@ body {
 .blog-card h2 {
   font-size: 1.9em;
   font-family: "ABeeZee";
-  color: #007bff;
-  color: rgb(104, 14, 14);
+  color: #007bff !important;
 }
 
 #dark .blog-card h2 {
@@ -142,19 +142,13 @@ body {
 }
 
 .blog-card p {
-  background: linear-gradient(90deg, #ff5d35, #e9ae74);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  color:black !important;
+  
 }
 
 #dark .blog-card p {
-  background: linear-gradient(90deg, #ff5d35, #e2e1e0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  color: black;
+ 
 }
 
 .blog-tag {
