@@ -44,6 +44,23 @@ body, html{
     border-radius: 6px; 
   }
 
+
 #dark::-webkit-scrollbar {
     background-color: black;
   }
+
+  @media only screen and (max-width:900px) {
+    .college{
+        width: 500px !important;
+    }
+}
+@media only screen and (max-width:500px) {
+.college{
+    width: 400px !important;
+}
+}
+@media only screen and (max-width:400px) {
+.college{
+    width: 300px !important;
+}
+}

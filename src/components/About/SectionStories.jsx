@@ -34,9 +34,9 @@ const SectionStories = () => (
       <Story
         imgSrc="https://bsa.web.unc.edu/wp-content/uploads/sites/14595/2019/10/kushal_student_profile.jpg"
         altText="Person on a Tour"
-        caption="Mary Smith"
+        caption="Jaden Smith"
         heading="I got the best college with their guidance"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatibus accusantium esse quibusdam repellat molestiae a modi non, incidunt nisi minus labore quas blanditiis mollitia autem sapiente sint laboriosam fugiat?"
+        text="The counsellors at Counsellor-Web are committed to helping clients achieve their goals. I've gained valuable insights and coping strategies"
       />
     </div>
 
@@ -46,7 +46,7 @@ const SectionStories = () => (
         altText="Person on a Tour"
         caption="Jack Wilson"
         heading="Wow! My life is completely different now"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatibus accusantium esse quibusdam repellat molestiae a modi non, incidunt nisi minus labore quas blanditiis mollitia autem sapiente sint laboriosam fugiat?"
+        text="Highly recommend Counsellor-Web for anyone seeking professional counseling. They helped me navigate through a difficult time with empathy and expertise"
       />
     </div>
   </section>

@@ -3,7 +3,7 @@
   background-color: #CAE7FE;
 }
 .scroll{
-  z-index: 10000;
+  /* z-index: 10000; */
    padding: 1rem 1rem!important;
   align-items: center !important;
   justify-items: center !important;
@@ -16,7 +16,7 @@
 
 .navbar {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
@@ -25,7 +25,7 @@
   margin: 0px;
   background-color: white;
   font-weight: 500;
-  z-index: 99;
+  z-index: 10;
   max-height: 60px;
   /* border-radius: 5px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

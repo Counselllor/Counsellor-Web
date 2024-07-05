@@ -6,6 +6,8 @@ import Footer from "../Footer/Footer";
 import Navbar from '../Navbar/Navbar';
 import './Contact.css'
 import emailjs from '@emailjs/browser';
+import { FaLinkedin,FaGithub} from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 const Contact = () => {
     const navigate = useNavigate();
   let form=useRef()
@@ -77,13 +79,14 @@ const Contact = () => {
       <h2 className='ch2'>CONTACT</h2>
       <div class="clinks">
         <div class="clink">
-          <a><img className='cimg' src="https://i.postimg.cc/m2mg2Hjm/clinkedin.png" alt="clinkedin"/></a>
+          <FaLinkedin />
         </div>
         <div class="clink">
-          <a><img className='cimg' src="https://i.postimg.cc/YCV2QBJg/github.png" alt="github"/></a>
+          <FaGithub />
         </div>
         <div class="clink">
-          <a><img className='cimg' src="https://i.postimg.cc/NjLfyjPB/email.png" alt="email"/></a>
+          <MdEmail />
+          
         </div>
       </div>
     </div>
