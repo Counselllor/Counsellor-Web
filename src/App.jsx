@@ -4,33 +4,39 @@ import "./styles/App.css";
 
 import Dashboard from './components/Dashboard/Dashboard';
 import CollegePage from './components/CollegePage/CollegePage';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
-
-//theme context
+// Theme context
 export const ThemeContext = createContext(null);
-//App
+
+// App
 const App = () => {
 
-  const [theme, setTheme] = useState("light");
+  // Get initial theme from localStorage or default to 'light'
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "light";
+  };
 
-  //Toggle theme
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  // Toggle theme
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  }
+  };
+
+  // Save theme to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
-    <div className="App" id={theme}>
-      <Outlet />
-    </div>
+      <div className="App" id={theme}>
+        <Outlet />
+      </div>
     </ThemeContext.Provider>
   );
 };
 
-
-
 export default App;
-
-
-
