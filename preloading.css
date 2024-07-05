@@ -1,3 +1,13 @@
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+
 .center-loader {
   height: 100vh;
   width: 100%;
@@ -26,4 +36,45 @@
 .center-loader span {
   font-size: 2.2rem;
   text-transform: uppercase;
+}
+
+
+.container{
+  height: 15px;
+  width: 105px;
+  display: flex;
+  position: relative;
+  .dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: blue;
+    animation: move 700ms linear 0ms infinite;
+    margin-right: 30px;
+    
+    &:first-child{
+      position: absolute;
+      top:0;
+      left:0;
+      animation: grow 700ms linear 0ms infinite;
+    }
+    
+    &:last-child{
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 0;
+      animation: grow 700ms linear 0s infinite reverse;
+    }
+  }
+}
+
+@keyframes grow {
+  from {transform: scale(0,0); opacity: 0;}
+  to {transform: scale(1,1); opacity: 1;}
+}
+
+@keyframes move {
+  from {transform: translateX(0px)}
+  to {transform: translateX(45px)}
 }
