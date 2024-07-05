@@ -22,6 +22,11 @@ const Dashboard = () => {
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 18;
+  const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -46,6 +51,7 @@ const Dashboard = () => {
         college.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredColleges(results);
+    setCurrentPage(1); // Reset to the first page when search changes
   }, [searchTerm]);
 
   useEffect(() => {
@@ -111,6 +117,16 @@ const Dashboard = () => {
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
+
+  // Pagination logic
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const paginatedColleges = filteredColleges.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <main>
@@ -185,7 +201,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="colleges">
-          {filteredColleges.map((college, index) => (
+          {paginatedColleges.map((college, index) => (
             <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
@@ -214,6 +230,17 @@ const Dashboard = () => {
           ))}
         </div>
       )}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
       <FAQs />
       <Footer />
     </main>
