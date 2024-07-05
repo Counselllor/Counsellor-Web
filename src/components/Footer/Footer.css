@@ -1,5 +1,4 @@
 .footer-area {
-  background-color: #f8f9fa;
   padding: 20px 0;
   font-family: 'Segoe UI';
   font-size: 1.2rem;
@@ -14,58 +13,80 @@
   align-items: center;
 }
 
-.link {
+.link-container {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
   list-style: none;
   padding: 0;
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+.link {
+  flex: 1;
+  margin: 10px;
 }
 
 .link li a {
   text-decoration: none;
   color: #6c757d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link li a:hover {
+  color: #12229D;
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .link-2 {
-  flex: 1;
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
   gap: 15px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+.link-2 li {
+  flex: 1;
+}
+
 .link-2 li a {
   text-decoration: none;
   color: #6c757d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.link li a:hover,
 .link-2 li a:hover {
   color: #12229D;
 }
 
 .footer-copyright {
-  flex: 1;
   text-align: center;
   color: #6c757d;
 }
 
 .social-icons {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 15px;
   list-style: none;
   padding: 0;
