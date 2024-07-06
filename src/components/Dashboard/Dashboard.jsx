@@ -1,7 +1,8 @@
-import { useEffect, useState, useCallback, useContext } from "react";
+import { useEffect, useState, useCallback, useContext, useRef } from "react";
 import "./Dashboard.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
+import SearchIcon from "../../assets/search_icon.png"; // Correct import
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
@@ -21,14 +22,20 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const mainRef = useRef(null);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 18;
+  const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         toast.success("Logged in! 🚀", {
           className: "toast-message",
         });
-      } else if (!user) {
+      } else {
         toast.success("Logged out!", {
           className: "toast-message",
         });
@@ -37,6 +44,7 @@ const Dashboard = () => {
         }, 1000);
       }
     });
+    return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {
@@ -46,6 +54,7 @@ const Dashboard = () => {
         college.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredColleges(results);
+    setCurrentPage(1); // Reset to the first page when search changes
   }, [searchTerm]);
 
   useEffect(() => {
@@ -56,6 +65,13 @@ const Dashboard = () => {
       }
     }
   }, [location]);
+
+  // Scroll to top when currentPage changes
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage]);
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -79,8 +95,8 @@ const Dashboard = () => {
   );
 
   const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  }, []);
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
@@ -98,22 +114,37 @@ const Dashboard = () => {
 
   const [fix, setFix] = useState(false);
 
-  const setFixed = () => {
+  const setFixed = useCallback(() => {
     if (window.scrollY > 0) {
       setFix(true);
     } else {
       setFix(false);
     }
-  };
+  }, []);
 
-  window.addEventListener("scroll", setFixed);
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, [setFixed]);
 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
 
+  // Pagination logic
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const paginatedColleges = filteredColleges.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
-    <main>
+    <main ref={mainRef}>
       <div className="scroll">
         <ScrollToTop
           smooth
@@ -165,7 +196,7 @@ const Dashboard = () => {
       <div className="search">
         <div className="s_bar_c">
           <a href="">
-            <img src="src/assets/search_icon.png" alt="Search" />
+            <img src={SearchIcon} alt="Search" /> {/* Corrected import */}
           </a>
           <div className="vl" />
           <input
@@ -185,14 +216,14 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="colleges">
-          {filteredColleges.map((college, index) => (
+          {paginatedColleges.map((college, index) => (
             <div
               className={`college ${activeIndex === index ? 'active' : ''}`}
               key={college.id}
               onClick={() => handleCollegeClick(college)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
-              style={{ height: "200px", width: "300px" }}
+              style={{height: "230px", width: "300px"}}
             >
               <div className="college-content">
                 <div className="up">
@@ -214,6 +245,17 @@ const Dashboard = () => {
           ))}
         </div>
       )}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
       <FAQs />
       <Footer />
     </main>

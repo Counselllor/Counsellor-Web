@@ -23,6 +23,13 @@ body {
   overflow: hidden;
   padding: 20px;
   background: linear-gradient(135deg, #4375ff, #80ccff);
+
+
+}
+
+.dark .contribute-container {
+  background: black !important;
+
 }
 
 .contributor-header {
@@ -70,8 +77,10 @@ body {
 
 .contributor-card {
   background-color: #fff;
+
   width: calc(25% - 20px); /* Adjusted to 25% width */
   min-width: 200px;
+
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
@@ -166,6 +175,7 @@ body {
 
 .top-contri {
   display: flex;
+
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px; /* Add gap between cards */
@@ -181,6 +191,7 @@ body {
   .all {
     justify-content: center;
   }
+
 }
 
 .contributor-info h3 {
@@ -191,9 +202,11 @@ body {
   font-size: 1.7rem;
 }
 
+
 #dark .contribute-container {
   background: black;
   color: white;
+
 }
 
 #dark .contributor-card {
@@ -227,9 +240,11 @@ body {
 
 #dark .menu {
   border-radius: 0px !important;
+
 }
 
 .thank-you-message {
   max-width: 800px; /* Ensure a maximum width */
   margin: auto;
 }
+
