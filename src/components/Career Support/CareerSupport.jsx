@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CareerSupport.css';
+import Navbar from '../Navbar/Navbar';
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ const CareerSupport = () => {
 
   return (
     <div className="career-support">
+      <Navbar />
       <header className="career-support__header">
         <h1 className="career-support__main-title">Elevate Your Career</h1>
         <p className="career-support__subtitle">Empowering professionals to reach new heights</p>
