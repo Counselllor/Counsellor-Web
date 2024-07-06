@@ -28,11 +28,6 @@ const Dashboard = () => {
   const itemsPerPage = 18;
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
-  // Pagination state
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 18;
-  const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
-
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
