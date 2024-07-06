@@ -5,7 +5,7 @@ export default function Error404() {
     let navigate=useNavigate()
     function handelClick()
 {
-    navigate('/dashboard')
+    navigate('/')
 } 
  return (
    <>
@@ -34,7 +34,7 @@ export default function Error404() {
             </div>
             <p className='we'>We are unable to find the page<br></br>you're looking for.</p>
             <div>
-                <button className='back' onClick={handelClick}>Back to Home Page</button>
+                <button className='back' onClick={handelClick}>Go Back</button>
             </div>
         </section>
     </main>
