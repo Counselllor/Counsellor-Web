@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Profile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
+
 export default function ProfileHeader({ children }) {
   const navigate = useNavigate();
-  const [sidebarClosed, setSidebarClosed] = useState(window.innerWidth < 768);
+  const [sidebarClosed, setSidebarClosed] = React.useState(window.innerWidth < 768);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +24,7 @@ export default function ProfileHeader({ children }) {
     const sideLinks = document.querySelectorAll(
       ".sidebar .side-menu li a:not(.logout)"
     );
+    
     const handleLinkClick = (item) => {
       sideLinks.forEach((i) => i.parentElement.classList.remove("active"));
       item.parentElement.classList.add("active");
@@ -58,7 +60,7 @@ export default function ProfileHeader({ children }) {
       <div className={`sidebar ${sidebarClosed ? "close" : ""}`}>
         <Link to="/" className="logo">
           {/* <img src={Logo} alt="logo" className="logo-img" /> */}
-          <i class="bx bxs-comment-dots"></i>
+          <i className="bx bxs-comment-dots"></i>
           <div className="logo-name">
             <span>Coun</span>Sellor
           </div>
@@ -69,7 +71,6 @@ export default function ProfileHeader({ children }) {
               <i className="bx bxs-dashboard"></i>Dashboard
             </Link>
           </li>
-
           <li>
             <Link to="#">
               <i className="bx bx-cog"></i>Settings
@@ -101,11 +102,10 @@ export default function ProfileHeader({ children }) {
               <span className="count">12</span>
             </Link>
             <Link to="#" className="profile">
-              <i class="bx bxs-user-circle img"></i>
+              <i className="bx bxs-user-circle img"></i>
             </Link>
           </div>
         </nav>
-
         <main>{children}</main>
       </div>
     </>
