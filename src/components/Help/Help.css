@@ -54,6 +54,7 @@ body {
 .help-container h2 {
   color: #00073e;
   font-size: 30px;
+  margin-top: 10px;
 }
 
 .help-container p {
@@ -67,6 +68,7 @@ body {
 .help-container ul {
   list-style: disc inside;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .help-container ul li {
@@ -74,4 +76,47 @@ body {
   cursor: pointer;
   font-size: 22px;
   color: #00073e;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faq-item.open .faq-answer {
+  padding: 0rem;
+  margin: 0.9rem;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  padding: 1rem;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #0056b3;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #e9ecef;
+  transition: max-height 0.3s ease, padding 0.3s ease; /* Added padding transition */
+  font-size: 18px; /* Adjust the font size */
+  line-height: 1.6; /* Adjust line height for readability */
+  font-family: Arial, sans-serif; /* Example font family */
+}
+
+.faq-icon {
+  font-size: 24px;
+  margin-right: 1rem;
 }
