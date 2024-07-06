@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useContext, useRef } from "react";
 import "./Dashboard.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
+import SearchIcon from "../../assets/search_icon.png"; // Correct import
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
@@ -28,18 +29,13 @@ const Dashboard = () => {
   const itemsPerPage = 18;
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
-  // Pagination state
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 18;
-  const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
-
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         toast.success("Logged in! 🚀", {
           className: "toast-message",
         });
-      } else if (!user) {
+      } else {
         toast.success("Logged out!", {
           className: "toast-message",
         });
@@ -48,6 +44,7 @@ const Dashboard = () => {
         }, 1000);
       }
     });
+    return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {
@@ -98,8 +95,8 @@ const Dashboard = () => {
   );
 
   const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  }, []);
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
@@ -117,15 +114,20 @@ const Dashboard = () => {
 
   const [fix, setFix] = useState(false);
 
-  const setFixed = () => {
+  const setFixed = useCallback(() => {
     if (window.scrollY > 0) {
       setFix(true);
     } else {
       setFix(false);
     }
-  };
+  }, []);
 
-  window.addEventListener("scroll", setFixed);
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, [setFixed]);
 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
@@ -194,7 +196,7 @@ const Dashboard = () => {
       <div className="search">
         <div className="s_bar_c">
           <a href="">
-            <img src="src/assets/search_icon.png" alt="Search" />
+            <img src={SearchIcon} alt="Search" /> {/* Corrected import */}
           </a>
           <div className="vl" />
           <input
