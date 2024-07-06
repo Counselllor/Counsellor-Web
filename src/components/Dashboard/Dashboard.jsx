@@ -5,7 +5,7 @@ import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
-import collegesData from "./colleges.json";
+import collegesData from "../json/college.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
