@@ -266,7 +266,7 @@
   .hamburger {
     display: flex;
     margin-right: 30px;
-    position: fixed;
+    position: relative;
     z-index: 4;
     right: 0;
   }
