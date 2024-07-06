@@ -230,9 +230,6 @@ color: white;
   color: black !important;
 }
 
-#dark .menu ul{
-  background :none !important
-}
 #dark .menu{
   border-radius: 0px !important;
 }

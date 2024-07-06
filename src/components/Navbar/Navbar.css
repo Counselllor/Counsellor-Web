@@ -394,7 +394,6 @@
 }
 
 .search input {
-  width: 78%;
   height: 70px;
   background-color: #e4f1fe;
   appearance: none;
@@ -665,7 +664,7 @@
 
   .search {
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #5CB6F9;
   }
 
   .search img {
@@ -684,7 +683,6 @@
   .search input {
     margin: 0;
     padding: 0;
-    width: -webkit-fill-available;
     border-radius: 15px;
     padding-left: 12px;
   }
