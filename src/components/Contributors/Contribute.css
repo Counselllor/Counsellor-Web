@@ -10,21 +10,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure full viewport height */
+  height: 100vh;
   font-family: "ABeeZee";
 }
 
 .contribute-container {
   background-color: #fff;
   width: 100%;
-  min-height: 100vh; /* Adjusted to use viewport height */
+  min-height: 100vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
   background: linear-gradient(135deg, #4375ff, #80ccff);
-  /* padding-inline: 200px; */
+}
 
+.dark .contribute-container {
+  background: black !important;
 }
 
 .contributor-header {
@@ -56,7 +58,6 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
-  /* font-size: 20px; */
   margin-bottom: 20px;
 }
 
@@ -80,7 +81,8 @@ body {
 
 .contributor-card {
   background-color: #fff;
-  width: calc(20% - 20px); /* 20% width minus margins */
+  width: calc(25% - 20px);
+  /* 4 cards per row, minus margin */
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
@@ -153,15 +155,16 @@ body {
     padding: 5px 10px;
   }
 
-  .contributor-heading{
+  .contributor-heading {
     font-size: 50px;
   }
 
-  .contributor-subheading{
+  .contributor-subheading {
     font-size: 1.8em;
   }
 }
-.top-contributor-cards{
+
+.top-contributor-cards {
   color: white;
   display: flex;
   flex-direction: column;
@@ -169,91 +172,68 @@ body {
   font-weight: 500;
   text-align: center;
 }
-.top-contributor-cards h1{
+
+.top-contributor-cards h1 {
   margin-bottom: 50px;
 }
-.top-contri{
+
+.top-contri {
   display: flex;
-  width: 100vw;
+  width: 100%;
   min-height: 200px;
   margin-bottom: 50px;
-  height: auto !important;
-  margin-left: 0px ;
   flex-wrap: wrap;
-
+  justify-content: center;
 }
 
-#dark .contribute-container{
-  background-color: black;
-  color: white ;
-}
-
-@media only screen and (max-width:700px){
-  .all{
-  
-   justify-content: center;
-  }
-  }
-.all{
+.all {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
-.contributor-info h3{
+
+.contributor-info h3 {
   font-size: 2.5rem;
 }
-.contributor-info p{
+
+.contributor-info p {
   font-size: 1.7rem;
 }
-#dark .contribute-container{
-  background: black ;
-  color: white ;
+
+/* Dark mode styles */
+#dark .contribute-container {
+  background: black !important;
 }
+
 #dark .contributor-card {
-  background-color: rgb(21, 19, 19) ;
-  color: white ;
-  border: solid 1px white ;
+  background-color: rgb(21, 19, 19);
+  color: white;
+  border: solid 1px white;
   box-shadow: 0px 0px 5px white;
 }
-#dark .contributor-info p{
+
+#dark .contributor-info p {
   color: white !important;
 }
-#dark .thank-you-message{
+
+#dark .thank-you-message {
   background: rgb(21, 19, 19);
   border: solid 1px white;
   box-shadow: 0px 0px 10px white;
 }
-#dark .thank-you-message p{
-color: white;
-  
+
+#dark .thank-you-message p {
+  color: white;
 }
+
 #dark .profile_btn {
   color: black !important;
 }
 
-#dark .menu ul{
-  background :none !important
+#dark .menu ul {
+  background: none !important;
 }
-#dark .menu{
+
+#dark .menu {
   border-radius: 0px !important;
-}
-.contributor-card{
-  width: auto !important;
-  min-width:300px !important;
-}
-.all{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.top-contributor-cards{
-  width: 100vw;
-  align-items: center;
-}
-.top-contri{
-  width: 100vw ;
-  justify-content: center;
-}
-.thank-you-message{
-  width: 64vw !important;
-  margin: auto !important;
 }
