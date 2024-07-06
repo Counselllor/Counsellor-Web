@@ -25,6 +25,10 @@ body {
   background: linear-gradient(135deg, #4375ff, #80ccff);
 }
 
+.dark .contribute-container {
+  background: black !important;
+}
+
 .contributor-header {
   text-align: center;
   margin-bottom: 20px;
@@ -198,8 +202,7 @@ body {
 
 /* Dark mode styles */
 #dark .contribute-container {
-  background-color: black;
-  color: white;
+  background: black !important;
 }
 
 #dark .contributor-card {
