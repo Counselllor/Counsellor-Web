@@ -4,6 +4,7 @@ import avatar1 from "../../assets/avatar1.png";
 import avatar2 from "../../assets/avatar2.png";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
+import techstack from "./techstack.json";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -12,6 +13,7 @@ const ProfileCard = () => {
   const [academicYear, setAcademicYear] = useState(localStorage.getItem("academicYear") || "3rd Year");
   const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || avatar1);
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
 
   useEffect(() => {
     const generateDates = () => {
@@ -43,11 +45,24 @@ const ProfileCard = () => {
     localStorage.setItem("dob", dob);
     localStorage.setItem("academicYear", academicYear);
     localStorage.setItem("avatar", avatar);
+    localStorage.setItem("skills", JSON.stringify(selectedSkills));
     setIsEditing(false);
   };
 
   const handleAvatarChange = (newAvatar) => {
     setAvatar(newAvatar);
+  };
+
+  const handleSkillChange = (skill) => {
+    setSelectedSkills((prevSkills) => {
+      if (prevSkills.includes(skill)) {
+        return prevSkills.filter((s) => s !== skill);
+      } else if (prevSkills.length < 5) {
+        return [...prevSkills, skill];
+      } else {
+        return prevSkills;
+      }
+    });
   };
 
   return (
@@ -122,11 +137,9 @@ const ProfileCard = () => {
           <div className="skills-section">
             <h2>Skills</h2>
             <ul>
-              <li>#JavaScript</li>
-              <li>#MongoDB</li>
-              <li>#Node.js</li>
-              <li>#HTML5</li>
-              <li>#CSS3</li>
+              {selectedSkills.map((skill, index) => (
+                <li key={index}>#{skill}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -160,35 +173,48 @@ const ProfileCard = () => {
               />
             </label>
             <div className="avatar-selection">
-  <h3>Select Avatar:</h3>
-  <div className="avatar-options">
-    <div
-      className={`avatar-option ${avatar === avatar1 ? "selected" : ""}`}
-      onClick={() => handleAvatarChange(avatar1)}
-    >
-      <img src={avatar1} alt="Avatar 1" />
-    </div>
-    <div
-      className={`avatar-option ${avatar === avatar2 ? "selected" : ""}`}
-      onClick={() => handleAvatarChange(avatar2)}
-    >
-      <img src={avatar2} alt="Avatar 2" />
-    </div>
-    <div
-      className={`avatar-option ${avatar === avatar3 ? "selected" : ""}`}
-      onClick={() => handleAvatarChange(avatar3)}
-    >
-      <img src={avatar3} alt="Avatar 3" />
-    </div>
-    <div
-      className={`avatar-option ${avatar === avatar4 ? "selected" : ""}`}
-      onClick={() => handleAvatarChange(avatar4)}
-    >
-      <img src={avatar4} alt="Avatar 4" />
-    </div>
-  </div>
-</div>
-
+              <h3>Select Avatar:</h3>
+              <div className="avatar-options">
+                <div
+                  className={`avatar-option ${avatar === avatar1 ? "selected" : ""}`}
+                  onClick={() => handleAvatarChange(avatar1)}
+                >
+                  <img src={avatar1} alt="Avatar 1" />
+                </div>
+                <div
+                  className={`avatar-option ${avatar === avatar2 ? "selected" : ""}`}
+                  onClick={() => handleAvatarChange(avatar2)}
+                >
+                  <img src={avatar2} alt="Avatar 2" />
+                </div>
+                <div
+                  className={`avatar-option ${avatar === avatar3 ? "selected" : ""}`}
+                  onClick={() => handleAvatarChange(avatar3)}
+                >
+                  <img src={avatar3} alt="Avatar 3" />
+                </div>
+                <div
+                  className={`avatar-option ${avatar === avatar4 ? "selected" : ""}`}
+                  onClick={() => handleAvatarChange(avatar4)}
+                >
+                  <img src={avatar4} alt="Avatar 4" />
+                </div>
+              </div>
+            </div>
+            <div className="skills-selection">
+              <h3>Select Skills (up to 5):</h3>
+              <div className="skills-options">
+                {techstack.map((skill, index) => (
+                  <div
+                    key={index}
+                    className={`skill-option ${selectedSkills.includes(skill) ? "selected" : ""}`}
+                    onClick={() => handleSkillChange(skill)}
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
             <button onClick={handleSave}>Save</button>
           </div>
         </div>
