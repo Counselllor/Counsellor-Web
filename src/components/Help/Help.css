@@ -28,7 +28,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "ABeeZee";
 }
 
 .help-container {
@@ -93,7 +93,6 @@ body {
 .faq-question {
   cursor: pointer;
   font-size: 22px;
-  font-weight: bold;
   color: #fff;
   padding: 1rem;
   background-color: #007bff;
@@ -113,7 +112,7 @@ body {
   transition: max-height 0.3s ease, padding 0.3s ease; /* Added padding transition */
   font-size: 18px; /* Adjust the font size */
   line-height: 1.6; /* Adjust line height for readability */
-  font-family: Arial, sans-serif; /* Example font family */
+  font-family: "ABeeZee";
 }
 
 .faq-icon {
