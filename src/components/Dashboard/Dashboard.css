@@ -158,7 +158,7 @@
   display: ruby;
 }
 
-.click-info-button {
+/* .click-info-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -173,19 +173,19 @@
   transition: opacity 0.7s ease;
   pointer-events: none;
   cursor: pointer;
-}
+} */
 
-#dark .click-info-button {
+/* #dark .click-info-button {
   background-color: #3c38b9;
   color: white;
   border: none;
-}
+} */
 
-.college:hover .click-info-button,
+/* .college:hover .click-info-button,
 .college.active .click-info-button {
   opacity: 1;
   pointer-events: auto;
-}
+} */
 
 
 @media (max-width: 960px) {
@@ -659,4 +659,245 @@
 
 #dark .maintxt {
   background-color: black;
+}
+.btn1 {
+  border-radius: .25rem;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #fff;
+  -webkit-clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+  clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+  height: 40px;
+  font-size: 1.3rem;
+  line-height: 14px;
+  letter-spacing: 1.2px;
+  transition: .2s .1s;
+  background-image: linear-gradient(90deg,#272424,#4b59dd);
+  border: 0 solid;
+  overflow: hidden;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transition: all .3s ease-in;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+#dark .college{
+  border: white solid 2px;
+  box-shadow: 0px 0px 15px white ;
+
+}
+.college:hover{
+  scale: 1.05;
+ transition: scale 0.7s;
+}
+
+
+
+
+.click-btn2 {
+  align-items: center !important;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB) !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px !important;
+  box-sizing: border-box !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  font-family: Phantomsans, sans-serif !important;
+  font-size: 18px !important;
+  justify-content: center !important;
+  line-height: 1em !important;
+  max-width: 100% !important;
+  min-width: 140px !important;
+  padding: 3px !important;
+  text-decoration: none !important;
+  user-select: none !important;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .3s;
+ }
+ 
+ .click-btn2:active,
+ .click-btn2:hover {
+  outline: 0;
+ }
+ 
+ .click-btn2 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px !important;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+ }
+ 
+ .click-btn2:hover span {
+  background: none;
+ }
+ 
+ .click-btn2:active {
+  transform: scale(0.9);
+ }
+
+ .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #5CB6F9; /* Adjust this color to fit your theme */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #4a9edc; /* Slightly darker shade for hover effect */
+}
+
+.pagination button.active {
+  background-color: #3a8cc1; /* Even darker shade for active button */
+}
+
+.pagination button:disabled {
+  background-color: #cccccc; /* Disabled state */
+  cursor: not-allowed;
+}
+ /* Tablet (768px) */
+@media (max-width: 768px) {
+  .colleges {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .college {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .up img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .context p {
+    font-size: 14px;
+  }
+
+  .context button {
+    font-size: 12px;
+    padding: 8px 18px;
+  }
+
+  .down {
+    margin-top: 15px;
+  }
+
+  .ctc, .time {
+    font-size: 14px;
+  }
+}
+
+/* Mobile L (425px) */
+@media (max-width: 425px) {
+  .colleges {
+    grid-template-columns: 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .college {
+    padding: 15px;
+  }
+
+  .up img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .context p {
+    font-size: 14px;
+  }
+
+  .context button {
+    font-size: 10px;
+    padding: 4px 14px;
+  }
+
+  .ctc, .time {
+    font-size: 12px;
+  }
+}
+
+/* Mobile M (375px) */
+@media (max-width: 375px) {
+
+  .colleges {
+    grid-template-columns: 1fr;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .college {
+    padding: 10px;
+  }
+
+  .up img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .context p {
+    font-size: 13px;
+  }
+
+  .context button {
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+
+  .ctc, .time {
+    font-size: 11px;
+  }
+}
+
+/* Mobile S (320px) */
+@media (max-width: 320px) {
+  .college {
+    padding: 10px;
+  }
+
+  .up img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .context p {
+    font-size: 12px;
+  }
+
+  .context button {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .ctc, .time {
+    font-size: 10px;
+  }
 }

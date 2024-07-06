@@ -1,3 +1,4 @@
+/* Profile Card Container */
 .profile-card-container {
   max-width: 100%;
   margin: 0 auto;
@@ -6,6 +7,8 @@
   position: relative;
   min-height: 60vh;
 }
+
+/* Avatar Options */
 .avatar-options {
   display: flex;
   gap: 10px;
@@ -17,13 +20,13 @@
   padding: 5px;
 }
 
-.avatar-selection h3{
+.avatar-selection h3 {
   font-size: 15px;
   margin-top: 10px;
 }
 
 .avatar-option img {
-  height: 100px; /* Adjust the height as needed */
+  height: 100px;
   border-radius: 50%;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -33,6 +36,7 @@
   border-color: #007bff; /* Change border color when selected */
 }
 
+/* Greeting Section */
 .greeting {
   background-color: #28a745;
   border-radius: 10px;
@@ -54,6 +58,7 @@
   font-size: 14px;
 }
 
+/* Profile Card Content */
 .profile-card-content {
   width: calc(100% - 320px);
   text-align: left;
@@ -65,6 +70,7 @@
   border-radius: 100%;
 }
 
+/* Upcoming Events */
 .upcoming-events {
   text-align: left;
   width: 100%;
@@ -122,6 +128,7 @@
   font-size: 14px;
 }
 
+/* Profile Details */
 .profile-card-content .profile-details {
   margin: 20px 0;
 }
@@ -149,6 +156,7 @@
   font-size: 14px;
 }
 
+/* Profile Summary */
 .profile-summary {
   display: flex;
   justify-content: center;
@@ -201,6 +209,7 @@
   color: #007bff;
 }
 
+/* Skills Section */
 .skills-section {
   border-top: 0.5px solid rgba(21, 21, 21, 0.555);
   text-align: left;
@@ -230,6 +239,94 @@
   color: #333;
 }
 
+/* Save button styles */
+.edit-modal-content button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-modal-content button:hover {
+  background-color: #218838;
+}
+
+/* Modal styles */
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 522px;
+  text-align: left;
+}
+
+.edit-modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.edit-modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.edit-modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.avatar-selection {
+  margin-top: 10px;
+}
+
+.skills-selection {
+  margin-top: 10px;
+}
+
+.skills-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-option {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.skill-option.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive Design */
 @media screen and (max-width: 650px) {
   .profile-summary {
     width: 60%;
