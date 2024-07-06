@@ -1,15 +1,25 @@
 import React from 'react'
 import './error.css'
 import { useNavigate } from 'react-router-dom'
+import { auth } from "../../firebase/auth";
+
 export default function Error404() {
     let navigate=useNavigate()
     function handelClick()
 {
-    navigate('/')
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+          if (user) {
+            navigate('/dashboard')
+           
+          } else {
+           navigate('/')
+          }
+        });
+        return () => unsubscribe();
 } 
  return (
    <>
-     <div id="particles" class="particles">
+     <div id="particles" class="particles1">
         <span></span>
         <span></span>
         <span></span>
@@ -24,7 +34,7 @@ export default function Error404() {
         <span></span>
     </div>
 
-    <main className='main'>
+    <main className='main1'>
         <section>
             <h1>Page Not Found!</h1>
             <div>

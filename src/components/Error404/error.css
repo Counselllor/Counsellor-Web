@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-.particles {
+.particles1 {
     position: fixed;
     left: 0;
     top: 0;
@@ -11,7 +11,7 @@
     right: 0;
     bottom: 0;
 }
-.particles span {
+.particles1 span {
     position: absolute;
     top: 10%;
     left: 10%;
@@ -24,92 +24,92 @@
     filter: blur(5px);
 
 }
-.particles span:nth-child(2) {
+.particles1 span:nth-child(2) {
     top: 15%;
     left: 70%;
     filter: blur(3px);
 }
-.particles span:nth-child(3) {
+.particles1 span:nth-child(3) {
     top: 70%;
     left: 40%;
     filter: blur(5px);
 }
-.particles span:nth-child(4) {
+.particles1 span:nth-child(4) {
     top: 52%;
     left: 20%;
     filter: blur(4px);
 }
-.particles span:nth-child(5) {
+.particles1 span:nth-child(5) {
     top: 74%;
     left: 90%;
     filter: blur(5px);
 }
-.particles span:nth-child(6) {
+.particles1 span:nth-child(6) {
     top: 85%;
     left: 10%;
     filter: blur(7px);
 }
-.particles span:nth-child(7) {
+.particles1 span:nth-child(7) {
     top: 67%;
     left: 79%;
     filter: blur(3px);
 }
-.particles span:nth-child(8) {
+.particles1 span:nth-child(8) {
     top: 48%;
     left: 40%;
     filter: blur(4px);
 }
-.particles span:nth-child(9) {
+.particles1 span:nth-child(9) {
     top: 45%;
     left: 30%;
     filter: blur(5px);
 }
-.particles span:nth-child(10) {
+.particles1 span:nth-child(10) {
     top: 96%;
     left: 29%;
     filter: blur(4px);
 }
-.particles span:nth-child(11) {
+.particles1 span:nth-child(11) {
     top: 55%;
     left: 89%;
     filter: blur(6px);
 }
-.particles span:nth-child(12) {
+.particles1 span:nth-child(12) {
     top: 55%;
     left: 60%;
     filter: blur(7px);
 }
-.main {
+.main1 {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: cursive;
 }
-.main h1{
+.main1 h1{
     font-weight: normal;
     font-size: 50px;
     color: white !important;
 
 }
-.main h1 {
+.main1 h1 {
     text-align: center;
     text-shadow: 0 0 5px #c3d168a2;
 }
-.main div {
+.main1 div {
     margin-top: 2rem;
     text-align: center;
     color: white !important;
 
 }
-.main div span{
+.main1 div span{
     font-size: 5rem;
     line-height: 6rem;
     text-shadow: 0 0 7px #c3d168a2;
     color: white !important;
 
 }
-.circle {
+.main1 .circle {
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -124,7 +124,7 @@
     border-radius: 50%;
     box-shadow: 0 0 7px #e7f1a3a2;
 }
-.circle:after {
+.main1 .circle:after {
     display: block;
     position: absolute;
     content: '';
@@ -139,7 +139,7 @@
     border-bottom: 4px solid #fafafa;
     z-index: 2
 }
-.circle:before {
+.main1 .circle:before {
     display: block;
     position: absolute;
     content: '';
@@ -157,14 +157,14 @@
     0% { transform: translate(-2.5rem, 0) rotate(0deg); }
     100% { transform: translate(-2.5rem, 0) rotate(360deg); }
 }
-main p {
+.main1  p {
     margin-top: 3rem;
     text-align: center;
     color: white !important;
 
     text-shadow: 0 0 5px #c3d168a2;
 }
-main button {
+.main1 button {
     padding: 0.55rem 1.2rem;
     border: none;
     outline: none;
@@ -174,7 +174,7 @@ main button {
     color: #fafafa;
     box-shadow: 0 0 4px #e1f17859;
 }
-main button:hover {
+.main1 button:hover {
     cursor: pointer;
 }
 .we{
