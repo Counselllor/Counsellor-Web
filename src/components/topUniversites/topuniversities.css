@@ -1,0 +1,330 @@
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.bar.open {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+.colleges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.college {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.7s ease;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.college:hover,
+.college.active {
+  background: linear-gradient(
+    to right,
+    rgba(0, 128, 255, 0.5),
+    rgba(19, 191, 200, 0.5)
+  );
+}
+
+#dark .college:hover,
+.college.active {
+  background: linear-gradient(
+    to right,
+    rgba(37, 37, 37, 0.5),
+    rgba(22, 21, 21, 0.5)
+  );
+}
+
+.college-content {
+  transition: opacity 0.7s ease;
+}
+
+.college:hover .college-content,
+.college.active .college-content {
+  opacity: 0;
+}
+
+.college-content .up .college-image {
+  height: 90px;
+  width: 100px;
+}
+
+.college .up .context .college_name {
+  width: 100%;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.college .up .context span {
+  font-size: 14px;
+  display: ruby;
+}
+
+.down {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.college .ctc,
+.college .time {
+  font-size: 16px;
+}
+
+.click-info-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.click-info-button .text {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .colleges {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    margin-left: 10%;
+  }
+
+  .college {
+    width: 100% !important;
+  }
+}
+
+.App {
+  text-align: center;
+  background-color: #CAE7FE;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  background-color: #CAE7FE;
+}
+
+#dark .navbar {
+  background-color: black;
+}
+
+.logo img {
+  width: 75px;
+  padding-left: 15px;
+}
+
+.menu {
+  flex-direction: column;
+  align-items: center;
+  top: 70px;
+  width: 100%;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  float: right;
+  padding: 0px 30px;
+  align-items: center;
+  background-color: hsla(225, 57%, 97%, 0.722);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+#dark .menu ul {
+  background-color: #1C1C1C;
+}
+
+#dark .menu a {
+  color: #E0E0E0;
+}
+
+.menu li {
+  margin: 15px 0;
+}
+
+.profile_btn {
+  background-color: var(--btnColor);
+  border-radius: 15px;
+  color: #F4F6FC;
+  text-align: center;
+  padding: 10px 50px;
+  margin-right: 0.5vw;
+  border: none;
+  font-size: 25px;
+  float: right;
+  cursor: pointer;
+}
+
+#dark .profile_btn {
+  background-color: #3c38b9;
+  color: black;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #12229d;
+  font-size: 22px;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+  display: none;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.bar.open {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  color: #007bff;
+}
+
+.colleges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.college {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.7s ease;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.college:hover,
+.college.active {
+  background: linear-gradient(to right, rgba(0, 128, 255, 0.5), rgba(19, 191, 200, 0.5));
+}
+
+#dark .college:hover, .college.active {
+  background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+}
+
+.college-content {
+  transition: opacity 0.7s ease;
+}
+
+.college:hover .college-content,
+.college.active .college-content {
+  opacity: 0;
+}
+
+.college-content .up .college-image {
+  height: 90px;
+  width: 100px;
+}
+
+.college .up .context .college_name {
+  width: 100%;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.college .up .context span {
+  font-size: 14px;
+  display: ruby;
+}
+
+.down {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.college .ctc, .college .time {
+  font-size: 16px;
+}
+
+.click-info-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.click-info-button .text {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .colleges {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .college {
+    width: 90%;
+  }
+}
