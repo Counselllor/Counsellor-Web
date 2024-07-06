@@ -24,6 +24,7 @@ import JoinUs from "./components/Joinus/JoinUs";
 import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
+import Error404 from "./components/Error404/Error404";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
         path: "/Contribute",
         errorElement: <ErrorPage />,
         element: <Contribute />,
+      },
+      {
+        path: "*",
+        element: <Error404 />,
       },
     ],
   },
