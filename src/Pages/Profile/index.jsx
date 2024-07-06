@@ -18,7 +18,6 @@ export default function ProfilePage() {
     <div className="profile-body">
       <ProfileHeader>
         <ProfileCard />
-        <SocialProfile />
       </ProfileHeader>
     </div>
   );

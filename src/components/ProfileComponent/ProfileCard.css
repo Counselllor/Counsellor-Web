@@ -44,8 +44,9 @@
   margin-bottom: 20px;
   color: white;
   display: flex;
-  text-align: left;
   justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
 }
 
 .greeting h1 {
@@ -67,7 +68,7 @@
 
 .profile-card img {
   width: 100px;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 /* Upcoming Events */
@@ -107,7 +108,6 @@
 }
 
 .calendar-date.active {
-  position: relative;
   background-color: #000000;
   color: white;
 }
@@ -174,13 +174,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
-}
-
-.profile-card .bxs-edit {
-  position: absolute;
-  font-size: 25px;
-  right: 7%;
-  cursor: pointer;
+  position: relative;
 }
 
 .profile-image {
@@ -207,6 +201,25 @@
   margin: 5px 0 15px 0;
   font-size: 16px;
   color: #007bff;
+}
+
+/* Edit and Trash Icons */
+.profile-card .bxs-edit, .profile-card .bxs-trash {
+  position: absolute;
+  font-size: 24px; /* Increased size */
+  cursor: pointer;
+}
+
+.profile-card .bxs-edit {
+  top: 10px;
+  right: 50px;
+  color: #28a745; /* Green color for edit button */
+}
+
+.profile-card .bxs-trash {
+  top: 10px;
+  right: 10px;
+  color: #dc3545; /* Red color for trash button */
 }
 
 /* Skills Section */
@@ -263,7 +276,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -326,41 +339,137 @@
   color: white;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 650px) {
-  .profile-summary {
-    width: 60%;
-    position: absolute;
-    top: 150px;
-    right: 50%;
-    transform: translateX(50%);
-  }
-
-  .profile-card {
-    width: 100%;
-  }
-
-  .profile-card-content {
-    width: 100%;
-    margin-top: 350px;
-  }
+/* Social Profiles */
+.social-profile-container {
+  margin-top: 20px;
 }
 
-@media screen and (max-width: 450px) {
-  .profile-summary {
-    width: 80%;
-    position: absolute;
-    top: 170px;
-    right: 50%;
-    transform: translateX(50%);
-  }
+.social-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  .profile-card {
-    width: 100%;
-  }
+.social-profile-header .heading {
+  flex-grow: 1;
+}
 
-  .profile-card-content {
-    width: 100%;
-    margin-top: 350px;
-  }
+.social-profile-header .heading h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.social-profile-header .heading p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.profile-item .icon-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-item .icon-details i {
+  font-size: 20px;
+}
+
+.profile-item .icon-details h4 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.profile-item .icon-details span {
+  font-size: 20px;
+}
+
+.profile-item input {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.profile-item input:focus {
+  outline: none;
+}
+
+.profile-item .profile-actions i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile-item .profile-actions .bxs-edit {
+  margin-right: 10px;
+  color: #ffc107; /* Yellow color for edit icon */
+}
+
+.profile-item .profile-actions .bxs-trash {
+  color: #dc3545; /* Red color for trash icon */
+}
+
+.add-profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-profile select,
+.add-profile input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.add-profile button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-profile button:hover {
+  background-color: #0069d9;
+}
+
+.add-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #218838;
 }
