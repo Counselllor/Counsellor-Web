@@ -111,16 +111,33 @@
 .bar.open:nth-child(3) {
   transform: rotate(45deg) ;
 }
+.grid-cont{
+  /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; */
+    /* display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+} */
 
 .colleges {
   position: relative;
   width: 100%;
+  display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 
 .college {
   position: relative;
   overflow: hidden;
   transition: background 0.7s ease;
+  padding: 20px;
+    text-align: center;
+    flex: 1 0 calc(33.33% - 20px);
+    /* Each item takes up 1/3 of the container width minus the gap */
+    box-sizing: border-box;
 }
 
 .college:hover,
@@ -149,13 +166,20 @@
 .college .up .context .college_name{
   width: 100%;
   font-size: 18px;
-  margin: 0;
-  margin-bottom: 20px;
+  /* margin: 0; */
+  /* margin-bottom: 20px; */
+}
+.context {
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
 }
 
 .college .up .context span {
   font-size: 14px;
-  display: ruby;
+  /* display: ruby; */
 }
 
 /* .click-info-button {
