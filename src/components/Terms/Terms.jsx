@@ -53,7 +53,8 @@ let [iframe,setIframe]=useState(false)
     };
   }, [setFixed]);
   return (
-    <><nav className={`navbar ${fix ? 'fixed' : ''}`}>
+    <>
+    <nav className={`navbar ${fix ? 'fixed' : ''}`}>
     <div className="logo">
       <img src={Logo} alt="Logo" />
     </div>
