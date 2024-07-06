@@ -394,7 +394,7 @@
 }
 
 .search input {
-  width: 78%;
+  /* width: 78%; */
   height: 70px;
   background-color: #e4f1fe;
   appearance: none;
@@ -665,7 +665,6 @@
 
   .search {
     flex-direction: column;
-    background-color: #ffffff;
   }
 
   .search img {
