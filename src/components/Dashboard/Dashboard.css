@@ -100,7 +100,8 @@
 }
 
 .bar.open {
-  transform: rotate(-45deg) translate(-4px, 6px);
+  position: absolute;
+  transform: rotate(-45deg);
 }
 
 .bar.open:nth-child(2) {
@@ -108,7 +109,7 @@
 }
 
 .bar.open:nth-child(3) {
-  transform: rotate(45deg) translate(-4px, -6px);
+  transform: rotate(45deg) ;
 }
 
 .colleges {
@@ -238,6 +239,9 @@
     padding: 75px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 2;
+    margin-top: 50px;
   }
 
   .menu ul {
@@ -262,6 +266,9 @@
   .hamburger {
     display: flex;
     margin-right: 30px;
+    position: relative;
+    z-index: 4;
+    right: 0;
   }
 
   .bar {
@@ -293,7 +300,7 @@
 #dark .blue {
   color: #3c38b9;
 }
-
+.menu ul{gap: 40px;}
 .maintxt p {
   font-family: 'ABeeZee';
   font-size: 22px;
