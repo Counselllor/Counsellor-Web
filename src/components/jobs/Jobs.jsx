@@ -1,6 +1,6 @@
 import React from "react";
 import JobsData from "./jobs.json";
-import "./jobs.css";
+import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
@@ -10,7 +10,7 @@ const Jobs = () => {
       <Navbar />
       <div className="jobsPage-container">
         <header className="jobsPage-header">
-          <h1>Available Jobs</h1>
+          <h1 style={{color: "blue"}}>Available Jobs</h1>
         </header>
         <div className="jobsPage-list">
           {JobsData.map((job) => (
