@@ -104,7 +104,10 @@ const Contact = () => {
           <textarea id='m-textarea' className='ctextarea' class="" name="feedback" required/>
           <label className='clabel'>Message:</label>
         </div>
-        <button class="csubmit-btn" onClick={handleSubmit}>Send</button>  
+        <button className=" click-btn3 "  onClick={handleSubmit}>
+                <span className="text">Send</span>
+              </button>
+        
       </form>
     </div>
   </div>
