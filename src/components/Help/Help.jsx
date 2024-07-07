@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./Help.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -11,15 +11,36 @@ const Breadcrumb = () => {
   );
 };
 
+const FAQItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef(null);
+
+  return (
+    <div className={`faq-item ${isOpen ? "open" : ""}`}>
+      <div className="faq-question" onClick={() => setIsOpen(!isOpen)}>
+        <span className="faq-icon">{isOpen ? "−" : "+"}</span>
+        {question}
+      </div>
+      <div 
+        ref={contentRef} 
+        className="faq-answer" 
+        style={{ 
+          maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : "0px"
+        }}
+      >
+        {answer}
+      </div>
+    </div>
+  );
+};
+
 const Help = () => {
   return (
     <>
-    <BackToHomeButton />
-      {/* breadcrumb */}
+      <BackToHomeButton />
       <div className="help-container">
         <Breadcrumb />
 
-        {/* help page */}
         <div className="contents">
           <h1>Help & Support</h1>
 
@@ -38,13 +59,34 @@ const Help = () => {
           <section id="faq">
             <h2>Frequently Asked Questions</h2>
             <p>
-              Have questions? We have answers. Check out our FAQ section for solutions to common problems.
+              Still Have questions? We have answers. Check out our FAQ section for solutions to common problems.
             </p>
-            <ul>
-              <li><strong>How do I reset my password?</strong> Click on 'Forgot Password' on the login page and follow the instructions.</li>
-              <li><strong>How can I update my profile information?</strong> Go to your account settings and make the necessary changes.</li>
-              <li><strong>Where can I find my order history?</strong> Navigate to the 'Orders' section in your account dashboard.</li>
-            </ul>
+            <div className="faq-list">
+              <FAQItem 
+                question="How do I register for an account?" 
+                answer="Click on the 'Sign Up' button on the top right corner, fill in the required details, and follow the instructions sent to your email for verification." 
+              />
+              <FAQItem 
+                question="How can I connect with a counselor?" 
+                answer="Once you are logged in, go to the 'Connect' section and select 'Find a Counselor' to start a session." 
+              />
+              <FAQItem 
+                question="Is my communication with the counselor secure?" 
+                answer="Yes, all communications are encrypted to ensure your privacy and security." 
+              />
+              <FAQItem 
+                question="Can I customize my profile?" 
+                answer="Yes, you can update your profile information and preferences in the 'Profile' section." 
+              />
+              <FAQItem 
+                question="How do I view my previous chat history?" 
+                answer="Navigate to the 'Chat History' section in your account to view past conversations." 
+              />
+              <FAQItem 
+                question="What should I do if I encounter an issue?" 
+                answer="Check the troubleshooting section or contact our support team for assistance." 
+              />
+            </div>
           </section>
 
           <section id="contact-support">
@@ -107,6 +149,7 @@ const Help = () => {
             </ul>
           </section>
 
+         
           <section id="feedback">
             <h2>Feedback</h2>
             <p>
