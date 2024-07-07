@@ -154,19 +154,37 @@ const Dashboard = () => {
           style={{ backgroundColor: "#5CB6F9" }}
         />
       </div>
-      <nav className={`navbar ${fix ? 'fixed' : ''}`}>
+      <nav className={`navbar ${fix ? "fixed" : ""}`}>
         <div className="logo">
           <img src={Logo} alt="Logo" />
         </div>
         <div className={`menu ${menuOpen ? "show" : ""}`}>
           <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="./careersupport">Career Support</a></li>
-            <li className='dot'><a href="error">•</a></li>
-            <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-            <li><a href="./profile"><button className='profile_btn'>Profile</button></a></li>
+            <li>
+              <a href="/topuniversities">Top Universities</a>
+            </li>
+            <li>
+              <a href="/jobs">Jobs</a>
+            </li>
+            <li>
+              <a href="./courses">Courses</a>
+            </li>
+            <li>
+              <a href="./careersupport">Career Support</a>
+            </li>
+            <li className="dot">
+              <a href="error">•</a>
+            </li>
+            <li>
+              <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
+            </li>
+            <li>
+              <a href="./profile">
+                <button className="profile_btn">Profile</button>
+              </a>
+            </li>
             <li>
               <Switch
                 style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
@@ -179,9 +197,9 @@ const Dashboard = () => {
           </ul>
         </div>
         <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
         </div>
       </nav>
       <div className="maintxt">
@@ -201,7 +219,7 @@ const Dashboard = () => {
           <div className="vl" />
           <input
             type="text"
-            placeholder='Type college name or university name'
+            placeholder="Type college name or university name"
             value={searchTerm}
             onChange={handleSearchChange}
             style={{ outline: "1px solid black", fontSize: "20px" }}
@@ -215,34 +233,40 @@ const Dashboard = () => {
           <h2>We can't find any item matching your search</h2>
         </div>
       ) : (
-        <div className="colleges">
-          {paginatedColleges.map((college, index) => (
-            <div
-              className={`college ${activeIndex === index ? 'active' : ''}`}
-              key={college.id}
-              onClick={() => handleCollegeClick(college)}
-              onTouchStart={() => handleTouchStart(index)}
-              onTouchEnd={handleTouchEnd}
-              style={{height: "230px", width: "300px"}}
-            >
-              <div className="college-content">
-                <div className="up">
-                  <img className="college-image" src={college.imageURL} alt="College Logo" />
-                  <div className="context">
-                    <p className="college_name">{college.name}</p>
-                    <button className="btn1">{college.location}</button>
+        <div className="grid-cont"> 
+          <div className="colleges">
+            {paginatedColleges.map((college, index) => (
+              <div
+                className={`college ${activeIndex === index ? "active" : ""}`}
+                key={college.id}
+                onClick={() => handleCollegeClick(college)}
+                onTouchStart={() => handleTouchStart(index)}
+                onTouchEnd={handleTouchEnd}
+                style={{ height: "230px", width: "300px" }}
+              >
+                <div className="college-content">
+                  <div className="up">
+                    <img
+                      className="college-image"
+                      src={college.imageURL}
+                      alt="College Logo"
+                    />
+                    <div className="context">
+                      <p className="college_name">{college.name}</p>
+                      <button className="btn1">{college.location}</button>
+                    </div>
+                  </div>
+                  <div className="down">
+                    <div className="ctc">{college.ctc}</div>
+                    <div className="time">{college.time}</div>
                   </div>
                 </div>
-                <div className="down">
-                  <div className="ctc">{college.ctc}</div>
-                  <div className="time">{college.time}</div>
-                </div>
+                <button className="click-info-button click-btn2">
+                  <span className="text">Click for more info</span>
+                </button>
               </div>
-              <button className="click-info-button click-btn2">
-                <span className="text">Click for more info</span>
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
       <div className="pagination">
@@ -250,7 +274,7 @@ const Dashboard = () => {
           <button
             key={index + 1}
             onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? 'active' : ''}
+            className={currentPage === index + 1 ? "active" : ""}
           >
             {index + 1}
           </button>
