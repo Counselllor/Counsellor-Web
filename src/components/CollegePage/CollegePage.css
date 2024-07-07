@@ -71,6 +71,7 @@
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
+  justify-content: center;
 }
 
 .college-website-button:hover {
