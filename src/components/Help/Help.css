@@ -61,24 +61,11 @@ body {
 }
 
 #dark .help-container h2 {
-  color: #90b9f7 !important;
+  color: #9cbff5 !important;
 }
 
-#dark #getting-started p,ul,li , #contact-support p,ul,li , #account-management p,ul,li{
-  color: #d1e0f7 !important;
-}
- 
-#dark .contents p,
-ul,
-li {
-  color: #d1e0f7 !important;
-}
-
-
-#dark #faq p,
-ul,
-li {
-  color: #d1e0f7 !important;
+#dark .faq-question {
+  background-color: #333 !important;
 }
 
 .help-container p {
@@ -185,6 +172,3 @@ animation: animator1 forwards 0.6s;
   margin-right: 1rem;
 }
 
-#dark .faq-question{
-  background-color: #333 !important;
-}
