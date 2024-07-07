@@ -130,7 +130,7 @@
   align-items: center;
   padding: 10px;
   color: white;
-  background-color: #CAE7FE;
+  background-color: #ffffff;
 }
 
 #dark .navbar {
@@ -161,7 +161,6 @@
   float: right;
   padding: 0px 30px;
   align-items: center;
-  background-color: hsla(225, 57%, 97%, 0.722);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
