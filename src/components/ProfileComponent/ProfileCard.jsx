@@ -14,8 +14,13 @@ const ProfileCard = () => {
   const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || avatar1);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
+  const [socialProfiles, setSocialProfiles] = useState([]);
 
   useEffect(() => {
+    const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
+    console.log("Fetched socialProfiles:", storedProfiles);
+    setSocialProfiles(storedProfiles);
+
     const generateDates = () => {
       const result = [];
       const currentDate = new Date();
@@ -134,6 +139,13 @@ const ProfileCard = () => {
           <h3>{name}</h3>
           <p className="title">IIT Bombay</p>
           <p className="role">Student</p>
+          <div className="social-profiles">
+            {socialProfiles.map((profile) => (
+              <a key={profile.id} href={profile.url} target="_blank" rel="noopener noreferrer">
+                <i className={`bx bxl-${profile.name.toLowerCase()}`}></i>
+              </a>
+            ))}
+          </div>
           <div className="skills-section">
             <h2>Skills</h2>
             <ul>
@@ -142,6 +154,7 @@ const ProfileCard = () => {
               ))}
             </ul>
           </div>
+          
         </div>
       </div>
       {isEditing && (
