@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-.jobs-container {
+.jobsPage-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -20,7 +20,7 @@ body {
   /* justify-content: center; */
 }
 
-.job-card {
+.jobsPage-card {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -33,43 +33,43 @@ body {
   /* justify-content: space-between; */
 }
 
-.job-card h2 {
+.jobsPage-card h2 {
   margin-bottom: 10px;
 }
 
-.job-card h3 {
+.jobsPage-card h3 {
   font-size: 1.5em;
   margin-bottom: 10px;
   color: #555;
 }
 
-.job-card p {
+.jobsPage-card p {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-.job-title {
+.jobsPage-title {
   color: #333;
   font-size: 20px;
 }
 
-.job-company {
+.jobsPage-company {
   color: #777;
 }
 
-.job-location {
+.jobsPage-location {
   color: #999;
 }
 
-.job-description,
-.job-requirements,
-.job-benefits,
-.job-company-description {
+.jobsPage-description,
+.jobsPage-requirements,
+.jobsPage-benefits,
+.jobsPage-companyDescription {
   color: #555;
   text-align: start;
 }
 
-.jobs-header {
+.jobsPage-header {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -79,14 +79,14 @@ body {
   margin-top: 10px;
 }
 
-.job-list {
+.jobsPage-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
 }
 
-.job-card {
+.jobsPage-card {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -98,11 +98,11 @@ body {
   transition: transform 0.2s;
 }
 
-.job-card:hover {
+.jobsPage-card:hover {
   transform: translateY(-10px);
 }
 
-.apply-button {
+.jobsPage-applyButton {
   display: inline-block;
   padding: 10px 20px;
   background: #007bff;
@@ -114,19 +114,19 @@ body {
   transition: background 0.3s;
 }
 
-.apply-button:hover {
+.jobsPage-applyButton:hover {
   background: #0056b3;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .job-card {
+  .jobsPage-card {
     flex: 1 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
-  .job-card {
+  .jobsPage-card {
     flex: 1 1 100%;
   }
 }
