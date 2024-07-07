@@ -1,0 +1,135 @@
+[
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "company": "Tech Corp",
+      "location": "New York, NY",
+      "description": "Develop and maintain software applications.",
+      "salary": "$90,000 - $120,000",
+      "requirements": "Bachelor's degree in Computer Science, 3+ years of experience in software development, proficiency in Java and Python.",
+      "benefits": "Health insurance, 401(k) matching, remote work options.",
+      "companyDescription": "Tech Corp is a leading technology company focused on innovative solutions."
+    },
+    {
+      "id": 2,
+      "title": "Data Analyst",
+      "company": "Data Insights",
+      "location": "San Francisco, CA",
+      "description": "Analyze and interpret complex data sets.",
+      "salary": "$70,000 - $100,000",
+      "requirements": "Bachelor's degree in Statistics, 2+ years of experience in data analysis, proficiency in SQL and Python.",
+      "benefits": "Health insurance, gym membership, free snacks.",
+      "companyDescription": "Data Insights specializes in turning data into actionable insights for businesses."
+    },
+    {
+      "id": 3,
+      "title": "Product Manager",
+      "company": "Innovatech",
+      "location": "Boston, MA",
+      "description": "Oversee product development and strategy.",
+      "salary": "$100,000 - $140,000",
+      "requirements": "Bachelor's degree in Business, 5+ years of experience in product management, strong leadership skills.",
+      "benefits": "Stock options, health insurance, flexible hours.",
+      "companyDescription": "Innovatech is at the forefront of technological innovation, creating products that shape the future."
+    },
+    {
+      "id": 4,
+      "title": "UX Designer",
+      "company": "Design Pro",
+      "location": "Austin, TX",
+      "description": "Create user-friendly designs for web and mobile.",
+      "salary": "$80,000 - $110,000",
+      "requirements": "Bachelor's degree in Design, 3+ years of experience in UX design, proficiency in Sketch and Figma.",
+      "benefits": "Health insurance, remote work options, professional development opportunities.",
+      "companyDescription": "Design Pro is a creative agency that focuses on delivering exceptional user experiences."
+    },
+    {
+      "id": 5,
+      "title": "Marketing Specialist",
+      "company": "Market Masters",
+      "location": "Chicago, IL",
+      "description": "Develop and implement marketing campaigns.",
+      "salary": "$60,000 - $90,000",
+      "requirements": "Bachelor's degree in Marketing, 2+ years of experience in marketing, strong analytical skills.",
+      "benefits": "Health insurance, performance bonuses, travel opportunities.",
+      "companyDescription": "Market Masters is a leading marketing agency known for its innovative strategies."
+    },
+    {
+      "id": 6,
+      "title": "Sales Executive",
+      "company": "Sales Solutions",
+      "location": "Seattle, WA",
+      "description": "Drive sales and build client relationships.",
+      "salary": "$70,000 - $100,000",
+      "requirements": "Bachelor's degree in Business, 3+ years of experience in sales, excellent communication skills.",
+      "benefits": "Commission, health insurance, company car.",
+      "companyDescription": "Sales Solutions provides top-notch sales strategies to help businesses grow."
+    },
+    {
+      "id": 7,
+      "title": "HR Manager",
+      "company": "People First",
+      "location": "Miami, FL",
+      "description": "Manage recruitment and employee relations.",
+      "salary": "$80,000 - $110,000",
+      "requirements": "Bachelor's degree in HR, 5+ years of experience in human resources, strong interpersonal skills.",
+      "benefits": "Health insurance, 401(k) matching, wellness programs.",
+      "companyDescription": "People First is dedicated to creating a positive and productive work environment."
+    },
+    {
+      "id": 8,
+      "title": "Finance Analyst",
+      "company": "Fin Corp",
+      "location": "Houston, TX",
+      "description": "Analyze financial data and prepare reports.",
+      "salary": "$70,000 - $100,000",
+      "requirements": "Bachelor's degree in Finance, 2+ years of experience in financial analysis, proficiency in Excel and financial modeling.",
+      "benefits": "Health insurance, performance bonuses, stock options.",
+      "companyDescription": "Fin Corp offers comprehensive financial services to individuals and businesses."
+    },
+    {
+      "id": 9,
+      "title": "Customer Support",
+      "company": "Support Heroes",
+      "location": "Denver, CO",
+      "description": "Provide customer support and troubleshoot issues.",
+      "salary": "$40,000 - $60,000",
+      "requirements": "High school diploma, 1+ years of experience in customer support, excellent problem-solving skills.",
+      "benefits": "Health insurance, flexible hours, remote work options.",
+      "companyDescription": "Support Heroes is dedicated to providing exceptional customer service."
+    },
+    {
+      "id": 10,
+      "title": "IT Technician",
+      "company": "Tech Support",
+      "location": "Los Angeles, CA",
+      "description": "Maintain and repair IT systems and hardware.",
+      "salary": "$50,000 - $80,000",
+      "requirements": "Associate degree in IT, 2+ years of experience in IT support, strong technical skills.",
+      "benefits": "Health insurance, professional development opportunities, performance bonuses.",
+      "companyDescription": "Tech Support offers reliable IT solutions to businesses of all sizes."
+    },
+    {
+      "id": 11,
+      "title": "Business Analyst",
+      "company": "Biz Solutions",
+      "location": "Atlanta, GA",
+      "description": "Evaluate business processes and recommend improvements.",
+      "salary": "$80,000 - $110,000",
+      "requirements": "Bachelor's degree in Business, 3+ years of experience in business analysis, strong analytical skills.",
+      "benefits": "Health insurance, performance bonuses, remote work options.",
+      "companyDescription": "Biz Solutions helps companies optimize their business operations."
+    },
+    {
+      "id": 12,
+      "title": "Graphic Designer",
+      "company": "Creative Minds",
+      "location": "Portland, OR",
+      "description": "Design graphics for various media platforms.",
+      "salary": "$60,000 - $90,000",
+      "requirements": "Bachelor's degree in Graphic Design, 2+ years of experience in graphic design, proficiency in Adobe Creative Suite.",
+      "benefits": "Health insurance, flexible hours, remote work options.",
+      "companyDescription": "Creative Minds is a design studio that brings ideas to life through stunning visuals."
+    }
+  ]
+  

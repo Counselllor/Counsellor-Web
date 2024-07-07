@@ -25,6 +25,7 @@ import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
 import TopUniversities from "./components/topUniversites/TopUniversities";
+import Jobs from "./components/Jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "/topuniversities",
         errorElement: <ErrorPage />,
         element: <TopUniversities />,
+      },
+      {
+        path: "/jobs",
+        errorElement: <ErrorPage />,
+        element: <Jobs />,
       },
       {
         path: "/about",

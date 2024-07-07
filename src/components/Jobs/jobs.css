@@ -1,0 +1,132 @@
+/* Reset some basic elements */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.jobs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  /* justify-content: center; */
+}
+
+.job-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.job-card h2 {
+  margin-bottom: 10px;
+}
+
+.job-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.job-card p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.job-title {
+  color: #333;
+  font-size: 20px;
+}
+
+.job-company {
+  color: #777;
+}
+
+.job-location {
+  color: #999;
+}
+
+.job-description,
+.job-requirements,
+.job-benefits,
+.job-company-description {
+  color: #555;
+  text-align: start;
+}
+
+.jobs-header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.job-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  flex: 1 1 calc(33.333% - 40px);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.apply-button:hover {
+  background: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .job-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .job-card {
+    flex: 1 1 100%;
+  }
+}
