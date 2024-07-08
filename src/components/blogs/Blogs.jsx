@@ -7,6 +7,7 @@ import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/auth";
+import { signOut } from "firebase/auth";
 
 const blogsData = [
   {
@@ -137,7 +138,7 @@ let [isLoggedIn,setLogin]=useState(false)
           className: "toast-message",
         });
       });
-  });
+  }, [navigate]);
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
