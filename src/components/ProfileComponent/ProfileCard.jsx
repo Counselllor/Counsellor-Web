@@ -34,7 +34,6 @@ const ProfileCard = () => {
           isActive: i === 9, // set 10th date as active for demonstration
         });
       }
-
       setDates(result);
     };
 
@@ -68,6 +67,17 @@ const ProfileCard = () => {
         return prevSkills;
       }
     });
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setAvatar(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -154,7 +164,6 @@ const ProfileCard = () => {
               ))}
             </ul>
           </div>
-          
         </div>
       </div>
       {isEditing && (
@@ -185,6 +194,13 @@ const ProfileCard = () => {
                 onChange={(e) => setAcademicYear(e.target.value)}
               />
             </label>
+            
+            {/* Image upload moved here */}
+            <div className="image-upload">
+              <h3>Upload Profile Picture:</h3>
+              <input type="file" accept="image/*" onChange={handleImageUpload} />
+            </div>
+
             <div className="avatar-selection">
               <h3>Select Avatar:</h3>
               <div className="avatar-options">
