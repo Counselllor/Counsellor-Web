@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SocialProfile.css";
 
 const initialProfiles = [
@@ -33,11 +33,17 @@ const socialMediaOptions = [
 ];
 
 const SocialProfile = () => {
-  const [profiles, setProfiles] = useState(initialProfiles);
+  const [profiles, setProfiles] = useState(
+    JSON.parse(localStorage.getItem("profiles")) || initialProfiles
+  );
   const [newProfile, setNewProfile] = useState({ name: "", url: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [showNewProfileForm, setShowNewProfileForm] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+  }, [profiles]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +58,7 @@ const SocialProfile = () => {
     setProfiles([...profiles, { ...newProfile, id: profiles.length + 1 }]);
     setNewProfile({ name: "", url: "" });
     setShowNewProfileForm(false);
+    window.location.reload(); // Reload the page after adding a profile
   };
 
   const handleProfileChange = (id, url) => {
@@ -64,6 +71,7 @@ const SocialProfile = () => {
 
   const handleDeleteProfile = (id) => {
     setProfiles(profiles.filter((profile) => profile.id !== id));
+    window.location.reload(); // Reload the page after deleting a profile
   };
 
   const handleEditProfile = (id) => {
@@ -74,6 +82,7 @@ const SocialProfile = () => {
   const handleSaveProfile = () => {
     setEditingId(null);
     setIsEditing(false);
+    window.location.reload();
   };
 
   const handleUpdate = () => {
