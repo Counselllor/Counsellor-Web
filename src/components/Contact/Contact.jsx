@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { signOut} from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +8,28 @@ import './Contact.css'
 import emailjs from '@emailjs/browser';
 import { FaLinkedin,FaGithub} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Logo from "../../assets/logo.webp";
+import { Switch } from 'antd';
+import { ThemeContext } from '../../App';
+
 const Contact = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
     const navigate = useNavigate();
+    const handleThemeChange = useCallback(() => {
+      toggleTheme();
+    }, [toggleTheme]);
+    let [isLoggedIn,setLogin]=useState(false)
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // handle user logged in state
+          setLogin(true)
+        } else {
+          
+        }
+      });
+    }, [navigate]);
   let form=useRef()
     // useEffect(() => {
     //   auth.onAuthStateChanged((user) => {
@@ -48,7 +68,41 @@ const Contact = () => {
     };
   return (
     <main>
-      <Navbar/>
+       <nav className={`navbar fixed`}>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className={`menu ${menuOpen ? "show" : ""}`}>
+          <ul>
+            <li><a href="/topuniversities">Top Universities</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="./courses">Courses</a></li>
+            <li><a href="/careersupport">Career Support</a></li>
+            <li className='dot'><a href="error">•</a></li>
+            {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
+          {
+isLoggedIn&&<>
+
+           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            <li><button className='profile_btn'>Profile</button></li>
+         
+            <li>
+              <Switch
+                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+                onChange={handleThemeChange}
+                checked={theme === "dark"}
+                checkedChildren="Dark Mode"
+                unCheckedChildren="Light Mode"
+              />
+            </li> </>} 
+          </ul>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+        </div>
+      </nav>
         {/* <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
