@@ -1,11 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
-
-/* * {
-  margin: 0; 
-  box-sizing: border-box;
-} */
 
 .contact-page {
   background-color: #CAE7FE;
@@ -23,8 +18,8 @@
     font-size: 5rem;
     color: #f7f1f1;
     transition: opacity 0.3s; /* Smooth transition */
-  }
-  
+/*}
+/*  
   .clink:hover {
     opacity: 0.25;
   }
@@ -248,4 +243,114 @@
     width: 38px;
     height: 38px;
   }
+} 
+
+*/
+
+.contact-section {
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  max-width: 768px;
 }
+
+.contact-section h2 {
+  font-size: 2.25rem; /* text-4xl equivalent */
+  font-weight: bold; /* font-bold equivalent */
+  margin-bottom: 1.25rem; /* mb-5 equivalent */
+  background: linear-gradient(
+    to bottom right,
+    #d1d5db,
+    #93c5fd,
+    #374151
+  ); /* bg-gradient-to-br from-gray-300 via-blue-300 to-gray-700 equivalent */
+  -webkit-background-clip: text; /* bg-clip-text equivalent */
+  background-clip: text; /* bg-clip-text equivalent */
+  color: transparent; /* text-transparent equivalent */
+  text-align: center; /* text-center equivalent */
+  margin-top: 1rem; /* mt-4 equivalent */
+}
+
+@media (min-width: 768px) {
+  .contact-section h2 {
+    font-size: 3.75rem; /* text-6xl equivalent */
+  }
+}
+
+.contact-section p {
+  color: #6c757d; /* text-muted-foreground equivalent */
+  margin-bottom: 1.5rem; /* mb-6 equivalent */
+  text-align: center;
+}
+
+.contactbox {
+  display: grid; /* grid equivalent */
+  align-items: start; /* items-start equivalent */
+  width: 100%; /* w-full equivalent */
+  gap: 3rem; /* gap-12 equivalent */
+  margin-left: auto; /* mx-auto equivalent */
+  margin-right: auto; /* mx-auto equivalent */
+  border: 1px solid #e5e7eb; /* border equivalent (default border color is typically a light gray) */
+  margin-bottom: 1.5rem; /* mb-6 equivalent */
+  padding-top: 2.5rem; /* pt-10 equivalent */
+  padding-bottom: 1.5rem; /* pb-6 equivalent */
+  background-image: linear-gradient(
+    to bottom right,
+    #d1d5db,
+    #93c5fd,
+    #374151
+  ); /* bg-gradient-to-br from-gray-300 via-blue-300 to-gray-700 equivalent */
+  padding-left: 1rem; /* px-4 equivalent */
+  padding-right: 1rem; /* px-4 equivalent */
+  border-radius: 0.5rem; /* rounded-lg equivalent */
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1),
+    0 4px 6px -4px rgba(15, 23, 42, 0.1); /* shadow shadow-slate-800 equivalent */
+}
+
+/* Media query for lg:grid-cols-2 and lg:px-12 */
+@media (min-width: 1024px) {
+  .contactbox {
+    grid-template-columns: repeat(2, 1fr); /* lg:grid-cols-2 equivalent */
+    padding-left: 3rem; /* lg:px-12 equivalent */
+    padding-right: 3rem; /* lg:px-12 equivalent */
+  }
+}
+
+.contact-form {
+  color: #d1d5db;
+}
+
+.contact-form > * + * {
+  margin-top: 2rem;
+}
+
+.contact-field {
+  font-size: 1.125rem;
+}
+
+.contact-field > * + * {
+  margin-top: 1rem; /* space-y-4 equivalent */
+}
+
+.name-input {
+  display: flex; /* flex equivalent */
+  height: 2.5rem; /* h-10 equivalent */
+  width: 100%; /* w-full equivalent */
+  border-radius: 0.375rem; /* rounded-md equivalent */
+  border: 1px solid #374151; /* border and border-slate-700 equivalent */
+  background-color: var(
+    --background
+  ); /* bg-background equivalent; use your specific background color or variable */
+  padding-left: 0.75rem; /* px-3 equivalent */
+  padding-right: 0.75rem; /* px-3 equivalent */
+  padding-top: 0.5rem; /* py-2 equivalent */
+  padding-bottom: 0.5rem; /* py-2 equivalent */
+  font-size: 0.875rem; /* text-sm equivalent */
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.1); /* shadow-inner and shadow-slate-800 equivalent */
+  transition: border-color 0.2s; /* hover:transition-all equivalent for border color */
+}
+
+.name-input:hover {
+  border-color: #94a3b8; /* hover:border-slate-400 equivalent */
+}
+
