@@ -4,22 +4,17 @@ import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from "../backtohome";
 
-const Breadcrumb = () => {
-  return (
-    <nav className="breadcrumb">
-    </nav>
-  );
-};
+import { useNavigate } from "react-router-dom";
 
 const JoinUs = () => {
   return (
     <>
-    <BackToHomeButton />
+  <BackToHomeButton />
     <div>
        
       <div className="join-us-container">
      
-        <Breadcrumb />
+      
 
         <div className="contents">
           <h1>Join Us</h1>

@@ -124,3 +124,63 @@
 .personal-data li {
   margin: 20px;
 }
+.privacy-policy-content  p{
+  margin-top: 40px !important;
+}
+.privacy-policy-content h2,.privacy-policy-content h3,.privacy-policy-content h4{
+  color: #0d6fd7;
+}
+.privacy-policy-content h1{color: #0d6fd7 !important;}
+.privacy-policy-content p, .terms-container ul, .terms-container li{
+animation: animator1 forwards 0.6s;
+}
+@keyframes animator1 {
+    from{
+      opacity: 0;
+    }to{
+      opacity: 1;
+    }
+}
+.privacy-policy-content h2{
+  margin-top: 20px !important;
+  font-size: 36px !important;
+}
+.privacy-policy-content #licenses p{
+  margin-top: 40px;
+} 
+.privacy-policy-content p {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  font-family: "ABeeZee";
+  color: #666;
+  line-height: 1.6;
+}
+
+.privacy-policy-content h1 {
+  font-family: "ABeeZee";
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.privacy-policy-content h2 {
+color: #34495e;
+font-size: 30px;
+}
+#dark .privacy-policy-content h2 {
+  color: #7db4ee !important;
+  font-size: 30px;
+  }
+
+#dark .privacy-policy-content h1 {
+  color: #278af3 !important;
+}  
+#dark .privacy-policy-content .date span {
+  color: #e6e1e1 !important;
+}
+#dark .privacy-policy-content h3 {
+  color: #8fbef0 !important;
+  font-size: 30px;
+}

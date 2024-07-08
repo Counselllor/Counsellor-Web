@@ -527,14 +527,18 @@
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  right: 0;
+  position: absolute;
   width: 18vw;
+  top: 50px;
   padding: 10px;
   z-index: 100;
 }
-
-.toast-message:first-child{
-  margin-top: 90px;
+.toast-message button{
+  color: white;
 }
+
+
 
 @media (max-width: 960px) {
   .menu {

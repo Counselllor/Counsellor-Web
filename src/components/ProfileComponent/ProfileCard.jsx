@@ -14,8 +14,13 @@ const ProfileCard = () => {
   const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || avatar1);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
+  const [socialProfiles, setSocialProfiles] = useState([]);
 
   useEffect(() => {
+    const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
+    console.log("Fetched socialProfiles:", storedProfiles);
+    setSocialProfiles(storedProfiles);
+
     const generateDates = () => {
       const result = [];
       const currentDate = new Date();
@@ -29,7 +34,6 @@ const ProfileCard = () => {
           isActive: i === 9, // set 10th date as active for demonstration
         });
       }
-
       setDates(result);
     };
 
@@ -63,6 +67,17 @@ const ProfileCard = () => {
         return prevSkills;
       }
     });
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setAvatar(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -134,6 +149,13 @@ const ProfileCard = () => {
           <h3>{name}</h3>
           <p className="title">IIT Bombay</p>
           <p className="role">Student</p>
+          <div className="social-profiles">
+            {socialProfiles.map((profile) => (
+              <a key={profile.id} href={profile.url} target="_blank" rel="noopener noreferrer">
+                <i className={`bx bxl-${profile.name.toLowerCase()}`}></i>
+              </a>
+            ))}
+          </div>
           <div className="skills-section">
             <h2>Skills</h2>
             <ul>
@@ -172,6 +194,13 @@ const ProfileCard = () => {
                 onChange={(e) => setAcademicYear(e.target.value)}
               />
             </label>
+            
+            {/* Image upload moved here */}
+            <div className="image-upload">
+              <h3>Upload Profile Picture:</h3>
+              <input type="file" accept="image/*" onChange={handleImageUpload} />
+            </div>
+
             <div className="avatar-selection">
               <h3>Select Avatar:</h3>
               <div className="avatar-options">

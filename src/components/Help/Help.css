@@ -50,11 +50,22 @@ body {
   margin-bottom: 1rem;
   color: #3C38B9;
 }
+#dark .help-container h1 {
+  color: #7067ec !important;
+}
 
 .help-container h2 {
   color: #00073e;
   font-size: 30px;
   margin-top: 10px;
+}
+
+#dark .help-container h2 {
+  color: #9cbff5 !important;
+}
+
+#dark .faq-question {
+  background-color: #333 !important;
 }
 
 .help-container p {
@@ -78,6 +89,47 @@ body {
   color: #00073e;
 }
 
+
+
+
+
+.help-container  p{
+  margin-top: 40px !important;
+}
+.help-container h2,.help-container h3,.help-container h4{
+  color: #0d6fd7;
+}
+.help-container h1{color: #0d6fd7 !important;}
+.help-container p, .terms-container ul, .terms-container li{
+animation: animator1 forwards 0.6s;
+}
+@keyframes animator1 {
+    from{
+      opacity: 0;
+    }to{
+      opacity: 1;
+    }
+}
+.help-container h2{
+  margin-top: 20px !important;
+  font-size: 36px !important;
+}
+.help-container #licenses p{
+  margin-top: 40px;
+} 
+.help-container p {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  font-family: "ABeeZee";
+  color: #666;
+  line-height: 1.6;
+}
+
+.help-container h2 {
+  color: #34495e;
+  font-size: 30px;
+  }
+=======
 .faq-item {
   margin-bottom: 1rem;
   border: 1px solid #007bff;
@@ -119,3 +171,4 @@ body {
   font-size: 24px;
   margin-right: 1rem;
 }
+
