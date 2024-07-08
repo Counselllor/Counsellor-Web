@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CareerSupport.css';
 import Navbar from '../Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
+import { auth } from "../../firebase/auth";
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({
@@ -15,13 +17,26 @@ const CareerSupport = () => {
       ...prevState,
       [name]: value
     }));
-  };
 
+  };
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
   };
+
 
   return (
     <div className="career-support">

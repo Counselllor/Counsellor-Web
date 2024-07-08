@@ -29,15 +29,17 @@ const Navbar = () => {
   const [error, setError] = useState(null);
   const [fix, setFix] = useState(false);
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-      } else {
-        navigate('/');
-      }
-    });
-  }, [navigate]);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       // handle user logged in state
+  //     } else {
+
+  //         navigate('/');
+        
+  //     }
+  //   });
+  // }, [navigate]);
 
   const handleSignOut = () => {
     signOut(auth)

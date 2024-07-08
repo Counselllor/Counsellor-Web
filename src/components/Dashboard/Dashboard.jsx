@@ -30,21 +30,26 @@ const Dashboard = () => {
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
   useEffect(() => {
+    
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        toast.success("Logged in! 🚀", {
-          className: "toast-message",
-        });
-      } else {
-        toast.success("Logged out!", {
-          className: "toast-message",
-        });
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-      }
-    });
-    return () => unsubscribe();
+          if(localStorage.getItem('count')!=='false'){
+          toast.success("Logged in! 🚀", {
+            className: "toast-message",
+          });
+          localStorage.setItem('count',false)
+        }
+        } else {
+          toast.success("Logged out!", {
+            className: "toast-message",
+          });
+
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+        }
+      });
+      return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {

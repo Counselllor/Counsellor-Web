@@ -11,15 +11,15 @@ import { MdEmail } from "react-icons/md";
 const Contact = () => {
     const navigate = useNavigate();
   let form=useRef()
-    useEffect(() => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          // read
-        } else if (!user) {
-          navigate("/");
-        }
-      });
-    }, []);
+    // useEffect(() => {
+    //   auth.onAuthStateChanged((user) => {
+    //     if (user) {
+    //       // read
+    //     } else if (!user) {
+    //       navigate("/");
+    //     }
+    //   });
+    // }, []);
     function handleSubmit(e){
       e.preventDefault();
       let params={

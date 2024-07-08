@@ -1,15 +1,28 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useState, useContext, useCallback, useEffect } from "react";
 import "./Courses.css";
 import coursesData from "./courses.json";
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { Switch } from "antd";
 import { ThemeContext } from "../../App";
+import { auth } from "../../firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
 
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
