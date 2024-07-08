@@ -19,7 +19,10 @@
   color: white ;
   } 
   #dark .terms-container h2{
-    color: #3b99ff;
+    color: #60a4ee !important;
+  }
+  #dark .terms-container h1{
+    color: #4491e4 !important;
   }
   .terms-container #cookies{
     margin-top: 50px;
