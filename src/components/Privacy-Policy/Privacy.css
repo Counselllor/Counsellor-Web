@@ -170,6 +170,17 @@ color: #34495e;
 font-size: 30px;
 }
 #dark .privacy-policy-content h2 {
-  color: #1e83ef !important;
+  color: #7db4ee !important;
   font-size: 30px;
   }
+
+#dark .privacy-policy-content h1 {
+  color: #278af3 !important;
+}  
+#dark .privacy-policy-content .date span {
+  color: #e6e1e1 !important;
+}
+#dark .privacy-policy-content h3 {
+  color: #8fbef0 !important;
+  font-size: 30px;
+}
