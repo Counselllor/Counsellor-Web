@@ -50,11 +50,22 @@ body {
   margin-bottom: 1rem;
   color: #3C38B9;
 }
+#dark .help-container h1 {
+  color: #7067ec !important;
+}
 
 .help-container h2 {
   color: #00073e;
   font-size: 30px;
   margin-top: 10px;
+}
+
+#dark .help-container h2 {
+  color: #9cbff5 !important;
+}
+
+#dark .faq-question {
+  background-color: #333 !important;
 }
 
 .help-container p {
@@ -118,10 +129,6 @@ animation: animator1 forwards 0.6s;
   color: #34495e;
   font-size: 30px;
   }
-  #dark .help-container h2 {
-    color: #1e83ef !important;
-    font-size: 30px;
-    }
 =======
 .faq-item {
   margin-bottom: 1rem;
