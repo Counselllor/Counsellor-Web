@@ -2,315 +2,213 @@
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   margin-top: 60px;
 }
 
-.left {
+
+.left,
+.right {
   display: flex;
   flex-direction: column;
-  
-  
+  width: 50%;
 }
 
 .content {
   background-color: rgb(26, 165, 224);
-  width: 50vw;
-  overflow: hidden;
-  position: relative;
+  padding: 20px;
   text-align: start;
-  text-wrap: wrap;
-  overflow: hidden;
-  height: 100%;
- 
+}
+#dark .content{
+background-color: rgb(24, 23, 23) !important;
 }
 
-  .abeezee-regular {
-    font-family: "ABeeZee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
- 
+.abeezee-regular {
+  font-family: "ABeeZee", sans-serif;
+}
+
 .college-name {
   font-weight: bolder;
   font-size: 30px;
-  width: 90%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0;
+  text-align: center;
 }
 
-
 .description-card {
-  display: flex;
-  width: 90%;
-  margin-right: 10%;
-  margin-left: 5%;
+  margin: 20px 0;
 }
 
 .description {
   font-weight: 600;
   font-size: 18px;
+  text-align: center;
 }
 
 .group {
   display: flex;
   flex-direction: row;
-}
-
-.location {
-  display: flex;
-  flex-direction: row;
-  width: 30%;
-  margin-left: 5%;
   align-items: center;
-  background-color: rgba(255, 255, 255,0.2);
-  margin-bottom: 10px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
 }
-.icon{
-  width: 20%;
 
-}
-.location-depth {
+.location{
   display: flex;
-  width: 80%;
-  flex-direction: column;
-  width: auto;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 20px; */
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 20px;
+    height: 80px;
+    width: 280px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.location-heading {
-margin-top: 0px;
-  font-size: 20px;
-
-  margin-bottom: 0px;
-}
-.rating-text{
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 15px;
-  
-  gap: 6px;
-}
-.rating-heading{
-  font-size: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.location-text {
-
-  font-size: 15px;
-margin-top: 0px;
-margin-bottom: 0px;
-  
-}
-.rate{
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-
+#dark .location .icon{
+  color: white !important;
 }
 .rating {
   display: flex;
-  width: 30%;
-  background-color: rgba(255, 255, 255,0.2);
-  margin-bottom: 10px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  gap: 10px;
-
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  /* margin:0 15px; */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 20px;
   height: 80px;
+    width: 140px;
+}
+.rating-star{
+  padding: 5px 0;
+}
+#dark .rating-star{
+  color: white !important;
 }
 
-
-
-.image {
-  display: flex;
-  margin-left: 0px;
-  height: 50% !important;
-  width: 40vw;
-  object-fit: cover;
-  margin-bottom: 0px !important;
-  position: absolute;
-  bottom: 0px;
-  margin-left: 5vw;
+.location-depth {
+  margin-left: 10px;
 }
 
+.location-heading,
+.rating-heading {
+  margin: 0;
+  font-size: 15px;
+}
 
+.location-text,
+.rating-text {
+  margin: 5px 0 0 0;
+  font-size: 15px;
+}
 
 .search-button {
   background-color: rgb(23, 23, 70);
-  /* z-index: 100 !important; */
   color: white;
-  padding: 10px;
-  border-radius: 6px;
-  margin-left: 30px;
-  height: 50px;
-  width: 150px;
-  margin-top: 15px;
-}
-.right{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50vw;
-  background-color: #cae8ff;
-}
-.search-button a{
-  text-decoration:none;
-  color:white;
-}
-.search-button a:hover{
-  cursor:pointer;
-}
-.searchCourses {
-  border-radius: 15px;
-  width: 40vw;
-  margin-left: 5vw;
-  margin-top: 120px;
-  background-color: #c5d5d4;
   padding: 10px 20px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  text-align: center;
+  height: 50px;
+  width: 160px;
+}
+#dark .search-button{
+  background-color: rgb(75, 72, 72) !important;
+}
+
+.search-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.image {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 90px;
+  border-radius: 10px;
+  margin-left: 50px;
+}
+
+.right {
+  background-color: #cae8ff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.searchCourses {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#courseList {
+  padding: 10px;
   font-size: 16px;
+  border-radius: 15px;
   border: none;
-  cursor: pointer;
   outline: none;
 }
 
-.input-courses {
-  width: 30vw;
+.student-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5cb6f9;
+  padding: 35px;
+  width: 60%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-.st{
-  width: 80%;
-  flex-direction: column;
-  gap: 4px;
-  height: 100%;
+#dark .student-card{
+  background-color: rgb(66, 64, 64) !important;
 }
 
-.student-card {
-  margin-top: 25px;
-  background-color: #5cb6f9;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: auto;
-  width:38vw;
+.student-image img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
-.clipped-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
-}
-.clipped-text1{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  height: calc(1.2em * 3);
-}
-.student {
-  background-color: rgb(229, 234, 234);
-  color: rgb(29, 31, 155);
-  font-size: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+
+.student-name {
+  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 .student-description {
   display: flex;
-  flex-direction: row;
-  font-size: 10px;
-}
-
-.course , .branch,.year {
-  font-size: 15px;
-}
-
-.branch {
-  margin-right: 6px;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 5px 0;
 }
 
 .position {
-  display: flex;
-  font-size: 16px;
-  font-weight:bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
 }
-@media only screen and (max-width:829px){
-.student-card{
-  width: 80vw;
-}
-.searchCourses{
-  width: 80vw;
-}
-}
-@media only screen and (max-width:314px){
-  .clipped-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
-  }
-  .clipped-text1{
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    height: calc(1.2em * 3);
-  }
-}
-@media only screen and (max-width:385px){
-  .student-card{
-    flex-direction: column;
-  }
-  .student-card img{
-    margin-top: 10px;
-  }
-  .student-description{
-    flex-direction: column;
-  }
-  .st{
-    align-items: center;
-    display: flex;
-  }
-} 
 
-@media only screen and (max-width:829px){
-  .page{
+@media only screen and (max-width: 829px) {
+  .page {
     flex-direction: column;
-    height: calc(200vh - 60px );
-    margin-top: 0px;
+    min-height: auto;
   }
-  .left{
-    height: 50%;
-    width: 100vw;
-  }
-  .content{
-    height: 100%;
-    width: 100vw;
 
+  .left,
+  .right {
+    width: 100%;
   }
-  .image{
-    width: 100vw;
-  }
-  .right{
-    width: 100vw;
-    height: 50%;
-    justify-content: start !important;
+
+  .content,
+  .right {
+    padding: 20px;
   }
 }
