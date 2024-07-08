@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useContext, useRef } from "react";
 import "./Dashboard.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom"; // Import Link from react-router-dom
 import Logo from "../../assets/logo.webp";
 import SearchIcon from "../../assets/search_icon.png"; // Correct import
 import { signOut } from "firebase/auth";
@@ -156,7 +156,9 @@ const Dashboard = () => {
       </div>
       <nav className={`navbar ${fix ? "fixed" : ""}`}>
         <div className="logo">
-          <img src={Logo} alt="Logo" />
+          <Link to="/dashboard">
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <div className={`menu ${menuOpen ? "show" : ""}`}>
           <ul>
