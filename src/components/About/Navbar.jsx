@@ -99,7 +99,6 @@ const MenuSection = ({ user, handleSignOut, menuOpen, theme, handleThemeChange }
         <MenuItem href="#">Jobs</MenuItem>
         <MenuItem href="#">Courses</MenuItem>
         <MenuItem href="#">Career Support</MenuItem>
-        <MenuItem href="#" dot>•</MenuItem>
         {user ? (
           <>
             <MenuItem>
