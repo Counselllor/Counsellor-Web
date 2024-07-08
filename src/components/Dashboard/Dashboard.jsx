@@ -33,7 +33,11 @@ const Dashboard = () => {
     
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
+
           if(localStorage.getItem('count')!=='false'){
+
+       
+
           toast.success("Logged in! 🚀", {
             className: "toast-message",
           });

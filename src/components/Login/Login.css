@@ -317,6 +317,8 @@ form div {
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  min-width: 200px;
+  right: 0;
   width: 18vw;
   padding: 10px;
 }
