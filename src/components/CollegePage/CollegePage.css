@@ -1,316 +1,215 @@
-.page {
+.college-page-container {
   display: flex;
-  flex-direction: row;
-  background-color: aliceblue;
-  height: calc(100vh - 60px);
-  margin-top: 60px;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-top: 50px;
+  justify-content: space-evenly;
 }
 
-.left {
-  display: flex;
-  flex-direction: column;
-  
-  
+.college-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.content {
-  background-color: rgb(26, 165, 224);
-  width: 50vw;
-  overflow: hidden;
-  position: relative;
-  text-align: start;
-  text-wrap: wrap;
-  overflow: hidden;
-  height: 100%;
- 
-}
-
-  .abeezee-regular {
-    font-family: "ABeeZee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
- 
 .college-name {
-  font-weight: bolder;
-  font-size: 30px;
-  width: 90%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 5%;
-  margin-right: 5%;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-
-.description-card {
-  display: flex;
-  width: 90%;
-  margin-right: 10%;
-  margin-left: 5%;
-}
-
-.description {
-  font-weight: 600;
+.college-description {
   font-size: 18px;
+  text-align: start;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-.group {
+.college-details {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.location {
+.college-location,
+.college-rating {
   display: flex;
-  flex-direction: row;
-  width: 30%;
-  margin-left: 5%;
   align-items: center;
-  background-color: rgba(255, 255, 255,0.2);
-  margin-bottom: 10px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-.icon{
-  width: 20%;
-
-}
-.location-depth {
-  display: flex;
-  width: 80%;
-  flex-direction: column;
-  width: auto;
-}
-
-.location-heading {
-margin-top: 0px;
-  font-size: 20px;
-
-  margin-bottom: 0px;
-}
-.rating-text{
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 15px;
-  
-  gap: 6px;
-}
-.rating-heading{
-  font-size: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.location-text {
-
-  font-size: 15px;
-margin-top: 0px;
-margin-bottom: 0px;
-  
-}
-.rate{
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-
-}
-.rating {
-  display: flex;
-  width: 30%;
-  background-color: rgba(255, 255, 255,0.2);
-  margin-bottom: 10px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   gap: 10px;
-
-  flex-direction: row;
-  align-items: center;
-  height: 80px;
 }
 
-
-
-.image {
-  display: flex;
-  margin-left: 0px;
-  height: 50% !important;
-  width: 40vw;
-  object-fit: cover;
-  margin-bottom: 0px !important;
-  position: absolute;
-  bottom: 0px;
-  margin-left: 5vw;
+.icon {
+  font-size: 24px;
+  color: #555;
 }
 
-
-
-.search-button {
-  background-color: rgb(23, 23, 70);
-  /* z-index: 100 !important; */
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-  margin-left: 30px;
-  height: 50px;
-  width: 150px;
-  margin-top: 15px;
-}
-.right{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50vw;
-  background-color: #cae8ff;
-}
-.search-button a{
-  text-decoration:none;
-  color:white;
-}
-.search-button a:hover{
-  cursor:pointer;
-}
-.searchCourses {
-  border-radius: 15px;
-  width: 40vw;
-  margin-left: 5vw;
-  margin-top: 120px;
-  background-color: #c5d5d4;
-  padding: 10px 20px;
+.detail-heading {
   font-size: 16px;
-  border: none;
-  cursor: pointer;
-  outline: none;
+  text-align: start;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.input-courses {
-  width: 30vw;
+.detail-text {
+  font-size: 14px;
+  color: #555;
 }
-.st{
-  width: 80%;
-  flex-direction: column;
-  gap: 4px;
-  height: 100%;
+
+.college-website-button {
+  background-color: #5cb6f9;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  justify-content: center;
+}
+
+.college-website-button:hover {
+  background-color: #4793d6;
+}
+
+.college-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.students-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+.course-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .student-card {
-  margin-top: 25px;
-  background-color: #5cb6f9;
-  border-radius: 20px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: auto;
-  width:38vw;
-}
-.clipped-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
-}
-.clipped-text1{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  height: calc(1.2em * 3);
-}
-.student {
-  background-color: rgb(229, 234, 234);
-  color: rgb(29, 31, 155);
-  font-size: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.student-description {
-  display: flex;
-  flex-direction: row;
-  font-size: 10px;
-}
-
-.course , .branch,.year {
-  font-size: 15px;
-}
-
-.branch {
-  margin-right: 6px;
-}
-
-.position {
-  display: flex;
-  font-size: 16px;
-  font-weight:bold;
-  margin-top: 20px;
+  /* align-items: center; */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
   margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-@media only screen and (max-width:829px){
-.student-card{
-  width: 80vw;
-}
-.searchCourses{
-  width: 80vw;
-}
-}
-@media only screen and (max-width:314px){
-  .clipped-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
-  }
-  .clipped-text1{
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    height: calc(1.2em * 3);
-  }
-}
-@media only screen and (max-width:385px){
-  .student-card{
-    flex-direction: column;
-  }
-  .student-card img{
-    margin-top: 10px;
-  }
-  .student-description{
-    flex-direction: column;
-  }
-  .st{
-    align-items: center;
-    display: flex;
-  }
-} 
 
-@media only screen and (max-width:829px){
-  .page{
-    flex-direction: column;
-    height: calc(200vh - 60px );
-    margin-top: 0px;
-  }
-  .left{
-    height: 50%;
-    width: 100vw;
-  }
-  .content{
-    height: 100%;
-    width: 100vw;
+.student-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
 
+.student-info {
+  text-align: start;
+  margin-left: 10px;
+}
+
+.student-name {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.student-course,
+.student-branch,
+.student-year,
+.student-position {
+  font-size: 14px;
+  color: #555;
+}
+
+.cards {
+  display: grid;
+  gap: 16px; /* Adjust gap as needed */
+}
+
+.card1 {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card2 {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card3 {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card4 {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover {
+  cursor: pointer;
+}
+
+/* Large screens: 2 cards per row */
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .image{
-    width: 100vw;
+}
+
+/* Small screens: 1 card per row */
+@media (max-width: 767px) {
+  .cards {
+    grid-template-columns: 1fr;
   }
-  .right{
-    width: 100vw;
-    height: 50%;
-    justify-content: start !important;
+}
+
+@media (max-width: 768px) {
+  .college-details {
+    flex-direction: column;
   }
+
+  .college-page-container {
+    flex-direction: column;
+  }
+
+  .college-page-container,
+  .students-section {
+    padding: 10px;
+  }
+}
+
+.upcoming {
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding-block: 20px;
 }

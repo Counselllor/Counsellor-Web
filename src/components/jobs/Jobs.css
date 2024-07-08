@@ -1,0 +1,133 @@
+/* Reset some basic elements */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #cae7fe;
+}
+
+.jobsPage-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  /* justify-content: center; */
+}
+
+.jobsPage-card {
+  background-color: #cae7fe;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.jobsPage-card h2 {
+  margin-bottom: 10px;
+}
+
+.jobsPage-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.jobsPage-card p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.jobsPage-title {
+  color: #333;
+  font-size: 20px;
+}
+
+.jobsPage-company {
+  color: #777;
+}
+
+.jobsPage-location {
+  color: #999;
+}
+
+.jobsPage-description,
+.jobsPage-requirements,
+.jobsPage-benefits,
+.jobsPage-companyDescription {
+  color: #555;
+  text-align: start;
+}
+
+.jobsPage-header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+.jobsPage-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.jobsPage-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  flex: 1 1 calc(33.333% - 40px);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.jobsPage-card:hover {
+  transform: translateY(-10px);
+}
+
+.jobsPage-applyButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.jobsPage-applyButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .jobsPage-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .jobsPage-card {
+    flex: 1 1 100%;
+  }
+}
