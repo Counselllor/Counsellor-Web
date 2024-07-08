@@ -1,10 +1,12 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import './Blogs.css'; // Import CSS file for styles
 import BackToHomeButton from "../backtohome";
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/auth";
 
 const blogsData = [
   {
@@ -108,11 +110,21 @@ const blogsData = [
 const Blogs = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
-
+let [isLoggedIn,setLogin]=useState(false)
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
-
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+        setLogin(true)
+      } else {
+        
+      }
+    });
+  }, [navigate]);
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
@@ -144,7 +156,10 @@ const Blogs = () => {
             <li><a href="./courses">Courses</a></li>
             <li><a href="/careersupport">Career Support</a></li>
             <li className='dot'><a href="error">•</a></li>
-            <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+          {
+isLoggedIn&&
+           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+          } 
             <li><button className='profile_btn'>Profile</button></li>
             <li>
               <Switch
