@@ -124,7 +124,9 @@ const MenuSection = ({ user, handleSignOut, menuOpen }) => (
         </>
       ) : (
         <MenuItem>
-          <a href="/">Login</a>
+           <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
         </MenuItem>
       )}
     </ul>
