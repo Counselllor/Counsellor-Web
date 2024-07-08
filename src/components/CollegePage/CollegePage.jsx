@@ -9,6 +9,7 @@ import { auth } from "../../firebase/auth";
 import { Icon } from "@iconify/react";
 import ScrollToTop from "react-scroll-to-top";
 import { FaStar } from "react-icons/fa";
+import Footer from "../Footer/Footer";
 
 const CollegePage = () => {
   useEffect(() => {
@@ -143,6 +144,8 @@ const CollegePage = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
