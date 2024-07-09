@@ -70,9 +70,7 @@ const Contact = () => {
               />
             </div>
             <div className="contact-field">
-              <label htmlFor="message" className="text-lg">
-                Message{" "}
-              </label>
+              <label htmlFor="message">Message </label>
               <textarea
                 className="message-input"
                 id="message"
