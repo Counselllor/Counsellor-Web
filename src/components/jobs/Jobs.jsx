@@ -20,7 +20,6 @@ const Jobs = () => {
               <h3 className="jobsPage-company">{job.company}</h3>
               <p className="jobsPage-description">{job.description}</p>
               <p className="jobsPage-location">Location: {job.location}</p>
-              <p className="jobsPage-type">Type: {job.type}</p>
               <button className="jobsPage-apply">Apply Now</button>
             </div>
           ))}
