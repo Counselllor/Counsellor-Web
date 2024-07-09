@@ -36,8 +36,6 @@ const Contact = () => {
     });
   }
 
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main>
       <Navbar />
