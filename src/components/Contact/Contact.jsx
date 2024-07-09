@@ -9,6 +9,7 @@ import emailjs from '@emailjs/browser';
 import { FaLinkedin,FaGithub} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 const Contact = () => {
+  const [Alert,setAlert]=useState({alert:false,text:"",status:false})
     const navigate = useNavigate();
   let form=useRef()
     useEffect(() => {
@@ -27,10 +28,44 @@ const Contact = () => {
         email:form.current.email.value,
         feedback:form.current.feedback.value
       }
-      emailjs.send('service_kszura2',"template_u8shl9d",params ,{
-        publicKey:"rSYpY_RsF76o4MgcA",
-      })
+      // emailjs.send('service_kszura2',"template_u8shl9d",params ,{
+      //   publicKey:"rSYpY_RsF76o4MgcA",
+      // })
+      async function postData() {
+        const url = 'http://localhost:5000/contactUs';
+      
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(params)
+          });
+          const data = await response.json();
+          if(data.ok){
+           handleClear(true,"Success",true)
+          } 
+          else{
+            handleClear(true,"Something went wrong",false)
+          }
+        } catch (error) {
+          console.log('Error during POST request:', error); 
+        }
+      }
+       
+      postData();   
+      function handleClear(data,text,status){
+        form.current.name.value=""
+        form.current.email.value=""
+        form.current.feedback.value="" 
+          setAlert({alert:data,text:text,status:status}) 
+          setTimeout(()=>{
+            setAlert({alert:false,text:"",status:false})
+          },2000)
+      }
     }
+
     const handleSignOut = () => {
       signOut(auth)
         .then(() => {
@@ -49,6 +84,11 @@ const Contact = () => {
   return (
     <main>
       <Navbar/>
+      {
+        Alert.alert?<div className={`Alerting ${Alert.status?"success_msg":"Fail_msg"}`}>
+         <p>{Alert.text}</p>
+        </div>:<></>
+      }
         {/* <nav className="navbar">
           <div className="logo">
             <img src={Logo} alt="Logo" />
