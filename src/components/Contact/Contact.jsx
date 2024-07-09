@@ -7,13 +7,11 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
 import { FaPhone } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 
 const Contact = () => {
   const navigate = useNavigate();
