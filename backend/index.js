@@ -1,7 +1,7 @@
-import express from 'express'
+const express=require('express')
 const app=express()
-import mailing from './mail/mail.mjs'
-import cors from 'cors'
+const mailing=require('./mail/mail.js')
+const cors=require('cors')
 const corsOptions = {
     origin: 'https://counsellor.social',
      methods: ['GET', 'POST'], // Allow only GET and POST requests

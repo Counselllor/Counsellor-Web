@@ -1,6 +1,5 @@
-import nodeMailer from 'nodemailer'
-import dotenv from 'dotenv';
-dotenv.config();
+const nodeMailer=require('nodemailer')
+require('dotenv').config() 
 const mailing=async(name,userMail,message)=>{ 
 let HTML=`<!DOCTYPE html>
 <html lang="en">
@@ -58,6 +57,6 @@ const receiver={
         return false;
     }  
 }
-export default mailing
+module.exports=mailing
 
  
