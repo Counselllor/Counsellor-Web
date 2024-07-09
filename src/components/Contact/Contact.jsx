@@ -45,7 +45,7 @@ const Contact = () => {
           possible.
         </p>
         <div className="contactbox">
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" onSubmit={() => handleSubmit(e)}>
             <div className="contact-field">
               <label htmlFor="namefield">Name </label>
               <input
