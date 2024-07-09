@@ -56,41 +56,19 @@ const Contact = () => {
   return (
     <main>
       <Navbar />
-      {/* <nav className="navbar">
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-          <div className={`menu ${menuOpen ? 'show' : ''}`}>
-            <ul>
-              
-              <li><a href="#">Top Universities</a></li>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Carrier Support</a></li>
-              <li className='dot'><a href="#">•</a></li>
-              <li><a href="#" onClick={handleSignOut}>Log Out</a></li>
-              <li><a href="#"><button className='profile_btn'>Profile</button></a></li>
-            </ul>
-          </div>
-          <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}/>
-          </div>
-        </nav> */}
-      <section className="contact-section w-full px-2 max-w-screen-md">
+      <section className="contact-section">
         <h2>Let&apos;s Get in Touch</h2>
-        <p>
+        <p className="pline">
           Fill out the form below and we&apos;ll get back to you as soon as
           possible.
         </p>
         <div className="contactbox">
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-field">
-              <label htmlFor="name" />
+              <label htmlFor="namefield" />
               Name
               <input
-                id="name"
+                id="namefield"
                 type="text"
                 required
                 className="name-input"
@@ -100,12 +78,12 @@ const Contact = () => {
             </div>
 
             <div className="contact-field">
-              <label htmlFor="email" /> Email
+              <label htmlFor="emailfield" /> Email
               <input
-                id="email"
+                id="emailfield"
                 placeholder="Enter your email"
                 type="email"
-                className="flex h-10 w-full rounded-md border border-slate-700 bg-background px-3 py-2 text-sm file:text-sm file:font-medium placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 shadow-inner shadow-slate-800 hover:border-slate-400 hover:transition-al"
+                className="name-input"
                 name="email"
                 required
               />
@@ -114,88 +92,61 @@ const Contact = () => {
               <label htmlFor="message" className="text-lg" />
               Message
               <textarea
-                className="min-h-[100px] mb-5 text-white shadow-inner shadow-slate-800
-                flex w-full rounded-md border border-slate-700 bg-background px-3 py-2 text-sm ring-offset-background   placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 hover:border-slate-400 hover:transition-all"
+                className="message-input"
                 id="message"
                 placeholder="Enter your message"
                 name="message"
               />
             </div>
-            <button
-              className="bg-gradient-to-br relative group/btn from-slate-800 to-slate-700 block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] py-2 hover:from-slate-700 hover:to-slate-800 hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] duration-300 ease-in-out text-center transition-all"
-              type="submit"
-            >
+            <button className="submit-btn" type="submit">
               Send
-              <LuSend className="inline mx-2 h-4" />
+              <LuSend className="send-icon" />
             </button>
           </form>
           <div>
-            <h3 className="text-2xl font-semibold mb-10 text-slate-300">
-              Connect with Us
-            </h3>
-            <div className="flex gap-8 mb-12">
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-slate-600 shadow-inner shadow-gray-800 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <MdEmail className="w-5 h-5" />
+            <h3 className="connect-text">Connect with Us</h3>
+            <div className="connect1">
+              <Link className="connect-link" to="#">
+                <MdEmail className="connect-icon" />
               </Link>
-              <div className="text-md text-slate-300">
+              <div className="connect-line">
                 <p>Email to us at </p>
-                <p>innov8@gmail.com</p>
+                <p>abc@gmail.com</p>
               </div>
             </div>
 
-            <div className="flex gap-8 mb-12">
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-slate-600 shadow-inner shadow-gray-800 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <FaPhone className="w-5 h-5" />
+            <div className="connect1">
+              <Link className="connect-link" to="#">
+                <FaPhone className="connect-icon" />
               </Link>
-              <div className="text-md text-slate-300">
+              <div className="connect-line">
                 <p>Call us at </p>
                 <p>XXXXX XXXXX</p>
               </div>
             </div>
 
-            <div className="flex gap-8 mb-12">
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-slate-600 px-2 shadow-inner shadow-gray-800 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <IoLocationOutline className="w-5 h-5" />
+            <div className="connect1">
+              <Link className="location-connect-link" to="#">
+                <IoLocationOutline className="connect-icon" />
               </Link>
-              <div className="text-md text-slate-300">
+              <div className="connect-line">
                 <p>Location at </p>
-                <p>Techno Main Salt Lake, Sector-V, Kolkata-700091</p>
+                <p>XXXXX XXXXX</p>
               </div>
             </div>
 
-            <div className="flex space-x-12 py-7">
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-slate-600 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <FaTwitter className="w-5 h-5 text-white" />
+            <div className="social-links">
+              <Link className="link1" to="#">
+                <FaTwitter className="linkicon" />
               </Link>
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-slate-600 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <FaFacebook className="w-5 h-5 text-white" />
+              <Link className="link1" to="#">
+                <FaFacebook className="linkicon" />
               </Link>
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-slate-700  hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <FaLinkedin className="w-5 h-5 text-white" />
+              <Link className="link1" to="#">
+                <FaLinkedin className="linkicon" />
               </Link>
-              <Link
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-slate-700 hover:shadow-md hover:shadow-slate-500 hover:transition hover:duration-300 hover:ease-in-out"
-                href="#"
-              >
-                <FaGithub className="w-5 h-5 text-white" />
+              <Link className="link1" to="#">
+                <FaGithub className="linkicon" />
               </Link>
             </div>
           </div>
