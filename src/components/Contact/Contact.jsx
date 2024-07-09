@@ -35,21 +35,9 @@ const Contact = () => {
       publicKey: "rSYpY_RsF76o4MgcA",
     });
   }
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
   return (
     <main>
       <Navbar />
