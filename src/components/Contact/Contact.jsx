@@ -13,7 +13,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 const Contact = () => {
   const navigate = useNavigate();
-  let form = useRef();
+  const form = useRef();
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -25,7 +25,7 @@ const Contact = () => {
   }, []);
   function handleSubmit(e) {
     e.preventDefault();
-    let params = {
+    const params = {
       name: form.current.name.value,
       email: form.current.email.value,
       feedback: form.current.feedback.value,
