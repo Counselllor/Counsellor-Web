@@ -122,10 +122,12 @@
 
 .accordion .accordion-content.active {
   opacity: 0.8;
-  max-height: 9em;
+  height: auto;
+  max-height: 400px;
   text-align: left;
   margin-left: 30px;
   transition: opacity 200ms linear, max-height 200ms linear;
+  overflow: auto;
 }
 
 .accordion .accordion-content p {

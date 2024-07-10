@@ -1,34 +1,44 @@
 import "./Terms.css";
-import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from '../backtohome';
 
-const Breadcrumb = () => {
-  return (
-    <nav className="breadcrumb">
-    </nav>
-  );
-};
+import { useCallback, useContext, useEffect, useState } from "react";
+
 
 const Terms = () => {
+
+  const setFixed = useCallback(() => {
+    if (window.scrollY > 0) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, [setFixed]);
   return (
     <>
+
     <BackToHomeButton />
+    
       {/* breadcrumb */}
       <div className="terms-container">
       
-        <Breadcrumb />
+        
         {/* terms page */}
         <div className="contents">
           <h1>Terms & Conditions</h1>
           <section id="cookies">
             <h2>Cookies</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error
-              aut esse deserunt corrupti neque, animi pariatur inventore porro
-              amet ducimus dolores praesentium nam nostrum, ex rerum! Excepturi
-              molestiae voluptates eaque!
-            </p>
+            <ul>
+              <li>We use cookies to enhance user experience.</li>
+              <li>Cookies help us understand user preferences.</li>
+              <li>By using our site, you consent to the use of cookies.</li>
+            </ul>
           </section>
           <section id="license">
             <h2>License</h2>
@@ -47,7 +57,9 @@ const Terms = () => {
               <li>Redistribute content from CrickClub24</li>
             </ul>
           </section>
-          <section id="hyperlinking">
+    
+     
+         <section id="hyperlinking">
             <h2>Hyperlinking to our Content</h2>
             <p>
               The following organizations may link to our Website without prior
@@ -60,15 +72,15 @@ const Terms = () => {
               <li>Online directory distributors;</li>
               <li>System wide Accredited Businesses.</li>
             </ul>
-          </section>
-          <section id="iframes">
+          </section> 
+        
+         <section id="iframes">
             <h2>iFrames</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-              ullam repudiandae voluptatem corrupti deleniti dolores iusto quo
-              beatae modi possimus.
-            </p>
+            <ul>
+              <li>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</li>
+            </ul>
           </section>
+
           <section id="liability">
             <h2>Content Liability</h2>
             <p>

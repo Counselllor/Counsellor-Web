@@ -231,10 +231,10 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   border: 1px solid var(--color-item);
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   transition: border-color 0.3s ease-in-out;
 }
 
@@ -242,6 +242,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(18, 34, 157, 0.5)
 }
 
 .form-group textarea {
@@ -443,3 +444,5 @@
 .career-support__form textarea:focus::placeholder {
   color: transparent;
 }
+
+

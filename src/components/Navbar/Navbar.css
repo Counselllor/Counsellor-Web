@@ -183,7 +183,8 @@
 }
 
 .bar.open {
-  transform: rotate(-45deg) translate(-4px, 6px);
+  transform: rotate(-45deg);
+  position: absolute;
 }
 
 .bar.open:nth-child(2) {
@@ -191,7 +192,7 @@
 }
 
 .bar.open:nth-child(3) {
-  transform: rotate(45deg) translate(-4px, -6px);
+  transform: rotate(45deg);
 }
 
 .colleges {
@@ -337,6 +338,7 @@
   .dot {
     display: none;
   }
+.menu ul{gap: 40px;}
 }
 
 .maintxt {
@@ -525,14 +527,18 @@
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  right: 0;
+  position: absolute;
   width: 18vw;
+  top: 50px;
   padding: 10px;
   z-index: 100;
 }
-
-.toast-message:first-child{
-  margin-top: 90px;
+.toast-message button{
+  color: white;
 }
+
+
 
 @media (max-width: 960px) {
   .menu {
@@ -541,22 +547,22 @@
   .colleges{
     display:flex;
     justify-content:center;
-    margin-left:0px;
+    margin-left:5%;
     padding-right:20px;
     
   }
   .college{
     display:flex;
     flex-direction:column;
-    justify-content: left;
+    justify-content: center;
     margin-left:0px;
-    padding: 40px;
+    padding: 30px;
     width:65vw;
   }
-  .college-content{
+  /* .college-content{
     margin-right:10px;
     padding-right:30px;
-  }
+  } */
   .up{
     padding-right:120px;
     margin-left:0px;
@@ -565,9 +571,9 @@
     padding-right:20px;
     margin-right:10px;
   }
-  .college_name{
+  /* .college_name{
     padding-right:20px;
-  }
+  } */
   .menu.show {
     display: block;
   }
