@@ -1,9 +1,15 @@
+.overlayhelp{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .page {
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
-  min-height: calc(100vh - 60px);
-  margin-top: 60px;
+  min-height: calc(100vh - 5px);
+  margin-top: -60px;
 }
 
 
@@ -15,12 +21,13 @@
 }
 
 .content {
-  background-color: rgb(26, 165, 224);
+  /* background-color: rgb(26, 165, 224); */
+  /* background-image: {college.imageURL}; */
   padding: 20px;
   text-align: start;
 }
 #dark .content{
-background-color: rgb(24, 23, 23) !important;
+/* background-color: rgb(24, 23, 23) !important; */
 }
 
 .abeezee-regular {
@@ -55,7 +62,7 @@ background-color: rgb(24, 23, 23) !important;
     align-items: center;
     justify-content: center;
     /* margin-right: 20px; */
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(83, 189, 216,0.7);
     padding: 10px;
     border-radius: 20px;
     height: 80px;
@@ -75,6 +82,7 @@ background-color: rgb(24, 23, 23) !important;
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(83, 189, 216,0.7);
   padding: 10px;
   border-radius: 20px;
   height: 80px;
@@ -104,7 +112,7 @@ background-color: rgb(24, 23, 23) !important;
 }
 
 .search-button {
-  background-color: rgb(23, 23, 70);
+  background-color: rgb(2, 2, 26);
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -131,10 +139,13 @@ background-color: rgb(24, 23, 23) !important;
   border-radius: 10px;
   margin-left: 50px;
 }
-
+.content{
+  padding-top: 40px;
+}
 .right {
   background-color: #cae8ff;
   padding: 20px;
+  padding-top: 70px;
   overflow-y: auto;
 }
 
@@ -147,18 +158,21 @@ background-color: rgb(24, 23, 23) !important;
 #courseList {
   padding: 10px;
   font-size: 16px;
-  border-radius: 15px;
+  border-radius: 20px;
   border: none;
   outline: none;
+  width: 80%;
+  background-color: rgba(56, 53, 53, 0.3);
+  font-weight: bold;
 }
 
 .student-card {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background-color: #5cb6f9;
-  padding: 35px;
-  width: 60%;
+  /* padding: 35px; */
+  width: 90%;
   border-radius: 20px;
   margin-bottom: 20px;
   text-align: center;
@@ -173,27 +187,44 @@ background-color: rgb(24, 23, 23) !important;
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin:0 20px;
 }
 
 .student-name {
-  font-size: 25px;
+  font-size: 15px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 15px;
+  width: 50%;
   padding: 5px 10px;
+  margin-top: 10px;
+  text-align: left;
 }
 
 .student-description {
   display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  padding: 5px 0;
-}
-
-.position {
-  font-size: 18px;
+  gap: 7px;
+  /* flex-direction: column; */
+  font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+  padding: 5px 0;
+}
+/* 
+.position {
+  font-size: 16px;
+  margin: 10px 0;
+  text-align: left;
+} */
+
+.student-seentime{
+  display: flex;
+  font-size: 16px;
+  gap: 15px;
+    margin: 10px 0;
+    text-align: left;
+}
+.sst2{
+  color: gray;
 }
 
 @media only screen and (max-width: 829px) {

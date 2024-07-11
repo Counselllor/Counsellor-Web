@@ -60,21 +60,46 @@ const CollegePage = () => {
   };
 
   const imgArray = [
-    "/src/assets/avatar1.png",
-    "/src/assets/avatar2.png",
-    "/src/assets/avatar3.png",
-    "/src/assets/avatar4.png",
-    "/src/assets/avatar1.png",
-    "/src/assets/avatar2.png",
+    "/src/assets/9.png",
+    "/src/assets/11.png",
+    "/src/assets/10.png",
+    "/src/assets/8.png",
+    "/src/assets/9.png",
+    "/src/assets/11.png",
   ];
+  const collegeImageURL = college.imageURL;
+
+  const contentStyle = {
+    backgroundImage: collegeImageURL ? `url(${collegeImageURL})` : "none",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    padding: "10px",
+    // paddingTop: "70px",
+    paddingBottom: "70px",
+    textAlign: "start",
+    opacity: "0.8",
+    position: "relative",
+    zIndex:5,
+  };
+
+  const overlayStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    padding: "20px",
+    zIndex: 1, // Ensure the overlay is on top
+  };
+
 
   return (
     <>
       <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
-      <Navbar />
+      <Navbar className="overlayhelp"/>
       <div className="page">
-        <div className="left">
-          <div className="content">
+        <div className="left" style={contentStyle}>
+          <div className="content" style={overlayStyle}>
             <h1 className="college-name abeezee-regular">{college.name}</h1>
             <div className="description-card">
               <p className="description clipped-text abeezee-regular">
@@ -116,7 +141,7 @@ const CollegePage = () => {
                 </a>
               </button>
             </div>
-            <img className="image" src={college.imageURL} alt={college.name} />
+            {/* <img className="image" src={college.imageURL} alt={college.name} /> */}
           </div>
         </div>
         <div className="right">
@@ -150,7 +175,10 @@ const CollegePage = () => {
                   <p className="abeezee-regular">{student.branch}</p>
                   <p className="abeezee-regular">{student.year}</p>
                 </div>
+                <div className="student-seentime">
                 <p className="position abeezee-regular">{student.position}</p>
+                <p className="sst2">3 min ago</p>
+                </div>
               </div>
             </div>
           ))}
