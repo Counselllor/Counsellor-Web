@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./ProfileCard.css";
 import avatar1 from "../../assets/avatar1.png";
 import avatar2 from "../../assets/avatar2.png";
+import { database  } from "../../firebase/auth";
+import { ref, get } from "firebase/database";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
@@ -16,7 +18,7 @@ const ProfileCard = () => {
   const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
   const [socialProfiles, setSocialProfiles] = useState([]);
   const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
-
+  const [userData, setUserData] = useState("");
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
     console.log("Fetched socialProfiles:", storedProfiles);
@@ -40,7 +42,18 @@ const ProfileCard = () => {
 
     generateDates();
   }, []);
+  console.log(userData)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await fetchUserData(localStorage.getItem("userUid"));
+      setUserData(userData);
+      setName((userData.firstname+" "+userData.surname) || "Alex Foam");
+     setDob(userData.dob || "2000-01-21");
+    };
+
+    fetchData();
+  }, []);
   const handleEdit = () => {
     setIsEditing(true);
   };
@@ -81,6 +94,19 @@ const ProfileCard = () => {
     };
     if (file) {
       reader.readAsDataURL(file);
+    }
+  };
+
+  const fetchUserData = async (uid) => {
+    const userRef = ref(database, `users/${uid}`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+      // localStorage.setItem('Userid', userData.id);
+      return userData; // Return user data
+    } else {
+      console.error('No data available');
+      return null; // Return null if no data available
     }
   };
 
@@ -144,16 +170,16 @@ const ProfileCard = () => {
             </p>
           </div>
           <div className="about-info">
-            <h3>Email : </h3> <p>counsellor@gmail.com</p>
+            <h3>Email:</h3> <p>{userData.email}</p>
           </div>
           <div className="about-info">
             <h3>Phone : </h3> <p>+918795768574</p>
           </div>
           <div className="about-info">
-            <h3>Gender : </h3> <p>Male</p>
+            <h3>Gender : </h3> <p>{userData.gender}</p>
           </div>
           <div className="about-info">
-            <h3>BirthDate : </h3> <p>{dob}</p>
+            <h3>BirthDate : </h3> <p>{userData.dob}</p>
           </div>
           <div className="about-info">
             <h3>College : </h3> <p>IIT Bombay</p>
