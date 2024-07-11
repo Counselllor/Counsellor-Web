@@ -183,9 +183,6 @@ const Dashboard = () => {
             <li>
               <a href="./careersupport">Career Support</a>
             </li>
-            <li className="dot">
-              <a href="error">•</a>
-            </li>
             <li>
               <a href="/" onClick={handleSignOut}>
                 Log Out
