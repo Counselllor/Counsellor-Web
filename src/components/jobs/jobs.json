@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "title": "Software Engineer",
+        "company": "Tech Innovators",
+        "location": "San Francisco, CA",
+        "salary": "$120,000 - $140,000",
+        "description": "Develop and maintain web applications.",
+        "requirements": "3+ years of experience in software development.",
+        "benefits": "Health insurance, 401(k), flexible hours.",
+        "companyDescription": "A leading tech company specializing in innovative solutions."
+    },
+    {
+        "id": 2,
+        "title": "Product Manager",
+        "company": "Market Leaders",
+        "location": "New York, NY",
+        "salary": "$110,000 - $130,000",
+        "description": "Manage product lifecycle from concept to launch.",
+        "requirements": "5+ years of experience in product management.",
+        "benefits": "Health insurance, stock options, remote work.",
+        "companyDescription": "A market leader in consumer products."
+    },
+    {
+        "id": 3,
+        "title": "Data Scientist",
+        "company": "Data Insights",
+        "location": "Chicago, IL",
+        "salary": "$100,000 - $120,000",
+        "description": "Analyze large datasets to extract actionable insights.",
+        "requirements": "2+ years of experience in data science.",
+        "benefits": "Health insurance, paid time off, professional development.",
+        "companyDescription": "A company focused on data-driven decision making."
+    },
+    {
+        "id": 4,
+        "title": "UX Designer",
+        "company": "Creative Solutions",
+        "location": "Austin, TX",
+        "salary": "$90,000 - $110,000",
+        "description": "Design user interfaces and improve user experience.",
+        "requirements": "3+ years of experience in UX design.",
+        "benefits": "Health insurance, work-life balance, creative environment.",
+        "companyDescription": "A creative agency providing innovative design solutions."
+    },
+    {
+        "id": 5,
+        "title": "Marketing Specialist",
+        "company": "Growth Hackers",
+        "location": "Los Angeles, CA",
+        "salary": "$70,000 - $90,000",
+        "description": "Develop and implement marketing strategies.",
+        "requirements": "2+ years of experience in marketing.",
+        "benefits": "Health insurance, performance bonuses, remote work options.",
+        "companyDescription": "A fast-growing marketing agency."
+    },
+    {
+        "id": 6,
+        "title": "HR Manager",
+        "company": "People First",
+        "location": "Seattle, WA",
+        "salary": "$80,000 - $100,000",
+        "description": "Oversee HR operations and develop HR policies.",
+        "requirements": "5+ years of experience in HR management.",
+        "benefits": "Health insurance, retirement plan, flexible schedule.",
+        "companyDescription": "A company committed to putting people first."
+    },
+    {
+        "id": 7,
+        "title": "Sales Representative",
+        "company": "Sales Experts",
+        "location": "Miami, FL",
+        "salary": "$60,000 - $80,000",
+        "description": "Drive sales and build customer relationships.",
+        "requirements": "2+ years of experience in sales.",
+        "benefits": "Health insurance, commission, travel opportunities.",
+        "companyDescription": "A leading provider of sales solutions."
+    },
+    {
+        "id": 8,
+        "title": "Customer Support Specialist",
+        "company": "Support Hub",
+        "location": "Denver, CO",
+        "salary": "$50,000 - $70,000",
+        "description": "Provide exceptional customer support and resolve issues.",
+        "requirements": "1+ year of experience in customer support.",
+        "benefits": "Health insurance, remote work, career growth.",
+        "companyDescription": "A company dedicated to providing top-notch support services."
+    },
+    {
+        "id": 9,
+        "title": "Finance Analyst",
+        "company": "Finance Gurus",
+        "location": "Boston, MA",
+        "salary": "$80,000 - $100,000",
+        "description": "Analyze financial data and prepare reports.",
+        "requirements": "3+ years of experience in finance.",
+        "benefits": "Health insurance, retirement plan, professional development.",
+        "companyDescription": "A financial consulting firm."
+    },
+    {
+        "id": 10,
+        "title": "Project Manager",
+        "company": "Project Masters",
+        "location": "Atlanta, GA",
+        "salary": "$90,000 - $110,000",
+        "description": "Manage projects and ensure timely delivery.",
+        "requirements": "4+ years of experience in project management.",
+        "benefits": "Health insurance, performance bonuses, remote work options.",
+        "companyDescription": "A project management consulting company."
+    },
+    {
+        "id": 11,
+        "title": "DevOps Engineer",
+        "company": "Cloud Solutions",
+        "location": "San Diego, CA",
+        "salary": "$110,000 - $130,000",
+        "description": "Implement and manage CI/CD pipelines.",
+        "requirements": "3+ years of experience in DevOps.",
+        "benefits": "Health insurance, stock options, flexible hours.",
+        "companyDescription": "A company providing cloud infrastructure solutions."
+    },
+    {
+        "id": 12,
+        "title": "Content Writer",
+        "company": "Creative Writers",
+        "location": "Remote",
+        "salary": "$40,000 - $60,000",
+        "description": "Write and edit content for various platforms.",
+        "requirements": "2+ years of experience in content writing.",
+        "benefits": "Health insurance, remote work, creative freedom.",
+        "companyDescription": "A content creation agency."
+    }
+]
