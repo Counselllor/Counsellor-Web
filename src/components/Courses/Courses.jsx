@@ -1,14 +1,30 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useState, useContext, useCallback, useEffect } from "react";
 import "./Courses.css";
 import coursesData from "./courses.json";
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { Switch } from "antd";
 import { ThemeContext } from "../../App";
+import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/auth";
+import { toast } from 'react-toastify';
 
 const Courses = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]); 
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -22,7 +38,7 @@ const Courses = () => {
           className: "toast-message",
         });
       });
-  });
+  }, [navigate]);
 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
@@ -30,13 +46,15 @@ const Courses = () => {
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
-  });
+  }, [menuOpen]);
 
   return (
     <>
       <nav className={`navbar fixed`}>
         <div className="logo">
-          <img src={Logo} alt="Logo" />
+          <Link to="/dashboard">
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <div className={`menu ${menuOpen ? "show" : ""}`}>
           <ul>
@@ -51,9 +69,6 @@ const Courses = () => {
             </li>
             <li>
               <a href="/careersupport">Career Support</a>
-            </li>
-            <li className="dot">
-              <a href="error">•</a>
             </li>
             <li>
               <a href="/" onClick={handleSignOut}>
