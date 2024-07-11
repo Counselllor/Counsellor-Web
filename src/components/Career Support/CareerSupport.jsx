@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CareerSupport.css';
 import Navbar from '../Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
+import { auth } from "../../firebase/auth";
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,7 @@ const CareerSupport = () => {
     email: '',
     message: ''
   });
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -15,13 +18,31 @@ const CareerSupport = () => {
       ...prevState,
       [name]: value
     }));
-  };
 
+  };
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
+    setShowPopup(true);
   };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
 
   return (
     <div className="career-support">
@@ -175,6 +196,16 @@ const CareerSupport = () => {
         <p className="career-support__cta-text">Join thousands of professionals who have accelerated their careers with our support.</p>
         <button className="career-support__cta-button">Get Started Today</button>
       </section>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Thank You!</h2>
+            <p>Your message has been sent successfully. We will reach out to you soon.</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
