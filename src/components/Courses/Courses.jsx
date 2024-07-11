@@ -5,8 +5,10 @@ import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { Switch } from "antd";
 import { ThemeContext } from "../../App";
+import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const Courses = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +24,8 @@ const Courses = () => {
         
       }
     });
-  }, [navigate]);
+  }, [navigate]); 
+
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
@@ -35,7 +38,7 @@ const Courses = () => {
           className: "toast-message",
         });
       });
-  });
+  }, [navigate]);
 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
@@ -43,13 +46,15 @@ const Courses = () => {
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
-  });
+  }, [menuOpen]);
 
   return (
     <>
       <nav className={`navbar fixed`}>
         <div className="logo">
-          <img src={Logo} alt="Logo" />
+          <Link to="/dashboard">
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <div className={`menu ${menuOpen ? "show" : ""}`}>
           <ul>

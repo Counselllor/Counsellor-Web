@@ -88,9 +88,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${fix ? 'fixed' : ''}`}>
-      <div className="logo">
-        <img src={Logo} alt="Logo" />
-      </div>
+      <LogoSection />
       <MenuSection user={user} handleSignOut={handleSignOut} menuOpen={menuOpen} />
       <HamburgerSection toggleMenu={toggleMenu} menuOpen={menuOpen} handleKeyPress={handleKeyPress} />
     </nav>
@@ -100,7 +98,9 @@ const Navbar = () => {
 // Logo Section Component
 const LogoSection = () => (
   <div className="logo">
-    <img src={Logo} alt="Logo" />
+    <Link to="/dashboard">
+      <img src={Logo} alt="Logo" />
+    </Link>
   </div>
 );
 
