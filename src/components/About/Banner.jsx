@@ -10,7 +10,7 @@ const Banner = () => {
         </h1>
 
         <button className="btn_ btn--white btn--animated">
-          Discover Who We Are?
+         <a href="/">Discover Who We Are?</a> 
         </button>
       </div>
     </header>
