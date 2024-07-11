@@ -108,10 +108,10 @@ const LogoSection = () => (
 const MenuSection = ({ user, handleSignOut, menuOpen }) => (
   <div className={`menu ${menuOpen ? 'show' : ''}`}>
     <ul>
-      <MenuItem href="#">Top Universities</MenuItem>
-      <MenuItem href="#">Jobs</MenuItem>
-      <MenuItem href="#">Courses</MenuItem>
-      <MenuItem href="#">Career Support</MenuItem>
+      <MenuItem href="/top-university">Top Universities</MenuItem>
+      <MenuItem href="/jobs">Jobs</MenuItem>
+      <MenuItem href="/cources">Courses</MenuItem>
+      <MenuItem href="/careersupport">Career Support</MenuItem>
       <MenuItem href="#" dot>•</MenuItem>
       {user ? (
         <>
