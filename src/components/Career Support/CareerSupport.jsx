@@ -16,7 +16,7 @@ const CareerSupport = () => {
     message: ''
   });
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+const [showPopup,setShowPopup]=useState(false)
   const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,7 +48,6 @@ const CareerSupport = () => {
     }));
 
   };
-  let navigate=useNavigate()
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
