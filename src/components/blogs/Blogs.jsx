@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import './Blogs.css'; // Import CSS file for styles
 import BackToHomeButton from "../backtohome";
 import Footer from "../Footer/Footer";
@@ -112,16 +112,30 @@ const blogsData = [
 const Blogs = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
+let [isLoggedIn,setLogin]=useState(false)
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
+  let navigate=useNavigate()
+  useEffect(() => {
+    if(localStorage.getItem('login')){
 
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
+        
+    //   }
+    // });
+  }, [navigate]);
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
         setTimeout(() => {
+          localStorage.removeItem('login')
+
           navigate("/");
         }, 1000);
       })
@@ -151,8 +165,13 @@ const Blogs = () => {
             <li><a href="./courses">Courses</a></li>
             <li><a href="/careersupport">Career Support</a></li>
             <li className='dot'><a href="error">•</a></li>
-            <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
+          {
+isLoggedIn&&<>
+
+           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
             <li><button className='profile_btn'>Profile</button></li>
+         
             <li>
               <Switch
                 style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
@@ -161,7 +180,7 @@ const Blogs = () => {
                 checkedChildren="Dark Mode"
                 unCheckedChildren="Light Mode"
               />
-            </li>
+            </li> </>} 
           </ul>
         </div>
         <div className="hamburger" onClick={toggleMenu}>

@@ -1,14 +1,91 @@
-import React from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import "./Joinus.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from "../backtohome";
-
+import Logo from "../../assets/logo.webp";
+import { auth } from "../../firebase/auth";
+import { Switch } from 'antd';
+import { signOut} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+import { ThemeContext } from "../../App";
+
+
 const JoinUs = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
+
+const navigate = useNavigate();
+
+let [isLoggedIn,setLogin]=useState(false)
+  useEffect(() => {
+    if(localStorage.getItem('login')){
+
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
+        
+    //   }
+    // });
+  }, [navigate]);
+const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem('login')
+
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
   return (
-    <>
+    <> 
+    <nav className={`navbar fixed`}>
+    <div className="logo">
+      <img src={Logo} alt="Logo" />
+    </div>
+    <div className={`menu ${menuOpen ? "show" : ""}`}>
+      <ul>
+        <li><a href="/topuniversities">Top Universities</a></li>
+        <li><a href="/jobs">Jobs</a></li>
+        <li><a href="./courses">Courses</a></li>
+        <li><a href="/careersupport">Career Support</a></li>
+        <li className='dot'><a href="error">•</a></li>
+        {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
+      {
+isLoggedIn&&<>
+
+       <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+        <li><button className='profile_btn'>Profile</button></li>
+     
+        <li>
+          <Switch
+            style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+            onChange={handleThemeChange}
+            checked={theme === "dark"}
+            checkedChildren="Dark Mode"
+            unCheckedChildren="Light Mode"
+          />
+        </li> </>} 
+      </ul>
+    </div>
+    <div className="hamburger" onClick={toggleMenu}>
+      <div className={`bar ${menuOpen ? 'open' : ''}`} />
+      <div className={`bar ${menuOpen ? 'open' : ''}`} />
+      <div className={`bar ${menuOpen ? 'open' : ''}`} />
+    </div>
+  </nav> 
   <BackToHomeButton />
     <div>
        
