@@ -10,6 +10,7 @@ const CareerSupport = () => {
     email: '',
     message: ''
   });
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +36,11 @@ const CareerSupport = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
 
@@ -190,6 +196,16 @@ const CareerSupport = () => {
         <p className="career-support__cta-text">Join thousands of professionals who have accelerated their careers with our support.</p>
         <button className="career-support__cta-button">Get Started Today</button>
       </section>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Thank You!</h2>
+            <p>Your message has been sent successfully. We will reach out to you soon.</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
