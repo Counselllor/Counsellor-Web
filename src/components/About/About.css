@@ -121,6 +121,10 @@ body {
   color: white;
 }
 
+.btn_ a {
+  text-decoration: none;
+}
+
 .heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
