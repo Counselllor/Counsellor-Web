@@ -26,18 +26,23 @@ const navigate = useNavigate();
 
 let [isLoggedIn,setLogin]=useState(false)
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-        setLogin(true)
-      } else {
+    if(localStorage.getItem('login')){
+
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
         
-      }
-    });
+    //   }
+    // });
   }, [navigate]);
 const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem('login')
+
         navigate("/");
       })
       .catch((err) => {

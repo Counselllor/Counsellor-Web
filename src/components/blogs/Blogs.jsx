@@ -118,19 +118,24 @@ let [isLoggedIn,setLogin]=useState(false)
   }, [toggleTheme]);
   let navigate=useNavigate()
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-        setLogin(true)
-      } else {
+    if(localStorage.getItem('login')){
+
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
         
-      }
-    });
+    //   }
+    // });
   }, [navigate]);
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
         setTimeout(() => {
+          localStorage.removeItem('login')
+
           navigate("/");
         }, 1000);
       })

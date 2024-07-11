@@ -25,20 +25,26 @@ const toggleMenu = () => {
   setMenuOpen(!menuOpen);
 }
 let [isLoggedIn,setLogin]=useState(false)
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-        setLogin(true)
-      } else {
-        
-      }
-    });
-  }, [navigate]);
+useEffect(() => {
+  if(localStorage.getItem('login')){
+
+    setLogin(true)
+  }
+  // auth.onAuthStateChanged((user) => {
+  //   if (user) {
+  //     // handle user logged in state
+  //   } else {
+      
+  //   }
+  // });
+}, [navigate]);
 const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem('login')
+
         navigate("/");
+
       })
       .catch((err) => {
         alert(err.message);

@@ -52,23 +52,28 @@ const Help = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem('islogin')
         navigate("/");
+
       })
       .catch((err) => {
         alert(err.message);
       });
   };
   let [isLoggedIn,setLogin]=useState(false)
-    useEffect(() => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          // handle user logged in state
-          setLogin(true)
-        } else {
-          
-        }
-      });
-    }, [navigate]);
+  useEffect(() => {
+    if(localStorage.getItem('login')){
+
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
+        
+    //   }
+    // });
+  }, [navigate]);
   return (
     <>
       <nav className={`navbar fixed`}>

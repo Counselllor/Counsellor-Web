@@ -102,6 +102,7 @@ export default function Login() {
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
           setTimeout(() => {
+            localStorage.setItem('login',true)
             navigate("/dashboard");
           }, 2000);
         })
