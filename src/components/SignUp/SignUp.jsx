@@ -119,7 +119,7 @@ const SignUpForm = () => {
     });
   }
 
-  function writeUserData(userId, email, userInfo) {
+   function writeUserData (userId, email, userInfo) {
     const { firstName, surname, dob, gender, age } = userInfo;
     const user_type = userInfo["user-type"];
     set(ref(database, "users/" + userId), {
@@ -132,6 +132,7 @@ const SignUpForm = () => {
       age: age,
       user_type: user_type,
     });
+   
   }
 
   let navigate = useNavigate();
@@ -178,6 +179,10 @@ const SignUpForm = () => {
           registerInformation.email,
           registerInformation.password
         );
+        const encodedEmail = registerInformation.email.replace(/[^a-zA-Z0-9]/g, '_');
+      const emailRef = ref(database, `email/${encodedEmail}`);
+      set(emailRef, userId);
+        localStorage.setItem("userUid", userId);
         //save data only when user google verification is complete
         writeUserData(userId, registerInformation.email, userInfo);
         navigate("/");
