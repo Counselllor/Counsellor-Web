@@ -1,9 +1,10 @@
-// FAQs.jsx
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import './FAQs.css';
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const faqs = [
     {
@@ -19,7 +20,7 @@ const FAQs = () => {
       answer: (
         <>
           Yes, of course! Here is the repository <a href="https://github.com/Counselllor/Counsellor-Web" className="repo-link" target="_blank" rel="noopener noreferrer"> link</a>.
-          <br/>But make sure to follow our contribution rules and regulations before making any contribution.
+          <br />But make sure to follow our contribution rules and regulations before making any contribution.
         </>
       ),
     },
@@ -27,6 +28,16 @@ const FAQs = () => {
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    document.getElementById('email').value = '';
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -48,19 +59,26 @@ const FAQs = () => {
           </div>
         ))}
       </div>
-      <section class="newsletter-section">
+      <section className="newsletter-section">
         <h2>Stay updated with our latest news!</h2>
         <p>Subscribe to our newsletter to receive exclusive updates, promotions, and more.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email" placeholder="Enter your email address"/>
-            <button id="subscribe-btn">Subscribe</button>
+        <form id="newsletter-form" onSubmit={handleSubscribe}>
+          <input type="email" id="email" placeholder="Enter your email address" required />
+          <button id="subscribe-btn" type="submit">Subscribe</button>
         </form>
-        
-        <div id="newsletter-response"></div>
-        </section>
-
+      </section>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Subscription Confirmation"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <h2>Thank you!</h2>
+        <p>Thank you for subscribing to our newsletter. <br />Stay tuned to hear about our new updates.</p>
+        <button onClick={closeModal}>Close</button>
+      </Modal>
     </div>
-    
   );
 };
 
