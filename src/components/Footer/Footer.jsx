@@ -29,12 +29,12 @@ const Footer = () => {
             </p>
           </div>
           <ul className="social-icons">
-            <li><a href="https://github.com/Counselllor/Counsellor-Web" target="_blank" rel="noreferrer"><FaGithub /></a></li>
-            <li><a href="https://discord.com" target="_blank" rel="noreferrer"><FaDiscord /></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FaInstagram /></a></li>
-            <li><a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FaFacebook /></a></li>
-            <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a></li>
-            <li><a href="https://slack.com" target="_blank" rel="noreferrer"><FaSlack /></a></li>
+          <li><a href="https://github.com/Counselllor/Counsellor-Web" target="_blank" rel="noreferrer" title="Github"> <FaGithub /></a></li>         
+             <li><a href="https://discord.com" target="_blank" rel="noreferrer" title="Discord"><FaDiscord /></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer" title="Instagram"><FaInstagram /></a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noreferrer" title="Facebook"><FaFacebook /></a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn"><FaLinkedin /></a></li>
+            <li><a href="https://slack.com" target="_blank" rel="noreferrer" title="Slack"><FaSlack /></a></li>
           </ul>
         </div>
       </div>
