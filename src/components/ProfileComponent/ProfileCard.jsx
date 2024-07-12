@@ -109,6 +109,8 @@ const ProfileCard = () => {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  };
+
   const handleResumeUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
