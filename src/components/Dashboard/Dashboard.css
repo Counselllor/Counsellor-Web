@@ -587,7 +587,7 @@
   display: grid;
   grid-template-columns: 1fr;
   margin: auto;
-  width: 80vw;
+  width: 100vw;
   margin-top: 120px;
   padding-left: 50px;
   padding-right: 50px;
@@ -876,7 +876,9 @@
       grid-column: span 1;
     }
 }
-
+.college {
+  min-width: 300px !important;
+}
 /* Mobile L (425px) */
 @media (max-width: 425px) {
   .colleges {
@@ -1001,4 +1003,21 @@
 .colleges{
       display: flex;
       flex-wrap: wrap;
+}
+
+
+
+.colleges1{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  gap: 30px !important;
+}
+@media only screen and (max-width:377px){
+  .colleges1  {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
 }
