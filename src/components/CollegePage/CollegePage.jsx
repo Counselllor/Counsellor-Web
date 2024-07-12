@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import collegesData from "../Dashboard/colleges.json";
 import studentsData from "./students.json";
 import "./CollegePage.css";
@@ -10,6 +10,8 @@ import { auth } from "../../firebase/auth";
 import { Icon } from "@iconify/react";
 import ScrollToTop from "react-scroll-to-top";
 import { FaStar } from "react-icons/fa6";
+import { ThemeContext } from "../../App";
+import { Switch } from "antd";
 
 const CollegePage = () => {
   useEffect(() => {
@@ -24,14 +26,11 @@ const CollegePage = () => {
       if (user) {
         // handle user logged in state
       } else {
-
-          navigate('/');
-        
+        navigate("/");
       }
     });
   }, [navigate]);
-  const college = collegesData.find(college => college.id === parseInt(id));
-
+  const college = collegesData.find((college) => college.id === parseInt(id));
 
   if (!college) {
     return <div>College not found</div>;
@@ -44,20 +43,68 @@ const CollegePage = () => {
   );
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const [showPopup, setShowPopup] = useState(false);
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message, {
+          className: "toast-message",
+        });
       });
+  }, [navigate]);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  }, []);
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     console.log("Form submitted:", formData);
+     setFormData({ name: "", email: "", message: "" });
+     setShowPopup(true);
+   };
+
+   const closePopup = () => {
+     setShowPopup(false);
+   };
+   const [fix, setFix] = useState(false);
+
+   const setFixed = useCallback(() => {
+     if (window.scrollY > 0) {
+       setFix(true);
+     } else {
+       setFix(false);
+     }
+   }, []);
+
+   useEffect(() => {
+     window.addEventListener("scroll", setFixed);
+     return () => {
+       window.removeEventListener("scroll", setFixed);
+     };
+   }, [setFixed]);
 
   const imgArray = [
     "/src/assets/9.png",
@@ -67,39 +114,63 @@ const CollegePage = () => {
     "/src/assets/9.png",
     "/src/assets/11.png",
   ];
-  const collegeImageURL = college.imageURL;
 
-  const contentStyle = {
-    backgroundImage: collegeImageURL ? `url(${collegeImageURL})` : "none",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    padding: "10px",
-    // paddingTop: "70px",
-    paddingBottom: "70px",
-    textAlign: "start",
-    opacity: "0.8",
-    position: "relative",
-    zIndex:5,
-  };
-
-  const overlayStyle = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    padding: "20px",
-    zIndex: 1, // Ensure the overlay is on top
-  };
-
+ 
 
   return (
     <>
       <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
-      <Navbar className="overlayhelp"/>
+      <nav className={`navbar ${fix ? "fixed" : ""}`}>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className={`menu ${menuOpen ? "show" : ""}`}>
+          <ul>
+            <li>
+              <a href="/topuniversities">Top Universities</a>
+            </li>
+            <li>
+              <a href="/jobs">Jobs</a>
+            </li>
+            <li>
+              <a href="./courses">Courses</a>
+            </li>
+            <li>
+              <a href="./careersupport">Career Support</a>
+            </li>
+            <li className="dot">
+              <a href="error">•</a>
+            </li>
+            <li>
+              <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
+            </li>
+            <li>
+              <a href="./profile">
+                <button className="profile_btn">Profile</button>
+              </a>
+            </li>
+            <li>
+              <Switch
+                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+                onChange={handleThemeChange}
+                checked={theme === "dark"}
+                checkedChildren="Dark Mode"
+                unCheckedChildren="Light Mode"
+              />
+            </li>
+          </ul>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+        </div>
+      </nav>
       <div className="page">
-        <div className="left" style={contentStyle}>
-          <div className="content" style={overlayStyle}>
+        <div className="left">
+          <div className="content">
             <h1 className="college-name abeezee-regular">{college.name}</h1>
             <div className="description-card">
               <p className="description clipped-text abeezee-regular">
@@ -141,7 +212,7 @@ const CollegePage = () => {
                 </a>
               </button>
             </div>
-            {/* <img className="image" src={college.imageURL} alt={college.name} /> */}
+            <img className="image" src={college.imageURL} alt={college.name} />
           </div>
         </div>
         <div className="right">
@@ -176,8 +247,8 @@ const CollegePage = () => {
                   <p className="abeezee-regular">{student.year}</p>
                 </div>
                 <div className="student-seentime">
-                <p className="position abeezee-regular">{student.position}</p>
-                <p className="sst2">3 min ago</p>
+                  <p className="position abeezee-regular">{student.position}</p>
+                  <p className="sst2">3 min ago</p>
                 </div>
               </div>
             </div>

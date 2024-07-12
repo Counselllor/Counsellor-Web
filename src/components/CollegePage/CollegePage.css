@@ -1,15 +1,10 @@
-.overlayhelp{
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .page {
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
-  min-height: calc(100vh - 5px);
-  margin-top: -60px;
+  min-height: calc(100vh - 40px);
+  /* margin-top: -60px; */
 }
 
 
@@ -21,13 +16,13 @@
 }
 
 .content {
-  /* background-color: rgb(26, 165, 224); */
+  background-color: rgb(26, 165, 224);
   /* background-image: {college.imageURL}; */
   padding: 20px;
   text-align: start;
 }
 #dark .content{
-/* background-color: rgb(24, 23, 23) !important; */
+background-color: rgb(24, 23, 23) !important;
 }
 
 .abeezee-regular {
@@ -164,6 +159,11 @@
   width: 80%;
   background-color: rgba(56, 53, 53, 0.3);
   font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+#dark #courseList{
+  background-color: aliceblue !important;
 }
 
 .student-card {
