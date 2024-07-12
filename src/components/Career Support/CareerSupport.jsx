@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import './CareerSupport.css';
 import Navbar from '../Navbar/Navbar';
+import Logo from "../../assets/logo.webp";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Switch } from 'antd';
+import { ThemeContext } from '../../App';
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/auth";
+
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({
@@ -8,24 +15,126 @@ const CareerSupport = () => {
     email: '',
     message: ''
   });
+  const { theme, toggleTheme } = useContext(ThemeContext);
+const [showPopup,setShowPopup]=useState(false)
+  const navigate = useNavigate();
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  }, []);
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+
+  const handleSignOut = useCallback(() => {
+    signOut(auth)
+      .then(() => {
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
       [name]: value
     }));
-  };
 
+  };
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
+    setShowPopup(true);
   };
 
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+  const [fix, setFix] = useState(false);
+
+  const setFixed = useCallback(() => {
+    if (window.scrollY > 0) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, [setFixed]);
   return (
     <div className="career-support">
-      <Navbar />
+         <nav className={`navbar ${fix ? "fixed" : ""}`}>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className={`menu ${menuOpen ? "show" : ""}`}>
+          <ul>
+            <li>
+              <a href="/topuniversities">Top Universities</a>
+            </li>
+            <li>
+              <a href="/jobs">Jobs</a>
+            </li>
+            <li>
+              <a href="./courses">Courses</a>
+            </li>
+            <li>
+              <a href="./careersupport">Career Support</a>
+            </li>
+            <li className="dot">
+              <a href="error">•</a>
+            </li>
+            <li>
+              <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
+            </li>
+            <li>
+              <a href="./profile">
+                <button className="profile_btn">Profile</button>
+              </a>
+            </li>
+            <li>
+              <Switch
+                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+                onChange={handleThemeChange}
+                checked={theme === "dark"}
+                checkedChildren="Dark Mode"
+                unCheckedChildren="Light Mode"
+              />
+            </li>
+          </ul>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+        </div>
+      </nav>
       <header className="career-support__header">
         <h1 className="career-support__main-title">Elevate Your Career</h1>
         <p className="career-support__subtitle">Empowering professionals to reach new heights</p>
@@ -175,6 +284,16 @@ const CareerSupport = () => {
         <p className="career-support__cta-text">Join thousands of professionals who have accelerated their careers with our support.</p>
         <button className="career-support__cta-button">Get Started Today</button>
       </section>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Thank You!</h2>
+            <p>Your message has been sent successfully. We will reach out to you soon.</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

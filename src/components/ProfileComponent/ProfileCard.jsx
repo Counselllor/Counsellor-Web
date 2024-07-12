@@ -15,6 +15,7 @@ const ProfileCard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
   const [socialProfiles, setSocialProfiles] = useState([]);
+  const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
 
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
@@ -50,6 +51,9 @@ const ProfileCard = () => {
     localStorage.setItem("academicYear", academicYear);
     localStorage.setItem("avatar", avatar);
     localStorage.setItem("skills", JSON.stringify(selectedSkills));
+    if (resumeFile) {
+      localStorage.setItem("resumeFile", resumeFile);
+    }
     setIsEditing(false);
   };
 
@@ -105,6 +109,25 @@ const ProfileCard = () => {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  const handleResumeUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setResumeFile(reader.result);
+        localStorage.setItem("resumeFile", reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleViewResume = () => {
+    window.open(resumeFile, '_blank');
+  };
+
+  const handleDeleteResume = () => {
+    setResumeFile(null);
+    localStorage.removeItem("resumeFile");
   };
 
   return (
@@ -162,6 +185,28 @@ const ProfileCard = () => {
           </div>
           <div className="about-info">
             <h3>Academic Year : </h3> <p>{academicYear}</p>
+          </div>
+          <div className="about-info">
+            <h3>Resume : </h3>
+            {resumeFile ? (
+              <div>
+                <button onClick={handleViewResume}>View Resume</button>
+                <button onClick={handleDeleteResume}>Delete Resume</button>
+              </div>
+            ) : (
+              <div>
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleResumeUpload}
+                  style={{ display: 'none' }}
+                  id="resume-upload"
+                />
+                <label htmlFor="resume-upload" className="upload-button">
+                  Upload Resume
+                </label>
+              </div>
+            )}
           </div>
         </div>
       </div>

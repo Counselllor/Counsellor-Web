@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SocialProfile.css";
+import { useNavigate } from "react-router-dom";
+import { auth } from '../../firebase/auth';
 
 const initialProfiles = [
   {
@@ -36,11 +38,22 @@ const SocialProfile = () => {
   const [profiles, setProfiles] = useState(
     JSON.parse(localStorage.getItem("profiles")) || initialProfiles
   );
+  let navigate=useNavigate()
   const [newProfile, setNewProfile] = useState({ name: "", url: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [showNewProfileForm, setShowNewProfileForm] = useState(false);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
 
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
   useEffect(() => {
     localStorage.setItem("profiles", JSON.stringify(profiles));
   }, [profiles]);
