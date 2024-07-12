@@ -28,7 +28,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "ABeeZee";
 }
 
 .help-container {
@@ -50,10 +50,22 @@ body {
   margin-bottom: 1rem;
   color: #3C38B9;
 }
+#dark .help-container h1 {
+  color: #7067ec !important;
+}
 
 .help-container h2 {
   color: #00073e;
   font-size: 30px;
+  margin-top: 10px;
+}
+
+#dark .help-container h2 {
+  color: #9cbff5 !important;
+}
+
+#dark .faq-question {
+  background-color: #333 !important;
 }
 
 .help-container p {
@@ -67,6 +79,7 @@ body {
 .help-container ul {
   list-style: disc inside;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .help-container ul li {
@@ -75,3 +88,87 @@ body {
   font-size: 22px;
   color: #00073e;
 }
+
+
+
+
+
+.help-container  p{
+  margin-top: 40px !important;
+}
+.help-container h2,.help-container h3,.help-container h4{
+  color: #0d6fd7;
+}
+.help-container h1{color: #0d6fd7 !important;}
+.help-container p, .terms-container ul, .terms-container li{
+animation: animator1 forwards 0.6s;
+}
+@keyframes animator1 {
+    from{
+      opacity: 0;
+    }to{
+      opacity: 1;
+    }
+}
+.help-container h2{
+  margin-top: 20px !important;
+  font-size: 36px !important;
+}
+.help-container #licenses p{
+  margin-top: 40px;
+} 
+.help-container p {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  font-family: "ABeeZee";
+  color: #666;
+  line-height: 1.6;
+}
+
+.help-container h2 {
+  color: #34495e;
+  font-size: 30px;
+  }
+=======
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faq-item.open .faq-answer {
+  padding: 0rem;
+  margin: 0.9rem;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  padding: 1rem;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #0056b3;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #e9ecef;
+  transition: max-height 0.3s ease, padding 0.3s ease; /* Added padding transition */
+  font-size: 18px; /* Adjust the font size */
+  line-height: 1.6; /* Adjust line height for readability */
+  font-family: "ABeeZee";
+}
+
+.faq-icon {
+  font-size: 24px;
+  margin-right: 1rem;
+}
+

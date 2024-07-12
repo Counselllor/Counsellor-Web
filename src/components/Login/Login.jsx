@@ -55,6 +55,7 @@ export default function Login() {
         toast.success("Authenticating your credentials… 🚀",{
           className: "toast-message",
         });
+        localStorage.setItem('count',true)
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);
@@ -101,6 +102,7 @@ export default function Login() {
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
           setTimeout(() => {
+            localStorage.setItem('login',true)
             navigate("/dashboard");
           }, 2000);
         })

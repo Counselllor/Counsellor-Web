@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState, useRef, useEffect, useContext, useCallback } from "react";
 import "./Help.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from "../backtohome";
+import Logo from "../../assets/logo.webp";
+import { auth } from "../../firebase/auth";
+import { Switch } from 'antd';
+import { ThemeContext } from "../../App";
+import { signOut} from "firebase/auth";
 
 const Breadcrumb = () => {
   return (
@@ -11,15 +16,105 @@ const Breadcrumb = () => {
   );
 };
 
+const FAQItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef(null);
+
+  return (
+    <div className={`faq-item ${isOpen ? "open" : ""}`}>
+      <div className="faq-question" onClick={() => setIsOpen(!isOpen)}>
+        <span className="faq-icon">{isOpen ? "−" : "+"}</span>
+        {question}
+      </div>
+      <div 
+        ref={contentRef} 
+        className="faq-answer" 
+        style={{ 
+          maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : "0px"
+        }}
+      >
+        {answer}
+      </div>
+    </div>
+  );
+};
+
 const Help = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem('islogin')
+        navigate("/");
+
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+  let [isLoggedIn,setLogin]=useState(false)
+  useEffect(() => {
+    if(localStorage.getItem('login')){
+
+      setLogin(true)
+    }
+    // auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     // handle user logged in state
+    //   } else {
+        
+    //   }
+    // });
+  }, [navigate]);
   return (
     <>
-    <BackToHomeButton />
-      {/* breadcrumb */}
+      <nav className={`navbar fixed`}>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className={`menu ${menuOpen ? "show" : ""}`}>
+          <ul>
+            <li><a href="/topuniversities">Top Universities</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="./courses">Courses</a></li>
+            <li><a href="/careersupport">Career Support</a></li>
+            <li className='dot'><a href="error">•</a></li>
+            {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
+          {
+isLoggedIn&&<>
+
+           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
+            <li><button className='profile_btn'>Profile</button></li>
+         
+            <li>
+              <Switch
+                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+                onChange={handleThemeChange}
+                checked={theme === "dark"}
+                checkedChildren="Dark Mode"
+                unCheckedChildren="Light Mode"
+              />
+            </li> </>} 
+          </ul>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+          <div className={`bar ${menuOpen ? 'open' : ''}`} />
+        </div>
+      </nav>      <BackToHomeButton />
+
       <div className="help-container">
         <Breadcrumb />
 
-        {/* help page */}
         <div className="contents">
           <h1>Help & Support</h1>
 
@@ -38,13 +133,34 @@ const Help = () => {
           <section id="faq">
             <h2>Frequently Asked Questions</h2>
             <p>
-              Have questions? We have answers. Check out our FAQ section for solutions to common problems.
+              Still Have questions? We have answers. Check out our FAQ section for solutions to common problems.
             </p>
-            <ul>
-              <li><strong>How do I reset my password?</strong> Click on 'Forgot Password' on the login page and follow the instructions.</li>
-              <li><strong>How can I update my profile information?</strong> Go to your account settings and make the necessary changes.</li>
-              <li><strong>Where can I find my order history?</strong> Navigate to the 'Orders' section in your account dashboard.</li>
-            </ul>
+            <div className="faq-list">
+              <FAQItem 
+                question="How do I register for an account?" 
+                answer="Click on the 'Sign Up' button on the top right corner, fill in the required details, and follow the instructions sent to your email for verification." 
+              />
+              <FAQItem 
+                question="How can I connect with a counselor?" 
+                answer="Once you are logged in, go to the 'Connect' section and select 'Find a Counselor' to start a session." 
+              />
+              <FAQItem 
+                question="Is my communication with the counselor secure?" 
+                answer="Yes, all communications are encrypted to ensure your privacy and security." 
+              />
+              <FAQItem 
+                question="Can I customize my profile?" 
+                answer="Yes, you can update your profile information and preferences in the 'Profile' section." 
+              />
+              <FAQItem 
+                question="How do I view my previous chat history?" 
+                answer="Navigate to the 'Chat History' section in your account to view past conversations." 
+              />
+              <FAQItem 
+                question="What should I do if I encounter an issue?" 
+                answer="Check the troubleshooting section or contact our support team for assistance." 
+              />
+            </div>
           </section>
 
           <section id="contact-support">
@@ -107,6 +223,7 @@ const Help = () => {
             </ul>
           </section>
 
+         
           <section id="feedback">
             <h2>Feedback</h2>
             <p>

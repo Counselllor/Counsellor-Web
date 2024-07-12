@@ -183,7 +183,8 @@
 }
 
 .bar.open {
-  transform: rotate(-45deg) translate(-4px, 6px);
+  transform: rotate(-45deg);
+  position: absolute;
 }
 
 .bar.open:nth-child(2) {
@@ -191,7 +192,7 @@
 }
 
 .bar.open:nth-child(3) {
-  transform: rotate(45deg) translate(-4px, -6px);
+  transform: rotate(45deg);
 }
 
 .colleges {
@@ -336,6 +337,7 @@
   .dot {
     display: none;
   }
+.menu ul{gap: 40px;}
 }
 
 .maintxt {
@@ -524,14 +526,18 @@
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  right: 0;
+  position: absolute;
   width: 18vw;
+  top: 50px;
   padding: 10px;
   z-index: 100;
 }
-
-.toast-message:first-child{
-  margin-top: 90px;
+.toast-message button{
+  color: white;
 }
+
+
 
 @media (max-width: 960px) {
   .menu {
