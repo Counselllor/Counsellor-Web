@@ -137,10 +137,16 @@
   font-size: 1.8rem;
   cursor: pointer;
   transform: scale(1);
+  border-radius: 50%;
+  padding: 8px;
 }
 
 .social-icons li:hover {
   transform: scale(1.1) !important;
+}
+
+.social-icons li a:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 255,1);
 }
 
 #dark .social-icons li a{

@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 import './FAQs.css';
 
 const FAQs = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const faqs = [
@@ -26,10 +25,6 @@ const FAQs = () => {
     },
   ];
 
-  const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   const handleSubscribe = (e) => {
     e.preventDefault();
     document.getElementById('email').value = '';
@@ -46,15 +41,11 @@ const FAQs = () => {
       <div className="accordion">
         {faqs.map((faq, index) => (
           <div key={index} className="accordion-item">
-            <button
-              onClick={() => toggleAccordion(index)}
-              aria-expanded={activeIndex === index ? 'true' : 'false'}
-            >
+            <div className="faq-question">
               <span className="accordion-title">{faq.question}</span>
-              <span className="icon" aria-hidden="true"></span>
-            </button>
-            <div className={`accordion-content ${activeIndex === index ? 'active' : ''}`}>
-              <p>{faq.answer}</p>
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
             </div>
           </div>
         ))}

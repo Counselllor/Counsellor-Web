@@ -32,97 +32,43 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #6ca2dc;
-}
-
-.accordion .accordion-item button[aria-expanded='true'] {
-  border-bottom: 1px solid #03b5d2;
-}
-
-.accordion button {
   position: relative;
-  display: block;
-  text-align: left;
-  width: 100%;
+}
+
+.faq-question {
+  position: relative;
   padding: 1em 0;
   color: #7288a2;
   font-size: 1.15rem;
   font-weight: 400;
-  border: none;
-  background: none;
-  outline: none;
-  transition: color 0.3s;
-}
-
-.accordion button:hover,
-.accordion button:focus {
   cursor: pointer;
-  color: #03b5d2;
 }
 
-.accordion button {
-  padding: 1em 1.5em 1em 0;
-}
-
-.accordion button .icon {
-  display: inline-block;
+.faq-answer {
+  display: none;
   position: absolute;
-  top: 18px;
-  right: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid;
-  border-radius: 22px;
+  left: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  padding: 1.25em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
 }
 
-.accordion button .icon::before {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 9px;
-  left: 5px;
-  width: 10px;
-  height: 2px;
-  background: currentColor;
+.faq-question:hover .faq-answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.accordion button .icon::after {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 5px;
-  left: 9px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
-}
-
-.accordion button[aria-expanded='true'] {
-  color: #03b5d2;
-}
-
-.accordion button[aria-expanded='true'] .icon::after {
-  width: 0;
-}
-
-.accordion .accordion-content {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
+.faq-answer p {
+  color: #333;
 }
 
 #dark .accordion .accordion-content {
   color: white;
-}
-
-.accordion .accordion-content.active {
-  opacity: 0.8;
-  height: auto;
-  max-height: 400px;
-  text-align: left;
-  margin-left: 30px;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  overflow: auto;
 }
 
 .accordion .accordion-content p {
@@ -136,7 +82,7 @@
     color: rgb(59, 59, 234);
     text-decoration: underline;
     cursor: pointer;
-  }
+}
 
 #dark .newsletter-section {
   max-width: 100%;
@@ -220,6 +166,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+#subscribe-btn:hover{
+  background-color: rgb(37, 37, 37);
 }
 
 #newsletter-response {
