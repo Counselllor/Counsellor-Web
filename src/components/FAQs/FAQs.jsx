@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './FAQs.css';
+import { database } from '../../firebase/auth'; // Adjust the path according to your project structure
+import { ref, set } from 'firebase/database';
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -30,10 +32,21 @@ const FAQs = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    document.getElementById('email').value = '';
-    setIsModalOpen(true);
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value;
+    emailInput.value = '';
+
+    // Save email to Firebase Realtime Database
+    try {
+      const emailKey = email.replace(/[.#$/[\]]/g, '_'); // Replace invalid characters for Firebase keys
+      const emailRef = ref(database, `newsletter/emails/${emailKey}`);
+      await set(emailRef, { email });
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error('Error saving email to database:', error);
+    }
   };
 
   const closeModal = () => {
