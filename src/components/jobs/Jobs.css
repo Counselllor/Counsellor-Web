@@ -161,3 +161,10 @@
     font-size: 1.5rem;
   }
 }
+
+#footer{
+  background: white !important;
+}
+#dark #footer{
+  background: #121212 !important;
+}
