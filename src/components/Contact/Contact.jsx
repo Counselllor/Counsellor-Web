@@ -72,7 +72,7 @@ const Contact = () => {
     };
   return (
     <main>
-       <nav className={`navbar fixed`}>
+       <nav className={"navbar fixed"}>
         <div className="logo">
           <img src={Logo} alt="Logo" />
         </div>

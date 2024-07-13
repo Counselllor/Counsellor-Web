@@ -271,9 +271,15 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+.newsletter-section h2{
+  font-size: 40px !important;
+}
+@media (max-width: 768px) {
 
-@media (min-width: 768px) {
+  .newsletter-section h2{
+    font-size: 24px !important;
+  }
   #email {
-    width: 50%; 
+    width: 100%; 
   }
 }

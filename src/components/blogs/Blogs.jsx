@@ -152,7 +152,7 @@ let [isLoggedIn,setLogin]=useState(false)
 
   return (
     <>        
-      <nav className={`navbar fixed`}>
+      <nav className={"navbar fixed"}>
         <div className="logo">
           <Link to="/">
             <img src={Logo} alt="Logo" />
