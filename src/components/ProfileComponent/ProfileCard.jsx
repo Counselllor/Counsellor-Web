@@ -84,6 +84,33 @@ const ProfileCard = () => {
     }
   };
 
+  const generateProfileData = () => {
+    return JSON.stringify({
+      name,
+      dob,
+      academicYear,
+      selectedSkills,
+      socialProfiles,
+      email: "counsellor@gmail.com",
+      phone: "+918795768574",
+      gender: "Male",
+      college: "IIT Bombay",
+    }, null, 2);
+  };
+
+  const downloadProfileData = () => {
+    const data = generateProfileData();
+    const blob = new Blob([data], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "profile_details.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   const handleResumeUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -211,6 +238,9 @@ const ProfileCard = () => {
               ))}
             </ul>
           </div>
+          <button onClick={downloadProfileData} className="download-button">
+            Download Profile Details
+          </button>
         </div>
       </div>
       {isEditing && (

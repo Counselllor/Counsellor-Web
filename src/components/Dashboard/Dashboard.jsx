@@ -242,7 +242,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="grid-cont"> 
-          <div className="colleges">
+          <div className="colleges1">
             {paginatedColleges.map((college, index) => (
               <div
                 className={`college ${activeIndex === index ? "active" : ""}`}
