@@ -1,5 +1,5 @@
 
-.page {
+.pagecoll {
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
@@ -8,20 +8,20 @@
 }
 
 
-.left,
-.right {
+.leftcoll,
+.rightcoll {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
-.content {
+.contentcoll {
   background-color: rgb(26, 165, 224);
   /* background-image: {college.imageURL}; */
   padding: 20px;
   text-align: start;
 }
-#dark .content{
+#dark .contentcoll{
 background-color: rgb(24, 23, 23) !important;
 }
 
@@ -134,10 +134,10 @@ background-color: rgb(24, 23, 23) !important;
   border-radius: 10px;
   margin-left: 50px;
 }
-.content{
+.contentcoll{
   padding-top: 40px;
 }
-.right {
+.rightcoll {
   background-color: #cae8ff;
   padding: 20px;
   padding-top: 70px;
@@ -228,18 +228,18 @@ background-color: rgb(24, 23, 23) !important;
 }
 
 @media only screen and (max-width: 829px) {
-  .page {
+  .pagecoll {
     flex-direction: column;
     min-height: auto;
   }
 
-  .left,
-  .right {
+  .leftcoll,
+  .rightcoll {
     width: 100%;
   }
 
-  .content,
-  .right {
+  .contentcoll,
+  .rightcoll {
     padding: 20px;
   }
 }

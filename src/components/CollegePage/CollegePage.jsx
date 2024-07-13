@@ -12,6 +12,7 @@ import ScrollToTop from "react-scroll-to-top";
 import { FaStar } from "react-icons/fa6";
 import { ThemeContext } from "../../App";
 import { Switch } from "antd";
+import Footer from "../Footer/Footer";
 
 const CollegePage = () => {
   useEffect(() => {
@@ -168,9 +169,9 @@ const CollegePage = () => {
           <div className={`bar ${menuOpen ? "open" : ""}`} />
         </div>
       </nav>
-      <div className="page">
-        <div className="left">
-          <div className="content">
+      <div className="pagecoll">
+        <div className="leftcoll">
+          <div className="contentcoll">
             <h1 className="college-name abeezee-regular">{college.name}</h1>
             <div className="description-card">
               <p className="description clipped-text abeezee-regular">
@@ -215,7 +216,7 @@ const CollegePage = () => {
             <img className="image" src={college.imageURL} alt={college.name} />
           </div>
         </div>
-        <div className="right">
+        <div className="rightcoll">
           <div className="searchCourses">
             <select
               id="courseList"
@@ -255,6 +256,7 @@ const CollegePage = () => {
           ))}
         </div>
       </div>
+        <Footer/>
     </>
   );
 };
