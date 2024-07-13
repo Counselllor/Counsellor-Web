@@ -27,7 +27,7 @@ const CardBack = ({ className, priceValue }) => (
         <p className="card__price-only">Explore Colleges</p>
         <p className="card__price-value">{priceValue}</p>
       </div>
-      <a href="#popup" className="btn_ btn--white">
+      <a href="/" className="btn_ btn--white">
         Explore Now!
       </a>
     </div>
@@ -100,7 +100,7 @@ const SectionTours = () => (
     </div>
 
     <div className="u-center-text u-margin-top-huge">
-      <a href="./dashboard" className="btn_ btn--green">
+      <a href="/" className="btn_ btn--green">
         Discover All
       </a>
     </div>

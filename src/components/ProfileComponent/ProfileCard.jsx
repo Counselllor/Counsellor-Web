@@ -42,17 +42,19 @@ const ProfileCard = () => {
 
     generateDates();
   }, []);
-  console.log(userData)
 
+console.log(userData)
   useEffect(() => {
     const fetchData = async () => {
       const userData = await fetchUserData(localStorage.getItem("userUid"));
+    
       setUserData(userData);
       setName((userData.firstname+" "+userData.surname) || "Alex Foam");
      setDob(userData.dob || "2000-01-21");
     };
 
     fetchData();
+
   }, []);
   const handleEdit = () => {
     setIsEditing(true);
@@ -97,6 +99,7 @@ const ProfileCard = () => {
     }
   };
 
+
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
     const snapshot = await get(userRef);
@@ -108,6 +111,33 @@ const ProfileCard = () => {
       console.error('No data available');
       return null; // Return null if no data available
     }
+  };
+
+  const generateProfileData = () => {
+    return JSON.stringify({
+      name,
+      dob,
+      academicYear,
+      selectedSkills,
+      socialProfiles,
+      email: "counsellor@gmail.com",
+      phone: "+918795768574",
+      gender: "Male",
+      college: "IIT Bombay",
+    }, null, 2);
+  };
+
+  const downloadProfileData = () => {
+    const data = generateProfileData();
+    const blob = new Blob([data], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "profile_details.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const handleResumeUpload = (e) => {
@@ -237,6 +267,9 @@ const ProfileCard = () => {
               ))}
             </ul>
           </div>
+          <button onClick={downloadProfileData} className="download-button">
+            Download Profile Details
+          </button>
         </div>
       </div>
       {isEditing && (
