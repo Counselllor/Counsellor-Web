@@ -64,7 +64,6 @@ The web application, built using ReactJS, is designed to assist students in maki
 ## Installation
 
 ### With Docker
-
 1. Clone this repository to your local machine using:
 
    ```
