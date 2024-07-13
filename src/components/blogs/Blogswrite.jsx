@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, update, get } from 'firebase/database';
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
+import { signOut } from "firebase/auth";
 import { Switch } from 'antd';
 import './BlogWrite.css'; // Import the new CSS file
 import { toast } from 'react-toastify';
