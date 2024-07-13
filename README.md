@@ -63,6 +63,34 @@ The web application, built using ReactJS, is designed to assist students in maki
 
 ## Installation
 
+### With Docker
+
+1. Clone this repository to your local machine using:
+
+   ```
+   git clone https://github.com/thestarsahil/Counsellor.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd Counsellor
+   ```
+
+3. Build the docker image
+
+   ```
+   docker build -t counsellor-web .
+   ```
+
+4. Run the docker image
+
+   ```
+   docker run -p 5173:5173 counsellor-web
+   ```
+
+
+### Without Docker
 To run Counsellor locally, follow these steps:
 
 1. Clone this repository to your local machine using:
