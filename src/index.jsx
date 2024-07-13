@@ -25,6 +25,7 @@ import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
 import Jobs from "./components/jobs/Jobs";
+import BlogWrite from "./components/blogs/Blogswrite";
 
 const router = createBrowserRouter([
   {
@@ -130,6 +131,11 @@ const router = createBrowserRouter([
         path: "/Contribute",
         errorElement: <ErrorPage />,
         element: <Contribute />,
+      },
+      {
+        path: "/blogwrite",
+        errorElement: <ErrorPage />,
+        element: <BlogWrite />,
       },
     ],
   },
