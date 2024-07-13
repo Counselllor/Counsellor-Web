@@ -11,6 +11,7 @@
   color: #007bff;
   text-decoration: none;
   margin-right: 0.5rem;
+  font-weight: bold;
 }
 
 .breadcrumb-item:hover {
@@ -25,17 +26,19 @@
 .breadcrumb-item.active {
   color: #6c757d;
   cursor: default;
+  font-weight: 200;
 }
 
 .privacy-policy-container {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 8px;
-  font-family: Arial, sans-serif;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.6s;
-  text-align: start;
+  text-align: left;
 }
 
 .privacy-policy-content {
@@ -44,11 +47,11 @@
 
 .privacy-policy-content h1 {
   font-family: "ABeeZee";
-  font-size: 60px;
+  font-size: 40px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
-  color: black;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 .date {
@@ -58,128 +61,91 @@
 }
 
 .privacy-policy-content p {
-  font-size: 20px;
-  margin-bottom: 2rem;
+  font-size: 18px;
+  margin-bottom: 1.5rem;
   font-family: "ABeeZee";
   color: #666;
   line-height: 1.6;
 }
 
-.title{
-    font-size: 30px;
-    margin: 20px 0;
-}
-.sub-title{
-    font-size: 24px;
-    margin: 20px 0;
+.title {
+  font-size: 28px;
+  margin: 20px 0;
+  color: #34495e;
 }
 
-.privacy-policy-sections {
-  display: flex;
-}
-
-.privacy-policy-sidebar {
-  flex: 1;
-  margin-right: 2rem;
-}
-
-.privacy-policy-sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.privacy-policy-sidebar ul li {
-  margin-bottom: 1rem;
-  color: #007bff;
-  cursor: pointer;
+.sub-title {
   font-size: 22px;
+  margin: 20px 0;
+  color: #0d6fd7;
 }
 
-.privacy-policy-sidebar ul li:hover {
-  text-decoration: underline;
+.privacy-policy-content ul {
+  padding-left: 20px;
+  list-style-type: disc;
 }
 
-.privacy-policy-details {
-  flex: 3;
+.privacy-policy-content ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.6;
 }
 
-.privacy-policy-details h2 {
-  font-size: 22px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #007bff;
-}
-
-.privacy-policy-container li{
-  font-size: 22px;
-}
-
-.privacy-policy-content .definitions-list li{
+.definitions-list li {
   list-style-type: decimal;
-  margin: 20px;
-  line-height: 28px;
-  font-size: 20px;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
 .personal-data li {
-  margin: 20px;
+  list-style-type: disc;
+  margin: 10px 0;
+  font-size: 18px;
 }
-.privacy-policy-content  p{
-  margin-top: 40px !important;
-}
-.privacy-policy-content h2,.privacy-policy-content h3,.privacy-policy-content h4{
-  color: #0d6fd7;
-}
-.privacy-policy-content h1{color: #0d6fd7 !important;}
-.privacy-policy-content p, .terms-container ul, .terms-container li{
-animation: animator1 forwards 0.6s;
-}
-@keyframes animator1 {
-    from{
-      opacity: 0;
-    }to{
-      opacity: 1;
-    }
-}
-.privacy-policy-content h2{
-  margin-top: 20px !important;
-  font-size: 36px !important;
-}
-.privacy-policy-content #licenses p{
-  margin-top: 40px;
-} 
+
 .privacy-policy-content p {
-  font-size: 22px;
-  margin-bottom: 1rem;
-  font-family: "ABeeZee";
-  color: #666;
-  line-height: 1.6;
+  margin-top: 20px !important;
+}
+
+.privacy-policy-content h2,
+.privacy-policy-content h3,
+.privacy-policy-content h4 {
+  color: #0d6fd7;
+  margin-top: 20px;
 }
 
 .privacy-policy-content h1 {
-  font-family: "ABeeZee";
-  font-size: 70px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: #333;
+  color: #0d6fd7 !important;
 }
 
-.privacy-policy-content h2 {
-color: #34495e;
-font-size: 30px;
+@keyframes animator1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+.privacy-policy-content p,
+.terms-container ul,
+.terms-container li {
+  animation: animator1 forwards 0.6s;
+}
+
 #dark .privacy-policy-content h2 {
   color: #7db4ee !important;
   font-size: 30px;
-  }
+}
 
 #dark .privacy-policy-content h1 {
   color: #278af3 !important;
-}  
+}
+
 #dark .privacy-policy-content .date span {
   color: #e6e1e1 !important;
 }
+
 #dark .privacy-policy-content h3 {
   color: #8fbef0 !important;
   font-size: 30px;
