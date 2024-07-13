@@ -17,8 +17,8 @@ const BlogWrite = () => {
   const [user, setUser] = useState(null);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
-  const userId = localStorage.getItem('Userid');
-
+  const userId = localStorage.getItem('userUid');
+ 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
@@ -47,6 +47,7 @@ const BlogWrite = () => {
       try {
         const db = getDatabase();
         const userRef = ref(db, 'users/' + userId);
+        
         const userSnap = await get(userRef);
         if (userSnap.exists()) {
           setUser(userSnap.val());
