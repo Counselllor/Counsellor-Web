@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Privacy.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import BackToHomeButton from "../backtohome";
+import Navbar from "../Navbar/Navbar";
+
 
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
-      <Link to="/" className="breadcrumb-item">Counsellor</Link>
-      <span className="breadcrumb-separator">/</span>
-      <span className="breadcrumb-item active">Privacy Policy</span>
     </nav>
   );
 };
@@ -35,8 +33,10 @@ const Privacy = () => {
   }, []);
 
   return (
-    <div>
-      <BackToHomeButton />
+    <>
+    <div className="main">      <Navbar/>
+
+
       <div className="privacy-policy-container">
         <Breadcrumb />
         <div className="privacy-policy-content">
@@ -122,8 +122,9 @@ const Privacy = () => {
       </div>
       <hr />
 
-      <Footer />
     </div>
+          <Footer />
+          </>
   );
 };
 
