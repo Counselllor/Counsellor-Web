@@ -317,6 +317,7 @@ useEffect(() => {
               Name:
               <input
                 type="text"
+                placeholder={userData.firstname+" "+userData.surname}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -326,6 +327,7 @@ useEffect(() => {
               <input
                 type="date"
                 value={dob}
+                placeholder={userData.dob}
                 onChange={(e) => setDob(e.target.value)}
               />
             </label>
