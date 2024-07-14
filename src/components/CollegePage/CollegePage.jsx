@@ -18,16 +18,17 @@ const CollegePage = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 86a89d244305ab049f65b61c145602951f6985d3
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         // handle user logged in state
       } else {
-
           navigate('/');
-        
       }
     });
   }, [navigate]);
