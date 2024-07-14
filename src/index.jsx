@@ -25,6 +25,9 @@ import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
 import Jobs from "./components/jobs/Jobs";
+import BlogWrite from "./components/blogs/Blogswrite";
+import BlogReadPage from "./components/blogs/BlogReadPage";
+import University from "./components/Top Universities/University";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +68,11 @@ const router = createBrowserRouter([
         path: "/jobs",
         errorElement: <ErrorPage />,
         element: <Jobs />,
+      },
+      {
+        path:'topuniversities',        errorElement: <ErrorPage />,
+
+        element:<University/>
       },
       {
         path: "/careersupport",
@@ -131,6 +139,17 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <Contribute />,
       },
+      {
+        path: "/blogwrite",
+        errorElement: <ErrorPage />,
+        element: <BlogWrite />,
+      },
+      {
+        path: "/blogs/:id",
+        errorElement: <ErrorPage />,
+        element: <BlogReadPage/>,
+      },
+      
     ],
   },
 ]);

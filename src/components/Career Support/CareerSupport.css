@@ -13,13 +13,18 @@
   font-family: 'Poppins', sans-serif;
   color: var(--color-text);
 }
-
+#dark .career-support {
+  background-color: #1f1f1f;
+}
 .career-support__header {
   background: linear-gradient(135deg, var(--color-primary), var(--color-item));
   color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+#dark .career-support__header{
+  background: linear-gradient(135deg, rgb(0, 0, 0), rgb(10, 10, 10));
 }
 
 .career-support__main-title {
@@ -55,7 +60,12 @@
   background-color: var(--color-primary);
   margin: 1rem auto 0;
 }
-
+#dark .career-support__title{
+  color: white;
+}
+#dark .career-support__title::after {
+  background-color: white;
+}
 .career-support__services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,6 +81,11 @@
   padding: 2.5rem;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+#dark .service-card{
+  border: white solid 2px;
+  box-shadow: 0px 0px 10px white;
+  background-color: #151414;
 }
 
 .service-card:hover {
@@ -101,6 +116,9 @@
   background-color: var(--color-item);
   padding: 6rem 2rem;
   clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+}
+#dark .career-support__pricing{
+  background: linear-gradient(135deg, rgb(0, 0, 0), rgb(10, 10, 10));
 }
 
 .career-support__pricing-title {
@@ -137,6 +155,11 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   flex: 1;
   max-width: 350px;
+}
+#dark .pricing-card{
+  border: white solid 2px;
+  box-shadow: 0px 0px 10px white;
+  background-color: #151414;
 }
 
 .pricing-card:hover {
@@ -190,13 +213,26 @@
   background-color: var(--color-background);
   padding: 6rem 2rem;
 }
-
+#dark .career-support__form-section{
+  background-color: #1f1f1f;
+}
 .career-support__form-title {
   color: var(--color-primary);
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
+}
+#dark .career-support__form{
+  border: white solid 2px;
+  box-shadow: 0px 0px 10px white;
+  background-color: #151414;
+}
+#dark .career-support__form-title{
+  color: white;
+}
+#dark .career-support__form-title::after{
+  background-color:white ;
 }
 
 .career-support__form-title::after {
@@ -237,7 +273,15 @@
   font-size: 1.5rem;
   transition: border-color 0.3s ease-in-out;
 }
-
+#dark .form-group input{
+  background-color: #333;
+  color: white;
+  
+}
+#dark .form-group textarea{
+  background-color: #333;
+  color: white;
+}
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -274,6 +318,9 @@
   text-align: center;
   padding: 6rem 2rem;
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+#dark .career-support__cta {
+  background: linear-gradient(135deg, rgb(0, 0, 0), rgb(10, 10, 10));
 }
 
 .career-support__cta-title {
