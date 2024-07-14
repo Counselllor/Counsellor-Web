@@ -224,11 +224,11 @@
   text-align: center;
 }
 
-.modal-form .form-group {
-  margin-bottom: 20px;
+.jobs-container .modal-form .form-group {
+  margin-bottom: 53px;
 }
 
-.modal-form .form-group label {
+.jobs-container .modal-form .form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
@@ -242,12 +242,12 @@
   border-radius: 4px;
 }
 
-.modal-form .form-group textarea {
+.jobs-container .modal-form .form-group textarea {
   resize: vertical;
   height: 100px;
 }
 
-.submit-button {
+.submit-button1 {
   display: block;
   width: 100%;
   padding: 10px;
@@ -258,13 +258,13 @@
   font-size: 16px;
   cursor: pointer;
 }
-.form-group{
+.jobs-container .form-group{
   width: 105% !important;
 }
-.form-group input.form-group div{
+.jobs-container .form-group input.form-group div{
   width: 105% !important;
 }
-.submit-button:hover {
+.submit-button1:hover {
   background-color: #0056b3;
 }
 
@@ -353,7 +353,7 @@
   height: 100px;
 }
 
-.submit-button {
+.submit-button1 {
   display: block;
   width: 100%;
   padding: 10px;
@@ -370,13 +370,13 @@
 .form-group input.form-group div{
   width: 105% !important;
 }
-.submit-button:hover {
+.submit-button1:hover {
   background-color: #0056b3;
 }
 
-#footer{
+.fixed-color2{
   background: white !important;
 }
-#dark #footer{
+#dark .fixed-color2{
   background: #121212 !important;
 }
