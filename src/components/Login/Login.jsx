@@ -81,10 +81,11 @@ export default function Login() {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        console.log(user);
+        console.log(user.uid,'asssssssssssssssssssssssssssssssssssssss');
+
         const userData =  await fetchUserDataByEmail(user.email);
         
-        localStorage.setItem("userUid", userData.id);
+        localStorage.setItem("userUid", user.uid);
         toast.success("Authenticating your credentials… 🚀",{
           className: "toast-message",
         });
@@ -147,6 +148,7 @@ export default function Login() {
         .then(() => {
           setTimeout(() => {
             const user=localStorage.getItem("userUid");
+            console.log('inside this dsffdf')
             fetchUserData(user.uid); // Fetch user data after login
             localStorage.setItem('login',true)
             navigate("/dashboard");
