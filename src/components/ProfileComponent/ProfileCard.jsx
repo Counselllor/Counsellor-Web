@@ -280,6 +280,7 @@ console.log(userData)
               Name:
               <input
                 type="text"
+                placeholder={userData.firstname+" "+userData.surname}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -289,6 +290,7 @@ console.log(userData)
               <input
                 type="date"
                 value={dob}
+                placeholder={userData.dob}
                 onChange={(e) => setDob(e.target.value)}
               />
             </label>
