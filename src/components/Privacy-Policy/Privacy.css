@@ -30,13 +30,10 @@
 }
 
 .privacy-policy-container {
-  max-width: 800px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 2rem;
-  border-radius: 8px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  font-family: "ABeeZee";
   transition: all 0.6s;
   text-align: left;
 }
