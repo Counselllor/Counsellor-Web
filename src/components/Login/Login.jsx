@@ -1,14 +1,15 @@
+import React, { useEffect, useState, useCallback, useContext } from "react";
 import {
   signInWithEmailAndPassword,
-  signInWithPopup
+  signInWithPopup,
+  GoogleAuthProvider
 } from "firebase/auth";
-import { useEffect, useState, useCallback, useContext } from "react";
 import Tilt from 'react-parallax-tilt';
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import hide from "../../assets/hide.png";
 import show from "../../assets/show.png";
-import { auth, googleAuthProvider, database } from "../../firebase/auth";
+import { auth, database } from "../../firebase/auth";
 import { ref, get } from "firebase/database";
 import "./Login.css";
 import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
@@ -71,20 +72,24 @@ export default function Login() {
         try {
           const userData = await fetchUserDataByEmail(user.email);
           if (userData) {
-            localStorage.setItem("userUid", userData.id);
-            toast.success("Authenticating your credentials… 🚀", {
-              className: "toast-message",
-            });
-            localStorage.setItem('count', 'true');
-            setTimeout(() => {
-              navigate("/dashboard");
-            }, 2000);
+            localStorage.setItem("userUid", userData.id || user.uid);
           } else {
-            throw new Error("User data not found");
+            localStorage.setItem("userUid", user.uid);
           }
+          toast.success("Authenticating your credentials… 🚀", {
+            className: "toast-message",
+          });
+          localStorage.setItem('count', 'true');
+          setTimeout(() => {
+            navigate("/dashboard");
+          }, 2000);
         } catch (error) {
           console.error("Error during authentication:", error);
-          toast.error("Authentication failed. Please try again.");
+          toast.error("Authentication successful, but there was an issue fetching user data. Proceeding anyway.");
+          localStorage.setItem("userUid", user.uid);
+          setTimeout(() => {
+            navigate("/dashboard");
+          }, 2000);
         }
       }
     });
@@ -120,7 +125,6 @@ export default function Login() {
         await signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password);
         toast.success("Login successful!", { className: "toast-message" });
         localStorage.setItem('login', 'true');
-        setTimeout(() => navigate("/dashboard"), 2000);
       } catch (err) {
         if (err.code === "auth/wrong-password") {
           toast.error("Incorrect Password!", { className: "toast-message" });
@@ -134,10 +138,11 @@ export default function Login() {
     } else {
       toast.error("Please fill all fields with valid data.", { className: "toast-message" });
     }
-  }, [captchaVal, captchaText, error, loginInfo, navigate, generateCaptcha]);
+  }, [captchaVal, captchaText, error, loginInfo, generateCaptcha]);
 
   const SignInGoogle = useCallback(() => {
-    signInWithPopup(auth, googleAuthProvider)
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
       .then(() => {
         toast.success("Login successful!", { className: "toast-message" });
         setTimeout(() => navigate("/dashboard"), 2000);
@@ -170,7 +175,6 @@ export default function Login() {
             <div className="sign-in">Log in to your account</div>
 
             <form className="form" onSubmit={handleSignIn}>
-              {/* Email Input */}
               <div>
                 <label htmlFor="email">Email</label>
                 <div className="iconContainer">
@@ -182,14 +186,13 @@ export default function Login() {
                     value={loginInfo.email}
                     placeholder="Email"
                     required
-                    className={`${error.emailError && "inputField"}`}
+                    className={`${error.emailError ? "inputField" : ""}`}
                   />
                   <FaEnvelope className="icons"/>
                 </div>
                 {error.email && error.emailError && <p className="errorShow">{error.emailError}</p>}
               </div>
 
-              {/* Password Input */}
               <div>
                 <label htmlFor="password">Password</label>
                 <div className="password-input">
@@ -202,7 +205,7 @@ export default function Login() {
                       value={loginInfo.password}
                       required
                       placeholder="Password"
-                      className={`${error.passwordError && "inputField"}`}
+                      className={`${error.passwordError ? "inputField" : ""}`}
                     />
                     <FaKey className="icons"/>
                     <div onClick={passwordToggle} className="toggle-button">
@@ -218,7 +221,6 @@ export default function Login() {
                 {error.password && error.passwordError && <p className="errorShow">{error.passwordError}</p>}
               </div>
 
-              {/* Captcha */}
               <div id="captcha-container">
                 <label htmlFor="captcha">Captcha</label>
                 <div className="flex flex-row gap-3 justify-center items-center" id="captchaBox">
@@ -226,6 +228,7 @@ export default function Login() {
                   <FaSyncAlt id="captchaIcon" onClick={generateCaptcha} />
                   <div className="iconContainer">
                     <input
+                      id="captcha"
                       type="text"
                       name="captcha"
                       value={captchaVal}
@@ -248,6 +251,10 @@ export default function Login() {
                 Login
               </button>
             </form>
+
+            <button onClick={SignInGoogle} className="google_btn">
+              Sign in with Google
+            </button>
 
             <div className="btn">
               <Link to="/forgotpassword" className="forgot-password">
