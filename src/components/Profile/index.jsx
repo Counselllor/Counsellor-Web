@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Profile.css";
-import SocialProfile from "../../components/ProfileComponent/SocialProfile";
-import ProfileCard from "../../components/ProfileComponent/ProfileCard";
+import SocialProfile from "../ProfileComponent/SocialProfile";
+import ProfileCard from "../ProfileComponent/ProfileCard";
 import ProfileHeader from "./ProfileHeader";
 import { auth } from "../../firebase/auth";
 export default function ProfilePage() {
