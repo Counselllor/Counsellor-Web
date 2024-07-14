@@ -5,6 +5,9 @@ import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import { Switch } from 'antd';
+// import ReactMarkdown from 'react-markdown';
+// import remarkGfm from 'remark-gfm';
+// import rehypeRaw from 'rehype-raw';
 import './BlogWrite.css'; // Import the new CSS file
 import { toast } from 'react-toastify';
 import { ThemeContext } from '../../App';
@@ -23,11 +26,13 @@ const BlogWrite = () => {
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
+  
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
+  
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
@@ -116,6 +121,7 @@ const BlogWrite = () => {
       });
     }
   };
+
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
@@ -193,6 +199,15 @@ const BlogWrite = () => {
         </div>
         <button type="submit">Save</button>
       </form>
+      {/* <div className="markdown-preview">
+        <h2>Preview:</h2>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+        >
+          {content}
+        </ReactMarkdown>
+      </div> */}
     </div>
     <Footer/>
     </>
