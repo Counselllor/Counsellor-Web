@@ -163,7 +163,12 @@
 }
 
 
-
+.giving0-colro{
+    background: white !important;
+}
+.dark .giving0-colro{
+    background-color: black !important;
+}
 /* .modal-jobs{
   width: 100vw;
   height: 100vh;
