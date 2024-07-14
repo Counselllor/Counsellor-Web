@@ -249,6 +249,7 @@ const Dashboard = () => {
             style={{ outline: "1px solid black", fontSize: "20px" }}
           />
         </div>
+        <div className="search_box">
         <button>Search</button>
         <div className="filters-dropdown">
           <button className="filters-button">Filters</button>
@@ -290,6 +291,7 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
+      </div>
       </div>
       {filteredColleges.length === 0 ? (
         <div className="no-res-Found-cont">

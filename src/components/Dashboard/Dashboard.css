@@ -36,7 +36,15 @@
   position: relative;
   display: inline-block;
 }
-
+.search_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.search_box button{
+  margin: 0px !important;
+}
 .filters-button {
   background-color: #1e30cf;
   border: none;
@@ -932,6 +940,9 @@
       align-items: center;
       display: grid;
       grid-column: span 1;
+    }
+    .filters-content{
+      right: 0px;
     }
 }
 .college {
