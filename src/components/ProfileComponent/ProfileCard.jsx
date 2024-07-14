@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./ProfileCard.css";
 import avatar1 from "../../assets/avatar1.png";
 import avatar2 from "../../assets/avatar2.png";
-import { database  } from "../../firebase/auth";
-import { ref, get } from "firebase/database";
+import { database,storage  } from "../../firebase/auth";
+import { ref, get ,update} from "firebase/database";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
+import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -19,6 +20,10 @@ const ProfileCard = () => {
   const [socialProfiles, setSocialProfiles] = useState([]);
   const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
   const [userData, setUserData] = useState("");
+  const [profilePic, setProfilePic] = useState( null);
+  const [userUid, setUserUid] = useState(localStorage.getItem("userUid"));
+
+
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
     console.log("Fetched socialProfiles:", storedProfiles);
@@ -44,23 +49,42 @@ const ProfileCard = () => {
   }, []);
 
 console.log(userData)
-  useEffect(() => {
-    const fetchData = async () => {
-      const userData = await fetchUserData(localStorage.getItem("userUid"));
-    
+useEffect(() => {
+  const fetchData = async () => {
+    const userData = await fetchUserData(userUid);
+    if (userData) {
       setUserData(userData);
-      setName((userData.firstname+" "+userData.surname) || "Alex Foam");
-     setDob(userData.dob || "2000-01-21");
-    };
+      setName((userData.firstname + " " + userData.surname) || "Alex Foam");
+      setDob(userData.dob || "2000-01-21");
+      if (userData.profilePic) {
+        setProfilePic(userData.profilePic);
 
-    fetchData();
+      }
+    }
+  };
 
-  }, []);
+  fetchData();
+}, []);
+
+
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = () => {
+  const handleSave = async() => {
+    const userRef = ref(database, `users/${userUid}`);
+    const updates = {
+      firstname: name.split(" ")[0],
+      surname: name.split(" ")[1] || "",
+      dob,
+      academicYear,
+      avatar,
+      skills: selectedSkills.join(","),
+    };
+    if (profilePic) {
+      updates.profilePic = profilePic;
+    }
+    await update(userRef, updates);
     localStorage.setItem("name", name);
     localStorage.setItem("dob", dob);
     localStorage.setItem("academicYear", academicYear);
@@ -88,18 +112,29 @@ console.log(userData)
     });
   };
 
-  const handleImageUpload = (e) => {
+
+  const handleProfilePicUpload = async (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setAvatar(reader.result);
-    };
     if (file) {
-      reader.readAsDataURL(file);
+      // Delete the previous profile picture if it exists
+      if (profilePic) {
+        const previousRef = storageRef(storage, profilePic);
+        await deleteObject(previousRef).catch((error) => {
+          console.error("Error deleting previous profile picture:", error);
+        });
+      }
+      // Upload the new profile picture
+      const fileExtension = file.name.split('.').pop();
+      const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
+      await uploadBytes(newStorageRef, file);
+      const downloadURL = await getDownloadURL(newStorageRef);
+  
+
+      setProfilePic(downloadURL);
+      localStorage.setItem("profilePic", downloadURL);
     }
   };
-
-
+  
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
     const snapshot = await get(userRef);
@@ -160,6 +195,8 @@ console.log(userData)
     setResumeFile(null);
     localStorage.removeItem("resumeFile");
   };
+
+
 
   return (
     <div className="profile-card-container">
@@ -245,7 +282,7 @@ console.log(userData)
         <div className="profile-card">
           <i className="bx bxs-edit" onClick={handleEdit}></i>
           <img
-            src={avatar}
+            src={profilePic ? profilePic : avatar}
             alt="Profile"
             className="profile-image"
           />
@@ -280,7 +317,6 @@ console.log(userData)
               Name:
               <input
                 type="text"
-                placeholder={userData.firstname+" "+userData.surname}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -290,7 +326,6 @@ console.log(userData)
               <input
                 type="date"
                 value={dob}
-                placeholder={userData.dob}
                 onChange={(e) => setDob(e.target.value)}
               />
             </label>
@@ -305,7 +340,7 @@ console.log(userData)
             
             <div className="image-upload">
               <h3>Upload Profile Picture:</h3>
-              <input type="file" accept="image/*" onChange={handleImageUpload} />
+              <input type="file" accept="image/*" onChange={handleProfilePicUpload} />
             </div>
 
             <div className="avatar-selection">
