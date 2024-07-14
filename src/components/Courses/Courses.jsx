@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useState, useContext, useCallback, useEffect } from "react";
 import "./Courses.css";
 import coursesData from "./courses.json";
 import Footer from "../Footer/Footer";
@@ -13,7 +13,18 @@ import { toast } from 'react-toastify';
 const Courses = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate = useNavigate();
+  let navigate=useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]); 
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -39,7 +50,7 @@ const Courses = () => {
 
   return (
     <>
-      <nav className={`navbar fixed`}>
+      <nav className={"navbar fixed"}>
         <div className="logo">
           <Link to="/dashboard">
             <img src={Logo} alt="Logo" />
@@ -58,9 +69,6 @@ const Courses = () => {
             </li>
             <li>
               <a href="/careersupport">Career Support</a>
-            </li>
-            <li className="dot">
-              <a href="error">•</a>
             </li>
             <li>
               <a href="/" onClick={handleSignOut}>
