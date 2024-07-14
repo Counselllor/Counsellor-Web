@@ -319,7 +319,7 @@
   padding: 6rem 2rem;
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
-.career-support__cta {
+#dark .career-support__cta {
   background: linear-gradient(135deg, rgb(0, 0, 0), rgb(10, 10, 10));
 }
 

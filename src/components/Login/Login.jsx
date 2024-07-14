@@ -82,7 +82,6 @@ export default function Login() {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         console.log(user);
-
         const userData =  await fetchUserDataByEmail(user.email);
         
         localStorage.setItem("userUid", userData.id);
