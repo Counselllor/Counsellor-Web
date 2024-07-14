@@ -1,245 +1,316 @@
-
-.pagecoll {
+.page {
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
-  min-height: calc(100vh - 40px);
-  /* margin-top: -60px; */
+  height: calc(100vh - 60px);
+  margin-top: 60px;
 }
 
-
-.leftcoll,
-.rightcoll {
+.left {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  
+  
 }
 
-.contentcoll {
+.content {
   background-color: rgb(26, 165, 224);
-  /* background-image: {college.imageURL}; */
-  padding: 20px;
+  width: 50vw;
+  overflow: hidden;
+  position: relative;
   text-align: start;
-}
-#dark .contentcoll{
-background-color: rgb(24, 23, 23) !important;
-}
-
-.abeezee-regular {
-  font-family: "ABeeZee", sans-serif;
+  text-wrap: wrap;
+  overflow: hidden;
+  height: 100%;
+ 
 }
 
+  .abeezee-regular {
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+ 
 .college-name {
   font-weight: bolder;
   font-size: 30px;
-  margin: 0;
-  text-align: center;
+  width: 90%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
+
 .description-card {
-  margin: 20px 0;
+  display: flex;
+  width: 90%;
+  margin-right: 10%;
+  margin-left: 5%;
 }
 
 .description {
   font-weight: 600;
   font-size: 18px;
-  text-align: center;
 }
 
 .group {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
-.location{
+.location {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    /* margin-right: 20px; */
-    background-color: rgba(83, 189, 216,0.7);
-    padding: 10px;
-    border-radius: 20px;
-    height: 80px;
-    width: 280px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  flex-direction: row;
+  width: 30%;
+  margin-left: 5%;
+  align-items: center;
+  background-color: rgba(255, 255, 255,0.2);
+  margin-bottom: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
-#dark .location .icon{
-  color: white !important;
+.icon{
+  width: 20%;
+
+}
+.location-depth {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  width: auto;
+}
+
+.location-heading {
+margin-top: 0px;
+  font-size: 20px;
+
+  margin-bottom: 0px;
+}
+.rating-text{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  
+  gap: 6px;
+}
+.rating-heading{
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.location-text {
+
+  font-size: 15px;
+margin-top: 0px;
+margin-bottom: 0px;
+  
+}
+.rate{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
 }
 .rating {
   display: flex;
-  flex-direction: column;
+  width: 30%;
+  background-color: rgba(255, 255, 255,0.2);
+  margin-bottom: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  gap: 10px;
+
+  flex-direction: row;
   align-items: center;
-  /* margin:0 15px; */
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(83, 189, 216,0.7);
-  padding: 10px;
-  border-radius: 20px;
   height: 80px;
-    width: 140px;
-}
-.rating-star{
-  padding: 5px 0;
-}
-#dark .rating-star{
-  color: white !important;
 }
 
-.location-depth {
-  margin-left: 10px;
-}
 
-.location-heading,
-.rating-heading {
-  margin: 0;
-  font-size: 15px;
-}
-
-.location-text,
-.rating-text {
-  margin: 5px 0 0 0;
-  font-size: 15px;
-}
-
-.search-button {
-  background-color: rgb(2, 2, 26);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin-left: auto;
-  margin-right: 20px;
-  text-align: center;
-  height: 50px;
-  width: 160px;
-}
-#dark .search-button{
-  background-color: rgb(75, 72, 72) !important;
-}
-
-.search-button a {
-  text-decoration: none;
-  color: white;
-}
 
 .image {
-  width: 80%;
-  height: auto;
-  object-fit: cover;
-  margin-top: 90px;
-  border-radius: 10px;
-  margin-left: 50px;
-}
-.contentcoll{
-  padding-top: 40px;
-}
-.rightcoll {
-  background-color: #cae8ff;
-  padding: 20px;
-  padding-top: 70px;
-  overflow-y: auto;
-}
-
-.searchCourses {
-  margin-bottom: 20px;
   display: flex;
-  justify-content: center;
+  margin-left: 0px;
+  height: 50% !important;
+  width: 40vw;
+  object-fit: cover;
+  margin-bottom: 0px !important;
+  position: absolute;
+  bottom: 0px;
+  margin-left: 5vw;
 }
 
-#courseList {
+
+
+.search-button {
+  background-color: rgb(23, 23, 70);
+  /* z-index: 100 !important; */
+  color: white;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  width: 80%;
-  background-color: rgba(56, 53, 53, 0.3);
-  font-weight: bold;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 6px;
+  margin-left: 30px;
+  height: 50px;
+  width: 150px;
+  margin-top: 15px;
 }
-#dark #courseList{
-  background-color: aliceblue !important;
+.right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  background-color: #cae8ff;
+}
+.search-button a{
+  text-decoration:none;
+  color:white;
+}
+.search-button a:hover{
+  cursor:pointer;
+}
+.searchCourses {
+  border-radius: 15px;
+  width: 40vw;
+  margin-left: 5vw;
+  margin-top: 120px;
+  background-color: #c5d5d4;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.input-courses {
+  width: 30vw;
+}
+.st{
+  width: 80%;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
 }
 
 .student-card {
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  margin-top: 25px;
   background-color: #5cb6f9;
-  /* padding: 35px; */
-  width: 90%;
   border-radius: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  width:38vw;
 }
-#dark .student-card{
-  background-color: rgb(66, 64, 64) !important;
+.clipped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
 }
-
-.student-image img {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  margin:0 20px;
+.clipped-text1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  height: calc(1.2em * 3);
 }
-
-.student-name {
-  font-size: 15px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  width: 50%;
-  padding: 5px 10px;
-  margin-top: 10px;
-  text-align: left;
+.student {
+  background-color: rgb(229, 234, 234);
+  color: rgb(29, 31, 155);
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .student-description {
   display: flex;
-  gap: 7px;
-  /* flex-direction: column; */
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 5px 0;
+  flex-direction: row;
+  font-size: 10px;
 }
-/* 
-.position {
-  font-size: 16px;
-  margin: 10px 0;
-  text-align: left;
-} */
 
-.student-seentime{
+.course , .branch,.year {
+  font-size: 15px;
+}
+
+.branch {
+  margin-right: 6px;
+}
+
+.position {
   display: flex;
   font-size: 16px;
-  gap: 15px;
-    margin: 10px 0;
-    text-align: left;
+  font-weight:bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-.sst2{
-  color: gray;
+@media only screen and (max-width:829px){
+.student-card{
+  width: 80vw;
 }
-
-@media only screen and (max-width: 829px) {
-  .pagecoll {
+.searchCourses{
+  width: 80vw;
+}
+}
+@media only screen and (max-width:314px){
+  .clipped-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
+  }
+  .clipped-text1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3);
+  }
+}
+@media only screen and (max-width:385px){
+  .student-card{
     flex-direction: column;
-    min-height: auto;
   }
-
-  .leftcoll,
-  .rightcoll {
-    width: 100%;
+  .student-card img{
+    margin-top: 10px;
   }
+  .student-description{
+    flex-direction: column;
+  }
+  .st{
+    align-items: center;
+    display: flex;
+  }
+} 
 
-  .contentcoll,
-  .rightcoll {
-    padding: 20px;
+@media only screen and (max-width:829px){
+  .page{
+    flex-direction: column;
+    height: calc(200vh - 60px );
+    margin-top: 0px;
+  }
+  .left{
+    height: 50%;
+    width: 100vw;
+  }
+  .content{
+    height: 100%;
+    width: 100vw;
+
+  }
+  .image{
+    width: 100vw;
+  }
+  .right{
+    width: 100vw;
+    height: 50%;
+    justify-content: start !important;
   }
 }
