@@ -362,8 +362,7 @@
   margin-top: 15px;
 }
 
-.download-button,
-.import-button {
+.download-button {
   margin: 15px 0;
   padding: 8px 15px;
   background-color: #4CAF50;
@@ -378,20 +377,8 @@
   box-sizing: border-box;
 }
 
-.import-button {
-  background-color: #3498db;
-}
-
 .download-button:hover {
   background-color: #45a049;
-}
-
-.import-button:hover {
-  background-color: #2980b9;
-}
-
-.import-button-container {
-  width: 100%;
 }
 
 

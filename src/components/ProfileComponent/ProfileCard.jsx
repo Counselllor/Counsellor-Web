@@ -1,3 +1,5 @@
+// File: ProfileCard.js
+
 import React, { useState, useEffect } from "react";
 import "./ProfileCard.css";
 import avatar1 from "../../assets/avatar1.png";
@@ -5,6 +7,8 @@ import avatar2 from "../../assets/avatar2.png";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
+import { getDatabase, ref, set, get } from "firebase/database";
+import { auth } from "../../firebase/auth";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -18,9 +22,14 @@ const ProfileCard = () => {
   const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
 
   useEffect(() => {
-    const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
-    console.log("Fetched socialProfiles:", storedProfiles);
-    setSocialProfiles(storedProfiles);
+    const user = auth.currentUser;
+    if (user) {
+      loadDataFromFirebase(user.uid);
+    } else {
+      const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
+      console.log("Fetched socialProfiles:", storedProfiles);
+      setSocialProfiles(storedProfiles);
+    }
 
     const generateDates = () => {
       const result = [];
@@ -41,6 +50,51 @@ const ProfileCard = () => {
     generateDates();
   }, []);
 
+  const saveDataToFirebase = (userId) => {
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + userId);
+    
+    const dataToSave = {
+      name,
+      dob,
+      academicYear,
+      avatar,
+      skills: selectedSkills,
+      socialProfiles,
+      resumeFile
+    };
+
+    set(userRef, dataToSave)
+      .then(() => {
+        console.log("Data saved successfully to Firebase");
+      })
+      .catch((error) => {
+        console.error("Error saving data to Firebase: ", error);
+      });
+  };
+
+  const loadDataFromFirebase = (userId) => {
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + userId);
+
+    get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        setName(data.name || "Alex Foam");
+        setDob(data.dob || "2000-01-21");
+        setAcademicYear(data.academicYear || "3rd Year");
+        setAvatar(data.avatar || avatar1);
+        setSelectedSkills(data.skills || []);
+        setSocialProfiles(data.socialProfiles || []);
+        setResumeFile(data.resumeFile || null);
+      } else {
+        console.log("No data available in Firebase");
+      }
+    }).catch((error) => {
+      console.error("Error loading data from Firebase:", error);
+    });
+  };
+
   const handleEdit = () => {
     setIsEditing(true);
   };
@@ -54,6 +108,14 @@ const ProfileCard = () => {
     if (resumeFile) {
       localStorage.setItem("resumeFile", resumeFile);
     }
+
+    const user = auth.currentUser;
+    if (user) {
+      saveDataToFirebase(user.uid);
+    } else {
+      console.log("No user is signed in. Data saved to local storage only.");
+    }
+
     setIsEditing(false);
   };
 
@@ -130,34 +192,6 @@ const ProfileCard = () => {
   const handleDeleteResume = () => {
     setResumeFile(null);
     localStorage.removeItem("resumeFile");
-  };
-
-  const handleImportData = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        try {
-          const importedData = JSON.parse(event.target.result);
-          setName(importedData.name || name);
-          setDob(importedData.dob || dob);
-          setAcademicYear(importedData.academicYear || academicYear);
-          setSelectedSkills(importedData.selectedSkills || selectedSkills);
-          setSocialProfiles(importedData.socialProfiles || socialProfiles);
-          // Update localStorage
-          localStorage.setItem("name", importedData.name || name);
-          localStorage.setItem("dob", importedData.dob || dob);
-          localStorage.setItem("academicYear", importedData.academicYear || academicYear);
-          localStorage.setItem("skills", JSON.stringify(importedData.selectedSkills || selectedSkills));
-          localStorage.setItem("profiles", JSON.stringify(importedData.socialProfiles || socialProfiles));
-          alert("Data imported successfully!");
-        } catch (error) {
-          console.error("Error parsing imported data:", error);
-          alert("Error importing data. Please check the file format.");
-        }
-      };
-      reader.readAsText(file);
-    }
   };
 
   return (
@@ -270,18 +304,6 @@ const ProfileCard = () => {
             <button onClick={downloadProfileData} className="download-button">
               Download Profile Details
             </button>
-            <div className="import-button-container">
-              <input
-                type="file"
-                accept=".json"
-                onChange={handleImportData}
-                style={{ display: 'none' }}
-                id="import-data"
-              />
-              <label htmlFor="import-data" className="import-button">
-                Import Data
-              </label>
-            </div>
           </div>
         </div>
       </div>
