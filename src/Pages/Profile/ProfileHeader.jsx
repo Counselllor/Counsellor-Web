@@ -44,6 +44,7 @@ export default function ProfileHeader({ children }) {
   };
 
   const handleSignOut = () => {
+    localStorage.removeItem("userUid");
     signOut(auth)
       .then(() => {
         navigate("/");

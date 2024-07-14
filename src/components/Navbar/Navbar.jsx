@@ -29,15 +29,17 @@ const Navbar = () => {
   const [error, setError] = useState(null);
   const [fix, setFix] = useState(false);
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-      } else {
-        navigate('/');
-      }
-    });
-  }, [navigate]);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       // handle user logged in state
+  //     } else {
+
+  //         navigate('/');
+        
+  //     }
+  //   });
+  // }, [navigate]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -86,9 +88,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${fix ? 'fixed' : ''}`}>
-      <div className="logo">
-        <img src={Logo} alt="Logo" />
-      </div>
+      <LogoSection />
       <MenuSection user={user} handleSignOut={handleSignOut} menuOpen={menuOpen} />
       <HamburgerSection toggleMenu={toggleMenu} menuOpen={menuOpen} handleKeyPress={handleKeyPress} />
     </nav>
@@ -98,7 +98,9 @@ const Navbar = () => {
 // Logo Section Component
 const LogoSection = () => (
   <div className="logo">
-    <img src={Logo} alt="Logo" />
+    <Link to="/dashboard">
+      <img src={Logo} alt="Logo" />
+    </Link>
   </div>
 );
 
@@ -106,11 +108,11 @@ const LogoSection = () => (
 const MenuSection = ({ user, handleSignOut, menuOpen }) => (
   <div className={`menu ${menuOpen ? 'show' : ''}`}>
     <ul>
-      <MenuItem href="#">Top Universities</MenuItem>
-      <MenuItem href="#">Jobs</MenuItem>
-      <MenuItem href="#">Courses</MenuItem>
-      <MenuItem href="#">Career Support</MenuItem>
-      <MenuItem href="#" dot>•</MenuItem>
+
+      <MenuItem href="/top-university">Top Universities</MenuItem>
+      <MenuItem href="/jobs">Jobs</MenuItem>
+      <MenuItem href="/cources">Courses</MenuItem>
+      <MenuItem href="/careersupport">Career Support</MenuItem>
       {user ? (
         <>
           <MenuItem>

@@ -24,6 +24,8 @@ import JoinUs from "./components/Joinus/JoinUs";
 import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
+import Jobs from "./components/jobs/Jobs";
+import BlogWrite from "./components/blogs/Blogswrite";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,11 @@ const router = createBrowserRouter([
         path: "/courses",
         errorElement: <ErrorPage />,
         element: <Courses />,
+      },
+      {
+        path: "/jobs",
+        errorElement: <ErrorPage />,
+        element: <Jobs />,
       },
       {
         path: "/careersupport",
@@ -124,6 +131,11 @@ const router = createBrowserRouter([
         path: "/Contribute",
         errorElement: <ErrorPage />,
         element: <Contribute />,
+      },
+      {
+        path: "/blogwrite",
+        errorElement: <ErrorPage />,
+        element: <BlogWrite />,
       },
     ],
   },
