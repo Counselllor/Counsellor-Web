@@ -164,10 +164,10 @@
 
 
 .giving0-colro{
-    background: white !important;
+    background: white ;
 }
-.dark .giving0-colro{
-    background-color: black !important;
+#dark .giving0-colro{
+    background-color: #121212 !important;
 }
 /* .modal-jobs{
   width: 100vw;
