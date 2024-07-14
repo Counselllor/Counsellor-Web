@@ -30,9 +30,14 @@ const Dashboard = () => {
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
   useEffect(() => {
+    
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        if(localStorage.getItem('count')!=='false'){
+
+          if(localStorage.getItem('count')!=='false'){
+
+       
+
           toast.success("Logged in! 🚀", {
             className: "toast-message",
           });
@@ -178,9 +183,6 @@ const Dashboard = () => {
             <li>
               <a href="./careersupport">Career Support</a>
             </li>
-            <li className="dot">
-              <a href="error">•</a>
-            </li>
             <li>
               <a href="/" onClick={handleSignOut}>
                 Log Out
@@ -240,7 +242,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="grid-cont"> 
-          <div className="colleges">
+          <div className="colleges1">
             {paginatedColleges.map((college, index) => (
               <div
                 className={`college ${activeIndex === index ? "active" : ""}`}

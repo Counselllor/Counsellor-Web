@@ -29,15 +29,17 @@ const Navbar = () => {
   const [error, setError] = useState(null);
   const [fix, setFix] = useState(false);
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        // handle user logged in state
-      } else {
-        navigate('/');
-      }
-    });
-  }, [navigate]);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       // handle user logged in state
+  //     } else {
+
+  //         navigate('/');
+        
+  //     }
+  //   });
+  // }, [navigate]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -106,11 +108,11 @@ const LogoSection = () => (
 const MenuSection = ({ user, handleSignOut, menuOpen }) => (
   <div className={`menu ${menuOpen ? 'show' : ''}`}>
     <ul>
+
       <MenuItem href="/top-university">Top Universities</MenuItem>
       <MenuItem href="/jobs">Jobs</MenuItem>
       <MenuItem href="/cources">Courses</MenuItem>
       <MenuItem href="/careersupport">Career Support</MenuItem>
-      <MenuItem href="#" dot>•</MenuItem>
       {user ? (
         <>
           <MenuItem>

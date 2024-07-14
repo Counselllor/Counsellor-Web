@@ -57,6 +57,35 @@
   margin-top: 5px;
   font-size: 14px;
 }
+.upload-button {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.upload-button:hover {
+  background-color: #e0e0e0;
+}
+
+.about-info button {
+  margin-right: 10px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.about-info button:hover {
+  background-color: #e0e0e0;
+}
 
 /* Profile Card Content */
 .profile-card-content {
@@ -324,6 +353,21 @@
 .skill-option.selected {
   background-color: #007bff;
   color: white;
+}
+.download-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #45a049;
 }
 
 /* Responsive Design */

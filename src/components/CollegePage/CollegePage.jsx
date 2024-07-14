@@ -18,7 +18,20 @@ const CollegePage = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
-  const college = collegesData.find((college) => college.id === parseInt(id));
+
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // handle user logged in state
+      } else {
+
+          navigate('/');
+        
+      }
+    });
+  }, [navigate]);
+  const college = collegesData.find(college => college.id === parseInt(id));
 
   if (!college) {
     return <div>College not found</div>;
