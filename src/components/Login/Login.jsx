@@ -81,7 +81,6 @@ export default function Login() {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        console.log(user.uid,'asssssssssssssssssssssssssssssssssssssss');
 
         const userData =  await fetchUserDataByEmail(user.email);
         
@@ -148,7 +147,6 @@ export default function Login() {
         .then(() => {
           setTimeout(() => {
             const user=localStorage.getItem("userUid");
-            console.log('inside this dsffdf')
             fetchUserData(user.uid); // Fetch user data after login
             localStorage.setItem('login',true)
             navigate("/dashboard");
