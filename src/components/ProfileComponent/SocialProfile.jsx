@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SocialProfile.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../../firebase/auth';
+import { getDatabase, ref, set, get, child, update, remove } from 'firebase/database';
 
 const initialProfiles = [
   {
@@ -35,43 +36,54 @@ const socialMediaOptions = [
 ];
 
 const SocialProfile = () => {
-  const [profiles, setProfiles] = useState(
-    JSON.parse(localStorage.getItem("profiles")) || initialProfiles
-  );
-  let navigate=useNavigate()
+  const [profiles, setProfiles] = useState(initialProfiles);
   const [newProfile, setNewProfile] = useState({ name: "", url: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [showNewProfileForm, setShowNewProfileForm] = useState(false);
+  const navigate = useNavigate();
+ const uid=localStorage.getItem("userUid")
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        // handle user logged in state
+        fetchProfiles(uid);
       } else {
-
-          navigate('/');
-        
+        navigate('/');
       }
     });
   }, [navigate]);
-  useEffect(() => {
-    localStorage.setItem("profiles", JSON.stringify(profiles));
-  }, [profiles]);
+
+  const fetchProfiles = async (userId) => {
+    const dbRef = ref(getDatabase());
+    const snapshot = await get(child(dbRef, `users/${userId}/profiles`));
+    if (snapshot.exists()) {
+      setProfiles(snapshot.val());
+    }
+  };
+
+  const saveProfiles = async (userId, profiles) => {
+    const db = getDatabase();
+    await set(ref(db, `users/${userId}/profiles`), profiles);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProfile({ ...newProfile, [name]: value });
   };
 
-  const handleAddProfile = () => {
+  const handleAddProfile = async () => {
     if (!newProfile.name || !isValidUrl(newProfile.url)) {
       alert("Please enter a valid profile name and URL starting with http");
       return;
     }
-    setProfiles([...profiles, { ...newProfile, id: profiles.length + 1 }]);
+    const updatedProfiles = [...profiles, { ...newProfile, id: profiles.length + 1 }];
+    setProfiles(updatedProfiles);
     setNewProfile({ name: "", url: "" });
     setShowNewProfileForm(false);
-    window.location.reload(); // Reload the page after adding a profile
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, updatedProfiles);
+    }
   };
 
   const handleProfileChange = (id, url) => {
@@ -82,9 +94,13 @@ const SocialProfile = () => {
     );
   };
 
-  const handleDeleteProfile = (id) => {
-    setProfiles(profiles.filter((profile) => profile.id !== id));
-    window.location.reload(); // Reload the page after deleting a profile
+  const handleDeleteProfile = async (id) => {
+    const updatedProfiles = profiles.filter((profile) => profile.id !== id);
+    setProfiles(updatedProfiles);
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, updatedProfiles);
+    }
   };
 
   const handleEditProfile = (id) => {
@@ -92,10 +108,13 @@ const SocialProfile = () => {
     setIsEditing(true);
   };
 
-  const handleSaveProfile = () => {
+  const handleSaveProfile = async () => {
     setEditingId(null);
     setIsEditing(false);
-    window.location.reload();
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, profiles);
+    }
   };
 
   const handleUpdate = () => {
@@ -130,6 +149,7 @@ const SocialProfile = () => {
             <input
               type="text"
               value={profile.url}
+              placeholder={profile.url}
               readOnly={!isEditing || editingId !== profile.id}
               onChange={(e) => handleProfileChange(profile.id, e.target.value)}
             />
