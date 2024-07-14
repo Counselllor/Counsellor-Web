@@ -50,7 +50,7 @@ const Courses = () => {
 
   return (
     <>
-      <nav className={`navbar fixed`}>
+      <nav className={"navbar fixed"}>
         <div className="logo">
           <Link to="/dashboard">
             <img src={Logo} alt="Logo" />

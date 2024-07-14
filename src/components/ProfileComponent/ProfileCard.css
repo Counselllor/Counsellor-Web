@@ -354,6 +354,21 @@
   background-color: #007bff;
   color: white;
 }
+.download-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
 
 /* Responsive Design */
 @media screen and (max-width: 650px) {
