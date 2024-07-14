@@ -11,6 +11,8 @@ import './BlogReadPage.css';
 import { Switch } from 'antd';
 import { signOut } from "firebase/auth";
 import { ThemeContext } from '../../App';
+import { toast } from "react-toastify";
+import { auth } from "../../firebase/auth";
 
 const BlogReadPage = () => {
   const { id } = useParams();
