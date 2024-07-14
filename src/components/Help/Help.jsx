@@ -330,8 +330,17 @@ function Box({ image,heading, text, contactInfo }) {
       border: '1px solid #0000FF',
       padding: '20px'
     }}>
-      <img src={image} alt="Image" style={{ width: '60%', height: '100px',margin:'20px' }} />
-      <p style={{
+<img
+  src={image}
+  alt="Image"
+  className="img"
+  style={{
+    width: '60%',
+    height: '100px',
+    margin: '20px',
+    backgroundColor: document.getElementById('dark') ? '#ffffff' : 'transparent'
+  }}
+/>      <p style={{
         fontSize: '35px',
         marginTop:'7px',
         marginBottom:'7px',
