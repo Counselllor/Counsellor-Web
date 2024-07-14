@@ -132,6 +132,34 @@ const ProfileCard = () => {
     localStorage.removeItem("resumeFile");
   };
 
+  const handleImportData = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const importedData = JSON.parse(event.target.result);
+          setName(importedData.name || name);
+          setDob(importedData.dob || dob);
+          setAcademicYear(importedData.academicYear || academicYear);
+          setSelectedSkills(importedData.selectedSkills || selectedSkills);
+          setSocialProfiles(importedData.socialProfiles || socialProfiles);
+          // Update localStorage
+          localStorage.setItem("name", importedData.name || name);
+          localStorage.setItem("dob", importedData.dob || dob);
+          localStorage.setItem("academicYear", importedData.academicYear || academicYear);
+          localStorage.setItem("skills", JSON.stringify(importedData.selectedSkills || selectedSkills));
+          localStorage.setItem("profiles", JSON.stringify(importedData.socialProfiles || socialProfiles));
+          alert("Data imported successfully!");
+        } catch (error) {
+          console.error("Error parsing imported data:", error);
+          alert("Error importing data. Please check the file format.");
+        }
+      };
+      reader.readAsText(file);
+    }
+  };
+
   return (
     <div className="profile-card-container">
       <div className="greeting">
@@ -238,9 +266,23 @@ const ProfileCard = () => {
               ))}
             </ul>
           </div>
-          <button onClick={downloadProfileData} className="download-button">
-            Download Profile Details
-          </button>
+          <div className="profile-actions">
+            <button onClick={downloadProfileData} className="download-button">
+              Download Profile Details
+            </button>
+            <div className="import-button-container">
+              <input
+                type="file"
+                accept=".json"
+                onChange={handleImportData}
+                style={{ display: 'none' }}
+                id="import-data"
+              />
+              <label htmlFor="import-data" className="import-button">
+                Import Data
+              </label>
+            </div>
+          </div>
         </div>
       </div>
       {isEditing && (

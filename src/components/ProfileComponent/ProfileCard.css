@@ -354,9 +354,18 @@
   background-color: #007bff;
   color: white;
 }
-.download-button {
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 15px;
-  padding: 10px 15px;
+}
+
+.download-button,
+.import-button {
+  margin: 15px 0;
+  padding: 8px 15px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -364,11 +373,28 @@
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.import-button {
+  background-color: #3498db;
 }
 
 .download-button:hover {
   background-color: #45a049;
 }
+
+.import-button:hover {
+  background-color: #2980b9;
+}
+
+.import-button-container {
+  width: 100%;
+}
+
+
 
 /* Responsive Design */
 @media screen and (max-width: 650px) {
