@@ -32,6 +32,64 @@
 .menu.show {
   display: flex;
 }
+.filters-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.filters-button {
+  background-color: #1e30cf;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.reset-button {
+  background-color: #5cb6f9;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.filters-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 60px;
+
+  padding: 20px 10px !important;
+  min-width: 200px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.filters-dropdown:hover .filters-content {
+  display: block;
+}
+
+.filter-slider {
+  margin: 10px 0;
+}
+
+.slider-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+#dark .filters-content{
+  color: white;
+  background-color: #1e1e1e;
+}
+
 
 .menu ul {
   list-style: none;

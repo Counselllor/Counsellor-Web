@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback, useContext, useRef } from "react";
+import React, { useEffect, useState, useCallback, useContext, useRef } from "react";
 import "./Dashboard.css";
-import { useNavigate, useLocation, Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import SearchIcon from "../../assets/search_icon.png"; // Correct import
+import SearchIcon from "../../assets/search_icon.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
@@ -14,6 +14,8 @@ import CollegeCard from "./CollegeCard";
 import FAQs from '../FAQs/FAQs';
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -29,31 +31,30 @@ const Dashboard = () => {
   const itemsPerPage = 18;
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
+  // Slider state for CTC and ratings
+  const [ctcRange, setCtcRange] = useState([0, 100]);
+  const [ratingRange, setRatingRange] = useState([0, 10]);
+
   useEffect(() => {
-    
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-
-          if(localStorage.getItem('count')!=='false'){
-
-       
-
+        if(localStorage.getItem('count')!=='false'){
           toast.success("Logged in! 🚀", {
             className: "toast-message",
           });
-          localStorage.setItem('count',false)
+          localStorage.setItem('count', false);
         }
-        } else {
-          toast.success("Logged out!", {
-            className: "toast-message",
-          });
+      } else {
+        toast.success("Logged out!", {
+          className: "toast-message",
+        });
 
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        }
-      });
-      return () => unsubscribe();
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      }
+    });
+    return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {
@@ -61,10 +62,15 @@ const Dashboard = () => {
       (college) =>
         college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         college.location.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    ).filter(college => {
+      const ctcValue = parseFloat(college.ctc.match(/(\d+)/)[0]);
+      const ratingValue = college.rating;
+      return ctcValue >= ctcRange[0] && ctcValue <= ctcRange[1] &&
+             ratingValue >= ratingRange[0] && ratingValue <= ratingRange[1];
+    });
     setFilteredColleges(results);
-    setCurrentPage(1); // Reset to the first page when search changes
-  }, [searchTerm]);
+    setCurrentPage(1);
+  }, [searchTerm, ctcRange, ratingRange]);
 
   useEffect(() => {
     if (location.hash === "#faqs1") {
@@ -75,7 +81,6 @@ const Dashboard = () => {
     }
   }, [location]);
 
-  // Scroll to top when currentPage changes
   useEffect(() => {
     if (mainRef.current) {
       mainRef.current.scrollIntoView({ behavior: "smooth" });
@@ -142,7 +147,14 @@ const Dashboard = () => {
     toggleTheme();
   }, [toggleTheme]);
 
-  // Pagination logic
+  const handleCtcRangeChange = (value) => {
+    setCtcRange(value);
+  };
+
+  const handleRatingRangeChange = (value) => {
+    setRatingRange(value);
+  };
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -151,6 +163,10 @@ const Dashboard = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  const handleResetFilters = () => {
+    setCtcRange([0, 100]);
+    setRatingRange([0, 10]);
+  };
 
   return (
     <main ref={mainRef}>
@@ -222,7 +238,7 @@ const Dashboard = () => {
       <div className="search">
         <div className="s_bar_c">
           <a href="">
-            <img src={SearchIcon} alt="Search" /> {/* Corrected import */}
+            <img src={SearchIcon} alt="Search" />
           </a>
           <div className="vl" />
           <input
@@ -234,6 +250,46 @@ const Dashboard = () => {
           />
         </div>
         <button>Search</button>
+        <div className="filters-dropdown">
+          <button className="filters-button">Filters</button>
+          <div className="filters-content">
+            <div className="filter-slider">
+              <h3>Highest CTC</h3>
+              <Slider
+                range
+                min={0}
+                max={100}
+                onChange={handleCtcRangeChange}
+                value={ctcRange}
+                trackStyle={{ backgroundColor: "#5CB6F9" }}
+                handleStyle={{ borderColor: "#5CB6F9" }}
+              />
+              <div className="slider-values">
+                <span>Min: {ctcRange[0]} LPA</span>
+                <span>Max: {ctcRange[1]} LPA</span>
+              </div>
+            </div>
+            <div className="filter-slider">
+              <h3>Rating</h3>
+              <Slider
+                range
+                min={0}
+                max={10}
+                onChange={handleRatingRangeChange}
+                value={ratingRange}
+                trackStyle={{ backgroundColor: "#5CB6F9" }}
+                handleStyle={{ borderColor: "#5CB6F9" }}
+              />
+              <div className="slider-values">
+                <span>Min: {ratingRange[0]}</span>
+                <span>Max: {ratingRange[1]}</span>
+              </div>
+            </div>
+            <p className="reset-button" onClick={handleResetFilters}>
+              Reset
+            </p>
+          </div>
+        </div>
       </div>
       {filteredColleges.length === 0 ? (
         <div className="no-res-Found-cont">
