@@ -9,6 +9,7 @@ import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
 import { getDatabase, ref, set, get } from "firebase/database";
 import { auth } from "../../firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -20,16 +21,20 @@ const ProfileCard = () => {
   const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
   const [socialProfiles, setSocialProfiles] = useState([]);
   const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const user = auth.currentUser;
-    if (user) {
-      loadDataFromFirebase(user.uid);
-    } else {
-      const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
-      console.log("Fetched socialProfiles:", storedProfiles);
-      setSocialProfiles(storedProfiles);
-    }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      if (currentUser) {
+        loadDataFromFirebase(currentUser.uid);
+      } else {
+        const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
+        setSocialProfiles(storedProfiles);
+      }
+    });
 
     const generateDates = () => {
       const result = [];
@@ -41,13 +46,15 @@ const ProfileCard = () => {
         result.push({
           day: date.getDate(),
           weekDay: date.toLocaleString("default", { weekday: "short" }),
-          isActive: i === 9, // set 10th date as active for demonstration
+          isActive: i === 9,
         });
       }
       setDates(result);
     };
 
     generateDates();
+
+    return () => unsubscribe();
   }, []);
 
   const saveDataToFirebase = (userId) => {
@@ -64,13 +71,9 @@ const ProfileCard = () => {
       resumeFile
     };
 
-    set(userRef, dataToSave)
-      .then(() => {
-        console.log("Data saved successfully to Firebase");
-      })
-      .catch((error) => {
-        console.error("Error saving data to Firebase: ", error);
-      });
+    set(userRef, dataToSave).catch((error) => {
+      console.error("Error saving data to Firebase: ", error);
+    });
   };
 
   const loadDataFromFirebase = (userId) => {
@@ -87,8 +90,6 @@ const ProfileCard = () => {
         setSelectedSkills(data.skills || []);
         setSocialProfiles(data.socialProfiles || []);
         setResumeFile(data.resumeFile || null);
-      } else {
-        console.log("No data available in Firebase");
       }
     }).catch((error) => {
       console.error("Error loading data from Firebase:", error);
@@ -109,11 +110,8 @@ const ProfileCard = () => {
       localStorage.setItem("resumeFile", resumeFile);
     }
 
-    const user = auth.currentUser;
     if (user) {
       saveDataToFirebase(user.uid);
-    } else {
-      console.log("No user is signed in. Data saved to local storage only.");
     }
 
     setIsEditing(false);
@@ -193,6 +191,10 @@ const ProfileCard = () => {
     setResumeFile(null);
     localStorage.removeItem("resumeFile");
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="profile-card-container">
