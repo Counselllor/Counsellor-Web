@@ -81,10 +81,10 @@ export default function Login() {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-
+        console.log(user);
         const userData =  await fetchUserDataByEmail(user.email);
         
-        localStorage.setItem("userUid", user.uid);
+        localStorage.setItem("userUid", userData.id);
         toast.success("Authenticating your credentials… 🚀",{
           className: "toast-message",
         });
