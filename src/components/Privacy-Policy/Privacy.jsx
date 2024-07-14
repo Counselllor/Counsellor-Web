@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Privacy.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -15,6 +15,25 @@ const Breadcrumb = () => {
 };
 
 const Privacy = () => {
+  const [lastUpdatedDate, setLastUpdatedDate] = useState('');
+
+  useEffect(() => {
+    const updateDate = () => {
+      const currentDate = new Date();
+      const dayOfWeek = currentDate.getDay();
+      const daysSinceLastUpdate = (dayOfWeek + 1) % 7;
+      const lastUpdated = new Date(currentDate);
+      lastUpdated.setDate(currentDate.getDate() - daysSinceLastUpdate);
+      const formattedDate = lastUpdated.toLocaleDateString("en-GB");
+      setLastUpdatedDate(formattedDate);
+    };
+
+    updateDate();
+    const interval = setInterval(updateDate, 7 * 24 * 60 * 60 * 1000); 
+
+    return () => clearInterval(interval); 
+  }, []);
+
   return (
     <div>
       <BackToHomeButton />
@@ -23,7 +42,7 @@ const Privacy = () => {
         <div className="privacy-policy-content">
           <h1>Privacy Policy</h1>
           <p className="date">
-            Last updated:<span style={{ color: "blue" }}>29/05/2024</span>
+            Last updated: <span style={{ color: "blue" }}>{lastUpdatedDate}</span>
           </p>
           <p>
             This Privacy Policy describes our policies and procedures on the
