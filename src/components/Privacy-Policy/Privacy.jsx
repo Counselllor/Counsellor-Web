@@ -120,7 +120,6 @@ const Privacy = () => {
           </p>
       </div>
       </div>
-      <hr />
 
     </div>
           <Footer />
