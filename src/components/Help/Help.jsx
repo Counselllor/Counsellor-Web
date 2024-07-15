@@ -8,7 +8,10 @@ import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
+library.add(fas);
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
@@ -248,9 +251,9 @@ isLoggedIn&&<>
         justifyContent: 'center',
         flexWrap: 'wrap'
       }}>
+
         <Box
-    
-          image="/src/components/Help/call.gif"
+        i="fas fa-phone"
           heading="Contact Support"
           text="If you need further assistance, please do not hesitate to contact our support team. We are here to help you."
           contactInfo={[
@@ -260,12 +263,9 @@ isLoggedIn&&<>
           ]}
         />
         <Box
-          image="/src/components/Help/Account.gif"
+        i="fas fa-user"
           heading="Account Management"
           text="Learn how to manage your account settings, update your information, and more."
-          
-
-
           contactInfo={[
             { type: 'text2', value: 'Update your personal information in the "Profile" section.' },
             { type: 'phone', value: 'Change your password under "Security Settings".' },
@@ -273,7 +273,7 @@ isLoggedIn&&<>
           ]}
         />
         <Box
-          image="/src/components/Help/payment.gif"
+        i="fas fa-file-invoice-dollar"
           heading="Billing and Payments"
           text="Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history."
           contactInfo={[
@@ -283,7 +283,7 @@ isLoggedIn&&<>
           ]}
         />
             <Box
-          image="/src/components/Help/security.gif"
+                    i="fas fa-lock"
           heading="Security"
           text="Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account."
           contactInfo={[
@@ -293,7 +293,8 @@ isLoggedIn&&<>
           ]}
         />
             <Box
-          image="/src/components/Help/cross.gif"
+            i="fas fa-wrench"
+            iconClass="fa-solid fa-phone" 
           heading="Troubleshooting"
           text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
           contactInfo={[
@@ -303,7 +304,7 @@ isLoggedIn&&<>
           ]}
         />
             <Box
-          image="/src/components/Help/feedback.gif"
+            i="fas fa-comments"
           heading="Feedback"
           text="We value your feedback. Please let us know how we can improve our services."
           contactInfo={[
@@ -321,7 +322,7 @@ isLoggedIn&&<>
     </>
   );
 };
-function Box({ image,heading, text, contactInfo }) {
+function Box({ i,heading, text, contactInfo }) {
   return (
     <div style={{
       width: '450px',
@@ -330,18 +331,14 @@ function Box({ image,heading, text, contactInfo }) {
       border: '1px solid #0000FF',
       padding: '20px'
     }}>
-<img
-  src={image}
-  alt="Image"
-  className="img"
-  style={{
-    width: '60%',
-    height: '100px',
-    margin: '20px',
-    backgroundColor: document.getElementById('dark') ? '#ffffff' : 'transparent'
-  }}
-/>      <p style={{
-        fontSize: '35px',
+           <i className={i} style={{
+        fontSize: '50px',
+        color: '#0000FF',
+        marginRight: '10px'
+      }} />
+
+     <p style={{
+        fontSize: '30px',
         marginTop:'7px',
         marginBottom:'7px',
         color: '#0000FF',
