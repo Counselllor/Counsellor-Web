@@ -8,10 +8,7 @@ import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fas);
 const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
