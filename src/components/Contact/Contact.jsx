@@ -2,6 +2,8 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { signOut} from "firebase/auth";
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
@@ -17,6 +19,7 @@ import { ThemeContext } from '../../App';
 const Contact = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 let name=useRef()
+let lastname=useRef()
 let feedback=useRef()
 let email=useRef()
     const navigate = useNavigate();
@@ -48,16 +51,24 @@ let email=useRef()
     //   });
     // }, []);
    
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     let params = {
       name:name.current.value,
       email: email.current.value,
       feedback: feedback.current.value,
     };
-    emailjs.send("service_kszura2", "template_u8shl9d", params, {
+   await  emailjs.send("service_kszura2", "template_u8shl9d", params, {
       publicKey: "rSYpY_RsF76o4MgcA",
     });
+    console.log('sddddddddddddddddd')
+    toast.success("Feedback Sent We will connect with you soon ! 🚀", {
+      className: "toast-message",
+    });
+    name.current.value=""
+    feedback.current.value=""
+    email.current.value=''
+
   }
  
     const handleSignOut = () => {
@@ -191,6 +202,7 @@ isLoggedIn&&<>
 
     </div> */}
       <div className="contact1">
+      <ToastContainer />
         <div className="left">
           <h1>Contact Us </h1>
           <p>
@@ -227,7 +239,7 @@ isLoggedIn&&<>
               }}
             >
               <input ref={name} className="name" placeholder="First Name"></input>
-              <input className="name" placeholder="Last name"></input>
+              <input className="name" ref={lastname} placeholder="Last name"></input>
             </div>
             <div>
               <input ref={email} placeholder="Your Email" type="email"></input>
