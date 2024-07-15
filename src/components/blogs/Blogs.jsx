@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavi
 import { signOut } from "firebase/auth";
 import { getDatabase, ref, get } from 'firebase/database'; // Import Firebase database methods
 import { auth } from "../../firebase/auth";
+import DOMPurify from "dompurify";
+import { marked } from "marked";
 import { toast } from 'react-toastify';
 
 const Blogs = () => {
@@ -39,10 +41,10 @@ const Blogs = () => {
           const blogsArray = Object.values(data).map(blog => ({
             title: blog.title,
             date: new Date(blog.createdAt).toLocaleDateString(),
-            summary: blog.content.substring(0, 100) + '...',
+            summary: stripMarkdown(blog.content.substring(0, 100)) + '...',
             tags: blog.tags,
             author: blog.author,
-            link: `#/blogs/${blog.id}`
+            link: `/blogs/${blog.id}`
           }));
           setBlogsData(blogsArray);
         } else {
@@ -75,6 +77,13 @@ const Blogs = () => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
 
+  const stripMarkdown = (content) => {
+    const cleanHtml = DOMPurify.sanitize(marked(content));
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = cleanHtml;
+    return tempDiv.textContent || tempDiv.innerText || "";
+  };
+console.log(blogsData)
   return (
     <>
       <nav className={`navbar fixed`}>
@@ -121,6 +130,7 @@ const Blogs = () => {
         </header>
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
+           
             <div key={index} className="blog-card">
               <h2>{blog.title}</h2>
               <p className="blog-date">{blog.date}</p>
