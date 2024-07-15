@@ -9,7 +9,9 @@
     align-items: center;
     justify-content: center;
   }
-  
+  #dark .blog-write-container{
+    background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+  }
   .blog-write-container h1 {
     margin-bottom: 20px;
     font-size: 3.5rem;
@@ -42,6 +44,11 @@
     border: none;
     background-color: #e4f0f4;
     color: #000000;
+  }
+  #dark .blog-write-container input,
+  #dark .blog-write-container textarea {
+    background-color: #2d2d2d;
+    color: white;
   }
   .blog-write-container textarea{
     height: 200px;

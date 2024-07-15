@@ -4,6 +4,9 @@
     background: linear-gradient(135deg, #4375ff, #80ccff);
    padding: 50px 20px;
 }
+#dark .blog-read-page_container{
+  background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+}
   .blog-read-page {
     max-width: 800px;
     margin: 0px auto;
@@ -12,7 +15,9 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
-  
+  #dark .blog-read-page{
+    background-color: #2d2d2d;
+  }
   .blog-header {
     margin-bottom: 20px;
     margin-bottom: 0px;
