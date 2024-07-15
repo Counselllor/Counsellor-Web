@@ -29,6 +29,10 @@
   font-weight: 200;
 }
 
+.main {
+  padding-top: 80px; 
+}
+
 .privacy-policy-container {
   max-width: 980px;
   margin: 0 auto;
@@ -147,3 +151,62 @@
   color: #8fbef0 !important;
   font-size: 30px;
 }
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 55px;
+}
+
+.menu {
+  display: flex;
+  margin-left: auto; 
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem; 
+  margin-left: 600px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 4px;
+  transition: 0.4s;
+}
+
+.profile_btn {
+  padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+  .menu.show {
+    display: block; 
+  }
+}
+
