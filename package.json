@@ -14,7 +14,7 @@
     "@emailjs/browser": "^4.4.1",
     "@iconify/react": "^5.0.1",
     "@react-icons/all-files": "^4.1.0",
-    "antd": "^5.19.1",
+    "antd": "^5.19.2",
     "aos": "^2.3.4",
     "boxicons": "^2.1.4",
     "cors": "^2.8.5",
