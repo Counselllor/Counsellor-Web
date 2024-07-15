@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useCallback, useContext, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useContext,
+  useRef,
+} from "react";
 import "./Dashboard.css";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
@@ -8,14 +14,14 @@ import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CollegeCard from "./CollegeCard";
-import FAQs from '../FAQs/FAQs';
-import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import FAQs from "../FAQs/FAQs";
+import { ThemeContext } from "../../App";
+import { Switch } from "antd";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -34,15 +40,17 @@ const Dashboard = () => {
   // Slider state for CTC and ratings
   const [ctcRange, setCtcRange] = useState([0, 100]);
   const [ratingRange, setRatingRange] = useState([0, 10]);
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        if(localStorage.getItem('count')!=='false'){
+        if (localStorage.getItem("count") !== "false") {
           toast.success("Logged in! 🚀", {
             className: "toast-message",
           });
-          localStorage.setItem('count', false);
+          localStorage.setItem("count", false);
         }
       } else {
         toast.success("Logged out!", {
@@ -58,16 +66,22 @@ const Dashboard = () => {
   }, [navigate]);
 
   useEffect(() => {
-    const results = collegesData.filter(
-      (college) =>
-        college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        college.location.toLowerCase().includes(searchTerm.toLowerCase())
-    ).filter(college => {
-      const ctcValue = parseFloat(college.ctc.match(/(\d+)/)[0]);
-      const ratingValue = college.rating;
-      return ctcValue >= ctcRange[0] && ctcValue <= ctcRange[1] &&
-             ratingValue >= ratingRange[0] && ratingValue <= ratingRange[1];
-    });
+    const results = collegesData
+      .filter(
+        (college) =>
+          college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          college.location.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((college) => {
+        const ctcValue = parseFloat(college.ctc.match(/(\d+)/)[0]);
+        const ratingValue = college.rating;
+        return (
+          ctcValue >= ctcRange[0] &&
+          ctcValue <= ctcRange[1] &&
+          ratingValue >= ratingRange[0] &&
+          ratingValue <= ratingRange[1]
+        );
+      });
     setFilteredColleges(results);
     setCurrentPage(1);
   }, [searchTerm, ctcRange, ratingRange]);
@@ -167,6 +181,13 @@ const Dashboard = () => {
     setCtcRange([0, 100]);
     setRatingRange([0, 10]);
   };
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <main ref={mainRef}>
@@ -250,48 +271,87 @@ const Dashboard = () => {
           />
         </div>
         <div className="search_box">
-        <button>Search</button>
-        <div className="filters-dropdown">
-          <button className="filters-button">Filters</button>
-          <div className="filters-content">
-            <div className="filter-slider">
-              <h3>Highest CTC</h3>
-              <Slider
-                range
-                min={0}
-                max={100}
-                onChange={handleCtcRangeChange}
-                value={ctcRange}
-                trackStyle={{ backgroundColor: "#5CB6F9" }}
-                handleStyle={{ borderColor: "#5CB6F9" }}
-              />
-              <div className="slider-values">
-                <span>Min: {ctcRange[0]} LPA</span>
-                <span>Max: {ctcRange[1]} LPA</span>
-              </div>
-            </div>
-            <div className="filter-slider">
-              <h3>Rating</h3>
-              <Slider
-                range
-                min={0}
-                max={10}
-                onChange={handleRatingRangeChange}
-                value={ratingRange}
-                trackStyle={{ backgroundColor: "#5CB6F9" }}
-                handleStyle={{ borderColor: "#5CB6F9" }}
-              />
-              <div className="slider-values">
-                <span>Min: {ratingRange[0]}</span>
-                <span>Max: {ratingRange[1]}</span>
-              </div>
-            </div>
-            <p className="reset-button" onClick={handleResetFilters}>
-              Reset
-            </p>
-          </div>
+          <button>Search</button>
         </div>
       </div>
+      <div className="filters-dropdown">
+        <p className="filter_icon" onClick={handleModalOpen}>
+          {/* filter Icon */}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              {" "}
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                className="icon_color_share"
+                d="M3 7C3 6.44772 3.44772 6 4 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H4C3.44772 8 3 7.55228 3 7ZM6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12ZM9 17C9 16.4477 9.44772 16 10 16H14C14.5523 16 15 16.4477 15 17C15 17.5523 14.5523 18 14 18H10C9.44772 18 9 17.5523 9 17Z"
+                fill="#000000"
+              ></path>{" "}
+            </g>
+          </svg>
+        </p>
+
+        {isModalOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <p className="modal-close" onClick={handleModalClose}>
+                X
+              </p>
+              <div className="filter-section">
+                <h2>Filters</h2>
+                <div className="slider">
+                  <label>CTC Range</label>
+                  <Slider
+                    range
+                    min={0}
+                    max={100}
+                    value={ctcRange}
+                    onChange={handleCtcRangeChange}
+                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
+                    handleStyle={[
+                      { backgroundColor: "#5CB6F9" },
+                      { backgroundColor: "#5CB6F9" },
+                    ]}
+                  />
+                  <p>
+                    {ctcRange[0]}L - {ctcRange[1]}L
+                  </p>
+                </div>
+                <div className="slider">
+                  <label>Rating Range</label>
+                  <Slider
+                    range
+                    min={0}
+                    max={10}
+                    value={ratingRange}
+                    onChange={handleRatingRangeChange}
+                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
+                    handleStyle={[
+                      { backgroundColor: "#5CB6F9" },
+                      { backgroundColor: "#5CB6F9" },
+                    ]}
+                  />
+                  <p>
+                    {ratingRange[0]} - {ratingRange[1]}
+                  </p>
+                </div>
+                <p className="reset-button " onClick={handleResetFilters}>
+                  Reset Filters
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       {filteredColleges.length === 0 ? (
         <div className="no-res-Found-cont">
@@ -299,7 +359,7 @@ const Dashboard = () => {
           <h2>We can't find any item matching your search</h2>
         </div>
       ) : (
-        <div className="grid-cont"> 
+        <div className="grid-cont">
           <div className="colleges1">
             {paginatedColleges.map((college, index) => (
               <div
