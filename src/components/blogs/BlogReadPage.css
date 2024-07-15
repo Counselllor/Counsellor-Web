@@ -65,6 +65,9 @@
   .blog-content {
     line-height: 1.6;
   }
+  #dark .blog-content *{
+    color: white;
+  }
   
   .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
     margin-top: 1.5em;
