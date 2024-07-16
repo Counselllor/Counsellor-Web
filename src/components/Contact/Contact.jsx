@@ -1,11 +1,13 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase/auth"; // Ensure your firebase.js exports db for database reference
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { auth} from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import Navbar from '../Navbar/Navbar';
-import './Contact.css';
-import emailjs from '@emailjs/browser';
+import Navbar from "../Navbar/Navbar";
+import "./Contact.css";
+import emailjs from "@emailjs/browser";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/logo.webp";
@@ -16,45 +18,32 @@ import Modal from 'react-modal'; // Import Modal
 
 const Contact = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+  let name = useRef();
+  let lastname = useRef();
+  let feedback = useRef();
+  let email = useRef();
+  
   const navigate = useNavigate();
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
-
-  let [isLoggedIn, setLogin] = useState(false);
   
+  let [isLoggedIn, setLogin] = useState(false);
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
-    // auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     // handle user logged in state
-    //   } else {
-    //   }
-    // });
   }, [navigate]);
-
+  
   let form = useRef();
-
+  
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // read
-  //     } else if (!user) {
-  //       navigate("/");
-  //     }
-  //   });
-  // }, []);
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let params = {
-      name: form.current.name.value,
+      name: form.current.firstname.value +" " +form.current.lastname.value,
       email: form.current.email.value,
       feedback: form.current.feedback.value,
       created_date: new Date().toISOString() // Adding created_date
@@ -76,7 +65,7 @@ const Contact = () => {
       .catch((error) => {
         console.error('Error submitting query: ', error);
       });
-  }
+  };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -133,44 +122,61 @@ const Contact = () => {
           <div className={`bar ${menuOpen ? 'open' : ''}`} />
         </div>
       </nav>
-      <div className='contact-page'>
-        <section id="contact">
-          <div className="contact-box">
-            <div className="contact-clinks">
-              <h2 className='ch2'>CONTACT</h2>
-              <div className="clinks">
-                <div className="clink">
-                  <FaLinkedin />
-                </div>
-                <div className="clink">
-                  <FaGithub />
-                </div>
-                <div className="clink">
-                  <MdEmail />
-                </div>
-              </div>
+      
+      <div className="contact1">
+        <ToastContainer />
+        <div className="left">
+          <h1>Contact Us </h1>
+          <p>
+            Email, call or complete the form to learn how Counsellor can solve
+            your problem{" "}
+          </p>
+          <span>Counsellor@gmail.com</span>
+          <span>xxxxx-xxxxx</span>
+          <div className="customer" style={{ display: "flex", gap: "20px" }}>
+            <div className="left1">
+              <h1 style={{ fontSize: "20px" }}>Customer Support</h1>
+              <p>
+                Our Support Team is available around the clock to address any
+                concerns or queries.
+              </p>
             </div>
-            <div className="contact-form-wrapper">
-              <form id='form' ref={form}>
-                <div className="cform-item">
-                  <input className='cinput' type="text" name="name" required />
-                  <label className='clabel'>Name:</label>
-                </div>
-                <div className="cform-item">
-                  <input className='cinput' type="text" name="email" required />
-                  <label className='clabel'>Email:</label>
-                </div>
-                <div className="cform-item">
-                  <textarea id='m-textarea' className='ctextarea' name="feedback" required />
-                  <label className='clabel'>Message:</label>
-                </div>
-                <button className="csubmit-btn" onClick={handleSubmit}>Send</button>
-              </form>
+            <div className="left1">
+              <h1 style={{ fontSize: "20px" }}>Feedback and Suggestions</h1>
+              <p>
+                We value your feedback and are continuously working to improve.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+        <div className="right">
+          <form className="form" ref={form} onSubmit={handleSubmit}>
+            <h1>Get In Touch</h1>
+            <p>You can reach us any time</p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "10px",
+              }}
+            >
+              <input ref={name} className="name" name="firstname" placeholder="First Name" required />
+              <input className="name" ref={lastname} name="lastname" placeholder="Last name" />
+            </div>
+            <div>
+              <input ref={email} name="email" placeholder="Your Email" type="email" required />
+            </div>
+            <div>
+              <textarea ref={feedback} name="feedback" placeholder="How can I help you?" required />
+            </div>
+            <button type="submit">Submit</button>
+            <p style={{fontSize:"12px"}}>By contacting us you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.</p>
+          </form>
+        </div>
       </div>
+      
       <Footer />
+      
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
