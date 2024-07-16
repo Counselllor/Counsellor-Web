@@ -3,7 +3,7 @@
   background-color: #CAE7FE;
 }
 .scroll{
-  z-index: 10000;
+  /* z-index: 10000; */
    padding: 1rem 1rem!important;
   align-items: center !important;
   justify-items: center !important;
@@ -16,7 +16,7 @@
 
 .navbar {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
@@ -30,7 +30,7 @@
   /* border-radius: 5px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: all 0.6s;
-  /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.421); */
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.144);
 }
 .navbar.fixed{
   display: flex;
@@ -91,9 +91,10 @@
 
 .menu li {
   margin: 15px 0;
-  :hover{
-    text-decoration: underline;
-  }
+}
+
+.menu li:hover {
+  color: #3C38B9;
 }
 
 .profile_btn {
@@ -110,19 +111,53 @@
   cursor: pointer;
   box-shadow: 1px 2px 1px grey;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
 }
-.profile_btn:hover{
+
+#dark .profile_btn {
+  color: white;
+}
+
+#dark .profile_btn:hover {
+  background-color: var(--btnColor);
+}
+
+.profile_btn:hover {
   background-color: #050A30;
 }
 
 .menu a {
   text-decoration: none;
+  position: relative;
   color: #00073e;
-  font-size: 22px;
+  font-size: 20px;
   :active{
     color:#303B5E;
   }
 }
+
+.menu a:hover {
+  color: #3C38B9;
+}
+
+.menu a::before {
+  content: "";
+  background-color: #3C38B9;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  top: 25px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.menu a:hover::before {
+  transform: scaleX(1);
+}
+
 .menu a button{
   :hover{
     background-color: #152280;
@@ -148,7 +183,8 @@
 }
 
 .bar.open {
-  transform: rotate(-45deg) translate(-4px, 6px);
+  transform: rotate(-45deg);
+  position: absolute;
 }
 
 .bar.open:nth-child(2) {
@@ -156,7 +192,7 @@
 }
 
 .bar.open:nth-child(3) {
-  transform: rotate(45deg) translate(-4px, -6px);
+  transform: rotate(45deg);
 }
 
 .colleges {
@@ -302,6 +338,7 @@
   .dot {
     display: none;
   }
+.menu ul{gap: 40px;}
 }
 
 .maintxt {
@@ -490,14 +527,18 @@
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  right: 0;
+  position: absolute;
   width: 18vw;
+  top: 50px;
   padding: 10px;
   z-index: 100;
 }
-
-.toast-message:first-child{
-  margin-top: 90px;
+.toast-message button{
+  color: white;
 }
+
+
 
 @media (max-width: 960px) {
   .menu {
@@ -506,22 +547,22 @@
   .colleges{
     display:flex;
     justify-content:center;
-    margin-left:0px;
+    margin-left:5%;
     padding-right:20px;
     
   }
   .college{
     display:flex;
     flex-direction:column;
-    justify-content: left;
+    justify-content: center;
     margin-left:0px;
-    padding: 40px;
+    padding: 30px;
     width:65vw;
   }
-  .college-content{
+  /* .college-content{
     margin-right:10px;
     padding-right:30px;
-  }
+  } */
   .up{
     padding-right:120px;
     margin-left:0px;
@@ -530,9 +571,9 @@
     padding-right:20px;
     margin-right:10px;
   }
-  .college_name{
+  /* .college_name{
     padding-right:20px;
-  }
+  } */
   .menu.show {
     display: block;
   }

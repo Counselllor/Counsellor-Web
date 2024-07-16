@@ -95,7 +95,7 @@
 .login-container input[type="email"],
 .login-container input[type="password"],
 .login-container input[type="text"] {
-  width: 100%;
+  width: 100% !important;
   padding: 12px;
   margin: 5px 0 10px;
   border-radius: 6px;
@@ -103,7 +103,7 @@
   border: 2px solid #d8d8d8;
   outline: none;
   box-sizing: border-box;
-  padding-left: 35px;
+  padding-left: 35px !important;
 }
 
 .login-container input[type="checkbox"] {
@@ -317,6 +317,8 @@ form div {
   background: #12229d;
   color: #fff;
   font-size: 12px;
+  min-width: 200px;
+  right: 0;
   width: 18vw;
   padding: 10px;
 }

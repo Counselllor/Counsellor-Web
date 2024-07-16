@@ -20,6 +20,14 @@ import ProfilePage from "./Pages/Profile";
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
+import JoinUs from "./components/Joinus/JoinUs";
+import Help from "./components/Help/Help";
+import Blogs from "./components/blogs/Blogs";
+import CareerSupport from "./components/Career Support/CareerSupport"
+import Jobs from "./components/jobs/Jobs";
+import BlogWrite from "./components/blogs/Blogswrite";
+import BlogReadPage from "./components/blogs/BlogReadPage";
+import University from "./components/Top Universities/University";
 
 const router = createBrowserRouter([
   {
@@ -57,14 +65,44 @@ const router = createBrowserRouter([
         element: <Courses />,
       },
       {
+        path: "/jobs",
+        errorElement: <ErrorPage />,
+        element: <Jobs />,
+      },
+      {
+        path:'topuniversities',        errorElement: <ErrorPage />,
+
+        element:<University/>
+      },
+      {
+        path: "/careersupport",
+        errorElement: <ErrorPage />,
+        element: <CareerSupport />,
+      },
+      {
+        path: "/help",
+        errorElement: <ErrorPage />,
+        element: <Help />,
+      },
+      {
+        path: "/blogs",
+        errorElement: <ErrorPage />,
+        element: <Blogs />,
+      },
+      {
         path: "/privacy-policy",
         errorElement: <ErrorPage />,
-        element: <Privacy />
+        element: <Privacy />,
       },
       {
         path: "/terms",
         errorElement: <ErrorPage />,
-        element: <Terms />
+        element: <Terms />,
+      },
+      {
+        path: "/join-us",
+        errorElement: <ErrorPage />,
+        element: <JoinUs />,
       },
       // {
       //   path: '/login',
@@ -100,7 +138,18 @@ const router = createBrowserRouter([
         path: "/Contribute",
         errorElement: <ErrorPage />,
         element: <Contribute />,
-      }
+      },
+      {
+        path: "/blogwrite",
+        errorElement: <ErrorPage />,
+        element: <BlogWrite />,
+      },
+      {
+        path: "/blogs/:id",
+        errorElement: <ErrorPage />,
+        element: <BlogReadPage/>,
+      },
+      
     ],
   },
 ]);

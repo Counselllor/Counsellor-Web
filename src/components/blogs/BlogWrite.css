@@ -1,0 +1,77 @@
+.blog-write-container {
+    background: linear-gradient(135deg, #4375ff, #80ccff);
+    color: #ffffff;
+    padding: 20px;
+   
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #dark .blog-write-container{
+    background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+  }
+  .blog-write-container h1 {
+    margin-bottom: 20px;
+    font-size: 3.5rem;
+  }
+  
+  .blog-write-container form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .blog-write-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .blog-write-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .blog-write-container input{
+    padding: 20px 10px;
+  }
+  .blog-write-container input,
+  .blog-write-container textarea {
+    width: 100%;
+   
+    border-radius: 5px;
+    border: none;
+    background-color: #e4f0f4;
+    color: #000000;
+  }
+  #dark .blog-write-container input,
+  #dark .blog-write-container textarea {
+    background-color: #2d2d2d;
+    color: white;
+  }
+  .blog-write-container textarea{
+    height: 200px;
+    padding: 20px 10px;
+    resize: none;
+  }
+  .blog-write-container input::placeholder,
+  .blog-write-container textarea::placeholder {
+    color: #888888;
+  }
+  
+  .blog-write-container button {
+    background-color: #0033ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .blog-write-container button:hover {
+    background-color: #0022cc;
+  }
+  

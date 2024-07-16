@@ -3,11 +3,13 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { useEffect, useState, useCallback, useContext} from "react";
+import Tilt from 'react-parallax-tilt';
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import hide from "../../assets/hide.png";
 import show from "../../assets/show.png";
-import { auth, googleAuthProvider } from "../../firebase/auth";
+import { auth, googleAuthProvider , database  } from "../../firebase/auth";
+import { ref, get } from "firebase/database";
 import "./Login.css";
 import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
 import validate from "../../common/validation";
@@ -15,6 +17,34 @@ import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
+
+const fetchUserDataByEmail = async (email) => {
+  try {
+    // Get the user ID using the email
+    const encodedEmail = email.replace(/[^a-zA-Z0-9]/g, '_');
+    const emailRef = ref(database, `email/${encodedEmail}`);
+    const emailSnapshot = await get(emailRef);
+    if (emailSnapshot.exists()) {
+      const userId = emailSnapshot.val();
+      // Fetch the user data using the user ID
+      const userRef = ref(database, `users/${userId}`);
+      const userSnapshot = await get(userRef);
+      if (userSnapshot.exists()) {
+        const userData = userSnapshot.val();
+        return userData;
+      } else {
+        console.error('No user data available');
+        return null;
+      }
+    } else {
+      console.error('No user ID found for the provided email');
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return null;
+  }
+};
 
 export default function Login() {
   const [error, setError] = useState({});
@@ -49,11 +79,16 @@ export default function Login() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
+        console.log(user);
+        const userData =  await fetchUserDataByEmail(user.email);
+        
+        localStorage.setItem("userUid", userData.id);
         toast.success("Authenticating your credentials… 🚀",{
           className: "toast-message",
         });
+        localStorage.setItem('count',true)
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);
@@ -77,6 +112,17 @@ export default function Login() {
       generateCaptcha();
     }, [])
 
+    const fetchUserData = async (uid) => {
+      const userRef = ref(database, `users/${uid}`);
+      const snapshot = await get(userRef);
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        localStorage.setItem('Userid', userData.id);
+      } else {
+        console.error('No data available');
+      }
+    };
+  
   // if signin with EmailId/password success then navigate to /dashboard
   const handleSignIn = useCallback((e) => {
      e.preventDefault();
@@ -100,6 +146,9 @@ export default function Login() {
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
           setTimeout(() => {
+            const user=localStorage.getItem("userUid");
+            fetchUserData(user.uid); // Fetch user data after login
+            localStorage.setItem('login',true)
             navigate("/dashboard");
           }, 2000);
         })
@@ -274,7 +323,9 @@ export default function Login() {
         </div>
            {/* This is the left side of the login page   */}
            <div className="left">
+           <Tilt>
            <img src={meeting2} alt="meeting" />
+           </Tilt>
           {/* <p className="left-text">Still Confused with College Choice?</p> */}
         </div>
       </div>
