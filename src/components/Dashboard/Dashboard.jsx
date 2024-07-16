@@ -17,9 +17,10 @@ import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CollegeCard from "./CollegeCard";
-import FAQs from "../FAQs/FAQs";
-import { ThemeContext } from "../../App";
-import { Switch } from "antd";
+import FAQs from '../FAQs/FAQs';
+import Testimonial from "../Testimonial/Testimonial";
+import { ThemeContext } from '../../App';
+import { Switch } from 'antd';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -38,7 +39,7 @@ const Dashboard = () => {
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
   // Slider state for CTC and ratings
-  const [ctcRange, setCtcRange] = useState([0, 100]);
+  const [ctcRange, setCtcRange] = useState([0, 200]);
   const [ratingRange, setRatingRange] = useState([0, 10]);
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,7 +74,7 @@ const Dashboard = () => {
           college.location.toLowerCase().includes(searchTerm.toLowerCase())
       )
       .filter((college) => {
-        const ctcValue = parseFloat(college.ctc.match(/(\d+)/)[0]);
+        const ctcValue = parseCtcValue(college.ctc);
         const ratingValue = college.rating;
         return (
           ctcValue >= ctcRange[0] &&
@@ -85,6 +86,17 @@ const Dashboard = () => {
     setFilteredColleges(results);
     setCurrentPage(1);
   }, [searchTerm, ctcRange, ratingRange]);
+  const parseCtcValue = (ctc) => {
+    const match = ctc.match(/(\d+(\.\d+)?)\s*(crore|Cr|lakh|L|LPA)/i);
+    if (!match) return 0;
+    const value = parseFloat(match[1]);
+    const unit = match[3].toLowerCase();
+
+    if (unit.includes("crore") || unit.includes("cr")) {
+      return value * 100; // Convert crore to lakhs
+    }
+    return value; // Already in lakhs
+  };
 
   useEffect(() => {
     if (location.hash === "#faqs1") {
@@ -178,7 +190,7 @@ const Dashboard = () => {
     currentPage * itemsPerPage
   );
   const handleResetFilters = () => {
-    setCtcRange([0, 100]);
+    setCtcRange([0, 200]);
     setRatingRange([0, 10]);
   };
   const handleModalOpen = () => {
@@ -314,7 +326,7 @@ const Dashboard = () => {
                   <Slider
                     range
                     min={0}
-                    max={100}
+                    max={200}
                     value={ctcRange}
                     onChange={handleCtcRangeChange}
                     trackStyle={[{ backgroundColor: "#5CB6F9" }]}
@@ -407,6 +419,7 @@ const Dashboard = () => {
         ))}
       </div>
       <FAQs />
+      <Testimonial/>
       <Footer />
     </main>
   );
