@@ -1,6 +1,6 @@
 import {
   signInWithEmailAndPassword,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState, useCallback, useContext} from "react";
 import Tilt from 'react-parallax-tilt';
@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import hide from "../../assets/hide.png";
 import show from "../../assets/show.png";
-import { auth, googleAuthProvider , database  } from "../../firebase/auth";
+import { auth, googleAuthProvider, githubAuthProvider, database  } from "../../firebase/auth";
 import { ref, get } from "firebase/database";
 import "./Login.css";
 import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
@@ -17,6 +17,8 @@ import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
+import googleIcon from "../../assets/googleIcon.png";
+import githubIcon from "../../assets/githubIcon.png"; 
 
 const fetchUserDataByEmail = async (email) => {
   try {
@@ -95,6 +97,57 @@ export default function Login() {
       }
     });
   }, []);
+
+  const handleGoogleSignIn = useCallback(() => {
+    signInWithPopup(auth, googleAuthProvider)
+      .then(async (result) => {
+        const user = result.user;
+        toast.success("Login successful!", {
+          className: "toast-message",
+        });
+        const userData = await fetchUserDataByEmail(user.email);
+        if (userData) {
+          localStorage.setItem("userUid", userData.id);
+        } else {
+          // Handle new user signup if needed
+          console.log("New user signed up with Google");
+        }
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Google Sign-In Error:", error);
+        toast.error("An error occurred. Please try again!", {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
+
+  const handleGithubSignIn = useCallback(() => {
+    signInWithPopup(auth, githubAuthProvider)
+      .then(async (result) => {
+        const user = result.user;
+        toast.success("Login with GitHub successful!", {
+          className: "toast-message",
+        });
+        const userData = await fetchUserDataByEmail(user.email);
+        if (userData) {
+          localStorage.setItem("userUid", userData.id);
+        } else {
+          console.log("New user signed up with GitHub");
+        }
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("GitHub Sign-In Error:", error);
+        toast.error("An error occurred. Please try again!", {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
 
   const generateCaptcha = useCallback(()=>
     {
@@ -299,6 +352,20 @@ export default function Login() {
                 Login
               </button>
           </form>
+          <div className="or-line">
+            <hr />
+            <span>OR</span>
+            <hr />
+          </div>
+          <div className="social-login">
+            <div className="social-btn google-btn" onClick={handleGoogleSignIn}>
+              <img src={googleIcon} alt="Google" className="social-icon" />
+            </div>
+            <div className="social-btn github-btn" onClick={handleGithubSignIn}>
+              <img src={githubIcon} alt="GitHub" className="social-icon" />
+            </div>
+          </div>
+
             <div className="btn">
               <Link to="/forgotpassword" className="forgot-password">
                 Forgot Your password?

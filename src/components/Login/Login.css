@@ -322,3 +322,70 @@ form div {
   width: 18vw;
   padding: 10px;
 }
+
+.or-line {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #666;
+  width: 50%;
+}
+
+.or-line hr {
+  flex-grow: 1;
+  height: 1px;
+  border: none;
+  background-color: #999;
+  margin: 0 10px;
+}
+
+.or-line span {
+  padding: 0 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 20px 0;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.google-btn {
+  background-color: #fff;
+  border: 2px solid #4285F4;
+}
+
+.google-btn:hover {
+  background-color: #4285F4;
+}
+
+.github-btn {
+  background-color: #fff;
+  border: 2px solid #333;
+}
+
+.github-btn:hover {
+  background-color: #333;
+}
+
+.social-btn:hover .social-icon {
+  filter: brightness(0) invert(1);
+}
