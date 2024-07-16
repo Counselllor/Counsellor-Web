@@ -1,15 +1,17 @@
-import { useEffect, useState, useCallback } from 'react';
-import { signOut } from 'firebase/auth';
-import { useNavigate, Link } from 'react-router-dom';
-import Logo from '../../assets/logo.webp';
-import './Navbar.css';
-import { auth } from '../../firebase/auth';
+import { useEffect, useState, useCallback, useContext } from "react";
+import { signOut } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
+import Logo from "../../assets/logo.webp";
+import "./Navbar.css";
+import { auth } from "../../firebase/auth";
+import { ThemeContext } from "../../App";
+import { Switch } from "antd";
 
 // Signout function
 const signOutUser = (navigate, setError) => {
   signOut(auth)
     .then(() => {
-      navigate('/');
+      navigate("/");
     })
     .catch((err) => {
       setError(err.message);
@@ -28,50 +30,36 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [error, setError] = useState(null);
   const [fix, setFix] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // handle user logged in state
-  //     } else {
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+        navigate("/");
+      }
+    });
+  }, [navigate]);
 
-  //         navigate('/');
-        
-  //     }
-  //   });
-  // }, [navigate]);
-
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
-
-  // Define callbacks using useCallback
-  const handleSignOutCallback = useCallback(() => {
+  const handleSignOut = useCallback(() => {
     signOutUser(navigate, setError);
-  }, [navigate, setError]);
+  }, [navigate]);
 
-  // Toggle menu callback
   const toggleMenuCallback = useCallback(() => {
     toggleNavMenu(setMenuOpen, menuOpen);
   }, [setMenuOpen, menuOpen]);
 
-  // Define handleKeyPress outside of JSX
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
+      if (event.key === "Enter" || event.key === " ") {
         toggleMenuCallback();
       }
     },
     [toggleMenuCallback]
   );
 
-  // Function to toggle background appearance for nav menu
   const setFixed = () => {
     if (window.scrollY > 0) {
       setFix(true);
@@ -80,22 +68,22 @@ const Navbar = () => {
     }
   };
 
-  window.addEventListener('scroll', setFixed);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, []);
 
   return (
-    <nav className={`navbar ${fix ? 'fixed' : ''}`}>
+    <nav className={`navbar ${fix ? "fixed" : ""}`}>
       <LogoSection />
-      <MenuSection user={user} handleSignOut={handleSignOut} menuOpen={menuOpen} />
-      <HamburgerSection toggleMenu={toggleMenu} menuOpen={menuOpen} handleKeyPress={handleKeyPress} />
+      <MenuSection user={user} handleSignOut={handleSignOut} menuOpen={menuOpen} toggleTheme={toggleTheme} theme={theme} />
+      <HamburgerSection toggleMenu={toggleMenuCallback} menuOpen={menuOpen} handleKeyPress={handleKeyPress} />
     </nav>
   );
 };
 
-// Logo Section Component
 const LogoSection = () => (
   <div className="logo">
     <Link to="/dashboard">
@@ -104,47 +92,54 @@ const LogoSection = () => (
   </div>
 );
 
-// Menu Section Component
-const MenuSection = ({ user, handleSignOut, menuOpen }) => (
-  <div className={`menu ${menuOpen ? 'show' : ''}`}>
+const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
+  <div className={`menu ${menuOpen ? "show" : ""}`}>
     <ul>
-
-      <MenuItem href="/top-university">Top Universities</MenuItem>
+      <MenuItem href="/topuniversities">Top Universities</MenuItem>
       <MenuItem href="/jobs">Jobs</MenuItem>
-      <MenuItem href="/cources">Courses</MenuItem>
+      <MenuItem href="/courses">Courses</MenuItem>
       <MenuItem href="/careersupport">Career Support</MenuItem>
       {user ? (
         <>
           <MenuItem>
-            <button onClick={handleSignOut} style={{ background: 'transparent', border: 'none', fontSize: '22px', color: '#12229D', fontFamily: 'Times New Roman' }}>
-              Log Out
-            </button>
+          <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
           </MenuItem>
           <MenuItem>
-            <button className="profile_btn"><Link to="/profile">Profile</Link></button>
-          </MenuItem>
+              <a href="./profile">
+                <button className="profile_btn">Profile</button>
+              </a>
+            </MenuItem>
         </>
       ) : (
         <MenuItem>
           <a href="/">Login</a>
         </MenuItem>
       )}
+      <li>
+        <Switch
+          style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+          onChange={toggleTheme}
+          checked={theme === "dark"}
+          checkedChildren="Dark Mode"
+          unCheckedChildren="Light Mode"
+        />
+      </li>
     </ul>
   </div>
 );
 
-// MenuItem Component
-const MenuItem = ({ href, dot, children }) => (
-  <li className={dot ? 'dot' : ''}>
+const MenuItem = ({ href, children }) => (
+  <li>
     <a href={href}>{children}</a>
   </li>
 );
 
-// Hamburger Section Component
 const HamburgerSection = ({ toggleMenu, menuOpen, handleKeyPress }) => (
   <div className="hamburger" onClick={toggleMenu} onKeyDown={handleKeyPress} tabIndex={0} role="button">
     {[1, 2, 3].map((index) => (
-      <div key={index} className={`bar ${menuOpen ? 'open' : ''}`} />
+      <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
     ))}
   </div>
 );

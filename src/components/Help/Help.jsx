@@ -162,7 +162,7 @@ isLoggedIn&&<>
             </div>
           </section>
 
-          <section id="contact-support">
+          {/* <section id="contact-support">
             <h2>Contact Support</h2>
             <p>
               If you need further assistance, please do not hesitate to contact our support team. We are here to help you.
@@ -184,9 +184,9 @@ isLoggedIn&&<>
               <li>Change your password under 'Security Settings'.</li>
               <li>Manage your subscriptions and notifications in the 'Preferences' section.</li>
             </ul>
-          </section>
+          </section> */}
 
-          <section id="billing-payments">
+          {/* <section id="billing-payments">
             <h2>Billing and Payments</h2>
             <p>
               Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history.
@@ -196,9 +196,9 @@ isLoggedIn&&<>
               <li>Update your payment methods under 'Payment Settings'.</li>
               <li>Contact billing support for any discrepancies or issues.</li>
             </ul>
-          </section>
+          </section> */}
 
-          <section id="security">
+          {/* <section id="security">
             <h2>Security</h2>
             <p>
               Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account.
@@ -208,9 +208,9 @@ isLoggedIn&&<>
               <li>Regularly update your password and avoid using the same password across multiple sites.</li>
               <li>Be aware of phishing scams and do not share your personal information.</li>
             </ul>
-          </section>
+          </section> */}
 
-          <section id="troubleshooting">
+          {/* <section id="troubleshooting">
             <h2>Troubleshooting</h2>
             <p>
               Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems.
@@ -220,10 +220,10 @@ isLoggedIn&&<>
               <li><strong>Payment issues:</strong> Ensure your payment information is correct and up-to-date.</li>
               <li><strong>Account locked:</strong> Contact support to regain access to your account.</li>
             </ul>
-          </section>
+          </section> */}
 
          
-          <section id="feedback">
+          {/* <section id="feedback">
             <h2>Feedback</h2>
             <p>
               We value your feedback. Please let us know how we can improve our services.
@@ -233,9 +233,84 @@ isLoggedIn&&<>
               <li>Join our user community and participate in discussions.</li>
               <li>Follow us on social media for the latest updates and news.</li>
             </ul>
-          </section>
+          </section> */}
         </div>
       </div>
+    
+      <div style={{
+      maxWidth: '1000px',
+      margin: '40px auto',
+      padding: '0 20px'
+    }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
+      }}>
+
+        <Box
+        i="fas fa-phone"
+          heading="Contact Support"
+          text="If you need further assistance, please do not hesitate to contact our support team. We are here to help you."
+          contactInfo={[
+            { type: 'text2', value: 'Email us at: support@example.com' },
+            { type: 'phone', value: 'Call us: 1-800-123-4567' },
+            { type: 'text', value: 'Live chat available 24/7 on our website' }
+          ]}
+        />
+        <Box
+        i="fas fa-user"
+          heading="Account Management"
+          text="Learn how to manage your account settings, update your information, and more."
+          contactInfo={[
+            { type: 'text2', value: 'Update your personal information in the "Profile" section.' },
+            { type: 'phone', value: 'Change your password under "Security Settings".' },
+            { type: 'text', value: 'Manage your subscriptions and notifications in the "Preferences" section.' }
+          ]}
+        />
+        <Box
+        i="fas fa-file-invoice-dollar"
+          heading="Billing and Payments"
+          text="Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history."
+          contactInfo={[
+            { type: 'text2', value: 'View your billing history in the "Billing" section of your account.' },
+            { type: 'phone', value: 'Update your payment methods under "Payment Settings".' },
+            { type: 'text', value: 'Contact billing support for any discrepancies or issues.' }
+          ]}
+        />
+            <Box
+                    i="fas fa-lock"
+          heading="Security"
+          text="Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account."
+          contactInfo={[
+            { type: 'text2', value: 'Enable two-factor authentication for added security.' },
+            { type: 'phone', value: 'Regularly update your password and avoid using the same password across multiple sites.' },
+            { type: 'text', value: 'Be aware of phishing scams and do not share your personal information.' }
+          ]}
+        />
+            <Box
+            i="fas fa-wrench"
+            iconClass="fa-solid fa-phone" 
+          heading="Troubleshooting"
+          text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
+          contactInfo={[
+            { type: 'text2', value: 'App not loading: Try clearing your browser cache or reinstalling the app.' },
+            { type: 'phone', value: 'Payment issues: Ensure your payment information is correct and up-to-date.' },
+            { type: 'text', value: 'Account locked: Contact support to regain access to your account.' }
+          ]}
+        />
+            <Box
+            i="fas fa-comments"
+          heading="Feedback"
+          text="We value your feedback. Please let us know how we can improve our services."
+          contactInfo={[
+            { type: 'text2', value: 'Submit your feedback through our online form.' },
+            { type: 'phone', value: 'Join our user community and participate in discussions.' },
+            { type: 'text', value: 'Follow us on social media for the latest updates and news.' }
+          ]}
+        />
+      </div>
+    </div>
 
       <hr />
 
@@ -243,5 +318,45 @@ isLoggedIn&&<>
     </>
   );
 };
+function Box({ i,heading, text, contactInfo }) {
+  return (
+    <div style={{
+      width: '450px',
+      margin: '10px',
+      float: 'left',
+      border: '1px solid #0000FF',
+      padding: '20px'
+    }}>
+           <i className={i} style={{
+        fontSize: '50px',
+        color: '#0000FF',
+        marginRight: '10px'
+      }} />
 
+     <p style={{
+        fontSize: '30px',
+        marginTop:'7px',
+        marginBottom:'7px',
+        color: '#0000FF',
+        fontWeight: 'bold'
+      }}>
+        {heading}
+      </p>
+      <p style={{
+        fontSize: '15px',
+        margin:'10px',
+        color: '#666',
+      }}>
+        {text}
+      </p>
+      <ul style={{ listStyle: 'disc', padding: 0, margin: 0,marginTop:'25px' }}>
+  {contactInfo.map((item, index) => (
+    <li key={index} style={{ textAlign: 'left', fontSize: '15px',marginLeft:'15px' }}>
+      {item.value}
+    </li>
+  ))}
+</ul>
+    </div>
+  );
+}
 export default Help;
