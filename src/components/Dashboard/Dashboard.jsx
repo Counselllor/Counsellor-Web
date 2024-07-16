@@ -1,20 +1,28 @@
-import { useEffect, useState, useCallback, useContext, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useContext,
+  useRef,
+} from "react";
 import "./Dashboard.css";
-import { useNavigate, useLocation, Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
-import SearchIcon from "../../assets/search_icon.png"; // Correct import
+import SearchIcon from "../../assets/search_icon.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CollegeCard from "./CollegeCard";
 import FAQs from '../FAQs/FAQs';
 import Testimonial from "../Testimonial/Testimonial";
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -30,42 +38,65 @@ const Dashboard = () => {
   const itemsPerPage = 18;
   const totalPages = Math.ceil(filteredColleges.length / itemsPerPage);
 
+  // Slider state for CTC and ratings
+  const [ctcRange, setCtcRange] = useState([0, 200]);
+  const [ratingRange, setRatingRange] = useState([0, 10]);
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
-    
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-
-          if(localStorage.getItem('count')!=='false'){
-
-       
-
+        if (localStorage.getItem("count") !== "false") {
           toast.success("Logged in! 🚀", {
             className: "toast-message",
           });
-          localStorage.setItem('count',false)
+          localStorage.setItem("count", false);
         }
-        } else {
-          toast.success("Logged out!", {
-            className: "toast-message",
-          });
+      } else {
+        toast.success("Logged out!", {
+          className: "toast-message",
+        });
 
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        }
-      });
-      return () => unsubscribe();
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      }
+    });
+    return () => unsubscribe();
   }, [navigate]);
 
   useEffect(() => {
-    const results = collegesData.filter(
-      (college) =>
-        college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        college.location.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const results = collegesData
+      .filter(
+        (college) =>
+          college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          college.location.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((college) => {
+        const ctcValue = parseCtcValue(college.ctc);
+        const ratingValue = college.rating;
+        return (
+          ctcValue >= ctcRange[0] &&
+          ctcValue <= ctcRange[1] &&
+          ratingValue >= ratingRange[0] &&
+          ratingValue <= ratingRange[1]
+        );
+      });
     setFilteredColleges(results);
-    setCurrentPage(1); // Reset to the first page when search changes
-  }, [searchTerm]);
+    setCurrentPage(1);
+  }, [searchTerm, ctcRange, ratingRange]);
+  const parseCtcValue = (ctc) => {
+    const match = ctc.match(/(\d+(\.\d+)?)\s*(crore|Cr|lakh|L|LPA)/i);
+    if (!match) return 0;
+    const value = parseFloat(match[1]);
+    const unit = match[3].toLowerCase();
+
+    if (unit.includes("crore") || unit.includes("cr")) {
+      return value * 100; // Convert crore to lakhs
+    }
+    return value; // Already in lakhs
+  };
 
   useEffect(() => {
     if (location.hash === "#faqs1") {
@@ -76,7 +107,6 @@ const Dashboard = () => {
     }
   }, [location]);
 
-  // Scroll to top when currentPage changes
   useEffect(() => {
     if (mainRef.current) {
       mainRef.current.scrollIntoView({ behavior: "smooth" });
@@ -143,7 +173,14 @@ const Dashboard = () => {
     toggleTheme();
   }, [toggleTheme]);
 
-  // Pagination logic
+  const handleCtcRangeChange = (value) => {
+    setCtcRange(value);
+  };
+
+  const handleRatingRangeChange = (value) => {
+    setRatingRange(value);
+  };
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -152,6 +189,17 @@ const Dashboard = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  const handleResetFilters = () => {
+    setCtcRange([0, 200]);
+    setRatingRange([0, 10]);
+  };
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <main ref={mainRef}>
@@ -223,7 +271,7 @@ const Dashboard = () => {
       <div className="search">
         <div className="s_bar_c">
           <a href="">
-            <img src={SearchIcon} alt="Search" /> {/* Corrected import */}
+            <img src={SearchIcon} alt="Search" />
           </a>
           <div className="vl" />
           <input
@@ -234,7 +282,88 @@ const Dashboard = () => {
             style={{ outline: "1px solid black", fontSize: "20px" }}
           />
         </div>
-        <button>Search</button>
+        <div className="search_box">
+          <button>Search</button>
+        </div>
+      </div>
+      <div className="filters-dropdown">
+        <p className="filter_icon" onClick={handleModalOpen}>
+          {/* filter Icon */}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              {" "}
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                className="icon_color_share"
+                d="M3 7C3 6.44772 3.44772 6 4 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H4C3.44772 8 3 7.55228 3 7ZM6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12ZM9 17C9 16.4477 9.44772 16 10 16H14C14.5523 16 15 16.4477 15 17C15 17.5523 14.5523 18 14 18H10C9.44772 18 9 17.5523 9 17Z"
+                fill="#000000"
+              ></path>{" "}
+            </g>
+          </svg>
+        </p>
+
+        {isModalOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <p className="modal-close" onClick={handleModalClose}>
+                X
+              </p>
+              <div className="filter-section">
+                <h2>Filters</h2>
+                <div className="slider">
+                  <label>CTC Range</label>
+                  <Slider
+                    range
+                    min={0}
+                    max={200}
+                    value={ctcRange}
+                    onChange={handleCtcRangeChange}
+                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
+                    handleStyle={[
+                      { backgroundColor: "#5CB6F9" },
+                      { backgroundColor: "#5CB6F9" },
+                    ]}
+                  />
+                  <p>
+                    {ctcRange[0]}L - {ctcRange[1]}L
+                  </p>
+                </div>
+                <div className="slider">
+                  <label>Rating Range</label>
+                  <Slider
+                    range
+                    min={0}
+                    max={10}
+                    value={ratingRange}
+                    onChange={handleRatingRangeChange}
+                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
+                    handleStyle={[
+                      { backgroundColor: "#5CB6F9" },
+                      { backgroundColor: "#5CB6F9" },
+                    ]}
+                  />
+                  <p>
+                    {ratingRange[0]} - {ratingRange[1]}
+                  </p>
+                </div>
+                <p className="reset-button " onClick={handleResetFilters}>
+                  Reset Filters
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       {filteredColleges.length === 0 ? (
         <div className="no-res-Found-cont">
@@ -242,7 +371,7 @@ const Dashboard = () => {
           <h2>We can't find any item matching your search</h2>
         </div>
       ) : (
-        <div className="grid-cont"> 
+        <div className="grid-cont">
           <div className="colleges1">
             {paginatedColleges.map((college, index) => (
               <div
