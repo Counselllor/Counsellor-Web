@@ -355,7 +355,7 @@ form div {
 .social-btn {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,13 +364,13 @@ form div {
 }
 
 .social-icon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .google-btn {
   background-color: #fff;
-  border: 2px solid #4285F4;
+  border: 1px solid #4285F4;
 }
 
 .google-btn:hover {
@@ -379,13 +379,10 @@ form div {
 
 .github-btn {
   background-color: #fff;
-  border: 2px solid #333;
+  border: 1px solid #333;
 }
 
 .github-btn:hover {
   background-color: #333;
 }
 
-.social-btn:hover .social-icon {
-  filter: brightness(0) invert(1);
-}
