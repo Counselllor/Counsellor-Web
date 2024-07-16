@@ -1,16 +1,16 @@
-.page {
+.pagecoll {
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
   height: calc(100vh - 60px);
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
-.left {
+.leftcoll {
   display: flex;
   flex-direction: column;
-  
-  
+
+
 }
 
 .content {
@@ -22,16 +22,19 @@
   text-wrap: wrap;
   overflow: hidden;
   height: 100%;
- 
+
+}
+#dark .content{
+  background-color: rgb(37, 37, 37) !important;
 }
 
-  .abeezee-regular {
-    font-family: "ABeeZee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
- 
+.abeezee-regular {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .college-name {
   font-weight: bolder;
   font-size: 30px;
@@ -40,6 +43,7 @@
   margin-bottom: 0px;
   margin-left: 5%;
   margin-right: 5%;
+  text-align: center;
 }
 
 
@@ -53,82 +57,108 @@
 .description {
   font-weight: 600;
   font-size: 18px;
+  text-align: center;
 }
 
 .group {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.location {
+.locationcoll {
   display: flex;
   flex-direction: row;
+  justify-items: center;
   width: 30%;
   margin-left: 5%;
   align-items: center;
-  background-color: rgba(255, 255, 255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 10px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: -2px;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
 }
-.icon{
+
+.icon {
   width: 20%;
 
 }
-.location-depth {
+
+.location-depthcoll {
   display: flex;
-  width: 80%;
+  /* width: 80%; */
   flex-direction: column;
-  width: auto;
+  justify-content: center;
+  align-items: center;
+  /* width: auto; */
+  /* margin-top: 30px; */
 }
 
-.location-heading {
-margin-top: 0px;
-  font-size: 20px;
-
+.location-depthcoll p {
+  margin-top: 0px;
+  font-size: 15px;
   margin-bottom: 0px;
 }
-.rating-text{
+
+.location-headingcoll {
+  padding-top: 15px;
+}
+
+.location-text {
+  padding-bottom: 15px;
+}
+
+.rating-text {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 15px;
-  
+
   gap: 6px;
 }
-.rating-heading{
+
+.rating-heading {
   font-size: 15px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
 .location-text {
 
   font-size: 15px;
-margin-top: 0px;
-margin-bottom: 0px;
-  
+  margin-top: 0px;
+  margin-bottom: 0px;
+
 }
-.rate{
+
+.ratecoll {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-
+  /* gap: 5px; */
+  padding-bottom: 20px;
 }
-.rating {
+
+.ratingcoll {
   display: flex;
   width: 30%;
-  background-color: rgba(255, 255, 255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 10px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
   gap: 10px;
-
-  flex-direction: row;
+  margin-left: 20px;
+  flex-direction: column;
   align-items: center;
   height: 80px;
 }
 
+.ratingcollstar {
+  margin-top: 20px;
+}
 
 
 .image {
@@ -137,7 +167,7 @@ margin-bottom: 0px;
   height: 50% !important;
   width: 40vw;
   object-fit: cover;
-  margin-bottom: 0px !important;
+  margin-bottom: 15px !important;
   position: absolute;
   bottom: 0px;
   margin-left: 5vw;
@@ -156,20 +186,24 @@ margin-bottom: 0px;
   width: 150px;
   margin-top: 15px;
 }
-.right{
+
+.right {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50vw;
   background-color: #cae8ff;
 }
-.search-button a{
-  text-decoration:none;
-  color:white;
+
+.search-button a {
+  text-decoration: none;
+  color: white;
 }
-.search-button a:hover{
-  cursor:pointer;
+
+.search-button a:hover {
+  cursor: pointer;
 }
+
 .searchCourses {
   border-radius: 15px;
   width: 40vw;
@@ -181,16 +215,19 @@ margin-bottom: 0px;
   border: none;
   cursor: pointer;
   outline: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .input-courses {
   width: 30vw;
 }
-.st{
-  width: 80%;
-  flex-direction: column;
-  gap: 4px;
-  height: 100%;
+
+.st {
+  /* width: 100%; */
+  /* flex-direction: column; */
+  /* gap: 4px; */
+  /* height: 100%; */
 }
 
 .student-card {
@@ -201,24 +238,27 @@ margin-bottom: 0px;
   flex-direction: row;
   align-items: center;
   height: auto;
-  width:38vw;
+  width: 38vw;
 }
+
 .clipped-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   -webkit-line-clamp: 5;
   line-clamp: 5;
-  height: calc(1.2em * 5); /* 1.2em is an approximate line height, adjust as necessary */
+  height: calc(1.2em * 5);
+  /* 1.2em is an approximate line height, adjust as necessary */
 }
-.clipped-text1{
+
+/* .clipped-text1{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   height: calc(1.2em * 3);
-}
+} */
 .student {
   background-color: rgb(229, 234, 234);
   color: rgb(29, 31, 155);
@@ -226,46 +266,57 @@ margin-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
+#dark .student-card{
+  background-color: rgb(37, 37, 37) !important;;
+}
 
 .student-description {
   display: flex;
   flex-direction: row;
-  font-size: 10px;
+  font-size: 7px;
+  gap: 7px;
 }
 
-.course , .branch,.year {
-  font-size: 15px;
+.course,
+.branch,
+.year {
+  font-size: 7px;
 }
 
 .branch {
-  margin-right: 6px;
+  /* margin-right: 6px; */
 }
 
 .position {
   display: flex;
   font-size: 16px;
-  font-weight:bold;
+  font-weight: bold;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-@media only screen and (max-width:829px){
-.student-card{
-  width: 80vw;
+
+@media only screen and (max-width:829px) {
+  .student-card {
+    width: 80vw;
+  }
+
+  .searchCourses {
+    width: 80vw;
+  }
 }
-.searchCourses{
-  width: 80vw;
-}
-}
-@media only screen and (max-width:314px){
+
+@media only screen and (max-width:314px) {
   .clipped-text {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 4;
     line-clamp: 4;
-    height: calc(1.2em * 4); /* 1.2em is an approximate line height, adjust as necessary */
+    height: calc(1.2em * 4);
+    /* 1.2em is an approximate line height, adjust as necessary */
   }
-  .clipped-text1{
+
+  .clipped-text1 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -274,43 +325,62 @@ margin-bottom: 0px;
     height: calc(1.2em * 3);
   }
 }
-@media only screen and (max-width:385px){
-  .student-card{
+
+@media only screen and (max-width:385px) {
+  .student-card {
     flex-direction: column;
   }
-  .student-card img{
+
+  .student-card img {
     margin-top: 10px;
   }
-  .student-description{
+
+  .student-description {
     flex-direction: column;
   }
-  .st{
+
+  .st {
     align-items: center;
     display: flex;
   }
-} 
+}
 
-@media only screen and (max-width:829px){
-  .page{
+@media only screen and (max-width:829px) {
+  .pagecoll {
     flex-direction: column;
-    height: calc(200vh - 60px );
+    height: calc(200vh - 60px);
     margin-top: 0px;
   }
-  .left{
+
+  .leftcoll {
     height: 50%;
     width: 100vw;
   }
-  .content{
+
+  .content {
     height: 100%;
     width: 100vw;
 
   }
-  .image{
+
+  .image {
     width: 100vw;
   }
-  .right{
+
+  .right {
     width: 100vw;
     height: 50%;
     justify-content: start !important;
   }
+}
+
+.lowercoll {
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.collago {
+  margin-top: 21px;
+  margin-bottom: 10px;
 }
