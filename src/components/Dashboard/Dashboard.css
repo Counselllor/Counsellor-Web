@@ -41,7 +41,7 @@
     justify-content: end;
     align-items: center;
 }
-#dark svg path{
+#dark .filters-dropdown svg path{
   fill: white;
 }
 .search_box{
