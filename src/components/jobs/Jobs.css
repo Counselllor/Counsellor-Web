@@ -161,6 +161,9 @@
     font-size: 1.5rem;
   }
 }
+input,textarea{
+  width: 100% !important;
+}
 
 
 
