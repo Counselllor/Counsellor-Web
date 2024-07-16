@@ -24,6 +24,9 @@
   height: 100%;
 
 }
+#dark .content{
+  background-color: rgb(37, 37, 37) !important;
+}
 
 .abeezee-regular {
   font-family: "ABeeZee", sans-serif;
@@ -262,6 +265,9 @@
   font-size: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+#dark .student-card{
+  background-color: rgb(37, 37, 37) !important;;
 }
 
 .student-description {
