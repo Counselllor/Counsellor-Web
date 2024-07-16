@@ -43,10 +43,12 @@ const Blogs = () => {
             date: new Date(blog.createdAt).toLocaleDateString(),
             summary: stripMarkdown(blog.content.substring(0, 100)) + '...',
             tags: blog.tags,
+            image:blog.image,
             author: blog.author,
             link: `/blogs/${blog.id}`
           }));
           setBlogsData(blogsArray);
+          console.log(blogsArray)
         } else {
           console.log('No data available');
         }
@@ -133,6 +135,7 @@ console.log(blogsData)
            
             <div key={index} className="blog-card">
               <h2>{blog.title}</h2>
+              {blog.image && <img style={{width:"170px",height:"170px"}} src={blog.image}></img>}
               <p className="blog-date">{blog.date}</p>
               <p>{blog.summary}</p>
               <p className="blog-author">By: {blog.author}</p>

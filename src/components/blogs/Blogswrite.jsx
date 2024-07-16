@@ -18,6 +18,7 @@ const BlogWrite = () => {
   const [tags, setTags] = useState('');
   const [isLoggedIn, setLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isImg,setIsImg]=useState(false)
   const [user, setUser] = useState(null);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -87,7 +88,19 @@ const BlogWrite = () => {
       return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
     });
   };
-
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+  async function handleImageUpload(e){
+    let img=e.target.files[0]
+    img=await convertToBase64(img)
+    setIsImg(img)
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
@@ -99,6 +112,7 @@ const BlogWrite = () => {
       id: articleId,
       title,
       content,
+      image:isImg,
       tags: tags.split(',').map((tag) => tag.trim()),
       author: user.firstname+" "+user.surname,
       createdBy: userId,
@@ -176,6 +190,10 @@ const BlogWrite = () => {
             onChange={(e) => setTitle(e.target.value)} 
             required 
           />
+        </div>
+        <div>
+          <label>Image:</label>
+       {!isImg ?   <input type='file' onChange={handleImageUpload}></input>:<img src={isImg}></img>}
         </div>
         <div>
           <label htmlFor="content">Content:</label>
