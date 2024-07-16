@@ -16,7 +16,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
-import ProfilePage from "./Pages/Profile";
+import ProfilePage from "./components/Profile/index";
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
