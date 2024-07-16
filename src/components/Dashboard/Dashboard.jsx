@@ -12,6 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CollegeCard from "./CollegeCard";
 import FAQs from '../FAQs/FAQs';
+import Testimonial from "../Testimonial/Testimonial";
 import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 
@@ -289,6 +290,7 @@ const Dashboard = () => {
         ))}
       </div>
       <FAQs />
+      <Testimonial/>
       <Footer />
     </main>
   );

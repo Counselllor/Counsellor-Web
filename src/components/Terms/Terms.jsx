@@ -75,7 +75,6 @@ const handleSignOut = () => {
             <li><a href="/jobs">Jobs</a></li>
             <li><a href="./courses">Courses</a></li>
             <li><a href="/careersupport">Career Support</a></li>
-            <li className='dot'><a href="error">•</a></li>
             {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
           {
 isLoggedIn&&<>

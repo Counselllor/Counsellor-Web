@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import './CareerSupport.css';
 import Navbar from '../Navbar/Navbar';
 import Logo from "../../assets/logo.webp";
@@ -85,6 +85,24 @@ const [showPopup,setShowPopup]=useState(false)
       window.removeEventListener("scroll", setFixed);
     };
   }, [setFixed]);
+
+
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
+    return () => {
+      window.removeEventListener("scroll", setFixed);
+    };
+  }, [setFixed]);
+
+  const pricingSectionRef = useRef(null);
+
+  const scrollToPricing = () => {
+    if (pricingSectionRef.current) {
+      pricingSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
   return (
     <>
       <div className="career-support">
@@ -209,7 +227,7 @@ const [showPopup,setShowPopup]=useState(false)
           </div>
         </section>
 
-        <section className="career-support__pricing">
+        <section className="career-support__pricing" ref={pricingSectionRef}>
           <h2 className="career-support__pricing-title">
             Career Advice Pricing
           </h2>
@@ -302,7 +320,7 @@ const [showPopup,setShowPopup]=useState(false)
             Join thousands of professionals who have accelerated their careers
             with our support.
           </p>
-          <button className="career-support__cta-button">
+          <button className="career-support__cta-button" onClick={scrollToPricing} >
             Get Started Today
           </button>
         </section>
