@@ -1,0 +1,107 @@
+[
+    {
+      "name": "Indian Institute of Technology Bombay (IIT Bombay)",
+      "location": "Mumbai, Maharashtra, India",
+      "ranking": 1,
+      "website": "http://www.iitb.ac.in/",
+      "students": 10857
+    },
+    {
+      "name": "Indian Institute of Science (IISc)",
+      "location": "Bangalore, Karnataka, India",
+      "ranking": 2,
+      "website": "https://www.iisc.ac.in/",
+      "students": 4000
+    },
+    {
+      "name": "Indian Institute of Technology Delhi (IIT Delhi)",
+      "location": "New Delhi, Delhi, India",
+      "ranking": 3,
+      "website": "https://home.iitd.ac.in/",
+      "students": 9416
+    },
+    {
+      "name": "Indian Institute of Technology Madras (IIT Madras)",
+      "location": "Chennai, Tamil Nadu, India",
+      "ranking": 4,
+      "website": "https://www.iitm.ac.in/",
+      "students": 9377
+    },
+    {
+      "name": "Indian Institute of Technology Kanpur (IIT Kanpur)",
+      "location": "Kanpur, Uttar Pradesh, India",
+      "ranking": 5,
+      "website": "https://www.iitk.ac.in/",
+      "students": 8592
+    },
+    {
+      "name": "Indian Institute of Technology Kharagpur (IIT Kharagpur)",
+      "location": "Kharagpur, West Bengal, India",
+      "ranking": 6,
+      "website": "http://www.iitkgp.ac.in/",
+      "students": 12740
+    },
+    {
+      "name": "Indian Institute of Technology Roorkee (IIT Roorkee)",
+      "location": "Roorkee, Uttarakhand, India",
+      "ranking": 7,
+      "website": "https://www.iitr.ac.in/",
+      "students": 8750
+    },
+    {
+      "name": "Indian Institute of Technology Guwahati (IIT Guwahati)",
+      "location": "Guwahati, Assam, India",
+      "ranking": 8,
+      "website": "http://www.iitg.ac.in/",
+      "students": 7000
+    },
+    {
+      "name": "Jawaharlal Nehru University (JNU)",
+      "location": "New Delhi, Delhi, India",
+      "ranking": 9,
+      "website": "https://www.jnu.ac.in/",
+      "students": 8000
+    },
+    {
+      "name": "University of Delhi",
+      "location": "New Delhi, Delhi, India",
+      "ranking": 10,
+      "website": "http://www.du.ac.in/",
+      "students": 132000
+    },
+    {
+      "name": "Banaras Hindu University (BHU)",
+      "location": "Varanasi, Uttar Pradesh, India",
+      "ranking": 11,
+      "website": "https://www.bhu.ac.in/",
+      "students": 30000
+    },
+    {
+      "name": "Indian Institute of Technology Hyderabad (IIT Hyderabad)",
+      "location": "Hyderabad, Telangana, India",
+      "ranking": 12,
+      "website": "https://www.iith.ac.in/",
+      "students": 3000
+    },
+    {
+      "name": "Indian Institute of Technology Indore (IIT Indore)",
+      "location": "Indore, Madhya Pradesh, India",
+      "ranking": 13,
+      "website": "https://www.iiti.ac.in/",
+      "students": 2000
+    },
+    {
+      "name": "Indian Institute of Technology Bhubaneswar (IIT Bhubaneswar)",
+      "location": "Bhubaneswar, Odisha, India",
+      "ranking": 14,
+      "website": "https://www.iitbbs.ac.in/",
+      "students": 3000
+    },
+    {
+      "name": "Indian Institute of Technology (Indian School of Mines) Dhanbad",
+      "location": "Dhanbad, Jharkhand, India",
+      "ranking": 15,
+      "website": "https://www.iitism.ac.in/",
+      "students": 8000
+    }
+  ]

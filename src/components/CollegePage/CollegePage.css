@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .college-page-container {
   display: flex;
   gap: 20px;
@@ -22,17 +23,70 @@
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
+=======
+.pagecoll {
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  height: calc(100vh - 60px);
+  /* margin-top: 60px; */
+}
+
+.leftcoll {
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.content {
+  background-color: rgb(26, 165, 224);
+  width: 50vw;
+  overflow: hidden;
+  position: relative;
+  text-align: start;
+  text-wrap: wrap;
+  overflow: hidden;
+  height: 100%;
+
+}
+#dark .content{
+  background-color: rgb(37, 37, 37) !important;
+}
+
+.abeezee-regular {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.college-name {
+  font-weight: bolder;
+  font-size: 30px;
+  width: 90%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887
 }
 
 .college-description {
   font-size: 18px;
+<<<<<<< HEAD
   text-align: start;
   color: #555;
   margin-bottom: 20px;
+=======
+  text-align: center;
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887
 }
 
 .college-details {
   display: flex;
+<<<<<<< HEAD
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -54,6 +108,163 @@
   text-align: start;
   font-weight: bold;
   margin-bottom: 5px;
+=======
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationcoll {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  width: 30%;
+  margin-left: 5%;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: -2px;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+}
+
+.icon {
+  width: 20%;
+
+}
+
+.location-depthcoll {
+  display: flex;
+  /* width: 80%; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: auto; */
+  /* margin-top: 30px; */
+}
+
+.location-depthcoll p {
+  margin-top: 0px;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+.location-headingcoll {
+  padding-top: 15px;
+}
+
+.location-text {
+  padding-bottom: 15px;
+}
+
+.rating-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 15px;
+
+  gap: 6px;
+}
+
+.rating-heading {
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.location-text {
+
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+
+.ratecoll {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  /* gap: 5px; */
+  padding-bottom: 20px;
+}
+
+.ratingcoll {
+  display: flex;
+  width: 30%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  gap: 10px;
+  margin-left: 20px;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
+}
+
+.ratingcollstar {
+  margin-top: 20px;
+}
+
+
+.image {
+  display: flex;
+  margin-left: 0px;
+  height: 50% !important;
+  width: 40vw;
+  object-fit: cover;
+  margin-bottom: 15px !important;
+  position: absolute;
+  bottom: 0px;
+  margin-left: 5vw;
+}
+
+
+
+.search-button {
+  background-color: rgb(23, 23, 70);
+  /* z-index: 100 !important; */
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 30px;
+  height: 50px;
+  width: 150px;
+  margin-top: 15px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  background-color: #cae8ff;
+}
+
+.search-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.search-button a:hover {
+  cursor: pointer;
+}
+
+.searchCourses {
+  border-radius: 15px;
+  width: 40vw;
+  margin-left: 5vw;
+  margin-top: 120px;
+  background-color: #c5d5d4;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-left: auto;
+  margin-right: auto;
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887
 }
 
 .detail-text {
@@ -61,6 +272,7 @@
   color: #555;
 }
 
+<<<<<<< HEAD
 .college-website-button {
   background-color: #5cb6f9;
   color: white;
@@ -102,17 +314,85 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+=======
+.st {
+  /* width: 100%; */
+  /* flex-direction: column; */
+  /* gap: 4px; */
+  /* height: 100%; */
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887
 }
 
 .student-card {
   display: flex;
+<<<<<<< HEAD
   /* align-items: center; */
   background-color: #f0f0f0;
   border-radius: 10px;
   padding: 10px;
+=======
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  width: 38vw;
+}
+
+.clipped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  height: calc(1.2em * 5);
+  /* 1.2em is an approximate line height, adjust as necessary */
+}
+
+/* .clipped-text1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  height: calc(1.2em * 3);
+} */
+.student {
+  background-color: rgb(229, 234, 234);
+  color: rgb(29, 31, 155);
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#dark .student-card{
+  background-color: rgb(37, 37, 37) !important;;
+}
+
+.student-description {
+  display: flex;
+  flex-direction: row;
+  font-size: 7px;
+  gap: 7px;
+}
+
+.course,
+.branch,
+.year {
+  font-size: 7px;
+}
+
+.branch {
+  /* margin-right: 6px; */
+}
+
+.position {
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887
   margin-bottom: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+<<<<<<< HEAD
 
 .student-photo {
   width: 100px;
@@ -213,3 +493,95 @@
   border-radius: 10px;
   padding-block: 20px;
 }
+=======
+
+@media only screen and (max-width:829px) {
+  .student-card {
+    width: 80vw;
+  }
+
+  .searchCourses {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width:314px) {
+  .clipped-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    height: calc(1.2em * 4);
+    /* 1.2em is an approximate line height, adjust as necessary */
+  }
+
+  .clipped-text1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3);
+  }
+}
+
+@media only screen and (max-width:385px) {
+  .student-card {
+    flex-direction: column;
+  }
+
+  .student-card img {
+    margin-top: 10px;
+  }
+
+  .student-description {
+    flex-direction: column;
+  }
+
+  .st {
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width:829px) {
+  .pagecoll {
+    flex-direction: column;
+    height: calc(200vh - 60px);
+    margin-top: 0px;
+  }
+
+  .leftcoll {
+    height: 50%;
+    width: 100vw;
+  }
+
+  .content {
+    height: 100%;
+    width: 100vw;
+
+  }
+
+  .image {
+    width: 100vw;
+  }
+
+  .right {
+    width: 100vw;
+    height: 50%;
+    justify-content: start !important;
+  }
+}
+
+.lowercoll {
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.collago {
+  margin-top: 21px;
+  margin-bottom: 10px;
+}
+>>>>>>> 4f9ce1a10151163359ca0bdff025d07ccb177887

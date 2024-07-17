@@ -16,7 +16,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
-import ProfilePage from "./Pages/Profile";
+import ProfilePage from "./components/Profile/index";
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
@@ -26,6 +26,8 @@ import Blogs from "./components/blogs/Blogs";
 import CareerSupport from "./components/Career Support/CareerSupport"
 import Jobs from "./components/jobs/Jobs";
 import BlogWrite from "./components/blogs/Blogswrite";
+import BlogReadPage from "./components/blogs/BlogReadPage";
+import University from "./components/Top Universities/University";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,11 @@ const router = createBrowserRouter([
         path: "/jobs",
         errorElement: <ErrorPage />,
         element: <Jobs />,
+      },
+      {
+        path:'topuniversities',        errorElement: <ErrorPage />,
+
+        element:<University/>
       },
       {
         path: "/careersupport",
@@ -137,6 +144,12 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <BlogWrite />,
       },
+      {
+        path: "/blogs/:id",
+        errorElement: <ErrorPage />,
+        element: <BlogReadPage/>,
+      },
+      
     ],
   },
 ]);

@@ -1,22 +1,10 @@
 import { Link, useRouteError } from "react-router-dom";
 import "./ErrorPage.css";
-import { auth } from "../../firebase/auth";
-import { useNavigate } from 'react-router-dom'
-const ErrorPage = () => {
-  let navigate=useNavigate()
-  const error = useRouteError();
-  function handelClick()
-{
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-          if (user) {
-            navigate('/dashboard')
 
-          } else {
-           navigate('/')
-          }
-        });
-        return () => unsubscribe();
-} 
+
+const ErrorPage = () => {
+  const error = useRouteError();
+
   return (
     <>
     {/* <Navbar /> */}
@@ -27,7 +15,7 @@ const ErrorPage = () => {
         <p>
           <i>{error?.statusText || error?.message}</i>
         </p>
-        <Link className="Btn" onClick={handelClick}>
+        <Link className="Btn" to={"/"}>
           Go back to home
         </Link>
       </div>
