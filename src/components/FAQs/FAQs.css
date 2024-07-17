@@ -14,6 +14,9 @@
   margin-bottom: 2rem;
   font-weight: 700;
 }
+#dark .faqs-container h2 {
+  color: rgb(55, 148, 224) !important;
+}
 
 .accordion {
   margin-bottom: 2rem;
@@ -41,9 +44,16 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
+#dark .accordion button{
+  background-color: #0a0a0a !important;
+  color: rgb(125, 205, 241) !important;
+}
 
 .accordion button:hover {
   background: #e0e0e0;
+}
+#dark .accordion button:hover{
+  background: rgb(71, 71, 71) !important;
 }
 
 .accordion .icon {
@@ -92,6 +102,9 @@
   background: #fff;
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
+#dark .accordion-content{
+  background: #0a0a0a !important;
+}
 
 .accordion-content.active {
   max-height: 10rem;
@@ -111,10 +124,16 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+#dark .newsletter-section{
+  background: #0a0a0a !important;
+}
 
 .newsletter-section h2 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+}
+#dark .newsletter-section h2{
+  color: rgb(8, 163, 235) !important;
 }
 
 .newsletter-section p {
@@ -126,6 +145,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 #email {
