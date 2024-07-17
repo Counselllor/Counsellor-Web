@@ -165,14 +165,14 @@ h1,h2,h3{
 .testimonial blockquote {
   font-style: italic;
   margin-bottom: 1rem;
-  font-size: 1.6rem;  /* Larger testimonial text */
+  font-size: 1.6rem;
 }
 
 .testimonial cite {
   display: block;
   text-align: right;
   color: var(--secondary-color);
-  font-size: 1.5rem;  /* Larger citation text */
+  font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {
