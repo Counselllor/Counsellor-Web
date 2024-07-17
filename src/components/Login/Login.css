@@ -92,7 +92,6 @@
   padding: 0 20%;
 }
 
-
 .login-container input[type="email"],
 .login-container input[type="password"],
 .login-container input[type="text"] {
@@ -387,3 +386,40 @@ form div {
   background-color: #333;
 }
 
+.github-btn:hover img{
+  background-color: white;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+.google-btn:hover .social-icon {
+  filter: brightness(0) invert(1);
+}
+
+#dark .github-btn {
+  background-color: #333;
+  border: 1px solid #fff;
+}
+
+#dark .github-btn img{
+  background-color: white;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+#dark .github-btn:hover {
+  background-color: #fff;
+}
+
+#dark .google-btn{
+  background-color: #333;
+  border: 1px solid #fff;
+}
+
+#dark .google-btn:hover {
+  background-color: #fff;
+}
+
+#dark .google-btn:hover .social-icon {
+  filter: none;
+}
