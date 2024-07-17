@@ -199,15 +199,6 @@ const BlogWrite = () => {
         </div>
         <button type="submit">Save</button>
       </form>
-      {/* <div className="markdown-preview">
-        <h2>Preview:</h2>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        >
-          {content}
-        </ReactMarkdown>
-      </div> */}
     </div>
     <Footer/>
     </>

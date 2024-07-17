@@ -28,6 +28,7 @@ import Jobs from "./components/jobs/Jobs";
 import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
+import BlogEditPage from "./components/blogs/BlogEditPage";
 
 const router = createBrowserRouter([
   {
@@ -148,6 +149,11 @@ const router = createBrowserRouter([
         path: "/blogs/:id",
         errorElement: <ErrorPage />,
         element: <BlogReadPage/>,
+      },
+      {
+        path: "/blogs/edit/:id",
+        errorElement: <ErrorPage />,
+        element: <BlogEditPage/>,
       },
       
     ],
