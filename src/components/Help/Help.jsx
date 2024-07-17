@@ -74,6 +74,67 @@ const Help = () => {
     //   }
     // });
   }, [navigate]);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+  const faqs = [
+    {
+      question: "What is Counsellor Social?",
+      answer:
+        "Counsellor Social is a platform designed to connect individuals with professional counselors, offering a variety of other technical services also.",
+    },
+    {
+      question: "How do I register?",
+      answer:
+        "Click on Sign Up, fill in your details, and verify your email to create an account.",
+    },
+    {
+      question: "Do you offer career advancement support?",
+      answer:
+        "Yes, we help you develop strategies for climbing the corporate ladder and achieving your long-term career goals.",
+    },
+    {
+      question: "Can you help me with my resume?",
+      answer:
+        "Yes, we assist in crafting compelling resumes that highlight your strengths.",
+    },
+    {
+      question: "What job placement services do you offer?",
+      answer:
+        "We connect you with top employers in your field through our extensive network of industry partners.",
+    },
+    {
+      question: "Where can I contact for my doubts?",
+      answer:
+        "There is a contact section. Go there, fill the form, and ask your doubts.",
+    },
+    {
+      question: "Is the college data provided here correct?",
+      answer: "Yes, this is the latest data as per 2023.",
+    },
+    {
+      question: "Can I contribute to this page?",
+      answer: (
+        <>
+          Yes, of course! Here is the repository{" "}
+          <a
+            href="https://github.com/Counselllor/Counsellor-Web"
+            className="repo-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            link
+          </a>
+          .
+          <br />
+          But make sure to follow our contribution rules and regulations before
+          making any contribution.
+        </>
+      ),
+    },
+  ];
   return (
     <>
       <nav className={"navbar fixed"}>
@@ -129,38 +190,29 @@ isLoggedIn&&<>
             </ul>
           </section>
 
-          <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <p>
-              Still Have questions? We have answers. Check out our FAQ section for solutions to common problems.
-            </p>
-            <div className="faq-list">
-              <FAQItem 
-                question="How do I register for an account?" 
-                answer="Click on the 'Sign Up' button on the top right corner, fill in the required details, and follow the instructions sent to your email for verification." 
-              />
-              <FAQItem 
-                question="How can I connect with a counselor?" 
-                answer="Once you are logged in, go to the 'Connect' section and select 'Find a Counselor' to start a session." 
-              />
-              <FAQItem 
-                question="Is my communication with the counselor secure?" 
-                answer="Yes, all communications are encrypted to ensure your privacy and security." 
-              />
-              <FAQItem 
-                question="Can I customize my profile?" 
-                answer="Yes, you can update your profile information and preferences in the 'Profile' section." 
-              />
-              <FAQItem 
-                question="How do I view my previous chat history?" 
-                answer="Navigate to the 'Chat History' section in your account to view past conversations." 
-              />
-              <FAQItem 
-                question="What should I do if I encounter an issue?" 
-                answer="Check the troubleshooting section or contact our support team for assistance." 
-              />
+      <div id="faqs" className="faqs-container">
+      <h2>Frequently Asked Questions</h2>
+      <div className="accordion">
+        {faqs.map((faq, index) => (
+          <div key={index} className="accordion-item">
+            <button
+              onClick={() => toggleAccordion(index)}
+              aria-expanded={activeIndex === index ? "true" : "false"}
+            >
+              <span className="accordion-title">{faq.question}</span>
+              <span className="icon" aria-hidden="true"></span>
+            </button>
+            <div
+              className={`accordion-content ${
+                activeIndex === index ? "active" : ""
+              }`}
+            >
+              <p>{faq.answer}</p>
             </div>
-          </section>
+          </div>
+        ))}
+      </div>
+      </div>
 
           {/* <section id="contact-support">
             <h2>Contact Support</h2>
