@@ -1,85 +1,66 @@
-@import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 .faqs-container {
   padding: 2rem;
-  max-width: 70%;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.faqs-container * {
-  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .faqs-container h2 {
-  color:#3C38B9;
-  font-size: 40px;
+  color: #0a3866;
+  font-size: 3.5rem;
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-family: "ABeeZee", sans-serif;
-}
-
-.accordion-title {
-  font-size: 22px;
-  margin: 0 10px;
+  margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 .accordion {
-  margin-top: 70px;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-.accordion .accordion-item {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #6ca2dc;
-}
-
-.accordion .accordion-item button[aria-expanded='true'] {
-  border-bottom: 1px solid #03b5d2;
+.accordion-item {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .accordion button {
-  position: relative;
-  display: block;
-  text-align: left;
   width: 100%;
-  padding: 1em 0;
-  color: #7288a2;
-  font-size: 1.15rem;
-  font-weight: 400;
+  background: #f7f7f7;
+  padding: 1rem 1.5rem;
   border: none;
-  background: none;
-  outline: none;
-  transition: color 0.3s;
-}
-
-.accordion button:hover,
-.accordion button:focus {
+  text-align: left;
+  font-size: 2.5rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-  color: #03b5d2;
+  transition: background 0.3s ease;
 }
 
-.accordion button {
-  padding: 1em 1.5em 1em 0;
+.accordion button:hover {
+  background: #e0e0e0;
 }
 
-.accordion button .icon {
+.accordion .icon {
   display: inline-block;
-  position: absolute;
-  top: 18px;
-  right: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid;
-  border-radius: 22px;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  position: relative;
 }
 
 .accordion button .icon::before {
   display: block;
   position: absolute;
   content: "";
-  top: 9px;
-  left: 5px;
+  top: 8px;
+  left: 4px;
   width: 10px;
   height: 2px;
   background: currentColor;
@@ -89,178 +70,126 @@
   display: block;
   position: absolute;
   content: "";
-  top: 5px;
-  left: 9px;
+  top: 4px;
+  left: 8px;
   width: 2px;
   height: 10px;
   background: currentColor;
 }
 
 .accordion button[aria-expanded='true'] {
-  color: #03b5d2;
+  /* color: #03b5d2; */
 }
 
 .accordion button[aria-expanded='true'] .icon::after {
   width: 0;
 }
 
-.accordion .accordion-content {
-  opacity: 0;
+.accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
+  padding: 0 1.5rem;
+  background: #fff;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
-#dark .accordion .accordion-content {
-  color: white;
+.accordion-content.active {
+  max-height: 10rem;
+  padding: 1rem 1.5rem;
 }
 
-.accordion .accordion-content.active {
-  opacity: 0.8;
-  height: auto;
-  max-height: 400px;
-  text-align: left;
-  margin-left: 30px;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  overflow: auto;
-}
-
-.accordion .accordion-content p {
-  font-family: 'Hind',sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  margin: 1em 0;
-}
-
-.repo-link {
-    color: rgb(59, 59, 234);
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-#dark .newsletter-section {
-  max-width: 100%;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-#dark .newsletter-section h2 {
-  margin-top: 0;
-  color: #3C38B9;
-}
-
-#dark .newsletter-section p {
-  margin-bottom: 20px;
-}
-
-#dark #newsletter-form {
-  align-items: center;
-}
-
-#dark #email {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 30%;
-}
-
-#dark #subscribe-btn {
-  background-color: #3c38b9;
-  color: #fff;
-  padding: 10px 20px;
-  margin: 8px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#dark #newsletter-response {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #666;
+.accordion-content p {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
 .newsletter-section {
-  max-width: 100%;
-  margin: 40px auto;
-  padding: 2px;
-  background-color: none;
+  text-align: center;
+  background: #f7f7f7;
+  padding: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .newsletter-section h2 {
-  margin-top: 0;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .newsletter-section p {
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 #newsletter-form {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 #email {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  width: 30%;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  width: 100%;
+  max-width: 300px;
 }
 
 #subscribe-btn {
-  background-color: #3c38b9;
-  color: #fff;
-  padding: 10px 20px;
-  margin: 8px;
+  padding: 0.75rem 1.5rem;
   border: none;
+  background: #2c3e50;
+  color: #fff;
   border-radius: 5px;
+  font-size: 1.5rem;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-#newsletter-response {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #666;
+#subscribe-btn:hover {
+  background: #34495e;
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2rem;
+  border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
 .modal h2 {
-  color: #3C38B9;
-  font-size: 27px;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .modal p {
-  margin: 14px 0;
-  font-size: 16px;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   color: #666;
 }
 
 .modal button {
-  background-color: #3c38b9;
-  color: #fff;
-  padding: 10px 20px;
+  padding: 0.75rem 1.5rem;
   border: none;
+  background: #2c3e50;
+  color: #fff;
   border-radius: 5px;
+  font-size: 1.5rem;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal button:hover {
+  background: #34495e;
 }
 
 .overlay {
@@ -271,15 +200,18 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-.newsletter-section h2{
-  font-size: 40px !important;
-}
-@media (max-width: 768px) {
 
-  .newsletter-section h2{
-    font-size: 24px !important;
+@media (max-width: 768px) {
+  .newsletter-section h2 {
+    font-size: 1.5rem;
   }
+
   #email {
-    width: 100%; 
+    margin-bottom: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  #newsletter-form {
+    flex-direction: column;
   }
 }
