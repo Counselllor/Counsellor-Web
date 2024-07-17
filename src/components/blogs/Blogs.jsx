@@ -7,18 +7,21 @@ import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import { signOut } from "firebase/auth";
-import { getDatabase, ref, get } from 'firebase/database'; // Import Firebase database methods
+import { getDatabase, ref, set,remove, update, get } from 'firebase/database';
 import { auth } from "../../firebase/auth";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import { toast } from 'react-toastify';
-
+import { FaTrash } from "react-icons/fa";
 const Blogs = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setLogin] = useState(false);
+  let [ids,setIds]=useState([])
   const [blogsData, setBlogsData] = useState([]);
   const navigate = useNavigate();
+  const userId = localStorage.getItem('userUid');
+  const [user, setUser] = useState(null);
 
   const handleThemeChange = useCallback(() => {
     toggleTheme();
@@ -28,12 +31,32 @@ const Blogs = () => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
+    
   }, [navigate]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const db = getDatabase();
+        const userRef = ref(db, 'users/' + userId);
+        
+        const userSnap = await get(userRef);
+        if (userSnap.exists()) {
+          setUser(userSnap.val());
+
+          let inputString = userSnap.val().articleCreated;
+          let idArray = inputString.split(',');
+          
+          let idObject = idArray.reduce((acc, id) => {
+              acc[id.trim()] = true; // or any other value you want to associate with the ID
+              return acc;
+          }, {});             
+              console.log(idObject,'asssssssssssssssssss')
+            setIds(idObject)
+          
+        } else {
+          console.log('No user data available');
+        }
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
         if (snapshot.exists()) {
@@ -56,6 +79,9 @@ const Blogs = () => {
     };
 
     fetchBlogs();
+    
+
+    
   }, []);
 
   const handleSignOut = useCallback(() => {
@@ -84,6 +110,58 @@ const Blogs = () => {
     return tempDiv.textContent || tempDiv.innerText || "";
   };
 console.log(blogsData)
+const handleDelete = async (link) => {
+console.log(user)
+  let isUser=true
+  user.articleCreated.split(',').map((data)=>{
+    if(data==link.substring(7,link.length)){
+      isUser=true
+    }
+  })
+  if(!isUser){
+    return
+  }
+  const db = getDatabase();
+    // Remove the article from the articles collection
+   let a= await remove(ref(db, 'articles/' + link.substring(7,link.length)));
+    // Update the user's articleCreated list
+    const updatedArticles = user.articleCreated
+      .split(',')
+      .filter((id) => id !== link.substring(7,link.length))
+      .join(',');
+console.log(db)
+    await update(ref(db, 'users/' + userId), {
+      articleCreated: updatedArticles,
+    });
+
+    toast.success("Blog Deleted Successfully!! 🚀", {
+      className: "toast-message",
+    });
+    const articlesRef = ref(db, 'articles');
+    const snapshot = await get(articlesRef);
+
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      console.log(data)
+      if(Object.values(data).length==0){
+setBlogsData([])
+return
+      }
+      const blogsArray = Object.values(data).map(blog => ({
+        title: blog.title,
+        date: new Date(blog.createdAt).toLocaleDateString(),
+        summary: stripMarkdown(blog.content.substring(0, 100)) + '...',
+        tags: blog.tags,
+        author: blog.author,
+        link: `/blogs/${blog.id}`
+      }));
+      setBlogsData(blogsArray);
+    } else {
+      setBlogsData([])
+      console.log('No data available');
+    }
+  
+};
   return (
     <>
       <nav className={`navbar fixed`}>
@@ -141,6 +219,7 @@ console.log(blogsData)
                   <span key={tagIndex} className="blog-tag">{tag}</span>
                 ))}
               </div>
+             {ids && blog.link.substring(7,blog.link.length) in ids && <div>{<FaTrash size={'2rem'} onClick={()=>handleDelete(blog.link)}/>}</div>}
               <button className="click-btn1">
                 <a href={blog.link}>Read More</a>
               </button>
