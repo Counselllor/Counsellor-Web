@@ -81,7 +81,7 @@ h1,h2,h3{
 }
 
 .join-us-header p {
-  font-size: 2rem;  /* Larger subheader font */
+  font-size: 2rem;
   max-width: 700px;
   margin: 0 auto;
 }
