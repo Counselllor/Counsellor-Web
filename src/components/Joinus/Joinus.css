@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-size: 18px;  /* Increased base font size */
+  font-size: 18px;
 }
 
 p{
@@ -60,7 +60,7 @@ h1,h2,h3{
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 1.6rem;  /* Slightly larger font for navigation */
+  font-size: 1.6rem;
 }
 
 .menu ul li a:hover {
@@ -72,7 +72,6 @@ h1,h2,h3{
   color: white;
   text-align: center;
   padding: 4rem 2rem;
-  
 }
 
 .join-us-header h1 {
