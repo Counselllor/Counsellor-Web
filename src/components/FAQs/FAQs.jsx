@@ -10,41 +10,16 @@ const FAQs = () => {
 
   const faqs = [
     {
-      question: "What is Counsellor Social?",
-      answer:
-        "Counsellor Social is a platform designed to connect individuals with professional counselors, offering a variety of other technical services also.",
-    },
-    {
-      question: "How do I register?",
-      answer:
-        "Click on Sign Up, fill in your details, and verify your email to create an account.",
-    },
-    {
-      question: "Do you offer career advancement support?",
-      answer:
-        "Yes, we help you develop strategies for climbing the corporate ladder and achieving your long-term career goals.",
-    },
-    {
-      question: "Can you help me with my resume?",
-      answer:
-        "Yes, we assist in crafting compelling resumes that highlight your strengths.",
-    },
-    {
-      question: "What job placement services do you offer?",
-      answer:
-        "We connect you with top employers in your field through our extensive network of industry partners.",
-    },
-    {
-      question: "Where can I contact for my doubts?",
+      question: "1. Where can I contact for my doubts?",
       answer:
         "There is a contact section. Go there, fill the form, and ask your doubts.",
     },
     {
-      question: "Is the college data provided here correct?",
+      question: "2. Is the college data provided here correct?",
       answer: "Yes, this is the latest data as per 2023.",
     },
     {
-      question: "Can I contribute to this page?",
+      question: "3. Can I contribute to this page?",
       answer: (
         <>
           Yes, of course! Here is the repository{" "}
@@ -115,7 +90,7 @@ const FAQs = () => {
         ))}
       </div>
       <section className="newsletter-section">
-        <h2>Stay Updated with Our Latest News!</h2>
+        <h2>Stay updated with our latest news!</h2>
         <p>
           Subscribe to our newsletter to receive exclusive updates, promotions,
           and more.
@@ -139,10 +114,9 @@ const FAQs = () => {
         className="modal"
         overlayClassName="overlay"
       >
-        <h2>Thank You!</h2>
+        <h2>Thank you!</h2>
         <p>
-          Thank you for subscribing to our newsletter.
-          <br />
+          Thank you for subscribing to our newsletter. <br />
           Stay tuned to hear about our new updates.
         </p>
         <button onClick={closeModal}>Close</button>

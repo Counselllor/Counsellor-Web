@@ -190,11 +190,11 @@ isLoggedIn&&<>
             </ul>
           </section>
 
-      <div id="faqs" className="faqs-container">
+      <div id="faqsh" className="faqs-containerh">
       <h2>Frequently Asked Questions</h2>
-      <div className="accordion">
+      <div className="accordionh">
         {faqs.map((faq, index) => (
-          <div key={index} className="accordion-item">
+          <div key={index} className="accordion-itemh">
             <button
               onClick={() => toggleAccordion(index)}
               aria-expanded={activeIndex === index ? "true" : "false"}
@@ -203,7 +203,7 @@ isLoggedIn&&<>
               <span className="icon" aria-hidden="true"></span>
             </button>
             <div
-              className={`accordion-content ${
+              className={`accordion-contenth ${
                 activeIndex === index ? "active" : ""
               }`}
             >
