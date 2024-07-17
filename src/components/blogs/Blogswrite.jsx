@@ -102,6 +102,7 @@ const BlogWrite = () => {
       tags: tags.split(',').map((tag) => tag.trim()),
       author: user.firstname+" "+user.surname,
       createdBy: userId,
+      likeCount:0,
       createdAt: new Date().toISOString(),
     };
 
