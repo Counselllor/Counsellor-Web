@@ -116,7 +116,7 @@ h1,h2,h3{
 .two-column h3 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
-  font-size: 2.5rem;  /* Larger subheaders */
+  font-size: 2.5rem;
 }
 
 .two-column ul {
@@ -152,7 +152,7 @@ h1,h2,h3{
   padding: 1rem 2rem;
   border-radius: 30px;
   margin: 0.5rem;
-  font-size: 1.5rem;  /* Larger culture highlight text */
+  font-size: 1.5rem;
 }
 
 .testimonial {
