@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/auth";
 import { signOut } from "firebase/auth";
 import { Switch } from "antd";
-import './JoinUs.css'
+import './Joinus.css'
 import { ThemeContext } from "../../App";
 import Logo from "../../assets/logo.webp";
 import Footer from "../Footer/Footer";
