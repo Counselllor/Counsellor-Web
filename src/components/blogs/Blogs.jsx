@@ -22,7 +22,7 @@ const Blogs = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
   const [user, setUser] = useState(null);
-
+let router=useNavigate()
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
@@ -110,58 +110,7 @@ const Blogs = () => {
     return tempDiv.textContent || tempDiv.innerText || "";
   };
 console.log(blogsData)
-const handleDelete = async (link) => {
-console.log(user)
-  let isUser=true
-  user.articleCreated.split(',').map((data)=>{
-    if(data==link.substring(7,link.length)){
-      isUser=true
-    }
-  })
-  if(!isUser){
-    return
-  }
-  const db = getDatabase();
-    // Remove the article from the articles collection
-   let a= await remove(ref(db, 'articles/' + link.substring(7,link.length)));
-    // Update the user's articleCreated list
-    const updatedArticles = user.articleCreated
-      .split(',')
-      .filter((id) => id !== link.substring(7,link.length))
-      .join(',');
-console.log(db)
-    await update(ref(db, 'users/' + userId), {
-      articleCreated: updatedArticles,
-    });
 
-    toast.success("Blog Deleted Successfully!! 🚀", {
-      className: "toast-message",
-    });
-    const articlesRef = ref(db, 'articles');
-    const snapshot = await get(articlesRef);
-
-    if (snapshot.exists()) {
-      const data = snapshot.val();
-      console.log(data)
-      if(Object.values(data).length==0){
-setBlogsData([])
-return
-      }
-      const blogsArray = Object.values(data).map(blog => ({
-        title: blog.title,
-        date: new Date(blog.createdAt).toLocaleDateString(),
-        summary: stripMarkdown(blog.content.substring(0, 100)) + '...',
-        tags: blog.tags,
-        author: blog.author,
-        link: `/blogs/${blog.id}`
-      }));
-      setBlogsData(blogsArray);
-    } else {
-      setBlogsData([])
-      console.log('No data available');
-    }
-  
-};
   return (
     <>
       <nav className={`navbar fixed`}>
@@ -219,7 +168,6 @@ return
                   <span key={tagIndex} className="blog-tag">{tag}</span>
                 ))}
               </div>
-             {ids && blog.link.substring(7,blog.link.length) in ids && <div>{<FaTrash size={'2rem'} onClick={()=>handleDelete(blog.link)}/>}</div>}
               <button className="click-btn1">
                 <a href={blog.link}>Read More</a>
               </button>
