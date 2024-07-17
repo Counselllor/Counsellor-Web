@@ -106,33 +106,43 @@ export default function Login() {
     signInWithPopup(auth, googleAuthProvider)
       .then(async (result) => {
         const user = result.user;
-        const userInfo = {
-          id: user.uid,
-          firstname: user.displayName.split(' ')[0],
-          surname: user.displayName.split(' ')[1] || '',
-          email: user.email,
-          profilePic: user.photoURL
-        };
+        const userData = await fetchUserDataByEmail(user.email);
         
-        // Dispatch the LOGIN_SUCCESS action to update Redux store
-        dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+        if (userData) {
+          // Existing user
+          const userInfo = {
+            id: userData.id,
+            firstname: userData.firstname,
+            surname: userData.surname,
+            email: userData.email,
+            profilePic: userData.profilePic
+          };
+          dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        } else {
+          // New user
+          const userInfo = {
+            id: user.uid,
+            firstname: user.displayName.split(' ')[0],
+            surname: user.displayName.split(' ')[1] || '',
+            email: user.email,
+            profilePic: user.photoURL
+          };
+          dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+          // Here you would also save the new user data to your database
+        }
   
+        localStorage.setItem("userUid", user.uid);
         toast.success("Login successful!", {
           className: "toast-message",
         });
-        const userData = await fetchUserDataByEmail(user.email);
-        if (userData) {
-          localStorage.setItem("userUid", userData.id);
-        } else {
-          console.log("New user signed up with Google");
-        }
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);
       })
       .catch((error) => {
         console.error("Google Sign-In Error:", error);
-        // Dispatch LOGIN_FAILURE action
         dispatch({ type: LOGIN_FAILURE, payload: error.message });
         toast.error("An error occurred. Please try again!", {
           className: "toast-message",
@@ -144,33 +154,43 @@ export default function Login() {
     signInWithPopup(auth, githubAuthProvider)
       .then(async (result) => {
         const user = result.user;
-        const userInfo = {
-          id: user.uid,
-          firstname: user.displayName.split(' ')[0],
-          surname: user.displayName.split(' ')[1] || '',
-          email: user.email,
-          profilePic: user.photoURL
-        };
+        const userData = await fetchUserDataByEmail(user.email);
         
-        // Dispatch the LOGIN_SUCCESS action to update Redux store
-        dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+        if (userData) {
+          // Existing user
+          const userInfo = {
+            id: userData.id,
+            firstname: userData.firstname,
+            surname: userData.surname,
+            email: userData.email,
+            profilePic: userData.profilePic
+          };
+          dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        } else {
+          // New user
+          const userInfo = {
+            id: user.uid,
+            firstname: user.displayName.split(' ')[0],
+            surname: user.displayName.split(' ')[1] || '',
+            email: user.email,
+            profilePic: user.photoURL
+          };
+          dispatch({ type: LOGIN_SUCCESS, payload: userInfo });
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+          // Here you would also save the new user data to your database
+        }
   
+        localStorage.setItem("userUid", user.uid);
         toast.success("Login successful!", {
           className: "toast-message",
         });
-        const userData = await fetchUserDataByEmail(user.email);
-        if (userData) {
-          localStorage.setItem("userUid", userData.id);
-        } else {
-          console.log("New user signed up with Github");
-        }
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);
       })
       .catch((error) => {
         console.error("Github Sign-In Error:", error);
-        // Dispatch LOGIN_FAILURE action
         dispatch({ type: LOGIN_FAILURE, payload: error.message });
         toast.error("An error occurred. Please try again!", {
           className: "toast-message",

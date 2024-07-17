@@ -80,19 +80,25 @@ const ProfileCard = () => {
   console.log(userData);
   useEffect(() => {
     const fetchData = async () => {
-      const userData = await fetchUserData(userUid);
-      if (userData) {
-        setUserData(userData);
-        setName(userData.firstname + " " + userData.surname || "Alex Foam");
-        setDob(userData.dob || "2000-01-21");
-        if (userData.profilePic) {
+      const storedUserInfo = localStorage.getItem('userInfo');
+      if (storedUserInfo) {
+        const parsedUserInfo = JSON.parse(storedUserInfo);
+        setUserInfo(parsedUserInfo);
+        setName(parsedUserInfo.firstname + " " + parsedUserInfo.surname);
+        setProfilePic(parsedUserInfo.profilePic);
+      } else {
+        const userData = await fetchUserData(userUid);
+        if (userData) {
+          setUserInfo(userData);
+          setName(userData.firstname + " " + userData.surname);
           setProfilePic(userData.profilePic);
+          localStorage.setItem('userInfo', JSON.stringify(userData));
         }
       }
     };
-
+  
     fetchData();
-  }, []);
+  }, [userUid]);
 
   const handleEdit = () => {
     setIsEditing(true);
