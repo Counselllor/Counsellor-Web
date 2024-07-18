@@ -2,20 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./SocialProfile.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../../firebase/auth';
+import { getDatabase, ref, set, get, child, update, remove } from 'firebase/database';
 
 const initialProfiles = [
   {
-    id: 1,
+    id: generateUUID(),
     name: "Twitter",
     url: "https://twitter.com/arafatnayeem94",
   },
   {
-    id: 2,
+    id: generateUUID(),
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/arafatnayeem/",
   },
   {
-    id: 3,
+    id: generateUUID(),
     name: "Behance",
     url: "https://www.behance.net/arafatnayeem",
   },
@@ -35,43 +36,65 @@ const socialMediaOptions = [
 ];
 
 const SocialProfile = () => {
-  const [profiles, setProfiles] = useState(
-    JSON.parse(localStorage.getItem("profiles")) || initialProfiles
-  );
-  let navigate=useNavigate()
+  const [profiles, setProfiles] = useState(initialProfiles);
   const [newProfile, setNewProfile] = useState({ name: "", url: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [showNewProfileForm, setShowNewProfileForm] = useState(false);
+  const navigate = useNavigate();
+  const uid = localStorage.getItem("userUid");
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        // handle user logged in state
+        fetchProfiles(uid);
       } else {
-
-          navigate('/');
-        
+        navigate('/');
       }
     });
   }, [navigate]);
-  useEffect(() => {
-    localStorage.setItem("profiles", JSON.stringify(profiles));
-  }, [profiles]);
+
+  const fetchProfiles = async (userId) => {
+    const dbRef = ref(getDatabase());
+    const userSnapshot = await get(child(dbRef, `users/${userId}/socialProfileId`));
+    if (userSnapshot.exists()) {
+      const socialProfileId = userSnapshot.val();
+      const profileSnapshot = await get(child(dbRef, `socialProfiles/${socialProfileId}/links`));
+      if (profileSnapshot.exists()) {
+        setProfiles(profileSnapshot.val());
+      }
+    }
+  };
+
+  const saveProfiles = async (userId, profiles) => {
+    const db = getDatabase();
+    const userRef = ref(db, `users/${userId}`);
+    let socialProfileId = (await get(child(userRef, 'socialProfileId'))).val();
+    if (!socialProfileId) {
+      socialProfileId = generateUUID();
+      await set(child(userRef, 'socialProfileId'), socialProfileId);
+    }
+    await set(ref(db, `socialProfiles/${socialProfileId}/links`), profiles);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProfile({ ...newProfile, [name]: value });
   };
 
-  const handleAddProfile = () => {
+  const handleAddProfile = async () => {
     if (!newProfile.name || !isValidUrl(newProfile.url)) {
       alert("Please enter a valid profile name and URL starting with http");
       return;
     }
-    setProfiles([...profiles, { ...newProfile, id: profiles.length + 1 }]);
+    const updatedProfiles = [...profiles, { ...newProfile, id: generateUUID() }];
+    setProfiles(updatedProfiles);
     setNewProfile({ name: "", url: "" });
     setShowNewProfileForm(false);
-    window.location.reload(); // Reload the page after adding a profile
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, updatedProfiles);
+    }
   };
 
   const handleProfileChange = (id, url) => {
@@ -82,20 +105,28 @@ const SocialProfile = () => {
     );
   };
 
-  const handleDeleteProfile = (id) => {
-    setProfiles(profiles.filter((profile) => profile.id !== id));
-    window.location.reload(); // Reload the page after deleting a profile
+  const handleDeleteProfile = async (id) => {
+    const updatedProfiles = profiles.filter((profile) => profile.id !== id);
+    setProfiles(updatedProfiles);
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, updatedProfiles);
+    }
   };
+
 
   const handleEditProfile = (id) => {
     setEditingId(id);
     setIsEditing(true);
   };
 
-  const handleSaveProfile = () => {
+  const handleSaveProfile = async () => {
     setEditingId(null);
     setIsEditing(false);
-    window.location.reload();
+    const user = auth.currentUser;
+    if (user) {
+      await saveProfiles(uid, profiles);
+    }
   };
 
   const handleUpdate = () => {
@@ -130,6 +161,7 @@ const SocialProfile = () => {
             <input
               type="text"
               value={profile.url}
+              placeholder={profile.url}
               readOnly={!isEditing || editingId !== profile.id}
               onChange={(e) => handleProfileChange(profile.id, e.target.value)}
             />
@@ -191,5 +223,25 @@ const SocialProfile = () => {
     </div>
   );
 };
+
+function generateUUID() {
+  var d = new Date().getTime();
+  var d2 =
+    (typeof performance !== "undefined" &&
+      performance.now &&
+      performance.now() * 1000) ||
+    0;
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16;
+    if (d > 0) {
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
 
 export default SocialProfile;
