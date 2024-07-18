@@ -53,6 +53,7 @@ const University = () => {
   };
 
   return (
+    <>
     <div className="universityPage">
       <nav className={"navbar fixed"}>
         <div className="logo">
@@ -143,8 +144,9 @@ const University = () => {
           ))}
         </div>
       </section>
-      <Footer />
     </div>
+      <Footer />
+      </>
   );
 };
 
