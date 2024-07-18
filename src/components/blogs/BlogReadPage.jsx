@@ -295,11 +295,14 @@ const BlogReadPage = () => {
               <div className="flex gap-6" style={{display:"flex"}}>
 
               {blog.createdBy === userId && (
-                <div className="Edit_icon">
+              <>  <div className="Edit_icon">
                   <MdModeEdit size={18} onClick={handleEditClick} />
                 </div>
+                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'2rem'} onClick={()=>handleDelete(blog.id)}/>}</div>        
+              </>
               )}
-             <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'2rem'} onClick={()=>handleDelete(blog.id)}/>}</div>            </div>
+                 </div>
+             
               </div>
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
