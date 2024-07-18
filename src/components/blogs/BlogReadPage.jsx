@@ -13,7 +13,7 @@ import { signOut } from "firebase/auth";
 import { ThemeContext } from '../../App';
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/auth";
-
+import { MdModeEdit } from "react-icons/md";
 const BlogReadPage = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -70,6 +70,17 @@ const BlogReadPage = () => {
 
     fetchBlog();
   }, [id]);
+  const handleEditClick = () => {
+   
+    navigate('/blogs/edit/' + id, {
+      state: {
+        title: blog.title,
+        content: blog.content,
+        tags: blog.tags,
+        id: id
+      }
+    });
+  };
 
   if (!blog) {
     return <div></div>;
@@ -131,6 +142,12 @@ const BlogReadPage = () => {
               {blog.tags.map((tag, tagIndex) => (
                 <span key={tagIndex} className="blog-tag">{tag}</span>
               ))}
+            </div>
+            <div>
+            { blog.createdBy===localStorage.getItem("userUid") &&
+            <div className="Edit_icon">
+              <MdModeEdit size={18} onClick={handleEditClick}/>
+              </div> }
             </div>
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
