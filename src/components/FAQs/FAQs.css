@@ -11,7 +11,7 @@
 }
 
 .faqs-container h2 {
-  color:#3C38B9;
+  color: #3C38B9;
   font-size: 40px;
   text-align: center;
   margin-bottom: 1.5rem;
@@ -126,17 +126,17 @@
 }
 
 .accordion .accordion-content p {
-  font-family: 'Hind',sans-serif;
+  font-family: 'Hind', sans-serif;
   font-size: 18px;
   font-weight: 300;
   margin: 1em 0;
 }
 
 .repo-link {
-    color: rgb(59, 59, 234);
-    text-decoration: underline;
-    cursor: pointer;
-  }
+  color: rgb(59, 59, 234);
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 #dark .newsletter-section {
   max-width: 100%;
@@ -271,15 +271,18 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-.newsletter-section h2{
+
+.newsletter-section h2 {
   font-size: 40px !important;
 }
+
 @media (max-width: 768px) {
 
-  .newsletter-section h2{
+  .newsletter-section h2 {
     font-size: 24px !important;
   }
+
   #email {
-    width: 100%; 
+    width: 100%;
   }
 }

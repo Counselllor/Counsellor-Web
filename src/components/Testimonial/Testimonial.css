@@ -4,7 +4,7 @@
 .testimonial-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 50px 40px;
 }
 
 .testimonial-heading {
@@ -19,6 +19,9 @@
 
 .testimonial-slide {
   padding: 10px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonial-card {
@@ -43,6 +46,11 @@
   font-size: 100px;
   color: rgba(60, 56, 185, 0.1);
   font-family: Georgia, serif;
+}
+#dark .testimonial-card{
+  background-color: #292929;
+  border: white solid 2px;
+  box-shadow: 0px 0px 10px white;
 }
 
 .testimonial-card:hover {
@@ -96,10 +104,13 @@
 .slick-dots {
   bottom: -40px;
 }
+#dark .slick-dots li button:before{
+color: white !important;
+}
 
 .slick-dots li button:before {
   font-size: 8px;
-  color: #3C38B9;
+  color: #3C38B9 !important;
   opacity: 0.5;
 }
 
@@ -108,20 +119,19 @@
 }
 
 .slick-prev, .slick-next {
-  width: 35px;
-  height: 35px;
-  background-color: #3C38B9;
+
+  background-color: #3C38B9 !important;
   border-radius: 50%;
   transition: all 0.3s ease;
   z-index: 1;
 }
 
 .slick-prev:hover, .slick-next:hover {
-  background-color: #2C2889;
+  background-color: #2C2889 !important;
 }
 
 .slick-prev:before, .slick-next:before {
-  color: white;
+  /* color: white; */
   font-size: 18px;
   line-height: 1;
   opacity: 1;
