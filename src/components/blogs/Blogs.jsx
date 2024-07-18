@@ -131,7 +131,7 @@ console.log(blogsData)
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
            
-            <div key={index} className="blog-card">
+            <div key={index} className="blog-card" onClick={()=>{navigate(blog.link)}}>
               <h2>{blog.title}</h2>
               <p className="blog-date">{blog.date}</p>
               <p>{blog.summary}</p>
