@@ -154,6 +154,22 @@ flex-direction: column;
 
 
 }
+#dark .contact1 .form{
+  background-color: #080707;
+  border: solid 2px white;
+    box-shadow: 0px 0px 10px white;
+
+}
+#dark .contact1 .form input ,#dark .contact1 .form textarea {
+  background-color: #1b1a1a;
+  color: white;
+}
+#dark .contact1 .left span{
+  color: white;
+}
+#dark .contact1 .form textarea::placeholder{
+  color: rgb(198, 196, 196)
+}
 
 .contact1 .form p{
   font-size: 16px !important;
@@ -182,12 +198,17 @@ flex-direction: column;
 
 .contact1 .form button{
   width: 100%;
+  cursor: pointer;
   margin: auto;
   background-color: rgb(29, 97, 223);
 color: white  ;
 height: 50px;
 font-size: 23px;
 border-radius: 20px;
+transition: 0.3s all ease-in-out;
+}
+.contact1 .form button:hover{
+  background-color: rgb(5, 33, 87);
 }
 .contact1 .left1{
   width: 50%;

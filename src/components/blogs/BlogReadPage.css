@@ -1,6 +1,6 @@
 .blog-read-page_container{
     width: 100%;
- 
+    min-height: 69vh;
     background: linear-gradient(135deg, #4375ff, #80ccff);
    padding: 50px 20px;
 }
@@ -14,6 +14,7 @@
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+   
   }
   #dark .blog-read-page{
     background-color: #2d2d2d;
@@ -21,7 +22,7 @@
   .blog-header {
     margin-bottom: 20px;
     margin-bottom: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.222);
   }
   
@@ -64,11 +65,36 @@
   
   .blog-content {
     line-height: 1.6;
+    margin-top: 20px;
+    text-align: justify;
   }
   #dark .blog-content *{
     color: white;
   }
-  
+  .Edit_icon{
+    text-align: end;
+  }
+  #dark .Edit_icon{
+    color: white;
+  }
+  .icons_blog_read{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+  }
+  .like_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .like_icon p{
+    font-size: 12px;
+  }
+  .blog-content *{
+   max-width: 100%;
+  }
   .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
     margin-top: 1.5em;
     margin-bottom: 0.5em;
