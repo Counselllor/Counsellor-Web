@@ -12,7 +12,7 @@ export function Internship(){
     const [currentItems, setCurrentItems] = useState([])
     const [pageSummary, setPageSummary] = useState("")
 
-    const applyLink = useCallback( (link) =>{
+    const applyLink = useCallback( (link) => () =>{
         window.open(link)
     },[])
 
@@ -43,7 +43,7 @@ export function Internship(){
                                     className="viewMore"
                                     id="btn"
                                     style={{ cursor: "none" }}
-                                    onClick={() =>applyLink(item.link) }>
+                                    onClick={applyLink(item.link) }>
                                     Apply Now
                                 </button>
                             </div>
