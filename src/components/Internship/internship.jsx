@@ -12,6 +12,7 @@ export function Internship(){
     const [pageSummary, setPageSummary] = useState("")
 
 
+
     return(
         <>
             <div className="jobsPage">
@@ -77,8 +78,8 @@ function PaginatedItem({setCurrentItems,setPageSummary}){
                     nextLabel="Next > "
                     previousLabel=" < Previous"
                     onPageChange={handlePageClick}
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={1}
+                    marginPagesDisplayed={1}
                     pageCount={pageCount}
                     renderOnZeroPageCount={null}
                     activeClassName="page-btn"
