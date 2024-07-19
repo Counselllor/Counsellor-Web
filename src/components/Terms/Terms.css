@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "ABeeZee", sans-serif;
 }
 
 .breadcrumb {
@@ -56,7 +56,7 @@ body {
 }
 
 .terms-container p {
-  margin-top: 40px;
+  margin-top: 13px;
   font-size: 22px;
   margin-bottom: 1rem;
   font-family: "ABeeZee", sans-serif;
@@ -71,6 +71,8 @@ body {
   margin-left: 20px;
   margin-top: 30px;
   animation: animator1 forwards 0.6s;
+  font-family: "ABeeZee", sans-serif;
+
 }
 
 .terms-container li {
@@ -78,6 +80,8 @@ body {
   margin-bottom: 1rem;
   font-size: 22px;
   cursor: pointer;
+  font-family: "ABeeZee", sans-serif;
+  color: #666;
 }
 
 .terms-container #cookies {
@@ -96,6 +100,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -121,7 +126,7 @@ body {
   }
 
   .terms-container {
-    padding: 1rem;
+    padding: 1.4rem;
   }
 
   .terms-container h1 {
@@ -143,6 +148,10 @@ body {
     font-size: 16px;
   }
 
+  .terms-container {
+    padding: 1.5rem;
+  }
+
   .terms-container h1 {
     font-size: 40px;
   }
@@ -155,4 +164,72 @@ body {
   .terms-container li {
     font-size: 16px;
   }
+
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar .logo img {
+    height: 50px;
+  }
+
+  .navbar .menu ul {
+    font-size: 14px;
+  }
+
+  .navbar .hamburger .bar {
+    height: 2px;
+  }
 }
+
+@media (max-width: 480px) {
+
+.navbar.fixed .menu ul {
+  list-style: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  gap: 17px !important;
+  float: right !important;
+  padding: 8px 30px !important;
+  align-items: center !important;
+  /* background-color: #d3eafd; */
+  /* border-top-left-radius: 50px; */
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.385); */
+  /* border-bottom-left-radius: 50px; */
+  margin-top: 11px !important;
+}
+  @media (max-width: 960px) {
+    .menu.show {
+      display: flex !important;
+      background: #cae7fe45 !important;
+      border-radius: 9px !important;
+      padding: 58px !important;
+      box-shadow: 0 0 10px #cae7fe !important;
+      backdrop-filter: blur(10px) !important;
+      /* margin-bottom: 9px; */
+    }
+  }
+
+  @media (max-width: 480px) {
+
+  .navbar .menu {
+    flex-direction: column !important;
+    align-items: center !important;
+    top: 286px !important;
+    width: 92% !important;
+  }
+  }
+
+  @media (max-width: 960px) {
+    .menu.show {
+      display: flex !important;
+      background: #cae7fe45 !important;
+      border-radius: 10px !important;
+      padding: 22px !important;
+      box-shadow: 0 0 10px #cae7fe !important;
+      backdrop-filter: blur(10px) !important;
+      position: fixed !important;
+      z-index: 2 !important;
+      margin-top: -17px !important;
+    }
+  }
