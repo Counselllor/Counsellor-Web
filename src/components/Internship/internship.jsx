@@ -1,5 +1,5 @@
 import internships from "./internship.json"
-import  {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Navbar from "../Navbar/Navbar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import "../jobs/Jobs.css"
@@ -12,6 +12,11 @@ export function Internship(){
     const [currentItems, setCurrentItems] = useState([])
     const [pageSummary, setPageSummary] = useState("")
 
+    const applyLink = useCallback( (link) =>{
+        window.open(link)
+    },[])
+
+
     return(
         <>
             <div className="jobsPage">
@@ -22,8 +27,8 @@ export function Internship(){
                 </header>
                 <section className="jobsPage-content" style={{zIndex:10}}>
                     <div className="jobsPage-list">
-                        {currentItems.map((item,index) => (
-                            <div className="BoxContent" >
+                        {currentItems.map((item) => (
+                            <div className="BoxContent" key={currentItems.link}>
                                 <img className="ApiImg" src={item.image} alt="" />
                                 <h2 className="InternTitle" >
                                     {item.internship_name}
@@ -38,7 +43,7 @@ export function Internship(){
                                     className="viewMore"
                                     id="btn"
                                     style={{ cursor: "none" }}
-                                    onClick={function(){window.open(item.link)} }>
+                                    onClick={() =>applyLink(item.link) }>
                                     Apply Now
                                 </button>
                             </div>
@@ -60,12 +65,12 @@ function PaginatedItem({setCurrentItems,setPageSummary}){
     const pageCount = Math.ceil(internships.length / itemsPerPage)
 
     //pagination function
-    const handlePageClick = (event) =>{
+    const handlePageClick = useCallback((event) =>{
         const newOffset = (event.selected * itemsPerPage) % internships.length
         const endOffset = newOffset + itemsPerPage > internships.length ? internships.length : newOffset + itemsPerPage
         setCurrentItems(internships.slice(newOffset, endOffset))
         setPageSummary(`Showing ${newOffset+1} to ${endOffset} results out of ${internships.length}`)
-    }
+    },[])
 
     useEffect(()=>{
         handlePageClick({selected : 0})
