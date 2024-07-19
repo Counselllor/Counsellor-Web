@@ -19,27 +19,6 @@ const Privacy = () => {
     <>
       <Navbar />
       <div className="privacy-container">
-        <div className="privacy-sidebar">
-          <h2>Privacy Center</h2>
-          <nav>
-            <ul>
-              <ul>
-                  <li className={activeSection === 'interpretation' ? 'active' : ''}>
-                    <a href="#interpretation" onClick={() => scrollToSection('interpretation')}>Interpretation and Definitions</a>
-                  </li>
-                  <li className={activeSection === 'collecting' ? 'active' : ''}>
-                    <a href="#collecting" onClick={() => scrollToSection('collecting')}>Collecting and Using Your Data</a>
-                  </li>
-                  <li className={activeSection === 'use' ? 'active' : ''}>
-                    <a href="#use" onClick={() => scrollToSection('use')}>Use of Your Personal Data</a>
-                  </li>
-                  <li className={activeSection === 'contact' ? 'active' : ''}>
-                    <a href="#contact" onClick={() => scrollToSection('contact')}>Contact Us</a>
-                  </li>
-                </ul>
-            </ul>
-          </nav>
-        </div>
         <div className="privacy-content">
           <header className="privacy-header">
             <h1>Privacy Policy</h1>

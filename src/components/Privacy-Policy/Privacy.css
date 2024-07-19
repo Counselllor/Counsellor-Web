@@ -3,10 +3,11 @@ body {
   background-color: #f7f9fc;
   margin: 0;
   padding: 0;
-  color: #333; /* Default text color */
+  color: #333;
 }
-p,li,span,strong{
-  font-family: 'Poppins',sans-serif;
+
+p, li, span, strong {
+  font-family: 'Poppins', sans-serif;
 }
 
 .privacy-container {
@@ -18,67 +19,15 @@ p,li,span,strong{
 
 .privacy-sidebar {
   flex: 1;
-  background: #ffffff;
   padding: 20px;
-  border-right: 1px solid #e0e0e0;
-  position: fixed;
-  top: 70px;
-  left: 0; /* Adjusted to align sidebar to the left */
-  width: 220px; /* Adjust width as needed */
-  height: calc(100vh - 70px);
-  overflow-y: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.privacy-sidebar h2 {
-  font-family: 'ABeeZee',sans-serif;
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #3C38B9;
-}
-
-.privacy-sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.privacy-sidebar nav ul li {
-  margin-bottom: 10px;
-  
-}
-
-.privacy-sidebar nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.3s;
-  font-family: 'ABeeZee',sans-serif;
-  display: block;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-.privacy-sidebar nav ul li a:hover {
-  background-color: #7ab2ee;
-  color: #ffffff;
-}
-
-.privacy-sidebar nav ul li.active > a,
-.privacy-sidebar nav ul li ul li.active > a {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.privacy-sidebar nav ul li ul {
-  margin-top: 10px;
-  padding-left: 15px;
-  border-left: 2px solid #8db9e8;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .privacy-content {
   flex: 3;
   padding: 20px;
-  margin-left: 280px; /* Adjusted margin for content area */
+  margin-left: 20px;
 }
 
 .privacy-header {
@@ -87,9 +36,9 @@ p,li,span,strong{
 }
 
 .privacy-header h1 {
-  font-family: 'ABeeZee',sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-size: 36px;
-  color: #3C38B9; /* Heading color */
+  color: #3C38B9;
   margin-bottom: 10px;
 }
 
@@ -104,10 +53,10 @@ p,li,span,strong{
 
 .policy-section h2 {
   font-size: 30px;
-  font-family: 'ABeeZee',sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   color: #3C38B9;
   margin-bottom: 20px;
-  background-color: #f1f1f1; /* Section background color */
+  background-color: #f1f1f1;
   padding: 10px;
   border-radius: 5px;
 }
@@ -116,13 +65,13 @@ p,li,span,strong{
   margin-top: 50px;
   font-size: 26px;
   color: #3C38B9;
-  font-family: 'ABeeZee',sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   margin-bottom: 15px;
 }
 
 .policy-section h4 {
   font-size: 22px;
-  font-family: 'ABeeZee',sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   color: #3C38B9;
   margin-bottom: 10px;
 }
@@ -133,42 +82,37 @@ p,li,span,strong{
   margin-bottom: 15px;
 }
 
-/* Reset default list styles */
 .policy-section ul {
-  list-style: none; /* Remove default bullets */
+  list-style: none;
   padding-left: 0;
   font-size: 18px;
 }
 
-/* Style the list items */
 .policy-section ul li {
-  display: flex; /* Use Flexbox for alignment */
-  align-items: flex-start; /* Align items to the top */
-  justify-content:left;
+  display: flex;
+  align-items: flex-start;
   margin-bottom: 10px;
-  padding-left: 30px; /* Space for custom bullet */
-  position: relative; /* Position relative to use custom bullets */
+  padding-left: 30px;
+  position: relative;
   text-align: left;
   line-height: 1.3;
 }
 
-/* Custom bullet styling */
 .policy-section ul li::before {
-  content: '•'; /* Custom bullet */
+  content: '•';
   position: absolute;
-  left: 0; /* Position bullet on the left edge */
-  color: #007bff; /* Bullet color */
-  font-size: 20px; /* Bullet size */
-  line-height: 1; /* Adjust line height for bullet alignment */
+  left: 0;
+  color: #007bff;
+  font-size: 20px;
+  line-height: 1;
 }
 
-/* Ensure the text is properly aligned */
 .policy-section ul li span {
-  display: block; /* Ensure text block aligns correctly */
-  margin-left: 10px; /* Space between bullet and text */
+  display: block;
+  margin-left: 10px;
   font-size: 16px;
+  text-indent: -10px;
 }
-
 
 .highlights {
   background-color: #f1f1f1;
@@ -179,7 +123,7 @@ p,li,span,strong{
 
 .highlights h3 {
   font-size: 24px;
-  color: #007bff; /* Highlighted section heading color */
+  color: #007bff;
   margin-top: 0;
 }
 
@@ -201,7 +145,6 @@ p,li,span,strong{
   color: #0056b3;
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
   .privacy-container {
     flex-direction: column;
