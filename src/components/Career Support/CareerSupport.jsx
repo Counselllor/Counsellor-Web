@@ -8,6 +8,7 @@ import { ThemeContext } from '../../App';
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from '../Footer/Footer';
+import { toast } from 'react-toastify';
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({
@@ -30,12 +31,11 @@ const [showPopup,setShowPopup]=useState(false)
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
-        toast.error(err.message, {
+       toast.error(err.message, {
           className: "toast-message",
         });
       });

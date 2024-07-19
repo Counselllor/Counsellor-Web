@@ -11,6 +11,7 @@ import { Icon } from '@iconify/react';
 import ScrollToTop from "react-scroll-to-top";
 import {FaStar,FaStarHalf} from 'react-icons/fa6'
 import Footer from '../Footer/Footer';
+import { toast } from 'react-toastify';
 
 const CollegePage = () => {
   useEffect(() => {
@@ -46,15 +47,18 @@ const CollegePage = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem("login");
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message, {
+          className: "toast-message",
+        });
       });
-  };
+  }, [navigate]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
