@@ -64,6 +64,9 @@ const Courses = () => {
               <a href="/jobs">Jobs</a>
             </li>
             <li>
+              <a href="/internship">Internship</a>
+            </li>
+            <li>
               <a href="./courses">Courses</a>
             </li>
             <li>

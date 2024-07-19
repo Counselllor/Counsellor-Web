@@ -1,17 +1,16 @@
 import internships from "./internship.json"
-import React, {useEffect, useState} from "react";
+import  {useEffect, useState} from "react";
 import Navbar from "../Navbar/Navbar.jsx";
-import JobsData from "../jobs/jobs.json";
 import Footer from "../Footer/Footer.jsx";
 import "../jobs/Jobs.css"
 import "./internship.css"
 import ReactPaginate from "react-paginate";
 
+
+//Internship page react component
 export function Internship(){
     const [currentItems, setCurrentItems] = useState([])
     const [pageSummary, setPageSummary] = useState("")
-
-
 
     return(
         <>
@@ -24,8 +23,8 @@ export function Internship(){
                 <section className="jobsPage-content" style={{zIndex:10}}>
                     <div className="jobsPage-list">
                         {currentItems.map((item,index) => (
-                            <div className="BoxContent" key={index}>
-                                <img className="ApiImg" key={index} src={item.image} alt="" />
+                            <div className="BoxContent" >
+                                <img className="ApiImg" src={item.image} alt="" />
                                 <h2 className="InternTitle" >
                                     {item.internship_name}
                                 </h2>
@@ -39,9 +38,7 @@ export function Internship(){
                                     className="viewMore"
                                     id="btn"
                                     style={{ cursor: "none" }}
-                                    onClick={() => {
-                                        window.open(item.link);
-                                    }}>
+                                    onClick={function(){window.open(item.link)} }>
                                     Apply Now
                                 </button>
                             </div>
@@ -55,11 +52,15 @@ export function Internship(){
     )
 }
 
+
+//pagination react component
 function PaginatedItem({setCurrentItems,setPageSummary}){
     const itemsPerPage = 12
 
     const pageCount = Math.ceil(internships.length / itemsPerPage)
-    function handlePageClick(event){
+
+    //pagination function
+    const handlePageClick = (event) =>{
         const newOffset = (event.selected * itemsPerPage) % internships.length
         const endOffset = newOffset + itemsPerPage > internships.length ? internships.length : newOffset + itemsPerPage
         setCurrentItems(internships.slice(newOffset, endOffset))
@@ -71,32 +72,30 @@ function PaginatedItem({setCurrentItems,setPageSummary}){
     },[])
 
     return(
-        <>
-            <div className="pagination-wrapper">
-                <ReactPaginate
-                    breakLabel="..."
-                    nextLabel="Next > "
-                    previousLabel=" < Previous"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={1}
-                    marginPagesDisplayed={1}
-                    pageCount={pageCount}
-                    renderOnZeroPageCount={null}
-                    activeClassName="page-btn"
-                    activeLinkClassName='active'
-                    containerClassName='pagination-container'
-                    pageClassName='page-btn'
-                    pageLinkClassName='page-btn-link'
-                    previousClassName='page-btn'
-                    previousLinkClassName='prev page-btn-link'
-                    nextClassName='page-btn'
-                    nextLinkClassName='next page-btn-link'
-                    disabledClassName='page-btn'
-                    disabledLinkClassName='disabled page-btn-link'
-                    breakClassName='page-btn'
-                    breakLinkClassName='break page-btn-link'
-                />
-            </div>
-        </>
+        <div className="pagination-wrapper">
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="Next > "
+                previousLabel=" < Previous"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={1}
+                marginPagesDisplayed={1}
+                pageCount={pageCount}
+                renderOnZeroPageCount={null}
+                activeClassName="page-btn"
+                activeLinkClassName='active'
+                containerClassName='pagination-container'
+                pageClassName='page-btn'
+                pageLinkClassName='page-btn-link'
+                previousClassName='page-btn'
+                previousLinkClassName='prev page-btn-link'
+                nextClassName='page-btn'
+                nextLinkClassName='next page-btn-link'
+                disabledClassName='page-btn'
+                disabledLinkClassName='disabled page-btn-link'
+                breakClassName='page-btn'
+                breakLinkClassName='break page-btn-link'
+            />
+        </div>
     )
 }
