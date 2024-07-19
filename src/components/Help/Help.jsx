@@ -8,6 +8,7 @@ import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Breadcrumb = () => {
   return (
@@ -49,17 +50,18 @@ const Help = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   }
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        localStorage.removeItem('islogin')
+        localStorage.removeItem("login");
         navigate("/");
-
       })
       .catch((err) => {
-        alert(err.message);
+       toast.error(err.message, {
+          className: "toast-message",
+        });
       });
-  };
+  }, [navigate]);
   let [isLoggedIn,setLogin]=useState(false)
   useEffect(() => {
     if(localStorage.getItem('login')){

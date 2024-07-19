@@ -67,16 +67,18 @@ const Contact = () => {
       });
   };
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        localStorage.removeItem('login');
+        localStorage.removeItem("login");
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message, {
+          className: "toast-message",
+        });
       });
-  };
+  }, [navigate]);
 
   const [menuOpen, setMenuOpen] = useState(false);
 

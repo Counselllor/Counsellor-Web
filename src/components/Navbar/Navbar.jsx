@@ -6,6 +6,7 @@ import "./Navbar.css";
 import { auth } from "../../firebase/auth";
 import { ThemeContext } from "../../App";
 import { Switch } from "antd";
+import { toast } from "react-toastify";
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -44,7 +45,16 @@ const Navbar = () => {
   }, [navigate]);
 
   const handleSignOut = useCallback(() => {
-    signOutUser(navigate, setError);
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("login");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
   }, [navigate]);
 
   const toggleMenuCallback = useCallback(() => {
