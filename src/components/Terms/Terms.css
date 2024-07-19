@@ -114,3 +114,45 @@ body {
 #dark .terms-container h1 {
   color: #4491e4 !important;
 }
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    font-size: 18px;
+  }
+
+  .terms-container {
+    padding: 1rem;
+  }
+
+  .terms-container h1 {
+    font-size: 50px;
+  }
+
+  .terms-container h2 {
+    font-size: 28px;
+  }
+
+  .terms-container p,
+  .terms-container li {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb {
+    font-size: 16px;
+  }
+
+  .terms-container h1 {
+    font-size: 40px;
+  }
+
+  .terms-container h2 {
+    font-size: 24px;
+  }
+
+  .terms-container p,
+  .terms-container li {
+    font-size: 16px;
+  }
+}
