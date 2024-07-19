@@ -1,0 +1,278 @@
+.pagination-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:35px;
+}
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 10px;
+    /*box-shadow: 0 0 10px blueviolet;*/
+    /*border: 2px solid blueviolet;*/
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+.page-btn {
+    list-style-type: none;
+    font-size: 15px;
+}
+.page-btn-link {
+    padding: 10px;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    color: blueviolet;
+}
+.page-btn-link:not(.active):hover {
+    background-color: rgb(222, 186, 255);
+}
+.active {
+    background-color: blueviolet;
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+}
+.prev, .next {
+    width: max-content;
+    border-radius: 5px;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.break {
+    color: blueviolet;
+    pointer-events: none;
+    border: none;
+    font-weight: 600;
+}
+
+.BoxContent {
+    /*color: rgba(255, 255, 255, 0.795);*/
+    font-size: 15px;
+    text-align: center;
+    width: 330px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow-y: hidden;
+    margin-block: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #fff;
+    /*background: linear-gradient(to bottom, black, rgba(153, 0, 255, 0.279));*/
+    border-radius: 13px;
+    /* border: 1px dotted gray; */
+    /* box-shadow:  2px 2px 28px rgba(219, 205, 205, 0.196),-2px -2px 60px rgb(15, 15, 15); */
+    box-shadow: -1px 3px 8px rgba(216, 211, 211, 0.082);
+}
+#dark .BoxContent{
+    background: linear-gradient(to bottom, black, rgba(153, 0, 255, 0.279));
+    color: rgba(255, 255, 255, 0.795);
+}
+
+
+.BoxContent:hover {
+    box-shadow: 0.7px 0.7px 6px rgb(255, 255, 255), -0.7px -0.7px 6px rgb(255, 255, 255);
+    transition: 0.5s;
+    transform: scale(1.03);
+}
+
+
+.ApiImg {
+    border-radius: 5px;
+    margin-block: 10px;
+    border: 1px solid black ;
+    width: 250px;
+    height: 120px;
+    /* background-image: url(../../../image/ErrorImg/not-found-image.webp); */
+    background-size: 100%;
+    background-position: 10%;
+    background-repeat: no-repeat;
+    /* backdrop-filter: blue; */
+    object-fit: contain;
+
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 1rem;
+    text-transform: capitalize;
+    gap: 10%;
+    justify-content: center;
+    width: 70%;
+}
+
+#dark .time{
+    color: rgba(255, 255, 255, 0.795);
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.viewMore {
+    color: rgb(32, 225, 32);
+    border: 2px solid rgb(32, 225, 32);
+    padding: 7px 10px;
+    font-weight: bold;
+    border-radius: 7px;
+    background-color: transparent;
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+}
+
+.viewMore:hover {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(32, 225, 32, 0.596);
+}
+
+.viewMore:hover {
+    background-color: rgb(32, 225, 32);
+    color: black;
+    transition: 0.5s;
+}
+
+.BoxContent {
+    /* position: relative; */
+}
+
+.InternTitle{
+    color: #12229d;
+}
+
+#dark .InternTitle{
+    color: #fff;
+}
+
+
+.MoreDetails {
+    position: absolute;
+    border: 1px solid white;
+    width: 89vw;
+    height: 551px;
+    left: 5%;
+    top: 0.5%;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(45deg, black, transparent);
+    justify-content: space-evenly;
+    padding: 12px 18px;
+
+    .ApiImg {
+        width: 550px;
+        height: 450px;
+        opacity: 60%;
+        position: relative;
+        left: -29%;
+        top: 25%;
+        border-radius: 10px;
+    }
+
+    .InternTitle {
+        position: relative;
+        top: -4em;
+        left: 14%;
+        font-weight: bold;
+        font-size: 3em;
+        color: #C6BDD2;
+    }
+
+    .company_name {
+        position: relative;
+        top: -9.6em;
+        left: -11.7em;
+        font-size: 3em;
+        font-weight: bold;
+        color: #403544;
+    }
+
+    .desc {
+        position: relative;
+        width: 35%;
+        /* letter-spacing: .9px; */
+        top: -10.9em;
+        left: 19.2%;
+        text-align: start;
+        font-size: 1.3em;
+        color: #8C8888;
+        /* text-transform:; */
+
+    }
+
+    .internship_type {
+        font-size: 1em;
+        color: #817F7F;
+        position: relative;
+        top: -7em;
+        left: -34em;
+        font-weight: 500;
+    }
+
+    .Stipend {
+        font-size: 1em;
+        color: #817F7F;
+        position: relative;
+        left: -11em;
+        top: -6em;
+        font-weight: 500;
+
+    }
+
+    .time {
+        display: block;
+        border: none;
+    }
+
+    .duration {
+        font-size: 1em;
+        color: #817F7F;
+        position: relative;
+        top: 2.5em;
+        left: -12em;
+        font-weight: 500;
+
+    }
+
+    .mode {
+        position: relative;
+        position: relative;
+        color: #817F7F;
+        top: 4em;
+        left: -34.7em;
+        font-weight: 500;
+
+    }
+
+    .ApplyButton {
+        position: absolute;
+        top: 30em;
+        left: 53%;
+        font-weight: bold;
+        border-radius: 8px;
+        background-color: transparent;
+        padding: 16px 32px;
+        color: #18B715;
+        border: 2px solid #18B715;
+    }
+
+    .viewMore {
+        position: relative;
+        top: -10em;
+    }
+}
+
+.page-summary {
+    color: blueviolet;
+    padding: 15px 10%;
+}

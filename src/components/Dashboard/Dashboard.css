@@ -264,9 +264,9 @@
     padding: 75px;
     box-shadow: 0 0 10px #cae7fe;
     backdrop-filter: blur(10px);
-    position: fixed;
+    /*position: fixed;*/
     z-index: 2;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 
   .menu ul {

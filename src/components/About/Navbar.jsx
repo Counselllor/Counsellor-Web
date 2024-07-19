@@ -99,6 +99,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen, theme, handleThemeChange }
         <MenuItem href="/top-university">Top Universities</MenuItem>
         <MenuItem href="/jobs">Jobs</MenuItem>
         <MenuItem href="/cources">Courses</MenuItem>
+        <MenuItem href="/internship">Internship</MenuItem>
         <MenuItem href="/careersupport">Career Support</MenuItem>
         {user ? (
           <>

@@ -28,6 +28,7 @@ import Jobs from "./components/jobs/Jobs";
 import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
+import {Internship} from "./components/Internship/internship.jsx";
 
 const router = createBrowserRouter([
   {
@@ -70,8 +71,13 @@ const router = createBrowserRouter([
         element: <Jobs />,
       },
       {
-        path:'topuniversities',        errorElement: <ErrorPage />,
-
+        path : "/internship",
+        errorElement :<ErrorPage />,
+        element : <Internship/>,
+      },
+      {
+        path:'topuniversities',
+        errorElement: <ErrorPage />,
         element:<University/>
       },
       {
