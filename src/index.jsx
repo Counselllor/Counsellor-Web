@@ -16,7 +16,7 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
-import ProfilePage from "./Pages/Profile";
+import ProfilePage from "./components/Profile/index";
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
@@ -28,6 +28,7 @@ import Jobs from "./components/jobs/Jobs";
 import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
+import BlogEditPage from "./components/blogs/BlogEditPage";
 import {Internship} from "./components/Internship/internship.jsx";
 
 const router = createBrowserRouter([
@@ -155,7 +156,12 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <BlogReadPage/>,
       },
-      
+      {
+        path: "/blogs/edit/:id",
+        errorElement: <ErrorPage />,
+        element: <BlogEditPage/>,
+      },
+
     ],
   },
 ]);

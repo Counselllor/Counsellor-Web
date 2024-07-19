@@ -7,19 +7,22 @@ import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import { signOut } from "firebase/auth";
-import { getDatabase, ref, get } from 'firebase/database'; // Import Firebase database methods
+import { getDatabase, ref, set,remove, update, get } from 'firebase/database';
 import { auth } from "../../firebase/auth";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import { toast } from 'react-toastify';
-
+import { FaTrash } from "react-icons/fa";
 const Blogs = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setLogin] = useState(false);
+  let [ids,setIds]=useState([])
   const [blogsData, setBlogsData] = useState([]);
   const navigate = useNavigate();
-
+  const userId = localStorage.getItem('userUid');
+  const [user, setUser] = useState(null);
+let router=useNavigate()
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
@@ -28,12 +31,32 @@ const Blogs = () => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
+    
   }, [navigate]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const db = getDatabase();
+        const userRef = ref(db, 'users/' + userId);
+        
+        const userSnap = await get(userRef);
+        if (userSnap.exists()) {
+          setUser(userSnap.val());
+
+          let inputString = userSnap.val().articleCreated;
+          let idArray = inputString.split(',');
+          
+          let idObject = idArray.reduce((acc, id) => {
+              acc[id.trim()] = true; // or any other value you want to associate with the ID
+              return acc;
+          }, {});             
+              console.log(idObject,'asssssssssssssssssss')
+            setIds(idObject)
+          
+        } else {
+          console.log('No user data available');
+        }
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
         if (snapshot.exists()) {
@@ -56,18 +79,19 @@ const Blogs = () => {
     };
 
     fetchBlogs();
+    
+
+    
   }, []);
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
-        toast.error(err.message, {
+       toast.error(err.message, {
           className: "toast-message",
         });
       });
@@ -84,6 +108,7 @@ const Blogs = () => {
     return tempDiv.textContent || tempDiv.innerText || "";
   };
 console.log(blogsData)
+
   return (
     <>
       <nav className={`navbar fixed`}>
@@ -131,7 +156,7 @@ console.log(blogsData)
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
            
-            <div key={index} className="blog-card">
+            <div key={index} className="blog-card" onClick={()=>{navigate(blog.link)}}>
               <h2>{blog.title}</h2>
               <p className="blog-date">{blog.date}</p>
               <p>{blog.summary}</p>

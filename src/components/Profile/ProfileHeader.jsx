@@ -3,6 +3,7 @@ import "./Profile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
+import { toast } from "react-toastify";
 export default function ProfileHeader({ children }) {
   const navigate = useNavigate();
   const [sidebarClosed, setSidebarClosed] = useState(window.innerWidth < 768);
@@ -43,16 +44,18 @@ export default function ProfileHeader({ children }) {
     setSidebarClosed(!sidebarClosed);
   };
 
-  const handleSignOut = () => {
-    localStorage.removeItem("userUid");
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem("login");
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+       toast.error(err.message, {
+          className: "toast-message",
+        });
       });
-  };
+  }, [navigate]);
 
   return (
     <>

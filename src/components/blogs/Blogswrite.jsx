@@ -36,10 +36,8 @@ const BlogWrite = () => {
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message, {
@@ -102,6 +100,7 @@ const BlogWrite = () => {
       tags: tags.split(',').map((tag) => tag.trim()),
       author: user.firstname+" "+user.surname,
       createdBy: userId,
+      likeCount:0,
       createdAt: new Date().toISOString(),
     };
 
@@ -199,15 +198,6 @@ const BlogWrite = () => {
         </div>
         <button type="submit">Save</button>
       </form>
-      {/* <div className="markdown-preview">
-        <h2>Preview:</h2>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        >
-          {content}
-        </ReactMarkdown>
-      </div> */}
     </div>
     <Footer/>
     </>

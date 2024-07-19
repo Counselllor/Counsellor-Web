@@ -32,6 +32,140 @@
 .menu.show {
   display: flex;
 }
+.filters-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 85%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#dark .filters-dropdown svg path{
+  fill: white;
+}
+.search_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.search_box button{
+  margin: 0px !important;
+}
+.filters-button {
+  background-color: #1e30cf;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.reset-button {
+  background-color: #5cb6f9;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+#dark .modal-close{
+  color: #000000;
+}
+.filter_icon{
+  cursor: pointer;
+width: 40px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.filter-section h2{
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slider {
+  margin-bottom: 20px;
+}
+
+.slider label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.slider p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.filters-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 60px;
+
+  padding: 20px 10px !important;
+  min-width: 200px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.filters-dropdown:hover .filters-content {
+  display: block;
+}
+
+.filter-slider {
+  margin: 10px 0;
+}
+#dark .slider p{
+  color: #000000;
+}
+.slider-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+#dark .filters-content{
+  color: white;
+  background-color: #1e1e1e;
+}
+
 
 .menu ul {
   list-style: none;
@@ -874,6 +1008,9 @@
       align-items: center;
       display: grid;
       grid-column: span 1;
+    }
+    .filters-content{
+      right: 0px;
     }
 }
 .college {
