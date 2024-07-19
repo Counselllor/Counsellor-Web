@@ -116,9 +116,8 @@ const Dashboard = () => {
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message, {
@@ -126,7 +125,6 @@ const Dashboard = () => {
         });
       });
   }, [navigate]);
-
   const handleCollegeClick = useCallback(
     (college) => {
       navigate(`/college/${college.id}`);
