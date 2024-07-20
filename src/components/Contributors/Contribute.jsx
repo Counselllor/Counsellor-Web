@@ -58,12 +58,39 @@ const Contribute = () => {
           console.error('Failed to fetch contributors:', response.statusText);
           return;
         }
+        let arr=[]
         const data = await response.json();
-        setContributors(data);
+
+        const contributorsWithDetails = await Promise.all(
+          data.map(async (contributor,index) => {
+
+  const detailResponse = await fetch(contributor.url); // Fetch detailed information
+  if (!detailResponse.ok) {
+    console.error(`Failed to fetch details for contributor ${contributor.login}:`, detailResponse.statusText);
+    return null; // Handle error case as needed
+  }
+  const detailData = await detailResponse.json();
+  console.log(detailData)
+  detailData.contributions=contributor.contributions
+  arr.push(detailData)
+  return {
+    ...contributor,
+    details: detailData,
+  };
+
+          })
+        );
+
+        setContributors([...arr]); // Filter out null values if any
+        console.log(contributorsWithDetails,'contributors with details')
       } catch (error) {
         console.error('Error fetching contributors:', error);
       }
     };
+
+
+
+
 
     fetchContributors();
   }, [owner, repo]);
@@ -79,6 +106,10 @@ const Contribute = () => {
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
           <p>{contributor.contributions} contributions</p>
+          <p>{contributor.company}</p>
+       <p>{contributor.email}</p>
+          <p>{contributor.hireable}</p>
+<p>{contributor.location}</p>
         </div>
       </div>
     ));
@@ -90,6 +121,10 @@ const Contribute = () => {
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
           <p>{contributor.contributions} contributions</p>
+          <p>{contributor.company}</p>
+       <p>{contributor.email}</p>
+          <p>{contributor.hireable}</p>
+<p>{contributor.location}</p>
         </div>
       </div>
     ));
