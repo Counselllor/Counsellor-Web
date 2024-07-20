@@ -23,6 +23,7 @@ import { ThemeContext } from '../../App';
 import { Switch } from 'antd';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import Navbar from "../Navbar/Navbar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -113,18 +114,7 @@ const Dashboard = () => {
     }
   }, [currentPage]);
 
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
+
   const handleCollegeClick = useCallback(
     (college) => {
       navigate(`/college/${college.id}`);
@@ -132,9 +122,7 @@ const Dashboard = () => {
     [navigate]
   );
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
-  }, []);
+
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
@@ -167,21 +155,7 @@ const Dashboard = () => {
     };
   }, [setFixed]);
 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
 
-  const handleCtcRangeChange = (value) => {
-    setCtcRange(value);
-  };
-
-  const handleRatingRangeChange = (value) => {
-    setRatingRange(value);
-  };
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   const paginatedColleges = filteredColleges.slice(
     (currentPage - 1) * itemsPerPage,
@@ -210,53 +184,7 @@ const Dashboard = () => {
           style={{ backgroundColor: "#5CB6F9" }}
         />
       </div>
-      <nav className={`navbar ${fix ? "fixed" : ""}`}>
-        <div className="logo">
-          <Link to="/dashboard">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li>
-              <a href="/topuniversities">Top Universities</a>
-            </li>
-            <li>
-              <a href="/jobs">Jobs</a>
-            </li>
-            <li>
-              <a href="./courses">Courses</a>
-            </li>
-            <li>
-              <a href="./careersupport">Career Support</a>
-            </li>
-            <li>
-              <a href="/" onClick={handleSignOut}>
-                Log Out
-              </a>
-            </li>
-            <li>
-              <a href="./profile">
-                <button className="profile_btn">Profile</button>
-              </a>
-            </li>
-            <li>
-              <Switch
-                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                onChange={handleThemeChange}
-                checked={theme === "dark"}
-                checkedChildren="Dark Mode"
-                unCheckedChildren="Light Mode"
-              />
-            </li>
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-        </div>
-      </nav>
+     <Navbar/>
       <div className="maintxt">
         <ToastContainer />
         <h1>

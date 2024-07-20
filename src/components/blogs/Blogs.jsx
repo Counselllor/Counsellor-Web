@@ -13,9 +13,9 @@ import DOMPurify from "dompurify";
 import { marked } from "marked";
 import { toast } from 'react-toastify';
 import { FaTrash } from "react-icons/fa";
+import Navbar from "../Navbar/Navbar";
 const Blogs = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [menuOpen, setMenuOpen] = useState(false);
+
   const [isLoggedIn, setLogin] = useState(false);
   let [ids,setIds]=useState([])
   const [blogsData, setBlogsData] = useState([]);
@@ -23,9 +23,7 @@ const Blogs = () => {
   const userId = localStorage.getItem('userUid');
   const [user, setUser] = useState(null);
 let router=useNavigate()
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+ 
 
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -84,22 +82,7 @@ let router=useNavigate()
     
   }, []);
 
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-       toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
 
   const stripMarkdown = (content) => {
     const cleanHtml = DOMPurify.sanitize(marked(content));
@@ -111,41 +94,7 @@ console.log(blogsData)
 
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li>
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+    <Navbar/>
       <div className="blogs-container">
         <BackToHomeButton />
         <header className="blogs-header">

@@ -9,21 +9,17 @@ import { ThemeContext } from "../../App";
 
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 
 const Terms = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
-const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+ 
+
 
 
 const navigate = useNavigate();
 
-const toggleMenu = () => {
-  setMenuOpen(!menuOpen);
-}
+
 let [isLoggedIn,setLogin]=useState(false)
 useEffect(() => {
   if(localStorage.getItem('login')){
@@ -38,18 +34,7 @@ useEffect(() => {
   //   }
   // });
 }, [navigate]);
-const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem('login')
 
-        navigate("/");
-
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
   const setFixed = useCallback(() => {
     if (window.scrollY > 0) {
       setFix(true);
@@ -65,40 +50,7 @@ const handleSignOut = () => {
   }, [setFixed]);
   return (
     <>
- <nav className={"navbar fixed"}>
-        <div className="logo">
-          <img src={Logo} alt="Logo" />
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-            {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-          {
-isLoggedIn&&<>
-
-           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-            <li><button className='profile_btn'>Profile</button></li>
-         
-            <li>
-              <Switch
-                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                onChange={handleThemeChange}
-                checked={theme === "dark"}
-                checkedChildren="Dark Mode"
-                unCheckedChildren="Light Mode"
-              />
-            </li> </>} 
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav> 
+<Navbar/>
     <BackToHomeButton />
     
       {/* breadcrumb */}
