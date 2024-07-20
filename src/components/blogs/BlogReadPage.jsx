@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import React, { useEffect, useState, useCallback, useContext, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { getDatabase, ref, get,remove,update } from 'firebase/database';
+import { getDatabase, ref, get,remove,update,push } from 'firebase/database';
 import moment from "moment";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
@@ -27,7 +27,10 @@ const BlogReadPage = () => {
   const [isLiking, setIsLiking] = useState(false); // New state for loading
   const userId = localStorage.getItem('userUid');
   const [isShareModalVisible, setShareModalVisible] = useState(false);
+  let value=useRef()
 
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
   const navigate = useNavigate();
   let [ids,setIds]=useState([])
   const [user, setUser] = useState(null);
@@ -86,7 +89,10 @@ const BlogReadPage = () => {
         if (snapshot.exists()) {
           const data = snapshot.val();
           setBlog(data);
-          console.log('fddddddddddd',data)
+          if (data.comments) {
+            setComments(Object.values(data.comments));
+            console.log(Object.values(data.comments))
+          }
           checkIfLiked(data.id);
         } else {
           console.log('No data available');
@@ -181,6 +187,24 @@ const BlogReadPage = () => {
 
   const createMarkup = (content) => {
     return { __html: DOMPurify.sanitize(marked(content)) };
+  };
+  const handleNewCommentSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const db = getDatabase();
+      const commentsRef = ref(db, `articles/${id}/comments`);
+      const newCommentRef = push(commentsRef);
+      const commentData = {
+        author: user.firstname, // Replace with actual user data if available
+        content: value.current.value,
+      };
+      await update(newCommentRef, commentData);
+      console.log(commentData)
+      setComments([...comments, commentData]);
+      setNewComment('');
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+    }
   };
   const handleDelete = async (id) => {
     console.log(user)
@@ -331,6 +355,15 @@ const BlogReadPage = () => {
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
         </div>
+        <div style={{backgroundColor:"white",width:"60vw",margin:"auto",marginBottom:"30px",padding:"20px",borderRadius:"20px",marginTop:"20px"}}>
+<h1 style={{color:"black",fontSize:"30px"}}>Comments</h1>
+        <input ref={value} placeholder="add comment" style={{width:"70%",height:"40px"}}></input><button style={{marginLeft:"20px",width:"100px",padding:"10px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
+</div>
+    {
+      comments.map((data)=>{
+        return <div style={{backgroundColor:"white",width:"60vw",margin:"auto",border:"solid 1px black",paddingBottom:"20px"}}><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"20px",fontSize:"20px"}}>By: &nbsp;{data.author}</p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"20px",fontSize:"20px"}}>{data.content}</p></div>
+      })
+    }
       </div>
       <Footer />
       <Modal
