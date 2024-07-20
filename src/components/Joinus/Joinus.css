@@ -53,8 +53,8 @@ body {
   margin-top: 40px !important;
 }
 .join-us-container  h2{
-  margin-top: 30px !important;
-  font-size: 30px;
+  margin-top: 20px !important;
+  font-size: 25px;
 
 }
 .join-us-container {
@@ -69,6 +69,7 @@ body {
 }
 .join-us-container h1{
   color: #0d6fd7 !important;
+  margin-top: -30px;
 
 }
 #dark .join-us-container{
@@ -83,13 +84,14 @@ color: #3b99ff !important;
   font-size: 70px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   color: #333;
 }
 
 .join-us-container h2 {
   color: #34495e;
   font-size: 30px;
+  margin-bottom: -1rem;
 }
 
 .join-us-container p {
@@ -118,3 +120,122 @@ blockquote {
   color: #555;
 }
 
+
+
+
+
+
+
+
+
+
+
+.joinnew li{
+  --cardColor:#4cb1eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.joinnew .olcards,
+.joinnew .olcards * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.joinnew .olcards {
+  list-style: none;
+  counter-reset: cardCount;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  --cardsGap: 1rem;
+  gap: var(--cardsGap);
+  padding-bottom: var(--cardsGap);
+}
+
+.joinnew .olcards li {
+  counter-increment: cardCount;
+  display: flex;
+  color: white;
+  --labelOffset: 1rem;
+  --arrowClipSize: 1.5rem;
+  margin-top: var(--labelOffset);
+}
+
+.joinnew .olcards li::before {
+  content: counter(cardCount, decimal-leading-zero);
+  background: white;
+  color: var(--cardColor);
+  font-size: 2em;
+  font-weight: 700;
+  transform: translateY(calc(-1 * var(--labelOffset)));
+  margin-right: calc(-1 * var(--labelOffset));
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.5em;
+}
+
+.joinnew .olcards li .content {
+  background-color: var(--cardColor);
+  --inlinePadding: 1em;
+  --boxPadding: 0.5em;
+  display: grid;
+  padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+  grid-template-areas:
+    "icon title"
+    "icon text";
+  gap: 0.25em 1em;
+  clip-path: polygon(0 0,
+      calc(100% - var(--arrowClipSize)) 0,
+      100% 50%,
+      calc(100% - var(--arrowClipSize)) 100%,
+      calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)),
+      0 calc(100% + var(--cardsGap)));
+  position: relative;
+}
+
+.joinnew .olcards li .content::before {
+  content: "";
+  position: absolute;
+  width: var(--labelOffset);
+  height: var(--labelOffset);
+  background: var(--cardColor);
+  left: 0;
+  bottom: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  filter: brightness(0.75);
+}
+
+.joinnew .olcards li .content::after {
+  content: "";
+  position: absolute;
+  height: var(--cardsGap);
+  width: var(--cardsGap);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent 50%);
+  left: 0;
+  top: 100%;
+}
+
+.joinnew .olcards li .icon {
+  grid-area: icon;
+  align-self: center;
+  font-size: 2em;
+}
+
+.joinnew .olcards li .content .title {
+  grid-area: title;
+  font-size: 1.25em;
+  /* font-weight: 700; */
+}
+
+.joinnew .olcards li .content .text {
+  grid-area: text;
+  font-size: 1.8rem;
+}
+#positionsnew{
+  margin-top: -80px;
+}
