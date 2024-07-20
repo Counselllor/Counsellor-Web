@@ -121,121 +121,100 @@ blockquote {
 }
 
 
-
-
-
-
-
-
-
-
-
-.joinnew li{
-  --cardColor:#4cb1eb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.joinnew .olcards,
-.joinnew .olcards * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.joinnew .olcards {
-  list-style: none;
-  counter-reset: cardCount;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  --cardsGap: 1rem;
-  gap: var(--cardsGap);
-  padding-bottom: var(--cardsGap);
-}
-
-.joinnew .olcards li {
-  counter-increment: cardCount;
-  display: flex;
-  color: white;
-  --labelOffset: 1rem;
-  --arrowClipSize: 1.5rem;
-  margin-top: var(--labelOffset);
-}
-
-.joinnew .olcards li::before {
-  content: counter(cardCount, decimal-leading-zero);
-  background: white;
-  color: var(--cardColor);
-  font-size: 2em;
-  font-weight: 700;
-  transform: translateY(calc(-1 * var(--labelOffset)));
-  margin-right: calc(-1 * var(--labelOffset));
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-inline: 0.5em;
-}
-
-.joinnew .olcards li .content {
-  background-color: var(--cardColor);
-  --inlinePadding: 1em;
-  --boxPadding: 0.5em;
-  display: grid;
-  padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
-  grid-template-areas:
-    "icon title"
-    "icon text";
-  gap: 0.25em 1em;
-  clip-path: polygon(0 0,
-      calc(100% - var(--arrowClipSize)) 0,
-      100% 50%,
-      calc(100% - var(--arrowClipSize)) 100%,
-      calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)),
-      0 calc(100% + var(--cardsGap)));
-  position: relative;
-}
-
-.joinnew .olcards li .content::before {
-  content: "";
-  position: absolute;
-  width: var(--labelOffset);
-  height: var(--labelOffset);
-  background: var(--cardColor);
-  left: 0;
-  bottom: 0;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  filter: brightness(0.75);
-}
-
-.joinnew .olcards li .content::after {
-  content: "";
-  position: absolute;
-  height: var(--cardsGap);
-  width: var(--cardsGap);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent 50%);
-  left: 0;
-  top: 100%;
-}
-
-.joinnew .olcards li .icon {
-  grid-area: icon;
-  align-self: center;
-  font-size: 2em;
-}
-
-.joinnew .olcards li .content .title {
-  grid-area: title;
-  font-size: 1.25em;
-  /* font-weight: 700; */
-}
-
-.joinnew .olcards li .content .text {
-  grid-area: text;
-  font-size: 1.8rem;
-}
 #positionsnew{
   margin-top: -80px;
+}
+
+
+
+
+
+.whynew{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+.whynewbox{
+  background-color: whitesmoke;
+  border: 0.1px solid rgb(161, 158, 158);
+  padding: 1rem;
+  font-size: 1.5rem;
+  flex-basis: calc(50% - 2.5rem);
+    /* Adjusting for the gap */
+  box-sizing: border-box;
+    /* Ensures padding and border are included in the width */
+}
+#dark .whynewbox{
+  background-color: #333 !important;
+}
+#dark .whynewbox:hover{
+  background-color: #5e5c5c !important;
+}
+.whynewbox:hover{
+  background-color: #d0d3d4;
+  cursor: pointer;
+}
+.whynewbox p{
+  font-size: medium;
+  margin-top: -30px;
+}
+.whynewbox h3{
+  margin-bottom: -25px;
+}
+#applynew p{
+  /* text-align: center; */
+}
+.abinbox{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.abin{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  /* box-sizing: border-box; */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2rem;
+  line-height: 3rem;
+  padding: 2rem 3rem;
+  text-align: center;
+  background-color: whitesmoke;
+}
+#dark .abin{
+  background-color: #333 !important;
+}
+#culturenew{
+
+}
+.cultin{
+  font-size: 2rem;
+  line-height: 3rem;
+  list-style: square;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+.cultin text{
+
+  flex: 1 1 calc(50% - 1rem);
+    /* Adjust the width to fit two items per row */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the width */
+    /* text-align: left; */
+    border: 0.1px solid rgb(161, 158, 158);
+      padding: 1rem;
+      font-size: 1.5rem;
+      flex-basis: calc(50% - 2.5rem);
+      /* Adjusting for the gap */
+      box-sizing: border-box;
 }
