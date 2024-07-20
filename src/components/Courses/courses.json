@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Introduction to Computer Science",
     "description": "Learn the basics of computer science. This course will cover fundamental concepts such as algorithms, data structures, and programming languages.",
-    "imageURL": "/src/assets/computer-science.webp",
+    "imageURL": "https://m.media-amazon.com/images/I/61ZUj9RzWIL._AC_UF1000,1000_QL80_.jpg",
     "instructor": "John Doe",
     "duration": "10 weeks",
     "price": "$300"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Data Structures and Algorithms",
     "description": "Understand the fundamental data structures and algorithms. Topics include arrays, linked lists, stacks, queues, trees, and graphs.",
-    "imageURL": "/src/assets/dsa.png",
+    "imageURL": "https://i.pinimg.com/236x/7a/6c/e3/7a6ce36dfd3e88a682b0c9567359474c.jpg",
     "instructor": "Jane Smith",
     "duration": "12 weeks",
     "price": "$400"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "Web Development",
     "description": "Learn how to build websites and web applications. This course covers HTML, CSS, JavaScript, and modern frameworks like React.",
-    "imageURL": "/src/assets/web-dev.jpg",
+    "imageURL": "https://i.pinimg.com/564x/79/c6/2d/79c62d94154fb332afb84191a996e66f.jpg",
     "instructor": "Emily Johnson",
     "duration": "14 weeks",
     "price": "$500"
@@ -30,7 +30,7 @@
     "id": 4,
     "title": "Data Science",
     "description": "Data Science Join industry-recognized becomea job-ready data scientist",
-    "imageURL": "/src/assets/data.jpg",
+    "imageURL": "https://i.pinimg.com/736x/a4/df/64/a4df645483f9877ac9e95d189b662d53.jpg",
     "instructor": "Aasta Deniz",
     "duration": "14 weeks",
     "price": "$600"
@@ -39,7 +39,7 @@
     "id": 5,
     "title": "Java Full Stack",
     "description": "Our Java Course Includes , Core Java, Advanced Java , JSP , Spring Framework , Spring Boot. Our Java Course come with 100 % Job & Internship Guaranteed with RealTime projects. Python. Angular. JavaScript. Azure. Kubernetes. AWS. Docker. React.",
-    "imageURL": "/src/assets/java.png",
+    "imageURL": "https://i.pinimg.com/564x/86/ad/01/86ad01aac334ed269e9d33dab95a2217.jpg",
     "instructor": "Towino Thomas",
     "duration": "24 weeks",
     "price": "$800"
@@ -48,7 +48,7 @@
     "id": 6,
     "title": "MERN Stack",
     "description": "Begin a MERN stack course led by top rated professionals on Udemy and learn how you can build powerful, database driven applications.",
-    "imageURL": "/src/assets/mern.jpg",
+    "imageURL": "https://i.pinimg.com/564x/7e/cb/9d/7ecb9d7495b328582635de098402ebea.jpg",
     "instructor": "Hana Motana",
     "duration": "16 weeks",
     "price": "$600"
@@ -57,7 +57,7 @@
     "id": 7,
     "title": "Flutter Development",
     "description": "Become a Flutter developer. Whether this is your first time programming, or you're coming from another language, we'll get you started on the right path.",
-    "imageURL": "/src/assets/flutter.jpg",
+    "imageURL": "https://i.pinimg.com/564x/3c/02/c0/3c02c07c231fd281808c734e26a6aacb.jpg",
     "instructor": "Emely Jenner",
     "duration": "12 weeks",
     "price": "$500"
@@ -66,7 +66,7 @@
     "id": 8,
     "title": "Artificial Intelligence",
     "description": "Learn AI with an artificial intelligence course from experienced instructors on Udemy, and enhance your computer science skills to further your career.",
-    "imageURL": "/src/assets/ai.jpg",
+    "imageURL": "https://i.pinimg.com/564x/33/3c/a2/333ca2c8e19b327d739b2a32e0fb5994.jpg",
     "instructor": "Martin Joseph",
     "duration": "12 weeks",
     "price": "$600"
@@ -75,7 +75,7 @@
     "id": 9,
     "title": "Machine Learning",
     "description": "Discover online machine learning courses. Master machine learning skills and concepts to advance your education and career.",
-    "imageURL": "/src/assets/ml.jpg",
+    "imageURL": "https://i.pinimg.com/236x/38/5e/d7/385ed712e43c1db062f3d62f0de0b2a8.jpg",
     "instructor": "Berk Aten",
     "duration": "12 weeks",
     "price": "$500"
@@ -84,7 +84,7 @@
     "id": 10,
     "title": "AWS Cloud Computing",
     "description": "Build your AWS Cloud Skills with AWS Training and Certification. Learn AWS online with free digital training, in-person classroom training",
-    "imageURL": "/src/assets/aws.png",
+    "imageURL": "https://i.pinimg.com/236x/09/3f/6e/093f6ed3ff0b96f50686bd538383ad9c.jpg",
     "instructor": "Justin Park",
     "duration": "8 weeks",
     "price": "$400"
@@ -93,7 +93,7 @@
     "id": 11,
     "title": "Oracle Database System",
     "description": "From basics to advanced curriculum, explore available training and certification resources for Oracle Database, MySQL, and Java, from free entry-level",
-    "imageURL": "/src/assets/oracle.jpg",
+    "imageURL": "https://i.pinimg.com/736x/21/67/d3/2167d38b655669c3b6753ae936b4735e.jpg",
     "instructor": "Mark Finix",
     "duration": "6 weeks",
     "price": "$300"
@@ -102,7 +102,7 @@
     "id": 12,
     "title": "Python Development",
     "description": "Start your coding journey with Python courses and tutorials. From basic to advanced projects, grow your Python skills.",
-    "imageURL": "/src/assets/python.png",
+    "imageURL": "https://i.pinimg.com/564x/5e/1d/e8/5e1de82524efa4fca768e56fcf2d0911.jpg",
     "instructor": "Max Tenison",
     "duration": "16 weeks",
     "price": "$600"
