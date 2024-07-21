@@ -90,9 +90,9 @@ const Blogs = () => {
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
             <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
-              <h2>{blog.title}</h2>
-              <p className="blog-date">{blog.date}</p>
-              <p>{blog.summary}</p>
+              <h2 className=" clip-text">{blog.title}</h2>
+              <p className="blog-date ">{blog.date}</p>
+              <p className=" clip-text">{blog.summary}</p>
               <p className="blog-author">By: {blog.author}</p>
               <div className="blog-tags">
                 {blog.tags.map((tag, tagIndex) => (

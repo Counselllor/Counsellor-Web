@@ -278,3 +278,13 @@ margin:20px 0px;
 .click-btn1:active {
   transform: scale(0.9);
 }
+.blog_share_summ {
+ 
+}
+
+.clip-text {
+  /* Ensure the text doesn't break out of its container */
+  overflow: hidden;
+  white-space: nowrap;
+text-overflow: ellipsis;  
+}
