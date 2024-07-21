@@ -8,6 +8,8 @@ import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
+import { toast } from "react-toastify";
+import Navbar from "../Navbar/Navbar";
 
 const Breadcrumb = () => {
   return (
@@ -40,26 +42,12 @@ const FAQItem = ({ question, answer }) => {
 };
 
 const Help = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  }
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem('islogin')
-        navigate("/");
 
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
+  const navigate = useNavigate();
+  
+ 
+
+
   let [isLoggedIn,setLogin]=useState(false)
   useEffect(() => {
     if(localStorage.getItem('login')){
@@ -137,40 +125,8 @@ const Help = () => {
   ];
   return (
     <>
-      <nav className={"navbar fixed"}>
-        <div className="logo">
-          <img src={Logo} alt="Logo" />
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-            {!isLoggedIn&&  <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-          {
-isLoggedIn&&<>
-
-           <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-            <li><button className='profile_btn'>Profile</button></li>
-         
-            <li>
-              <Switch
-                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                onChange={handleThemeChange}
-                checked={theme === "dark"}
-                checkedChildren="Dark Mode"
-                unCheckedChildren="Light Mode"
-              />
-            </li> </>} 
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>      <BackToHomeButton />
+    <Navbar/>
+           <BackToHomeButton />
 
       <div className="help-container">
         <Breadcrumb />

@@ -88,7 +88,10 @@
   margin-bottom: 1rem;
 }
 #dark .universityPage-company {
-  color: #7a7a7a;
+  color: #7a7a7a ;
+}
+#dark .universityPage-company a{
+  color: #ffffff !important;
 }
 
 .universityPage-description,
@@ -271,4 +274,120 @@
 }
 .submit-button:hover {
   background-color: #0056b3;
+}
+.universityPage-card {
+  background-color: var(--color-text-light);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.universityPage-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.universityPage-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.universityPage-card img {
+  height: 200px;
+  width: 280px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+.universityPage-card {
+  background-color: var(--color-text-light);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.universityPage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: #92c0ee;
+}
+
+#dark .universityPage-card:hover{
+  background-color: rgb(70, 69, 69) !important;
+}
+
+.universityPage-title,
+.universityPage-company,
+.universityPage-description,
+.universityPage-location {
+  transition: color 0.3s ease-in-out;
+}
+
+.universityPage-card:hover .universityPage-title,
+.universityPage-card:hover .universityPage-company,
+.universityPage-card:hover .universityPage-description,
+.universityPage-card:hover .universityPage-location {
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .universityPage-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .universityPage-header {
+    padding: 4rem 1rem;
+  }
+
+  .universityPage-main-title {
+    font-size: 3rem;
+  }
+
+  .universityPage-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .universityPage-content {
+    padding: 4rem 1rem;
+  }
+
+  .universityPage-list {
+    grid-template-columns: 1fr;
+  }
+
+  .universityPage-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .universityPage-main-title {
+    font-size: 2.5rem;
+  }
+
+  .universityPage-subtitle {
+    font-size: 1rem;
+  }
+
+  .universityPage-title {
+    font-size: 1.5rem;
+  }
 }

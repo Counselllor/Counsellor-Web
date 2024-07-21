@@ -8,6 +8,7 @@ import { ThemeContext } from "../../App";
 
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Terms = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,29 +17,29 @@ const Terms = () => {
     toggleTheme();
   }, [toggleTheme]);
 
+
   const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  let [isLoggedIn, setLogin] = useState(false);
-  useEffect(() => {
-    if (localStorage.getItem('login')) {
-      setLogin(true);
-    }
-  }, [navigate]);
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem('login');
-        navigate("/");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
+
+let [isLoggedIn,setLogin]=useState(false)
+useEffect(() => {
+  if(localStorage.getItem('login')){
+
+    setLogin(true)
+  }
+  // auth.onAuthStateChanged((user) => {
+  //   if (user) {
+  //     // handle user logged in state
+  //   } else {
+      
+  //   }
+  // });
+}, [navigate]);
 
   const setFixed = useCallback(() => {
     if (window.scrollY > 0) {
@@ -105,6 +106,7 @@ const Terms = () => {
           <div className={`bar ${menuOpen ? 'open' : ''}`} />
         </div>
       </nav>
+
       <div className="terms-container">
         <div className="contents">
           <h1>Terms & Conditions</h1>

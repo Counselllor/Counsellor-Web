@@ -1,20 +1,25 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import React, { useEffect, useState, useCallback, useContext, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { getDatabase, ref, get,remove,update } from 'firebase/database';
+import { getDatabase, ref, get,remove,update,push } from 'firebase/database';
 import moment from "moment";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
+import upvote from  "./upvote-svgrepo-com.svg"
+import downvote from  "./downvote-svgrepo-com.svg"
+
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import randomAvatar from "../../assets/avatar1.png"; // Assuming you have an avatar image
 import './BlogReadPage.css';
-import { Switch } from 'antd';
+import { Modal, Switch } from 'antd';
 import { signOut } from "firebase/auth";
 import { ThemeContext } from '../../App';
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { FaTrash } from "react-icons/fa";
+import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
+import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import Navbar from "../Navbar/Navbar";
 
 const BlogReadPage = () => {
   const { id } = useParams();
@@ -25,7 +30,13 @@ const BlogReadPage = () => {
   const [liked, setLiked] = useState(false);
   const [isLiking, setIsLiking] = useState(false); // New state for loading
   const userId = localStorage.getItem('userUid');
+  const [isShareModalVisible, setShareModalVisible] = useState(false);
+  let [isModal,setIsModal]=useState(false)
 
+  let value=useRef()
+
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
   const navigate = useNavigate();
   let [ids,setIds]=useState([])
   const [user, setUser] = useState(null);
@@ -54,28 +65,8 @@ const BlogReadPage = () => {
     }
   }, [navigate]);
 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-  
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -86,7 +77,10 @@ const BlogReadPage = () => {
         if (snapshot.exists()) {
           const data = snapshot.val();
           setBlog(data);
-          console.log('fddddddddddd',data)
+          if (data.comments) {
+            setComments(Object.values(data.comments));
+            console.log(Object.values(data.comments))
+          }
           checkIfLiked(data.id);
         } else {
           console.log('No data available');
@@ -182,6 +176,25 @@ const BlogReadPage = () => {
   const createMarkup = (content) => {
     return { __html: DOMPurify.sanitize(marked(content)) };
   };
+  const handleNewCommentSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const db = getDatabase();
+      const commentsRef = ref(db, `articles/${id}/comments`);
+      const newCommentRef = push(commentsRef);
+      const commentData = {
+        author: user.firstname, // Replace with actual user data if available
+        content: value.current.value,
+      };
+      await update(newCommentRef, commentData);
+      console.log(commentData)
+      setComments([...comments, commentData]);
+      setNewComment('');
+      value.current.value=""
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+    }
+  };
   const handleDelete = async (id) => {
     console.log(user)
       let isUser=true
@@ -229,43 +242,33 @@ const BlogReadPage = () => {
         }
       
     };
+    function handleCLoseModal(){
+      setIsModal(false)
+    }
+    const handleShareClick = () => {
+      setShareModalVisible(true);
+    };
+  
+    const handleShareModalClose = () => {
+      setShareModalVisible(false);
+    };
+    const shareUrl = encodeURIComponent(window.location.href);
+
+    const handleCopyToClipboard = () => {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+         alert("Copied!!");
+        })
+        .catch((err) => {
+          toast.error("Failed to copy!");
+          console.error("Could not copy text: ", err);
+        });
+    };
+
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li> 
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+     <Navbar/>
       <div className="blog-read-page_container">
         <div className="blog-read-page">
           <div className="blog-header">
@@ -292,13 +295,17 @@ const BlogReadPage = () => {
                 )}<p>{blog.likeCount}</p>
                 </div>  
               </div>
-              <div className="flex gap-6" style={{display:"flex"}}>
-
+              <div className="right_blog_icon" style={{display:"flex"}}>
+              <div className="share-button" onClick={handleShareClick}>
+              <FaShareAlt size={16} />
+            </div>
+              <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button>
               {blog.createdBy === userId && (
-              <>  <div className="Edit_icon">
+              <>  
+              <div className="Edit_icon">
                   <MdModeEdit size={18} onClick={handleEditClick} />
                 </div>
-                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'2rem'} onClick={()=>handleDelete(blog.id)}/>}</div>        
+                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'1.5rem'} onClick={()=>handleDelete(blog.id)}/>}</div>        
               </>
               )}
                  </div>
@@ -307,8 +314,104 @@ const BlogReadPage = () => {
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
         </div>
+      
+    
       </div>
       <Footer />
+      <Modal
+  title="Share this article"
+  visible={isShareModalVisible}
+  onCancel={handleShareModalClose}
+  footer={null}
+>
+  <div className="modal_content" style={{marginTop: "20px"}}>
+    <div className="blog-meta">
+      <img src={randomAvatar} alt="Author Avatar" className="author-avatar" />
+      <div className="meta-info">
+        <p className="author-name">{blog.author}</p>
+        <p className="blog-date">{moment(blog.createdAt).fromNow()}</p>
+      </div>
+    </div>
+    <div className="blog_share_con">
+      <p className="blog_share_title">{blog.title}</p>
+      <p className="blog_share_summ">{blog.content}</p>
+    </div>
+    <div className="share-button-icons">
+      <span
+        style={{ backgroundColor: "#1DA1F2", color: "#fff" }}
+        onClick={() => {
+          window.open(`https://twitter.com/intent/tweet?url=${shareUrl}`, '_blank');
+        }}
+      >
+        <FaTwitter size={24} />
+      </span>
+      <span
+        style={{ backgroundColor: "#25D366", color: "#fff" }}
+        onClick={() => {
+          window.open(`https://api.whatsapp.com/send?text=${shareUrl}`, '_blank');
+        }}
+      >
+        <FaWhatsapp size={24} />
+      </span>
+      <span
+        style={{ backgroundColor: "#0077B5", color: "#fff" }}
+        onClick={() => {
+          window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}`, '_blank');
+        }}
+      >
+        <FaLinkedin size={24} />
+      </span>
+      <span
+        style={{ backgroundColor: "#EA4335", color: "#fff" }}
+        onClick={() => {
+          window.open(`mailto:?subject=${encodeURIComponent("Check out this Article")}&body=${shareUrl}`, '_blank');
+        }}
+      >
+        <FaEnvelope size={24} />
+      </span>
+      <span
+        style={{
+          backgroundColor: "transparent",
+          color: "#000",
+          border: "1px solid #1c1c1c66",
+        }}
+        onClick={handleCopyToClipboard}
+      >
+        <FaRegClipboard size={24} />
+      </span>
+    </div>
+    <button onClick={handleShareModalClose} className="close-button">
+      Close
+    </button>
+  </div>
+
+</Modal>
+{
+isModal&&<>
+<div className="modal-jobs1">  <FaTimes onClick={handleCLoseModal} style={{position:"absolute",right:"20px",top:"20px",cursor:"pointer",}} size={'2rem'}/>
+
+<div className="jobs-container1">
+  <h1>Discussions</h1>
+  <div style={{display:"flex",flexDirection:"column",fontSize:"20px",marginBottom:"60px"}}>
+  <p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
+  <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{user.firstname}
+  </p>
+  <textarea ref={value} placeholder="Enter Your Comment" style={{borderRadius:"20px",padding:"10px",height:"100px",minHeight:"100px",minWidth:"100%",maxWidth:"100%"}}/><button style={{marginLeft:"20px",width:"100px",padding:"10px",marginTop:"20px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
+  </div>
+  {
+      comments.map((data)=>{
+        return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
+        <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{data.author}
+        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"14px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"10px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
+      })
+    }
+
+
+
+</div>
+</div>
+<div className="blackb"></div></>
+   }
     </>
   );
 };
