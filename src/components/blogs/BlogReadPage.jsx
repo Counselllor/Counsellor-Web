@@ -4,6 +4,9 @@ import { getDatabase, ref, get,remove,update,push } from 'firebase/database';
 import moment from "moment";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
+import upvote from  "./upvote-svgrepo-com.svg"
+import downvote from  "./downvote-svgrepo-com.svg"
+
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import randomAvatar from "../../assets/avatar1.png"; // Assuming you have an avatar image
@@ -14,9 +17,8 @@ import { ThemeContext } from '../../App';
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { FaEnvelope, FaRegClipboard,  FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-
 const BlogReadPage = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -27,6 +29,8 @@ const BlogReadPage = () => {
   const [isLiking, setIsLiking] = useState(false); // New state for loading
   const userId = localStorage.getItem('userUid');
   const [isShareModalVisible, setShareModalVisible] = useState(false);
+  let [isModal,setIsModal]=useState(false)
+
   let value=useRef()
 
   const [comments, setComments] = useState([]);
@@ -253,6 +257,9 @@ const BlogReadPage = () => {
         }
       
     };
+    function handleCLoseModal(){
+      setIsModal(false)
+    }
     const handleShareClick = () => {
       setShareModalVisible(true);
     };
@@ -341,6 +348,7 @@ const BlogReadPage = () => {
               <div className="share-button" onClick={handleShareClick}>
               <FaShareAlt size={16} />
             </div>
+              <button onClick={()=>setIsModal(true)}>Comment</button>
               {blog.createdBy === userId && (
               <>  
               <div className="Edit_icon">
@@ -355,15 +363,8 @@ const BlogReadPage = () => {
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
         </div>
-        <div style={{backgroundColor:"white",width:"60vw",margin:"auto",marginBottom:"30px",padding:"20px",borderRadius:"20px",marginTop:"20px"}}>
-<h1 style={{color:"black",fontSize:"30px"}}>Comments</h1>
-        <input ref={value} placeholder="add comment" style={{width:"70%",height:"40px"}}></input><button style={{marginLeft:"20px",width:"100px",padding:"10px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
-</div>
-    {
-      comments.map((data)=>{
-        return <div style={{backgroundColor:"white",width:"60vw",margin:"auto",border:"solid 1px black",paddingBottom:"20px"}}><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"20px",fontSize:"20px"}}>By: &nbsp;{data.author}</p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"20px",fontSize:"20px"}}>{data.content}</p></div>
-      })
-    }
+      
+    
       </div>
       <Footer />
       <Modal
@@ -432,7 +433,34 @@ const BlogReadPage = () => {
       Close
     </button>
   </div>
+
 </Modal>
+{
+isModal&&<>
+<div className="modal-jobs1">  <FaTimes onClick={handleCLoseModal} style={{position:"absolute",right:"20px",top:"20px",cursor:"pointer",}} size={'2rem'}/>
+
+<div className="jobs-container1">
+  <h1>Discussions</h1>
+  <div style={{display:"flex",flexDirection:"column",fontSize:"20px",marginBottom:"60px"}}>
+  <p style={{display:"flex",alignItems:"center",fontSize:"20px"}}>
+  <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{user.firstname}
+  </p>
+  <textarea ref={value} placeholder="Enter Your Comment" style={{borderRadius:"20px",padding:"10px",height:"100px",minHeight:"100px",minWidth:"100%",maxWidth:"100%"}}/><button style={{marginLeft:"20px",width:"100px",padding:"10px",marginTop:"20px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
+  </div>
+  {
+      comments.map((data)=>{
+        return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"20px"}}>
+        <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{data.author}
+        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"20px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"15px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
+      })
+    }
+
+
+
+</div>
+</div>
+<div className="blackb"></div></>
+   }
     </>
   );
 };
