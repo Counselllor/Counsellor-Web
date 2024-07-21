@@ -14,10 +14,10 @@
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .back-button:hover {
@@ -35,19 +35,19 @@
 }
 
 .student-image {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
 .student-name {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .student-detail {
-  font-size: 18px;
+  font-size: 16px;
   margin: 5px 0;
 }

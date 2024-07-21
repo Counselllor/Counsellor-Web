@@ -49,24 +49,21 @@ const StudentDetailed = ({ student, onBackClick }) => {
         <div className="card2">
           <div className="card-content">
             <i className="fas fa-book fa-2x"></i>
-            <h1>Books</h1>
+            <h1>Tech Stack Names</h1>
           </div>
         </div>
         <div className="card3">
           <div className="card-content">
             <i className="fas fa-football-ball fa-2x"></i>
-            <h1>Sports</h1>
+            <h1>Social Links</h1>
           </div>
         </div>
         <div className="card4">
           <div className="card-content">
             <i className="far fa-clock fa-2x"></i>
-            <h1>TimeTable</h1>
+            <h1>Slot available</h1>
           </div>
         </div>
-      </div>
-      <div className="upcoming">
-        <h1>upcoming events</h1>
       </div>
     </div>
   );
