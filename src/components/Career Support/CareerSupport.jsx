@@ -16,30 +16,13 @@ const CareerSupport = () => {
     email: '',
     message: ''
   });
-  const { theme, toggleTheme } = useContext(ThemeContext);
+
 const [showPopup,setShowPopup]=useState(false)
   const navigate = useNavigate();
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = useCallback(() => {
-    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
-  }, []);
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
 
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-       toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
+  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -106,54 +89,7 @@ const [showPopup,setShowPopup]=useState(false)
   return (
     <>
       <div className="career-support">
-        <nav className={`navbar ${fix ? "fixed" : ""}`}>
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-          <div className={`menu ${menuOpen ? "show" : ""}`}>
-            <ul>
-              <li>
-                <a href="/topuniversities">Top Universities</a>
-              </li>
-              <li>
-                <a href="/jobs">Jobs</a>
-              </li>
-              <li>
-                <a href="./courses">Courses</a>
-              </li>
-              <li>
-                <a href="./careersupport">Career Support</a>
-              </li>
-              <li className="dot">
-                <a href="error">•</a>
-              </li>
-              <li>
-                <a href="/" onClick={handleSignOut}>
-                  Log Out
-                </a>
-              </li>
-              <li>
-                <a href="./profile">
-                  <button className="profile_btn">Profile</button>
-                </a>
-              </li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li>
-            </ul>
-          </div>
-          <div className="hamburger" onClick={toggleMenu}>
-            <div className={`bar ${menuOpen ? "open" : ""}`} />
-            <div className={`bar ${menuOpen ? "open" : ""}`} />
-            <div className={`bar ${menuOpen ? "open" : ""}`} />
-          </div>
-        </nav>
+  <Navbar/>
         <header className="career-support__header">
           <h1 className="career-support__main-title">Elevate Your Career</h1>
           <p className="career-support__subtitle">
