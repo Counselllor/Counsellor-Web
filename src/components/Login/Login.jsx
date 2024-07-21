@@ -97,9 +97,11 @@ export default function Login() {
         dispatch(loginSuccess(userData));
 
         localStorage.setItem("userUid", userData.id);
+        
         toast.success("Authenticating your credentials… 🚀", {
           className: "toast-message",
         });
+        localStorage.setItem("login", true);
         localStorage.setItem("count", true);
         setTimeout(() => {
           navigate("/dashboard");
