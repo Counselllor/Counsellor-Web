@@ -231,6 +231,10 @@ blockquote {
   flex-wrap: wrap;
   gap: 5rem;
 }
+#dark .cultin li {
+  color: #d3d3d3 !important;
+  background-color: #292828;
+}
 
 .cultin text {
   flex: 1 1 calc(50% - 1rem);
