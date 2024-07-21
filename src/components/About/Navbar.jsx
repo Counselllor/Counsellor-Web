@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import Logo from "../../assets/logo.webp";
 import "./About.css";
 import { auth } from "../../firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Switch } from 'antd';
 import { ThemeContext } from '../../App';
 import { toast } from 'react-toastify';
@@ -96,7 +96,9 @@ const Navbar = () => {
 // Logo Component
 const LogoSection = () => (
   <div className="logo">
-    <img src={Logo} alt="Logo" />
+  <Link to={"/"}>
+  <img src={Logo} alt="Logo" />
+  </Link>
   </div>
 );
 
