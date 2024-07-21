@@ -402,7 +402,7 @@ isModal&&<>
       comments.map((data)=>{
         return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
         <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{data.author}
-        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"20px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"10px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
+        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"14px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"10px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
       })
     }
 
