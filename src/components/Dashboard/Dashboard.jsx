@@ -172,6 +172,17 @@ const Dashboard = () => {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
+  const handleCtcRangeChange = (value) => {
+    setCtcRange(value);
+  };
+
+  const handleRatingRangeChange = (value) => {
+    setRatingRange(value);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <main ref={mainRef}>

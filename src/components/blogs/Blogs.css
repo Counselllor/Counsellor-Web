@@ -38,7 +38,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+margin-top: 80px;
 }
 .blogs-header p {
   font-size: 1.2em;
