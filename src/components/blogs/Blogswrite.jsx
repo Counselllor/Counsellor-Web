@@ -36,10 +36,8 @@ const BlogWrite = () => {
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message, {

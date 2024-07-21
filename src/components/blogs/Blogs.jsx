@@ -87,13 +87,11 @@ let router=useNavigate()
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
-        toast.error(err.message, {
+       toast.error(err.message, {
           className: "toast-message",
         });
       });
@@ -149,7 +147,7 @@ console.log(blogsData)
         </div>
       </nav>
       <div className="blogs-container">
-        <BackToHomeButton />
+   
         <header className="blogs-header">
           <h1>Our Latest Blogs</h1>
           <p>Stay updated with our latest news and articles on counseling.</p>
