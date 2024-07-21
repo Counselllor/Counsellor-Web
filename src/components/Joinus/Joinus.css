@@ -82,7 +82,7 @@ body {
 
 .join-us-container h1 {
   color: #0d6fd7 !important;
-  margin-top: -30px;
+  /* margin-top: -30px; */
 }
 
 #dark .join-us-container {
@@ -152,6 +152,8 @@ blockquote {
   font-size: 1.5rem;
   flex-basis: calc(50% - 2.5rem);
   box-sizing: border-box;
+  text-align: center;
+  border-radius: 20px;
 }
 
 #dark .whynewbox {
@@ -170,6 +172,7 @@ blockquote {
 .whynewbox p {
   font-size: medium;
   margin-top: -30px;
+  text-align: center;
 }
 
 .whynewbox h3 {
@@ -295,4 +298,71 @@ blockquote {
   font-style: normal;
   font-weight: 100;
   color: #494949;
+}
+
+/* Base styles (desktop) */
+#culturenew {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+#culturenew h2 {
+  font-size: 30px;
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+
+#culturenew p {
+  font-size: 22px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cultin {
+  font-size: 22px;
+  line-height: 1.8;
+  list-style: square inside;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cultin .text {
+  flex: 1 1 calc(50% - 1rem);
+  box-sizing: border-box;
+  /* border: 0.1px solid #a19e9e; */
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #494949;
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.cultin .text:hover {
+  background-color: #e0e0e0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #culturenew h2 {
+    font-size: 25px;
+  }
+
+  #culturenew p {
+    font-size: 18px;
+  }
+
+  .cultin {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cultin .text {
+    flex-basis: 100%;
+    font-size: 18px;
+  }
 }
