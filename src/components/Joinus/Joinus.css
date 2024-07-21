@@ -174,6 +174,11 @@ blockquote {
 
 .whynewbox h3 {
   margin-bottom: -25px;
+  font-weight:lighter;
+  color: #3b3b3b;
+}
+#dark .whynewbox h3 {
+  color: #d3d3d3 !important;
 }
 
 #applynew p {
@@ -193,18 +198,22 @@ blockquote {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
+  border: 0.1px solid rgb(199, 196, 196);
   margin-left: auto;
   margin-right: auto;
   font-size: 2rem;
   line-height: 3rem;
   padding: 2rem 3rem;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: rgb(253, 250, 250);
+  border-radius: 20px;
+  font-weight: lighter;
+  color: #494949;
 }
 
 #dark .abin {
   background-color: #333 !important;
+  color: rgb(235, 231, 231);
 }
 
 #culturenew {}
@@ -227,6 +236,7 @@ blockquote {
   padding: 1rem;
   font-size: 1.5rem;
   flex-basis: calc(50% - 2.5rem);
+  font-weight: lighter;
 }
 
 /* Mobile Styles */
@@ -279,4 +289,10 @@ blockquote {
   .cultin .text{
     margin-left: 0.2rem;
   }
+}
+.cultin .text{
+  font-weight: lighter;
+  font-style: normal;
+  font-weight: 100;
+  color: #494949;
 }

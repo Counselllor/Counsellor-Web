@@ -205,3 +205,11 @@
     #join2{
     margin-bottom: 30px;
 }
+}
+.row caption{
+    font-weight: 100;
+    color: #7c7b7b;
+}
+.story__text h3{
+    font-weight: 100;
+}
