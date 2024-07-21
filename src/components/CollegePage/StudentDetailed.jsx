@@ -54,8 +54,8 @@ const StudentDetailed = ({ student, onBackClick }) => {
         </div>
         <div className="card3">
           <div className="card-content">
-            <i className="fas fa-football-ball fa-2x"></i>
-            <h1>Social Links</h1>
+          <i className="fab fa-instagram fa-2x"></i>
+          <h1>Social Links</h1>
           </div>
         </div>
         <div className="card4">
