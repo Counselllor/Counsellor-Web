@@ -23,14 +23,29 @@ const BlogWrite = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
-
+ 
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+  
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
   
-
+  const handleSignOut = useCallback(() => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("login");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -78,6 +93,9 @@ const BlogWrite = () => {
       console.error('User not found');
       return;
     }
+    if(title.length>80 || tags.split(',').length>6){
+      return 
+    }
     const articleId = generateUUID();
     const newBlog = {
       id: articleId,
@@ -107,11 +125,13 @@ const BlogWrite = () => {
     }
   };
 
-
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(!menuOpen);
+  }, [menuOpen]);
 
   return (
     <>
-  <Navbar/>
+       <Navbar/>
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>
