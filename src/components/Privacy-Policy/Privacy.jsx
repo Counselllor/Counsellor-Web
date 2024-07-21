@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Privacy.css';
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 const Privacy = () => {
-  const [activeSection, setActiveSection] = useState('interpretation');
+  const [lastUpdatedDate, setLastUpdatedDate] = useState('');
 
-  const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    const updateDate = () => {
+      const currentDate = new Date();
+      const dayOfWeek = currentDate.getDay();
+      const daysSinceLastUpdate = (dayOfWeek + 1) % 7;
+      const lastUpdated = new Date(currentDate);
+      lastUpdated.setDate(currentDate.getDate() - daysSinceLastUpdate);
+      const formattedDate = lastUpdated.toLocaleDateString("en-GB");
+      setLastUpdatedDate(formattedDate);
+    };
+
+    updateDate();
+    const interval = setInterval(updateDate, 7 * 24 * 60 * 60 * 1000); 
+
+    return () => clearInterval(interval); 
+  }, []);
 
   return (
     <>
@@ -22,7 +31,7 @@ const Privacy = () => {
         <div className="privacy-content">
           <header className="privacy-header">
             <h1>Privacy Policy</h1>
-            <p className="last-updated">Last updated: 18/07/2024</p>
+            <p className="last-updated">Last updated: 21/07/2024</p>
           </header>
           <main>
             <section id="interpretation" className="policy-section">
