@@ -37,7 +37,36 @@ const StudentDetailed = ({ student, onBackClick }) => {
             <strong>Position:</strong> {student.position}
           </p>
         </div>
-        {/* Add more details as needed */}
+      </div>
+      <hr style={{marginBlock: "20px"}}/>
+      <div className="cards">
+        <div className="card1">
+          <div className="card-content">
+            <i className="fas fa-trophy fa-2x"></i>
+            <h1>Achievements</h1>
+          </div>
+        </div>
+        <div className="card2">
+          <div className="card-content">
+            <i className="fas fa-book fa-2x"></i>
+            <h1>Books</h1>
+          </div>
+        </div>
+        <div className="card3">
+          <div className="card-content">
+            <i className="fas fa-football-ball fa-2x"></i>
+            <h1>Sports</h1>
+          </div>
+        </div>
+        <div className="card4">
+          <div className="card-content">
+            <i className="far fa-clock fa-2x"></i>
+            <h1>TimeTable</h1>
+          </div>
+        </div>
+      </div>
+      <div className="upcoming">
+        <h1>upcoming events</h1>
       </div>
     </div>
   );
