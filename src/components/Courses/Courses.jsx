@@ -9,10 +9,10 @@ import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavi
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { toast } from 'react-toastify';
+import Navbar from "../Navbar/Navbar";
 
 const Courses = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+
   let navigate=useNavigate()
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -26,74 +26,14 @@ const Courses = () => {
     });
   }, [navigate]); 
 
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+
+
 
   return (
     <>
-      <nav className={"navbar fixed"}>
-        <div className="logo">
-          <Link to="/dashboard">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li>
-              <a href="/topuniversities">Top Universities</a>
-            </li>
-            <li>
-              <a href="/jobs">Jobs</a>
-            </li>
-            <li>
-              <a href="./courses">Courses</a>
-            </li>
-            <li>
-              <a href="/careersupport">Career Support</a>
-            </li>
-            <li>
-              <a href="/" onClick={handleSignOut}>
-                Log Out
-              </a>
-            </li>
-            <li>
-              <button className="profile_btn">Profile</button>
-            </li>
-            <li>
-              <Switch
-                style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                onChange={handleThemeChange}
-                checked={theme === "dark"}
-                checkedChildren="Dark Mode"
-                unCheckedChildren="Light Mode"
-              />
-            </li>
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-          <div className={`bar ${menuOpen ? "open" : ""}`} />
-        </div>
-      </nav>
+   <Navbar/>
       <div className="courses-container">
         <h1 className="courses-title">Available Courses</h1>
         <div className="courses-list">

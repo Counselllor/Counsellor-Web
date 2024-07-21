@@ -16,6 +16,7 @@ import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FaEnvelope, FaRegClipboard,  FaWhatsapp } from "react-icons/fa";
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import Navbar from "../Navbar/Navbar";
 
 const BlogReadPage = () => {
   const { id } = useParams();
@@ -56,26 +57,8 @@ const BlogReadPage = () => {
     }
   }, [navigate]);
 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-  
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-       toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -252,41 +235,7 @@ const BlogReadPage = () => {
 
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li> 
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+     <Navbar/>
       <div className="blog-read-page_container">
         <div className="blog-read-page">
           <div className="blog-header">
