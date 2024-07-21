@@ -103,8 +103,6 @@ const Courses = () => {
                 src={course.imageURL}
                 alt={course.title}
                 className="course-image"
-                width={"100%"}
-                style={{objectFit: "cover"}}
               />
               <div className="course-info">
                 <h2 className="course-title">{course.title}</h2>
