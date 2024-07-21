@@ -1,0 +1,53 @@
+.student-detailed-container {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  text-align: start;
+}
+
+.back-button {
+  background-color: #5cb6f9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background-color: #4ca6e9;
+}
+
+.student-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-student{
+    text-align: start;
+}
+
+.student-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.student-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.student-detail {
+  font-size: 18px;
+  margin: 5px 0;
+}
