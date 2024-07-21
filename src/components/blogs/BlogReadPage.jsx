@@ -206,6 +206,7 @@ const BlogReadPage = () => {
       console.log(commentData)
       setComments([...comments, commentData]);
       setNewComment('');
+      value.current.value=""
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
@@ -442,16 +443,16 @@ isModal&&<>
 <div className="jobs-container1">
   <h1>Discussions</h1>
   <div style={{display:"flex",flexDirection:"column",fontSize:"20px",marginBottom:"60px"}}>
-  <p style={{display:"flex",alignItems:"center",fontSize:"20px"}}>
+  <p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
   <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{user.firstname}
   </p>
   <textarea ref={value} placeholder="Enter Your Comment" style={{borderRadius:"20px",padding:"10px",height:"100px",minHeight:"100px",minWidth:"100%",maxWidth:"100%"}}/><button style={{marginLeft:"20px",width:"100px",padding:"10px",marginTop:"20px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
   </div>
   {
       comments.map((data)=>{
-        return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"20px"}}>
+        return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
         <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{data.author}
-        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"20px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"15px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
+        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"20px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"10px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
       })
     }
 
