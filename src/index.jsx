@@ -29,6 +29,7 @@ import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
 import BlogEditPage from "./components/blogs/BlogEditPage";
+import {Internship} from "./components/Internship/internship.jsx";
 
 const router = createBrowserRouter([
   {
@@ -71,8 +72,13 @@ const router = createBrowserRouter([
         element: <Jobs />,
       },
       {
-        path:'topuniversities',        errorElement: <ErrorPage />,
-
+        path : "/internship",
+        errorElement :<ErrorPage />,
+        element : <Internship/>,
+      },
+      {
+        path:'topuniversities',
+        errorElement: <ErrorPage />,
         element:<University/>
       },
       {
@@ -155,7 +161,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <BlogEditPage/>,
       },
-      
+
     ],
   },
 ]);

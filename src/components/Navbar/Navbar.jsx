@@ -107,7 +107,9 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
     <ul>
       <MenuItem href="/topuniversities">Top Universities</MenuItem>
       <MenuItem href="/jobs">Jobs</MenuItem>
-      <MenuItem href="/courses">Courses</MenuItem>
+      <MenuItem href="/internship">Internship</MenuItem>
+      <MenuItem href="/cources">Courses</MenuItem>
+      {/*<MenuItem href="/courses">Courses</MenuItem>*/}
       <MenuItem href="/careersupport">Career Support</MenuItem>
       {user ? (
         <>
