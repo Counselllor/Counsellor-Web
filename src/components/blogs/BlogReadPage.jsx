@@ -348,7 +348,7 @@ const BlogReadPage = () => {
               <div className="share-button" onClick={handleShareClick}>
               <FaShareAlt size={16} />
             </div>
-              <button onClick={()=>setIsModal(true)}>Comment</button>
+              <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button>
               {blog.createdBy === userId && (
               <>  
               <div className="Edit_icon">
