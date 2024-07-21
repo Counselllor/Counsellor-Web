@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useCallback} from 'react';
 import collegesData from '../Dashboard/colleges.json';
 import studentsData from './students.json';
 import './CollegePage.css';
