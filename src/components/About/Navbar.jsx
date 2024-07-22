@@ -6,6 +6,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Switch } from 'antd';
 import { ThemeContext } from '../../App';
+import { toast } from 'react-toastify';
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -40,9 +41,18 @@ const Navbar = () => {
   }, []);
 
   // Define callbacks using useCallback
-  const handleSignOutCallback = useCallback(() => {
-    signOutUser(navigate, setError);
-  }, [navigate, setError]);
+  const handleSignOut = useCallback(() => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("login");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
 
   // Toggle menu callback
   const toggleMenuCallback = useCallback(() => {
@@ -98,7 +108,7 @@ const MenuSection = ({ user, handleSignOut, menuOpen, theme, handleThemeChange }
 
         <MenuItem href="/top-university">Top Universities</MenuItem>
         <MenuItem href="/jobs">Jobs</MenuItem>
-        <MenuItem href="/cources">Courses</MenuItem>
+        <MenuItem href="/courses">Courses</MenuItem>
         <MenuItem href="/careersupport">Career Support</MenuItem>
         {user ? (
           <>

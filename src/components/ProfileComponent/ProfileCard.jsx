@@ -2,27 +2,41 @@ import React, { useState, useEffect } from "react";
 import "./ProfileCard.css";
 import avatar1 from "../../assets/avatar1.png";
 import avatar2 from "../../assets/avatar2.png";
-import { database,storage  } from "../../firebase/auth";
-import { ref, get ,update} from "firebase/database";
+import { database, storage } from "../../firebase/auth";
+import { ref, get, update } from "firebase/database";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
-import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL,
+} from "firebase/storage";
+import { useSelector } from "react-redux";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
+  // user info from redux store
+  const userInfo = useSelector((state) => state.isAuthenticate.user);
   const [name, setName] = useState(localStorage.getItem("name") || "Alex Foam");
   const [dob, setDob] = useState(localStorage.getItem("dob") || "2000-01-21");
-  const [academicYear, setAcademicYear] = useState(localStorage.getItem("academicYear") || "3rd Year");
-  const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || avatar1);
+  const [academicYear, setAcademicYear] = useState(
+    localStorage.getItem("academicYear") || "3rd Year"
+  );
+  const [avatar, setAvatar] = useState(
+    localStorage.getItem("avatar") || avatar1
+  );
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedSkills, setSelectedSkills] = useState(JSON.parse(localStorage.getItem("skills")) || []);
+  const [selectedSkills, setSelectedSkills] = useState(
+    JSON.parse(localStorage.getItem("skills")) || []
+  );
   const [socialProfiles, setSocialProfiles] = useState([]);
-  const [resumeFile, setResumeFile] = useState(localStorage.getItem("resumeFile") || null);
+  const [resumeFile, setResumeFile] = useState(
+    localStorage.getItem("resumeFile") || null
+  );
   const [userData, setUserData] = useState("");
-  const [profilePic, setProfilePic] = useState( null);
+  const [profilePic, setProfilePic] = useState(null);
   const [userUid, setUserUid] = useState(localStorage.getItem("userUid"));
-
 
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
@@ -48,30 +62,28 @@ const ProfileCard = () => {
     generateDates();
   }, []);
 
-console.log(userData)
-useEffect(() => {
-  const fetchData = async () => {
-    const userData = await fetchUserData(userUid);
-    if (userData) {
-      setUserData(userData);
-      setName((userData.firstname + " " + userData.surname) || "Alex Foam");
-      setDob(userData.dob || "2000-01-21");
-      if (userData.profilePic) {
-        setProfilePic(userData.profilePic);
-
+  console.log(userData);
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await fetchUserData(userUid);
+      if (userData) {
+        setUserData(userData);
+        setName(userData.firstname + " " + userData.surname || "Alex Foam");
+        setDob(userData.dob || "2000-01-21");
+        if (userData.profilePic) {
+          setProfilePic(userData.profilePic);
+        }
       }
-    }
-  };
+    };
 
-  fetchData();
-}, []);
-
+    fetchData();
+  }, []);
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = async() => {
+  const handleSave = async () => {
     const userRef = ref(database, `users/${userUid}`);
     const updates = {
       firstname: name.split(" ")[0],
@@ -112,7 +124,6 @@ useEffect(() => {
     });
   };
 
-
   const handleProfilePicUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -124,17 +135,19 @@ useEffect(() => {
         });
       }
       // Upload the new profile picture
-      const fileExtension = file.name.split('.').pop();
-      const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
+      const fileExtension = file.name.split(".").pop();
+      const newStorageRef = storageRef(
+        storage,
+        `profilepics/${userUid}.${fileExtension}`
+      );
       await uploadBytes(newStorageRef, file);
       const downloadURL = await getDownloadURL(newStorageRef);
-  
 
       setProfilePic(downloadURL);
       localStorage.setItem("profilePic", downloadURL);
     }
   };
-  
+
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
     const snapshot = await get(userRef);
@@ -143,23 +156,27 @@ useEffect(() => {
       // localStorage.setItem('Userid', userData.id);
       return userData; // Return user data
     } else {
-      console.error('No data available');
+      console.error("No data available");
       return null; // Return null if no data available
     }
   };
 
   const generateProfileData = () => {
-    return JSON.stringify({
-      name,
-      dob,
-      academicYear,
-      selectedSkills,
-      socialProfiles,
-      email: "counsellor@gmail.com",
-      phone: "+918795768574",
-      gender: "Male",
-      college: "IIT Bombay",
-    }, null, 2);
+    return JSON.stringify(
+      {
+        name,
+        dob,
+        academicYear,
+        selectedSkills,
+        socialProfiles,
+        email: "counsellor@gmail.com",
+        phone: "+918795768574",
+        gender: "Male",
+        college: "IIT Bombay",
+      },
+      null,
+      2
+    );
   };
 
   const downloadProfileData = () => {
@@ -188,7 +205,7 @@ useEffect(() => {
   };
 
   const handleViewResume = () => {
-    window.open(resumeFile, '_blank');
+    window.open(resumeFile, "_blank");
   };
 
   const handleDeleteResume = () => {
@@ -196,13 +213,11 @@ useEffect(() => {
     localStorage.removeItem("resumeFile");
   };
 
-
-
   return (
     <div className="profile-card-container">
       <div className="greeting">
         <div className="greeting-text">
-          <h1>Hello, {name}!</h1>
+          <h1>Hello, {userInfo.firstname}!</h1>
           <p>
             Your Profile is updated here. Dates, counselling and your Skills are
             all in one tap.
@@ -237,16 +252,16 @@ useEffect(() => {
             </p>
           </div>
           <div className="about-info">
-            <h3>Email:</h3> <p>{userData.email}</p>
+            <h3>Email:</h3> <p>{userInfo.email}</p>
           </div>
           <div className="about-info">
             <h3>Phone : </h3> <p>+918795768574</p>
           </div>
           <div className="about-info">
-            <h3>Gender : </h3> <p>{userData.gender}</p>
+            <h3>Gender : </h3> <p>{userInfo.gender}</p>
           </div>
           <div className="about-info">
-            <h3>BirthDate : </h3> <p>{userData.dob}</p>
+            <h3>BirthDate : </h3> <p>{userInfo.dob}</p>
           </div>
           <div className="about-info">
             <h3>College : </h3> <p>IIT Bombay</p>
@@ -267,7 +282,7 @@ useEffect(() => {
                   type="file"
                   accept=".pdf,.doc,.docx"
                   onChange={handleResumeUpload}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   id="resume-upload"
                 />
                 <label htmlFor="resume-upload" className="upload-button">
@@ -290,11 +305,14 @@ useEffect(() => {
           <p className="title">IIT Bombay</p>
           <p className="role">Student</p>
           <div className="social-profiles">
-            {socialProfiles.map((profile) => (
-              <a key={profile.id} href={profile.url} target="_blank" rel="noopener noreferrer">
-                <i className={`bx bxl-${profile.name.toLowerCase()}`}></i>
-              </a>
-            ))}
+            <a
+              key={userInfo.id}
+              href={userInfo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className={`bx bxl-${userInfo.firstname.toLowerCase()}`}></i>
+            </a>
           </div>
           <div className="skills-section">
             <h2>Skills</h2>
@@ -317,7 +335,7 @@ useEffect(() => {
               Name:
               <input
                 type="text"
-                placeholder={userData.firstname+" "+userData.surname}
+                placeholder={userInfo.firstname + " " + userInfo.surname}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -327,7 +345,7 @@ useEffect(() => {
               <input
                 type="date"
                 value={dob}
-                placeholder={userData.dob}
+                placeholder={userInfo.dob}
                 onChange={(e) => setDob(e.target.value)}
               />
             </label>
@@ -339,35 +357,47 @@ useEffect(() => {
                 onChange={(e) => setAcademicYear(e.target.value)}
               />
             </label>
-            
+
             <div className="image-upload">
               <h3>Upload Profile Picture:</h3>
-              <input type="file" accept="image/*" onChange={handleProfilePicUpload} />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleProfilePicUpload}
+              />
             </div>
 
             <div className="avatar-selection">
               <h3>Select Avatar:</h3>
               <div className="avatar-options">
                 <div
-                  className={`avatar-option ${avatar === avatar1 ? "selected" : ""}`}
+                  className={`avatar-option ${
+                    avatar === avatar1 ? "selected" : ""
+                  }`}
                   onClick={() => handleAvatarChange(avatar1)}
                 >
                   <img src={avatar1} alt="Avatar 1" />
                 </div>
                 <div
-                  className={`avatar-option ${avatar === avatar2 ? "selected" : ""}`}
+                  className={`avatar-option ${
+                    avatar === avatar2 ? "selected" : ""
+                  }`}
                   onClick={() => handleAvatarChange(avatar2)}
                 >
                   <img src={avatar2} alt="Avatar 2" />
                 </div>
                 <div
-                  className={`avatar-option ${avatar === avatar3 ? "selected" : ""}`}
+                  className={`avatar-option ${
+                    avatar === avatar3 ? "selected" : ""
+                  }`}
                   onClick={() => handleAvatarChange(avatar3)}
                 >
                   <img src={avatar3} alt="Avatar 3" />
                 </div>
                 <div
-                  className={`avatar-option ${avatar === avatar4 ? "selected" : ""}`}
+                  className={`avatar-option ${
+                    avatar === avatar4 ? "selected" : ""
+                  }`}
                   onClick={() => handleAvatarChange(avatar4)}
                 >
                   <img src={avatar4} alt="Avatar 4" />
@@ -380,7 +410,9 @@ useEffect(() => {
                 {techstack.map((skill, index) => (
                   <div
                     key={index}
-                    className={`skill-option ${selectedSkills.includes(skill) ? "selected" : ""}`}
+                    className={`skill-option ${
+                      selectedSkills.includes(skill) ? "selected" : ""
+                    }`}
                     onClick={() => handleSkillChange(skill)}
                   >
                     {skill}

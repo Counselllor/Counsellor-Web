@@ -11,6 +11,7 @@ import { Switch } from 'antd';
 import './BlogWrite.css'; // Import the new CSS file
 import { toast } from 'react-toastify';
 import { ThemeContext } from '../../App';
+import Navbar from '../Navbar/Navbar';
 
 const BlogWrite = () => {
   const [title, setTitle] = useState('');
@@ -22,31 +23,14 @@ const BlogWrite = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
- 
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-  
+
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
   
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
+
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -102,6 +86,7 @@ const BlogWrite = () => {
       tags: tags.split(',').map((tag) => tag.trim()),
       author: user.firstname+" "+user.surname,
       createdBy: userId,
+      likeCount:0,
       createdAt: new Date().toISOString(),
     };
 
@@ -122,47 +107,11 @@ const BlogWrite = () => {
     }
   };
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+
 
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li> 
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+  <Navbar/>
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>
@@ -199,15 +148,6 @@ const BlogWrite = () => {
         </div>
         <button type="submit">Save</button>
       </form>
-      {/* <div className="markdown-preview">
-        <h2>Preview:</h2>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        >
-          {content}
-        </ReactMarkdown>
-      </div> */}
     </div>
     <Footer/>
     </>
