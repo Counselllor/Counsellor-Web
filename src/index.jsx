@@ -29,6 +29,7 @@ import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
 import BlogEditPage from "./components/blogs/BlogEditPage";
+import Student from "./components/Student/Student";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +125,11 @@ const router = createBrowserRouter([
         path: "/college/:id",
         errorElement: <ErrorPage />,
         element: <CollegePage />,
+      },
+      {
+        path: "/student/:id/:name/:title",
+        errorElement: <ErrorPage />,
+        element: <Student />,
       },
       {
         path: "/profile",
