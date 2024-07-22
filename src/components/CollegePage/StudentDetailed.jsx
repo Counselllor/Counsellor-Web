@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./StudentDetailed.css";
-import Backdrop from "./Backdrop";
 
 const StudentDetailed = ({ student, onBackClick }) => {
-  const [isPopupVisible, setPopupVisible] = useState(false);
+  const navigate = useNavigate();
 
   if (!student) {
     return <div>No student selected</div>;
@@ -17,21 +17,6 @@ const StudentDetailed = ({ student, onBackClick }) => {
     "/src/assets/element 6.png",
     "/src/assets/element 7.png",
   ];
-
-  // Sample achievements
-  const achievements = [
-    "First Place in Coding Competition",
-    "Top Performer in Data Science",
-    "Published Research Paper",
-  ];
-
-  const handleCardClick = () => {
-    setPopupVisible(true);
-  };
-
-  const handleClosePopup = () => {
-    setPopupVisible(false);
-  };
 
   return (
     <div className="student-detailed-container">
@@ -58,11 +43,17 @@ const StudentDetailed = ({ student, onBackClick }) => {
       </div>
       <hr style={{ marginBlock: "20px" }} />
       <div className="cards">
-        <div className="card1" onClick={handleCardClick}>
-          <div className="card-content">
-            <i className="fas fa-trophy fa-2x"></i>
-            <h1 className="card-title">Achievements</h1>
-          </div>
+        <div className="card1">
+          <Link
+            className="link"
+            to={`/student/${student.id}/${student.name}/achievements`}
+            style={{textDecoration: "none", color: "black"}}
+          >
+            <div className="card-content">
+              <i className="fas fa-trophy fa-2x"></i>
+              <h1 className="card-title">Achievements</h1>
+            </div>
+          </Link>
         </div>
         <div className="card2">
           <div className="card-content">
@@ -83,14 +74,6 @@ const StudentDetailed = ({ student, onBackClick }) => {
           </div>
         </div>
       </div>
-      <Backdrop isVisible={isPopupVisible} onClose={handleClosePopup}>
-        <h2 className="student-card-title">Student Achievements</h2>
-        <ul className="student-card-content">
-          {achievements.map((achievement, index) => (
-            <li className="student-card-subtitlte" key={index}>{achievement}</li>
-          ))}
-        </ul>
-      </Backdrop>
     </div>
   );
 };
