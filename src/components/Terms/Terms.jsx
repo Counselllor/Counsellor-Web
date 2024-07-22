@@ -1,13 +1,9 @@
 import "./Terms.css";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from '../backtohome';
-import Logo from "../../assets/logo.webp";
-import { auth } from "../../firebase/auth";
-import { Switch } from 'antd';
-import { signOut} from "firebase/auth";
-import { ThemeContext } from "../../App";
 
-import { useCallback, useContext, useEffect, useState } from "react";
+
+import { useCallback,useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 

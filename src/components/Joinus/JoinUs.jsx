@@ -1,15 +1,8 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import "./Joinus.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import BackToHomeButton from "../backtohome";
-import Logo from "../../assets/logo.webp";
-import { auth } from "../../firebase/auth";
-import { Switch } from 'antd';
-import { signOut} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-
-import { ThemeContext } from "../../App";
 import Navbar from "../Navbar/Navbar";
 
 

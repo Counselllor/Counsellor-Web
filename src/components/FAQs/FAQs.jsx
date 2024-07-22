@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Modal from "react-modal";
 import "./FAQs.css";
 import { database } from "../../firebase/auth"; // Adjust the path according to your project structure
@@ -41,11 +41,11 @@ const FAQs = () => {
     },
   ];
 
-  const toggleAccordion = (index) => {
+  const toggleAccordion = useCallback((index) => {
     setActiveIndex(activeIndex === index ? null : index);
-  };
+  });
 
-  const handleSubscribe = async (e) => {
+  const handleSubscribe =useCallback( async (e) => {
     e.preventDefault();
     const emailInput = document.getElementById("email");
     const email = emailInput.value;
@@ -60,7 +60,7 @@ const FAQs = () => {
     } catch (error) {
       console.error("Error saving email to database:", error);
     }
-  };
+  });
 
   const closeModal = () => {
     setIsModalOpen(false);

@@ -1,26 +1,14 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import unidata from "./data.json";
 import "./university.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { FaTimes } from "react-icons/fa";
-import Logo from "../../assets/logo.webp";
 import { auth } from "../../firebase/auth";
-import { Switch } from "antd";
-import { signOut } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../App";
-import {
-  FaGithub,
-  FaInstagram,
-  FaFacebook,
-  FaLinkedin,
-  FaSlack,
-  FaDiscord,
-} from "react-icons/fa";
+
 
 const University = () => {
-  const [isModal, setIsModal] = useState(false);
   
   const navigate = useNavigate();
   const [isLoggedIn, setLogin] = useState(false);

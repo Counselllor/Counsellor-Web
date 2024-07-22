@@ -1,27 +1,24 @@
-import React, { useContext, useEffect, useState , useCallback } from 'react';
+import { useContext, useEffect, useState , useCallback } from 'react';
 import './Contribute.css'; // Import CSS file for styles
 import Footer from '../Footer/Footer';
 // import Navbar from '../Navbar/Navbar';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Logo from "../../assets/logo.webp";
 import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
 import ScrollToTop from 'react-scroll-to-top';
 
 import BackToHomeButton from '../backtohome';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 
 const Contribute = () => {
   const owner = 'Counselllor';
   const repo = 'Counsellor-Web';
-  const contributorsPerPage = 10; // Display 10 contributors per page
+  // const contributorsPerPage = 10; // Display 10 contributors per page
   const [contributors, setContributors] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [menuOpen, setMenuOpen] = useState(false);
+  // const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate=useNavigate();
 
   useEffect(() => {
@@ -95,37 +92,37 @@ const Contribute = () => {
     ));
   };
 
-  const createPaginationButtons = () => {
-    const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-    return Array.from({ length: totalPages }, (_, index) => (
-      <button
-        key={index + 1}
-        className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
-        onClick={() => setCurrentPage(index + 1)}
-      >
-        {index + 1}
-      </button>
-    ));
-  };
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+  // const createPaginationButtons = () => {
+  //   const totalPages = Math.ceil(contributors.length / contributorsPerPage);
+  //   return Array.from({ length: totalPages }, (_, index) => (
+  //     <button
+  //       key={index + 1}
+  //       className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
+  //       onClick={() => setCurrentPage(index + 1)}
+  //     >
+  //       {index + 1}
+  //     </button>
+  //   ));
+  // };
+  // const handleThemeChange = useCallback(() => {
+  //   toggleTheme();
+  // }, [toggleTheme]);
   
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  });
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-       toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
+  // const toggleMenu = useCallback(() => {
+  //   setMenuOpen(!menuOpen);
+  // });
+  // const handleSignOut = useCallback(() => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       localStorage.removeItem("login");
+  //       navigate("/");
+  //     })
+  //     .catch((err) => {
+  //      toast.error(err.message, {
+  //         className: "toast-message",
+  //       });
+  //     });
+  // }, [navigate]);
   return (
     <>
       <ScrollToTop

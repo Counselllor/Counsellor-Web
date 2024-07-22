@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import JobsData from "./jobs.json";
 import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin, FaSlack, FaDiscord } from "react-icons/fa";
 
 import {FaTimes} from 'react-icons/fa'
 const Jobs = () => {
   let [isModal,setIsModal]=useState(false)
-  function handleOpenModal(){
+const handleOpenModal=useCallback(()=>{
     setIsModal(true)
-    console.log('click')
-  }
-  function handleCLoseModal(){
+  })
+  const handleCLoseModal=useCallback(()=>{
     setIsModal(false)
-  }
+  })
   return (
   <>  <div className="jobsPage">
       <Navbar />
