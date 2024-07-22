@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Modal from "react-modal";
 import "./FAQs.css";
 import { database } from "../../firebase/auth"; // Adjust the path according to your project structure
