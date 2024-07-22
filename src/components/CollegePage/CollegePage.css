@@ -168,7 +168,6 @@
   width: 40vw;
   object-fit: cover;
   margin-bottom: 15px !important;
-  position: absolute;
   bottom: 0px;
   margin-left: 5vw;
 }
@@ -370,6 +369,174 @@
   .right {
     width: 100vw;
     height: 50%;
+    justify-content: start !important;
+  }
+}
+
+.lowercoll {
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.collago {
+  margin-top: 21px;
+  margin-bottom: 10px;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4 {
+  background-color: #f0f0f0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover {
+  cursor: pointer;
+}
+
+.upcoming{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+hr{
+  color: rgb(204, 204, 204);
+}
+
+@media (max-width: 768px) {
+  .college-details {
+    flex-direction: column;
+  }
+
+  .college-page-container {
+    flex-direction: column;
+  }
+
+  .college-page-container,
+  .students-section {
+    padding: 10px;
+  }
+
+  .group {
+    flex-direction: column;
+    margin-block: 10px;
+  }
+
+  .locationcoll,
+  .ratingcoll {
+    margin-block: 10px;
+  }
+}
+
+.upcoming {
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding-block: 20px;
+}
+
+@media only screen and (max-width: 829px) {
+  .student-card {
+    width: 80vw;
+  }
+
+  .searchCourses {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 314px) {
+  .clipped-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    height: calc(1.2em * 4);
+  }
+
+  .clipped-text1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    height: calc(1.2em * 3);
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .student-card {
+    flex-direction: column;
+  }
+
+  .student-card img {
+    margin-top: 10px;
+  }
+
+  .student-description {
+    flex-direction: column;
+  }
+
+  .st {
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 829px) {
+  .pagecoll {
+    flex-direction: column;
+    height: auto;
+    margin-top: 0px;
+  }
+
+  .leftcoll {
+    height: auto;
+    width: 100%;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
     justify-content: start !important;
   }
 }
