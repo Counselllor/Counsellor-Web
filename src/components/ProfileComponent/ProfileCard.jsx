@@ -14,7 +14,7 @@ import {
 } from "firebase/storage";
 import { useSelector } from "react-redux";
 
-const ProfileCard = () => {
+const ProfileCard = ({open}) => {
   const [dates, setDates] = useState([]);
   // user info from redux store
   const userInfo = useSelector((state) => state.isAuthenticate.user);
@@ -293,7 +293,7 @@ const ProfileCard = () => {
           </div>
         </div>
       </div>
-      <div className="profile-summary">
+      <div className={`profile-summary ${open ? "" : "close"}`}>
         <div className="profile-card">
           <i className="bx bxs-edit" onClick={handleEdit}></i>
           <img
@@ -311,7 +311,7 @@ const ProfileCard = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={`bx bxl-${userInfo.firstname?.toLowerCase()}`}></i>
+              <i className={`bx bxl-${userInfo.firstname.toLowerCase()}`}></i>
             </a>
           </div>
           <div className="skills-section">
