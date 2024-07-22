@@ -255,6 +255,8 @@
 
 .form-group {
   margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+  padding-right: 2rem;
 }
 
 .form-group label {
@@ -272,6 +274,7 @@
   border-radius: 5px;
   font-size: 1.5rem;
   transition: border-color 0.3s ease-in-out;
+  margin-right: 20px;
 }
 #dark .form-group input{
   background-color: #333;
@@ -292,14 +295,15 @@
 .form-group textarea {
   height: 150px;
   resize: vertical;
+  margin-right: 30px;
 }
 
 .career-support__form-submit {
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
