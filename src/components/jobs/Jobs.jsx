@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import JobsData from "./jobs.json";
 import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
