@@ -55,3 +55,16 @@
 .card-title{
   font-size: 16px;
 }
+
+.student-card-title{
+  font-size: 20px;
+}
+
+.student-card-subtitlte{
+  font-size: 14px;
+  margin-block: 10px;
+}
+
+.student-card-content{
+  padding-left: 10px;
+}
