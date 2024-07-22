@@ -198,6 +198,13 @@ input,textarea{
   z-index: 1000;
   padding: 20px;
 }
+#dark label{
+  color: white !important;
+}
+#dark .modal-jobs{
+  background-color: black;
+  border: solid 1px white;
+}
 @media only screen and (max-width:900px){
   .modal-jobs{
     left: 20%;
