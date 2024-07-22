@@ -9,7 +9,9 @@ import { Switch } from 'antd';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
 import './BlogWrite.css'; // Import the new CSS file
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ThemeContext } from '../../App';
 import Navbar from '../Navbar/Navbar';
 
@@ -23,14 +25,29 @@ const BlogWrite = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
-
+ 
+  const handleThemeChange = useCallback(() => {
+    toggleTheme();
+  }, [toggleTheme]);
+  
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
   
-
+  const handleSignOut = useCallback(() => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("login");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
+  }, [navigate]);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -78,6 +95,20 @@ const BlogWrite = () => {
       console.error('User not found');
       return;
     }
+    if(title.length>80){
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
+      return 
+    }
+    if( tags.split(',').length>6){
+      toast.error("Tags length should Not be Greater then 6!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
+      return 
+    }
     const articleId = generateUUID();
     const newBlog = {
       id: articleId,
@@ -89,6 +120,8 @@ const BlogWrite = () => {
       likeCount:0,
       createdAt: new Date().toISOString(),
     };
+    console.log('sdsdsd')
+    localStorage.setItem("newblog",true)
 
     try {
       const db = getDatabase();
@@ -96,9 +129,7 @@ const BlogWrite = () => {
       await update(ref(db, 'users/' + userId), {
         articleCreated: (user.articleCreated ? user.articleCreated + ',' : '') + articleId,
       });
-      toast.success("Blog Created Successfully!! 🚀",{
-        className: "toast-message",
-      });
+   
       navigate('/blogs');
     } catch (error) {
      toast.error(error,{
@@ -107,11 +138,37 @@ const BlogWrite = () => {
     }
   };
 
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(!menuOpen);
+  }, [menuOpen]);
+function checkLength(e){
+  console.log(e.target)
+  let length=title.length
+  let temp=e.target.value
+  console.log(length,temp.length)
+  if(temp.length<length){
+    setTitle(e.target.value)
+  }
+  if(title.length+1<=80){
+    setTitle(e.target.value)
+  }else{
+    if(!localStorage.getItem("showed")){
 
+      localStorage.setItem("showed",true)
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      setTimeout(()=>{
+  localStorage.removeItem('showed')
+      },6000)
+    }
+  }
 
+}
   return (
     <>
-  <Navbar/>
+       <Navbar/>
+       <ToastContainer />
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>
@@ -122,7 +179,7 @@ const BlogWrite = () => {
             id="title" 
             placeholder='Enter Blog Title'
             value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
+            onChange={checkLength}
             required 
           />
         </div>

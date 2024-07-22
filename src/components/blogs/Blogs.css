@@ -244,6 +244,15 @@ margin-top: 80px;
 .click-btn1:hover {
   outline: 0;
 }
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  min-width: 200px;
+  right: 0;
+  width: 22vw;
+  padding: 10px;
+}
 .blogwrite{
   background-color: rgb(5, 6, 45);
   border-radius: 6px;
@@ -326,4 +335,14 @@ margin:20px 0px;
   position: fixed;
   top: 0;
   left: 0;
+}
+.blog_share_summ {
+ 
+}
+
+.clip-text {
+  /* Ensure the text doesn't break out of its container */
+  overflow: hidden;
+  white-space: nowrap;
+text-overflow: ellipsis;  
 }
