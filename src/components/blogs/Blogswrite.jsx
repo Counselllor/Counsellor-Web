@@ -9,8 +9,11 @@ import { Switch } from 'antd';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
 import './BlogWrite.css'; // Import the new CSS file
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ThemeContext } from '../../App';
+import Navbar from '../Navbar/Navbar';
 
 const BlogWrite = () => {
   const [title, setTitle] = useState('');
@@ -36,10 +39,8 @@ const BlogWrite = () => {
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
+        localStorage.removeItem("login");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message, {
@@ -94,6 +95,20 @@ const BlogWrite = () => {
       console.error('User not found');
       return;
     }
+    if(title.length>80){
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
+      return 
+    }
+    if( tags.split(',').length>6){
+      toast.error("Tags length should Not be Greater then 6!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
+      return 
+    }
     const articleId = generateUUID();
     const newBlog = {
       id: articleId,
@@ -102,8 +117,11 @@ const BlogWrite = () => {
       tags: tags.split(',').map((tag) => tag.trim()),
       author: user.firstname+" "+user.surname,
       createdBy: userId,
+      likeCount:0,
       createdAt: new Date().toISOString(),
     };
+    console.log('sdsdsd')
+    localStorage.setItem("newblog",true)
 
     try {
       const db = getDatabase();
@@ -111,9 +129,7 @@ const BlogWrite = () => {
       await update(ref(db, 'users/' + userId), {
         articleCreated: (user.articleCreated ? user.articleCreated + ',' : '') + articleId,
       });
-      toast.success("Blog Created Successfully!! 🚀",{
-        className: "toast-message",
-      });
+   
       navigate('/blogs');
     } catch (error) {
      toast.error(error,{
@@ -125,44 +141,34 @@ const BlogWrite = () => {
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
+function checkLength(e){
+  console.log(e.target)
+  let length=title.length
+  let temp=e.target.value
+  console.log(length,temp.length)
+  if(temp.length<length){
+    setTitle(e.target.value)
+  }
+  if(title.length+1<=80){
+    setTitle(e.target.value)
+  }else{
+    if(!localStorage.getItem("showed")){
 
+      localStorage.setItem("showed",true)
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      setTimeout(()=>{
+  localStorage.removeItem('showed')
+      },6000)
+    }
+  }
+
+}
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li> 
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+       <Navbar/>
+       <ToastContainer />
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>
@@ -173,7 +179,7 @@ const BlogWrite = () => {
             id="title" 
             placeholder='Enter Blog Title'
             value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
+            onChange={checkLength}
             required 
           />
         </div>
@@ -199,15 +205,6 @@ const BlogWrite = () => {
         </div>
         <button type="submit">Save</button>
       </form>
-      {/* <div className="markdown-preview">
-        <h2>Preview:</h2>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        >
-          {content}
-        </ReactMarkdown>
-      </div> */}
     </div>
     <Footer/>
     </>

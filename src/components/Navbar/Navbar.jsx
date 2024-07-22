@@ -6,6 +6,7 @@ import "./Navbar.css";
 import { auth } from "../../firebase/auth";
 import { ThemeContext } from "../../App";
 import { Switch } from "antd";
+import { toast } from "react-toastify";
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -31,20 +32,41 @@ const Navbar = () => {
   const [error, setError] = useState(null);
   const [fix, setFix] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [login, setLogin] = useState(localStorage.getItem("login") || "");
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const storedLogin = localStorage.getItem("login");
+      setLogin(storedLogin);
+    }, 1000); // Check every second
+
+    return () => clearInterval(intervalId); // Clean up the interval on component unmount
+  }, []);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-        navigate("/");
-      }
-    });
+    {
+      login &&
+        auth.onAuthStateChanged((user) => {
+          if (user) {
+            setUser(user);
+          } else {
+            setUser(null);
+            navigate("/");
+          }
+        });
+    }
   }, [navigate]);
 
   const handleSignOut = useCallback(() => {
-    signOutUser(navigate, setError);
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("login");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message, {
+          className: "toast-message",
+        });
+      });
   }, [navigate]);
 
   const toggleMenuCallback = useCallback(() => {
@@ -77,16 +99,28 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${fix ? "fixed" : ""}`}>
-      <LogoSection />
-      <MenuSection user={user} handleSignOut={handleSignOut} menuOpen={menuOpen} toggleTheme={toggleTheme} theme={theme} />
-      <HamburgerSection toggleMenu={toggleMenuCallback} menuOpen={menuOpen} handleKeyPress={handleKeyPress} />
+       <LogoSection login={login} />
+      <MenuSection
+        user={user}
+        handleSignOut={handleSignOut}
+        menuOpen={menuOpen}
+        toggleTheme={toggleTheme}
+        theme={theme}
+      />
+      <HamburgerSection
+        toggleMenu={toggleMenuCallback}
+        menuOpen={menuOpen}
+        handleKeyPress={handleKeyPress}
+      />
     </nav>
   );
 };
 
-const LogoSection = () => (
+const LogoSection = ({ login }) => (
+
   <div className="logo">
-    <Link to="/dashboard">
+  
+    <Link to={login ? "/dashboard" : "/"}>
       <img src={Logo} alt="Logo" />
     </Link>
   </div>
@@ -102,15 +136,15 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
       {user ? (
         <>
           <MenuItem>
-          <a href="/" onClick={handleSignOut}>
-                Log Out
-              </a>
+            <a href="/" onClick={handleSignOut}>
+              Log Out
+            </a>
           </MenuItem>
           <MenuItem>
-              <a href="./profile">
-                <button className="profile_btn">Profile</button>
-              </a>
-            </MenuItem>
+            <a href="./profile">
+              <button className="profile_btn">Profile</button>
+            </a>
+          </MenuItem>
         </>
       ) : (
         <MenuItem>
@@ -137,7 +171,13 @@ const MenuItem = ({ href, children }) => (
 );
 
 const HamburgerSection = ({ toggleMenu, menuOpen, handleKeyPress }) => (
-  <div className="hamburger" onClick={toggleMenu} onKeyDown={handleKeyPress} tabIndex={0} role="button">
+  <div
+    className="hamburger"
+    onClick={toggleMenu}
+    onKeyDown={handleKeyPress}
+    tabIndex={0}
+    role="button"
+  >
     {[1, 2, 3].map((index) => (
       <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
     ))}

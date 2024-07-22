@@ -1,39 +1,53 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Blogs.css'; // Import CSS file for styles
-import BackToHomeButton from "../backtohome";
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
-import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
-import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
-import { signOut } from "firebase/auth";
-import { getDatabase, ref, get } from 'firebase/database'; // Import Firebase database methods
-import { auth } from "../../firebase/auth";
+import { useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import { getDatabase, ref, get } from 'firebase/database';
 import DOMPurify from "dompurify";
 import { marked } from "marked";
-import { toast } from 'react-toastify';
-
+import Navbar from "../Navbar/Navbar";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Blogs = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setLogin] = useState(false);
+  const [ids, setIds] = useState({});
   const [blogsData, setBlogsData] = useState([]);
   const navigate = useNavigate();
-
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+  const userId = localStorage.getItem('userUid');
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const db = getDatabase();
+        const userRef = ref(db, 'users/' + userId);
+
+        const userSnap = await get(userRef);
+        if (userSnap.exists()) {
+          const userData = userSnap.val();
+          setUser(userData);
+
+          const articleCreated = userData.articleCreated;
+          if (articleCreated) {
+            const idArray = articleCreated.split(',');
+            const idObject = idArray.reduce((acc, id) => {
+              acc[id.trim()] = true;
+              return acc;
+            }, {});
+            setIds(idObject);
+          } else {
+            console.log('No articles created by the user.');
+          }
+        } else {
+          console.log('No user data available');
+        }
+
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
         if (snapshot.exists()) {
@@ -56,26 +70,7 @@ const Blogs = () => {
     };
 
     fetchBlogs();
-  }, []);
-
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        setTimeout(() => {
-          localStorage.removeItem('login');
-          navigate("/");
-        }, 1000);
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
-
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  }, [menuOpen]);
+  }, [userId]);
 
   const stripMarkdown = (content) => {
     const cleanHtml = DOMPurify.sanitize(marked(content));
@@ -83,46 +78,19 @@ const Blogs = () => {
     tempDiv.innerHTML = cleanHtml;
     return tempDiv.textContent || tempDiv.innerText || "";
   };
-console.log(blogsData)
+useEffect(()=>{
+  if(localStorage.getItem('newblog')){
+    toast.success("Blog Created Successfully!! 🚀",{
+      className: "toast-message",
+    });
+    localStorage.removeItem('newblog')
+  }
+},[])
   return (
     <>
-      <nav className={`navbar fixed`}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className={`menu ${menuOpen ? "show" : ""}`}>
-          <ul>
-            <li><a href="/topuniversities">Top Universities</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="./courses">Courses</a></li>
-            <li><a href="/careersupport">Career Support</a></li>
-
-            {!isLoggedIn && <li><a href="/" onClick={handleSignOut}>Login</a></li>}
-            {isLoggedIn && <>
-              <li><a href="/" onClick={handleSignOut}>Log Out</a></li>
-              <li><button className='profile_btn'>Profile</button></li>
-              <li>
-                <Switch
-                  style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-                  onChange={handleThemeChange}
-                  checked={theme === "dark"}
-                  checkedChildren="Dark Mode"
-                  unCheckedChildren="Light Mode"
-                />
-              </li>
-            </>}
-          </ul>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-          <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        </div>
-      </nav>
+      <Navbar />
+      <ToastContainer/>
       <div className="blogs-container">
-        <BackToHomeButton />
         <header className="blogs-header">
           <h1>Our Latest Blogs</h1>
           <p>Stay updated with our latest news and articles on counseling.</p>
@@ -130,11 +98,10 @@ console.log(blogsData)
         </header>
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
-           
-            <div key={index} className="blog-card">
-              <h2>{blog.title}</h2>
-              <p className="blog-date">{blog.date}</p>
-              <p>{blog.summary}</p>
+            <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
+              <h2 className=" clip-text">{blog.title}</h2>
+              <p className="blog-date ">{blog.date}</p>
+              <p className=" clip-text">{blog.summary}</p>
               <p className="blog-author">By: {blog.author}</p>
               <div className="blog-tags">
                 {blog.tags.map((tag, tagIndex) => (
