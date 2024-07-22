@@ -17,7 +17,7 @@ import { ThemeContext } from '../../App';
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp,FaComment } from "react-icons/fa";
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 
@@ -269,10 +269,12 @@ const BlogReadPage = () => {
   return (
     <>
      <Navbar/>
-      <div className="blog-read-page_container">
-        <div className="blog-read-page">
-          <div className="blog-header">
-            <h1 className="blog-title">{blog.title}</h1>
+      <div className="read_blog blog-read-page_container">
+        <div className="blog-read-page" style={{position:"relative"}}>
+          <div className="blog-header" style={{display:"flex",flexDirection:"row-reverse"}}>
+          <div style={{width:"90%"}}>
+              
+            <h1 className="blog-title" >{blog.title}</h1>
             <div className="blog-meta">
               <img src={randomAvatar} alt="Author Avatar" className="author-avatar" />
               <div className="meta-info">
@@ -280,39 +282,38 @@ const BlogReadPage = () => {
                 <p className="blog-date">{moment(blog.createdAt).fromNow()}</p>
               </div>
             </div>
-
             <div className="blog-tags">
               {blog.tags.map((tag, tagIndex) => (
                 <span key={tagIndex} className="blog-tag">{tag}</span>
               ))}
             </div>
-            <div className="icons_blog_read">
-              <div >
+              </div>
+
+            <div className="icons_blog_read" style={{width:"10%",display:"flex",flexDirection:"column"}}>
+         
               <div className="like_icon" onClick={handleLikeClick} >{liked ? (
-                  <MdFavorite size={18} />
+                  <MdFavorite size={"2rem"} />
                 ) : (
-                  <MdFavoriteBorder size={18} />
+                  <MdFavoriteBorder size={'2rem'} />
                 )}<p>{blog.likeCount}</p>
                 </div>  
-              </div>
-              <div className="right_blog_icon" style={{display:"flex"}}>
-              <div className="share-button" onClick={handleShareClick}>
-              <FaShareAlt size={16} />
-            </div>
-              <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button>
+            
+              
+              <FaShareAlt size={'2rem'} style={{cursor:"pointer"}}  color="blue" onClick={handleShareClick}/>
               {blog.createdBy === userId && (
               <>  
-              <div className="Edit_icon">
-                  <MdModeEdit size={18} onClick={handleEditClick} />
+              <div className="Edit_icon" style={{position:"absolute",top:"10px",right:"20px"}}>
+                  <MdModeEdit style={{cursor:"pointer"}} size={18} color="blue" onClick={handleEditClick} />
                 </div>
-                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'1.5rem'} onClick={()=>handleDelete(blog.id)}/>}</div>        
+                <div className="flex justify-end" style={{display:'flex',justifyContent:"end",position:"absolute",top:"10px",right:"50px"}}>{<FaTrash style={{cursor:"pointer"}}  size={'1.5rem'} color="red" onClick={()=>handleDelete(blog.id)}/>}</div>        
               </>
               )}
-                 </div>
+                      <FaComment  onClick={()=>setIsModal(true)} style={{cursor:"pointer"}}  color="aqua" size={"2rem"}/>
+
              
               </div>
           </div>
-          <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
+          <div className="blog-content" style={{fontSize:"20px"}} dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
         </div>
       
     
