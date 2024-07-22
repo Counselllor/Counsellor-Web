@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import collegesData from '../Dashboard/colleges.json';
-import studentsData from './students.json';
-import './CollegePage.css';
+import React, { useState, useEffect, useCallback } from "react";
+import collegesData from "../Dashboard/colleges.json";
+import studentsData from "./students.json";
+import "./CollegePage.css";
 import { useParams, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.webp';
 import { signOut } from "firebase/auth";
 import Navbar from "../Navbar/Navbar";
 import { auth } from "../../firebase/auth";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 import ScrollToTop from "react-scroll-to-top";
-import {FaStar,FaStarHalf} from 'react-icons/fa6'
-import Footer from '../Footer/Footer';
+import { FaStar } from "react-icons/fa";
+import Footer from "../Footer/Footer";
+import { toast } from "react-toastify";
+import StudentDetailed from "./StudentDetailed"; // Import the detailed student component
 
 const CollegePage = () => {
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -24,48 +28,62 @@ const CollegePage = () => {
       if (user) {
         // handle user logged in state
       } else {
-
-          navigate('/');
-        
+        navigate("/");
       }
     });
   }, [navigate]);
-  const college = collegesData.find(college => college.id === parseInt(id));
-  useEffect(() => {
-    
-  });
 
+  const college = collegesData.find((college) => college.id === parseInt(id));
   if (!college) {
     return <div>College not found</div>;
   }
 
-  const [selectedCourse, setSelectedCourse] = useState('BTech');
-
-  const filteredStudents = studentsData.filter(student => student.course === selectedCourse && student.college === college.name);
-
+  const [selectedCourse, setSelectedCourse] = useState("BTech");
+  const filteredStudents = studentsData.filter(
+    (student) =>
+      student.course === selectedCourse && student.college === college.name
+  );
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
+        localStorage.removeItem("login");
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message, {
+          className: "toast-message",
+        });
       });
-  };
+  }, [navigate]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const imgArray=['/src/assets/9.png','/src/assets/11.png','/src/assets/8.png','/src/assets/10.png','/src/assets/element 6.png','/src/assets/element 7.png']
+  const imgArray = [
+    "/src/assets/9.png",
+    "/src/assets/11.png",
+    "/src/assets/8.png",
+    "/src/assets/10.png",
+    "/src/assets/element 6.png",
+    "/src/assets/element 7.png",
+  ];
+
+  const handleStudentClick = (student) => {
+    setSelectedStudent(student);
+  };
+
+  const handleBackClick = () => {
+    setSelectedStudent(null);
+  };
+
   return (
     <>
       <ScrollToTop color="white" style={{ backgroundColor: "#5CB6F9" }} />
       <Navbar />
-      {/* <div style={{height:"60px"}}></div> */}
       <div className="pagecoll">
         <div className="leftcoll">
           <div className="content">
@@ -85,16 +103,19 @@ const CollegePage = () => {
                     />
                   </div>
                   <div className="location-depthcoll">
-                    <p className="location-headingcoll abeezee-regular">Location</p>
+                    <p className="location-headingcoll abeezee-regular">
+                      Location
+                    </p>
                     <p className="location-text clipped-text1 abeezee-regular">
                       {college["exact-location"]}
                     </p>
                   </div>
                 </div>
                 <div className="ratingcoll">
-                  <div className='ratingcollstar'>
+                  <div className="ratingcollstar">
                     <FaStar />
-                    <FaStar /> <FaStar />
+                    <FaStar />
+                    <FaStar />
                     <FaStar />
                     <FaStar />
                   </div>
@@ -140,79 +161,63 @@ const CollegePage = () => {
             </select>
           </div>
 
-           {filteredStudents.map((student, index) => (
-            <div key={student.id} className="student-card">
+          {selectedStudent ? (
+            <StudentDetailed student={selectedStudent} onBackClick={handleBackClick} />
+          ) : (
+            filteredStudents.map((student, index) => (
               <div
-                style={{
-                  width: "20%",
-                  display: "flex",
-                  paddingLeft: "20px",
-                  alignitems: "center",
-                }}
+                className="student-card"
+                onClick={() => handleStudentClick(student)}
+                key={index}
               >
-                <img
-                  src={imgArray[index]}
-                  style={{ height: "80%", minHeight: "66px", maxWidth: "80%" }}
-                />
-              </div>
-              <div className="st">
-                <p
-                  className="abeezee-regular"
+                <div
                   style={{
-                    textAlign: "left",
-                    width: "50%",
-                    fontSize: "15px",
-                    marginBottom: "0px",
-                    marginTop: "10px",
-                    paddingLeft: "8px",
-                    backgroundColor: "rgba(255,255,255,0.3)",
-                    borderRadius: "15px",
+                    width: "20%",
+                    display: "flex",
+                    paddingLeft: "20px",
+                    alignItems: "center",
                   }}
                 >
-                  {student.name}
-                </p>
-                <div className="student-description">
-                  <p
-                    className="abeezee-regular"
+                  <img
+                    src={imgArray[index]}
                     style={{
-                      marginBottom: "0px",
-                      marginTop: "18px",
-                      fontSize: "15px",
-                      fontWeight: "600",
+                      height: "80%",
+                      minHeight: "66px",
+                      maxWidth: "80%",
                     }}
-                  >
-                    {student.course}
-                  </p>
-                  <p
-                    className="abeezee-regular"
-                    style={{
-                      marginBottom: "0px",
-                      marginTop: "18px",
-                      fontSize: "15px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    {student.branch}
-                  </p>
-                  <p
-                    className="abeezee-regular"
-                    style={{
-                      marginBottom: "0px",
-                      marginTop: "18px",
-                      fontSize: "15px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    {student.year}
-                  </p>
+                    alt=""
+                  />
                 </div>
-                <div className="lowercoll">
-                  <p className="position abeezee-regular">{student.position}</p>
-                  <p className="collago">3 min ago</p>
+                <div className="st">
+                  <p
+                    className="abeezee-regular"
+                    style={{
+                      textAlign: "left",
+                      width: "50%",
+                      fontSize: "20px",
+                      marginBottom: "0px",
+                      marginTop: "10px",
+                      paddingLeft: "10px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {student.name}
+                  </p>
+                  <p
+                    className="abeezee-regular"
+                    style={{
+                      textAlign: "left",
+                      width: "100%",
+                      fontSize: "14px",
+                      paddingLeft: "10px",
+                    }}
+                  >
+                    {student.position}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
       <Footer />

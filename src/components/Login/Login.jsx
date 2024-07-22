@@ -91,10 +91,14 @@ export default function Login() {
         const userData =  await fetchUserDataByEmail(user.email);
         
         localStorage.setItem("userUid", userData.id);
-        toast.success("Authenticating your credentials… 🚀",{
+
+        
+        toast.success("Authenticating your credentials… 🚀", {
           className: "toast-message",
         });
-        localStorage.setItem('count',true)
+        localStorage.setItem("login", true);
+        localStorage.setItem("count", true);
+
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);

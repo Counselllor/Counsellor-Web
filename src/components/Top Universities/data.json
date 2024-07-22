@@ -4,104 +4,119 @@
       "location": "Mumbai, Maharashtra, India",
       "ranking": 1,
       "website": "http://www.iitb.ac.in/",
-      "students": 10857
+      "students": 10857,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1z90pacNUqq2ODR-2dV6Ay2rrTbOang5QNaOtOe9QPQ&s"
     },
     {
       "name": "Indian Institute of Science (IISc)",
       "location": "Bangalore, Karnataka, India",
       "ranking": 2,
       "website": "https://www.iisc.ac.in/",
-      "students": 4000
+      "students": 4000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47pHOiIzvSptCBeCbbG0eh9N0qM4OM1kSYfJiFnhXgw&s"
     },
     {
       "name": "Indian Institute of Technology Delhi (IIT Delhi)",
       "location": "New Delhi, Delhi, India",
       "ranking": 3,
       "website": "https://home.iitd.ac.in/",
-      "students": 9416
+      "students": 9416,
+      "image": "https://home.iitd.ac.in/public/storage/uploads/itc_1651484470.jpg"
     },
     {
       "name": "Indian Institute of Technology Madras (IIT Madras)",
       "location": "Chennai, Tamil Nadu, India",
       "ranking": 4,
       "website": "https://www.iitm.ac.in/",
-      "students": 9377
+      "students": 9377,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAf7f1xc2jUNsoehzgZcXynM1JJ7kPaWvZXmH0JgOdQ&s"
     },
     {
       "name": "Indian Institute of Technology Kanpur (IIT Kanpur)",
       "location": "Kanpur, Uttar Pradesh, India",
       "ranking": 5,
       "website": "https://www.iitk.ac.in/",
-      "students": 8592
+      "students": 8592,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjxodn89r8sy0YqzoVi_39GieXlWdLjlWAQcOTaM2tQ&s"
     },
     {
       "name": "Indian Institute of Technology Kharagpur (IIT Kharagpur)",
       "location": "Kharagpur, West Bengal, India",
       "ranking": 6,
       "website": "http://www.iitkgp.ac.in/",
-      "students": 12740
+      "students": 12740,
+      "image": "https://collegeverse.co.in/wp-content/uploads/2023/10/manohar-manu-hNsYIjUeXJw-unsplash.jpg.webp"
     },
     {
       "name": "Indian Institute of Technology Roorkee (IIT Roorkee)",
       "location": "Roorkee, Uttarakhand, India",
       "ranking": 7,
       "website": "https://www.iitr.ac.in/",
-      "students": 8750
+      "students": 8750,
+      "image": "https://www.iitr.ac.in/assets/56f4da26ed956730309fa1488611ee0f13b0ac95ebb1bc9b5d210e31ff70e79c_IITR12.jpg"
     },
     {
       "name": "Indian Institute of Technology Guwahati (IIT Guwahati)",
       "location": "Guwahati, Assam, India",
       "ranking": 8,
       "website": "http://www.iitg.ac.in/",
-      "students": 7000
+      "students": 7000,
+      "image": "https://images.indianexpress.com/2024/03/IIT-Guwahati.jpg"
     },
     {
       "name": "Jawaharlal Nehru University (JNU)",
       "location": "New Delhi, Delhi, India",
       "ranking": 9,
       "website": "https://www.jnu.ac.in/",
-      "students": 8000
+      "students": 8000,
+      "image": "https://images.shiksha.com/mediadata/images/articles/1677834266phpNc89ff.jpeg"
     },
     {
       "name": "University of Delhi",
       "location": "New Delhi, Delhi, India",
       "ranking": 10,
       "website": "http://www.du.ac.in/",
-      "students": 132000
+      "students": 132000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjdk2Tte9WSwy7KyVYvtx1oGEkLA5RCZ8vZljO0cSVoQ&s"
     },
     {
       "name": "Banaras Hindu University (BHU)",
       "location": "Varanasi, Uttar Pradesh, India",
       "ranking": 11,
       "website": "https://www.bhu.ac.in/",
-      "students": 30000
+      "students": 30000,
+      "image": "https://cdn.siasat.com/wp-content/uploads/2020/09/download-21.jpg"
     },
     {
       "name": "Indian Institute of Technology Hyderabad (IIT Hyderabad)",
       "location": "Hyderabad, Telangana, India",
       "ranking": 12,
       "website": "https://www.iith.ac.in/",
-      "students": 3000
+      "students": 3000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3c8nAu1A1UkF7fChjC3t8DbuyOigJY-72m6y6A1bZeQ&s"
     },
     {
       "name": "Indian Institute of Technology Indore (IIT Indore)",
       "location": "Indore, Madhya Pradesh, India",
       "ranking": 13,
       "website": "https://www.iiti.ac.in/",
-      "students": 2000
+      "students": 2000,
+      "image": "https://images.shiksha.com/mediadata/images/1488192890phpGsZUQl.png"
     },
     {
       "name": "Indian Institute of Technology Bhubaneswar (IIT Bhubaneswar)",
       "location": "Bhubaneswar, Odisha, India",
       "ranking": 14,
       "website": "https://www.iitbbs.ac.in/",
-      "students": 3000
+      "students": 3000,
+      "image": "https://images.news18.com/ibnlive/uploads/2021/11/iit-bhubaneshwar-16365232764x3.jpg"
     },
     {
       "name": "Indian Institute of Technology (Indian School of Mines) Dhanbad",
       "location": "Dhanbad, Jharkhand, India",
       "ranking": 15,
       "website": "https://www.iitism.ac.in/",
-      "students": 8000
+      "students": 8000,
+      "image": "https://images.indianexpress.com/2023/09/IIT-Dhanbad.jpg"
     }
   ]
