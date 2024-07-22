@@ -244,6 +244,15 @@ margin-top: 80px;
 .click-btn1:hover {
   outline: 0;
 }
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  min-width: 200px;
+  right: 0;
+  width: 22vw;
+  padding: 10px;
+}
 .blogwrite{
   background-color: rgb(5, 6, 45);
   border-radius: 6px;

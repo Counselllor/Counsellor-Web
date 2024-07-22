@@ -9,7 +9,9 @@ import { Switch } from 'antd';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
 import './BlogWrite.css'; // Import the new CSS file
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ThemeContext } from '../../App';
 import Navbar from '../Navbar/Navbar';
 
@@ -93,7 +95,18 @@ const BlogWrite = () => {
       console.error('User not found');
       return;
     }
-    if(title.length>80 || tags.split(',').length>6){
+    if(title.length>80){
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
+      return 
+    }
+    if( tags.split(',').length>6){
+      toast.error("Tags length should Not be Greater then 6!! 🚀",{
+        className: "toast-message",
+      });
+      // toast.error("sdsdsd")
       return 
     }
     const articleId = generateUUID();
@@ -107,6 +120,8 @@ const BlogWrite = () => {
       likeCount:0,
       createdAt: new Date().toISOString(),
     };
+    console.log('sdsdsd')
+    localStorage.setItem("newblog",true)
 
     try {
       const db = getDatabase();
@@ -114,9 +129,7 @@ const BlogWrite = () => {
       await update(ref(db, 'users/' + userId), {
         articleCreated: (user.articleCreated ? user.articleCreated + ',' : '') + articleId,
       });
-      toast.success("Blog Created Successfully!! 🚀",{
-        className: "toast-message",
-      });
+   
       navigate('/blogs');
     } catch (error) {
      toast.error(error,{
@@ -132,6 +145,7 @@ const BlogWrite = () => {
   return (
     <>
        <Navbar/>
+       <ToastContainer />
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>

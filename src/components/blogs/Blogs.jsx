@@ -6,7 +6,8 @@ import { getDatabase, ref, get } from 'firebase/database';
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import Navbar from "../Navbar/Navbar";
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Blogs = () => {
   const [isLoggedIn, setLogin] = useState(false);
   const [ids, setIds] = useState({});
@@ -77,10 +78,18 @@ const Blogs = () => {
     tempDiv.innerHTML = cleanHtml;
     return tempDiv.textContent || tempDiv.innerText || "";
   };
-
+useEffect(()=>{
+  if(localStorage.getItem('newblog')){
+    toast.success("Blog Created Successfully!! 🚀",{
+      className: "toast-message",
+    });
+    localStorage.removeItem('newblog')
+  }
+},[])
   return (
     <>
       <Navbar />
+      <ToastContainer/>
       <div className="blogs-container">
         <header className="blogs-header">
           <h1>Our Latest Blogs</h1>
