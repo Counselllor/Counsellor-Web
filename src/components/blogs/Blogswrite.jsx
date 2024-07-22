@@ -141,7 +141,30 @@ const BlogWrite = () => {
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
+function checkLength(e){
+  console.log(e.target)
+  let length=title.length
+  let temp=e.target.value
+  console.log(length,temp.length)
+  if(temp.length<length){
+    setTitle(e.target.value)
+  }
+  if(title.length+1<=80){
+    setTitle(e.target.value)
+  }else{
+    if(!localStorage.getItem("showed")){
 
+      localStorage.setItem("showed",true)
+      toast.error("Title Length Should not be greater than 80!! 🚀",{
+        className: "toast-message",
+      });
+      setTimeout(()=>{
+  localStorage.removeItem('showed')
+      },6000)
+    }
+  }
+
+}
   return (
     <>
        <Navbar/>
@@ -156,7 +179,7 @@ const BlogWrite = () => {
             id="title" 
             placeholder='Enter Blog Title'
             value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
+            onChange={checkLength}
             required 
           />
         </div>
