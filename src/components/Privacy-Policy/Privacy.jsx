@@ -3,7 +3,7 @@ import "./Privacy.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-
+import img from "./img.png"
 
 const Breadcrumb = () => {
   return (
@@ -39,10 +39,40 @@ const Privacy = () => {
 
       <div className="privacy-policy-container">
         <Breadcrumb />
-        <div className="privacy-policy-content">
-          <h1>Privacy Policy</h1>
+        <div className="privacy-policy-sidebar" style={{
+    }} >
+    <h2 style={{ textAlign: 'center',fontSize:'2.5rem' }}>Table of Contents</h2>
+    <ul style={
+      {
+       padding:'25px' 
+      }
+    } >
+    <li style={{ textAlign:'center',fontSize:'1.5rem' }}><a href="#interpretation-and-definitions">Interpretation</a></li>
+    <li style={{ textAlign:'center',fontSize:'1.5rem' }}><a href="#collecting-and-using-your-personal-data">Information Collected</a>    </li>
+    <li style={{ textAlign:'center',fontSize:'1.5rem' }}><a href="#cookies">Cookies and Others</a>    </li>
+    <li style={{ textAlign:'center',fontSize:'1.5rem' }}><a href="#disclaimer">Disclaimer</a></li>
+    <li style={{ textAlign:'center',fontSize:'1.5rem' }}><a href="#contact_us">Contact Us</a></li>
+</ul>
+  </div>
+
+  <div className="privacy-policy-content" style={{
+          
+        }} >
+          <h1 style={{
+            fontSize:'40px'
+          }} >Privacy Policy</h1>
           <p className="date">
-            Last updated: <span style={{ color: "blue" }}>{lastUpdatedDate}</span>
+            Last updated:<span style={{ color: "blue" }}>22/07/2024</span>
+          </p>
+          <p>
+            This Privacy Policy describes Our policies and procedures on the
+            collection, use, and disclosure of Your information when You use the
+            Service and tells You about Your privacy rights and how the law
+            protects You.</p>
+            <p>
+            At Counsellor Portal, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal data.
+In addition to this Privacy Policy, we provide data and privacy information embedded in our services and certain features that ask to use your personal data.
+            {/* Last updated: <span style={{ color: "blue" }}>{lastUpdatedDate}</span> */}
           </p>
           <p>
             This Privacy Policy describes our policies and procedures on the
@@ -50,7 +80,18 @@ const Privacy = () => {
             service and tells you about your privacy rights and how the law
             protects you.
           </p>
-          <h2 className="title">Interpretation and Definitions</h2>
+      <img src={img} alt="" style={{
+       display: 'block',
+       margin: '0 auto'
+      }} />
+          <p>In addition to this Privacy Policy, we offer in-product guidance on data and privacy practices. Certain features that request access to your personal data are accompanied by our Data & Privacy Icon, providing you with transparent and contextual information about how your data will be used.</p>
+          <p>
+          You can familiarize yourself with our privacy practices, accessible via the headings below, and <a href="/contact">contact us</a> if you have any questions.</p>
+          <a href="/src/components/Privacy-Policy/Privacy Policy.pdf" download="PrivacyPolicy.pdf" style={{
+            fontSize:'20px',textAlign:'center',margin:'20px auto',display:'block'
+          }} >Download Privacy Policy PDF</a>
+
+          <h2 className="title" id="interpretation-and-definitions"  >Interpretation and Definitions</h2>
           <h3 className="sub-title">Interpretation</h3>
           <p>
             The words of which the initial letter is capitalized have meanings
@@ -88,7 +129,11 @@ const Privacy = () => {
               an identified or identifiable individual.
             </li>
           </ul>
-          <h2 className="title">Collecting and Using Your Personal Data</h2>
+         
+          <h2 className="title" id="collecting-and-using-your-personal-data" style={{
+            marginBottom:'30px'
+          }} >Information Collected</h2>
+
           <h3 className="sub-title">Types of Data Collected</h3>
           <h4 className="sub-title">Personal Data</h4>
           <p>
@@ -103,6 +148,66 @@ const Privacy = () => {
             <li>Phone number</li>
             <li>Address, State, Province, ZIP/Postal code, City</li>
           </ul>
+          <h4 className="sub-title">Information Collection and Use</h4>
+         <ul className="information">
+            <li>Usage Data: Information about how you use our website and services, including IP addresses, browser types, and browsing activities.            </li>
+<li>Cookies and Tracking Technologies: We use cookies and similar technologies to enhance your experience on our website.</li>
+            <li>          Personal Information: Information you provide when creating an account, such as your name, email address, and contact details.
+            </li>
+          </ul>
+          <h4 className="sub-title">Data Sharing and Disclosure</h4>
+   <ul className="data">
+    <li>Service Providers: Third-party companies that perform services on our behalf, such as hosting, data analysis, and customer service.</li>
+    <li>Legal Obligations: When required by law or to protect our rights and interests.</li>
+    <li>Business Transfers: In connection with a merger, sale, or reorganization of our business.</li>
+    </ul>       
+    <h2 className="title" id="cookies" style={{
+            marginBottom:'30px'
+          }} >Cookies and Others</h2>
+<p>Do you share my personal data with third parties? <br />We may share your personal data with third parties, such as job boards, career resources, or educational institutions, but only with your consent and as per our privacy policy. </p>
+  <h4 className="sub-title">
+  How Information Is Used
+  </h4>
+  <p  >At Counselor Portal, we are committed to safeguarding your personal information. We collect and use personal information only for lawful purposes connected with our services. The information we collect is essential for the following purposes: </p>
+ <ul>
+  <li>Authentication
+We use your personal information to authenticate your identity. This helps us ensure that you can easily access and use the services provided by Counselor Portal and our affiliated partners.</li>
+
+
+<li>Candidate Engagement Tracking
+We track your engagement to better understand how you interact with our services. This helps us improve our offerings and provide you with a more personalized experience.
+</li>
+<li>Service Provision
+Your information allows us to provide you with the services you explicitly request. It also helps us resolve any disputes or troubleshoot concerns you may have.
+</li>
+
+<li>Informational Updates
+We use your information to keep you informed about relevant processes, including admissions, vocational training programs, and scholarships.</li>
+</ul>
+<h2 className="title" id="protectingminordata"  >Protecting Minors' Personal Data</h2>
+<p>At the Career Counselor Portal, we recognize the importance of safeguarding the personal data of minors, which we consider to be individuals under the age of 13 or the equivalent age as specified by law in your jurisdiction. To ensure the protection of minors' personal data, we have implemented additional processes and protections.</p>
+   <ul> <li>Creating a Minor's Account : To access certain features on the Career Counselor Portal, a minor must have a minor account. A minor account may be created by the parent or, in the case of a student account, by the minor's educational institution.</li>    
+    <li>Parental Consent : To create a minor account, parents must review the Minor Privacy Disclosure, which describes how the Career Counselor Portal handles minors' personal data. If they agree, the parent must provide the Career Counselor Portal with a verifiable parental consent.</li>    
+      <li>Educational Institutions : Educational institutions that participate in the Career Counselor Portal's programs may also create accounts for students. These schools are required to agree to the Managed Accounts for Students Disclosure, which is included as part of the Career Counselor Portal's agreement with the institution.</li>  
+      </ul>
+<h2 className="title" id="disclaimer"  >Disclaimer</h2>
+<p>The Career Counselor Portal's website is intended for informational purposes only, and all content, data, and images are the sole property of the portal. Users are not permitted to copy, reproduce, or distribute any part of the platform or its content without the portal's express written consent. Failure to comply may result in legal action.
+
+While the portal strives to provide accurate and up-to-date information, users are advised to verify the accuracy of the information with the portal's office if they have any doubts. The portal is not liable for any damages or losses resulting from the use of the website, including indirect, incidental, special, consequential, or punitive damages.
+
+The portal is not responsible for any conduct or content of third-party users, including defamatory, offensive, or illegal conduct. Additionally, the portal is not liable for any unauthorized access, use, or alteration of user content or information.
+
+The portal makes every effort to keep the website running smoothly, but it is not responsible for any technical issues that may cause the website to be temporarily unavailable. The portal may also suspend or restrict access to the website at any time without prior notice to perform repairs, maintenance, or introduce new facilities or services.
+
+The portal provides links to external websites of colleges, scholarships, and entrance exam providers, but it is not responsible for the content or accuracy of the information provided by these affiliates. Users should verify the information on their own and not solely rely on the portal for career guidance.
+
+Any career decisions made by users are voluntary and at their sole discretion. The portal holds no responsibility for any career decisions made based on the information obtained from the platform. Users acknowledge and agree that the disclaimers and limitations of liability set forth in this document reflect a reasonable and fair allocation of risk between the user and the portal.</p>
+   
+
+    
+
+     
+
 
           <h3 className="sub-title">Usage of Your Personal Data</h3>
           <p>The Company may use Personal Data for the following purposes:</p>
@@ -114,14 +219,24 @@ const Privacy = () => {
             <li><strong>To provide You</strong> with news, special offers </li>
            </ul>
 
-           <h3 className="sub-title">Contact Us</h3>
-          <p>
-          If you have any questions or comments about this policy, you may email us at <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a>
-          </p>
+           <h2 className="title" id="contact_us">Contact Us</h2>
+          <p>If you have any questions or concerns regarding the above statement,
+please contact:</p>
+<ul>
+  <li>Email : <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a></li>
+  <li>Phone no : 908XXXXXXX</li>
+  <li>Address : Abc......</li>
+</ul>
+   <p>Alternatively, you can use the contact form available on our website. 👉 <a href="/contact">contact us</a> </p>
+   
+
+
+   </div>
+
       </div>
       </div>
 
-    </div>
+
           <Footer />
           </>
   );
