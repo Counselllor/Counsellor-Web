@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import collegesData from "../Dashboard/colleges.json";
 import studentsData from "./students.json";
 import "./CollegePage.css";
-import { useParams, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/logo.webp';
+import { useParams, useNavigate, Link } from "react-router-dom";
+import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import Navbar from "../Navbar/Navbar";
 import { auth } from "../../firebase/auth";
@@ -12,7 +12,6 @@ import ScrollToTop from "react-scroll-to-top";
 import { FaStar } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import { toast } from "react-toastify";
-import StudentDetailed from "./StudentDetailed"; // Import the detailed student component
 
 const CollegePage = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -161,10 +160,8 @@ const CollegePage = () => {
             </select>
           </div>
 
-          {selectedStudent ? (
-            <StudentDetailed student={selectedStudent} onBackClick={handleBackClick} />
-          ) : (
-            filteredStudents.map((student, index) => (
+          {filteredStudents.map((student, index) => (
+            <Link to={`/student/${student.id}/${student.name}/achievements`} style={{textDecoration: "none", color: "inherit"}}>
               <div
                 className="student-card"
                 onClick={() => handleStudentClick(student)}
@@ -216,8 +213,8 @@ const CollegePage = () => {
                   </p>
                 </div>
               </div>
-            ))
-          )}
+            </Link>
+          ))}
         </div>
       </div>
       <Footer />
