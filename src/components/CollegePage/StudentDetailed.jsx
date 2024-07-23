@@ -47,7 +47,7 @@ const StudentDetailed = ({ student, onBackClick }) => {
           <Link
             className="link"
             to={`/student/${student.id}/${student.name}/achievements`}
-            style={{textDecoration: "none", color: "black"}}
+            style={{ textDecoration: "none", color: "black" }}
           >
             <div className="card-content">
               <i className="fas fa-trophy fa-2x"></i>
@@ -56,10 +56,16 @@ const StudentDetailed = ({ student, onBackClick }) => {
           </Link>
         </div>
         <div className="card2">
-          <div className="card-content">
-            <i className="fas fa-book fa-2x"></i>
-            <h1 className="card-title">Tech Stack Names</h1>
-          </div>
+          <Link
+            className="link"
+            to={`/student/${student.id}/${student.name}/tech-stack`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <div className="card-content">
+              <i className="fas fa-book fa-2x"></i>
+              <h1 className="card-title">Tech Stack Names</h1>
+            </div>
+          </Link>
         </div>
         <div className="card3">
           <div className="card-content">
