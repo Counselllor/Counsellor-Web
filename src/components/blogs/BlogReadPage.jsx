@@ -274,7 +274,7 @@ const BlogReadPage = () => {
           <div className="blog-header">
             <h1 className="blog-title">{blog.title}</h1>
             <div className="blog-meta">
-              <img src={randomAvatar} alt="Author Avatar" className="author-avatar" />
+              <img src={blog.pic ? blog.pic :(blog.avatar ? blog.avatar : randomAvatar)} alt="Author Avatar" className="author-avatar" />
               <div className="meta-info">
                 <p className="author-name">{blog.author}</p>
                 <p className="blog-date">{moment(blog.createdAt).fromNow()}</p>
