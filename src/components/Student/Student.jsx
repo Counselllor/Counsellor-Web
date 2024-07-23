@@ -2,6 +2,7 @@ import React from "react";
 import StudentLayout from "./StudentLayout";
 import { useParams } from "react-router-dom";
 import Achievements from "./Achievements";
+import TechStack from "./TechStack";
 
 const Student = () => {
   const { title } = useParams();
@@ -10,6 +11,7 @@ const Student = () => {
     <StudentLayout>
       {/* ahceivements page route /acheivements */}
       {title == "achievements" && <Achievements />}
+      {title == "tech-stack" && <TechStack />}
     </StudentLayout>
   );
 };
