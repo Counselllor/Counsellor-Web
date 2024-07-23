@@ -39,6 +39,7 @@ const Privacy = () => {
 
       <div className="privacy-policy-container">
         <Breadcrumb />
+        <div className="privacy-policy-box">
         <div className="privacy-policy-content">
           <h1>Privacy Policy</h1>
           <p className="date">
@@ -50,6 +51,14 @@ const Privacy = () => {
             service and tells you about your privacy rights and how the law
             protects you.
           </p>
+          <img src="/src/components/Privacy-Policy/private-policy.png" alt="" />
+
+          <p >
+            
+  <a  style={{
+            textDecoration:'none',fontSize:'20px'
+          }}     href="/src/components/Privacy-Policy/Privacy Policy.pdf" download="Privacy Policy.pdf">Download a copy of this Privacy Policy (PDF)</a>
+</p>
           <h2 className="title">Interpretation and Definitions</h2>
           <h3 className="sub-title">Interpretation</h3>
           <p>
@@ -114,13 +123,20 @@ const Privacy = () => {
             <li><strong>To provide You</strong> with news, special offers </li>
            </ul>
 
-           <h3 className="sub-title">Contact Us</h3>
-          <p>
-          If you have any questions or comments about this policy, you may email us at <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a>
-          </p>
-      </div>
-      </div>
 
+          <div class="contact-box">
+  <h2>Contact Us</h2>
+  <i style={{
+    fontSize:'35px',margin:'20px',color:'blue'
+  }} className="fas fa-envelope-open"></i>
+  <p>If you have any questions or comments about this policy, you may email us at:</p>
+  <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a>
+  <p>You can contact us by filling this form</p>
+  <a href="/contact">Contact Us</a>
+</div>
+      </div>
+      </div>
+</div>
     </div>
           <Footer />
           </>
