@@ -1,8 +1,11 @@
 .blog-read-page_container{
     width: 100%;
- 
+    min-height: 69vh;
     background: linear-gradient(135deg, #4375ff, #80ccff);
    padding: 50px 20px;
+}
+#dark .blog-read-page_container{
+  background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
 }
   .blog-read-page {
     max-width: 800px;
@@ -11,12 +14,15 @@
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+   
   }
-  
+  #dark .blog-read-page{
+    background-color: #2d2d2d;
+  }
   .blog-header {
     margin-bottom: 20px;
     margin-bottom: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.222);
   }
   
@@ -56,11 +62,96 @@
     color: #777777;
     text-align: justify;
   }
-  
+  .share-icon {
+    min-width: 50px;
+    cursor: pointer;
+  }
+  .share-button-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+   
+  }
+  .share-button-icons span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    cursor: pointer;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .close-button{
+   width: 80px;
+   margin-top: 20px !important;
+    cursor: pointer;
+    margin: auto;
+    background-color: rgb(29, 97, 223);
+  color: white  ;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+  }
+  .blog_share_con{
+    margin-top: 20px;
+  }
+  .blog_share_title{
+    font-size: 2rem;
+    font-weight: 600;
+    display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  .blog_share_summ{
+    font-size: 1.5rem;
+    font-weight: 400;
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+.right_blog_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
   .blog-content {
     line-height: 1.6;
+    margin-top: 20px;
+    text-align: justify;
   }
-  
+  #dark .blog-content *{
+    color: white;
+  }
+  .Edit_icon{
+    text-align: end;
+  }
+  #dark .Edit_icon{
+    color: white;
+  }
+  .icons_blog_read{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+  }
+  .like_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .like_icon p{
+    font-size: 12px;
+  }
+  .blog-content *{
+   max-width: 100%;
+  }
   .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
     margin-top: 1.5em;
     margin-bottom: 0.5em;
