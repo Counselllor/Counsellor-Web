@@ -31,7 +31,8 @@ import University from "./components/Top Universities/University";
 import BlogEditPage from "./components/blogs/BlogEditPage";
 import StudentLayout from "./components/Student/StudentLayout";
 import Achievements from "./components/Student/Achievements";
-import StudentDefault from "./components/Student/StudentDefault"; // Your default student component
+import StudentDefault from "./components/Student/StudentDefault"; 
+import TechStack from "./components/Student/TechStack"; 
 
 const router = createBrowserRouter([
   {
@@ -135,6 +136,10 @@ const router = createBrowserRouter([
           {
             path: "achievements",
             element: <Achievements />,
+          },
+          {
+            path: "tech-stack",
+            element: <TechStack />,
           },
         ],
       },
