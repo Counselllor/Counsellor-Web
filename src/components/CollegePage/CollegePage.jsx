@@ -161,7 +161,10 @@ const CollegePage = () => {
           </div>
 
           {filteredStudents.map((student, index) => (
-            <Link to={`/student/${student.id}/${student.name}/achievements`} style={{textDecoration: "none", color: "inherit"}}>
+            <Link
+              to={`/student/${student.id}/${student.name}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <div
                 className="student-card"
                 onClick={() => handleStudentClick(student)}

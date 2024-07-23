@@ -1,11 +1,12 @@
+// StudentLayout.jsx
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import StudentData from "../CollegePage/students.json";
 import "./Student.css"; // Import external CSS
 
-const StudentLayout = ({ children }) => {
+const StudentLayout = () => {
   const { id } = useParams();
   const student = StudentData.find((student) => student.id === parseInt(id));
 
@@ -51,22 +52,23 @@ const StudentLayout = ({ children }) => {
             </div>
           </div>
           <div className="student-details-content">
-            {/* nav part 2 */}
             <div className="nav">
-              <Link to={""} className="student-link">
+              <Link to="achievements" className="student-link">
                 Achievements
               </Link>
-              <Link to={`/student/${student.id}/${student.name}/tech-stack`} className="student-link">
+              <Link to="tech-stack" className="student-link">
                 Tech Stack
               </Link>
-              <Link to={"/"} className="student-link">
+              <Link to="social-links" className="student-link">
                 Social Links
               </Link>
-              <Link to={"/"} className="student-link">
+              <Link to="available-slots" className="student-link">
                 Available Slots
               </Link>
             </div>
-            <div className="children-container">{children}</div>
+            <div className="children-container">
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>
