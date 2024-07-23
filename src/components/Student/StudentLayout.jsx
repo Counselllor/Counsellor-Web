@@ -53,10 +53,10 @@ const StudentLayout = ({ children }) => {
           <div className="student-details-content">
             {/* nav part 2 */}
             <div className="nav">
-              <Link to={"/"} className="student-link">
+              <Link to={""} className="student-link">
                 Achievements
               </Link>
-              <Link to={"/"} className="student-link">
+              <Link to={`/student/${student.id}/${student.name}/tech-stack`} className="student-link">
                 Tech Stack
               </Link>
               <Link to={"/"} className="student-link">
