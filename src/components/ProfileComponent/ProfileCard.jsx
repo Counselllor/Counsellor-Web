@@ -11,7 +11,9 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
+  deleteObject,
 } from "firebase/storage";
+import { auth } from "../../firebase/auth";
 import { useSelector } from "react-redux";
 
 const ProfileCard = () => {
@@ -92,22 +94,51 @@ const ProfileCard = () => {
       academicYear,
       avatar,
       skills: selectedSkills.join(","),
+      profilePic: profilePic || userInfo.profilePic, // Ensure profilePic is included
     };
-    if (profilePic) {
-      updates.profilePic = profilePic;
-    }
+    
     await update(userRef, updates);
+  
+    // Update user details in articles
+    await updateArticles(userUid, updates);
+  
     localStorage.setItem("name", name);
     localStorage.setItem("dob", dob);
     localStorage.setItem("academicYear", academicYear);
     localStorage.setItem("avatar", avatar);
     localStorage.setItem("skills", JSON.stringify(selectedSkills));
+    localStorage.setItem("profilePic", updates.profilePic); // Save profilePic to localStorage
     if (resumeFile) {
       localStorage.setItem("resumeFile", resumeFile);
     }
     setIsEditing(false);
   };
-
+  
+  // New function to update user details in articles
+  const updateArticles = async (userId, userUpdates) => {
+    // Get a reference to the articles node in the database
+    const articlesRef = ref(database, 'articles');
+    
+    // Fetch all articles
+    const snapshot = await get(articlesRef);
+    
+    if (snapshot.exists()) {
+      const articles = snapshot.val();
+      
+      // Iterate through articles and update those created by the user
+      for (const articleId in articles) {
+        if (articles[articleId].authorId === userId) {
+          const articleRef = ref(database, `articles/${articleId}`);
+          const articleUpdates = {
+            author: `${userUpdates.firstname} ${userUpdates.surname}`,
+            avatar: userUpdates.avatar,
+            pic: userUpdates.profilePic,
+          };
+          await update(articleRef, articleUpdates);
+        }
+      }
+    }
+  };
   const handleAvatarChange = (newAvatar) => {
     setAvatar(newAvatar);
   };
@@ -127,26 +158,34 @@ const ProfileCard = () => {
   const handleProfilePicUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Delete the previous profile picture if it exists
-      if (profilePic) {
-        const previousRef = storageRef(storage, profilePic);
-        await deleteObject(previousRef).catch((error) => {
-          console.error("Error deleting previous profile picture:", error);
-        });
-      }
-      // Upload the new profile picture
-      const fileExtension = file.name.split(".").pop();
-      const newStorageRef = storageRef(
-        storage,
-        `profilepics/${userUid}.${fileExtension}`
-      );
-      await uploadBytes(newStorageRef, file);
-      const downloadURL = await getDownloadURL(newStorageRef);
 
-      setProfilePic(downloadURL);
-      localStorage.setItem("profilePic", downloadURL);
+        const user = auth.currentUser;
+        const userUid = user.uid; // Ensure user is authenticated
+
+        if (userUid) {
+            try {
+                // Delete the previous profile picture if it exists
+                if (profilePic) {
+                    const previousRef = storageRef(storage, profilePic);
+                    await deleteObject(previousRef);
+                }
+
+                // Upload the new profile picture
+                const fileExtension = file.name.split(".").pop();
+                const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
+                await uploadBytes(newStorageRef, file);
+                const downloadURL = await getDownloadURL(newStorageRef);
+
+                setProfilePic(downloadURL);
+                localStorage.setItem("profilePic", downloadURL);
+            } catch (error) {
+                console.error("Error handling profile picture upload:", error);
+            }
+        } else {
+            console.error("User is not authenticated");
+        }
     }
-  };
+};
 
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
@@ -298,7 +337,7 @@ const ProfileCard = () => {
           <i className="bx bxs-edit" onClick={handleEdit}></i>
           <img
             src={profilePic ? profilePic : avatar}
-            alt="Profile"
+            
             className="profile-image"
           />
           <h3>{name}</h3>
