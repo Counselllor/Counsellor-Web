@@ -15,6 +15,7 @@ import {
 } from "firebase/storage";
 import { auth } from "../../firebase/auth";
 import { useSelector } from "react-redux";
+import { compressAndResizeImage } from "../../common/compressAndResizeImage";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -84,7 +85,6 @@ const ProfileCard = () => {
   const handleEdit = () => {
     setIsEditing(true);
   };
-
   const handleSave = async () => {
     const userRef = ref(database, `users/${userUid}`);
     const updates = {
@@ -94,26 +94,34 @@ const ProfileCard = () => {
       academicYear,
       avatar,
       skills: selectedSkills.join(","),
-      profilePic: profilePic || userInfo.profilePic, // Ensure profilePic is included
+      profilePic: profilePic, // Ensure profilePic is included
     };
-    
-    await update(userRef, updates);
   
-    // Update user details in articles
-    await updateArticles(userUid, updates);
+    try {
+      // Update user's profile
+      await update(userRef, updates);
   
-    localStorage.setItem("name", name);
-    localStorage.setItem("dob", dob);
-    localStorage.setItem("academicYear", academicYear);
-    localStorage.setItem("avatar", avatar);
-    localStorage.setItem("skills", JSON.stringify(selectedSkills));
-    localStorage.setItem("profilePic", updates.profilePic); // Save profilePic to localStorage
-    if (resumeFile) {
-      localStorage.setItem("resumeFile", resumeFile);
+      // Update articles with new profile details
+      await updateArticles(userUid, updates);
+  
+      // Save to local storage
+      localStorage.setItem("name", name);
+      localStorage.setItem("dob", dob);
+      localStorage.setItem("academicYear", academicYear);
+      localStorage.setItem("avatar", avatar);
+      localStorage.setItem("skills", JSON.stringify(selectedSkills));
+      localStorage.setItem("profilePic", updates.profilePic); // Save profilePic to localStorage
+      if (resumeFile) {
+        localStorage.setItem("resumeFile", resumeFile);
+      }
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error saving user data:", error);
     }
-    setIsEditing(false);
   };
   
+
+
   // New function to update user details in articles
   const updateArticles = async (userId, userUpdates) => {
     // Get a reference to the articles node in the database
@@ -127,12 +135,13 @@ const ProfileCard = () => {
       
       // Iterate through articles and update those created by the user
       for (const articleId in articles) {
-        if (articles[articleId].authorId === userId) {
+        if (articles[articleId].createdBy === userId) {
+          console.log("Updating..")
           const articleRef = ref(database, `articles/${articleId}`);
           const articleUpdates = {
-            author: `${userUpdates.firstname} ${userUpdates.surname}`,
-            avatar: userUpdates.avatar,
-            pic: userUpdates.profilePic,
+            author: `${userUpdates?.firstname} ${userUpdates?.surname}`,
+            avatar: userUpdates?.avatar,
+            pic: userUpdates?.profilePic,
           };
           await update(articleRef, articleUpdates);
         }
@@ -158,34 +167,107 @@ const ProfileCard = () => {
   const handleProfilePicUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
-
-        const user = auth.currentUser;
-        const userUid = user.uid; // Ensure user is authenticated
-
-        if (userUid) {
+      const user = auth.currentUser;
+      const userUid = user?.uid; // Ensure user is authenticated
+  
+      if (userUid) {
+        try {
+          // Check file size
+          const maxSize = 100 * 1024; // 100KB
+          let fileBlob = file;
+          
+          // Convert file to data URL
+          const reader = new FileReader();
+          reader.onload = async () => {
             try {
-                // Delete the previous profile picture if it exists
-                if (profilePic) {
-                    const previousRef = storageRef(storage, profilePic);
-                    await deleteObject(previousRef);
-                }
-
-                // Upload the new profile picture
-                const fileExtension = file.name.split(".").pop();
-                const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
-                await uploadBytes(newStorageRef, file);
-                const downloadURL = await getDownloadURL(newStorageRef);
-
-                setProfilePic(downloadURL);
-                localStorage.setItem("profilePic", downloadURL);
+              let uploadBlob;
+  
+              if (fileBlob.size > maxSize) {
+                // Compress and resize image
+                uploadBlob = await compressAndResizeImage(reader.result, maxSize);
+              } else {
+                // Use original file if it's under the size limit
+                uploadBlob = fileBlob;
+              }
+  
+              // Delete the previous profile picture if it exists
+              if (profilePic) {
+                const previousRef = storageRef(storage, profilePic);
+                await deleteObject(previousRef);
+              }
+  
+              // Upload the new profile picture
+              const fileExtension = file.name.split(".").pop();
+              const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
+              await uploadBytes(newStorageRef, uploadBlob);
+              const downloadURL = await getDownloadURL(newStorageRef);
+  
+              // Set profile pic and save to local storage
+              setProfilePic(downloadURL);
+              localStorage.setItem("profilePic", downloadURL);
+  
+              // Update profile picture in user's profile
+              await updateUserProfilePic(downloadURL);
             } catch (error) {
-                console.error("Error handling profile picture upload:", error);
+              console.error("Error compressing and uploading profile picture:", error);
             }
-        } else {
-            console.error("User is not authenticated");
+          };
+          reader.readAsDataURL(file);
+        } catch (error) {
+          console.error("Error handling profile picture upload:", error);
         }
+      } else {
+        console.error("User is not authenticated");
+      }
     }
-};
+  };
+  const updateUserProfilePic = async (profilePicUrl) => {
+    const userRef = ref(database, `users/${userUid}`);
+    const updates = {
+      profilePic: profilePicUrl,
+    };
+    const articleupdates = {
+      profilePic: profilePicUrl,
+    };
+  
+    try {
+      // Update user's profile
+      await update(userRef, updates);
+  
+      // Update articles with new profile picture
+      await updateArticlespic(userUid, articleupdates);
+    } catch (error) {
+      console.error("Error updating profile picture in user data:", error);
+    }
+  };
+
+  //Updates Article pics
+
+  const updateArticlespic = async (userId, userUpdates) => {
+    // Get a reference to the articles node in the database
+    const articlesRef = ref(database, 'articles');
+    
+    // Fetch all articles
+    const snapshot = await get(articlesRef);
+    
+    if (snapshot.exists()) {
+      const articles = snapshot.val();
+      
+      // Iterate through articles and update those created by the user
+      for (const articleId in articles) {
+        if (articles[articleId].createdBy === userId) {
+          console.log("Updating..")
+          const articleRef = ref(database, `articles/${articleId}`);
+          const articleUpdates = {
+            pic: userUpdates?.profilePic,
+          };
+          await update(articleRef, articleUpdates);
+        }
+      }
+    }
+  };
+
+
 
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
