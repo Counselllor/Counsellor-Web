@@ -432,7 +432,7 @@ const ProfileCard = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={`bx bxl-${userInfo.firstname.toLowerCase()}`}></i>
+              <i className={`bx bxl-${userInfo?.firstname?.toLowerCase()}`}></i>
             </a>
           </div>
           <div className="skills-section">

@@ -154,7 +154,7 @@ const SocialProfile = () => {
         {profiles.map((profile) => (
           <div key={profile.id} className="profile-item">
             <div className="icon-details">
-              <i className={`bx bxl-${profile.name.toLowerCase()}`}></i>
+              <i className={`bx bxl-${profile?.name?.toLowerCase()}`}></i>
               <h4>{profile.name.slice(0, 12)}</h4>
               <span>&gt;</span>
             </div>
