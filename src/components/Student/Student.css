@@ -5,7 +5,10 @@
   padding: 20px;
   min-height: 100vh;
 }
-
+#dark .single-student-details {
+  background-color: #151414;
+  box-shadow: 0px 0px 10px white;
+}
 .single-student-details {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -14,7 +17,23 @@
   padding: 20px;
   border-radius: 8px;
 }
+#dark .single-student-profile{
+  background-color: #2f2f2f;
+}
+#dark .student-details-content{
+  background-color: transparent;
+  color: white;
+}
+#dark .nav{
+  /* background-color: #2f2f2f; */
+}
+#dark .nav a{
+color: white !important;
+}
 
+#dark .student-default-container{
+  background-color: transparent;
+}
 .single-student-profile {
   display: flex;
   flex-direction: column;
@@ -35,7 +54,9 @@
   margin: 0;
   color: #333;
 }
-
+#dark .single-student-info-header h1{
+  color: white;
+}
 .single-student-college {
   font-size: 2.2rem;
   color: #666;
@@ -100,7 +121,12 @@
   text-align: start;
   min-height: 400px;
 }
-
+#dark .student-default-title{
+  color: white;
+}
+#dark .student-details h3, #dark .student-details h4{
+  color: rgb(223, 220, 220);
+}
 .student-achievements h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
