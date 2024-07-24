@@ -20,7 +20,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('./lightimage.png') no-repeat center center;
+  background: url('./top-view-blue-monday-concept-composition-with-telephone.jpg') no-repeat center center;
+  /* background: url('./lightimage.png') no-repeat center center; */
   background-size: cover;
   /* padding: 20px; */
   /* margin-bottom: 10rem; */
