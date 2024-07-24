@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import React, { useState, useEffect, useCallback, useContext, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, update, get } from 'firebase/database';
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import { Switch } from 'antd';
+import ReactQuill, { Quill } from 'react-quill';
+// const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
 // import ReactMarkdown from 'react-markdown';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
@@ -25,6 +28,8 @@ const BlogWrite = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
+  let ref1=useRef()
+  let ref2=useRef()
  
   const handleThemeChange = useCallback(() => {
     toggleTheme();
@@ -144,15 +149,14 @@ const BlogWrite = () => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
 function checkLength(e){
-  console.log(e.target)
+  console.log(ref1.current.value,title)
   let length=title.length
-  let temp=e.target.value
-  console.log(length,temp.length)
+  let temp=ref1.current.value
   if(temp.length<length){
-    setTitle(e.target.value)
+    setTitle(ref1.current.value)
   }
   if(title.length+1<=80){
-    setTitle(e.target.value)
+    setTitle(ref1.current.value)
   }else{
     if(!localStorage.getItem("showed")){
 
@@ -167,6 +171,9 @@ function checkLength(e){
   }
 
 }
+function updatedesc(){
+  setContent(ref2.current.value)
+}
   return (
     <>
        <Navbar/>
@@ -176,22 +183,27 @@ function checkLength(e){
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title:</label>
-          <input 
+          <ReactQuill 
+                      style={{background:"white",color:"black"}}
+
             type="text" 
             id="title" 
             placeholder='Enter Blog Title'
             value={title} 
-            onChange={checkLength}
+          onChange={checkLength}
+          ref={ref1}
             required 
           />
         </div>
         <div>
           <label htmlFor="content">Content:</label>
-          <textarea 
+          <ReactQuill 
             id="content" 
-             placeholder='Enter Blog Content'
+            style={{background:"white",color:"black !important"}}
+            placeholder='Enter Blog Content'
             value={content} 
-            onChange={(e) => setContent(e.target.value)} 
+    ref={ref2}
+            onChange={updatedesc} 
             required 
           />
         </div>
