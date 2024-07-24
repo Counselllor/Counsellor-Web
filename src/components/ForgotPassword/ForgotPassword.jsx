@@ -9,14 +9,7 @@ function validEmail(email) {
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
-function onChangeEvent(event){
-    setEmail(event.target.value)
-    if (!validEmail(event.target.value)) {
-        setError("**Enter a valid E-mail!");
-    } else {
-        setError("");
-    }
-}
+
 function ForgotPassword() {
 
     const [email, setEmail] = useState();
@@ -42,7 +35,14 @@ function ForgotPassword() {
         }
 
     }
-
+    function onChangeEvent(event){
+        setEmail(event.target.value)
+        if (!validEmail(event.target.value)) {
+            setError("**Enter a valid E-mail!");
+        } else {
+            setError("");
+        }
+    }
     return (
         <div className="login-container">
             <div className="parent">
