@@ -72,6 +72,9 @@
   font-size: 1.875rem;
   color: #555;
 }
+#dark .contact1 .left span{
+  color: #fff !important;
+}
 
 .contact1 .customer {
   display: flex;

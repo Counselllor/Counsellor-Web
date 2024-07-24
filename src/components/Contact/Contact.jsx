@@ -63,30 +63,6 @@ const Contact = () => {
       <Navbar />
       <div className="contact1">
         <ToastContainer />
-        <div className="left">
-          <h1>Contact Us</h1>
-          <p className="contact-text">
-            Email, call, or complete the form to learn how Counsellor can solve
-            your problem
-          </p>
-          <span>Counsellor@gmail.com</span>
-          <span>xxxxx-xxxxx</span>
-          <div className="customer">
-            <div className="left1">
-              <h1>Customer Support</h1>
-              <p>
-                Our Support Team is available around the clock to address any
-                concerns or queries.
-              </p>
-            </div>
-            <div className="left1">
-              <h1>Feedback and Suggestions</h1>
-              <p>
-                We value your feedback and are continuously working to improve.
-              </p>
-            </div>
-          </div>
-        </div>
         <div className="right">
           <form className="form" ref={form} onSubmit={handleSubmit}>
             <h1>Get In Touch</h1>
@@ -129,6 +105,30 @@ const Contact = () => {
               <b>Privacy Policy</b>.
             </p>
           </form>
+        </div>
+        <div className="left">
+          <h1>Contact Us</h1>
+          <p className="contact-text">
+            Email, call, or complete the form to learn how Counsellor can solve
+            your problem
+          </p>
+          <span>Counsellor@gmail.com</span>
+          <span>xxxxx-xxxxx</span>
+          <div className="customer">
+            <div className="left1">
+              <h1>Customer Support</h1>
+              <p>
+                Our Support Team is available around the clock to address any
+                concerns or queries.
+              </p>
+            </div>
+            <div className="left1">
+              <h1>Feedback and Suggestions</h1>
+              <p>
+                We value your feedback and are continuously working to improve.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
