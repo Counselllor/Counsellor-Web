@@ -8,6 +8,7 @@ import { marked } from "marked";
 import Navbar from "../Navbar/Navbar";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const Blogs = () => {
   const [isLoggedIn, setLogin] = useState(false);
   const [ids, setIds] = useState({});
@@ -26,30 +27,36 @@ const Blogs = () => {
     const fetchBlogs = async () => {
       try {
         const db = getDatabase();
-        const userRef = ref(db, 'users/' + userId);
 
-        const userSnap = await get(userRef);
-        if (userSnap.exists()) {
-          const userData = userSnap.val();
-          setUser(userData);
+        // Fetch user data if logged in
+        if (userId) {
+          const userRef = ref(db, 'users/' + userId);
+          const userSnap = await get(userRef);
 
-          const articleCreated = userData.articleCreated;
-          if (articleCreated) {
-            const idArray = articleCreated.split(',');
-            const idObject = idArray.reduce((acc, id) => {
-              acc[id.trim()] = true;
-              return acc;
-            }, {});
-            setIds(idObject);
+          if (userSnap.exists()) {
+            const userData = userSnap.val();
+            setUser(userData);
+
+            const articleCreated = userData.articleCreated;
+            if (articleCreated) {
+              const idArray = articleCreated.split(',');
+              const idObject = idArray.reduce((acc, id) => {
+                acc[id.trim()] = true;
+                return acc;
+              }, {});
+              setIds(idObject);
+            } else {
+              console.log('No articles created by the user.');
+            }
           } else {
-            console.log('No articles created by the user.');
+            console.log('No user data available');
           }
-        } else {
-          console.log('No user data available');
         }
 
+        // Fetch all articles
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
+
         if (snapshot.exists()) {
           const data = snapshot.val();
           const blogsArray = Object.values(data).map(blog => ({
@@ -78,18 +85,20 @@ const Blogs = () => {
     tempDiv.innerHTML = cleanHtml;
     return tempDiv.textContent || tempDiv.innerText || "";
   };
-useEffect(()=>{
-  if(localStorage.getItem('newblog')){
-    toast.success("Blog Created Successfully!! 🚀",{
-      className: "toast-message",
-    });
-    localStorage.removeItem('newblog')
-  }
-},[])
+
+  useEffect(() => {
+    if (localStorage.getItem('newblog')) {
+      toast.success("Blog Created Successfully!! 🚀", {
+        className: "toast-message",
+      });
+      localStorage.removeItem('newblog');
+    }
+  }, []);
+
   return (
     <>
       <Navbar />
-      <ToastContainer/>
+      <ToastContainer />
       <div className="blogs-container">
         <header className="blogs-header">
           <h1>Our Latest Blogs</h1>
@@ -99,9 +108,9 @@ useEffect(()=>{
         <div className="blogs-list">
           {blogsData.map((blog, index) => (
             <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
-              <h2 className=" clip-text">{blog.title}</h2>
-              <p className="blog-date ">{blog.date}</p>
-              <p className=" clip-text">{blog.summary}</p>
+              <h2 className="clip-text">{blog.title}</h2>
+              <p className="blog-date">{blog.date}</p>
+              <p className="clip-text">{blog.summary}</p>
               <p className="blog-author">By: {blog.author}</p>
               <div className="blog-tags">
                 {blog.tags.map((tag, tagIndex) => (
@@ -111,8 +120,7 @@ useEffect(()=>{
               <button className="click-btn1">
                 <a href={blog.link}>Read More</a>
               </button>
-              <div className="read-more-container">
-              </div>
+              <div className="read-more-container"></div>
             </div>
           ))}
         </div>
