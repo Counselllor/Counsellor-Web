@@ -6,7 +6,47 @@
         "branch": "CSE",
         "year": "2nd year",
         "position": "Full Stack Web Developer",
-        "college": "IIT Bombay"
+        "college": "IIT Bombay",
+        "achievements": [
+            "Winner of XYZ Hackathon 2023",
+            "Top 10 in National Coding Competition"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/sahilali",
+            "github": "https://github.com/sahilali",
+            "twitter": "https://twitter.com/sahilali"
+        },
+        "availableSlots": [
+            "Monday 3 PM - 5 PM",
+            "Wednesday 10 AM - 12 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Personal Portfolio",
+                "description": "A portfolio website showcasing my projects and skills.",
+                "link": "https://sahilali.dev"
+            },
+            {
+                "title": "E-commerce Platform",
+                "description": "A full-stack e-commerce application built with React and Node.js.",
+                "link": "https://github.com/sahilali/ecommerce-platform"
+            }
+        ],
+        "skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ],
+        "certifications": [
+            "Certified Full Stack Developer",
+            "Advanced JavaScript Programming"
+        ],
+        "contact": {
+            "email": "sahil.ali@example.com",
+            "phone": "+91 9876543210"
+        }
     },
     {
         "id": 2,
@@ -15,7 +55,41 @@
         "branch": "CSE",
         "year": "4th year",
         "position": "Cloud Engineer",
-        "college": "IIT Kanpur"
+        "college": "IIT Kanpur",
+        "achievements": [
+            "Google Cloud Certification",
+            "Best Project Award in Cloud Computing"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/shivam",
+            "github": "https://github.com/shivam",
+            "twitter": "https://twitter.com/shivam"
+        },
+        "availableSlots": [
+            "Tuesday 1 PM - 3 PM",
+            "Thursday 11 AM - 1 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Cloud Storage Solution",
+                "description": "A scalable cloud storage solution using AWS S3.",
+                "link": "https://github.com/shivam/cloud-storage-solution"
+            }
+        ],
+        "skills": [
+            "AWS",
+            "Google Cloud",
+            "Docker",
+            "Kubernetes"
+        ],
+        "certifications": [
+            "AWS Certified Solutions Architect",
+            "Google Cloud Certified Associate Cloud Engineer"
+        ],
+        "contact": {
+            "email": "shivam@example.com",
+            "phone": "+91 9876543211"
+        }
     },
     {
         "id": 3,
@@ -23,7 +97,41 @@
         "course": "MBA",
         "year": "2nd year",
         "position": "Mern Stack Developer",
-        "college": "Galgotias University"
+        "college": "Galgotias University",
+        "achievements": [
+            "Completed 5 Major Projects in Web Development",
+            "Certified MERN Stack Developer"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/vidushi",
+            "github": "https://github.com/vidushi"
+        },
+        "availableSlots": [
+            "Monday 10 AM - 12 PM",
+            "Thursday 2 PM - 4 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Job Board Application",
+                "description": "A job board application built with the MERN stack.",
+                "link": "https://github.com/vidushi/job-board-app"
+            }
+        ],
+        "skills": [
+            "JavaScript",
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js"
+        ],
+        "certifications": [
+            "MERN Stack Developer Certification",
+            "Advanced Web Development"
+        ],
+        "contact": {
+            "email": "vidushi@example.com",
+            "phone": "+91 9876543212"
+        }
     },
     {
         "id": 4,
@@ -32,7 +140,41 @@
         "branch": "CSE",
         "year": "2nd year",
         "position": "Open Source Developer",
-        "college": "NIT Surathkal"
+        "college": "NIT Surathkal",
+        "achievements": [
+            "Contributed to 10+ Open Source Projects",
+            "Speaker at Local Dev Meetups"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/ajay",
+            "github": "https://github.com/ajay",
+            "twitter": "https://twitter.com/ajay"
+        },
+        "availableSlots": [
+            "Tuesday 9 AM - 11 AM",
+            "Friday 3 PM - 5 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Open Source Contribution Tracker",
+                "description": "A tool to track contributions to various open source projects.",
+                "link": "https://github.com/ajay/os-contribution-tracker"
+            }
+        ],
+        "skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Open Source Tools"
+        ],
+        "certifications": [
+            "Open Source Contributor",
+            "JavaScript Developer"
+        ],
+        "contact": {
+            "email": "ajay@example.com",
+            "phone": "+91 9876543213"
+        }
     },
     {
         "id": 5,
@@ -40,7 +182,42 @@
         "course": "BBA",
         "year": "2nd year",
         "position": "Mern Stack Developer",
-        "college": "University of Calcutta"
+        "college": "University of Calcutta",
+        "achievements": [
+            "Best Web Development Project Award",
+            "Top Performer in Coding Bootcamp"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/leela",
+            "github": "https://github.com/leela",
+            "twitter": "https://twitter.com/leela"
+        },
+        "availableSlots": [
+            "Wednesday 1 PM - 3 PM",
+            "Saturday 11 AM - 1 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Portfolio Website",
+                "description": "A personal website to showcase my projects and achievements.",
+                "link": "https://github.com/leela/portfolio-website"
+            }
+        ],
+        "skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ],
+        "certifications": [
+            "Certified MERN Stack Developer",
+            "Advanced JavaScript"
+        ],
+        "contact": {
+            "email": "leela@example.com",
+            "phone": "+91 9876543214"
+        }
     },
     {
         "id": 6,
@@ -48,7 +225,42 @@
         "course": "BCA",
         "year": "1st year",
         "position": "Mern Stack Developer",
-        "college": "YMCA JC Bose"
+        "college": "YMCA JC Bose",
+        "achievements": [
+            "Completed Full Stack Development Bootcamp",
+            "Winner of Coding Contest"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/amisha",
+            "github": "https://github.com/amisha",
+            "twitter": "https://twitter.com/amisha"
+        },
+        "availableSlots": [
+            "Monday 2 PM - 4 PM",
+            "Thursday 10 AM - 12 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Todo List App",
+                "description": "A todo list application built with the MERN stack.",
+                "link": "https://github.com/amisha/todo-list-app"
+            }
+        ],
+        "skills": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ],
+        "certifications": [
+            "Full Stack Developer Bootcamp",
+            "JavaScript Certification"
+        ],
+        "contact": {
+            "email": "amisha@example.com",
+            "phone": "+91 9876543215"
+        }
     },
     {
         "id": 7,
@@ -57,7 +269,41 @@
         "branch": "CSE",
         "year": "3rd year",
         "position": "Frontend Web Developer",
-        "college": "NIT Silchar"
+        "college": "NIT Silchar",
+        "achievements": [
+            "Winner of UI/UX Design Contest",
+            "Published Articles on Frontend Development"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/hrishitapaul",
+            "github": "https://github.com/hrishitapaul",
+            "twitter": "https://twitter.com/hrishitapaul"
+        },
+        "availableSlots": [
+            "Tuesday 3 PM - 5 PM",
+            "Friday 1 PM - 3 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Responsive Web Design",
+                "description": "A responsive website design project with advanced CSS techniques.",
+                "link": "https://github.com/hrishitapaul/responsive-web-design"
+            }
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React"
+        ],
+        "certifications": [
+            "Certified Frontend Developer",
+            "Advanced CSS Techniques"
+        ],
+        "contact": {
+            "email": "hrishita@example.com",
+            "phone": "+91 9876543216"
+        }
     },
     {
         "id": 8,
@@ -66,7 +312,40 @@
         "branch": "Electrical Engineering",
         "year": "4th year",
         "position": "Electrical Engineer Trainee",
-        "college": "Echelon Institute of Technology"
+        "college": "Echelon Institute of Technology",
+        "achievements": [
+            "Top 5 in National Engineering Quiz",
+            "Published Research Paper in Electrical Engineering"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/rahulsingh",
+            "github": "https://github.com/rahulsingh",
+            "twitter": "https://twitter.com/rahulsingh"
+        },
+        "availableSlots": [
+            "Monday 9 AM - 11 AM",
+            "Thursday 3 PM - 5 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Smart Home Automation",
+                "description": "A project on smart home automation using IoT.",
+                "link": "https://github.com/rahulsingh/smart-home-automation"
+            }
+        ],
+        "skills": [
+            "Circuit Design",
+            "Embedded Systems",
+            "IoT"
+        ],
+        "certifications": [
+            "Certified Electrical Engineer",
+            "IoT Certification"
+        ],
+        "contact": {
+            "email": "rahul@example.com",
+            "phone": "+91 9876543217"
+        }
     },
     {
         "id": 9,
@@ -75,7 +354,41 @@
         "branch": "Architecture",
         "year": "5th year",
         "position": "Architectural Designer",
-        "college": "IIT Kharagpur"
+        "college": "IIT Kharagpur",
+        "achievements": [
+            "Winner of National Architecture Award",
+            "Top Project in Urban Design"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/ananyagupta",
+            "github": "https://github.com/ananyagupta",
+            "twitter": "https://twitter.com/ananyagupta"
+        },
+        "availableSlots": [
+            "Monday 2 PM - 4 PM",
+            "Wednesday 11 AM - 1 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Sustainable Urban Design",
+                "description": "A project focused on sustainable urban design principles.",
+                "link": "https://github.com/ananyagupta/sustainable-urban-design"
+            }
+        ],
+        "skills": [
+            "AutoCAD",
+            "SketchUp",
+            "Revit",
+            "Photoshop"
+        ],
+        "certifications": [
+            "Certified Architect",
+            "Advanced Urban Design"
+        ],
+        "contact": {
+            "email": "ananya@example.com",
+            "phone": "+91 9876543218"
+        }
     },
     {
         "id": 10,
@@ -84,7 +397,41 @@
         "branch": "Marketing",
         "year": "2nd year",
         "position": "Marketing Intern",
-        "college": "Indian School of Business (ISB)"
+        "college": "Indian School of Business (ISB)",
+        "achievements": [
+            "Best Marketing Campaign Award",
+            "Top 5 in National Marketing Challenge"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/varunsharma",
+            "github": "https://github.com/varunsharma",
+            "twitter": "https://twitter.com/varunsharma"
+        },
+        "availableSlots": [
+            "Tuesday 10 AM - 12 PM",
+            "Thursday 3 PM - 5 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Digital Marketing Campaign",
+                "description": "A comprehensive digital marketing campaign for a startup.",
+                "link": "https://github.com/varunsharma/digital-marketing-campaign"
+            }
+        ],
+        "skills": [
+            "Digital Marketing",
+            "SEO",
+            "Content Creation",
+            "Analytics"
+        ],
+        "certifications": [
+            "Certified Digital Marketer",
+            "SEO Specialist"
+        ],
+        "contact": {
+            "email": "varun@example.com",
+            "phone": "+91 9876543219"
+        }
     },
     {
         "id": 11,
@@ -93,7 +440,39 @@
         "branch": "Chemistry",
         "year": "3rd year",
         "position": "Research Assistant",
-        "college": "University of Hyderabad"
+        "college": "University of Hyderabad",
+        "achievements": [
+            "Published Research Paper in Organic Chemistry",
+            "Top Performer in Chemistry Lab"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/sneha-patel",
+            "github": "https://github.com/sneha-patel"
+        },
+        "availableSlots": [
+            "Monday 11 AM - 1 PM",
+            "Wednesday 2 PM - 4 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Organic Chemistry Research",
+                "description": "Research project on organic chemistry reactions.",
+                "link": "https://github.com/sneha-patel/organic-chemistry-research"
+            }
+        ],
+        "skills": [
+            "Chemistry",
+            "Research",
+            "Lab Techniques"
+        ],
+        "certifications": [
+            "Certified Research Assistant",
+            "Advanced Chemistry Techniques"
+        ],
+        "contact": {
+            "email": "sneha@example.com",
+            "phone": "+91 9876543220"
+        }
     },
     {
         "id": 12,
@@ -102,7 +481,39 @@
         "branch": "Computer Science and Engineering",
         "year": "2nd year",
         "position": "Software Engineer Intern",
-        "college": "IIT Bombay"
+        "college": "IIT Bombay",
+        "achievements": [
+            "Completed Internship at XYZ Tech",
+            "Top 10 in Coding Contest"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/alokverma",
+            "github": "https://github.com/alokverma"
+        },
+        "availableSlots": [
+            "Tuesday 10 AM - 12 PM",
+            "Thursday 3 PM - 5 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "AI Chatbot",
+                "description": "An AI chatbot application built with Python.",
+                "link": "https://github.com/alokverma/ai-chatbot"
+            }
+        ],
+        "skills": [
+            "Python",
+            "Machine Learning",
+            "Data Analysis"
+        ],
+        "certifications": [
+            "Certified Machine Learning Specialist",
+            "Advanced Python Programming"
+        ],
+        "contact": {
+            "email": "alok@example.com",
+            "phone": "+91 9876543221"
+        }
     },
     {
         "id": 13,
@@ -111,7 +522,39 @@
         "branch": "Finance",
         "year": "1st year",
         "position": "Financial Analyst Intern",
-        "college": "Manav Rachna"
+        "college": "Manav Rachna",
+        "achievements": [
+            "Top 5 in Financial Analysis Competition",
+            "Completed Advanced Financial Modelling Course"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/priyasingh",
+            "github": "https://github.com/priyasingh"
+        },
+        "availableSlots": [
+            "Monday 3 PM - 5 PM",
+            "Thursday 1 PM - 3 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Financial Analysis Tool",
+                "description": "A tool for analyzing financial data and trends.",
+                "link": "https://github.com/priyasingh/financial-analysis-tool"
+            }
+        ],
+        "skills": [
+            "Financial Analysis",
+            "Excel",
+            "Data Analysis"
+        ],
+        "certifications": [
+            "Certified Financial Analyst",
+            "Advanced Financial Modelling"
+        ],
+        "contact": {
+            "email": "priya@example.com",
+            "phone": "+91 9876543222"
+        }
     },
     {
         "id": 14,
@@ -120,60 +563,78 @@
         "branch": "Mechanical Engineering",
         "year": "3rd year",
         "position": "Manufacturing Engineer",
-        "college": "IIT Bombay"
+        "college": "IIT Bombay",
+        "achievements": [
+            "Top Performer in Mechanical Design Course",
+            "Winner of Engineering Design Challenge"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/rajeshkumar",
+            "github": "https://github.com/rajeshkumar"
+        },
+        "availableSlots": [
+            "Tuesday 1 PM - 3 PM",
+            "Thursday 2 PM - 4 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Automated Manufacturing System",
+                "description": "A project on automated manufacturing using robotics.",
+                "link": "https://github.com/rajeshkumar/automated-manufacturing-system"
+            }
+        ],
+        "skills": [
+            "Mechanical Design",
+            "Robotics",
+            "CAD Software"
+        ],
+        "certifications": [
+            "Certified Robotics Engineer",
+            "Advanced Mechanical Design"
+        ],
+        "contact": {
+            "email": "rajesh@example.com",
+            "phone": "+91 9876543223"
+        }
     },
     {
         "id": 15,
-        "name": "Neha Sharma",
-        "course": "MSc",
-        "branch": "Physics",
+        "name": "Rohit Kumar",
+        "course": "BCom",
         "year": "2nd year",
-        "position": "Lab Assistant",
-        "college": "IISER Kolkata"
-    },
-    {
-        "id": 16,
-        "name": "Ajay Verma",
-        "course": "BBA",
-        "branch": "Management",
-        "year": "2nd year",
-        "position": "Management Trainee",
-        "college": "IIM Indore"
-    },
-    {
-        "id": 17,
-        "name": "Kritika Das",
-        "course": "PHD",
-        "branch": "Biotechnology",
-        "year": "4th year",
-        "position": "Research Scholar",
-        "college": "IIT Guwahati"
-    },
-    {
-        "id": 18,
-        "name": "Rohan Mehta",
-        "course": "BA",
-        "branch": "English",
-        "year": "3rd year",
-        "position": "Content Writer Intern",
-        "college": "University of Delhi"
-    },
-    {
-        "id": 19,
-        "name": "Shreya Singh",
-        "course": "MBA",
-        "branch": "Human Resources",
-        "year": "2nd year",
-        "position": "HR Intern",
-        "college": "IIM Lucknow"
-    },
-    {
-        "id": 20,
-        "name": "Ramesh Mukherjee",
-        "course": "BTech",
-        "branch": "Computer Science and Engineering",
-        "year": "4th year",
-        "position": "Software Developer Intern",
-        "college": "Galgotias University"
+        "position": "Business Analyst Intern",
+        "college": "Delhi University",
+        "achievements": [
+            "Top 5 in Business Analytics Competition",
+            "Completed Certification in Business Intelligence"
+        ],
+        "socialLinks": {
+            "linkedin": "https://www.linkedin.com/in/rohitkumar",
+            "github": "https://github.com/rohitkumar"
+        },
+        "availableSlots": [
+            "Monday 10 AM - 12 PM",
+            "Friday 2 PM - 4 PM"
+        ],
+        "personalProjects": [
+            {
+                "title": "Business Analytics Dashboard",
+                "description": "A dashboard for analyzing business metrics.",
+                "link": "https://github.com/rohitkumar/business-analytics-dashboard"
+            }
+        ],
+        "skills": [
+            "Business Analysis",
+            "Data Visualization",
+            "Excel"
+        ],
+        "certifications": [
+            "Certified Business Analyst",
+            "Business Intelligence Certification"
+        ],
+        "contact": {
+            "email": "rohit@example.com",
+            "phone": "+91 9876543224"
+        }
     }
 ]
