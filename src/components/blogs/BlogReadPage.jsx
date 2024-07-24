@@ -285,7 +285,9 @@ const BlogReadPage = () => {
       <div className="blog-read-page_container">
         <div className="blog-read-page">
           <div className="blog-header">
-            <h1 className="blog-title">{blog.title}</h1>
+            <h1 className="blog-title"  dangerouslySetInnerHTML={{
+      __html: blog.title,
+    }}/>
             <div className="blog-meta">
               <img src={blog.pic ? blog.pic :(blog.avatar ? blog.avatar : randomAvatar)} alt="Author Avatar" className="author-avatar" />
               <div className="meta-info">

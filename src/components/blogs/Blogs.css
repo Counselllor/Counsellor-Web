@@ -346,3 +346,18 @@ margin:20px 0px;
   white-space: nowrap;
 text-overflow: ellipsis;  
 }
+.ql-editor{
+  color: black !important;
+}
+.ql-editor p ,.ql-editor li{
+  color: black !important;
+}
+#dark .ql-editor p ,.ql-editor li{
+  color: white !important;
+}
+#dark .quill{
+  background-color: #2d2d2d !important;
+}
+#dark .ql-toolbar {
+  background-color: white !important;
+}
