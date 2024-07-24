@@ -204,3 +204,21 @@
     font-size: 1.4rem;
   }
 }
+
+/*for the large screens fitted the footer*/
+@media screen and (min-width: 1912px) {
+  .footer-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1912px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

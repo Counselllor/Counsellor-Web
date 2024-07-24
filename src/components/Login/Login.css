@@ -1,3 +1,9 @@
+/* Ensure body and html have no margin or padding */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 .login-container {
   font-family: "ABeeZee";
   width: 100vw;
@@ -13,9 +19,17 @@
   background: #121212;
 }
 
+/* Ensure no extra margin on left side for left container */
 .left {
   background-color: #ffffff;
+  margin: 0; /* to ensure no margin */
+  padding: 0; /* to ensure no padding */
 }
+
+#dark .left {
+  background: #121212;
+}
+
 .left img{
   transform: translateX(0px);
   animation: float 6s ease-out infinite;
