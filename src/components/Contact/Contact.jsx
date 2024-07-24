@@ -1,14 +1,20 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { signOut } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
-import Modal from "react-modal";
-import { ThemeContext } from "../../App";
-import { getDatabase, ref, push, set } from "firebase/database";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import Logo from "../../assets/logo.webp";
+import { Switch } from 'antd';
+import { ThemeContext } from '../../App';
+import { getDatabase,ref, push, set } from 'firebase/database'; // Import Firebase database functions
+import Modal from 'react-modal'; // Import Modal
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
@@ -113,8 +119,8 @@ const Contact = () => {
             your problem
           </p>
           <div className="counmail">
-          <span>Counsellor@gmail.com</span>
-          <span>xxxxx-xxxxx</span>
+            <span>Counsellor@gmail.com</span>
+            <span>xxxxx-xxxxx</span>
           </div>
           <div className="customer">
             <div className="left1">
@@ -134,7 +140,6 @@ const Contact = () => {
         </div>
       </div>
       <Footer />
-
 
       <Modal
         isOpen={isModalOpen}
