@@ -112,8 +112,10 @@ const Contact = () => {
             Email, call, or complete the form to learn how Counsellor can solve
             your problem
           </p>
+          <div className="counmail">
           <span>Counsellor@gmail.com</span>
           <span>xxxxx-xxxxx</span>
+          </div>
           <div className="customer">
             <div className="left1">
               <h1>Customer Support</h1>
@@ -131,8 +133,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
       <Footer />
+
 
       <Modal
         isOpen={isModalOpen}

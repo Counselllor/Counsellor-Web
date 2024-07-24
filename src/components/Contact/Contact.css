@@ -20,21 +20,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('./top-view-blue-monday-concept-composition-with-telephone.jpg') no-repeat center center;
+  background: url('./top-view-blue-monday-concept-composition-with-telephone-removebg-preview.png') no-repeat center center;
   /* background: url('./lightimage.png') no-repeat center center; */
   background-size: cover;
+  background-size:contain;
+  background-position: left;  
   /* padding: 20px; */
   /* margin-bottom: 10rem; */
 }
 #dark .contact1{
-  background: url('./image.png') no-repeat center center !important;
+  background: url('./9398699_34781-removebg-preview.png') no-repeat center center !important;
     background-size: cover !important;
+    background-size: contain !important;
+      background-position: left !important;
+      background-color: #242222 !important;
 }
 
 .contact1 .left,
 .contact1 .right {
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
   background-color: transparent;
 }
@@ -48,11 +53,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .contact1 .left h1 {
-  font-size: 4.5rem;
+  font-size: 2.2rem;
   color: #1d61df;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   transition: color 0.3s, text-shadow 0.3s;
@@ -64,12 +69,12 @@
 }
 
 .contact1 .left p {
-  font-size: 2rem;
+  font-size: 1.3rem;
   /* line-height: 1.6; */
 }
 
 .contact1 .left span {
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #555;
 }
 #dark .contact1 .left span{
@@ -83,7 +88,7 @@
 }
 
 .contact1 .left1 h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
   color: #1d61df;
   transition: color 0.3s;
@@ -94,7 +99,7 @@
 }
 
 .contact1 .left1 p {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .contact1 .right {
@@ -105,12 +110,12 @@
 }
 
 .contact1 .form {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   border-radius: 30px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   background-color: white;
   transition: box-shadow 0.3s, background-color 0.3s;
@@ -121,13 +126,13 @@
 }
 
 .contact1 .form h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: #1d61df;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .contact1 .form p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #666;
 }
 
@@ -140,11 +145,11 @@
 .contact1 .form input,
 .contact1 .form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 5px 8px;
   border-radius: 18px;
   border: 1px solid #ccc;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.2rem;
   transition: border-color 0.3s;
 }
 
@@ -154,15 +159,17 @@
 }
 
 .contact1 .form button {
-  width: 100%;
-  padding: 15px;
+  width: 50%;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   background-color: #1d61df;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact1 .form button:hover {
@@ -171,7 +178,7 @@
 }
 
 .contact1 .form p.terms {
-  font-size: 1.875rem;
+  font-size: 1.2rem;
   text-align: center;
   color: #666;
 }
@@ -204,11 +211,6 @@
   }
 }
 
-#dark .contact1 {
-  background: url('../../assets/contact-background-dark.jpg') no-repeat center center;
-  background-size: cover;
-}
-
 #dark .contact1 .left,
 #dark .contact1 .right {
   background-color: rgba(0, 0, 0, 0.7);
@@ -233,4 +235,15 @@
 
 #dark .contact1 .form button:hover {
   background-color: #444;
+}
+.left .customer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.left .counmail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
