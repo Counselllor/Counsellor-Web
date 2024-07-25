@@ -1,24 +1,16 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./Contribute.css"; // Import CSS file for styles
 import Footer from "../Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ThemeContext } from "../../App";
-import { Switch } from "antd";
 import ScrollToTop from "react-scroll-to-top";
-import BackToHomeButton from "../backtohome";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 
 const Contribute = () => {
   const owner = "Counselllor";
   const repo = "Counsellor-Web";
   const [contributors, setContributors] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,21 +18,6 @@ const Contribute = () => {
         duration: 1200,
       });
     }, 100);
-    return () => {
-      AOS.refreshHard();
-    };
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      AOS.init({
-        duration: 1200,
-        disable: window.innerWidth < 1724,
-      });
-    }, 100);
-
-    // Refresh AOS on component unmount
-
     return () => {
       AOS.refreshHard();
     };
@@ -48,34 +25,20 @@ const Contribute = () => {
 
   useEffect(() => {
     const fetchContributors = async () => {
-      let allContributors = [];
-      let page = 1;
-      let shouldFetchMore = true;
-
-      while (shouldFetchMore) {
-        try {
-          const response = await fetch(
-            `https://api.github.com/repos/${owner}/${repo}/contributors?per_page=100&page=${page}`
-          );
-          if (!response.ok) {
-            console.error("Failed to fetch contributors:", response.statusText);
-            break;
-          }
-
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/${owner}/${repo}/contributors?per_page=100`
+        );
+        if (response.ok) {
           const data = await response.json();
-          if (data.length === 0) {
-            shouldFetchMore = false;
-          } else {
-            allContributors = allContributors.concat(data);
-            page += 1;
-          }
-        } catch (error) {
-          console.error("Error fetching contributors:", error);
-          shouldFetchMore = false;
+          setContributors(data);
+          setLoading(false);
+        } else {
+          console.error("Failed to fetch contributors:", response.statusText);
         }
+      } catch (error) {
+        console.error("Error fetching contributors:", error);
       }
-
-      setContributors(allContributors);
     };
 
     fetchContributors();
@@ -83,7 +46,7 @@ const Contribute = () => {
 
   const handleProfileClick = (username) => {
     const profileUrl = `https://github.com/${username}`;
-    window.open(profileUrl, "_blank"); // Open the GitHub profile in a new tab
+    window.open(profileUrl, "_blank");
   };
 
   const displayTopContributors = () => {
@@ -119,41 +82,19 @@ const Contribute = () => {
     ));
   };
 
-  const createPaginationButtons = () => {
-    const totalPages = Math.ceil(contributors.length / 60); // Adjust this if using pagination
-    return Array.from({ length: totalPages }, (_, index) => (
-      <button
-        key={index + 1}
-        className={`pagination-button ${
-          currentPage === index + 1 ? "active" : ""
-        }`}
-        onClick={() => setCurrentPage(index + 1)}
-      >
-        {index + 1}
-      </button>
-    ));
+  const renderSkeletons = (count) => {
+    return Array(count)
+      .fill(0)
+      .map((_, index) => (
+        <div className="contributor-card skeleton" key={index}>
+          <div className="skeleton-avatar"></div>
+          <div className="skeleton-info">
+            <div className="skeleton-text skeleton-name"></div>
+            <div className="skeleton-text skeleton-contributions"></div>
+          </div>
+        </div>
+      ));
   };
-
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  });
-
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-        toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
 
   return (
     <>
@@ -179,9 +120,21 @@ const Contribute = () => {
         </div>
         <div className="top-contributor-cards">
           <h1>Our Top Contributors</h1>
-          <div className="top-contri">{displayTopContributors()}</div>
+          <div className="top-contri">
+            {loading ? (
+              
+              renderSkeletons(3)
+            
+            ) : (
+              displayTopContributors()
+            )}
+          </div>
           <h1>All Contributors</h1>
-          <div className="all">{displayContributors()}</div>
+          <div className="all">
+            {loading
+              ? renderSkeletons(contributors.length)
+              : displayContributors()}
+          </div>
         </div>
       </div>
       <Footer />
