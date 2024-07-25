@@ -5,6 +5,7 @@
   background-color: #fff;
   margin: 0 auto;
   min-height: 300px;
+  background: url("https://i.pinimg.com/564x/79/70/0a/79700a9298ab7efe35a04f0e4ae2900b.jpg");
 }
 
 .social-links-container h2 {
@@ -27,12 +28,8 @@
 }
 
 .social-links a {
-  color: #555;
+  color: #fff;
   transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #0077b5; /* LinkedIn color */
 }
 
 .social-links a:nth-child(2):hover {
@@ -41,4 +38,37 @@
 
 .social-links a:nth-child(3):hover {
   color: #1da1f2; /* Twitter color */
+}
+
+.linked-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.linked-in {
+  background-color: #0077b5;
+  color: #fff;
+  padding: 5px;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+}
+
+.twitter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #1da1f2;
+  color: #fff;
+  padding: 5px;
 }
