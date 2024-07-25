@@ -1,0 +1,174 @@
+/* Student.css */
+
+.single-student-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.single-student-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.single-student-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  min-height: 100%;
+  background: #cecece;
+}
+
+.single-student-info-header {
+  text-align: center;
+}
+
+.single-student-info-header h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #333;
+}
+
+.single-student-college {
+  font-size: 2.2rem;
+  color: #666;
+}
+
+.other-details {
+  margin-top: 20px;
+  text-align: start;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.student-info p {
+  margin: 10px 0;
+}
+
+.student-info strong {
+  color: #333;
+}
+
+.student-details-content {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 10px;
+  background: #ffffff;
+  border-radius: 20px;
+  min-height: 80%;
+}
+
+.student-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.student-link:hover {
+  color: white;
+  background-color: #1a73e8;
+  border-radius: 10px;
+}
+
+.student-details-content .nav {
+  border: 1px solid;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  border-radius: 10px;
+}
+
+.children-container {
+  padding: 20px;
+  border: 1px solid;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.student-achievements {
+  margin-bottom: 20px;
+  text-align: start;
+  min-height: 400px;
+}
+
+.student-achievements h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.student-achievements ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.student-achievements li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.student-social-links a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.student-social-links a:hover {
+  text-decoration: underline;
+}
+
+.student-dp {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.acheive-card{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    margin-block: 10px;
+    border-radius: 10px;
+    background-color: #cecece;
+}
+
+.dp-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+  .student-container {
+    padding: 15px;
+  }
+
+  .single-student-details {
+    grid-template-columns: 1fr;
+  }
+
+  .student-profile {
+    align-items: flex-start;
+  }
+
+  .student-info-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .student-info p {
+    font-size: 0.875rem;
+  }
+}
