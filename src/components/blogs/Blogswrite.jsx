@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, update, get } from 'firebase/database';
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
+// import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
-import { Switch } from 'antd';
+// import { Switch } from 'antd';
 // import ReactMarkdown from 'react-markdown';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';

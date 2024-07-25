@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { useState, useEffect, useCallback} from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { getDatabase, ref, update } from 'firebase/database';
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
-import { signOut } from "firebase/auth";
-import { Switch } from 'antd';
 import './BlogWrite.css';
 import { toast } from 'react-toastify';
-import { ThemeContext } from '../../App';
 import Navbar from '../Navbar/Navbar';
 
 const BlogEditPage = () => {
@@ -17,12 +13,9 @@ const BlogEditPage = () => {
   const [content, setContent] = useState(initialContent || '');
   const [tags, setTags] = useState(initialTagsArray ? initialTagsArray.join(', ') : '');
   const [isLoggedIn, setLogin] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  // const [menuOpen, setMenuOpen] = useState(false);
+  // const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
-  const userId = localStorage.getItem('userUid');
-
- 
 
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -32,7 +25,7 @@ const BlogEditPage = () => {
 
  
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     const updatedBlog = {
       title,
@@ -53,7 +46,7 @@ const BlogEditPage = () => {
         className: "toast-message",
       });
     }
-  };
+  });
 
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./SocialProfile.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../../firebase/auth';
@@ -54,7 +54,7 @@ const SocialProfile = () => {
     });
   }, [navigate]);
 
-  const fetchProfiles = async (userId) => {
+  const fetchProfiles = useCallback(async (userId) => {
     const dbRef = ref(getDatabase());
     const userSnapshot = await get(child(dbRef, `users/${userId}/socialProfileId`));
     if (userSnapshot.exists()) {
@@ -64,9 +64,9 @@ const SocialProfile = () => {
         setProfiles(profileSnapshot.val());
       }
     }
-  };
+  });
 
-  const saveProfiles = async (userId, profiles) => {
+  const saveProfiles = useCallback(async (userId, profiles) => {
     const db = getDatabase();
     const userRef = ref(db, `users/${userId}`);
     let socialProfileId = (await get(child(userRef, 'socialProfileId'))).val();
@@ -75,14 +75,14 @@ const SocialProfile = () => {
       await set(child(userRef, 'socialProfileId'), socialProfileId);
     }
     await set(ref(db, `socialProfiles/${socialProfileId}/links`), profiles);
-  };
+  });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
     setNewProfile({ ...newProfile, [name]: value });
-  };
+  });
 
-  const handleAddProfile = async () => {
+  const handleAddProfile = useCallback(async () => {
     if (!newProfile.name || !isValidUrl(newProfile.url)) {
       alert("Please enter a valid profile name and URL starting with http");
       return;
@@ -95,48 +95,48 @@ const SocialProfile = () => {
     if (user) {
       await saveProfiles(uid, updatedProfiles);
     }
-  };
+  });
 
-  const handleProfileChange = (id, url) => {
+  const handleProfileChange = useCallback((id, url) => {
     setProfiles(
       profiles.map((profile) =>
         profile.id === id ? { ...profile, url } : profile
       )
     );
-  };
+  });
 
-  const handleDeleteProfile = async (id) => {
+  const handleDeleteProfile = useCallback(async (id) => {
     const updatedProfiles = profiles.filter((profile) => profile.id !== id);
     setProfiles(updatedProfiles);
     const user = auth.currentUser;
     if (user) {
       await saveProfiles(uid, updatedProfiles);
     }
-  };
+  });
 
 
-  const handleEditProfile = (id) => {
+  const handleEditProfile = useCallback((id) => {
     setEditingId(id);
     setIsEditing(true);
-  };
+  });
 
-  const handleSaveProfile = async () => {
+  const handleSaveProfile = useCallback(async () => {
     setEditingId(null);
     setIsEditing(false);
     const user = auth.currentUser;
     if (user) {
       await saveProfiles(uid, profiles);
     }
-  };
+  });
 
-  const handleUpdate = () => {
+  const handleUpdate = useCallback(() => {
     setIsEditing(!isEditing);
-  };
+  });
 
-  const isValidUrl = (url) => {
+  const isValidUrl = useCallback((url) => {
     const regex = /^(http|https):\/\/[^ "]+$/;
     return regex.test(url);
-  };
+  });
 
   return (
     <div className="social-profile-container">
