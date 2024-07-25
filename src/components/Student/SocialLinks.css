@@ -1,0 +1,44 @@
+.social-links-container {
+  text-align: start;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+.social-links-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.social-links-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.social-links {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0077b5; /* LinkedIn color */
+}
+
+.social-links a:nth-child(2):hover {
+  color: #333; /* GitHub color */
+}
+
+.social-links a:nth-child(3):hover {
+  color: #1da1f2; /* Twitter color */
+}
