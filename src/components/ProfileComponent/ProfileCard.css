@@ -306,6 +306,7 @@
   width: 80%;
   max-width: 522px;
   text-align: left;
+  position: relative !important;
 }
 
 .edit-modal-content h2 {

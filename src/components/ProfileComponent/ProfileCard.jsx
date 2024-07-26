@@ -7,6 +7,7 @@ import { ref, get, update } from "firebase/database";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
+import { FaX } from "react-icons/fa6";
 import {
   ref as storageRef,
   uploadBytes,
@@ -453,9 +454,10 @@ const ProfileCard = () => {
         </div>
       </div>
       {isEditing && (
-        <div className="edit-modal">
-          <div className="edit-modal-content">
-          
+        <div className="edit-modal" >
+          <div className="edit-modal-content" >
+          {/* <FaX onClick={()=>setIsEditing(false)} style={{position:"absolute",top:"10px",right:"20px",cursor:"pointer"}} size={'1.5rem'}/> */}
+
           <h2>Edit Profile</h2>
             <label>
               Name:
