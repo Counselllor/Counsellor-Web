@@ -1,29 +1,16 @@
-import React, { useContext, useEffect, useState , useCallback } from 'react';
-import './Contribute.css'; // Import CSS file for styles
-import Footer from '../Footer/Footer';
-// import Navbar from '../Navbar/Navbar';
+import React, { useEffect, useState, useCallback } from "react";
+import "./Contribute.css"; // Import CSS file for styles
+import Footer from "../Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Logo from "../../assets/logo.webp";
-import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
-import ScrollToTop from 'react-scroll-to-top';
-
-import BackToHomeButton from '../backtohome';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar';
-
+import ScrollToTop from "react-scroll-to-top";
+import Navbar from "../Navbar/Navbar";
 
 const Contribute = () => {
-  const owner = 'Counselllor';
-  const repo = 'Counsellor-Web';
-  const contributorsPerPage = 10; // Display 10 contributors per page
+  const owner = "Counselllor";
+  const repo = "Counsellor-Web";
   const [contributors, setContributors] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate=useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,22 +18,6 @@ const Contribute = () => {
         duration: 1200,
       });
     }, 100);
-
-    // Refresh AOS on component unmount
-    return () => {
-      AOS.refreshHard();
-    };
-  }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      AOS.init({
-        duration: 1200,
-        disable: window.innerWidth < 1724
-
-      });
-    }, 100);
-
-    // Refresh AOS on component unmount
     return () => {
       AOS.refreshHard();
     };
@@ -63,6 +34,7 @@ const Contribute = () => {
         const data = await response.json();
         console.log(data)
         setContributors(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching contributors:', error);
       }
@@ -301,11 +273,17 @@ let arr=[
 
   const handleProfileClick = (username) => {
     const profileUrl = `https://github.com/${username}`;
-    window.open(profileUrl, '_blank'); // Open the GitHub profile in a new tab
+    window.open(profileUrl, "_blank");
   };
+
   const displayTopContributors = () => {
-      return contributors.slice(0, 3).map((contributor ,index)=> (
-      <div data-aos="fade-up" key={contributor.login} className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
+    return contributors.slice(0, 3).map((contributor) => (
+      <div
+        data-aos="fade-up"
+        key={contributor.login}
+        className="contributor-card"
+        onClick={() => handleProfileClick(contributor.login)}
+      >
         <img src={contributor.avatar_url} alt={contributor.login} />
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
@@ -314,6 +292,7 @@ let arr=[
       </div>
     ));
   };
+
   const displayContributors = () => {
     return contributors.slice(0, contributors.length).map((contributor,index) => (
       <div key={contributor.login}  className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
@@ -332,79 +311,62 @@ let arr=[
     ));
   };
 
-  const createPaginationButtons = () => {
-    const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-    return Array.from({ length: totalPages }, (_, index) => (
-      <button
-        key={index + 1}
-        className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
-        onClick={() => setCurrentPage(index + 1)}
-      >
-        {index + 1}
-      </button>
-    ));
+  const renderSkeletons = (count) => {
+    return Array(count)
+      .fill(0)
+      .map((_, index) => (
+        <div className="contributor-card skeleton" key={index}>
+          <div className="skeleton-avatar"></div>
+          <div className="skeleton-info">
+            <div className="skeleton-text skeleton-name"></div>
+            <div className="skeleton-text skeleton-contributions"></div>
+          </div>
+        </div>
+      ));
   };
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
-  
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!menuOpen);
-  });
-  const handleSignOut = useCallback(() => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("login");
-        navigate("/");
-      })
-      .catch((err) => {
-       toast.error(err.message, {
-          className: "toast-message",
-        });
-      });
-  }, [navigate]);
+
   return (
     <>
       <ScrollToTop
         smooth
         viewBox="0 0 24 24"
         svgPath="M16 13a1 1 0 0 1-.707-.293L12 9.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 13z M16 17a1 1 0 0 1-.707-.293L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4A1 1 0 0 1 16 17z"
-        
         color="white"
         style={{ backgroundColor: "#5CB6F9" }}
       />
-  <Navbar/>
-    <div className="contribute-container">
-
-
-
-
-
-      <header className="contributor-header">
-        <h1 className="contributor-heading">Our Amazing Contributors</h1>
-        <p className="contributor-subheading">Meet the incredible people who make our project possible. Click on their profiles to learn more about their contributions.</p>
-      </header>
-      <div className="thank-you-message">
-        <h2>Thank You to All Our Contributors</h2>
-        <p>Your hard work and dedication are truly appreciated!</p>
-      </div>
-      <div className="top-contributor-cards">
-        <h1>Our Top Contributors</h1><br></br>
-        <div className='top-contri'>
-          {displayTopContributors()}
+      <Navbar />
+      <div className="contribute-container">
+        <header className="contributor-header">
+          <h1 className="contributor-heading">Our Amazing Contributors</h1>
+          <p className="contributor-subheading">
+            Meet the incredible people who make our project possible. Click on
+            their profiles to learn more about their contributions.
+          </p>
+        </header>
+        <div className="thank-you-message">
+          <h2>Thank You to All Our Contributors</h2>
+          <p>Your hard work and dedication are truly appreciated!</p>
         </div>
-        <h1>All  Contributors</h1><br></br>
-        <div className='all'>
-
-          {displayContributors()}
+        <div className="top-contributor-cards">
+          <h1>Our Top Contributors</h1>
+          <div className="top-contri">
+            {loading ? (
+              
+              renderSkeletons(3)
+            
+            ) : (
+              displayTopContributors()
+            )}
+          </div>
+          <h1>All Contributors</h1>
+          <div className="all">
+            {loading
+              ? renderSkeletons(contributors.length)
+              : displayContributors()}
+          </div>
         </div>
       </div>
-     
-    </div>
-    <Footer />
-
-
-
+      <Footer />
     </>
   );
 };
