@@ -292,7 +292,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0);
+  backdrop-filter: blur(10px); /* Adjust blur intensity */
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -305,6 +306,7 @@
   width: 80%;
   max-width: 522px;
   text-align: left;
+  position: relative !important;
 }
 
 .edit-modal-content h2 {
@@ -357,7 +359,7 @@
 .download-button {
   margin-top: 15px;
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
