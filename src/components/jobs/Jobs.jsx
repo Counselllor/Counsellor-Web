@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobsData from "./jobs.json";
 import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin, FaSlack, FaDiscord } from "react-icons/fa";
 
+
 import {FaTimes} from 'react-icons/fa'
+import BlogsSkeleton from "../blogs/BlogsSkeleton";
 const Jobs = () => {
   let [isModal,setIsModal]=useState(false)
+  const [loading, setLoading] = useState(true); // Loading state
   function handleOpenModal(){
     setIsModal(true)
     console.log('click')
@@ -15,6 +18,14 @@ const Jobs = () => {
   function handleCLoseModal(){
     setIsModal(false)
   }
+useEffect(() => {
+    // Simulate loading delay of 1 second
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer); // Clear timeout if component unmounts
+  }, []);
   return (
   <>  <div className="jobsPage">
       <Navbar />
@@ -23,8 +34,9 @@ const Jobs = () => {
         <p className="jobsPage-subtitle">Explore exciting career opportunities</p>
       </header>
       <section className="jobsPage-content" style={{zIndex:10}}>
-        <div className="jobsPage-list">
-          {JobsData.map((job) => (
+      { loading ? (
+            <BlogsSkeleton count={JobsData.length} />) :    ( <div className="jobsPage-list">
+              {  JobsData.map((job) => (
             <div key={job.id} className="jobsPage-card">
               <h2 className="jobsPage-title">{job.title}</h2>
               <h3 className="jobsPage-company">{job.company}</h3>
@@ -33,7 +45,7 @@ const Jobs = () => {
               <button className="jobsPage-apply" onClick={handleOpenModal}>Apply Now</button>
             </div>
           ))}
-        </div>
+        </div>)}
       </section>
       <footer id="footer" className="footer-area fixed-color2">
       <div className="container">

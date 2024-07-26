@@ -8,7 +8,6 @@ const Footer = () => {
       <div className="container">
         <div className="link-container">
           <ul className="link">
-            <li><a href="/">Home</a></li>
             <li><a href="./About">About Us</a></li>
             <li><a href="./blogs">Blog</a></li>
             <li><a href="./contribute">Our Contributors</a></li>
