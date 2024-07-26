@@ -28,6 +28,11 @@
   text-decoration: none;
 }
 
+.ErrorPage.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 600px) {
   .ErrorPage h1 {
@@ -40,7 +45,3 @@
     margin-bottom: 10px;
   }
 }
-
-
-
-  
