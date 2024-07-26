@@ -27,7 +27,7 @@ const StudentLayout = () => {
     <>
       <Navbar />
       <div className="single-student-container">
-        <div className="single-student-details">
+        <div id="student" className="single-student-details">
           <div className="single-student-profile">
             <div className="dp-container">
               <img src={imgArray[0]} className="student-dp" alt="" />
