@@ -34,6 +34,7 @@ import Achievements from "./components/Student/Achievements";
 import StudentDefault from "./components/Student/StudentDefault";
 import TechStack from "./components/Student/TechStack";
 import SocialLinks from "./components/Student/SoicalLinks";
+import Slots from "./components/Student/Slots";
 
 const router = createBrowserRouter([
   {
@@ -145,6 +146,10 @@ const router = createBrowserRouter([
           {
             path: "social-links",
             element: <SocialLinks />,
+          },
+          {
+            path: "available-slots",
+            element: <Slots />,
           },
         ],
       },
