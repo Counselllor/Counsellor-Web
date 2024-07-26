@@ -51,7 +51,6 @@ useEffect(() => {
   return (
     <>
       <Navbar />
-      <BackToHomeButton />
       {/* Breadcrumb can be added here */}
       <div className="privacy-page">
         <div className="privacy-policy-container">
