@@ -161,7 +161,7 @@
     font-size: 1.5rem;
   }
 }
-input,textarea{
+.modal-jobs input, .modal-jobs textarea{
   width: 100% !important;
 }
 
@@ -198,7 +198,10 @@ input,textarea{
   z-index: 1000;
   padding: 20px;
 }
-#dark label{
+.modal-jobs .form-group{
+  width: 100% !important;
+}
+#dark .modal-jobs label{
   color: white !important;
 }
 #dark .modal-jobs{
