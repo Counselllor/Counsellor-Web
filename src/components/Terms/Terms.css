@@ -138,13 +138,13 @@
   color: #fff; /* Set text color to white */
 }
 
-#dark .privacy-policy-container h2 {
+#dark .privacy-policy-container h2,h3 {
   color: #60a4ee; /* Set heading color to blue */
 }
 
 #dark .privacy-policy-container h1,
 #dark .privacy-policy-container h3 {
-  color: #4491e4; /* Set heading color to blue */
+  color: #12229d; /* Set heading color to blue */
 }
 
 #dark .highlights {
