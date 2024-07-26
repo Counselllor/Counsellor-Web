@@ -456,7 +456,7 @@ const ProfileCard = () => {
       {isEditing && (
         <div className="edit-modal" >
           <div className="edit-modal-content" >
-          {/* <FaX onClick={()=>setIsEditing(false)} style={{position:"absolute",top:"10px",right:"20px",cursor:"pointer"}} size={'1.5rem'}/> */}
+          <FaX onClick={()=>setIsEditing(false)} style={{position:"absolute",top:"10px",right:"20px",cursor:"pointer"}} size={'1.5rem'}/>
 
           <h2>Edit Profile</h2>
             <label>
