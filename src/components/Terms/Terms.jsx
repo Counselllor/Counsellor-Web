@@ -50,17 +50,14 @@ useEffect(() => {
   }, [setFixed]);
   return (
     <>
-<Navbar/>
-    <BackToHomeButton />
-    
-      {/* breadcrumb */}
-      <div className="terms-container">
-      
-        
-        {/* terms page */}
-        <div className="contents">
+      <Navbar />
+      <BackToHomeButton />
+      {/* Breadcrumb can be added here */}
+      <div className="privacy-page">
+        <div className="privacy-policy-container">
           <h1>Terms & Conditions</h1>
-          <section id="cookies">
+          
+          <section>
             <h2>Cookies</h2>
             <ul>
               <li>We use cookies to enhance user experience.</li>
@@ -68,30 +65,28 @@ useEffect(() => {
               <li>By using our site, you consent to the use of cookies.</li>
             </ul>
           </section>
-          <section id="license">
+          
+          <section>
             <h2>License</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-              eum explicabo quae totam voluptatum. Expedita nisi quo facere odio
-              quas obcaecati porro architecto minus, eum sed commodi ratione
-              modi deleniti perspiciatis! Labore ipsa sapiente ab minima
-              incidunt tempora perferendis iure at et placeat. Praesentium
-              temporibus nisi et est eius fugit.
+              By accessing and using Counsellor, you agree to comply with our licensing terms. 
+              These terms ensure the protection of our intellectual property and maintain the 
+              integrity of our content. We grant you a limited, non-exclusive, non-transferable 
+              license to access and use our website for personal, non-commercial purposes.
             </p>
+            <p>Unless explicitly stated, you are not permitted to:</p>
             <ul>
-              <li>Republish material from CrickClub24</li>
-              <li>Sell, rent or sub-license material from CrickClub24</li>
-              <li>Reproduce, duplicate or copy material from CrickClub24</li>
-              <li>Redistribute content from CrickClub24</li>
+              <li>Republish material from Counsellor</li>
+              <li>Sell, rent or sub-license material from Counsellor</li>
+              <li>Reproduce, duplicate or copy material from Counsellor</li>
+              <li>Redistribute content from Counsellor</li>
             </ul>
           </section>
-    
-     
-         <section id="hyperlinking">
+          
+          <section>
             <h2>Hyperlinking to our Content</h2>
             <p>
-              The following organizations may link to our Website without prior
-              written approval:
+              The following organizations may link to our Website without prior written approval:
             </p>
             <ul>
               <li>Government agencies;</li>
@@ -100,33 +95,36 @@ useEffect(() => {
               <li>Online directory distributors;</li>
               <li>System wide Accredited Businesses.</li>
             </ul>
-          </section> 
-        
-         <section id="iframes">
+          </section>
+          
+          <section>
             <h2>iFrames</h2>
             <ul>
-              <li>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</li>
+              <li>
+                Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.
+              </li>
             </ul>
           </section>
-
-          <section id="liability">
+          
+          <section>
             <h2>Content Liability</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad
-              itaque iusto sed a consequuntur adipisci corporis quidem est.
-              Similique optio esse placeat reiciendis velit nemo rerum corporis
-              consectetur, perspiciatis, hic nostrum et illum recusandae ea,
-              asperiores ducimus distinctio temporibus nam!
+              While we strive to provide accurate and up-to-date information, Counsellor does not 
+              warrant that the content on our website is complete, reliable, or error-free. We are 
+              not liable for any inaccuracies, errors, or omissions in the content. Users are 
+              responsible for verifying any information before relying on it. The content is provided 
+              "as is" without any guarantees or warranties, express or implied.
             </p>
           </section>
+          
+          <hr />
+          
         </div>
       </div>
-
-      <hr />
-
       <Footer />
     </>
   );
+  
 };
 
 export default Terms;
