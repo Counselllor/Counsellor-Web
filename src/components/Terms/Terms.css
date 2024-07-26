@@ -38,10 +38,6 @@
   margin-right: 0.5rem;
 }
 
-.breadcrumb-item:hover {
-  text-decoration: underline;
-}
-
 .breadcrumb-separator {
   margin-right: 0.5rem;
   color: #555;
@@ -94,23 +90,6 @@
   color: #333;
 }
 
-.privacy-policy-container p,
-.privacy-policy-container ul,
-.privacy-policy-container li {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .highlights {
   background-color: #f0f4f8;
   padding: 2rem;
@@ -124,29 +103,28 @@
   margin-top: 0;
 }
 
-/* Dark mode styles */
 #dark .privacy-page {
-  background-color: #000; /* Set background to black */
+  background-color: #000;
 }
 
 #dark .privacy-policy-container {
-  background-color: #000; /* Set background to black */
+  background-color: #000;
 }
 
 #dark .privacy-policy-container p,
 #dark .privacy-policy-container li {
-  color: #fff; /* Set text color to white */
+  color: #fff;
 }
 
 #dark .privacy-policy-container h2,h3 {
-  color: #60a4ee; /* Set heading color to blue */
+  color: #60a4ee;
 }
 
 #dark .privacy-policy-container h1 {
-  color: #12229d; /* Set heading color to blue */
+  color: #12229d;
 }
 
 #dark .highlights {
-  background-color: #000; /* Set background to black */
-  border-left-color: #4491e4; /* Set border color to blue */
+  background-color: #000;
+  border-left-color: #4491e4;
 }
