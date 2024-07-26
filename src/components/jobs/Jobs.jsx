@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobsData from "./jobs.json";
 import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin, FaSlack, FaDiscord } from "react-icons/fa";
 
+
 import {FaTimes} from 'react-icons/fa'
+import BlogsSkeleton from "../blogs/BlogsSkeleton";
 const Jobs = () => {
   let [isModal,setIsModal]=useState(false)
+
   let [isJobModal,setIsJobModal]=useState(false)
 function handleJobClose(){
   setIsJobModal(false)
 }
+
+  const [loading, setLoading] = useState(true); // Loading state
+
   function handleOpenModal(){
     setIsModal(true)
     console.log('click')
@@ -19,9 +25,20 @@ function handleJobClose(){
   function handleCLoseModal(){
     setIsModal(false)
   }
+
   function handlePostJob(){
     setIsJobModal(true)
   }
+
+useEffect(() => {
+    // Simulate loading delay of 1 second
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer); // Clear timeout if component unmounts
+  }, []);
+
   return (
   <>  <div className="jobsPage">
       <Navbar />
@@ -31,8 +48,9 @@ function handleJobClose(){
       </header>
       <div style={{width:"100vw",textAlign:"center"}}><button onClick={handlePostJob} style={{cursor:"pointer",margin:"auto",padding:"8px 17px",backgroundColor:"#12229d",borderRadius:"10px",color:"white"}}>Post Job</button></div>
       <section className="jobsPage-content" style={{zIndex:10}}>
-        <div className="jobsPage-list">
-          {JobsData.map((job) => (
+      { loading ? (
+            <BlogsSkeleton count={JobsData.length} />) :    ( <div className="jobsPage-list">
+              {  JobsData.map((job) => (
             <div key={job.id} className="jobsPage-card">
               <h2 className="jobsPage-title">{job.title}</h2>
               <h3 className="jobsPage-company">{job.company}</h3>
@@ -41,7 +59,7 @@ function handleJobClose(){
               <button className="jobsPage-apply" onClick={handleOpenModal}>Apply Now</button>
             </div>
           ))}
-        </div>
+        </div>)}
       </section>
       <footer id="footer" className="footer-area fixed-color2">
       <div className="container">

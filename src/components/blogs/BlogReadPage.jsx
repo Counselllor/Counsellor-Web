@@ -21,6 +21,7 @@ import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/f
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 
+
 const BlogReadPage = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -40,6 +41,8 @@ const BlogReadPage = () => {
   const navigate = useNavigate();
   let [ids,setIds]=useState([])
   const [user, setUser] = useState(null);
+  const [isNotLoggedInModalVisible, setIsNotLoggedInModalVisible] = useState(false);
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -122,9 +125,7 @@ const BlogReadPage = () => {
 
   const handleLikeClick = async () => {
     if (!isLoggedIn) {
-      toast.error("Please log in to like the article.", {
-        className: "toast-message",
-      });
+      setIsNotLoggedInModalVisible(true);
       return;
     }
 
@@ -178,6 +179,10 @@ const BlogReadPage = () => {
   };
   const handleNewCommentSubmit = async (event) => {
     event.preventDefault();
+    if (!isLoggedIn) {
+      setIsNotLoggedInModalVisible(true);
+      return;
+    }
     try {
       const db = getDatabase();
       const commentsRef = ref(db, `articles/${id}/comments`);
@@ -266,6 +271,14 @@ const BlogReadPage = () => {
         });
     };
 
+    const closeModal = () => {
+      setIsNotLoggedInModalVisible(false);
+    };
+  
+    const handleOkayClick = () => {
+      navigate('/');
+    };
+
   return (
     <>
      <Navbar/>
@@ -274,7 +287,7 @@ const BlogReadPage = () => {
           <div className="blog-header">
             <h1 className="blog-title">{blog.title}</h1>
             <div className="blog-meta">
-              <img src={randomAvatar} alt="Author Avatar" className="author-avatar" />
+              <img src={blog.pic ? blog.pic :(blog.avatar ? blog.avatar : randomAvatar)} alt="Author Avatar" className="author-avatar" />
               <div className="meta-info">
                 <p className="author-name">{blog.author}</p>
                 <p className="blog-date">{moment(blog.createdAt).fromNow()}</p>
@@ -300,7 +313,7 @@ const BlogReadPage = () => {
               <FaShareAlt size={16} />
             </div>
               <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button>
-              {blog.createdBy === userId && (
+              { isLoggedIn &&  blog.createdBy === userId && (
               <>  
               <div className="Edit_icon">
                   <MdModeEdit size={18} onClick={handleEditClick} />
@@ -385,7 +398,21 @@ const BlogReadPage = () => {
     </button>
   </div>
 
+
 </Modal>
+<Modal
+          title="Not Logged In"
+          visible={isNotLoggedInModalVisible}
+          onCancel={closeModal}
+          footer={[
+            <button key="ok" className="close-button" onClick={handleOkayClick}>
+              Okay
+            </button>,
+          ]}
+        >
+          <p>You need to be logged in to perform this action.</p>
+        </Modal>
+
 {
 isModal&&<>
 <div className="modal-jobs1">  <FaTimes onClick={handleCLoseModal} style={{position:"absolute",right:"20px",top:"20px",cursor:"pointer",}} size={'2rem'}/>
