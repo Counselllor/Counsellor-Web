@@ -26,18 +26,16 @@ const Contribute = () => {
   useEffect(() => {
     const fetchContributors = async () => {
       try {
-        const response = await fetch(
-          `https://api.github.com/repos/${owner}/${repo}/contributors?per_page=100`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setContributors(data);
-          setLoading(false);
-        } else {
-          console.error("Failed to fetch contributors:", response.statusText);
+        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
+        if (!response.ok) {
+          console.error('Failed to fetch contributors:', response.statusText);
+          return;
         }
+        const data = await response.json();
+        setContributors(data);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching contributors:", error);
+        console.error('Error fetching contributors:', error);
       }
     };
 
