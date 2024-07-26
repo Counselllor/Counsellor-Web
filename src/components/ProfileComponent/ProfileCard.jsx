@@ -20,7 +20,6 @@ import { compressAndResizeImage } from "../../common/compressAndResizeImage";
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
   // user info from redux store
-  const userInfo = useSelector((state) => state.isAuthenticate.user);
   const [name, setName] = useState(localStorage.getItem("name") || "Alex Foam");
   const [dob, setDob] = useState(localStorage.getItem("dob") || "2000-01-21");
   const [academicYear, setAcademicYear] = useState(
@@ -40,6 +39,22 @@ const ProfileCard = () => {
   const [userData, setUserData] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const [userUid, setUserUid] = useState(localStorage.getItem("userUid"));
+  const [userInfo, setUserInfo] = useState(() => {
+    const storedUserInfo = localStorage.getItem('userInfo');
+    if (storedUserInfo) {
+      return JSON.parse(storedUserInfo);
+    }
+    return useSelector((state) => state.isAuthenticate.user);
+  });
+  
+  useEffect(() => {
+    if (!userInfo) {
+      const storedUserInfo = localStorage.getItem('userInfo');
+      if (storedUserInfo) {
+        setUserInfo(JSON.parse(storedUserInfo));
+      }
+    }
+  }, [userInfo]);
 
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
@@ -68,19 +83,25 @@ const ProfileCard = () => {
   console.log(userData);
   useEffect(() => {
     const fetchData = async () => {
-      const userData = await fetchUserData(userUid);
-      if (userData) {
-        setUserData(userData);
-        setName(userData.firstname + " " + userData.surname || "Alex Foam");
-        setDob(userData.dob || "2000-01-21");
-        if (userData.profilePic) {
+      const storedUserInfo = localStorage.getItem('userInfo');
+      if (storedUserInfo) {
+        const parsedUserInfo = JSON.parse(storedUserInfo);
+        setUserInfo(parsedUserInfo);
+        setName(parsedUserInfo.firstname + " " + parsedUserInfo.surname);
+        setProfilePic(parsedUserInfo.profilePic);
+      } else {
+        const userData = await fetchUserData(userUid);
+        if (userData) {
+          setUserInfo(userData);
+          setName(userData.firstname + " " + userData.surname);
           setProfilePic(userData.profilePic);
+          localStorage.setItem('userInfo', JSON.stringify(userData));
         }
       }
     };
-
+  
     fetchData();
-  }, []);
+  }, [userUid]);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -338,7 +359,7 @@ const ProfileCard = () => {
     <div className="profile-card-container">
       <div className="greeting">
         <div className="greeting-text">
-          <h1>Hello, {userInfo.firstname}!</h1>
+          <h1>Hello, {userInfo.firstname || 'User'}!</h1>
           <p>
             Your Profile is updated here. Dates, counselling and your Skills are
             all in one tap.

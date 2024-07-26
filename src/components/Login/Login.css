@@ -92,7 +92,6 @@
   padding: 0 20%;
 }
 
-
 .login-container input[type="email"],
 .login-container input[type="password"],
 .login-container input[type="text"] {
@@ -322,4 +321,105 @@ form div {
   right: 0;
   width: 18vw;
   padding: 10px;
+}
+
+.or-line {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #666;
+  width: 50%;
+}
+
+.or-line hr {
+  flex-grow: 1;
+  height: 1px;
+  border: none;
+  background-color: #999;
+  margin: 0 10px;
+}
+
+.or-line span {
+  padding: 0 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 20px 0;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn {
+  background-color: #fff;
+  border: 1px solid #4285F4;
+}
+
+.google-btn:hover {
+  background-color: #4285F4;
+}
+
+.github-btn {
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+.github-btn:hover {
+  background-color: #333;
+}
+
+.github-btn:hover img{
+  background-color: white;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+.google-btn:hover .social-icon {
+  filter: brightness(0) invert(1);
+}
+
+#dark .github-btn {
+  background-color: #333;
+  border: 1px solid #fff;
+}
+
+#dark .github-btn img{
+  background-color: white;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+#dark .github-btn:hover {
+  background-color: #fff;
+}
+
+#dark .google-btn{
+  background-color: #333;
+  border: 1px solid #fff;
+}
+
+#dark .google-btn:hover {
+  background-color: #fff;
+}
+
+#dark .google-btn:hover .social-icon {
+  filter: none;
 }
