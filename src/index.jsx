@@ -31,8 +31,9 @@ import University from "./components/Top Universities/University";
 import BlogEditPage from "./components/blogs/BlogEditPage";
 import StudentLayout from "./components/Student/StudentLayout";
 import Achievements from "./components/Student/Achievements";
-import StudentDefault from "./components/Student/StudentDefault"; 
-import TechStack from "./components/Student/TechStack"; 
+import StudentDefault from "./components/Student/StudentDefault";
+import TechStack from "./components/Student/TechStack";
+import SocialLinks from "./components/Student/SoicalLinks";
 
 const router = createBrowserRouter([
   {
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
           {
             path: "tech-stack",
             element: <TechStack />,
+          },
+          {
+            path: "social-links",
+            element: <SocialLinks />,
           },
         ],
       },
