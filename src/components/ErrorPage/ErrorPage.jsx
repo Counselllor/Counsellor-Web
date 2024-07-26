@@ -1,10 +1,11 @@
 import { Link, useRouteError } from "react-router-dom";
 import "./ErrorPage.css";
+import { useState } from "react";
 
 
 const ErrorPage = () => {
   const error = useRouteError();
-
+ const [login, setLogin] = useState(localStorage.getItem("login"));
   return (
     <>
     {/* <Navbar /> */}
@@ -15,7 +16,7 @@ const ErrorPage = () => {
         <p>
           <i>{error?.statusText || error?.message}</i>
         </p>
-        <Link className="Btn" to={"/"}>
+        <Link className="Btn" to={`${login ? "/dashboard" :"/"}`}>
           Go back to home
         </Link>
       </div>
