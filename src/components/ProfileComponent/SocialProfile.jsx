@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./SocialProfile.css";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../../firebase/auth';
-import { getDatabase, ref, set, get, child, update, remove } from 'firebase/database';
+import { auth } from "../../firebase/auth";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+  update,
+  remove,
+} from "firebase/database";
 
 const initialProfiles = [
   {
@@ -49,17 +57,21 @@ const SocialProfile = () => {
       if (user) {
         fetchProfiles(uid);
       } else {
-        navigate('/');
+        navigate("/");
       }
     });
   }, [navigate]);
 
   const fetchProfiles = async (userId) => {
     const dbRef = ref(getDatabase());
-    const userSnapshot = await get(child(dbRef, `users/${userId}/socialProfileId`));
+    const userSnapshot = await get(
+      child(dbRef, `users/${userId}/socialProfileId`)
+    );
     if (userSnapshot.exists()) {
       const socialProfileId = userSnapshot.val();
-      const profileSnapshot = await get(child(dbRef, `socialProfiles/${socialProfileId}/links`));
+      const profileSnapshot = await get(
+        child(dbRef, `socialProfiles/${socialProfileId}/links`)
+      );
       if (profileSnapshot.exists()) {
         setProfiles(profileSnapshot.val());
       }
@@ -69,10 +81,10 @@ const SocialProfile = () => {
   const saveProfiles = async (userId, profiles) => {
     const db = getDatabase();
     const userRef = ref(db, `users/${userId}`);
-    let socialProfileId = (await get(child(userRef, 'socialProfileId'))).val();
+    let socialProfileId = (await get(child(userRef, "socialProfileId"))).val();
     if (!socialProfileId) {
       socialProfileId = generateUUID();
-      await set(child(userRef, 'socialProfileId'), socialProfileId);
+      await set(child(userRef, "socialProfileId"), socialProfileId);
     }
     await set(ref(db, `socialProfiles/${socialProfileId}/links`), profiles);
   };
@@ -87,7 +99,10 @@ const SocialProfile = () => {
       alert("Please enter a valid profile name and URL starting with http");
       return;
     }
-    const updatedProfiles = [...profiles, { ...newProfile, id: generateUUID() }];
+    const updatedProfiles = [
+      ...profiles,
+      { ...newProfile, id: generateUUID() },
+    ];
     setProfiles(updatedProfiles);
     setNewProfile({ name: "", url: "" });
     setShowNewProfileForm(false);
@@ -113,7 +128,6 @@ const SocialProfile = () => {
       await saveProfiles(uid, updatedProfiles);
     }
   };
-
 
   const handleEditProfile = (id) => {
     setEditingId(id);
