@@ -40,7 +40,7 @@ const Courses = () => {
           {coursesData.map((course) => (
             <div className="course-card" key={course.id}>
               <img
-                src={course.imageURL}
+                src={course.image}
                 alt={course.title}
                 className="course-image"
               />

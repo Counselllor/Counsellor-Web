@@ -391,3 +391,104 @@
     font-size: 1.5rem;
   }
 }
+/* Skeleton styles */
+.universityPage-list .skeleton-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.universityPage-list .skeleton-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  width: calc(33.333% - 20px); /* Adjust this to match your card width */
+  width: 100%;
+}
+
+.universityPage-list .skeleton-img {
+  width: 100%;
+  height: 150px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.universityPage-list .skeleton-title,
+.universityPage-list .skeleton-company,
+.universityPage-list .skeleton-description,
+.universityPage-list .skeleton-location {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.universityPage-list .skeleton-title {
+  width: 60%;
+  height: 20px;
+}
+
+.universityPage-list .skeleton-company {
+  width: 100%;
+  height: 16px;
+}
+
+.universityPage-list .skeleton-description {
+  width: 100%;
+  height: 16px;
+}
+
+.universityPage-list .skeleton-location {
+  width: 70%;
+  height: 16px;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e4e3e3;
+  }
+  50% {
+    background-color: #d1c9c9;
+  }
+  100% {
+    background-color: #e4e3e3;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-card {
+    width: 100%; /* Full width for each card */
+  }
+}
+
+/* Dark mode */
+#dark .universityPage-list .skeleton-card {
+  background-color: #000000;
+}
+
+#dark .universityPage-list .skeleton-img,
+#dark .universityPage-list .skeleton-title,
+#dark .universityPage-list .skeleton-company,
+#dark .universityPage-list .skeleton-description,
+#dark .universityPage-list .skeleton-location {
+  animation: skeleton-animation-dark 1.5s infinite ease-in-out;
+}
+
+@keyframes skeleton-animation-dark {
+  0% {
+    background-color: #524e4e;
+  }
+  50% {
+    background-color: #282727;
+  }
+  100% {
+    background-color: #524e4e;
+  }
+}

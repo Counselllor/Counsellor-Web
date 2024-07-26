@@ -1,0 +1,49 @@
+.student-default-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: start;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+  
+  .student-default-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+  }
+  
+  .student-details h3,
+  .student-details h4 {
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .student-details ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .student-details ul li {
+    margin-bottom: 5px;
+    color: #444;
+  }
+  
+  .student-details a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .student-details a:hover {
+    color: #0056b3;
+  }
+  
+  .student-not-found {
+    text-align: center;
+    color: #d9534f;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
