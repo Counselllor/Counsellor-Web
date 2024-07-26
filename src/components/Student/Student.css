@@ -17,6 +17,7 @@
   padding: 20px;
   border-radius: 8px;
 }
+
 #dark .single-student-profile{
   background-color: #2f2f2f;
 }
@@ -196,5 +197,22 @@ color: white !important;
 
   .student-info p {
     font-size: 0.875rem;
+  }
+}
+@media only screen and (max-width:500px){
+  .single-student-profile,.student-details-content{
+    width: 84vw !important;
+  }
+  .single-student-details{
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+  }
+  #student{
+    padding-left: 0px !important;
+  }
+}
+@media only screen and (max-width:400px){
+  .student-details-content .nav{
+    flex-wrap: wrap;
   }
 }
