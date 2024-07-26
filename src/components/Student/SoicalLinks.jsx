@@ -14,32 +14,29 @@ const SocialLinks = () => {
 
   return (
     <div className="social-links-container">
-      <h2>{student.name}</h2>
-      <p>
-        {student.position} at {student.college}
-      </p>
+      <h1 className="social-title">Social Links</h1>
       <hr />
       <div className="social-links">
         <Link
           to={student.socialLinks.linkedin}
           style={{ textDecoration: "none" }}
         >
-          <div className="linked-in">
+          <div className="icon-card">
             <a
               href={student.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin size={30} />
+              <FaLinkedin className="social-icon" size={30} />
             </a>
-            <h1>LinkedIn</h1>
+            <p>LinkedIn</p>
           </div>
         </Link>
         <Link
           to={student.socialLinks.github}
           style={{ textDecoration: "none" }}
         >
-          <div className="github">
+          <div className="icon-card">
             <a
               href={student.socialLinks.github}
               target="_blank"
@@ -47,14 +44,14 @@ const SocialLinks = () => {
             >
               <FaGithub size={30} />
             </a>
-            <h1>Github</h1>
+            <p>Github</p>
           </div>
         </Link>
         <Link
           to={student.socialLinks.twitter}
           style={{ textDecoration: "none" }}
         >
-          <div className="twitter">
+          <div className="icon-card">
             <a
               href={student.socialLinks.twitter}
               target="_blank"
@@ -62,7 +59,7 @@ const SocialLinks = () => {
             >
               <FaTwitter size={30} />
             </a>
-            <h1>Twitter</h1>
+            <p>Twitter</p>
           </div>
         </Link>
       </div>
