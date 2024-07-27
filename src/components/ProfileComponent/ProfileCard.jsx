@@ -4,6 +4,7 @@ import avatar1 from "../../assets/avatar1.png";
 import avatar2 from "../../assets/avatar2.png";
 import { database, storage } from "../../firebase/auth";
 import { ref, get, update } from "firebase/database";
+import { getDatabase, onValue } from 'firebase/database';
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
@@ -79,20 +80,29 @@ const ProfileCard = () => {
 
   console.log(userData);
   useEffect(() => {
-    const fetchData = async () => {
-      const userData = await fetchUserData(userUid);
-      if (userData) {
+    const db = getDatabase();
+    const userRef = ref(db, `users/${userUid}`);
+
+    // Set up a listener for changes in user data
+    const unsubscribe = onValue(userRef, async (snapshot) => {
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
         setUserData(userData);
         setName(userData.firstname + " " + userData.surname || "Alex Foam");
         setDob(userData.dob || "2000-01-21");
         if (userData.profilePic) {
           setProfilePic(userData.profilePic);
         }
+      } else {
+        console.log("No data available");
       }
-    };
+    });
 
-    fetchData();
-  }, []);
+    // Cleanup listener on component unmount
+    return () => {
+      unsubscribe();
+    };
+  }, [userUid]);
  useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
     console.log("Fetched socialProfiles:", storedProfiles);
@@ -344,7 +354,7 @@ const ProfileCard = () => {
     <div className="profile-card-container">
       <div className="greeting">
         <div className="greeting-text">
-          <h1>Hello, {userInfo.firstname}!</h1>
+          <h1>Hello, {userData.firstname}!</h1>
           <p>
             Your Profile is updated here. Dates, counselling and your Skills are
             all in one tap.
@@ -379,16 +389,16 @@ const ProfileCard = () => {
             </p>
           </div>
           <div className="about-info">
-            <h3>Email:</h3> <p>{userInfo.email}</p>
+            <h3>Email:</h3> <p>{userData.email}</p>
           </div>
           <div className="about-info">
             <h3>Phone : </h3> <p>+918795768574</p>
           </div>
           <div className="about-info">
-            <h3>Gender : </h3> <p>{userInfo.gender}</p>
+            <h3>Gender : </h3> <p>{userData.gender}</p>
           </div>
           <div className="about-info">
-            <h3>BirthDate : </h3> <p>{userInfo.dob}</p>
+            <h3>BirthDate : </h3> <p>{userData.dob}</p>
           </div>
           <div className="about-info">
             <h3>College : </h3> <p>IIT Bombay</p>
@@ -432,12 +442,12 @@ const ProfileCard = () => {
           <p className="role">Student</p>
           <div className="social-profiles">
             <a
-              key={userInfo.id}
-              href={userInfo.url}
+              key={userData.id}
+              href={userData.url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={`bx bxl-${userInfo.firstname?.toLowerCase()}`}/>
+              <i className={`bx bxl-${userData.firstname?.toLowerCase()}`}/>
             </a>
           </div>
           <div className="skills-section">
@@ -463,7 +473,7 @@ const ProfileCard = () => {
               Name:
               <input
                 type="text"
-                placeholder={userInfo.firstname + " " + userInfo.surname}
+                placeholder={userData.firstname + " " + userData.surname}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -473,7 +483,7 @@ const ProfileCard = () => {
               <input
                 type="date"
                 value={dob}
-                placeholder={userInfo.dob}
+                placeholder={userData.dob}
                 onChange={(e) => setDob(e.target.value)}
               />
             </label>
