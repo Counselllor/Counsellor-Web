@@ -6,7 +6,7 @@ import DOMPurify from "dompurify";
 import { marked } from "marked";
 import upvote from  "./upvote-svgrepo-com.svg"
 import downvote from  "./downvote-svgrepo-com.svg"
-
+import { FaRegComment } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import Logo from "../../assets/logo.webp";
 import randomAvatar from "../../assets/avatar1.png"; // Assuming you have an avatar image
@@ -20,6 +20,7 @@ import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
+import Discussions from "./Discussions";
 
 
 const BlogReadPage = () => {
@@ -177,29 +178,40 @@ const BlogReadPage = () => {
   const createMarkup = (content) => {
     return { __html: DOMPurify.sanitize(marked(content)) };
   };
-  const handleNewCommentSubmit = async (event) => {
-    event.preventDefault();
+
+  const handleNewCommentSubmit = async (newComment, user) => {
     if (!isLoggedIn) {
       setIsNotLoggedInModalVisible(true);
       return;
     }
+  
+    if (newComment.trim() === '') {
+      alert("Comment cannot be empty!");
+      return;
+    }
+  
     try {
       const db = getDatabase();
       const commentsRef = ref(db, `articles/${id}/comments`);
       const newCommentRef = push(commentsRef);
       const commentData = {
-        author: user.firstname, // Replace with actual user data if available
-        content: value.current.value,
+        author: `${user.firstname} ${user.surname}`,
+        content: newComment,
+        avatar: user.profilePic || user.avatar || randomAvatar,
+        timestamp: new Date().toISOString(),
       };
       await update(newCommentRef, commentData);
-      console.log(commentData)
       setComments([...comments, commentData]);
-      setNewComment('');
-      value.current.value=""
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
   };
+  
+  const handleCloseModal = () => {
+    setIsModal(false);
+  };
+  
+  
   const handleDelete = async (id) => {
     console.log(user)
       let isUser=true
@@ -278,7 +290,7 @@ const BlogReadPage = () => {
     const handleOkayClick = () => {
       navigate('/');
     };
-
+ console.log()
   return (
     <>
      <Navbar/>
@@ -287,7 +299,7 @@ const BlogReadPage = () => {
           <div className="blog-header">
             <h1 className="blog-title">{blog.title}</h1>
             <div className="blog-meta">
-              <img src={blog.pic ? blog.pic :(blog.avatar ? blog.avatar : randomAvatar)} alt="Author Avatar" className="author-avatar" />
+              <img src={blog.profilePic ? blog.profilePic :(blog.avatar ? blog.avatar : randomAvatar)} alt="Author Avatar" className="author-avatar" />
               <div className="meta-info">
                 <p className="author-name">{blog.author}</p>
                 <p className="blog-date">{moment(blog.createdAt).fromNow()}</p>
@@ -309,10 +321,15 @@ const BlogReadPage = () => {
                 </div>  
               </div>
               <div className="right_blog_icon" style={{display:"flex"}}>
+              <div className="comment-button"  onClick={()=>setIsModal(true)}>
+              <FaRegComment size={16} /><p>{Object.keys(comments).length}</p>
+            </div>
+              
               <div className="share-button" onClick={handleShareClick}>
               <FaShareAlt size={16} />
             </div>
-              <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button>
+       
+              {/* <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button> */}
               { isLoggedIn &&  blog.createdBy === userId && (
               <>  
               <div className="Edit_icon">
@@ -413,32 +430,13 @@ const BlogReadPage = () => {
           <p>You need to be logged in to perform this action.</p>
         </Modal>
 
-{
-isModal&&<>
-<div className="modal-jobs1">  <FaTimes onClick={handleCLoseModal} style={{position:"absolute",right:"20px",top:"20px",cursor:"pointer",}} size={'2rem'}/>
-
-<div className="jobs-container1">
-  <h1>Discussions</h1>
-  <div style={{display:"flex",flexDirection:"column",fontSize:"20px",marginBottom:"60px"}}>
-  <p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
-  <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{user.firstname}
-  </p>
-  <textarea ref={value} placeholder="Enter Your Comment" style={{borderRadius:"20px",padding:"10px",height:"100px",minHeight:"100px",minWidth:"100%",maxWidth:"100%"}}/><button style={{marginLeft:"20px",width:"100px",padding:"10px",marginTop:"20px",background:"blue",color:"white"}} onClick={handleNewCommentSubmit}>Comment</button>
-  </div>
-  {
-      comments.map((data)=>{
-        return <div className="abc" style={{backgroundColor:"white",margin:"auto",paddingBottom:"20px",height:"160px"}}><p style={{display:"flex",alignItems:"center",fontSize:"15px"}}>
-        <img height={"60px"} width={"60px"} src="https://static.vecteezy.com/system/resources/thumbnails/005/129/844/small_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"></img>{data.author}
-        </p><p style={{color:"black",marginTop:"10px",textAlign:"left",paddingLeft:"60px",fontSize:"14px"}}>{data.content}</p><div style={{width:"100%",paddingLeft:"60px",display:"flex",paddingTop:"20px",gap:"20px",fontSize:"10px"}}><img src={upvote}></img><img src={downvote}></img>&nbsp;Reply</div></div>
-      })
-    }
-
-
-
-</div>
-</div>
-<div className="blackb"></div></>
-   }
+        <Discussions
+  user={user}
+  comments={comments}
+  handleNewCommentSubmit={handleNewCommentSubmit}
+  handleCloseModal={handleCloseModal}
+  isModal={isModal}
+/>
     </>
   );
 };
