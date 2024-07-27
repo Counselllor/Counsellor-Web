@@ -38,7 +38,6 @@ let [isLoggedIn,setLogin]=useState(false)
   return (
     <>
       <Navbar />
-      {/* <BackToHomeButton /> */}
       <div>
         <div className="join-us-container">
           <div className="contents">
@@ -126,7 +125,7 @@ let [isLoggedIn,setLogin]=useState(false)
                 Our company culture is built on mutual respect, continuous
                 learning, and a passion for excellence. We believe that a
                 positive and supportive workplace leads to higher productivity
-                and job satisfaction. Here’s what you can expect when you join
+                and job satisfaction. Here's what you can expect when you join
                 us:
               </p>
               <ol className="cultin">
@@ -145,7 +144,7 @@ let [isLoggedIn,setLogin]=useState(false)
             <section id="testimonialsnew">
               <h2>Employee Testimonials</h2>
               <p>
-                Don’t just take our word for it. Here’s what some of our
+                Don't just take our word for it. Here's what some of our
                 employees have to say about working at CounsellorsWeb:
               </p>
               <JoinStories />

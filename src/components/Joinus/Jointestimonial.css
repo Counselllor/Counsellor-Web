@@ -1,223 +1,101 @@
-/* Default Styles (Desktop View) */
-.story {
-    width: 90%;
+/* Jointestimonial.css */
+.section-stories {
+    padding: 4rem 2rem;
+    background-color: #f8f8f8; /* Light grey background */
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 3px;
+}
+
+.story {
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly rounded corners for a premium look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 2rem;
-    padding-left: 9rem;
-    font-size: 1.6rem;
-    transform: skewX(-12deg);
+    width: calc(33.333% - 2rem); /* Three stories per row */
+    min-width: 300px;
+    display: flex;
+    height: 450px;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    border: 1px solid #e0e0e0; /* Light border for definition */
 }
 
 #dark .story {
-    background-color: #2e2e2e;
-    color: white;
+    background-color: #000; /* Darker background for dark mode */
+    border: 1px solid #555; /* Darker border for dark mode */
+}
+
+#dark .section-stories{
+    background-color: #000;
 }
 
 .story__shape {
-    width: 12rem;
-    height: 13rem;
-    float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg);
-    position: relative;
+    width: 120px; /* Slightly larger for better visibility */
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem; /* Increased spacing for a cleaner look */
 }
 
 .story__img {
+    width: 100%;
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
-    transition: all 0.5s;
+    object-fit: cover;
 }
 
 .story__text {
-    transform: skewX(12deg);
-}
-
-.story__caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1.7rem;
     text-align: center;
-    opacity: 0;
-    transition: all 0.5s;
-    backface-visibility: hidden;
 }
 
-.story:hover .story__caption {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+.story__heading {
+    color: #333;
+    font-size: 2.2rem !important; /* Slightly larger for prominence */
+    margin-bottom: -1.5rem;
+    font-weight: 700; /* Bolder font weight */
 }
 
-.story:hover .story__img {
-    transform: translateX(-4rem) scale(1);
-    filter: blur(3px) brightness(80%);
+#dark .section-stories .story__heading {
+    color: #ddd; /* Lighter color for dark mode */
 }
 
-.row {
-    max-width: 114rem;
-    margin: 0 auto;
+.story__role {
+    color: #666;
+    font-size: 1.6rem !important; /* Slightly larger for better readability */
+    margin-bottom: 1.5rem; /* Increased spacing for a refined look */
+    font-weight: 500; /* Medium font weight */
+    text-align: center !important; /* Center text alignment */
+    width: 100% !important; /* Full width to ensure centering */
 }
 
-.row:not(:last-child) {
-    margin-bottom: 5rem;
+#dark .section-stories .story__role {
+    color: #aaa; /* Lighter color for dark mode */
 }
 
-@media only screen and (max-width: 56.25em) {
-    .row:not(:last-child) {
-        margin-bottom: 6rem;
-    }
+.story__text p {
+    color: #444;
+    font-size: 1.5rem; /* Slightly larger for readability */
+    line-height: 1.8; /* Increased line height for a more readable text block */
 }
 
-@media only screen and (max-width: 56.25em) {
-    .row {
-        max-width: 50rem;
-        padding: 0 3rem;
-    }
+#dark .section-stories .story__text p {
+    color: #ccc; /* Lighter color for dark mode */
 }
 
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.row [class^="col-"] {
-    float: left;
-}
-
-.row [class^="col-"]:not(:last-child) {
-    margin-right: 6rem;
-}
-
-@media only screen and (max-width: 56.25em) {
-    .row [class^="col-"]:not(:last-child) {
-        margin-right: 0;
-        margin-bottom: 6rem;
-    }
-}
-
-@media only screen and (max-width: 56.25em) {
-    .row [class^="col-"] {
-        width: 100% !important;
-    }
-}
-
-.row .col-1-of-2 {
-    width: calc((100% - 6rem) / 2);
-}
-
-.row .col-1-of-3 {
-    width: calc((100% - 12rem) / 3);
-}
-
-.row .col-2-of-3 {
-    width: calc(2 * (100% - 12rem) / 3 + 6rem);
-}
-
-.row .col-1-of-4 {
-    width: calc((100% - 18rem) / 4);
-}
-
-.row .col-2-of-4 {
-    width: calc(2 * (100% - 18rem) / 4 + 6rem);
-}
-
-.row .col-3-of-4 {
-    width: calc(3 * (100% - 18rem) / 4 + 12rem);
-}
-
-.section-stories {
-    position: relative;
-    padding: 15rem 0;
-}
-
-#join1 {
-    margin-top: -280px;
-}
-
-#join1 .story__text p {
-    font-size: 1.7rem;
-}
-
-#join2 .story__text p {
-    font-size: 1.8rem;
-}
-
-/* Mobile Styles */
-@media only screen and (max-width: 56.25em) {
+@media (max-width: 1024px) {
     .story {
-        padding: 2rem 2rem;
-        padding-left: 2rem;
-        font-size: 1.4rem;
-        transform: skewX(0);
+        width: calc(50% - 2rem); /* Two stories per row */
     }
-
-    .story__shape {
-        width: 8rem;
-        height: 8rem;
-        transform: translateX(0) skewX(0);
-    }
-
-    .story__img {
-        height: 100%;
-        /* height: 40px; */
-        /* width: 40px; */
-        /* border-radius: 100%; */
-        transform: translateX(0) scale(1);
-    }
-
-    .story__text {
-        transform: skewX(0);
-        margin-top: 1rem;
-    }
-
-    .story__caption {
-        font-size: 1.2rem;
-    }
-    .story__text h3{
-        font-size: 1.5rem;
-        /* margin-left: auto; */
-        margin-right: auto;
-    }
-
-    .row {
-        max-width: 100%;
-        padding: 0 2rem;
-    }
-
-    .section-stories {
-        padding: 5rem 0;
-    }
-
-    #join1,
-    #join2 {
-        margin-top: 0;
-    }
-
-    #join1 .story__text p,
-    #join2 .story__text p {
-        font-size: 1.4rem;
-    }
-    #join1{
-    margin-top: -170px;
-    }
-    #join2{
-    margin-bottom: 30px;
 }
-}
-.row caption{
-    font-weight: 100;
-    color: #7c7b7b;
-}
-.story__text h3{
-    font-weight: 100;
+
+@media (max-width: 768px) {
+    .story {
+        width: 100%; /* One story per row */
+        max-width: 500px;
+    }
 }
