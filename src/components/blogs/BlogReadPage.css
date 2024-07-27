@@ -37,6 +37,12 @@
     display: flex;
     align-items: center;
   }
+  .comment-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2px;
+  }
   .blog-read-page_container .blog-tags{
     text-align: left;
   }

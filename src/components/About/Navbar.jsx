@@ -6,7 +6,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Switch } from 'antd';
 import { ThemeContext } from '../../App';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 // Signout function
 const signOutUser = (navigate, setError) => {
@@ -74,6 +74,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+         <ToastContainer />
       <LogoSection />
       <MenuSection
         user={user}
