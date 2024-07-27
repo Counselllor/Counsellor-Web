@@ -1,8 +1,8 @@
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { signOut } from "firebase/auth";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { auth} from "../../firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
@@ -17,57 +17,48 @@ import { getDatabase,ref, push, set } from 'firebase/database'; // Import Fireba
 import Modal from 'react-modal'; // Import Modal
 
 const Contact = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  let name = useRef();
-  let lastname = useRef();
-  let feedback = useRef();
-  let email = useRef();
-  
+  const { theme } = useContext(ThemeContext);
+  const name = useRef();
+  const lastname = useRef();
+  const feedback = useRef();
+  const email = useRef();
   const navigate = useNavigate();
- 
-  
-  let [isLoggedIn, setLogin] = useState(false);
+
+  const [isLoggedIn, setLogin] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem('login')) {
+    if (localStorage.getItem("login")) {
       setLogin(true);
     }
   }, [navigate]);
-  
-  let form = useRef();
-  
-  // Modal state
+
+  const form = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let params = {
-      name: form.current.firstname.value +" " +form.current.lastname.value,
+    const params = {
+      name: form.current.firstname.value + " " + form.current.lastname.value,
       email: form.current.email.value,
       feedback: form.current.feedback.value,
-      created_date: new Date().toISOString() // Adding created_date
+      created_date: new Date().toISOString(),
     };
-    
-    emailjs.send('service_kszura2', "template_u8shl9d", params, {
+
+    emailjs.send("service_kszura2", "template_u8shl9d", params, {
       publicKey: "rSYpY_RsF76o4MgcA",
     });
 
-    // Store form data in Firebase Realtime Database
-    const db=getDatabase();
-    const queriesRef = ref(db, 'queries');
+    const db = getDatabase();
+    const queriesRef = ref(db, "queries");
     const newQueryRef = push(queriesRef);
     set(newQueryRef, params)
       .then(() => {
-        setIsModalOpen(true); // Open modal on successful submission
+        setIsModalOpen(true);
         form.current.reset();
       })
       .catch((error) => {
-        console.error('Error submitting query: ', error);
+        console.error("Error submitting query: ", error);
       });
   };
-
-
-
-
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -75,61 +66,81 @@ const Contact = () => {
 
   return (
     <main>
-   <Navbar/>
+      <Navbar />
       <div className="contact1">
         <ToastContainer />
+        <div className="right">
+          <form className="form" ref={form} onSubmit={handleSubmit}>
+            <h1>Get In Touch</h1>
+            <p>You can reach us any time</p>
+            <div className="name-inputs">
+              <input
+                ref={name}
+                className="name"
+                name="firstname"
+                placeholder="First Name"
+                required
+              />
+              <input
+                className="name"
+                ref={lastname}
+                name="lastname"
+                placeholder="Last name"
+              />
+            </div>
+            <div>
+              <input
+                ref={email}
+                name="email"
+                placeholder="Your Email"
+                type="email"
+                required
+              />
+            </div>
+            <div>
+              <textarea
+                ref={feedback}
+                name="feedback"
+                placeholder="How can I help you?"
+                required
+              />
+            </div>
+            <button type="submit">Submit</button>
+            <p className="terms">
+              By contacting us you agree to our <b>Terms of Service</b> and{" "}
+              <b>Privacy Policy</b>.
+            </p>
+          </form>
+        </div>
         <div className="left">
-          <h1>Contact Us </h1>
-          <p>
-            Email, call or complete the form to learn how Counsellor can solve
-            your problem{" "}
+          <h1>Contact Us</h1>
+          <p className="contact-text">
+            Email, call, or complete the form to learn how Counsellor can solve
+            your problem
           </p>
-          <span>Counsellor@gmail.com</span>
-          <span>xxxxx-xxxxx</span>
-          <div className="customer" style={{ display: "flex", gap: "20px" }}>
+          <div className="counmail">
+            <span>Counsellor@gmail.com</span>
+            <span>xxxxx-xxxxx</span>
+          </div>
+          <div className="customer">
             <div className="left1">
-              <h1 style={{ fontSize: "20px" }}>Customer Support</h1>
+              <h1>Customer Support</h1>
               <p>
                 Our Support Team is available around the clock to address any
                 concerns or queries.
               </p>
             </div>
             <div className="left1">
-              <h1 style={{ fontSize: "20px" }}>Feedback and Suggestions</h1>
+              <h1>Feedback and Suggestions</h1>
               <p>
                 We value your feedback and are continuously working to improve.
               </p>
             </div>
           </div>
         </div>
-        <div className="right">
-          <form className="form" ref={form} onSubmit={handleSubmit}>
-            <h1>Get In Touch</h1>
-            <p>You can reach us any time</p>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "10px",
-              }}
-            >
-              <input ref={name} className="name" name="firstname" placeholder="First Name" required />
-              <input className="name" ref={lastname} name="lastname" placeholder="Last name" />
-            </div>
-            <div>
-              <input ref={email} name="email" placeholder="Your Email" type="email" required />
-            </div>
-            <div>
-              <textarea ref={feedback} name="feedback" placeholder="How can I help you?" required />
-            </div>
-            <button type="submit">Submit</button>
-            <p style={{fontSize:"12px"}}>By contacting us you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.</p>
-          </form>
-        </div>
       </div>
-      
       <Footer />
-      
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
