@@ -8,8 +8,9 @@ import { Switch } from 'antd';
 // import ReactMarkdown from 'react-markdown';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
+
 import './BlogWrite.css'; // Import the new CSS file
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ThemeContext } from '../../App';
@@ -131,7 +132,9 @@ const BlogWrite = () => {
       await update(ref(db, 'users/' + userId), {
         articleCreated: (user.articleCreated ? user.articleCreated + ',' : '') + articleId,
       });
-   
+      toast.success("Blog Created Successfully 🚀",{
+        className: "toast-message",
+      });
       navigate('/blogs');
     } catch (error) {
      toast.error(error,{

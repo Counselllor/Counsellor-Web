@@ -1,0 +1,163 @@
+.discussion-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #dark .discussion-modal .discussion-modal-content{
+    background-color: #1a1a1a;
+    color: white;
+  }
+  .discussion-modal .discussion-modal-content {
+    background-color: white;
+    color: #1a1a1a;
+    width: 800px !important;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-height: 300px;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .discussion-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3333336c;
+    padding-bottom: 10px;
+  }
+  #dark  .discussion-modal .modal-header{
+    border-bottom: 1px solid #333;
+  }
+  
+  .discussion-modal .close-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  .discussion-modal .comment-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .discussion-modal .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .discussion-modal .user-avatar {
+    border-radius: 50%;
+    width: 40px;
+    object-fit: cover;
+    height: 40px;
+    margin-right: 10px;
+  }
+ .user-avatar-comment{
+    border-radius: 50%;
+    width: 30px;
+    object-fit: cover;
+    height: 30px;
+    margin-right: 5px;
+ }
+  
+  .discussion-modal .user-name {
+    font-weight: bold;
+  }
+  #dark   .discussion-modal  .comment-input{
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+    color: white;
+  }
+  .discussion-modal  .comment-input {
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: #f6f4f4;
+    color: rgb(19, 19, 19);
+    resize: none;
+    width: 100%;
+    height: 100px;
+  }
+  
+  .discussion-modal .submit-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .discussion-modal .comment-list {
+    margin-top: 20px;
+  }
+  
+  #dark .discussion-modal .comment {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+  }
+  .discussion-modal .comment {
+    border-bottom: 1px solid #33333338;
+    padding: 10px 0;
+  }
+  
+  .discussion-modal .comment-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .discussion-modal  .comment-author {
+    margin-left: 10px;
+  }
+  
+  .discussion-modal  .author-name {
+    font-weight: bold;
+  }
+  
+  .discussion-modal .comment-time {
+    font-size: 0.8rem;
+    color: #999;
+    margin-left: 10px;
+  }
+  
+  .discussion-modal .comment-content {
+    text-align: left;
+ 
+    margin: 0px 50px;
+    margin-top: 10px;
+    color: #333;
+  }
+  #dark   .discussion-modal .comment-content{
+    color: #ccc;
+  }
+  .discussion-modal  .comment-actions {
+
+    display: flex;
+    margin: 15px 50px 0px 50px;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .discussion-modal .vote-icon {
+    cursor: pointer;
+  }
+  
+  .discussion-modal  .reply {
+    cursor: pointer;
+    color: #1d1d1d;
+    font-weight: 400;
+  }
+  #dark .discussion-modal  .reply {
+    cursor: pointer;
+    color: #007bff;
+  }
