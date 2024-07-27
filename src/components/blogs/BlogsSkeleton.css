@@ -1,0 +1,104 @@
+/* Skeleton styles */
+.skeleton-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    padding: 0px 120px;
+  }
+  
+  .skeleton-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: calc(33.333% - 20px); /* Adjust this to match your card width */
+  }
+  
+  .skeleton-title,
+  .skeleton-date,
+  .skeleton-summary,
+  .skeleton-author,
+  .skeleton-tags {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .skeleton-title {
+    width: 60%;
+    height: 20px;
+  }
+  
+  .skeleton-date {
+    width: 40%;
+    height: 16px;
+  }
+  
+  .skeleton-summary {
+    width: 100%;
+    height: 16px;
+  }
+  
+  .skeleton-author {
+    width: 50%;
+    height: 16px;
+  }
+  
+  .skeleton-tags {
+    width: 70%;
+    height: 16px;
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #e4e3e3;
+    }
+    50% {
+      background-color: #d1c9c9;
+    }
+    100% {
+      background-color: #e4e3e3;
+    }
+  }
+  
+  #dark .skeleton-card {
+    background-color: #000000;
+  }
+  
+  #dark .skeleton-title,
+  #dark .skeleton-date,
+  #dark .skeleton-summary,
+  #dark .skeleton-author,
+  #dark .skeleton-tags {
+    animation: skeleton-animation-dark 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes skeleton-animation-dark {
+    0% {
+      background-color: #524e4e;
+    }
+    50% {
+      background-color: #282727;
+    }
+    100% {
+      background-color: #524e4e;
+    }
+  }
+  
+  /* job skeleton */
+  .jobsPage-list .skeleton-container {
+    width: 100%;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    .skeleton-card {
+      width: 100%; /* Full width for each card */
+    }
+  }
+  

@@ -53,7 +53,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
         navigate("/");
       })
       .catch((err) => {
-       toast.error(err.message, {
+        toast.error(err.message, {
           className: "toast-message",
         });
       });
