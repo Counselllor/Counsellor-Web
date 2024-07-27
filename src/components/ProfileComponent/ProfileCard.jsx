@@ -7,6 +7,7 @@ import { ref, get, update } from "firebase/database";
 import avatar3 from "../../assets/avatar3.png";
 import avatar4 from "../../assets/avatar4.png";
 import techstack from "./techstack.json";
+import { FaX } from "react-icons/fa6";
 import {
   ref as storageRef,
   uploadBytes,
@@ -15,6 +16,7 @@ import {
 } from "firebase/storage";
 import { auth } from "../../firebase/auth";
 import { useSelector } from "react-redux";
+import { compressAndResizeImage } from "../../common/compressAndResizeImage";
 
 const ProfileCard = () => {
   const [dates, setDates] = useState([]);
@@ -39,8 +41,59 @@ const ProfileCard = () => {
   const [userData, setUserData] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const [userUid, setUserUid] = useState(localStorage.getItem("userUid"));
+ const handleSave = async () => {
+    const userRef = ref(database, `users/${userUid}`);
+    const updates = {
+      firstname: name.split(" ")[0],
+      surname: name.split(" ")[1] || "",
+      dob,
+      academicYear,
+      avatar,
+      skills: selectedSkills.join(","),
+      profilePic: profilePic, // Ensure profilePic is included
+    };
 
+    try {
+      // Update user's profile
+      await update(userRef, updates);
+
+      // Update articles with new profile details
+      await updateArticles(userUid, updates);
+
+      // Save to local storage
+      localStorage.setItem("name", name);
+      localStorage.setItem("dob", dob);
+      localStorage.setItem("academicYear", academicYear);
+      localStorage.setItem("avatar", avatar);
+      localStorage.setItem("skills", JSON.stringify(selectedSkills));
+      localStorage.setItem("profilePic", updates.profilePic); // Save profilePic to localStorage
+      if (resumeFile) {
+        localStorage.setItem("resumeFile", resumeFile);
+      }
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error saving user data:", error);
+    }
+  };
+ 
+
+  console.log(userData);
   useEffect(() => {
+    const fetchData = async () => {
+      const userData = await fetchUserData(userUid);
+      if (userData) {
+        setUserData(userData);
+        setName(userData.firstname + " " + userData.surname || "Alex Foam");
+        setDob(userData.dob || "2000-01-21");
+        if (userData.profilePic) {
+          setProfilePic(userData.profilePic);
+        }
+      }
+    };
+
+    fetchData();
+  }, []);
+ useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
     console.log("Fetched socialProfiles:", storedProfiles);
     setSocialProfiles(storedProfiles);
@@ -63,76 +116,31 @@ const ProfileCard = () => {
 
     generateDates();
   }, []);
-
-  console.log(userData);
-  useEffect(() => {
-    const fetchData = async () => {
-      const userData = await fetchUserData(userUid);
-      if (userData) {
-        setUserData(userData);
-        setName(userData.firstname + " " + userData.surname || "Alex Foam");
-        setDob(userData.dob || "2000-01-21");
-        if (userData.profilePic) {
-          setProfilePic(userData.profilePic);
-        }
-      }
-    };
-
-    fetchData();
-  }, []);
-
   const handleEdit = () => {
     setIsEditing(true);
   };
+ 
 
-  const handleSave = async () => {
-    const userRef = ref(database, `users/${userUid}`);
-    const updates = {
-      firstname: name.split(" ")[0],
-      surname: name.split(" ")[1] || "",
-      dob,
-      academicYear,
-      avatar,
-      skills: selectedSkills.join(","),
-      profilePic: profilePic || userInfo.profilePic, // Ensure profilePic is included
-    };
-    
-    await update(userRef, updates);
-  
-    // Update user details in articles
-    await updateArticles(userUid, updates);
-  
-    localStorage.setItem("name", name);
-    localStorage.setItem("dob", dob);
-    localStorage.setItem("academicYear", academicYear);
-    localStorage.setItem("avatar", avatar);
-    localStorage.setItem("skills", JSON.stringify(selectedSkills));
-    localStorage.setItem("profilePic", updates.profilePic); // Save profilePic to localStorage
-    if (resumeFile) {
-      localStorage.setItem("resumeFile", resumeFile);
-    }
-    setIsEditing(false);
-  };
-  
   // New function to update user details in articles
   const updateArticles = async (userId, userUpdates) => {
     // Get a reference to the articles node in the database
-    const articlesRef = ref(database, 'articles');
-    
+    const articlesRef = ref(database, "articles");
+
     // Fetch all articles
     const snapshot = await get(articlesRef);
-    
+
     if (snapshot.exists()) {
       const articles = snapshot.val();
-      
+
       // Iterate through articles and update those created by the user
       for (const articleId in articles) {
-        if (articles[articleId].authorId === userId) {
+        if (articles[articleId].createdBy === userId) {
+          console.log("Updating..");
           const articleRef = ref(database, `articles/${articleId}`);
           const articleUpdates = {
-            author: `${userUpdates.firstname} ${userUpdates.surname}`,
-            avatar: userUpdates.avatar,
-            pic: userUpdates.profilePic,
+            author: `${userUpdates?.firstname} ${userUpdates?.surname}`,
+            avatar: userUpdates?.avatar,
+            pic: userUpdates?.profilePic,
           };
           await update(articleRef, articleUpdates);
         }
@@ -158,34 +166,114 @@ const ProfileCard = () => {
   const handleProfilePicUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
+      const user = auth.currentUser;
+      const userUid = user?.uid; // Ensure user is authenticated
 
-        const user = auth.currentUser;
-        const userUid = user.uid; // Ensure user is authenticated
+      if (userUid) {
+        try {
+          // Check file size
+          const maxSize = 100 * 1024; // 100KB
+          let fileBlob = file;
 
-        if (userUid) {
+          // Convert file to data URL
+          const reader = new FileReader();
+          reader.onload = async () => {
             try {
-                // Delete the previous profile picture if it exists
-                if (profilePic) {
-                    const previousRef = storageRef(storage, profilePic);
-                    await deleteObject(previousRef);
-                }
+              let uploadBlob;
 
-                // Upload the new profile picture
-                const fileExtension = file.name.split(".").pop();
-                const newStorageRef = storageRef(storage, `profilepics/${userUid}.${fileExtension}`);
-                await uploadBytes(newStorageRef, file);
-                const downloadURL = await getDownloadURL(newStorageRef);
+              if (fileBlob.size > maxSize) {
+                // Compress and resize image
+                uploadBlob = await compressAndResizeImage(
+                  reader.result,
+                  maxSize
+                );
+              } else {
+                // Use original file if it's under the size limit
+                uploadBlob = fileBlob;
+              }
 
-                setProfilePic(downloadURL);
-                localStorage.setItem("profilePic", downloadURL);
+              // Delete the previous profile picture if it exists
+              if (profilePic) {
+                const previousRef = storageRef(storage, profilePic);
+                await deleteObject(previousRef);
+              }
+
+              // Upload the new profile picture
+              const fileExtension = file.name.split(".").pop();
+              const newStorageRef = storageRef(
+                storage,
+                `profilepics/${userUid}.${fileExtension}`
+              );
+              await uploadBytes(newStorageRef, uploadBlob);
+              const downloadURL = await getDownloadURL(newStorageRef);
+
+              // Set profile pic and save to local storage
+              setProfilePic(downloadURL);
+              localStorage.setItem("profilePic", downloadURL);
+
+              // Update profile picture in user's profile
+              await updateUserProfilePic(downloadURL);
             } catch (error) {
-                console.error("Error handling profile picture upload:", error);
+              console.error(
+                "Error compressing and uploading profile picture:",
+                error
+              );
             }
-        } else {
-            console.error("User is not authenticated");
+          };
+          reader.readAsDataURL(file);
+        } catch (error) {
+          console.error("Error handling profile picture upload:", error);
         }
+      } else {
+        console.error("User is not authenticated");
+      }
     }
-};
+  };
+  const updateUserProfilePic = async (profilePicUrl) => {
+    const userRef = ref(database, `users/${userUid}`);
+    const updates = {
+      profilePic: profilePicUrl,
+    };
+    const articleupdates = {
+      profilePic: profilePicUrl,
+    };
+
+    try {
+      // Update user's profile
+      await update(userRef, updates);
+
+      // Update articles with new profile picture
+      await updateArticlespic(userUid, articleupdates);
+    } catch (error) {
+      console.error("Error updating profile picture in user data:", error);
+    }
+  };
+
+  //Updates Article pics
+
+  const updateArticlespic = async (userId, userUpdates) => {
+    // Get a reference to the articles node in the database
+    const articlesRef = ref(database, "articles");
+
+    // Fetch all articles
+    const snapshot = await get(articlesRef);
+
+    if (snapshot.exists()) {
+      const articles = snapshot.val();
+
+      // Iterate through articles and update those created by the user
+      for (const articleId in articles) {
+        if (articles[articleId].createdBy === userId) {
+          console.log("Updating..");
+          const articleRef = ref(database, `articles/${articleId}`);
+          const articleUpdates = {
+            pic: userUpdates?.profilePic,
+          };
+          await update(articleRef, articleUpdates);
+        }
+      }
+    }
+  };
 
   const fetchUserData = async (uid) => {
     const userRef = ref(database, `users/${uid}`);
@@ -337,7 +425,6 @@ const ProfileCard = () => {
           <i className="bx bxs-edit" onClick={handleEdit}></i>
           <img
             src={profilePic ? profilePic : avatar}
-            
             className="profile-image"
           />
           <h3>{name}</h3>
@@ -367,9 +454,11 @@ const ProfileCard = () => {
         </div>
       </div>
       {isEditing && (
-        <div className="edit-modal">
-          <div className="edit-modal-content">
-            <h2>Edit Profile</h2>
+        <div className="edit-modal" >
+          <div className="edit-modal-content" >
+          <FaX onClick={()=>setIsEditing(false)} style={{position:"absolute",top:"10px",right:"20px",cursor:"pointer"}} size={'1.5rem'}/>
+
+          <h2>Edit Profile</h2>
             <label>
               Name:
               <input

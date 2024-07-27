@@ -23,12 +23,18 @@ import Terms from "./components/Terms/Terms";
 import JoinUs from "./components/Joinus/JoinUs";
 import Help from "./components/Help/Help";
 import Blogs from "./components/blogs/Blogs";
-import CareerSupport from "./components/Career Support/CareerSupport"
+import CareerSupport from "./components/Career Support/CareerSupport";
 import Jobs from "./components/jobs/Jobs";
 import BlogWrite from "./components/blogs/Blogswrite";
 import BlogReadPage from "./components/blogs/BlogReadPage";
 import University from "./components/Top Universities/University";
 import BlogEditPage from "./components/blogs/BlogEditPage";
+import StudentLayout from "./components/Student/StudentLayout";
+import Achievements from "./components/Student/Achievements";
+import StudentDefault from "./components/Student/StudentDefault";
+import TechStack from "./components/Student/TechStack";
+import SocialLinks from "./components/Student/SoicalLinks";
+import Slots from "./components/Student/Slots";
 
 const router = createBrowserRouter([
   {
@@ -71,9 +77,9 @@ const router = createBrowserRouter([
         element: <Jobs />,
       },
       {
-        path:'topuniversities',        errorElement: <ErrorPage />,
-
-        element:<University/>
+        path: "/topuniversities",
+        errorElement: <ErrorPage />,
+        element: <University />,
       },
       {
         path: "/careersupport",
@@ -105,11 +111,6 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <JoinUs />,
       },
-      // {
-      //   path: '/login',
-      //   errorElement: <ErrorPage/>,
-      //   element: <LoginForm/>
-      // },
       {
         path: "/signup",
         errorElement: <ErrorPage />,
@@ -124,6 +125,33 @@ const router = createBrowserRouter([
         path: "/college/:id",
         errorElement: <ErrorPage />,
         element: <CollegePage />,
+      },
+      {
+        path: "/student/:id/:name",
+        errorElement: <ErrorPage />,
+        element: <StudentLayout />,
+        children: [
+          {
+            path: "",
+            element: <StudentDefault />, // Default component
+          },
+          {
+            path: "achievements",
+            element: <Achievements />,
+          },
+          {
+            path: "tech-stack",
+            element: <TechStack />,
+          },
+          {
+            path: "social-links",
+            element: <SocialLinks />,
+          },
+          {
+            path: "available-slots",
+            element: <Slots />,
+          },
+        ],
       },
       {
         path: "/profile",
@@ -148,14 +176,13 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:id",
         errorElement: <ErrorPage />,
-        element: <BlogReadPage/>,
+        element: <BlogReadPage />,
       },
       {
         path: "/blogs/edit/:id",
         errorElement: <ErrorPage />,
-        element: <BlogEditPage/>,
+        element: <BlogEditPage />,
       },
-      
     ],
   },
 ]);
