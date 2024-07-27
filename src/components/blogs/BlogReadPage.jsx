@@ -22,6 +22,23 @@ import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-i
 import Navbar from "../Navbar/Navbar";
 import Discussions from "./Discussions";
 
+const generateUUID = () => {
+  var d = new Date().getTime();
+  var d2 = (typeof performance !== 'undefined' && performance.now && performance.now() * 1000) || 0;
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16;
+    if (d > 0) {
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+};
+
+
 
 const BlogReadPage = () => {
   const { id } = useParams();
@@ -179,34 +196,31 @@ const BlogReadPage = () => {
     return { __html: DOMPurify.sanitize(marked(content)) };
   };
 
-  const handleNewCommentSubmit = async (newComment, user) => {
+  const handleNewCommentSubmit = async (comment) => {
     if (!isLoggedIn) {
       setIsNotLoggedInModalVisible(true);
       return;
     }
-  
-    if (newComment.trim() === '') {
-      alert("Comment cannot be empty!");
-      return;
-    }
-  
     try {
       const db = getDatabase();
       const commentsRef = ref(db, `articles/${id}/comments`);
-      const newCommentRef = push(commentsRef);
+      const newCommentId = generateUUID();
+      const newCommentRef = ref(db, `articles/${id}/comments/${newCommentId}`);
       const commentData = {
-        author: `${user.firstname} ${user.surname}`,
-        content: newComment,
-        avatar: user.profilePic || user.avatar || randomAvatar,
-        timestamp: new Date().toISOString(),
+        id: newCommentId,
+        author: user.firstname, // Replace with actual user data if available
+        content: comment,
+        timestamp: Date.now(),
+        avatar: user.profilePic || user.avatar || randomAvatar
       };
       await update(newCommentRef, commentData);
+      console.log(commentData);
       setComments([...comments, commentData]);
+      setNewComment('');
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
   };
-  
   const handleCloseModal = () => {
     setIsModal(false);
   };
@@ -432,6 +446,7 @@ const BlogReadPage = () => {
 
         <Discussions
   user={user}
+  blogid={id}
   comments={comments}
   handleNewCommentSubmit={handleNewCommentSubmit}
   handleCloseModal={handleCloseModal}
