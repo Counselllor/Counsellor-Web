@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
-import './Blogs.css'; // Import CSS file for styles
+import './Blogs.css';
 import Footer from "../Footer/Footer";
-import { useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, get } from 'firebase/database';
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import Navbar from "../Navbar/Navbar";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import BlogsSkeleton from "./BlogsSkeleton"; // Import Skeleton component
+import BlogsSkeleton from "./BlogsSkeleton";
+import SearchIcon from '../../assets/search_icon.png'; // Replace with your search icon path
 
 const Blogs = () => {
   const [isLoggedIn, setLogin] = useState(false);
-  const [ids, setIds] = useState({});
   const [blogsData, setBlogsData] = useState([]);
+  const [filteredBlogs, setFilteredBlogs] = useState([]); // State for filtered blogs
   const [loading, setLoading] = useState(true); // Loading state
+  const [searchTerm, setSearchTerm] = useState(''); // State for search term
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
   const [user, setUser] = useState(null);
@@ -30,7 +32,6 @@ const Blogs = () => {
       try {
         const db = getDatabase();
 
-        // Fetch user data if logged in
         if (userId) {
           const userRef = ref(db, 'users/' + userId);
           const userSnap = await get(userRef);
@@ -38,24 +39,11 @@ const Blogs = () => {
           if (userSnap.exists()) {
             const userData = userSnap.val();
             setUser(userData);
-
-            const articleCreated = userData.articleCreated;
-            if (articleCreated) {
-              const idArray = articleCreated.split(',');
-              const idObject = idArray.reduce((acc, id) => {
-                acc[id.trim()] = true;
-                return acc;
-              }, {});
-              setIds(idObject);
-            } else {
-              console.log('No articles created by the user.');
-            }
           } else {
             console.log('No user data available');
           }
         }
 
-        // Fetch all articles
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
 
@@ -70,6 +58,7 @@ const Blogs = () => {
             link: `/blogs/${blog.id}`
           }));
           setBlogsData(blogsArray);
+          setFilteredBlogs(blogsArray); // Initialize filtered blogs
         } else {
           console.log('No data available');
         }
@@ -101,6 +90,26 @@ const Blogs = () => {
     }
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    filterBlogs(e.target.value.toLowerCase());
+  };
+
+  const filterBlogs = (term) => {
+    if (!term) {
+      setFilteredBlogs(blogsData);
+      return;
+    }
+
+    const filtered = blogsData.filter(blog =>
+      blog.title.toLowerCase().includes(term) ||
+      blog.author.toLowerCase().includes(term) ||
+      blog.tags.some(tag => tag.toLowerCase().includes(term))
+    );
+
+    setFilteredBlogs(filtered);
+  };
+
   return (
     <>
       <Navbar />
@@ -110,12 +119,30 @@ const Blogs = () => {
           <h1>Our Latest Blogs</h1>
           <p>Stay updated with our latest news and articles on counseling.</p>
           {isLoggedIn && <button onClick={() => navigate('/blogwrite')} className="blogwrite">Create Blog</button>}
+
+          {/* Search Box */}
+          <div className="search">
+            <div className="s_bar_c">
+              <img src={SearchIcon} alt="Search" />
+              <div className="vl" />
+              <input
+                type="text"
+                placeholder="Search by author, tags, title, or content"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                style={{ outline: "1px solid black", fontSize: "20px" }}
+              />
+            </div>
+            <div className="search_box">
+              <button>Search</button>
+            </div>
+          </div>
         </header>
         <div className="blogs-list">
-          { loading ? (
+          {loading ? (
             <BlogsSkeleton count={blogsData.length} /> // Display skeleton while loading
           ) : (
-            blogsData.map((blog, index) => (
+            filteredBlogs.map((blog, index) => (
               <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
                 <h2 className="clip-text">{blog.title}</h2>
                 <p className="blog-date">{blog.date}</p>
