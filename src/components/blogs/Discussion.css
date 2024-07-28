@@ -25,7 +25,7 @@
     padding: 20px;
     position: relative;
   }
-  
+ 
   .discussion-modal .modal-header {
     display: flex;
     justify-content: space-between;
@@ -149,6 +149,7 @@
   }
   
   .discussion-modal .vote-icon {
+    color: #bfbfbf;
     cursor: pointer;
   }
   
@@ -160,4 +161,11 @@
   #dark .discussion-modal  .reply {
     cursor: pointer;
     color: #007bff;
+  }
+  .vote-icon.upvote {
+    color: rgb(0, 0, 0);
+  }
+  
+  .vote-icon.downvote {
+    color: rgb(0, 0, 0);
   }
