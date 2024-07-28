@@ -60,7 +60,7 @@ export default function ProfileHeader({ children }) {
   return (
     <>
       <div className={`sidebar ${sidebarClosed ? "close" : ""}`}>
-        <Link to="/" className="logo">
+        <Link to="/dashboard" className="logo">
           {/* <img src={Logo} alt="logo" className="logo-img" /> */}
           <i class="bx bxs-comment-dots"></i>
           <div className="logo-name">
