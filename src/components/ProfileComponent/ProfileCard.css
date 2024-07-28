@@ -215,6 +215,12 @@
   right: 5%;
 }
 
+.close{
+  transform: scale(0);
+  transform-origin : top right;
+  transition:  0.3s ease;
+}
+
 .profile-card {
   background-color: #ffffff;
   padding: 10px;
