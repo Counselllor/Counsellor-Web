@@ -28,7 +28,54 @@
   cursor: default;
   font-weight: 200;
 }
+li{
+  text-align: left;
+}
 
+.contact-box {
+  background-color: #f7f7f7;
+  border: 1px solid #0f0f0f;
+  padding: 30px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#dark p{
+  color: black !important;
+}
+#dark li{
+  color: black !important;
+}
+#dark span{
+  color: blue !important;
+}
+.contact-box h2 {
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.contact-box p {
+  margin-bottom: 10px;
+}
+
+.contact-box a {
+  font-size: 18px;
+  text-decoration: none;
+  color: blue;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+.privacy-policy-box {
+  background-color: #f9f9f9;
+  border: 1px solid #e0dddd;
+  border-radius: 10px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 .privacy-policy-container {
   max-width: 980px;
   margin: 0 auto;
@@ -139,9 +186,7 @@
   color: #278af3 !important;
 }
 
-#dark .privacy-policy-content .date span {
-  color: #e6e1e1 !important;
-}
+
 
 #dark .privacy-policy-content h3 {
   color: #8fbef0 !important;

@@ -3,7 +3,8 @@ import "./Privacy.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const Breadcrumb = () => {
   return (
@@ -32,6 +33,24 @@ const Privacy = () => {
     return () => clearInterval(interval); 
   }, []);
 
+  const generatePdf = () => {
+    const input = document.getElementById('pdf-content');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const imgWidth = 210; // A4 width in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        const padding = 10; // Adjust padding as needed
+        pdf.addImage(imgData, 'PNG', padding, padding, imgWidth - 2 * padding, imgHeight - 2 * padding);
+        pdf.save('privacy_policy.pdf');
+        console.log("PDF generated and saved"); // Debug log
+      })
+      .catch((error) => {
+        console.error('Error generating PDF', error);
+        alert('An error occurred while generating the PDF. Please try again.');      });
+  };
+
   return (
     <>
     <div className="main">      <Navbar/>
@@ -39,7 +58,9 @@ const Privacy = () => {
 
       <div className="privacy-policy-container">
         <Breadcrumb />
-        <div className="privacy-policy-content">
+        <div className="privacy-policy-box">
+        <main id="pdf-content" >
+        <div className="privacy-policy-content"  >
           <h1>Privacy Policy</h1>
           <p className="date">
             Last updated: <span style={{ color: "blue" }}>{lastUpdatedDate}</span>
@@ -50,6 +71,10 @@ const Privacy = () => {
             service and tells you about your privacy rights and how the law
             protects you.
           </p>
+          <img src="/src/components/Privacy-Policy/private-policy.png" alt="" />
+
+       
+
           <h2 className="title">Interpretation and Definitions</h2>
           <h3 className="sub-title">Interpretation</h3>
           <p>
@@ -114,13 +139,31 @@ const Privacy = () => {
             <li><strong>To provide You</strong> with news, special offers </li>
            </ul>
 
-           <h3 className="sub-title">Contact Us</h3>
-          <p>
-          If you have any questions or comments about this policy, you may email us at <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a>
-          </p>
-      </div>
-      </div>
 
+          <div class="contact-box">
+  <h2>Contact Us</h2>
+  <i style={{
+    fontSize:'35px',margin:'20px',color:'blue'
+  }} className="fas fa-envelope-open"></i>
+  <p>If you have any questions or comments about this policy, you may email us at:</p>
+  <a href="mailto:counsellorweb@support.com">counsellorweb@support.com</a>
+  <p>You can contact us by filling this form</p>
+  <a href="/contact">Contact Us</a>
+</div>
+      </div></main>
+      <button onClick={generatePdf} style={{ 
+                 color: '#278af3', 
+                 fontSize:'22px',
+                 padding: '10px 20px', 
+                 cursor: 'pointer',
+                 display: 'block', 
+                 margin: '0 auto',
+                 border:'none',
+                 background:'transparent',
+                 fontWeight:'500'
+              }} >Download a copy of this Privacy Policy(PDF)</button>
+      </div>
+</div>
     </div>
           <Footer />
           </>
