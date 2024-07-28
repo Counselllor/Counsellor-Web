@@ -929,9 +929,9 @@ width: 40px;
   background: none;
  }
  
- .click-btn2:active {
+ /* .click-btn2:active {
   transform: scale(0.9);
- }
+ } */
 
  .pagination {
   display: flex;
