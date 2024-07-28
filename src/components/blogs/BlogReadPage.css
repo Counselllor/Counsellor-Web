@@ -18,6 +18,7 @@
   }
   #dark .blog-read-page{
     background-color: #2d2d2d;
+    color: white;
   }
   .blog-header {
     margin-bottom: 20px;
@@ -25,6 +26,7 @@
     padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.222);
   }
+
   
   .blog-title {
     font-size: 2.5em;

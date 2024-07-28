@@ -117,7 +117,7 @@ const Dashboard = () => {
 
   const handleCollegeClick = useCallback(
     (college) => {
-      navigate(`/college/${college.id}`);
+      window.location.href=`/college/${college.id}`;
     },
     [navigate]
   );
