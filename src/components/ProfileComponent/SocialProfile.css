@@ -5,7 +5,9 @@
   background: rgba(173, 216, 230, 0.13);
   border-radius: 10px;
 }
-
+#dark  .social-profile-container{
+  background-color: #121212;
+}
 .social-profile-container .social-profile-header {
   display: flex;
   align-items: center;
@@ -16,9 +18,22 @@
   font-size: 20px;
   text-align: left;
 }
+#dark .social-profile-header .heading  h2{
+  color: white;
+}
+#dark .social-profile-header .heading  p{
+  color: white;
+}
+#dark .social-profiles{
+color: white;
+}
 .social-profile-header.heading p {
   font-size: 14px;
   text-align: left;
+}
+#dark .social-profile-header button{
+  background-color: rgb(0, 128, 255);
+
 }
 .social-profile-header button {
   padding: 5px 6px;
@@ -47,6 +62,9 @@
   gap: 5px;
   align-items: center;
   min-width: 150px;
+}
+#dark .profile-item .icon-details{
+  color: white;
 }
 .profile-item .icon-details h4 {
   font-size: 16px;
@@ -77,6 +95,18 @@ select {
   width: 100%;
   padding: 8px;
   outline: none;
+}
+#dark .profile-item input {
+  background-color: #333;
+  color: white;
+}
+#dark .add-profile select {
+  background-color: #333;
+  color: white;
+}
+#dark .add-profile input {
+  background-color: #333;
+  color: white;
 }
 
 .profile-item button {
