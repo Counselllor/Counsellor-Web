@@ -9,14 +9,16 @@ import Navbar from "../Navbar/Navbar";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BlogsSkeleton from "./BlogsSkeleton";
-import SearchIcon from '../../assets/search_icon.png'; // Replace with your search icon path
+import SearchIcon from '../../assets/search_icon.png';
 
 const Blogs = () => {
   const [isLoggedIn, setLogin] = useState(false);
   const [blogsData, setBlogsData] = useState([]);
-  const [filteredBlogs, setFilteredBlogs] = useState([]); // State for filtered blogs
-  const [loading, setLoading] = useState(true); // Loading state
-  const [searchTerm, setSearchTerm] = useState(''); // State for search term
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchMode, setSearchMode] = useState('all'); // Default to 'all' search mode
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
   const [user, setUser] = useState(null);
@@ -58,7 +60,7 @@ const Blogs = () => {
             link: `/blogs/${blog.id}`
           }));
           setBlogsData(blogsArray);
-          setFilteredBlogs(blogsArray); // Initialize filtered blogs
+          setFilteredBlogs(blogsArray);
         } else {
           console.log('No data available');
         }
@@ -66,7 +68,7 @@ const Blogs = () => {
         console.error('Error fetching blogs:', error);
       } finally {
         setTimeout(() => {
-          setLoading(false); // Set loading to false after 2 seconds
+          setLoading(false);
         }, 500);
       }
     };
@@ -91,24 +93,50 @@ const Blogs = () => {
   }, []);
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    filterBlogs(e.target.value.toLowerCase());
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+
+    switch (searchMode) {
+      case 'title':
+        searchByTitle(term);
+        break;
+      case 'author':
+        searchByAuthor(term);
+        break;
+      case 'tags':
+        searchByTags(term);
+        break;
+      default:
+        searchByAll(term);
+    }
   };
 
-  const filterBlogs = (term) => {
-    if (!term) {
-      setFilteredBlogs(blogsData);
-      return;
-    }
+  const searchByTitle = (term) => {
+    const filtered = blogsData.filter(blog => blog.title.toLowerCase().includes(term));
+    setFilteredBlogs(filtered);
+  };
 
+  const searchByAuthor = (term) => {
+    const filtered = blogsData.filter(blog => blog.author.toLowerCase().includes(term));
+    setFilteredBlogs(filtered);
+  };
+
+  const searchByTags = (term) => {
+    const filtered = blogsData.filter(blog => blog.tags.some(tag => tag.toLowerCase().includes(term)));
+    setFilteredBlogs(filtered);
+  };
+
+  const searchByAll = (term) => {
     const filtered = blogsData.filter(blog =>
       blog.title.toLowerCase().includes(term) ||
       blog.author.toLowerCase().includes(term) ||
       blog.tags.some(tag => tag.toLowerCase().includes(term))
     );
-
     setFilteredBlogs(filtered);
   };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -123,11 +151,11 @@ const Blogs = () => {
           {/* Search Box */}
           <div className="search">
             <div className="s_bar_c">
-              <img src={SearchIcon} alt="Search" />
+              <img src={SearchIcon} alt="Search" onClick={openModal} />
               <div className="vl" />
               <input
                 type="text"
-                placeholder="Search by author, tags, title, or content"
+                placeholder={`Search by ${ searchMode === 'all' ? "Title , Author ,Tag" : searchMode}`}
                 value={searchTerm}
                 onChange={handleSearchChange}
                 style={{ outline: "1px solid black", fontSize: "20px" }}
@@ -137,10 +165,58 @@ const Blogs = () => {
               <button>Search</button>
             </div>
           </div>
+
+          {/* Modal */}
+          {isModalOpen && (
+            <div className="modal-overlay">
+              <div className="modal">
+                <h2>Select Search Mode</h2>
+                <div className="search-modes">
+                  <label>
+                    <input
+                      type="radio"
+                      value="title"
+                      checked={searchMode === 'title'}
+                      onChange={() => setSearchMode('title')}
+                    />
+                    Title
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="author"
+                      checked={searchMode === 'author'}
+                      onChange={() => setSearchMode('author')}
+                    />
+                    Author
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="tags"
+                      checked={searchMode === 'tags'}
+                      onChange={() => setSearchMode('tags')}
+                    />
+                    Tags
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="all"
+                      checked={searchMode === 'all'}
+                      onChange={() => setSearchMode('all')}
+                    />
+                    All
+                  </label>
+                </div>
+                <button onClick={closeModal}>Close</button>
+              </div>
+            </div>
+          )}
         </header>
         <div className="blogs-list">
           {loading ? (
-            <BlogsSkeleton count={blogsData.length} /> // Display skeleton while loading
+            <BlogsSkeleton count={blogsData.length} />
           ) : (
             filteredBlogs.map((blog, index) => (
               <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
