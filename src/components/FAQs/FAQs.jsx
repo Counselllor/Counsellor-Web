@@ -51,11 +51,11 @@ const FAQs = () => {
     const email = emailInput.value;
     emailInput.value = "";
 
-    // Save email to Firebase Realtime Database
     try {
       const emailKey = email.replace(/[.#$/[\]]/g, "_"); // Replace invalid characters for Firebase keys
       const emailRef = ref(database, `newsletter/emails/${emailKey}`);
       await set(emailRef, { email });
+      console.log("email addedd to firestore database", email);
       setIsModalOpen(true);
     } catch (error) {
       console.error("Error saving email to database:", error);
