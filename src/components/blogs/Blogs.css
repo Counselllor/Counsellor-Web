@@ -33,12 +33,12 @@ body {
   justify-content: center;
   margin-bottom: 2rem;
 }
-.blogs-header{
+.blogs-header {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-margin-top: 80px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 80px;
 }
 .blogs-header p {
   font-size: 1.2em;
@@ -148,13 +148,11 @@ margin-top: 80px;
 }
 
 .blog-card p {
-  color:black !important;
-  
+  color: black !important;
 }
 
 #dark .blog-card p {
   color: black;
- 
 }
 
 .blog-tag {
@@ -253,21 +251,21 @@ margin-top: 80px;
   width: 22vw;
   padding: 10px;
 }
-.blogwrite{
+.blogwrite {
   background-color: rgb(5, 6, 45);
   border-radius: 6px;
   padding: 5px;
- width: 200px;
- height: 50px;
- color: white;
- cursor: pointer;
- display: flex;
- align-items: center;
- justify-content: center;
-margin:20px 0px;
+  width: 200px;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0px;
   transition: 300ms;
 }
-.blogwrite:hover{
+.blogwrite:hover {
   background-color: rgb(24, 25, 99);
 }
 .click-btn1 a {
@@ -294,7 +292,7 @@ margin:20px 0px;
   left: 30%;
   top: 70px !important;
   height: 90vh !important;
-    max-width: 600px;
+  max-width: 600px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -302,31 +300,33 @@ margin:20px 0px;
   padding: 20px;
   overflow: scroll;
 }
-#dark .modal-jobs1{
+#dark .modal-jobs1 {
   background-color: black !important;
   color: white !important;
 }
-.modal-jobs1 img{
+.modal-jobs1 img {
   border-radius: 50%;
   margin-right: 10px;
 }
-#dark .modal-jobs1 div,#dark .modal-jobs1 p,#dark .modal-jobs1 .jobs-container1 .abc{
+#dark .modal-jobs1 div,
+#dark .modal-jobs1 p,
+#dark .modal-jobs1 .jobs-container1 .abc {
   background-color: black !important;
   color: white !important;
 }
-@media only screen and (max-width:900px){
-  .modal-jobs1{
+@media only screen and (max-width: 900px) {
+  .modal-jobs1 {
     left: 20%;
     width: 80vw;
   }
 }
-@media only screen and (max-width:600px){
-  .modal-jobs1{
+@media only screen and (max-width: 600px) {
+  .modal-jobs1 {
     left: 20px;
     width: 90vw;
   }
 }
-.blackb{
+.blackb {
   background-color: black;
   opacity: 0.6;
   height: 100vh;
@@ -337,12 +337,11 @@ margin:20px 0px;
   left: 0;
 }
 .blog_share_summ {
- 
 }
 
 .clip-text {
   /* Ensure the text doesn't break out of its container */
   overflow: hidden;
   white-space: nowrap;
-text-overflow: ellipsis;  
+  text-overflow: ellipsis;
 }

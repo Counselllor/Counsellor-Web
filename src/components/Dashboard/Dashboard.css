@@ -928,10 +928,7 @@ width: 40px;
  .click-btn2:hover span {
   background: none;
  }
- 
- .click-btn2:active {
-  transform: scale(0.9);
- }
+
 
  .pagination {
   display: flex;
