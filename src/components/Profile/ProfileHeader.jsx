@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import { toast } from "react-toastify";
-export default function ProfileHeader({ children }) {
+export default function ProfileHeader({ children, toggleProfile }) {
   const navigate = useNavigate();
   const [sidebarClosed, setSidebarClosed] = useState(window.innerWidth < 768);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,6 +44,7 @@ export default function ProfileHeader({ children }) {
   const toggleSidebar = () => {
     setSidebarClosed(!sidebarClosed);
   };
+
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -105,7 +107,7 @@ export default function ProfileHeader({ children }) {
               <span className="count">12</span>
             </Link>
             <Link to="#" className="profile">
-              <i class="bx bxs-user-circle img"></i>
+              <i onClick={toggleProfile} className="bx bx-border-circle bxs-user-circle img"></i>
             </Link>
           </div>
         </nav>

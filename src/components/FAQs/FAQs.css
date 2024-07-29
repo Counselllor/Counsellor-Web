@@ -228,19 +228,32 @@
   color: #666;
 }
 
+/* FAQs.css */
 .modal {
-  position: absolute;
+  position: fixed; /* Change from absolute to fixed */
   top: 50%;
   left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  z-index: 1000; /* Ensure it is above the overlay */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* Ensure it is below the modal */
 }
 
 .modal h2 {
@@ -263,21 +276,11 @@
   cursor: pointer;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
 .newsletter-section h2 {
   font-size: 40px !important;
 }
 
 @media (max-width: 768px) {
-
   .newsletter-section h2 {
     font-size: 24px !important;
   }

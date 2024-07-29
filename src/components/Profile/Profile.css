@@ -52,6 +52,9 @@
   scrollbar-width: none;
   transition: all 0.3s ease;
 }
+#dark .profile-body .sidebar{
+  background-color: #121212;
+}
 
 .profile-body .sidebar::-webkit-scrollbar {
   display: none;
@@ -79,7 +82,9 @@
 .profile-body .sidebar .logo .logo-name span {
   color: var(--dark);
 }
-
+#dark .profile-body .sidebar .logo .logo-name span {
+  color: white;
+}
 .profile-body .sidebar .logo .bx {
   min-width: 60px;
   display: flex;
@@ -141,6 +146,10 @@
   overflow-x: hidden;
   transition: all 0.3s ease;
 }
+#dark .profile-body .sidebar .side-menu li a{
+  background: #121212;
+  color: var(--light);
+}
 
 .profile-body .sidebar .side-menu li.active a {
   color: var(--success);
@@ -188,9 +197,14 @@
   z-index: 1000;
   width: 100%;
 }
-
+#dark .profile-body .content nav{
+  background-color: #121212;
+}
 .profile-body .content nav a {
   color: var(--dark);
+}
+#dark .profile-body .content nav a{
+ color: white;
 }
 
 .profile-body .content nav .bx.bx-menu {
@@ -198,6 +212,9 @@
   color: var(--dark);
   font-size: 25px;
   margin: 0 5px;
+}
+#dark .profile-body .content nav .bx.bx-menu {
+ color: white;
 }
 .profile-body .content nav .logoName {
   font-size: 24px;
@@ -209,7 +226,9 @@
 .profile-body .content nav .logoName span {
   color: var(--dark);
 }
-
+#dark .profile-body .content nav .logoName span{
+ color: var(--light);
+}
 .profile-body .content nav .notif {
   font-size: 20px;
   position: relative;
