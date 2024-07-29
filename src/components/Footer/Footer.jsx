@@ -8,18 +8,18 @@ const Footer = () => {
       <div className="container">
         <div className="link-container">
           <ul className="link">
-            <li><a href="./About">About Us</a></li>
-            <li><a href="./blogs">Blog</a></li>
-            <li><a href="./contribute">Our Contributors</a></li>
-            <li><a href="./join-us">Join Us</a></li>
-            <li><a href="./help">Help</a></li>
-            <li><a href="./contact">Contact Us</a></li>
+            <li><a onClick={()=>window.location.href="/about"}>About Us</a></li>
+            <li><a onClick={()=>window.location.href="/blogs"} >Blog</a></li>
+            <li><a onClick={()=>window.location.href="/contribute"} >Our Contributors</a></li>
+            <li><a onClick={()=>window.location.href="/join-us"} >Join Us</a></li>
+            <li><a onClick={()=>window.location.href="/help"} >Help</a></li>
+            <li><a onClick={()=>window.location.href="/contact"} >Contact Us</a></li>
           </ul>
         </div>
         <div className="footer-bottom">
           <ul className="link-2">
-            <li><a href="./Terms">Terms & Conditions</a></li>
-            <li><a href="./privacy-policy">Privacy Policy</a></li>
+            <li><a onClick={()=>window.location.href="/Terms"} >Terms & Conditions</a></li>
+            <li><a onClick={()=>window.location.href="/privacy-policy"} >Privacy Policy</a></li>
           </ul>
           <div className="footer-copyright">
             <p className="text">
