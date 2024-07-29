@@ -18,7 +18,7 @@
     "@iconify/react": "^5.0.2",
     "@react-icons/all-files": "^4.1.0",
     "@redux-devtools/extension": "^3.3.0",
-    "@reduxjs/toolkit": "^2.2.6",
+    "@reduxjs/toolkit": "^2.2.7",
     "antd": "^5.19.3",
     "aos": "^2.3.4",
     "boxicons": "^2.1.4",
