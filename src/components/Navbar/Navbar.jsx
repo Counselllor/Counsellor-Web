@@ -141,9 +141,10 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
             </a>
           </MenuItem>
           <MenuItem>
-            <a href="./profile">
-              <button className="profile_btn">Profile</button>
-            </a>
+<div>
+  
+             <button onClick={()=>window.location.href="/profile"} className="profile_btn">Profile</button>
+  </div>   
           </MenuItem>
         </>
       ) : (

@@ -20,52 +20,58 @@ const Blogs = () => {
   const [searchMode, setSearchMode] = useState('all'); // Default to 'all' search mode
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const userId = localStorage.getItem('userUid');
+  const userId = localStorage.getItem("userUid");
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (localStorage.getItem('login')) {
+    if (localStorage.getItem("login")) {
       setLogin(true);
     }
   }, []);
-
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const db = getDatabase();
 
         if (userId) {
-          const userRef = ref(db, 'users/' + userId);
+          const userRef = ref(db, "users/" + userId);
           const userSnap = await get(userRef);
 
           if (userSnap.exists()) {
             const userData = userSnap.val();
             setUser(userData);
           } else {
-            console.log('No user data available');
+            console.log("No user data available");
           }
         }
 
-        const articlesRef = ref(db, 'articles');
+        // Fetch all articles
+        const articlesRef = ref(db, "articles");
         const snapshot = await get(articlesRef);
 
         if (snapshot.exists()) {
           const data = snapshot.val();
-          const blogsArray = Object.values(data).map(blog => ({
+          const blogsArray = Object.values(data).map((blog) => ({
+            id: blog.id,
             title: blog.title,
             date: new Date(blog.createdAt).toLocaleDateString(),
-            summary: stripMarkdown(blog.content.substring(0, 100)) + '...',
+            summary: stripMarkdown(blog.content.substring(0, 100)) + "...",
             tags: blog.tags,
             author: blog.author,
-            link: `/blogs/${blog.id}`
+            createdAt: new Date(blog.createdAt), // Parse createdAt to Date object
+            link: `/blogs/${blog.id}`,
           }));
+
+          // Sort blogs by createdAt timestamp in descending order
+          blogsArray.sort((a, b) => b.createdAt - a.createdAt);
+
           setBlogsData(blogsArray);
           setFilteredBlogs(blogsArray);
         } else {
-          console.log('No data available');
+          console.log("No data available");
         }
       } catch (error) {
-        console.error('Error fetching blogs:', error);
+        console.error("Error fetching blogs:", error);
       } finally {
         setTimeout(() => {
           setLoading(false);
@@ -84,11 +90,11 @@ const Blogs = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('newblog')) {
+    if (localStorage.getItem("newblog")) {
       toast.success("Blog Created Successfully!! 🚀", {
         className: "toast-message",
       });
-      localStorage.removeItem('newblog');
+      localStorage.removeItem("newblog");
     }
   }, []);
 
@@ -226,7 +232,9 @@ const Blogs = () => {
                 <p className="blog-author">By: {blog.author}</p>
                 <div className="blog-tags">
                   {blog.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="blog-tag">{tag}</span>
+                    <span key={tagIndex} className="blog-tag">
+                      {tag}
+                    </span>
                   ))}
                 </div>
                 <button className="click-btn1">
