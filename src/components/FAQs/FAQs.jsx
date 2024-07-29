@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./FAQs.css";
 import { database } from "../../firebase/auth"; // Adjust the path according to your project structure
-import { ref, set } from "firebase/database";
+import { child, get, ref, set } from "firebase/database";
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -55,7 +55,8 @@ const FAQs = () => {
       const emailKey = email.replace(/[.#$/[\]]/g, "_"); // Replace invalid characters for Firebase keys
       const emailRef = ref(database, `newsletter/emails/${emailKey}`);
       await set(emailRef, { email });
-      console.log("email addedd to firestore database", email);
+      console.log("Email added to Firebase Realtime Database:", email);
+
       setIsModalOpen(true);
     } catch (error) {
       console.error("Error saving email to database:", error);
