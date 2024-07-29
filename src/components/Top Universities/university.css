@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #12229d;
+  --color-primary2: #4454ce;
   --color-background: #cae7fe;
   --color-item: #76c6f5;
   --color-text: #333;
@@ -17,7 +18,7 @@
   background-color: #1f1f1f;
 }
 .universityPage-header {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  background: linear-gradient(135deg, var(--color-primary2), var(--color-item));
   color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
@@ -28,7 +29,9 @@
 }
 
 .universityPage-main-title {
-  font-size: 4rem;
+  font-family: 'ABeeZee',sans-serif;
+  color: var(--color-primary);
+  font-size: 6rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
