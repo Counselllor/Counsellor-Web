@@ -26,6 +26,7 @@
 }
 #dark .content{
   background-color: rgb(37, 37, 37) !important;
+  color: #ebedee;
 }
 
 .abeezee-regular {
@@ -267,6 +268,7 @@
 }
 #dark .student-card{
   background-color: rgb(37, 37, 37) !important;;
+  color: #c5d5d4;
 }
 
 .student-description {
