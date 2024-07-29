@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import unidata from "./data.json";
 import "./university.css";
 import Navbar from "../Navbar/Navbar";
@@ -7,7 +7,7 @@ import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const University = () => {
-  const [isModal, setIsModal] = useState(false);
+  // const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
   const [isLoggedIn, setLogin] = useState(false);
   const [loading, setLoading] = useState(true);

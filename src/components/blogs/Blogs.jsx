@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./Blogs.css"; // Import CSS file for styles
+import { useEffect, useState } from "react";
+import './Blogs.css'; // Import CSS file for styles
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import { getDatabase, ref, get } from "firebase/database";
@@ -46,12 +46,14 @@ const Blogs = () => {
                 return acc;
               }, {});
               setIds(idObject);
-            } else {
-              console.log("No articles created by the user.");
-            }
-          } else {
-            console.log("No user data available");
+             } 
+             //else {
+            //   console.log('No articles created by the user.');
+            // }
           }
+          //  else {
+          //   console.log('No user data available');
+          // }
         }
 
         // Fetch all articles
@@ -75,9 +77,10 @@ const Blogs = () => {
           blogsArray.sort((a, b) => b.createdAt - a.createdAt);
 
           setBlogsData(blogsArray);
-        } else {
-          console.log("No data available");
-        }
+        } 
+        // else {
+        //   console.log('No data available');
+        // }
       } catch (error) {
         console.error("Error fetching blogs:", error);
       } finally {

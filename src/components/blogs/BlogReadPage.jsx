@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useContext, useRef } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { getDatabase, ref, get,remove,update,push } from 'firebase/database';
 import moment from "moment";
 import DOMPurify from "dompurify";
@@ -8,17 +8,13 @@ import upvote from  "./upvote-svgrepo-com.svg"
 import downvote from  "./downvote-svgrepo-com.svg"
 import { FaRegComment } from "react-icons/fa";
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
 import randomAvatar from "../../assets/avatar1.png"; // Assuming you have an avatar image
 import './BlogReadPage.css';
-import { Modal, Switch } from 'antd';
-import { signOut } from "firebase/auth";
-import { ThemeContext } from '../../App';
+import { Modal} from 'antd';
 import { toast } from "react-toastify";
-import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
-import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaTrash, FaShareAlt , FaTwitter, FaLinkedin } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 import Discussions from "./Discussions";
 
@@ -43,9 +39,7 @@ const generateUUID = () => {
 const BlogReadPage = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setLogin] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [liked, setLiked] = useState(false);
   const [isLiking, setIsLiking] = useState(false); // New state for loading
   const userId = localStorage.getItem('userUid');
@@ -57,7 +51,6 @@ const BlogReadPage = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const navigate = useNavigate();
-  let [ids,setIds]=useState([])
   const [user, setUser] = useState(null);
   const [isNotLoggedInModalVisible, setIsNotLoggedInModalVisible] = useState(false);
 
@@ -245,7 +238,6 @@ const BlogReadPage = () => {
           .split(',')
           .filter((id) => id !== id)
           .join(',');
-    console.log(db)
         await update(ref(db, 'users/' + userId), {
           articleCreated: updatedArticles,
         });
@@ -258,7 +250,6 @@ const BlogReadPage = () => {
     
         if (snapshot.exists()) {
           const data = snapshot.val();
-          console.log(data)
           if(Object.values(data).length==0){
             navigate('/blogs')
 
@@ -269,7 +260,6 @@ const BlogReadPage = () => {
         } else {
           navigate('/blogs')
 
-          console.log('No data available');
         }
       
     };

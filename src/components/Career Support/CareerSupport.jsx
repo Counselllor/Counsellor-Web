@@ -1,14 +1,10 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './CareerSupport.css';
 import Navbar from '../Navbar/Navbar';
-import Logo from "../../assets/logo.webp";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Switch } from 'antd';
-import { ThemeContext } from '../../App';
-import { signOut } from "firebase/auth";
+import { useNavigate} from "react-router-dom";
 import { auth } from "../../firebase/auth";
 import Footer from '../Footer/Footer';
-import { toast } from 'react-toastify';
+
 
 const CareerSupport = () => {
   const [formData, setFormData] = useState({

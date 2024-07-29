@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, update, get } from 'firebase/database';
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
+// import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
-import { Switch } from 'antd';
+// import { Switch } from 'antd';
 // import ReactMarkdown from 'react-markdown';
 // import remarkGfm from 'remark-gfm';
 // import rehypeRaw from 'rehype-raw';
@@ -27,9 +27,9 @@ const BlogWrite = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
  
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+  // const handleThemeChange = useCallback(() => {
+  //   toggleTheme();
+  // }, [toggleTheme]);
   
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -59,9 +59,10 @@ const BlogWrite = () => {
         const userSnap = await get(userRef);
         if (userSnap.exists()) {
           setUser(userSnap.val());
-        } else {
-          console.log('No user data available');
-        }
+         } 
+         //else {
+        //   console.log('No user data available');
+        // }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }

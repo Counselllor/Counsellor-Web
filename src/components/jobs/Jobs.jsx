@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect,useCallback, useState } from "react";
 import JobsData from "./jobs.json";
 import "./Jobs.css";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin, FaSlack, FaDiscord } from "react-icons/fa";
 
 
@@ -13,11 +12,10 @@ const Jobs = () => {
   const [loading, setLoading] = useState(true); // Loading state
   function handleOpenModal(){
     setIsModal(true)
-    console.log('click')
   }
-  function handleCLoseModal(){
+  const handleCLoseModal=useCallback(()=>{
     setIsModal(false)
-  }
+  })
 useEffect(() => {
     // Simulate loading delay of 1 second
     const timer = setTimeout(() => {
