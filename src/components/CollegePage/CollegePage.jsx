@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useLayoutEffect, useCallback } from "react";
 import collegesData from "../Dashboard/colleges.json";
 import studentsData from "./students.json";
 import "./CollegePage.css";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import Logo from "../../assets/logo.webp";
 import { signOut } from "firebase/auth";
 import Navbar from "../Navbar/Navbar";
 import { auth } from "../../firebase/auth";
@@ -15,12 +14,12 @@ import { toast } from "react-toastify";
 
 const CollegePage = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -164,11 +163,11 @@ const CollegePage = () => {
             <Link
               to={`/student/${student.id}/${student.name}`}
               style={{ textDecoration: "none", color: "inherit" }}
+              key={student.id}  // Ensure unique key
             >
               <div
                 className="student-card"
                 onClick={() => handleStudentClick(student)}
-                key={index}
               >
                 <div
                   style={{
@@ -179,7 +178,7 @@ const CollegePage = () => {
                   }}
                 >
                   <img
-                    src={imgArray[index]}
+                    src={imgArray[index % imgArray.length]}  // Use modulo for safety
                     style={{
                       height: "80%",
                       minHeight: "66px",

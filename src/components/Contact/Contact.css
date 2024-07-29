@@ -137,6 +137,12 @@ background-color: #cae8ff !important;
   justify-content: center;
   align-items: center;
 }
+#dark .contact1 .left h1 {
+  color: white;
+}
+#dark .contact1 .left p {
+  color: rgb(215, 210, 210);
+}
 .contact1 .form{
   width: 60%;
   border-radius: 20px;
@@ -156,6 +162,7 @@ flex-direction: column;
 }
 #dark .contact1 .form{
   background-color: #080707;
+  color: white;
   border: solid 2px white;
     box-shadow: 0px 0px 10px white;
 
