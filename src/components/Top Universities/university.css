@@ -89,6 +89,7 @@
 
 .universityPage-company {
   color: var(--color-item);
+  font-family: 'Poppins',sans-serif !important;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
