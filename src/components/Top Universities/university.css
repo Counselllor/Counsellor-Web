@@ -67,6 +67,7 @@
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
+  font-family: 'Poppins',sans-serif !important;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -102,6 +103,7 @@
 .universityPage-location,
 .universityPage-type {
   color: var(--color-text);
+  font-family: 'Poppins',sans-serif !important;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
