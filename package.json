@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "dompurify": "^3.1.6",
     "dotenv": "^16.4.5",
+    "emailjs-com": "^3.2.0",
     "firebase": "^10.12.4",
     "marked": "^13.0.3",
     "moment": "^2.30.1",
