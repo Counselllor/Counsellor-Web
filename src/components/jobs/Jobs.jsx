@@ -50,7 +50,6 @@ const Jobs = () => {
                 return acc;
               }, {});
               setJobs(idObject);
-              console.log("OBJECTTTTT",idObject)
             } else {
               console.log("No articles created by the user.");
             }
@@ -84,7 +83,6 @@ const Jobs = () => {
           jobsArray.sort((a, b) => b.createdAt - a.createdAt);
           // Sort blogs by createdAt timestamp in descending order
           // jobsArray.sort((a, b) => b.createdAt - a.createdAt);
-          console.log(jobsArray,"JOBS ARRAY")
           setJobsData([...jobsArray,...JobsData]);
         } else {
           console.log("No data available");
