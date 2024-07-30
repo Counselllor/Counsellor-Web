@@ -4,11 +4,16 @@
   text-align: center;
   min-height: 300px;
 }
-
+#dark .slots-container{
+  background-color: transparent;
+}
 .slots-title {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #333;
+}
+#dark .slots-title {
+  color: white;
 }
 
 .slots-grid {

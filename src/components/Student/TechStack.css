@@ -4,11 +4,18 @@
     text-align: center;
     min-height: 300px;
   }
+  #dark .tech-stack-container{
+    background-color: transparent;
+    color: white;
+  }
   
   .tech-stack-title {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: #333;
+  }
+  #dark .tech-stack-title{
+    color: white;
   }
   
   .tech-stack-grid {
@@ -25,6 +32,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
+  #dark  .tech-stack-item{
+   background-color: #000000;
+   color: white;
+  }
   
   .tech-stack-item:hover {
     transform: translateY(-5px);
@@ -38,6 +49,9 @@
   .tech-stack-name {
     font-size: 1.2rem;
     color: #555;
+  }
+  #dark .tech-stack-name{
+    color: white;
   }
   
   @media (max-width: 768px) {
