@@ -36,6 +36,7 @@
 }
 
 .link li a {
+
   text-decoration: none;
   color: #6c757d;
   white-space: nowrap;
@@ -202,5 +203,10 @@
 
   .social-icons {
     font-size: 1.4rem;
+  }
+}
+@media (max-width:500px) {
+  .link li a {
+    font-size: 9px;
   }
 }
