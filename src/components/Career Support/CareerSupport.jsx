@@ -56,7 +56,7 @@ const [showPopup,setShowPopup]=useState(false)
     };
 
     // Send email using EmailJS
-    emailjs.send('your_service_id', 'your_template_id', params, 'your_user_id')
+    emailjs.send('service_kszura2', 'template_u8shl9d', params, 'rSYpY_RsF76o4MgcA')
       .then(() => {
         console.log('Email sent successfully');
       })
