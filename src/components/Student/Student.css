@@ -3,7 +3,7 @@
 .single-student-container {
   font-family: Arial, sans-serif;
   padding: 20px;
-  min-height: 100vh;
+
 }
 #dark .single-student-details {
   background-color: #151414;
@@ -44,6 +44,9 @@ color: white !important;
   border-radius: 20px;
   min-height: 100%;
   background: #cecece;
+}
+#dark .single-student-info-header{
+  color: white;
 }
 
 .single-student-info-header {
