@@ -24,6 +24,7 @@ import { Switch } from 'antd';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import Navbar from "../Navbar/Navbar";
+import ChatBot from "../chatbot/Chatbot";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -357,6 +358,7 @@ const Dashboard = () => {
       </div>
       <FAQs />
       <Testimonial/>
+      <ChatBot />
       <Footer />
     </main>
   );
