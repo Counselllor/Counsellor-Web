@@ -1,29 +1,4 @@
-<<<<<<< HEAD
-import { useContext, useEffect, useState , useCallback } from 'react';
-import './Contribute.css'; // Import CSS file for styles
-import Footer from '../Footer/Footer';
-// import Navbar from '../Navbar/Navbar';
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { ThemeContext } from '../../App';
-import ScrollToTop from 'react-scroll-to-top';
-
-import BackToHomeButton from '../backtohome';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar';
-
-
-const Contribute = () => {
-  const owner = 'Counselllor';
-  const repo = 'Counsellor-Web';
-  // const contributorsPerPage = 10; // Display 10 contributors per page
-  const [contributors, setContributors] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [menuOpen, setMenuOpen] = useState(false);
-  // const { theme, toggleTheme } = useContext(ThemeContext);
-  const navigate=useNavigate();
-=======
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState,} from "react";
 import "./Contribute.css"; // Import CSS file for styles
 import Footer from "../Footer/Footer";
 import AOS from "aos";
@@ -36,7 +11,6 @@ const Contribute = () => {
   const repo = "Counsellor-Web";
   const [contributors, setContributors] = useState([]);
   const [loading, setLoading] = useState(true);
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
 
   useEffect(() => {
     setTimeout(() => {
@@ -337,39 +311,6 @@ let arr=[
     ));
   };
 
-<<<<<<< HEAD
-  // const createPaginationButtons = () => {
-  //   const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-  //   return Array.from({ length: totalPages }, (_, index) => (
-  //     <button
-  //       key={index + 1}
-  //       className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
-  //       onClick={() => setCurrentPage(index + 1)}
-  //     >
-  //       {index + 1}
-  //     </button>
-  //   ));
-  // };
-  // const handleThemeChange = useCallback(() => {
-  //   toggleTheme();
-  // }, [toggleTheme]);
-  
-  // const toggleMenu = useCallback(() => {
-  //   setMenuOpen(!menuOpen);
-  // });
-  // const handleSignOut = useCallback(() => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       localStorage.removeItem("login");
-  //       navigate("/");
-  //     })
-  //     .catch((err) => {
-  //      toast.error(err.message, {
-  //         className: "toast-message",
-  //       });
-  //     });
-  // }, [navigate]);
-=======
   const renderSkeletons = (count) => {
     return Array(count)
       .fill(0)
@@ -384,7 +325,6 @@ let arr=[
       ));
   };
 
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
   return (
     <>
       <ScrollToTop

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import './Blogs.css'; // Import CSS file for styles
-=======
-import React, { useEffect, useState } from "react";
-import "./Blogs.css"; // Import CSS file for styles
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import { getDatabase, ref, get } from "firebase/database";
@@ -51,18 +46,10 @@ const Blogs = () => {
                 return acc;
               }, {});
               setIds(idObject);
-<<<<<<< HEAD
              } 
              //else {
             //   console.log('No articles created by the user.');
             // }
-=======
-            } else {
-              console.log("No articles created by the user.");
-            }
-          } else {
-            console.log("No user data available");
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
           }
           //  else {
           //   console.log('No user data available');
@@ -90,16 +77,10 @@ const Blogs = () => {
           blogsArray.sort((a, b) => b.createdAt - a.createdAt);
 
           setBlogsData(blogsArray);
-<<<<<<< HEAD
         } 
         // else {
         //   console.log('No data available');
         // }
-=======
-        } else {
-          console.log("No data available");
-        }
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
       } catch (error) {
         console.error("Error fetching blogs:", error);
       } finally {

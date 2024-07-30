@@ -6,10 +6,7 @@ import DOMPurify from "dompurify";
 import { marked } from "marked";
 import upvote from  "./upvote-svgrepo-com.svg"
 import downvote from  "./downvote-svgrepo-com.svg"
-<<<<<<< HEAD
-=======
 import { FaRegComment } from "react-icons/fa";
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
 import Footer from "../Footer/Footer";
 import randomAvatar from "../../assets/avatar1.png"; // Assuming you have an avatar image
 import './BlogReadPage.css';

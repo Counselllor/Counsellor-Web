@@ -129,13 +129,9 @@ const SocialProfile = () => {
     }
   });
 
-<<<<<<< HEAD
 
   const handleEditProfile = useCallback((id) => {
-=======
-  const handleEditProfile = (id) => {
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
-    setEditingId(id);
+     setEditingId(id);
     setIsEditing(true);
   });
 
