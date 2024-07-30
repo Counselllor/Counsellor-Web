@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Switch } from 'antd';
 import { ThemeContext } from '../../App';
 import { signOut } from "firebase/auth";
+import { getDatabase, ref, push, set } from 'firebase/database';
+import emailjs from 'emailjs-com';
 import { auth } from "../../firebase/auth";
 import Footer from '../Footer/Footer';
 import { toast } from 'react-toastify';
@@ -44,10 +46,39 @@ const [showPopup,setShowPopup]=useState(false)
   }, [navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    setShowPopup(true);
+
+    const { name, email, message } = formData;
+    const params = {
+      name,
+      email,
+      message,
+      created_date: new Date().toISOString(),
+    };
+
+    // Send email using EmailJS
+    emailjs.send('your_service_id', 'your_template_id', params, 'your_user_id')
+      .then(() => {
+        console.log('Email sent successfully');
+      })
+      .catch((error) => {
+        console.error('Email send error:', error);
+      });
+
+    // Store form data in Firebase Realtime Database
+    const db = getDatabase();
+    const queriesRef = ref(db, 'careerQueries');
+    const newQueryRef = push(queriesRef);
+    set(newQueryRef, params)
+      .then(() => {
+       setShowPopup(true); // Open modal on successful submission
+        setFormData({ name: '', email: '', message: '' }); // Reset form data
+      })
+      .catch((error) => {
+        console.error('Error submitting query:', error);
+      });
   };
+
+
 
   const closePopup = () => {
     setShowPopup(false);
