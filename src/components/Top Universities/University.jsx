@@ -1,26 +1,13 @@
-<<<<<<< HEAD
 import {useEffect, useState } from "react";
-=======
-import React, { useEffect, useState } from "react";
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
 import unidata from "./data.json";
 import "./university.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { auth } from "../../firebase/auth";
-<<<<<<< HEAD
-
-import { useNavigate } from "react-router-dom";
-
-
-const University = () => {
-  
-=======
 import { useNavigate } from "react-router-dom";
 
 const University = () => {
-  const [isModal, setIsModal] = useState(false);
->>>>>>> 70f7403d79434b00b7f6bdf7ad022b04f751e71a
+  // const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
   const [isLoggedIn, setLogin] = useState(false);
   const [loading, setLoading] = useState(true);

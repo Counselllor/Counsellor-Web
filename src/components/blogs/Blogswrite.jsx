@@ -27,9 +27,9 @@ const BlogWrite = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
  
-  const handleThemeChange = useCallback(() => {
-    toggleTheme();
-  }, [toggleTheme]);
+  // const handleThemeChange = useCallback(() => {
+  //   toggleTheme();
+  // }, [toggleTheme]);
   
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -59,9 +59,10 @@ const BlogWrite = () => {
         const userSnap = await get(userRef);
         if (userSnap.exists()) {
           setUser(userSnap.val());
-        } else {
-          console.log('No user data available');
-        }
+         } 
+         //else {
+        //   console.log('No user data available');
+        // }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }

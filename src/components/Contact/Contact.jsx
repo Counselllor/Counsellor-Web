@@ -1,12 +1,12 @@
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
-import { ThemeContext } from '../../App';
+// import { ThemeContext } from '../../App';
 import { getDatabase,ref, push, set } from 'firebase/database'; // Import Firebase database functions
 import Modal from 'react-modal'; // Import Modal
 

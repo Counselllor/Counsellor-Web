@@ -1,14 +1,9 @@
-import React, { useState, useContext, useCallback, useEffect } from "react";
+import {useEffect } from "react";
 import "./Courses.css";
 import coursesData from "./courses.json";
 import Footer from "../Footer/Footer";
-import Logo from "../../assets/logo.webp";
-import { Switch } from "antd";
-import { ThemeContext } from "../../App";
-import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
-import { signOut } from "firebase/auth";
+import {  useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import { auth } from "../../firebase/auth";
-import { toast } from 'react-toastify';
 import Navbar from "../Navbar/Navbar";
 
 const Courses = () => {
