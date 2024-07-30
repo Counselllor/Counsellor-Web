@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import "./Profile.css";
 import SocialProfile from "../ProfileComponent/SocialProfile";
 import ProfileCard from "../ProfileComponent/ProfileCard";
 import ProfileHeader from "./ProfileHeader";
 import { auth } from "../../firebase/auth";
 export default function ProfilePage() {
+  const [open, setOpen] = useState(false)
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -14,10 +16,15 @@ export default function ProfilePage() {
       }
     });
   }, []);
+
+  const toggleProfile =() => {
+    setOpen(!open)
+  }
+
   return (
     <div className="profile-body">
-      <ProfileHeader>
-        <ProfileCard />
+      <ProfileHeader toggleProfile={toggleProfile}>
+        <ProfileCard open={open}/>
         <SocialProfile />
       </ProfileHeader>
     </div>

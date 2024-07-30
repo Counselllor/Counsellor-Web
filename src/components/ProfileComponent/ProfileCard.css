@@ -105,6 +105,9 @@
   width: 100%;
   height: 100%;
 }
+#dark .upcoming-events h2{
+  color: white;
+}
 
 .upcoming-events h2 {
   margin-top: 0;
@@ -119,7 +122,10 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
-
+#dark .calendar-date{
+  background-color: #333;
+  color: white;
+}
 .calendar-date {
   position: relative;
   padding: 10px;
@@ -140,6 +146,9 @@
   background-color: #000000;
   color: white;
 }
+#dark .calendar-date.active{
+  background-color: #000000 !important;
+}
 
 .calendar-date.active::after {
   content: "";
@@ -150,6 +159,9 @@
   height: 5px;
   background: rgb(64, 255, 64);
   border-radius: 50%;
+}
+#dark .next-event{
+  color: #e0e0e0;
 }
 
 .next-event {
@@ -165,7 +177,12 @@
 .profile-card-content .profile-details h2 {
   font-size: 20px;
 }
-
+#dark .profile-card-content .profile-details h2{
+  color: white;
+}
+#dark .profile-card-content .profile-details p{
+  color: #f0f0f0;
+}
 .profile-card-content .profile-details p {
   font-size: 14px;
   margin: 5px 0;
@@ -176,7 +193,9 @@
   gap: 5px;
   align-items: center;
 }
-
+#dark .profile-card-content .profile-details .about-info h3{
+  color: #ffffff;
+}
 .profile-card-content .profile-details .about-info h3 {
   font-size: 13px;
 }
@@ -196,6 +215,12 @@
   right: 5%;
 }
 
+.close{
+  transform: scale(0);
+  transform-origin : top right;
+  transition:  0.3s ease;
+}
+
 .profile-card {
   background-color: #ffffff;
   padding: 10px;
@@ -203,6 +228,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
+}
+#dark .profile-card {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+#dark .profile-card .bxs-edit {
+  color: white;
 }
 
 .profile-card .bxs-edit {
@@ -219,17 +251,26 @@
   object-fit: cover;
   border: 0.5px solid lightblue;
 }
+#dark .profile-card h3 {
+  color: white;
+}
 
 .profile-card h3 {
   margin: 10px 0 5px 0;
   font-size: 22px;
   color: #333;
 }
-
+#dark .profile-card .title{
+  color: rgb(221, 218, 218);
+}
 .profile-card .title {
   margin: 5px 0;
   font-size: 16px;
   color: #666;
+}
+#dark .skills-section h2{
+  border-top: 0.5px solid rgba(255, 255, 255, 0.555);
+  color: white;
 }
 
 .profile-card .role {
@@ -292,12 +333,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0);
+  backdrop-filter: blur(10px); /* Adjust blur intensity */
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+#dark .edit-modal-content{
+  background-color: #121212; 
+  color: white;
+}
 .edit-modal-content {
   background-color: white;
   padding: 20px;
@@ -305,6 +350,7 @@
   width: 80%;
   max-width: 522px;
   text-align: left;
+  position: relative !important;
 }
 
 .edit-modal-content h2 {
@@ -326,6 +372,10 @@
   border: 1px solid #ccc;
   font-size: 14px;
 }
+#dark .edit-modal-content input{
+  color: white;
+  background-color: #333;
+}
 
 .avatar-selection {
   margin-top: 10px;
@@ -340,7 +390,10 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-
+#dark .skill-option{
+  background-color: #333;
+  color: white;
+}
 .skill-option {
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -348,6 +401,10 @@
   font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+#dark .skill-option.selected {
+  background-color: #007bff;
+  color: white;
 }
 
 .skill-option.selected {
@@ -357,7 +414,7 @@
 .download-button {
   margin-top: 15px;
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
