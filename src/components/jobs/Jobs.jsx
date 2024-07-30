@@ -65,24 +65,27 @@ const Jobs = () => {
 
         if (snapshot.exists()) {
           const data = snapshot.val();
-          const jobsArray = Object.values(data).map((job) => ({
-            id:job.id,
-            jobTitle: job.jobTitle,
-            jobDescription: job.jobDescription,
-            companyName: job.companyName,
-            location: job.location,
-            jobSalary: job.jobSalary,
-            jobType:job.jobType,
-            experienceLevel: job.experienceLevel,
-            applicationDeadline: job.applicationDeadline,
-            createdAt: new Date(job.createdAt), // Parse createdAt to Date object
-
-          }));
-
+          const jobsArray = Object.values(data).filter((job) => {            
+            if(job.createdAt!==undefined&&job.companyName!=="Soft"){
+              return {  id:job.id,
+              jobTitle: job.jobTitle,
+              jobDescription: job.jobDescription,
+              companyName: job.companyName,
+              location: job.location,
+              jobSalary: job.jobSalary,
+              jobType:job.jobType,
+              experienceLevel: job.experienceLevel,
+              applicationDeadline: job.applicationDeadline,
+              createdAt: new Date(job.createdAt), // Parse createdAt to Date object
+            }
+            }
+   });
+          console.log()
+          jobsArray.sort((a, b) => b.createdAt - a.createdAt);
           // Sort blogs by createdAt timestamp in descending order
           // jobsArray.sort((a, b) => b.createdAt - a.createdAt);
           console.log(jobsArray,"JOBS ARRAY")
-          setJobsData([...JobsData,...jobsArray]);
+          setJobsData([...jobsArray,...JobsData]);
         } else {
           console.log("No data available");
         }
@@ -142,7 +145,7 @@ id:jobId,
       });
       // const newJobRef = ref(db, 'jobs').push(); // Create a new job reference
       // await set(newJobRef, formData); // Save form data to Firebase
-                setJobsData((prev)=>[...prev,newJob])
+                setJobsData((prev)=>[newJob,...prev])
       setIsJobModal(false);
       toast.success("Job Listed Successfully 🚀",{
         className: "toast-message",
