@@ -30,8 +30,8 @@
 
 .universityPage-main-title {
   font-family: 'ABeeZee',sans-serif;
-/*   color: var(--color-primary);
-  font-size: 4rem; */
+/*   color: var(--color-primary); */
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
