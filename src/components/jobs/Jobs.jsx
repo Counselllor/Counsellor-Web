@@ -27,77 +27,66 @@ const Jobs = () => {
     experienceLevel: 'entry',
     applicationDeadline: '',
   });
-
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         const db = getDatabase();
 
-        // Fetch user data if logged in
+        // Fetch user data
         if (userId) {
-          const userRef = ref(db, "users/" + userId);
+          const userRef = ref(db, `users/${userId}`);
           const userSnap = await get(userRef);
 
           if (userSnap.exists()) {
             const userData = userSnap.val();
             setUser(userData);
 
-            const jobsCreated = userData.jobsCreated;
-            if (jobsCreated) {
-              const idArray = jobsCreated.split(",");
-              const idObject = idArray.reduce((acc, id) => {
-                acc[id.trim()] = true;
-                return acc;
-              }, {});
+            if (userData.jobsCreated) {
+              const idArray = userData.jobsCreated.split(',').map(id => id.trim());
+              const idObject = idArray.reduce((acc, id) => ({ ...acc, [id]: true }), {});
               setJobs(idObject);
-            } else {
-              console.log("No articles created by the user.");
             }
           } else {
             console.log("No user data available");
           }
         }
 
-        // Fetch all articles
-        const jobRef = ref(db, "jobs");
+        // Fetch jobs
+        const jobRef = ref(db, 'jobs');
         const snapshot = await get(jobRef);
 
         if (snapshot.exists()) {
           const data = snapshot.val();
-          const jobsArray = Object.values(data).filter((job) => {            
-            if(job.createdAt!==undefined&&job.companyName!=="Soft"){
-              return {  id:job.id,
+          const jobsArray = Object.values(data)
+            .filter(job => job.createdAt && job.companyName !== 'Soft')
+            .map(job => ({
+              id: job.id,
               jobTitle: job.jobTitle,
               jobDescription: job.jobDescription,
               companyName: job.companyName,
               location: job.location,
               jobSalary: job.jobSalary,
-              jobType:job.jobType,
+              jobType: job.jobType,
               experienceLevel: job.experienceLevel,
               applicationDeadline: job.applicationDeadline,
-              createdAt: new Date(job.createdAt), // Parse createdAt to Date object
-            }
-            }
-   });
-          console.log()
+              createdAt: new Date(job.createdAt),
+            }));
+
           jobsArray.sort((a, b) => b.createdAt - a.createdAt);
-          // Sort blogs by createdAt timestamp in descending order
-          // jobsArray.sort((a, b) => b.createdAt - a.createdAt);
-          setJobsData([...jobsArray,...JobsData]);
+          setJobsData(jobsArray);
         } else {
-          console.log("No data available");
+          console.log("No jobs data available");
         }
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching jobs:", error);
       } finally {
-        setTimeout(() => {
-          setLoading(false); // Set loading to false after 2 seconds
-        }, 500);
+        setLoading(false); // Set loading to false after fetching data
       }
     };
 
     fetchJobs();
   }, [userId]);
+  
 
   const generateUUID = () => {
     var d = new Date().getTime();
@@ -119,36 +108,38 @@ const Jobs = () => {
     });
   };
   const handleSubmitJob = async (event) => {
-    event.preventDefault(); // Prevent default form submission
-
+    event.preventDefault();
+  if(!user){
+    return
+  }
     const jobId = generateUUID();
     const newJob = {
-id:jobId,
+      id: jobId,
       jobTitle: formData.jobTitle,
       jobDescription: formData.jobDescription,
       companyName: formData.companyName,
       location: formData.location,
       jobSalary: formData.jobSalary,
-      jobType:formData.jobType,
+      jobType: formData.jobType,
       experienceLevel: formData.experienceLevel,
       applicationDeadline: formData.applicationDeadline,
       createdAt: new Date().toISOString(),
-
     };
+  
     try {
       const db = getDatabase();
-      await set(ref(db, 'jobs/' + jobId), newJob);
-      await update(ref(db, 'users/' + userId), {
+      await set(ref(db, `jobs/${jobId}`), newJob);
+      await update(ref(db, `users/${userId}`), {
         jobsCreated: (user.jobsCreated ? user.jobsCreated + ',' : '') + jobId,
       });
-      // const newJobRef = ref(db, 'jobs').push(); // Create a new job reference
-      // await set(newJobRef, formData); // Save form data to Firebase
-                setJobsData((prev)=>[newJob,...prev])
+      
+      setJobsData(prev => [newJob, ...prev]);
       setIsJobModal(false);
-      toast.success("Job Listed Successfully 🚀",{
+      toast.success("Job Listed Successfully 🚀", {
         className: "toast-message",
       });
-      setFormData({ // Optionally, reset formData here
+  
+      setFormData({
         jobTitle: '',
         jobDescription: '',
         companyName: '',
