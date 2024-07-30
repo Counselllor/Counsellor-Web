@@ -30,15 +30,15 @@
 
 .universityPage-main-title {
   font-family: 'ABeeZee',sans-serif;
-  color: var(--color-primary);
-  font-size: 6rem;
+/*   color: var(--color-primary);
+  font-size: 4rem; */
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .universityPage-subtitle {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   font-family: 'ABeeZee',sans-serif !important;
   font-weight: 300;
   opacity: 0.9;
