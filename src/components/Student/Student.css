@@ -3,7 +3,7 @@
 .single-student-container {
   font-family: Arial, sans-serif;
   padding: 20px;
-
+  min-height: 100vh;
 }
 #dark .single-student-details {
   background-color: #151414;
