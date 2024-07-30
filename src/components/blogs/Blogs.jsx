@@ -135,9 +135,9 @@ const Blogs = () => {
                 className="blog-card"
                 onClick={() => navigate(blog.link)}
               >
-                <h2 className="clip-text">{blog.title}</h2>
+                <h2 className="clip-text" dangerouslySetInnerHTML={{__html:blog?.title}}/>
                 <p className="blog-date">{blog.date}</p>
-                <p className="clip-text">{blog.summary}</p>
+                <p className="clip-text" dangerouslySetInnerHTML={{__html:blog?.summary}}/>
                 <p className="blog-author">By: {blog.author}</p>
                 <div className="blog-tags">
                   {blog.tags.map((tag, tagIndex) => (
