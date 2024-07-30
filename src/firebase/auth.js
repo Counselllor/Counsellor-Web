@@ -5,14 +5,14 @@ import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBEBhBv7AcPhmWS1JwfXijBEarDjsz16xM",
-  authDomain: "lupo-7ba5f.firebaseapp.com",
-  databaseURL: "https://lupo-7ba5f-default-rtdb.firebaseio.com",
-  projectId: "lupo-7ba5f",
-  storageBucket: "lupo-7ba5f.appspot.com",
-  messagingSenderId: "418172032930",
-  appId: "1:418172032930:web:b28842c67139e5c0e6c4fb",
-  measurementId: "G-1NVNFSWR1M"
+  apiKey: "AIzaSyCL_bwyE7_rwnAbuEJl5Vr7FD1_e_cOZxw",
+  authDomain: "counsellor-web-e81b7.firebaseapp.com",
+  databaseURL: "https://counsellor-web-e81b7-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "counsellor-web-e81b7",
+  storageBucket: "counsellor-web-e81b7.appspot.com",
+  messagingSenderId: "1055143292636",
+  appId: "1:1055143292636:web:1397f7974a27bd486e0e19",
+  measurementId: "G-MJST0MPDZ3"
 
 };
 
