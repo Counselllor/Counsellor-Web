@@ -393,3 +393,13 @@
 #dark .fixed-color2{
   background: #121212 !important;
 }
+
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  min-width: 200px;
+  right: 0;
+  width: 22vw;
+  padding: 10px;
+}
