@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "./Blogs.css"; // Import CSS file for styles
+import './Blogs.css';
 import Footer from "../Footer/Footer";
-import { useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
-import { getDatabase, ref, get } from "firebase/database";
+import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, get } from 'firebase/database';
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import Navbar from "../Navbar/Navbar";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import BlogsSkeleton from "./BlogsSkeleton"; // Import Skeleton component
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import BlogsSkeleton from "./BlogsSkeleton";
+import SearchIcon from '../../assets/search_icon.png';
 
 const Blogs = () => {
   const [isLoggedIn, setLogin] = useState(false);
-  const [ids, setIds] = useState({});
   const [blogsData, setBlogsData] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchMode, setSearchMode] = useState('all'); // Default to 'all' search mode
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const userId = localStorage.getItem("userUid");
   const [user, setUser] = useState(null);
@@ -29,7 +33,6 @@ const Blogs = () => {
       try {
         const db = getDatabase();
 
-        // Fetch user data if logged in
         if (userId) {
           const userRef = ref(db, "users/" + userId);
           const userSnap = await get(userRef);
@@ -37,18 +40,6 @@ const Blogs = () => {
           if (userSnap.exists()) {
             const userData = userSnap.val();
             setUser(userData);
-
-            const articleCreated = userData.articleCreated;
-            if (articleCreated) {
-              const idArray = articleCreated.split(",");
-              const idObject = idArray.reduce((acc, id) => {
-                acc[id.trim()] = true;
-                return acc;
-              }, {});
-              setIds(idObject);
-            } else {
-              console.log("No articles created by the user.");
-            }
           } else {
             console.log("No user data available");
           }
@@ -75,6 +66,7 @@ const Blogs = () => {
           blogsArray.sort((a, b) => b.createdAt - a.createdAt);
 
           setBlogsData(blogsArray);
+          setFilteredBlogs(blogsArray);
         } else {
           console.log("No data available");
         }
@@ -82,7 +74,7 @@ const Blogs = () => {
         console.error("Error fetching blogs:", error);
       } finally {
         setTimeout(() => {
-          setLoading(false); // Set loading to false after 2 seconds
+          setLoading(false);
         }, 500);
       }
     };
@@ -106,6 +98,52 @@ const Blogs = () => {
     }
   }, []);
 
+  const handleSearchChange = (e) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+
+    switch (searchMode) {
+      case 'title':
+        searchByTitle(term);
+        break;
+      case 'author':
+        searchByAuthor(term);
+        break;
+      case 'tags':
+        searchByTags(term);
+        break;
+      default:
+        searchByAll(term);
+    }
+  };
+
+  const searchByTitle = (term) => {
+    const filtered = blogsData.filter(blog => blog.title.toLowerCase().includes(term));
+    setFilteredBlogs(filtered);
+  };
+
+  const searchByAuthor = (term) => {
+    const filtered = blogsData.filter(blog => blog.author.toLowerCase().includes(term));
+    setFilteredBlogs(filtered);
+  };
+
+  const searchByTags = (term) => {
+    const filtered = blogsData.filter(blog => blog.tags.some(tag => tag.toLowerCase().includes(term)));
+    setFilteredBlogs(filtered);
+  };
+
+  const searchByAll = (term) => {
+    const filtered = blogsData.filter(blog =>
+      blog.title.toLowerCase().includes(term) ||
+      blog.author.toLowerCase().includes(term) ||
+      blog.tags.some(tag => tag.toLowerCase().includes(term))
+    );
+    setFilteredBlogs(filtered);
+  };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       <Navbar />
@@ -114,25 +152,80 @@ const Blogs = () => {
         <header className="blogs-header">
           <h1>Our Latest Blogs</h1>
           <p>Stay updated with our latest news and articles on counseling.</p>
-          {isLoggedIn && (
-            <button
-              onClick={() => navigate("/blogwrite")}
-              className="blogwrite"
-            >
-              Create Blog
-            </button>
+          {isLoggedIn && <button onClick={() => navigate('/blogwrite')} className="blogwrite">Create Blog</button>}
+
+          {/* Search Box */}
+          <div className="search">
+            <div className="s_bar_c">
+              <img src={SearchIcon} alt="Search" onClick={openModal} />
+              <div className="vl" />
+              <input
+                type="text"
+                placeholder={`Search by ${ searchMode === 'all' ? "Title , Author ,Tag" : searchMode}`}
+                value={searchTerm}
+                onChange={handleSearchChange}
+                style={{ outline: "1px solid black", fontSize: "20px" }}
+              />
+            </div>
+            <div className="search_box">
+              <button>Search</button>
+            </div>
+          </div>
+
+          {/* Modal */}
+          {isModalOpen && (
+            <div className="modal-overlay">
+              <div className="modal">
+                <h2>Select Search Mode</h2>
+                <div className="search-modes">
+                  <label>
+                    <input
+                      type="radio"
+                      value="title"
+                      checked={searchMode === 'title'}
+                      onChange={() => setSearchMode('title')}
+                    />
+                    Title
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="author"
+                      checked={searchMode === 'author'}
+                      onChange={() => setSearchMode('author')}
+                    />
+                    Author
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="tags"
+                      checked={searchMode === 'tags'}
+                      onChange={() => setSearchMode('tags')}
+                    />
+                    Tags
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="all"
+                      checked={searchMode === 'all'}
+                      onChange={() => setSearchMode('all')}
+                    />
+                    All
+                  </label>
+                </div>
+                <button onClick={closeModal}>Close</button>
+              </div>
+            </div>
           )}
         </header>
         <div className="blogs-list">
           {loading ? (
-            <BlogsSkeleton count={blogsData.length} /> // Display skeleton while loading
+            <BlogsSkeleton count={blogsData.length} />
           ) : (
-            blogsData.map((blog, index) => (
-              <div
-                key={index}
-                className="blog-card"
-                onClick={() => navigate(blog.link)}
-              >
+            filteredBlogs.map((blog, index) => (
+              <div key={index} className="blog-card" onClick={() => navigate(blog.link)}>
                 <h2 className="clip-text">{blog.title}</h2>
                 <p className="blog-date">{blog.date}</p>
                 <p className="clip-text">{blog.summary}</p>
