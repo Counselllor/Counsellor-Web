@@ -161,9 +161,9 @@ export default function Login() {
     if (submitable) {
       signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
         .then(() => {
-          setTimeout(() => {
+          setTimeout(async () => {
             const user = localStorage.getItem("userUid");
-            const response = fetchUserData(user); // Fetch user data after login
+            const response = await fetchUserData(user); // Fetch user data after login
             console.log("response user", response);
             dispatch(loginSuccess(response));
             localStorage.setItem("login", true);

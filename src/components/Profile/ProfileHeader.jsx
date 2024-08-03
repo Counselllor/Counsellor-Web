@@ -64,7 +64,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
       <div className={`sidebar ${sidebarClosed ? "close" : ""}`}>
         <Link to="/" className="logo">
           {/* <img src={Logo} alt="logo" className="logo-img" /> */}
-          <i class="bx bxs-comment-dots"></i>
+          <i className="bx bxs-comment-dots"></i>
           <div className="logo-name">
             <span>Coun</span>Sellor
           </div>
@@ -107,7 +107,10 @@ export default function ProfileHeader({ children, toggleProfile }) {
               <span className="count">12</span>
             </Link>
             <Link to="#" className="profile">
-              <i onClick={toggleProfile} className="bx bx-border-circle bxs-user-circle img"></i>
+              <i
+                onClick={toggleProfile}
+                className="bx bx-border-circle bxs-user-circle img"
+              ></i>
             </Link>
           </div>
         </nav>
