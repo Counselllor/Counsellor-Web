@@ -27,8 +27,11 @@
   cursor: default;
 }
 
-body {
-  font-family: "ABeeZee";
+p,ul,li,span{
+  font-family: 'Poppins',sans-serif;
+}
+h1,h2,h3{
+  color: #12229d !important;
 }
 
 .help-container {
@@ -36,68 +39,65 @@ body {
   margin: 0 auto;
   padding: 2rem;
   border-radius: 8px;
-  font-family: Arial, sans-serif;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   transition: all 0.6s;
   text-align: start;
 }
 
+.help-container h2,.help-container h3,.help-container h4{
+  font-family: "ABeeZee",sans-serif !important;
+}
+
 .help-container h1 {
-  font-family: "ABeeZee";
-  font-size: 70px;
+  color: #12229d;
+  font-family: "ABeeZee",sans-serif;
+  font-size: 50px;
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
-  color: #3C38B9;
-}
-#dark .help-container h1 {
-  color: #7067ec !important;
 }
 
 .help-container h2 {
-  color: #00073e;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 10px;
 }
 
-#dark .help-container h2 {
-  color: #9cbff5 !important;
+#getting-started{
+  text-align: center;
+  margin-top: 8rem;
 }
-
 
 
 .help-container p {
   font-size: 22px;
+  color: #333;
   margin-bottom: 1rem;
-  font-family: "ABeeZee";
-  color: #00073e;
   line-height: 1.6;
+}
+
+#dark .help-container p, #dark .help-container ul li{
+  color: #fff;
 }
 
 .help-container ul {
   list-style: disc inside;
   margin-left: 20px;
   margin-bottom: 20px;
+  margin-top: 5rem;
 }
 
 .help-container ul li {
   margin-bottom: 1rem;
-  cursor: pointer;
-  font-size: 22px;
-  color: #00073e;
+  font-size: 18px;
+  text-align: left;
+  color: #333;
+  margin-left: 10rem;
 }
-
-
-
-
 
 .help-container  p{
-  margin-top: 40px !important;
+  margin-top: 40px ;
 }
-.help-container h2,.help-container h3,.help-container h4{
-  color: #0d6fd7;
-}
-.help-container h1{color: #0d6fd7 !important;}
+
 .help-container p, .terms-container ul, .terms-container li{
 animation: animator1 forwards 0.6s;
 }
@@ -108,26 +108,14 @@ animation: animator1 forwards 0.6s;
       opacity: 1;
     }
 }
-.help-container h2{
-  margin-top: 20px !important;
-  font-size: 36px !important;
-}
 .help-container #licenses p{
   margin-top: 40px;
-} 
-.help-container p {
-  font-size: 22px;
-  margin-bottom: 1rem;
-  font-family: "ABeeZee";
-  color: #666;
-  line-height: 1.6;
 }
-
-.help-container h2 {
-  color: #34495e;
-  font-size: 30px;
-  }
-
+.box-heading{
+  font-size: 40px !important;
+  font-family: 'ABeeZee',sans-serif;
+  margin-bottom: 2rem;
+}
 
  #dark .img{
   color: white;
@@ -138,18 +126,15 @@ animation: animator1 forwards 0.6s;
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  
 }
 
 .faqs-containerh h2 {
-  color: #0a3866;
+  color: #12229d;
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 700;
-}
-
-#dark .faqs-containerh h2 {
-  color: rgb(55, 148, 224) !important;
 }
 
 .accordionh {
@@ -189,7 +174,9 @@ animation: animator1 forwards 0.6s;
 }
 
 #dark .accordionh button:hover {
-  background: rgb(71, 71, 71) !important;
+  background: rgb(21, 20, 20) !important;
+  color: #f7f7f7 !important;
+
 }
 
 .accordionh .icon {
@@ -223,8 +210,8 @@ animation: animator1 forwards 0.6s;
   background: currentColor;
 }
 
-.accordionh button[aria-expanded='true'] {
-  /* color: #03b5d2; */
+.accordionh button[aria-expanded='true'],.accordionh button:hover{
+  color: #007bff; 
 }
 
 .accordionh button[aria-expanded='true'] .icon::after {
@@ -234,7 +221,7 @@ animation: animator1 forwards 0.6s;
 .accordion-contenth {
   max-height: 0;
   overflow: hidden;
-  padding: 0 1.5rem;
+  padding: 0 1.2rem;
   background: #fff;
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
@@ -245,11 +232,28 @@ animation: animator1 forwards 0.6s;
 
 .accordion-contenth.active {
   max-height: 10rem;
-  padding: 0 1.5rem;
+  padding: 0 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .accordion-contenth p {
   margin: 0;
   font-size: 1.5rem;
+  font-weight: 400;
   /* line-height: 1.5; */
+}
+
+#dark .box-container{
+  background: #232222 !important;
+  border: 0.5px dashed rgba(255, 255, 255, 0.347);
+}
+
+#dark .box-content{
+  color: #b7b7b7 !important;
+}
+
+#dark .box-list{
+  background: #1d1e1f !important;
+  color: #b7b7b7 !important;
 }
