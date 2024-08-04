@@ -45,6 +45,9 @@ color: white !important;
   min-height: 100%;
   background: #cecece;
 }
+#dark .single-student-info-header{
+  color: white;
+}
 
 .single-student-info-header {
   text-align: center;

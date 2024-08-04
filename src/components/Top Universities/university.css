@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #12229d;
+  --color-primary2: #4454ce;
   --color-background: #cae7fe;
   --color-item: #76c6f5;
   --color-text: #333;
@@ -17,7 +18,7 @@
   background-color: #1f1f1f;
 }
 .universityPage-header {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  background: linear-gradient(135deg, var(--color-primary2), var(--color-item));
   color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
@@ -28,6 +29,8 @@
 }
 
 .universityPage-main-title {
+  font-family: 'ABeeZee',sans-serif;
+/*   color: var(--color-primary); */
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -36,6 +39,7 @@
 
 .universityPage-subtitle {
   font-size: 1.5rem;
+  font-family: 'ABeeZee',sans-serif !important;
   font-weight: 300;
   opacity: 0.9;
 }
@@ -63,6 +67,7 @@
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
+  font-family: 'Poppins',sans-serif !important;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -84,6 +89,7 @@
 
 .universityPage-company {
   color: var(--color-item);
+  font-family: 'Poppins',sans-serif !important;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -98,7 +104,8 @@
 .universityPage-location,
 .universityPage-type {
   color: var(--color-text);
-  font-size: 1.1rem;
+  font-family: 'Poppins',sans-serif !important;
+  font-size: 1.3rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -107,6 +114,7 @@
   background-color: var(--color-primary);
   color: var(--color-text-light);
   font-size: 1.1rem;
+  font-family: 'Poppins',sans-serif !important;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border: none;

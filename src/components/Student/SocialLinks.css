@@ -5,11 +5,16 @@
   min-height: 300px;
   border-radius: 10px;
 }
-
+#dark .social-links-container{
+  background-color:  transparent;
+}
 .social-title {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #333;
+}
+#dark .social-title {
+  color: white;
 }
 
 .social-links-container h2 {

@@ -161,6 +161,9 @@
     font-size: 1.5rem;
   }
 }
+.modal-jobs input, .modal-jobs textarea{
+  width: 100% !important;
+}
 
 
 
@@ -194,6 +197,16 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 20px;
+}
+.modal-jobs .form-group{
+  width: 100% !important;
+}
+#dark .modal-jobs label{
+  color: white !important;
+}
+#dark .modal-jobs{
+  background-color: black;
+  border: solid 1px white;
 }
 @media only screen and (max-width:900px){
   .modal-jobs{
@@ -379,4 +392,14 @@
 }
 #dark .fixed-color2{
   background: #121212 !important;
+}
+
+.toast-message {
+  background: #12229d;
+  color: #fff;
+  font-size: 12px;
+  min-width: 200px;
+  right: 0;
+  width: 22vw;
+  padding: 10px;
 }
