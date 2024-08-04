@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import CollegePage from "./components/CollegePage/CollegePage";
 import { createContext, useState, useEffect } from "react";
 import { ProviderStore } from "./redux/StoreProvider";
+import ChatBot from "./components/chatbot/Chatbot";
 
 // Theme context
 export const ThemeContext = createContext(null);
@@ -37,6 +38,7 @@ const App = () => {
         <div className="App" id={theme}>
           <Outlet />
         </div>
+        <ChatBot />
       </ProviderStore>
     </ThemeContext.Provider>
   );
