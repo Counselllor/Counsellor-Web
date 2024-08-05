@@ -1,54 +1,67 @@
 import React, { useEffect, useState } from 'react';
 import BotPic from '../../assets/azurebot.jpg';
-
 import './chatbot.css';
 
 const Chatbot = () => {
   const [chatVisible, setChatVisible] = useState(false);
+  const [webChatInstance, setWebChatInstance] = useState(null);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
-    script.async = true;
-    script.onload = () => {
-      if (chatVisible) {
-        window.WebChat.renderWebChat(
-          {
-            directLine: window.WebChat.createDirectLine({
-              secret: '7BvfwB7877k.bi4e-4SxmUQVEOwgB5oSsKREppWQpBePQTNqMOfXp_c',
-            }),
-            userID: 'YOUR_USER_ID_HERE',
-            username: 'YOUR_USERNAME_HERE',
-            locale: 'en-US',
-            styleOptions: {
-              bubbleBackground: '#0078d4',
-              bubbleTextColor: 'white',
-              bubbleFromUserBackground: '#0078d4',
-              bubbleFromUserTextColor: 'white',
-              backgroundColor: '#f9f9f9',
-              sendBoxBackground: '#f1f1f1',
-              sendBoxButtonColor: '#0078d4',
-              sendBoxTextColor: 'black',
-              userAvatarInitialsBackground: '#0078d4',
-              botAvatarInitialsBackground: '#e0e0e0',
-            },
-          },
-          document.getElementById('webchat')
-        );
-
-        window.WebChat.waitForBotConnection(async () => {
-          await window.WebChat.sendEvent({
-            name: 'webchat/join',
-            value: { language: 'en' },
-          });
+  const initializeWebChat = () => {
+    const store = window.WebChat.createStore({}, ({ dispatch }) => next => action => {
+      if (action.type === 'DIRECT_LINE/CONNECT_FULFILLED') {
+        dispatch({
+          type: 'WEB_CHAT/SEND_EVENT',
+          payload: { name: 'webchat/join', value: { language: 'en' } }
         });
       }
-    };
-    document.body.appendChild(script);
+      return next(action);
+    });
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    const webChatInstance = window.WebChat.renderWebChat(
+      {
+        directLine: window.WebChat.createDirectLine({
+          secret: '7BvfwB7877k.bi4e-4SxmUQVEOwgB5oSsKREppWQpBePQTNqMOfXp_c',
+        }),
+        store,
+        userID: 'YOUR_USER_ID_HERE',
+        username: 'YOUR_USERNAME_HERE',
+        locale: 'en-US',
+        styleOptions: {
+          bubbleBackground: '#0078d4',
+          bubbleTextColor: 'white',
+          bubbleFromUserBackground: '#0078d4',
+          bubbleFromUserTextColor: 'white',
+          backgroundColor: '#f9f9f9',
+          sendBoxBackground: '#f1f1f1',
+          sendBoxButtonColor: '#0078d4',
+          sendBoxTextColor: 'black',
+          userAvatarInitialsBackground: '#0078d4',
+          botAvatarInitialsBackground: '#e0e0e0',
+        },
+      },
+      document.getElementById('webchat')
+    );
+
+    setWebChatInstance(webChatInstance);
+  };
+
+  useEffect(() => {
+    if (chatVisible) {
+      if (!window.WebChat) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
+        script.async = true;
+        script.onload = initializeWebChat;
+        document.body.appendChild(script);
+      } else {
+        initializeWebChat();
+      }
+    } else if (webChatInstance) {
+      // Cleanup WebChat instance
+      webChatInstance.cleanup();
+      setWebChatInstance(null);
+      document.getElementById('webchat').innerHTML = '';
+    }
   }, [chatVisible]);
 
   const toggleChat = () => {
