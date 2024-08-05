@@ -27,11 +27,8 @@
   cursor: default;
 }
 
-p,ul,li,span{
+body p,ul,li,span{
   font-family: 'Poppins',sans-serif;
-}
-h1,h2,h3{
-  color: #12229d !important;
 }
 
 .help-container {
@@ -46,6 +43,7 @@ h1,h2,h3{
 
 .help-container h2,.help-container h3,.help-container h4{
   font-family: "ABeeZee",sans-serif !important;
+  color: #12229d !important;
 }
 
 .help-container h1 {
@@ -255,4 +253,11 @@ animation: animator1 forwards 0.6s;
 #dark .box-list{
   background: #1d1e1f !important;
   color: #b7b7b7 !important;
+}
+
+#dark .box-heading{
+  color: #12229d ;
+}
+#dark .box-name{
+  color: #007bff !important;
 }
