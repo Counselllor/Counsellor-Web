@@ -187,6 +187,8 @@
 }
 .modal-jobs {
   position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 50vw;
   left: 30%;
   top: 70px !important;
