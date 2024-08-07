@@ -29,6 +29,11 @@
     margin-bottom: 5px;
     color: #444;
   }
+
+  .student-details ul li {
+    margin-bottom: 5px;
+    color: #ffffffe3;
+  }
   
   .student-details a {
     color: #1e90ff;
