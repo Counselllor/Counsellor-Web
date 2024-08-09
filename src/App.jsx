@@ -38,11 +38,13 @@ const App = () => {
   const isLoginPage = location.pathname === "/";
 
   return (
- <ThemeContext.Provider value={{ theme, toggleTheme: () => setTheme(t => t === "light" ? "dark" : "light") }}>
+<ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {/* Redux store provider */}
       <ProviderStore>
         <div className="App" id={theme}>
           <Outlet />
-          {location.pathname !== "/" && <ChatBot />}
+          {/* Conditionally render the ChatBot component */}
+          {!isLoginPage && <ChatBot />}
         </div>
       </ProviderStore>
     </ThemeContext.Provider>
