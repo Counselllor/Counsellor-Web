@@ -1,0 +1,118 @@
+#webchat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.webchat__send-box {
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+.webchat__send-box input {
+  width: calc(100% - 50px);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.webchat__send-box button {
+  padding: 10px;
+  background-color: #0078d4;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.webchat__main {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.webchat__bubble--from-user {
+  background-color: #0078d4;
+  color: white;
+}
+
+.webchat__bubble--from-bot {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+.webchat__bubble__content {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  width: 60px;
+  height: 50px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #0078d4;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  z-index: 1000;
+}
+
+.chat-title {
+  font-size: 18px;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.chat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
