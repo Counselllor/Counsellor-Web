@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import "./styles/App.css";
 
@@ -31,14 +31,21 @@ const App = () => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // Get the current location
+  const location = useLocation();
+
+  // Determine if the current route is the login page
+  const isLoginPage = location.pathname === "/";
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {/* Redux store provider */}
       <ProviderStore>
         <div className="App" id={theme}>
           <Outlet />
+          {/* Conditionally render the ChatBot component */}
+          {!isLoginPage && <ChatBot />}
         </div>
-        <ChatBot />
       </ProviderStore>
     </ThemeContext.Provider>
   );
