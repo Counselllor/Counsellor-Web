@@ -126,31 +126,25 @@ const LogoSection = ({ login }) => (
   </div>
 );
 
+// MenuSection Component
 const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
   <div className={`menu ${menuOpen ? "show" : ""}`}>
     <ul>
-      <MenuItem href="/topuniversities">Top Universities</MenuItem>
-      <MenuItem href="/jobs">Jobs</MenuItem>
-      <MenuItem href="/courses">Courses</MenuItem>
-      <MenuItem href="/careersupport">Career Support</MenuItem>
+      <MenuItem to="/topuniversities">Top Universities</MenuItem>
+      <MenuItem to="/jobs">Jobs</MenuItem>
+      <MenuItem to="/courses">Courses</MenuItem>
+      <MenuItem to="/careersupport">Career Support</MenuItem>
       {user ? (
         <>
-          <MenuItem>
-            <a href="/" onClick={handleSignOut}>
-              Log Out
-            </a>
+          <MenuItem to="/" onClick={handleSignOut}>
+            Log Out
           </MenuItem>
           <MenuItem>
-<div>
-  
-             <button onClick={()=>window.location.href="/profile"} className="profile_btn">Profile</button>
-  </div>   
+            <button onClick={() => window.location.href="/profile"} className="profile_btn">Profile</button>
           </MenuItem>
         </>
       ) : (
-        <MenuItem>
-          <a href="/">Login</a>
-        </MenuItem>
+        <MenuItem to="/">Login</MenuItem>
       )}
       <li>
         <Switch
@@ -165,9 +159,18 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
   </div>
 );
 
-const MenuItem = ({ href, children }) => (
+// MenuItem Component with 'to' prop for React Router Links
+const MenuItem = ({ to, children, onClick }) => (
   <li>
-    <a href={href}>{children}</a>
+    {to ? (
+      <Link to={to} onClick={onClick}>
+        {children}
+      </Link>
+    ) : (
+      <a href="#" onClick={onClick}>
+        {children}
+      </a>
+    )}
   </li>
 );
 
