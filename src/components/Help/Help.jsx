@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useContext, useCallback } from "rea
 import "./Help.css";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import BackToHomeButton from "../backtohome";
 import Logo from "../../assets/logo.webp";
 import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
@@ -126,7 +125,6 @@ const Help = () => {
   return (
     <>
     <Navbar/>
-           <BackToHomeButton />
 
       <div className="help-container">
         <Breadcrumb />
@@ -246,77 +244,79 @@ const Help = () => {
       </div>
     
       <div style={{
-      maxWidth: '1000px',
+      maxWidth: '1200px',
       margin: '40px auto',
       padding: '0 20px'
     }}>
+      <h1 class="box-heading">Our Services</h1>
       <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap'
+        
+      display: 'flex',
+      flexWrap: 'wrap',
+      flex: '0 0 33.3333%',
+      justifyContent:'center',
+      alignItems: 'center',
       }}>
-
-        <Box
-        i="fas fa-phone"
-          heading="Contact Support"
-          text="If you need further assistance, please do not hesitate to contact our support team. We are here to help you."
-          contactInfo={[
-            { type: 'text2', value: 'Email us at: support@example.com' },
-            { type: 'phone', value: 'Call us: 1-800-123-4567' },
-            { type: 'text', value: 'Live chat available 24/7 on our website' }
-          ]}
-        />
-        <Box
-        i="fas fa-user"
-          heading="Account Management"
-          text="Learn how to manage your account settings, update your information, and more."
-          contactInfo={[
-            { type: 'text2', value: 'Update your personal information in the "Profile" section.' },
-            { type: 'phone', value: 'Change your password under "Security Settings".' },
-            { type: 'text', value: 'Manage your subscriptions and notifications in the "Preferences" section.' }
-          ]}
-        />
-        <Box
-        i="fas fa-file-invoice-dollar"
-          heading="Billing and Payments"
-          text="Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history."
-          contactInfo={[
-            { type: 'text2', value: 'View your billing history in the "Billing" section of your account.' },
-            { type: 'phone', value: 'Update your payment methods under "Payment Settings".' },
-            { type: 'text', value: 'Contact billing support for any discrepancies or issues.' }
-          ]}
-        />
-            <Box
-                    i="fas fa-lock"
-          heading="Security"
-          text="Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account."
-          contactInfo={[
-            { type: 'text2', value: 'Enable two-factor authentication for added security.' },
-            { type: 'phone', value: 'Regularly update your password and avoid using the same password across multiple sites.' },
-            { type: 'text', value: 'Be aware of phishing scams and do not share your personal information.' }
-          ]}
-        />
-            <Box
-            i="fas fa-wrench"
-            iconClass="fa-solid fa-phone" 
-          heading="Troubleshooting"
-          text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
-          contactInfo={[
-            { type: 'text2', value: 'App not loading: Try clearing your browser cache or reinstalling the app.' },
-            { type: 'phone', value: 'Payment issues: Ensure your payment information is correct and up-to-date.' },
-            { type: 'text', value: 'Account locked: Contact support to regain access to your account.' }
-          ]}
-        />
-            <Box
-            i="fas fa-comments"
-          heading="Feedback"
-          text="We value your feedback. Please let us know how we can improve our services."
-          contactInfo={[
-            { type: 'text2', value: 'Submit your feedback through our online form.' },
-            { type: 'phone', value: 'Join our user community and participate in discussions.' },
-            { type: 'text', value: 'Follow us on social media for the latest updates and news.' }
-          ]}
-        />
+<Box
+  i="fas fa-phone"
+  heading="Contact Support"
+  text="If you need further assistance, please do not hesitate to contact our support team. We are here to help you."
+  contactInfo={[
+    { type: 'text2', value: 'Email us at: support@example.com' },
+    { type: 'phone', value: 'Call us: 1-800-123-4567' },
+    { type: 'text', value: 'Live chat available 24/7 on our website' }
+  ]}
+/>
+<Box
+  i="fas fa-user"
+  heading="Account Management"
+  text="Learn how to manage your account settings, update your information, and more."
+  contactInfo={[
+    { type: 'text2', value: 'Update your personal information in the "Profile" section.' },
+    { type: 'phone', value: 'Change your password under "Security Settings".' },
+    { type: 'text', value: 'Manage your subscriptions and notifications in the "Preferences" section.' }
+  ]}
+/>
+<Box
+  i="fas fa-file-invoice-dollar"
+  heading="Billing and Payments"
+  text="Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history."
+  contactInfo={[
+    { type: 'text2', value: 'View your billing history in the "Billing" section of your account.' },
+    { type: 'phone', value: 'Update your payment methods under "Payment Settings".' },
+    { type: 'text', value: 'Contact billing support for any discrepancies or issues.' }
+  ]}
+/>
+<Box
+  i="fas fa-lock"
+  heading="Security"
+  text="Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account."
+  contactInfo={[
+    { type: 'text2', value: 'Enable two-factor authentication for added security.' },
+    { type: 'phone', value: 'Regularly update your password and avoid using the same password across multiple sites.' },
+    { type: 'text', value: 'Be aware of phishing scams and do not share your personal information.' }
+  ]}
+/>
+<Box
+  i="fas fa-wrench"
+  heading="Troubleshooting"
+  text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
+  contactInfo={[
+    { type: 'text2', value: 'App not loading: Try clearing your browser cache or reinstalling the app.' },
+    { type: 'phone', value: 'Payment issues: Ensure your payment information is correct and up-to-date.' },
+    { type: 'text', value: 'Account locked: Contact support to regain access to your account.' }
+  ]}
+/>
+<Box
+  i="fas fa-comments"
+  heading="Feedback"
+  text="We value your feedback. Please let us know how we can improve our services."
+  contactInfo={[
+    { type: 'text2', value: 'Submit your feedback through our online form.' },
+    { type: 'phone', value: 'Join our user community and participate in discussions.' },
+    { type: 'text', value: 'Follow us on social media for the latest updates and news.' }
+  ]}
+/>
       </div>
     </div>
 
@@ -326,45 +326,86 @@ const Help = () => {
     </>
   );
 };
-function Box({ i,heading, text, contactInfo }) {
-  return (
-    <div style={{
-      width: '450px',
-      margin: '10px',
-      float: 'left',
-      border: '1px solid #0000FF',
-      padding: '20px'
-    }}>
-           <i className={i} style={{
-        fontSize: '50px',
-        color: '#0000FF',
-        marginRight: '10px'
-      }} />
 
-     <p style={{
-        fontSize: '30px',
-        marginTop:'7px',
-        marginBottom:'7px',
-        color: '#0000FF',
-        fontWeight: 'bold'
+/* Box styling */
+
+function Box({ i, heading, text, contactInfo }) {
+  return (
+    <div className="box-container" style={{
+      width: '320px',
+      height: '400px',
+      margin: '15px 30px',
+      padding: '20px',
+      borderRadius: '10px',
+      boxShadow: '0 3px 15px rgba(0, 0, 0, 0.08)',
+      transition: 'transform 0.3s, box-shadow 0.3s, background-color 0.3s',
+      cursor: 'pointer',
+      backgroundColor: '#ffffff',
+      overflow: 'hidden',
+      position: 'relative',
+      fontFamily: "'Poppins', sans-serif",
+    }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-3px)';
+        e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = '0 3px 15px rgba(0, 0, 0, 0.08)';
+      }}
+    >
+      <i className={i} style={{
+        fontSize: '34px',
+        color: '#007bff',
+        marginBottom: '15px',
+        display: 'block',
+      }} />
+      <h3 className="box-name" style={{
+        fontSize: '20px',
+        color: '#333',
+        fontWeight: '600',
+        margin: '0 0 10px 0',
+        lineHeight: '1.2',
       }}>
         {heading}
-      </p>
-      <p style={{
-        fontSize: '15px',
-        margin:'10px',
-        color: '#666',
+      </h3>
+      <p className="box-content" style={{
+        fontSize: '14px',
+        color: '#888',
+        margin: '0 0 15px 0',
+        lineHeight: '1.6',
       }}>
         {text}
       </p>
-      <ul style={{ listStyle: 'disc', padding: 0, margin: 0,marginTop:'25px' }}>
-  {contactInfo.map((item, index) => (
-    <li key={index} style={{ textAlign: 'left', fontSize: '15px',marginLeft:'15px' }}>
-      {item.value}
-    </li>
-  ))}
-</ul>
+      <ul style={{
+        listStyle: 'none',
+        padding: 0,
+        margin: '0',
+      }}>
+        {contactInfo.map((item, index) => (
+          <li className="box-list" key={index} style={{
+            fontSize: '12px',
+            color: '#888',
+            marginBottom: '10px',
+            transition: 'color 0.3s, background-color 0.3s',
+            padding: '6px 10px',
+            borderRadius: '6px',
+            background: '#f8f9fa',
+          }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#007bff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#888';
+            }}
+          >
+            {item.value}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+
 export default Help;
