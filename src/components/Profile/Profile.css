@@ -14,9 +14,11 @@
   --success: #388e3c;
   --light-success: #bbf7d0;
 }
+
 .profile-body {
   overflow-x: hidden;
 }
+
 .profile-body * {
   margin: 0;
   padding: 0;
@@ -31,6 +33,7 @@
 .profile-body a {
   text-decoration: none;
 }
+
 .profile-body html {
   overflow-x: hidden;
 }
@@ -52,7 +55,8 @@
   scrollbar-width: none;
   transition: all 0.3s ease;
 }
-#dark .profile-body .sidebar{
+
+#dark .profile-body .sidebar {
   background-color: #121212;
 }
 
@@ -75,6 +79,7 @@
   padding-bottom: 20px;
   box-sizing: content-box;
 }
+
 .profile-body .logo .logo-img {
   width: 60px;
 }
@@ -82,9 +87,11 @@
 .profile-body .sidebar .logo .logo-name span {
   color: var(--dark);
 }
+
 #dark .profile-body .sidebar .logo .logo-name span {
   color: white;
 }
+
 .profile-body .sidebar .logo .bx {
   min-width: 60px;
   display: flex;
@@ -103,6 +110,7 @@
   border-radius: 48px 0 0 48px;
   padding: 4px;
 }
+
 /* 
 .sidebar .side-menu li.active {
   background: var(--grey);
@@ -146,7 +154,8 @@
   overflow-x: hidden;
   transition: all 0.3s ease;
 }
-#dark .profile-body .sidebar .side-menu li a{
+
+#dark .profile-body .sidebar .side-menu li a {
   background: #121212;
   color: var(--light);
 }
@@ -179,7 +188,7 @@
   transition: all 0.3s ease;
 }
 
-.profile-body .sidebar.close ~ .content {
+.profile-body .sidebar.close~.content {
   width: calc(100% - 60px);
   left: 60px;
 }
@@ -197,14 +206,17 @@
   z-index: 1000;
   width: 100%;
 }
-#dark .profile-body .content nav{
+
+#dark .profile-body .content nav {
   background-color: #121212;
 }
+
 .profile-body .content nav a {
   color: var(--dark);
 }
-#dark .profile-body .content nav a{
- color: white;
+
+#dark .profile-body .content nav a {
+  color: white;
 }
 
 .profile-body .content nav .bx.bx-menu {
@@ -213,9 +225,11 @@
   font-size: 25px;
   margin: 0 5px;
 }
+
 #dark .profile-body .content nav .bx.bx-menu {
- color: white;
+  color: white;
 }
+
 .profile-body .content nav .logoName {
   font-size: 24px;
   font-weight: 700;
@@ -226,9 +240,11 @@
 .profile-body .content nav .logoName span {
   color: var(--dark);
 }
-#dark .profile-body .content nav .logoName span{
- color: var(--light);
+
+#dark .profile-body .content nav .logoName span {
+  color: var(--light);
 }
+
 .profile-body .content nav .notif {
   font-size: 20px;
   position: relative;

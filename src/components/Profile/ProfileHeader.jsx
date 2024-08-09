@@ -66,7 +66,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
           {/* <img src={Logo} alt="logo" className="logo-img" /> */}
           <i class="bx bxs-comment-dots"></i>
           <div className="logo-name">
-            <span>Coun</span>Sellor
+            Counsellor
           </div>
         </Link>
         <ul className="side-menu">
@@ -98,7 +98,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
           </div>
           <Link to="/">
             <div className="logoName">
-              <span>Coun</span>Sellor
+            Counsellor
             </div>
           </Link>
           <div>
