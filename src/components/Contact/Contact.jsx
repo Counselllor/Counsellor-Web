@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { signOut } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { auth} from "../../firebase/auth";
+import { auth } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
@@ -13,7 +13,7 @@ import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/logo.webp";
 import { Switch } from 'antd';
 import { ThemeContext } from '../../App';
-import { getDatabase,ref, push, set } from 'firebase/database'; // Import Firebase database functions
+import { getFirestore, collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
 import Modal from 'react-modal'; // Import Modal
 
 const Contact = () => {
@@ -24,7 +24,6 @@ const Contact = () => {
   let email = useRef();
   
   const navigate = useNavigate();
- 
   
   let [isLoggedIn, setLogin] = useState(false);
   useEffect(() => {
@@ -38,10 +37,10 @@ const Contact = () => {
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let params = {
-      name: form.current.firstname.value +" " +form.current.lastname.value,
+      name: form.current.firstname.value + " " + form.current.lastname.value,
       email: form.current.email.value,
       feedback: form.current.feedback.value,
       created_date: new Date().toISOString() // Adding created_date
@@ -51,23 +50,16 @@ const Contact = () => {
       publicKey: "rSYpY_RsF76o4MgcA",
     });
 
-    // Store form data in Firebase Realtime Database
-    const db=getDatabase();
-    const queriesRef = ref(db, 'queries');
-    const newQueryRef = push(queriesRef);
-    set(newQueryRef, params)
-      .then(() => {
-        setIsModalOpen(true); // Open modal on successful submission
-        form.current.reset();
-      })
-      .catch((error) => {
-        console.error('Error submitting query: ', error);
-      });
+    // Store form data in Firestore
+    const db = getFirestore();
+    try {
+      await addDoc(collection(db, "queries"), params);
+      setIsModalOpen(true); // Open modal on successful submission
+      form.current.reset();
+    } catch (error) {
+      console.error('Error submitting query: ', error);
+    }
   };
-
-
-
-
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -75,7 +67,7 @@ const Contact = () => {
 
   return (
     <main>
-   <Navbar/>
+      <Navbar />
       <div className="contact1">
         <ToastContainer />
         <div className="left">
@@ -123,7 +115,7 @@ const Contact = () => {
               <textarea ref={feedback} name="feedback" placeholder="How can I help you?" required />
             </div>
             <button type="submit">Submit</button>
-            <p style={{fontSize:"12px"}}>By contacting us you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.</p>
+            <p style={{ fontSize: "12px" }}>By contacting us you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.</p>
           </form>
         </div>
       </div>
