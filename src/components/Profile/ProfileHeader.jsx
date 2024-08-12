@@ -8,7 +8,6 @@ export default function ProfileHeader({ children, toggleProfile }) {
   const navigate = useNavigate();
   const [sidebarClosed, setSidebarClosed] = useState(window.innerWidth < 768);
 
-
   useEffect(() => {
     const handleResize = () => {
       setSidebarClosed(window.innerWidth < 768);
@@ -44,7 +43,6 @@ export default function ProfileHeader({ children, toggleProfile }) {
   const toggleSidebar = () => {
     setSidebarClosed(!sidebarClosed);
   };
-
 
   const handleSignOut = useCallback(() => {
     signOut(auth)
@@ -109,8 +107,19 @@ export default function ProfileHeader({ children, toggleProfile }) {
             <Link to="#" className="profile">
               <i
                 onClick={toggleProfile}
+<<<<<<< Updated upstream
                 className="bx bx-border-circle bxs-user-circle img"
               ></i>
+=======
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") toggleProfile();
+                }}
+                className="bx bx-border-circle bxs-user-circle img"
+                role="button"
+                tabIndex="0"
+                aria-label="Toggle Profile"
+              />
+>>>>>>> Stashed changes
             </Link>
           </div>
         </nav>
