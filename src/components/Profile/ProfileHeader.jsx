@@ -107,10 +107,6 @@ export default function ProfileHeader({ children, toggleProfile }) {
             <Link to="#" className="profile">
               <i
                 onClick={toggleProfile}
-<<<<<<< Updated upstream
-                className="bx bx-border-circle bxs-user-circle img"
-              ></i>
-=======
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") toggleProfile();
                 }}
@@ -119,7 +115,6 @@ export default function ProfileHeader({ children, toggleProfile }) {
                 tabIndex="0"
                 aria-label="Toggle Profile"
               />
->>>>>>> Stashed changes
             </Link>
           </div>
         </nav>
