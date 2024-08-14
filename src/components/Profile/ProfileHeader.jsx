@@ -106,14 +106,8 @@ export default function ProfileHeader({ children, toggleProfile }) {
             </Link>
             <Link to="#" className="profile">
               <i
-                onClick={toggleProfile}
-                onKeyDown={function listner(e) {
-                  if (e.key === "Enter" || e.key === " ") {
-                    toggleProfile();
-                  }
-                }}
+                onClick={this.toggleProfile}
                 role="button"
-                tabIndex={0}
                 className="bx bx-border-circle bxs-user-circle img"
               />
             </Link>
