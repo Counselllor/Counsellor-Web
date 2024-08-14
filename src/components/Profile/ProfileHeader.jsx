@@ -62,7 +62,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
       <div className={`sidebar ${sidebarClosed ? "close" : ""}`}>
         <Link to="/" className="logo">
           {/* <img src={Logo} alt="logo" className="logo-img" /> */}
-          <i className="bx bxs-comment-dots"></i>
+          <i className="bx bxs-comment-dots" />
           <div className="logo-name">
             <span>Coun</span>Sellor
           </div>
@@ -107,6 +107,13 @@ export default function ProfileHeader({ children, toggleProfile }) {
             <Link to="#" className="profile">
               <i
                 onClick={toggleProfile}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    toggleProfile();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 className="bx bx-border-circle bxs-user-circle img"
               />
             </Link>
