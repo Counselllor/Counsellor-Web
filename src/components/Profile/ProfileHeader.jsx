@@ -107,13 +107,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
             <Link to="#" className="profile">
               <i
                 onClick={toggleProfile}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") toggleProfile();
-                }}
                 className="bx bx-border-circle bxs-user-circle img"
-                role="button"
-                tabIndex="0"
-                aria-label="Toggle Profile"
               />
             </Link>
           </div>
