@@ -30,6 +30,10 @@
     color: #444;
   }
   
+  .student-details ul li {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.89);
+  }
   .student-details a {
     color: #1e90ff;
     text-decoration: none;
