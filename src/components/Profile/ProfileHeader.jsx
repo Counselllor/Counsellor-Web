@@ -107,7 +107,7 @@ export default function ProfileHeader({ children, toggleProfile }) {
             <Link to="#" className="profile">
               <i
                 onClick={toggleProfile}
-                onKeyDown={(e) => {
+                onKeyDown={function listner(e) {
                   if (e.key === "Enter" || e.key === " ") {
                     toggleProfile();
                   }
