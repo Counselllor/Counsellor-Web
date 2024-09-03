@@ -4,32 +4,43 @@
         "name": "Sahil Ali",
         "course": "BTech",
         "branch": "CSE",
-        "year": "2nd year",
-        "position": "Full Stack Web Developer",
-        "college": "IIT Bombay",
+        "year": "4th year",
+        "position": "Backend Developer at Counsellor",
+        "college": "Echelon Institute of Technology",
         "achievements": [
-            "Winner of XYZ Hackathon 2023",
-            "Top 10 in National Coding Competition"
+            "GDSC Lead 2023 at Google",
+            "Github Mentor at Microsoft"
         ],
         "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/sahilali",
-            "github": "https://github.com/sahilali",
-            "twitter": "https://twitter.com/sahilali"
+            "linkedin": "https://www.linkedin.com/in/thestarsahil",
+            "github": "https://github.com/thestarsahil",
+            "twitter": "https://twitter.com/thestarsahil"
         },
         "availableSlots": [
-            "Monday 3 PM - 5 PM",
-            "Wednesday 10 AM - 12 PM"
+            "Saturday 11 AM - 1 PM",
+            "Sunday 10 AM - 12 PM"
         ],
         "personalProjects": [
             {
-                "title": "Personal Portfolio",
-                "description": "A portfolio website showcasing my projects and skills.",
-                "link": "https://sahilali.dev"
+                "title": "ImageX",
+                "description": " Diagnosis of Dermatological ImagineCup Microsoft-24",
+                "link": "https://github.com/Diagnosis-of-Dermatological-IC-24"
+            },
+            { 
+                "title": "Contoso-Real-Estate (Bug Finder Hackathon @Microsoft",
+                "description": "A web application that helps users find real estate properties",
+                "link": "https://github.com/Azure-Samples/contoso-real-estate"
+
             },
             {
-                "title": "E-commerce Platform",
-                "description": "A full-stack e-commerce application built with React and Node.js.",
-                "link": "https://github.com/sahilali/ecommerce-platform"
+                "title": "MentalMate",
+                "description": "Implemented Azure Health Chatbot on website. Authenticate and integrate with EMR data using FHIR data connections to personalize patient flow",
+                "link": "https://github.com/thestarsahil/Mentalmate"
+            },
+            {
+                "title": "Book Finder",
+                "description": " A web application that helps users find books based on their preferences and interests.",
+                "link": ""
             }
         ],
         "skills": [

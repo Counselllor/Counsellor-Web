@@ -15,6 +15,7 @@ const StudentDefault = () => {
 
   return (
     <div className="student-default-container">
+      
       <h2 className="student-default-title">About {student.name}</h2>
       <div className="student-details">
         <h3>Course: {student.course}</h3>
@@ -22,6 +23,7 @@ const StudentDefault = () => {
         <h3>Year: {student.year}</h3>
         <h3>Position: {student.position}</h3>
         <h3>College: {student.college}</h3>
+
         <h4>Achievements:</h4>
         <ul>
           {student.achievements.map((achievement, index) => (
