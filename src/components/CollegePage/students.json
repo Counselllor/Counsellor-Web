@@ -26,11 +26,10 @@
                 "description": " Diagnosis of Dermatological ImagineCup Microsoft-24",
                 "link": "https://github.com/Diagnosis-of-Dermatological-IC-24"
             },
-            { 
+            {
                 "title": "Contoso-Real-Estate (Bug Finder Hackathon @Microsoft",
                 "description": "A web application that helps users find real estate properties",
                 "link": "https://github.com/Azure-Samples/contoso-real-estate"
-
             },
             {
                 "title": "MentalMate",
@@ -44,19 +43,23 @@
             }
         ],
         "skills": [
-            "JavaScript",
-            "React",
+            "C++",
+            ".NetCore",
             "Node.js",
-            "Express",
-            "MongoDB"
+            "ReactJS",
+            "Azure SQL",
+            "MySQL",
+            "CosmosDB",
+            "Blob Storage",
+            "Load Balancer"
         ],
         "certifications": [
-            "Certified Full Stack Developer",
-            "Advanced JavaScript Programming"
+            "AI Microsoft Certified",
+            "IIT Madras Entrepreneurship Certified"
         ],
         "contact": {
-            "email": "sahil.ali@example.com",
-            "phone": "+91 9876543210"
+            "email": "sahilali88827@gmail.com",
+            "phone": "+91 XXXXXXXXX"
         }
     },
     {
