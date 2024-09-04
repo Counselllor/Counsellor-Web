@@ -150,11 +150,11 @@
     {
         "id": 4,
         "name": "Saksham Mittal",
-        "course": "B.Tech",
+        "course": "BTech",
         "branch": "CSE(AI/ML",
         "year": "2nd",
         "position": "",
-        "college": "Echelon Institute of Technology",
+        "college": "Echelon Institute of Technology", 
         "achievements": [
             "",
             ""
@@ -230,48 +230,41 @@
             }
         },
     {
-        "id": 6,
-        "name": "Amisha",
-        "course": "BCA",
-        "year": "1st year",
-        "position": "Mern Stack Developer",
-        "college": "YMCA JC Bose",
-        "achievements": [
-            "Completed Full Stack Development Bootcamp",
-            "Winner of Coding Contest"
-        ],
-        "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/amisha",
-            "github": "https://github.com/amisha",
-            "twitter": "https://twitter.com/amisha"
-        },
-        "availableSlots": [
-            "Monday 2 PM - 4 PM",
-            "Thursday 10 AM - 12 PM"
-        ],
-        "personalProjects": [
-            {
-                "title": "Todo List App",
-                "description": "A todo list application built with the MERN stack.",
-                "link": "https://github.com/amisha/todo-list-app"
+            "id": 6,
+            "name": "RAGHAV ASTHANA",
+            "course": "Btech",
+            "branch": "AIML",
+            "year": "2",
+            "position": "AIML SUBLEAD GDSC,MLSA SUB LEAD",
+            "college": "Echelon Institute of Technology",
+            "socialLinks": {
+                "linkedin": "https://www.linkedin.com/in/raghav-asthana-54163b188?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BLvbA0O1%2BQHWupoxFVGhaWw%3D%3D",
+                "github": "https://github.com/RAGHAV18ASTHANA"
+           
+            },
+            "availableSlots": [
+               "WEDNESDAY 2.30 TO 4 PM"
+            ],
+            "personalProjects":  {
+                "title": "AMAZON RESPOSIVE WEBPAGE",
+                "description": " ",
+                "link": "https://github.com/sakshammittal1803/"
+            },
+            "skills": [
+                "PYTHON DEVELOPER",
+                "DJANGO",
+               "Web Development",
+                "NUMPY &PANDAS",
+                "DATA ANALYTICS"
+            ],
+            "certifications": [
+                "INTERMEDIATE PYTHON (DATACAMP)",
+                "PYTHON BASICS (HACKER RANK)"
+            ],
+            "contact": {
+                "email": "raghavasthana911@gmail.com"
             }
-        ],
-        "skills": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "Express",
-            "MongoDB"
-        ],
-        "certifications": [
-            "Full Stack Developer Bootcamp",
-            "JavaScript Certification"
-        ],
-        "contact": {
-            "email": "amisha@example.com",
-            "phone": "+91 9876543215"
-        }
-    },
+        },
     {
         "id": 7,
         "name": "Hrishita Paul",
