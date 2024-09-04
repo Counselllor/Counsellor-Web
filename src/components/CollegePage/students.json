@@ -64,20 +64,20 @@
     },
     {
         "id": 2,
-        "name": "Shivam",
+        "name": "Jai Mishra",
         "course": "BTech",
         "branch": "CSE",
-        "year": "4th year",
-        "position": "Cloud Engineer",
-        "college": "IIT Kanpur",
+        "year": "3rd year",
+        "position": "Web Developer NextJs",
+        "college": "Echelon Institute of Technology",
         "achievements": [
-            "Google Cloud Certification",
-            "Best Project Award in Cloud Computing"
+            "Certified-DSA, Java from Coding Ninjas",
+            "Participated in Various Hackathon "
         ],
         "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/shivam",
-            "github": "https://github.com/shivam",
-            "twitter": "https://twitter.com/shivam"
+            "linkedin": "https://www.linkedin.com/in/jai47/",
+            "github": "https://github.com/",
+            "twitter": "https://twitter.com/"
         },
         "availableSlots": [
             "Tuesday 1 PM - 3 PM",
@@ -85,9 +85,9 @@
         ],
         "personalProjects": [
             {
-                "title": "Cloud Storage Solution",
+                "title": "Full Stack E-Commerce Website",
                 "description": "A scalable cloud storage solution using AWS S3.",
-                "link": "https://github.com/shivam/cloud-storage-solution"
+                "link": ""
             }
         ],
         "skills": [
@@ -101,17 +101,17 @@
             "Google Cloud Certified Associate Cloud Engineer"
         ],
         "contact": {
-            "email": "shivam@example.com",
-            "phone": "+91 9876543211"
+            "email": "official.jaimishra@gmail.com",
+            "phone": "+91 XXXXXXXXX"
         }
     },
     {
         "id": 3,
-        "name": "Vidushi",
-        "course": "MBA",
-        "year": "2nd year",
+        "name": "Vidushi Gandhi",
+        "course": "Btech",
+        "year": "Passout",
         "position": "Mern Stack Developer",
-        "college": "Galgotias University",
+        "college": "Echelon Institute of Technology",
         "achievements": [
             "Completed 5 Major Projects in Web Development",
             "Certified MERN Stack Developer"
@@ -149,20 +149,20 @@
     },
     {
         "id": 4,
-        "name": "Ajay",
-        "course": "BTech",
-        "branch": "CSE",
-        "year": "2nd year",
-        "position": "Open Source Developer",
-        "college": "NIT Surathkal",
+        "name": "Saksham Mittal",
+        "course": "B.Tech",
+        "branch": "CSE(AI/ML",
+        "year": "2nd",
+        "position": "",
+        "college": "Echelon Institute of Technology",
         "achievements": [
-            "Contributed to 10+ Open Source Projects",
-            "Speaker at Local Dev Meetups"
+            "",
+            ""
         ],
         "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/ajay",
-            "github": "https://github.com/ajay",
-            "twitter": "https://twitter.com/ajay"
+            "linkedin": "https://www.linkedin.com/in/saksham-mittal-85a39a2a0",
+            "github": "https://github.com/sakshammittal1803",
+            "twitter": "https://x.com/saksham54117635?t=RbriR5Aq6mo2cSSPkxgciQ&s=09"
         },
         "availableSlots": [
             "Tuesday 9 AM - 11 AM",
@@ -170,69 +170,65 @@
         ],
         "personalProjects": [
             {
-                "title": "Open Source Contribution Tracker",
-                "description": "A tool to track contributions to various open source projects.",
-                "link": "https://github.com/ajay/os-contribution-tracker"
+                "title": "AR Shirtcraft",
+                "description": "it's about creating shirts with good graphics using ai",
+                "link": "https://github.com/sakshammittal1803/Hackarthon-project"
             }
         ],
         "skills": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "Open Source Tools"
+            "Python ",
+            "Data science ",
+            "Artificial intelligence",
+            "Basic level of DSA "
         ],
         "certifications": [
-            "Open Source Contributor",
-            "JavaScript Developer"
+            "Basic and intermediate level of python from datacamp"
         ],
         "contact": {
-            "email": "ajay@example.com",
-            "phone": "+91 9876543213"
+            "email": "23cseaiml046saksham@eitfaridabad.co.in"
         }
     },
-    {
-        "id": 5,
-        "name": "Leela",
-        "course": "BBA",
-        "year": "2nd year",
-        "position": "Mern Stack Developer",
-        "college": "University of Calcutta",
-        "achievements": [
-            "Best Web Development Project Award",
-            "Top Performer in Coding Bootcamp"
-        ],
-        "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/leela",
-            "github": "https://github.com/leela",
-            "twitter": "https://twitter.com/leela"
+        { 
+            "id": 5,
+            "name": "Granth Kumar",
+            "course": "BCA",
+            "branch": "Data Science",
+            "year": "1st",
+            "position": "",
+            "college": "Echelon Institute of Technology",
+            "achievements": [
+                "",
+                ""
+            ],
+            "socialLinks": {
+                "linkedin": "https://www.linkedin.com/in/granth-kumar-2a0168210/",
+                "github": "https://github.com/Granth2006",
+                "twitter": "https://x.com/_granth_kumar_"
+            },
+            "availableSlots": [
+                "Tuesday 9 AM - 11 AM",
+                "Friday 3 PM - 5 PM"
+            ],
+            "personalProjects": [
+                {
+                    "title": "",
+                    "description": "",
+                    "link": "https://github.com/"
+                }
+            ],
+            "skills": [
+                "HTML",
+                "CSS",
+                "Basic JS",
+                "WordPress"
+            ],
+            "certifications": [
+                "APNA COLLEGE Delta 3.0 "
+            ],
+            "contact": {
+                "email": "granthkumar2006@gmail.com"
+            }
         },
-        "availableSlots": [
-            "Wednesday 1 PM - 3 PM",
-            "Saturday 11 AM - 1 PM"
-        ],
-        "personalProjects": [
-            {
-                "title": "Portfolio Website",
-                "description": "A personal website to showcase my projects and achievements.",
-                "link": "https://github.com/leela/portfolio-website"
-            }
-        ],
-        "skills": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "Express",
-            "MongoDB"
-        ],
-        "certifications": [
-            "Certified MERN Stack Developer",
-            "Advanced JavaScript"
-        ],
-        "contact": {
-            "email": "leela@example.com",
-            "phone": "+91 9876543214"
-        }
-    },
     {
         "id": 6,
         "name": "Amisha",
