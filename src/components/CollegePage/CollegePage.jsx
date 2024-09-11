@@ -66,8 +66,8 @@ const CollegePage = () => {
     "/src/assets/11.png",
     "/src/assets/8.png",
     "/src/assets/10.png",
-    "/src/assets/element 6.png",
-    "/src/assets/element 7.png",
+    // "/src/assets/element 6.png",
+    // "/src/assets/element 7.png",
   ];
 
   const handleStudentClick = (student) => {
@@ -152,6 +152,7 @@ const CollegePage = () => {
               <option value="BTech">BTech</option>
               <option value="BBA">BBA</option>
               <option value="MBA">MBA</option>
+              <option value="MCA">MCA</option>
               <option value="BCA">BCA</option>
               <option value="BSc">BSc</option>
               <option value="MSc">MSc</option>

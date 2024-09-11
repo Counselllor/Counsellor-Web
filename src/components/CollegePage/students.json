@@ -108,7 +108,7 @@
     {
         "id": 3,
         "name": "Vidushi Gandhi",
-        "course": "Btech",
+        "course": "BTech",
         "year": "Passout",
         "position": "Mern Stack Developer",
         "college": "Echelon Institute of Technology",
@@ -149,14 +149,14 @@
     },
     {
         "id": 4,
-        "name": "Saksham Mittal",
+        "name": "Sneha Sheoran",
         "course": "BTech",
-        "branch": "CSE(AI/ML",
-        "year": "2nd",
-        "position": "",
+        "branch": "CSE",
+        "year": "1st Year",
+        "position": "Backend Developer",
         "college": "Echelon Institute of Technology", 
         "achievements": [
-            "",
+            "Computer vision ",
             ""
         ],
         "socialLinks": {
@@ -165,8 +165,8 @@
             "twitter": "https://x.com/saksham54117635?t=RbriR5Aq6mo2cSSPkxgciQ&s=09"
         },
         "availableSlots": [
-            "Tuesday 9 AM - 11 AM",
-            "Friday 3 PM - 5 PM"
+            "Saturday 11 AM - 1 PM",
+            "Sunday 10 AM - 12 PM"
         ],
         "personalProjects": [
             {
@@ -182,10 +182,11 @@
             "Basic level of DSA "
         ],
         "certifications": [
-            "Basic and intermediate level of python from datacamp"
+            "Mongo DB course"
         ],
         "contact": {
-            "email": "23cseaiml046saksham@eitfaridabad.co.in"
+            "email": "sheoransneha19@gmail.com",
+            "phone": "+91 9625644178"
         }
     },
         { 
@@ -232,7 +233,7 @@
     {
             "id": 6,
             "name": "RAGHAV ASTHANA",
-            "course": "Btech",
+            "course": "BTech",
             "branch": "AIML",
             "year": "2",
             "position": "AIML SUBLEAD GDSC,MLSA SUB LEAD",
@@ -267,136 +268,138 @@
         },
     {
         "id": 7,
-        "name": "Hrishita Paul",
-        "course": "BTech",
-        "branch": "CSE",
-        "year": "3rd year",
-        "position": "Frontend Web Developer",
-        "college": "NIT Silchar",
-        "achievements": [
-            "Winner of UI/UX Design Contest",
-            "Published Articles on Frontend Development"
-        ],
-        "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/hrishitapaul",
-            "github": "https://github.com/hrishitapaul",
-            "twitter": "https://twitter.com/hrishitapaul"
-        },
-        "availableSlots": [
-            "Tuesday 3 PM - 5 PM",
-            "Friday 1 PM - 3 PM"
-        ],
-        "personalProjects": [
-            {
-                "title": "Responsive Web Design",
-                "description": "A responsive website design project with advanced CSS techniques.",
-                "link": "https://github.com/hrishitapaul/responsive-web-design"
+            "name": "Shivam Ahuja",
+            "course": "BTech",
+            "branch": "CSE(AIML)",
+            "year": "2nd year",
+            "position": "Machine Learning",
+            "college": "Dronacharya college of Engineering",
+            "achievements": [
+                "I got intership in DataCultures Technologies at the end of 1st year ",
+                ""
+            ],
+            "socialLinks": {
+                "linkedin": "https://www.linkedin.com/in/shivamahujaa",
+                "github": "https://github.com/Shivam9901"
+            },
+            "availableSlots": [
+                "Saturday 11 AM - 1 PM",
+                "Sunday 10 AM - 12 PM"
+            ],
+            "personalProjects": [
+                {
+                    "title": "",
+                    "description": "",
+                    "link": "https://github.com/"
+                }
+            ],
+            "skills": [
+                "Python",
+                "Machine Learning",
+                "React.js",
+                "Kotlin"
+            ],
+            "certifications": [
+                "",
+                ""
+            ],
+            "contact": {
+                "email": "shivamahuja645@gmail.com",
+                "phone": "+91 8920822841"
             }
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React"
-        ],
-        "certifications": [
-            "Certified Frontend Developer",
-            "Advanced CSS Techniques"
-        ],
-        "contact": {
-            "email": "hrishita@example.com",
-            "phone": "+91 9876543216"
-        }
-    },
+        },
     {
         "id": 8,
-        "name": "Rahul Singh",
-        "course": "BTech",
-        "branch": "Electrical Engineering",
-        "year": "4th year",
-        "position": "Electrical Engineer Trainee",
-        "college": "Echelon Institute of Technology",
-        "achievements": [
-            "Top 5 in National Engineering Quiz",
-            "Published Research Paper in Electrical Engineering"
-        ],
-        "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/rahulsingh",
-            "github": "https://github.com/rahulsingh",
-            "twitter": "https://twitter.com/rahulsingh"
-        },
-        "availableSlots": [
-            "Monday 9 AM - 11 AM",
-            "Thursday 3 PM - 5 PM"
-        ],
-        "personalProjects": [
-            {
-                "title": "Smart Home Automation",
-                "description": "A project on smart home automation using IoT.",
-                "link": "https://github.com/rahulsingh/smart-home-automation"
-            }
-        ],
-        "skills": [
-            "Circuit Design",
-            "Embedded Systems",
-            "IoT"
-        ],
-        "certifications": [
-            "Certified Electrical Engineer",
-            "IoT Certification"
-        ],
-        "contact": {
-            "email": "rahul@example.com",
-            "phone": "+91 9876543217"
+        "name": "Mohd Rehaan Ansari ",
+            "course": "MCA",
+            "branch": "DSA",
+            "year": "1st year ",
+            "position": "Full Stack Developer",
+            "college": "Echelon Institute of Technology ",
+            "achievements": [
+                "Best student of the batch (BCA) 2021-24 at Aravali College of Engineering and Management",
+                ""
+            ],
+            "socialLinks": {
+                "linkedin": "https://www.linkedin.com/in/rehaan-ansari?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                "github": "https://github.com/rehaanansari811"
+            },
+            "availableSlots": [
+                "Tuesday 9 AM - 11 AM",
+                "Friday 3 PM - 5 PM"
+            ],
+            "personalProjects": [
+                {
+                    "title": "",
+                    "description": "",
+                    "link": "https://github.com/"
+                }
+            ],
+            "skills": [
+                "React.js",
+                " Node.js",
+                "JavaScript",
+                "Express.js",
+                "MongoDB",
+                "Nextjs"
+            ],
+            "certifications": [
+                "MongoDB Intro Course href=https://drive.google.com/file/d/1tST-4hKc0cceHbsiqYKtj3NvQrL0vhyi/view?usp=drivesdk",
+                ""
+            ],
+            "contact": {
+                "email": "ansarirehaan811@gmail.com",
+                "phone": "+91 8510927479"
         }
     },
     {
         "id": 9,
-        "name": "Ananya Gupta",
-        "course": "B.Arch",
-        "branch": "Architecture",
-        "year": "5th year",
-        "position": "Architectural Designer",
-        "college": "IIT Kharagpur",
-        "achievements": [
-            "Winner of National Architecture Award",
-            "Top Project in Urban Design"
-        ],
-        "socialLinks": {
-            "linkedin": "https://www.linkedin.com/in/ananyagupta",
-            "github": "https://github.com/ananyagupta",
-            "twitter": "https://twitter.com/ananyagupta"
-        },
-        "availableSlots": [
-            "Monday 2 PM - 4 PM",
-            "Wednesday 11 AM - 1 PM"
-        ],
-        "personalProjects": [
-            {
-                "title": "Sustainable Urban Design",
-                "description": "A project focused on sustainable urban design principles.",
-                "link": "https://github.com/ananyagupta/sustainable-urban-design"
-            }
-        ],
-        "skills": [
-            "AutoCAD",
-            "SketchUp",
-            "Revit",
-            "Photoshop"
-        ],
-        "certifications": [
-            "Certified Architect",
-            "Advanced Urban Design"
-        ],
-        "contact": {
-            "email": "ananya@example.com",
-            "phone": "+91 9876543218"
+        "name": "Kumar Gaurav ",
+            "course": "DCA",
+            "branch": "MCA",
+            "year": "2nd year",
+            "position": "Software Test Engineer",
+            "college": "Echelon Institute of Technology",
+            "achievements": [
+                "",
+                ""
+            ],
+            "socialLinks": {
+                "linkedin": "https://www.linkedin.com/in/kumar-gaurav-a86710270",
+                "github": "",
+                "twitter": ""
+            },
+            "availableSlots": [
+                "Saturday 11 AM - 1 PM",
+                "Sunday 10 AM - 12 PM"
+            ],
+            "personalProjects": [
+                {
+                    "title": "",
+                    "description": "",
+                    "link": "https://github.com/"
+                }
+            ],
+            "skills": [
+                "Computer Vision",
+                "C++",
+                "Java",
+                "API",
+                "Agile Model"
+            ],
+            "certifications": [
+                "",
+                ""
+            ],
+            "contact": {
+                "email": "kumargaurav.co.in@gmail.com",
+                "phone": "+91 8860325218"
         }
     },
     {
         "id": 10,
-        "name": "Varun Sharma",
-        "course": "MBA",
+        "name": "Sneha Sheoran  ",
+        "course": "B.tech",
         "branch": "Marketing",
         "year": "2nd year",
         "position": "Marketing Intern",
