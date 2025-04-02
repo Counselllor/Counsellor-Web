@@ -45,7 +45,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^4.0.1",
     "slick-carousel": "^1.8.1",
     "typewriter-effect": "^2.21.0",
     "uid": "^2.0.2"
