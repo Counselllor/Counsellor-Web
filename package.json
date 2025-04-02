@@ -41,7 +41,7 @@
     "react-router-dom": "^6.26.2",
     "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.30.2",
-    "react-spinners": "^0.14.1",
+    "react-spinners": "^0.15.0",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "rehype-raw": "^7.0.0",
