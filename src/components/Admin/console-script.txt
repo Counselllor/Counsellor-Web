@@ -1,0 +1,27 @@
+// Get the current user ID from localStorage
+const userId = localStorage.getItem("userUid");
+
+if (!userId) {
+  console.error("No user is currently logged in. Please log in first.");
+} else {
+  // Access Firebase through the window object
+  const app = window.firebase || window._firebase;
+  
+  if (!app) {
+    console.error("Firebase not found on window object. Are you running this in the application?");
+  } else {
+    // Get a reference to the Firebase database
+    const db = app.database();
+    
+    // Update the user's isAdmin field to true
+    db.ref(`users/${userId}`).update({ isAdmin: true })
+      .then(() => {
+        console.log("Success! The current user is now an admin.");
+        console.log("You can now log out and log back in to access admin features.");
+        localStorage.setItem("isAdmin", "true");
+      })
+      .catch((error) => {
+        console.error("Error making user an admin:", error);
+      });
+  }
+}

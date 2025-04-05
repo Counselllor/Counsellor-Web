@@ -1,12 +1,23 @@
 {
   "rules": {
-    ".read": true, 
+    ".read": true,
     ".write": "auth != null", // Allow write access to authenticated users only
     "users": {
       "$uid": {
-        ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('isAdmin').val() === true",
+        ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('isAdmin').val() === true"
       }
+    },
+    "blogs": {
+      ".read": true,
+      ".write": "auth != null",
+      "$blogId": {
+        ".write": "auth != null && (data.child('authorId').val() === auth.uid || root.child('users').child(auth.uid).child('isAdmin').val() === true)"
+      }
+    },
+    "colleges": {
+      ".read": true,
+      ".write": "auth != null && root.child('users').child(auth.uid).child('isAdmin').val() === true"
     }
   }
 }

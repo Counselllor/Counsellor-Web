@@ -41,6 +41,7 @@ const ProfileCard = ({open}) => {
   const [userData, setUserData] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const [userUid, setUserUid] = useState(localStorage.getItem("userUid"));
+  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("isAdmin") === "true");
  const handleSave = async () => {
     const userRef = ref(database, `users/${userUid}`);
     const updates = {
@@ -75,7 +76,7 @@ const ProfileCard = ({open}) => {
       console.error("Error saving user data:", error);
     }
   };
- 
+
 
   console.log(userData);
   useEffect(() => {
@@ -119,7 +120,7 @@ const ProfileCard = ({open}) => {
   const handleEdit = () => {
     setIsEditing(true);
   };
- 
+
 
   // New function to update user details in articles
   const updateArticles = async (userId, userUpdates) => {
@@ -340,6 +341,36 @@ const ProfileCard = ({open}) => {
     localStorage.removeItem("resumeFile");
   };
 
+  const makeUserAdmin = async () => {
+    try {
+      // Get the target user ID from the input field
+      const targetUserId = document.getElementById('adminUserIdInput').value.trim();
+
+      if (!targetUserId) {
+        alert("Please enter a user ID");
+        return;
+      }
+
+      // Check if the target user exists
+      const targetUserRef = ref(database, `users/${targetUserId}`);
+      const snapshot = await get(targetUserRef);
+
+      if (!snapshot.exists()) {
+        alert("User not found. Please check the ID and try again.");
+        return;
+      }
+
+      // Make the target user an admin
+      await update(targetUserRef, { isAdmin: true });
+
+      alert(`Success! User ${targetUserId} is now an admin.`);
+      document.getElementById('adminUserIdInput').value = '';
+    } catch (error) {
+      console.error("Error making user admin:", error);
+      alert("Failed to make user admin: " + error.message);
+    }
+  };
+
   return (
     <div className="profile-card-container">
       <div className="greeting">
@@ -448,6 +479,22 @@ const ProfileCard = ({open}) => {
               ))}
             </ul>
           </div>
+
+          {/* Admin Activation Button - Only visible to existing admins */}
+          {isAdmin && (
+            <div className="admin-activation">
+              <button onClick={makeUserAdmin} className="admin-activate-btn">
+                Activate Another Admin
+              </button>
+              <p className="admin-note">Click to grant admin privileges to another user (enter their ID below)</p>
+              <input
+                type="text"
+                placeholder="Enter user ID to make admin"
+                className="admin-input"
+                id="adminUserIdInput"
+              />
+            </div>
+          )}
           <button onClick={downloadProfileData} className="download-button">
             Download Profile Details
           </button>

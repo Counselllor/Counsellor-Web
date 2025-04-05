@@ -1,0 +1,120 @@
+.admin-sidebar {
+  width: 250px;
+  background-color: #12229d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .admin-sidebar {
+  background-color: #1e1e1e;
+}
+
+.admin-sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.admin-sidebar-header h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  text-align: center;
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: 600;
+}
+
+.admin-sidebar-menu {
+  flex: 1;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.8rem;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+.admin-sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.admin-sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.8rem;
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: 500;
+}
+
+.admin-logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .admin-sidebar-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .admin-sidebar-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+  }
+
+  .admin-sidebar-menu {
+    padding: 1rem 0;
+  }
+}

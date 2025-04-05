@@ -36,6 +36,13 @@ import TechStack from "./components/Student/TechStack";
 import SocialLinks from "./components/Student/SoicalLinks";
 import Slots from "./components/Student/Slots";
 
+// Admin components
+import AdminLogin from "./components/Admin/AdminLogin";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+
+// Counsellor components
+import CounsellorDashboard from "./components/Counsellor/CounsellorDashboard";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -182,6 +189,21 @@ const router = createBrowserRouter([
         path: "/blogs/edit/:id",
         errorElement: <ErrorPage />,
         element: <BlogEditPage />,
+      },
+      {
+        path: "/admin/login",
+        errorElement: <ErrorPage />,
+        element: <AdminLogin />,
+      },
+      {
+        path: "/admin/dashboard",
+        errorElement: <ErrorPage />,
+        element: <AdminDashboard />,
+      },
+      {
+        path: "/counsellor/dashboard",
+        errorElement: <ErrorPage />,
+        element: <CounsellorDashboard />,
       },
     ],
   },

@@ -340,7 +340,7 @@
   align-items: center;
 }
 #dark .edit-modal-content{
-  background-color: #121212; 
+  background-color: #121212;
   color: white;
 }
 .edit-modal-content {
@@ -425,6 +425,72 @@
 
 .download-button:hover {
   background-color: #45a049;
+}
+
+.admin-activation {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px dashed #e74c3c;
+  border-radius: 5px;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.admin-activate-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.admin-activate-btn:hover {
+  background-color: #c0392b;
+}
+
+.admin-note {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 10px;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#dark .admin-input {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #c0392b;
+}
+
+#dark .admin-activation {
+  border-color: #c0392b;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+#dark .admin-activate-btn {
+  background-color: #c0392b;
+}
+
+#dark .admin-activate-btn:hover {
+  background-color: #e74c3c;
+}
+
+#dark .admin-note {
+  color: #bdc3c7;
 }
 
 /* Responsive Design */

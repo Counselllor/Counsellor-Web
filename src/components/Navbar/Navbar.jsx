@@ -119,51 +119,70 @@ const Navbar = () => {
 const LogoSection = ({ login }) => (
 
   <div className="logo">
-  
+
     <Link to={login ? "/dashboard" : "/"}>
       <img src={Logo} alt="Logo" />
     </Link>
   </div>
 );
 
-const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => (
-  <div className={`menu ${menuOpen ? "show" : ""}`}>
-    <ul>
-      <MenuItem href="/topuniversities">Top Universities</MenuItem>
-      <MenuItem href="/jobs">Jobs</MenuItem>
-      <MenuItem href="/courses">Courses</MenuItem>
-      <MenuItem href="/careersupport">Career Support</MenuItem>
-      {user ? (
-        <>
-          <MenuItem>
-            <a href="/" onClick={handleSignOut}>
-              Log Out
-            </a>
-          </MenuItem>
-          <MenuItem>
-<div>
-  
-             <button onClick={()=>window.location.href="/profile"} className="profile_btn">Profile</button>
-  </div>   
-          </MenuItem>
-        </>
-      ) : (
-        <MenuItem>
-          <a href="/">Login</a>
-        </MenuItem>
-      )}
-      <li>
-        <Switch
-          style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
-          onChange={toggleTheme}
-          checked={theme === "dark"}
-          checkedChildren="Dark Mode"
-          unCheckedChildren="Light Mode"
-        />
-      </li>
-    </ul>
-  </div>
-);
+const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => {
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
+
+  return (
+    <div className={`menu ${menuOpen ? "show" : ""}`}>
+      <ul>
+        <MenuItem href="/topuniversities">Top Universities</MenuItem>
+        <MenuItem href="/jobs">Jobs</MenuItem>
+        <MenuItem href="/courses">Courses</MenuItem>
+        <MenuItem href="/careersupport">Career Support</MenuItem>
+        {user ? (
+          <>
+            <MenuItem>
+              <a href="/" onClick={handleSignOut}>
+                Log Out
+              </a>
+            </MenuItem>
+            <MenuItem>
+              <div>
+                <Link to="/profile">
+                  <button className="profile_btn">Profile</button>
+                </Link>
+              </div>
+            </MenuItem>
+            {isAdmin && (
+              <MenuItem>
+                <div>
+                  <Link to="/admin/dashboard">
+                    <button className="admin_btn">Admin Panel</button>
+                  </Link>
+                </div>
+              </MenuItem>
+            )}
+          </>
+        ) : (
+          <>
+            <MenuItem>
+              <a href="/">Login</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="/admin/login" className="admin-link">Admin Login</a>
+            </MenuItem>
+          </>
+        )}
+        <li>
+          <Switch
+            style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
+            onChange={toggleTheme}
+            checked={theme === "dark"}
+            checkedChildren="Dark Mode"
+            unCheckedChildren="Light Mode"
+          />
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 const MenuItem = ({ href, children }) => (
   <li>

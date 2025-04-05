@@ -85,68 +85,67 @@ const CollegePage = () => {
       <div className="pagecoll">
         <div className="leftcoll">
           <div className="content">
-            <div style={{ height: "auto", width: "100%", paddingTop: "20px" }}>
-              <h1 className="college-name abeezee-regular">{college.name}</h1>
-              <div className="description-card">
-                <p className="description clipped-text abeezee-regular">
-                  {college.description}
-                </p>
+            <div className="college-content-wrapper">
+              <div className="college-info">
+                <h1 className="college-name abeezee-regular">{college.name}</h1>
+                <div className="description-card">
+                  <p className="description clipped-text abeezee-regular">
+                    {college.description}
+                  </p>
+                </div>
+                <div className="group">
+                  <div className="locationcoll">
+                    <div className="icon">
+                      <Icon
+                        icon="ion:location-outline"
+                        style={{ fontSize: "24px", color: "white" }}
+                      />
+                    </div>
+                    <div className="location-depthcoll">
+                      <p className="location-headingcoll abeezee-regular">
+                        Location
+                      </p>
+                      <p className="location-text clipped-text1 abeezee-regular">
+                        {college["exact-location"]}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="ratingcoll">
+                    <div className="ratingcollstar">
+                      <FaStar style={{ color: "#FFD700" }} />
+                      <FaStar style={{ color: "#FFD700" }} />
+                      <FaStar style={{ color: "#FFD700" }} />
+                      <FaStar style={{ color: "#FFD700" }} />
+                      <FaStar style={{ color: "#FFD700" }} />
+                    </div>
+                    <div className="ratecoll">
+                      <p className="rating-heading abeezee-regular">Rating</p>
+                      <p className="rating-text abeezee-regular">
+                        {college.rating}/10
+                      </p>
+                    </div>
+                  </div>
+                  <button className="search-button">
+                    <a href={college.website} target="_blank" rel="noreferrer">
+                      Visit Website
+                    </a>
+                  </button>
+                </div>
               </div>
-              <div className="group">
-                <div className="locationcoll">
-                  <div className="icon">
-                    <Icon
-                      icon="ion:location-outline"
-                      style={{ fontSize: "24px" }}
-                    />
-                  </div>
-                  <div className="location-depthcoll">
-                    <p className="location-headingcoll abeezee-regular">
-                      Location
-                    </p>
-                    <p className="location-text clipped-text1 abeezee-regular">
-                      {college["exact-location"]}
-                    </p>
-                  </div>
-                </div>
-                <div className="ratingcoll">
-                  <div className="ratingcollstar">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </div>
-                  <div className="ratecoll">
-                    <p className="rating-heading abeezee-regular">Rating</p>
-                    <p className="rating-text abeezee-regular">
-                      {college.rating}/10
-                    </p>
-                  </div>
-                </div>
-                <button className="search-button ">
-                  <a href={college.website} target="_blank" rel="noreferrer">
-                    Search
-                  </a>
-                </button>
+              <div className="college-image-container">
+                <img className="image" src={college.imageURL} alt={college.name} />
               </div>
             </div>
-            <img className="image" src={college.imageURL} />
           </div>
         </div>
         <div className="right">
-          <div className="searchCourses" style={{ marginTop: "20px" }}>
+          <h2 className="students-heading abeezee-regular">Students from {college.name}</h2>
+          <div className="searchCourses">
+            <label htmlFor="courseList" className="course-label abeezee-regular">Select Course:</label>
             <select
               id="courseList"
               value={selectedCourse}
-              placeholder="Search courses"
-              style={{
-                backgroundColor: "#c5d5d4",
-                outline: "none",
-                border: "none",
-                fontWeight: "600",
-                fontSize: "20px",
-              }}
+              className="course-select abeezee-regular"
               onChange={(e) => setSelectedCourse(e.target.value)}
             >
               <option value="BTech">BTech</option>
@@ -160,64 +159,39 @@ const CollegePage = () => {
             </select>
           </div>
 
-          {filteredStudents.map((student, index) => (
-            <Link
-              to={`/student/${student.id}/${student.name}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-              key={student.id}  // Ensure unique key
-            >
-              <div
-                className="student-card"
-                onClick={() => handleStudentClick(student)}
-              >
-                <div
-                  style={{
-                    width: "20%",
-                    display: "flex",
-                    paddingLeft: "20px",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src={imgArray[index % imgArray.length]}  // Use modulo for safety
-                    style={{
-                      height: "80%",
-                      minHeight: "66px",
-                      maxWidth: "80%",
-                    }}
-                    alt=""
-                  />
-                </div>
-                <div className="st">
-                  <p
-                    className="abeezee-regular"
-                    style={{
-                      textAlign: "left",
-                      width: "50%",
-                      fontSize: "20px",
-                      marginBottom: "0px",
-                      marginTop: "10px",
-                      paddingLeft: "10px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {student.name}
-                  </p>
-                  <p
-                    className="abeezee-regular"
-                    style={{
-                      textAlign: "left",
-                      width: "100%",
-                      fontSize: "14px",
-                      paddingLeft: "10px",
-                    }}
-                  >
-                    {student.position}
-                  </p>
-                </div>
+          <div className="students-container">
+            {filteredStudents.length === 0 ? (
+              <div className="no-students-message">
+                <p className="abeezee-regular">No students found for {selectedCourse} course.</p>
               </div>
-            </Link>
-          ))}
+            ) : (
+              filteredStudents.map((student, index) => (
+                <Link
+                  to={`/student/${student.id}/${student.name}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  key={student.id}
+                >
+                  <div
+                    className="student-card"
+                    onClick={() => handleStudentClick(student)}
+                  >
+                    <div className="student-image-container">
+                      <img
+                        src={imgArray[index % imgArray.length]}
+                        alt={student.name}
+                        className="student-image"
+                      />
+                    </div>
+                    <div className="student-info">
+                      <h3 className="student-name abeezee-regular">{student.name}</h3>
+                      <p className="student-position abeezee-regular">{student.position}</p>
+                      <p className="student-course abeezee-regular">{student.course} • {student.year} Year</p>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            )}
+          </div>
         </div>
       </div>
       <Footer />

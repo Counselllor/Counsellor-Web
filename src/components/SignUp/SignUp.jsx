@@ -121,7 +121,19 @@ const SignUpForm = () => {
 
    function writeUserData (userId, email, userInfo) {
     const { firstName, surname, dob, gender, age } = userInfo;
-    const user_type = userInfo["user-type"];
+
+    // Get user type and ensure it's a valid value
+    let user_type = userInfo["user-type"];
+
+    // Validate user_type
+    if (!user_type || (user_type !== "student" && user_type !== "counsellor")) {
+      console.warn("Invalid user type detected:", user_type, "defaulting to 'student'");
+      user_type = "student"; // Default to student if invalid
+    }
+
+    // Log the user type for debugging
+    console.log("User type during registration:", user_type);
+
     set(ref(database, "users/" + userId), {
       id: userId,
       firstname: firstName,
@@ -132,7 +144,7 @@ const SignUpForm = () => {
       age: age,
       user_type: user_type,
     });
-   
+
   }
 
   let navigate = useNavigate();
@@ -172,7 +184,7 @@ const SignUpForm = () => {
 
     if (submitable) {
       const userId = generateUUID();
-    
+
       try {
         const createUser = await createUserWithEmailAndPassword(
           auth,
@@ -180,12 +192,18 @@ const SignUpForm = () => {
           registerInformation.password
         );
         const encodedEmail = registerInformation.email.replace(/[^a-zA-Z0-9]/g, '_');
-      const emailRef = ref(database, `email/${encodedEmail}`);
-      set(emailRef, userId);
+        const emailRef = ref(database, `email/${encodedEmail}`);
+        set(emailRef, userId);
         localStorage.setItem("userUid", userId);
         //save data only when user google verification is complete
         writeUserData(userId, registerInformation.email, userInfo);
-        navigate("/");
+
+        // Redirect based on user type
+        if (userInfo["user-type"] === "counsellor") {
+          navigate("/counsellor/dashboard");
+        } else {
+          navigate("/dashboard");
+        }
       } catch (err) {
         alert(err.message);
         console.log(err);
@@ -221,7 +239,7 @@ const SignUpForm = () => {
 
   // Theme toggle function
   const handleThemeChange = () => {
-    toggleTheme(); 
+    toggleTheme();
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
@@ -231,12 +249,12 @@ const SignUpForm = () => {
         <div className="parent">
           <div className="right">
             <h1 className="counsellor">Counsellor
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch 
-            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}} 
-            onChange={handleThemeChange} 
-            checked={theme === "dark"} 
-            checkedChildren="Dark Mode" 
-            unCheckedChildren="Light Mode" 
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;<Switch
+            style={{ backgroundColor: theme === "dark" ? "#000000" : ""}}
+            onChange={handleThemeChange}
+            checked={theme === "dark"}
+            checkedChildren="Dark Mode"
+            unCheckedChildren="Light Mode"
           /></span>
             </h1>
             <div className="signuptxt">Create a new account</div>

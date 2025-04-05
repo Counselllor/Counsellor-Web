@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Admin User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Setup Admin User for Counsellor Web</h1>
+    
+    <div class="warning">
+        <strong>Important:</strong> You must be logged in to the application before using this script.
+    </div>
+    
+    <h2>Option 1: Copy and Paste the Script</h2>
+    <p>Copy the following script and paste it into your browser's console:</p>
+    
+    <pre><code>
+// Get the current user ID from localStorage
+const userId = localStorage.getItem("userUid");
+
+if (!userId) {
+  console.error("No user is currently logged in. Please log in first.");
+} else {
+  // Get a reference to the Firebase database
+  const dbRef = firebase.database().ref();
+  
+  // Update the user's isAdmin field to true
+  dbRef.child('users').child(userId).update({ isAdmin: true })
+    .then(() => {
+      console.log("Success! The current user is now an admin.");
+      console.log("You can now log out and log back in to access admin features.");
+      localStorage.setItem("isAdmin", "true");
+    })
+    .catch((error) => {
+      console.error("Error making user an admin:", error);
+    });
+}
+    </code></pre>
+    
+    <h2>Option 2: Use this Button</h2>
+    <p>Alternatively, you can click the button below to run the script:</p>
+    
+    <button onclick="setupAdmin()">Make Current User Admin</button>
+    
+    <script>
+        function setupAdmin() {
+            try {
+                // Get the current user ID from localStorage
+                const userId = localStorage.getItem("userUid");
+                
+                if (!userId) {
+                    alert("No user is currently logged in. Please log in first.");
+                    return;
+                }
+                
+                // Check if Firebase is available
+                if (typeof firebase === 'undefined') {
+                    alert("Firebase is not available. Please run this script from the application.");
+                    return;
+                }
+                
+                // Get a reference to the Firebase database
+                const dbRef = firebase.database().ref();
+                
+                // Update the user's isAdmin field to true
+                dbRef.child('users').child(userId).update({ isAdmin: true })
+                    .then(() => {
+                        alert("Success! The current user is now an admin. You can now log out and log back in to access admin features.");
+                        localStorage.setItem("isAdmin", "true");
+                    })
+                    .catch((error) => {
+                        alert("Error making user an admin: " + error.message);
+                    });
+            } catch (error) {
+                alert("An error occurred: " + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
