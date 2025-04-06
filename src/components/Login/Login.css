@@ -2,6 +2,7 @@
   font-family: "ABeeZee";
   width: 100vw;
   overflow-x: hidden;
+  background-color: #ffffff;
 }
 
 #dark .login-container {
@@ -15,6 +16,10 @@
 
 .left {
   background-color: #ffffff;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .left img{
   transform: translateX(0px);
@@ -25,12 +30,26 @@
     transform: translateY(0px);
   }
   50%{
-  transform: translateY(-50px);
+    transform: translateY(-20px);
   }
   100%{
     transform: translateY(0px);
   }
 }
+
+.parent {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.right {
+  width: 50%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: none;
+}
+
 .parent .right::-webkit-scrollbar{
   width: 5px;
   background-color: transparent;
@@ -55,32 +74,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border: 2px solid #1877f2;
   margin: 3% 20%;
-  padding: 8px 0;
+  padding: 10px 0;
+  border: 1px solid #d8d8d8;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.googleicon {
-  width: 30px;
+.right .google img {
+  width: 20px;
+  margin-right: 10px;
 }
 
-.right .login-with-google {
+.right .google span {
   font-size: 16px;
+  color: #737373;
 }
 
-.or-line {
+.right .or {
   display: flex;
   justify-content: center;
-  color: gray;
+  align-items: center;
+  margin: 3% 20%;
 }
 
-.or-line hr {
-  width: 27%;
-  margin: auto 10px;
-  border-width: 0;
+.right .or span {
+  font-size: 16px;
+  color: #737373;
+  margin: 0 10px;
+}
+
+.right .or .line {
+  flex: 1;
   height: 1px;
   background: gray;
 }
@@ -105,6 +130,7 @@
   outline: none;
   box-sizing: border-box;
   padding-left: 35px !important;
+  background-color: #ffffff;
 }
 
 .login-container input[type="checkbox"] {
@@ -147,38 +173,432 @@ label {
   cursor: pointer;
 }
 
-.get-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
+.login-container .get-app {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.get-app-title {
+.login-container .get-app-title {
   font-size: 16px;
-  color: gray;
+  color: #737373;
+  margin-bottom: 10px;
 }
 
-.get-app .apps {
+.login-container .apps {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
 }
 
-.microsoft-logo {
+.login-container .apps img {
+  width: 140px;
+  margin: 0 5px;
+}
+
+.login-container .apps .microsoft-logo {
   width: 110px;
 }
 
-.google-play-logo {
-  width: 150px;
+.login-container .apps .google-play-logo {
+  width: 140px;
+}
+
+.login-container .footer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container .footer .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.login-container .footer .links a {
+  text-decoration: none;
+  color: #737373;
+  font-size: 12px;
+  margin: 0 5px;
+}
+
+.login-container .footer .copyright {
+  font-size: 12px;
+  color: #737373;
+}
+
+.login-container .footer .language {
+  font-size: 12px;
+  color: #737373;
+  margin-bottom: 10px;
+}
+
+.login-container .footer .language select {
+  border: none;
+  background: none;
+  color: #737373;
+}
+
+.login-container .footer .language select:focus {
+  outline: none;
+}
+
+.login-container .footer .language select option {
+  color: black;
+}
+
+.login-container .footer .links a:hover {
+  text-decoration: underline;
+}
+
+.login-container .footer .language select:hover {
+  cursor: pointer;
+}
+
+.login-container .footer .language select option:hover {
+  cursor: pointer;
+}
+
+.login-container .footer .language select option:checked {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:active {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:target {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:visited {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:link {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:hover {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus-visible {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus-within {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus-within {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus-visible {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:focus {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:active {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:checked {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:default {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:disabled {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:empty {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:enabled {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:first-child {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:last-child {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:first-of-type {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:last-of-type {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:nth-child(n) {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:nth-last-child(n) {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:nth-of-type(n) {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:nth-last-of-type(n) {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:only-child {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:only-of-type {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:optional {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:out-of-range {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:read-only {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:read-write {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:required {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:root {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:target {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:valid {
+  background-color: #1877f2;
+  color: white;
+}
+
+.login-container .footer .language select option:visited {
+  background-color: #1877f2;
+  color: white;
+}
+
+.iconContainer {
+  position: relative;
+}
+
+.icons {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #737373;
+}
+
+#captcha-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#captchaBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+#captcha{
+  width: 40%;
+  background: url(/src/assets/captcha.webp);
+  padding: 9px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(108 110 113);
+  border: 2px solid #d8d8d8;
+  border-radius: 6px;
+  user-select: none;
+  text-align: center;
+}
+
+#captchaIcon{
+  font-size: 3rem !important;
+  cursor: pointer !important;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.remember-me input {
+  cursor: pointer;
+}
+
+.remember-me label {
+  margin-top: 0;
+  cursor: pointer;
+  color: #1877f2;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .parent {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .left {
+    display: none; /* Hide image on mobile */
+  }
+
+  .login-container{
+    height: 100%;
+    background-color: var(--white);
+  }
+
+  .login-container form {
+    padding: 0 10%;
+  }
+
+  .right .google {
+    margin: 3% 10%;
+    padding: 10px 0;
+  }
+
+  .login-container form input.common-input {
+    width: 100% !important;
+  }
+
+  .password-input .toggle-button {
+    right: 10px !important;
+  }
+
+  #captchaBox {
+    flex-direction: column;
+  }
+
+  #captcha {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .login-container form input.common-input {
+    width: 100% !important;
+  }
+  .remember-me {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .password-input .toggle-button {
+    right: 10px !important;
+  }
+
+  .login-container{
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .form {
+    padding: 0 5%;
+  }
+
+  #captcha {
+    font-size: 18px;
+  }
+
+  #captchaIcon {
+    font-size: 2rem !important;
+  }
+}
+
+
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input .toggle-button {
+  position: absolute;
+  width: fit-content;
+  top: 50%;
+  right: 10px !important;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .errorMsg {
   color: red;
-  font-size: 16px;
 }
 
 .errorShow{
@@ -198,116 +618,9 @@ select.inputField {
   border-color: red;
 }
 
-.password-input {
-  position: relative;
-  width: 100%;
-}
-
-.password-input .toggle-button {
-  position: absolute;
-  width: fit-content;
-  top: 30px;
-  right: 4% !important;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-form div {
-  width: 100%;
-  text-align: start;
-}
-
-#captcha-container{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-#captchaBox{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 3px;
-}
-
-#captcha{
-  width: 40%;
-  background: url(/src/assets/captcha.webp);
-  padding: 9px;
-  font-size: 24px;
-  font-weight: bolder;
-  color: rgb(108 110 113);
-  border: 2px solid black;
-  border-radius: 6px;
-  user-select: none;
-}
-
-#captchaIcon{
-  font-size: 3rem !important;
-  cursor: pointer !important;
-  margin: 10px !important;
-}
-
-/* Form Icons */
-.iconContainer{
-  position: relative;
-}
-
-.iconContainer .icons{
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  color: #1877f2;
+.error {
+  color: red;
   font-size: 16px;
-}
-
-@media screen and (max-width: 768px) {
-  .login-container{
-    height: 100%;
-    background-color: var(--white);
-  }
-  .login-container form {
-    padding: 0 10%;
-  }
-  .right .google {
-    margin: 3% 10%;
-    padding: 10px 0;
-  }
-  .login-container form input.common-input {
-    width: 100% !important;
-  }
-  .password-input .toggle-button {
-    /* right: 5px; */
-    right:5px !important;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .login-container form input.common-input {
-    width: 100% !important;
-  }
-
-  .login-container form input[type="checkbox"] {
-    width: unset;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .password-input .toggle-button {
-    right: 10px !important;
-  }
-
-  .login-container{
-    width: 102vw;
-    overflow-x: hidden;
-  }
-}
-
-
-.inputField {
-  border-color: red !important;
 }
 
 .errorMsg {

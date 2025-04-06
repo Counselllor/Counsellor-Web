@@ -315,7 +315,6 @@ export default function Login() {
             {/* Login form */}
             <form className="form" onSubmit={handleSignIn}>
               <div>
-                <label htmlFor="email">Email</label>
                 <div className="iconContainer">
                   <input
                     id="email"
@@ -335,7 +334,6 @@ export default function Login() {
                 )}
               </div>
               <div>
-                <label htmlFor="password">Password</label>
                 <div className="password-input">
                   <div className="iconContainer">
                     <input
@@ -364,7 +362,6 @@ export default function Login() {
                 </div>
               </div>
               <div id="captcha-container">
-                <label htmlFor="captcha">Captcha</label>
                 <div
                   className="flex flex-row gap-3 justify-center items-center"
                   id="captchaBox"

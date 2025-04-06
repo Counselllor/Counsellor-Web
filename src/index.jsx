@@ -16,7 +16,9 @@ import Loading from "./components/Loading/Loading";
 import Login from "./components/Login/Login";
 import "./index.css";
 import Contact from "./components/Contact/Contact";
-import ProfilePage from "./components/Profile/index";
+import UserProfile from "./components/Profile/UserProfile";
+import TestProfile from "./components/Profile/TestProfile";
+import StandaloneProfile from "./components/Profile/StandaloneProfile";
 import Courses from "./components/Courses/Courses";
 import Privacy from "./components/Privacy-Policy/Privacy";
 import Terms from "./components/Terms/Terms";
@@ -128,6 +130,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <ForgotPasswordForm />,
       },
+
       {
         path: "/college/:id",
         errorElement: <ErrorPage />,
@@ -163,7 +166,7 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         errorElement: <ErrorPage />,
-        element: <ProfilePage />,
+        element: <StandaloneProfile />,
       },
       {
         path: "/FAQs",

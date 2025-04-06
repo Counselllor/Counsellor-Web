@@ -143,6 +143,7 @@ const SignUpForm = () => {
       gender: gender,
       age: age,
       user_type: user_type,
+      isAdmin: false, // Explicitly set isAdmin to false for new users
     });
 
   }
@@ -194,7 +195,14 @@ const SignUpForm = () => {
         const encodedEmail = registerInformation.email.replace(/[^a-zA-Z0-9]/g, '_');
         const emailRef = ref(database, `email/${encodedEmail}`);
         set(emailRef, userId);
+
+        // Set user authentication data in localStorage
         localStorage.setItem("userUid", userId);
+        localStorage.setItem("login", true);
+
+        // Explicitly ensure isAdmin is not set for new users
+        localStorage.removeItem("isAdmin");
+
         //save data only when user google verification is complete
         writeUserData(userId, registerInformation.email, userInfo);
 

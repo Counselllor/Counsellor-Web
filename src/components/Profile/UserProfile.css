@@ -1,0 +1,394 @@
+.user-profile-container {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .user-profile-container {
+  background-color: #1a1a1a;
+  color: #f5f7fa;
+}
+
+.user-profile-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.user-profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.user-profile-header h1 {
+  font-size: 3.5rem;
+  color: #12229d;
+  margin-bottom: 0.5rem;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .user-profile-header h1 {
+  color: #6cbdfa;
+}
+
+.user-profile-header p {
+  font-size: 1.8rem;
+  color: #666;
+}
+
+#dark .user-profile-header p {
+  color: #bdc3c7;
+}
+
+.user-profile-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #12229d;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#dark .spinner {
+  border-left-color: #6cbdfa;
+}
+
+.user-profile-loading p {
+  font-size: 1.8rem;
+  color: #666;
+}
+
+#dark .user-profile-loading p {
+  color: #bdc3c7;
+}
+
+.user-profile-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#dark .user-profile-card {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .user-profile-card {
+    flex-direction: row;
+  }
+}
+
+.user-profile-avatar {
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f4f8;
+  text-align: center;
+}
+
+#dark .user-profile-avatar {
+  background-color: #222;
+}
+
+@media (min-width: 768px) {
+  .user-profile-avatar {
+    width: 30%;
+    border-right: 1px solid #eee;
+  }
+  
+  #dark .user-profile-avatar {
+    border-right: 1px solid #333;
+  }
+}
+
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #12229d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+#dark .avatar-circle {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+.user-profile-avatar h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+#dark .user-profile-avatar h2 {
+  color: #f5f7fa;
+}
+
+.user-email {
+  font-size: 1.6rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#dark .user-email {
+  color: #bdc3c7;
+}
+
+.user-type {
+  font-size: 1.6rem;
+  background-color: #e6f7ff;
+  color: #0070f3;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+#dark .user-type {
+  background-color: rgba(0, 112, 243, 0.2);
+}
+
+.user-profile-details {
+  padding: 2rem;
+  flex: 1;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+#dark .details-header {
+  border-bottom: 1px solid #333;
+}
+
+.details-header h3 {
+  font-size: 2.2rem;
+  color: #333;
+  margin: 0;
+}
+
+#dark .details-header h3 {
+  color: #f5f7fa;
+}
+
+.edit-button {
+  background-color: #12229d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #0e1b7a;
+}
+
+#dark .edit-button {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+#dark .edit-button:hover {
+  background-color: #4ba3f5;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-section h4 {
+  font-size: 1.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#dark .info-section h4 {
+  color: #bdc3c7;
+}
+
+.info-section p {
+  font-size: 1.6rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+#dark .info-section p {
+  color: #f5f7fa;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.info-item h4 {
+  font-size: 1.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#dark .info-item h4 {
+  color: #bdc3c7;
+}
+
+.info-item p {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+#dark .info-item p {
+  color: #f5f7fa;
+}
+
+/* Edit Form Styles */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1.6rem;
+  color: #666;
+  font-weight: 500;
+}
+
+#dark .form-group label {
+  color: #bdc3c7;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .form-group input,
+#dark .form-group select,
+#dark .form-group textarea {
+  background-color: #333;
+  border-color: #444;
+  color: #f5f7fa;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #f5f5f5;
+}
+
+#dark .cancel-button {
+  border-color: #444;
+  color: #bdc3c7;
+}
+
+#dark .cancel-button:hover {
+  background-color: #333;
+}
+
+.save-button {
+  background-color: #12229d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #0e1b7a;
+}
+
+#dark .save-button {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+#dark .save-button:hover {
+  background-color: #4ba3f5;
+}

@@ -112,6 +112,11 @@
   box-shadow: 1px 2px 1px grey;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 120px;
 }
 
 .admin_btn {
@@ -154,6 +159,43 @@
 
 #dark .admin_btn:hover {
   background-color: #e74c3c;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #12229D;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.logout-btn:hover {
+  color: #3C38B9;
+}
+
+#dark .logout-btn {
+  color: #f5f7fa;
+}
+
+#dark .logout-btn:hover {
+  color: #3C38B9;
+}
+
+.profile-link, .admin-link {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  z-index: 2;
+  border: none;
+  outline: none;
+}
+
+.profile-link button, .admin-link button {
+  width: 100%;
+  text-align: center;
 }
 
 .profile_btn:hover {

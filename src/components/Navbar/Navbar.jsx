@@ -3,7 +3,8 @@ import { signOut } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import "./Navbar.css";
-import { auth } from "../../firebase/auth";
+import { auth, database } from "../../firebase/auth";
+import { ref, get } from "firebase/database";
 import { ThemeContext } from "../../App";
 import { Switch } from "antd";
 import { toast } from "react-toastify";
@@ -12,6 +13,10 @@ import { toast } from "react-toastify";
 const signOutUser = (navigate, setError) => {
   signOut(auth)
     .then(() => {
+      // Clear all authentication-related localStorage items
+      localStorage.removeItem("userUid");
+      localStorage.removeItem("login");
+      localStorage.removeItem("isAdmin");
       navigate("/");
     })
     .catch((err) => {
@@ -127,7 +132,42 @@ const LogoSection = ({ login }) => (
 );
 
 const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => {
-  const isAdmin = localStorage.getItem("isAdmin") === "true";
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // Verify admin status from database, not just localStorage
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      if (user) {
+        try {
+          const uid = localStorage.getItem("userUid");
+          if (uid) {
+            const userRef = ref(database, `users/${uid}`);
+            const snapshot = await get(userRef);
+
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              if (userData.isAdmin === true) {
+                setIsAdmin(true);
+                localStorage.setItem("isAdmin", "true");
+              } else {
+                setIsAdmin(false);
+                localStorage.removeItem("isAdmin");
+              }
+            }
+          }
+        } catch (error) {
+          console.error("Error checking admin status:", error);
+          setIsAdmin(false);
+          localStorage.removeItem("isAdmin");
+        }
+      } else {
+        setIsAdmin(false);
+        localStorage.removeItem("isAdmin");
+      }
+    };
+
+    checkAdminStatus();
+  }, [user]);
 
   return (
     <div className={`menu ${menuOpen ? "show" : ""}`}>
@@ -139,24 +179,27 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => {
         {user ? (
           <>
             <MenuItem>
-              <a href="/" onClick={handleSignOut}>
+              <button
+                onClick={handleSignOut}
+                className="logout-btn"
+              >
                 Log Out
-              </a>
+              </button>
             </MenuItem>
             <MenuItem>
-              <div>
-                <Link to="/profile">
-                  <button className="profile_btn">Profile</button>
-                </Link>
-              </div>
+              <a href="/profile" className="profile-link" style={{ textDecoration: 'none', border: 'none' }}>
+                <button className="profile_btn" style={{ position: 'relative', zIndex: 5 }}>
+                  Profile
+                </button>
+              </a>
             </MenuItem>
             {isAdmin && (
               <MenuItem>
-                <div>
-                  <Link to="/admin/dashboard">
-                    <button className="admin_btn">Admin Panel</button>
-                  </Link>
-                </div>
+                <a href="/admin/dashboard" className="admin-link">
+                  <button className="admin_btn">
+                    Admin Panel
+                  </button>
+                </a>
               </MenuItem>
             )}
           </>
@@ -184,11 +227,26 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => {
   );
 };
 
-const MenuItem = ({ href, children }) => (
-  <li>
-    <a href={href}>{children}</a>
-  </li>
-);
+const MenuItem = ({ href, children }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    if (href) {
+      e.preventDefault();
+      navigate(href);
+    }
+  };
+
+  return (
+    <li>
+      {href ? (
+        <a href={href} onClick={handleClick}>{children}</a>
+      ) : (
+        children
+      )}
+    </li>
+  );
+};
 
 const HamburgerSection = ({ toggleMenu, menuOpen, handleKeyPress }) => (
   <div

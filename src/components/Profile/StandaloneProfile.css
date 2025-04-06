@@ -1,0 +1,382 @@
+/* Modern Profile Styles */
+.modern-profile-container {
+  font-family: 'ABeeZee', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 80vh;
+  background-color: #f5f7fa;
+}
+
+#dark .modern-profile-container {
+  background-color: #1a1a1a;
+  color: #f5f7fa;
+}
+
+.profile-top-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-top-section h1 {
+  font-size: 36px;
+  color: #12229d;
+  margin-bottom: 10px;
+}
+
+#dark .profile-top-section h1 {
+  color: #6cbdfa;
+}
+
+.profile-top-section p {
+  font-size: 18px;
+  color: #666;
+}
+
+#dark .profile-top-section p {
+  color: #bdc3c7;
+}
+
+.modern-profile-content {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 992px) {
+  .modern-profile-content {
+    flex-direction: column;
+  }
+
+  .profile-left-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-container {
+    justify-content: center;
+  }
+
+  .profile-top-section h1 {
+    font-size: 28px;
+  }
+
+  .profile-top-section p {
+    font-size: 16px;
+  }
+
+  .profile-section {
+    padding: 20px 15px;
+  }
+}
+
+.profile-left-section {
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#dark .profile-left-section {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#dark .profile-section {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-avatar-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #12229d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+#dark .avatar-circle {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #12229d;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#dark .edit-avatar-btn {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+.profile-left-section h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#dark .profile-left-section h2 {
+  color: #f5f7fa;
+}
+
+.user-role {
+  font-size: 16px;
+  color: #12229d;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#dark .user-role {
+  color: #6cbdfa;
+}
+
+.user-college {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+#dark .user-college {
+  color: #bdc3c7;
+}
+
+.download-profile-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.download-profile-btn:hover {
+  background-color: #45a049;
+}
+
+#dark .download-profile-btn {
+  background-color: #4CAF50;
+}
+
+.profile-section h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#dark .profile-section h3 {
+  color: #f5f7fa;
+  border-bottom: 1px solid #444;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+#dark .about-text {
+  color: #bdc3c7;
+}
+
+.upload-resume-btn {
+  background-color: #f0f4f8;
+  color: #333;
+  border: 1px dashed #ccc;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-resume-btn:hover {
+  background-color: #e6e6e6;
+}
+
+#dark .upload-resume-btn {
+  background-color: #333;
+  color: #f5f7fa;
+  border-color: #555;
+}
+
+#dark .upload-resume-btn:hover {
+  background-color: #444;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: #12229d;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#dark .skill-tag {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+.info-item {
+  margin-bottom: 5px;
+}
+
+.info-item label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 14px;
+}
+
+#dark .info-item label {
+  color: #bdc3c7;
+}
+
+.info-item p {
+  font-size: 16px;
+  color: #333;
+}
+
+#dark .info-item p {
+  color: #f5f7fa;
+}
+
+.navigation-links {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #12229d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.back-link:hover {
+  background-color: #0e1b7a;
+}
+
+#dark .back-link {
+  background-color: #6cbdfa;
+  color: #1a1a1a;
+}
+
+#dark .back-link:hover {
+  background-color: #4ba3f5;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #12229d;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+  font-size: 18px;
+  color: #666;
+}
+
+#dark .spinner {
+  border-left-color: #6cbdfa;
+}
+
+#dark .loading-spinner p {
+  color: #bdc3c7;
+}
