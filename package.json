@@ -74,6 +74,6 @@
     "@vitejs/plugin-react": "^4.3.4",
 >>>>>>> cab1ba96b22c8118603eb8647f78a610dcbe0b6d
     "react-toastify": "^10.0.5",
-    "vite": "^5.4.8"
+    "vite": "^6.2.5"
   }
 }
