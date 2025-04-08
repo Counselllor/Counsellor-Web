@@ -380,3 +380,343 @@
 #dark .loading-spinner p {
   color: #bdc3c7;
 }
+
+/* Edit Form Styles */
+.edit-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#dark .edit-form {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+#dark .form-group label {
+  color: #ddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+#dark .form-group input,
+#dark .form-group select,
+#dark .form-group textarea {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+}
+
+#dark .form-group input:focus,
+#dark .form-group select:focus,
+#dark .form-group textarea:focus {
+  border-color: #6cbdfa;
+  box-shadow: 0 0 0 2px rgba(108, 189, 250, 0.2);
+}
+
+/* Profile Action Buttons */
+.edit-profile-btn,
+.save-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-btn {
+  background-color: #0070f3;
+  color: white;
+}
+
+.edit-profile-btn:hover {
+  background-color: #0060df;
+}
+
+.edit-profile-btn.active {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-profile-btn.active:hover {
+  background-color: #d32f2f;
+}
+
+.save-profile-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.save-profile-btn:hover {
+  background-color: #45a049;
+}
+
+#dark .edit-profile-btn {
+  background-color: #6cbdfa;
+  color: #fff;
+}
+
+#dark .edit-profile-btn:hover {
+  background-color: #4ba3e3;
+}
+
+#dark .edit-profile-btn.active {
+  background-color: #d32f2f;
+}
+
+#dark .edit-profile-btn.active:hover {
+  background-color: #c62828;
+}
+
+#dark .save-profile-btn {
+  background-color: #388e3c;
+}
+
+#dark .save-profile-btn:hover {
+  background-color: #2e7d32;
+}
+
+.empty-text, .not-provided {
+  color: #888;
+  font-style: italic;
+}
+
+#dark .empty-text,
+#dark .not-provided {
+  color: #aaa;
+}
+
+/* Resume Section Styles */
+.resume-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.spinner.small {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.resume-actions, .resume-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.resume-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #f0f8ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border-left: 3px solid #0070f3;
+  max-width: 250px;
+  margin: 0 auto 10px auto;
+}
+
+#dark .resume-info {
+  background-color: #2a2a2a;
+  border-left-color: #6cbdfa;
+}
+
+.resume-icon {
+  color: #0070f3;
+  font-size: 20px;
+}
+
+#dark .resume-icon {
+  color: #6cbdfa;
+}
+
+.view-resume-btn,
+.delete-resume-btn,
+.upload-resume-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-resume-btn {
+  background-color: #0070f3;
+  color: white;
+}
+
+.view-resume-btn:hover {
+  background-color: #0060df;
+}
+
+.delete-resume-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-resume-btn:hover {
+  background-color: #d32f2f;
+}
+
+.upload-resume-btn {
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.upload-resume-btn:hover {
+  background-color: #0060df;
+}
+
+#dark .view-resume-btn {
+  background-color: #6cbdfa;
+}
+
+#dark .view-resume-btn:hover {
+  background-color: #4ba3e3;
+}
+
+#dark .delete-resume-btn {
+  background-color: #d32f2f;
+}
+
+#dark .delete-resume-btn:hover {
+  background-color: #b71c1c;
+}
+
+#dark .upload-resume-btn {
+  background-color: #6cbdfa;
+}
+
+#dark .upload-resume-btn:hover {
+  background-color: #4ba3e3;
+}
+
+.resume-help-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: center;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#dark .resume-help-text {
+  color: #aaa;
+}
+
+/* Navigation links */
+.navigation-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto 0;
+  padding: 10px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.back-link:hover {
+  background-color: #0060df;
+}
+
+#dark .back-link {
+  background-color: #6cbdfa;
+}
+
+#dark .back-link:hover {
+  background-color: #4ba3e3;
+}

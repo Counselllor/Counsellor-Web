@@ -15,6 +15,84 @@
   margin: 0 auto;
 }
 
+/* Calendar Section */
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.calendar-date {
+  position: relative;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 50px;
+  font-weight: 700;
+}
+
+#dark .calendar-date {
+  background-color: #333;
+  color: white;
+}
+
+.calendar-date span {
+  display: block;
+}
+
+.calendar-date.active {
+  position: relative;
+  background-color: #000000;
+  color: white;
+}
+
+#dark .calendar-date.active {
+  background-color: #000000 !important;
+}
+
+.calendar-date.active::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 5px;
+  height: 5px;
+  background: rgb(64, 255, 64);
+  border-radius: 50%;
+}
+
+.upcoming-events {
+  text-align: left;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.upcoming-events h2 {
+  margin-top: 0;
+  font-size: 19px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#dark .upcoming-events h2 {
+  color: white;
+}
+
+.next-event {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+#dark .next-event {
+  color: #e0e0e0;
+}
+
 .user-profile-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -82,16 +160,19 @@
 
 .user-profile-card {
   background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  position: relative;
 }
 
 #dark .user-profile-card {
-  background-color: #2a2a2a;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background-color: #121212;
+  color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -118,7 +199,7 @@
     width: 30%;
     border-right: 1px solid #eee;
   }
-  
+
   #dark .user-profile-avatar {
     border-right: 1px solid #333;
   }
@@ -136,11 +217,14 @@
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  object-fit: cover;
+  border: 0.5px solid lightblue;
 }
 
 #dark .avatar-circle {
   background-color: #6cbdfa;
   color: #1a1a1a;
+  border: 0.5px solid #444;
 }
 
 .user-profile-avatar h2 {
@@ -229,6 +313,19 @@
   background-color: #4ba3f5;
 }
 
+.edit-icon {
+  position: absolute;
+  font-size: 25px;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+#dark .edit-icon {
+  color: white;
+}
+
 .profile-info {
   display: flex;
   flex-direction: column;
@@ -287,6 +384,50 @@
   gap: 1.5rem;
 }
 
+/* Skills Section */
+.skills-section {
+  border-top: 0.5px solid rgba(21, 21, 21, 0.555);
+  text-align: left;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#dark .skills-section {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.555);
+}
+
+.skills-section h2 {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#dark .skills-section h2 {
+  color: white;
+}
+
+.skills-section ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skills-section li {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+#dark .skills-section li {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
 .form-row {
   display: flex;
   gap: 1.5rem;
@@ -295,6 +436,71 @@
 @media (max-width: 768px) {
   .form-row {
     flex-direction: column;
+  }
+
+  .user-profile-card {
+    padding: 15px;
+  }
+
+  .edit-modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .user-profile-avatar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  #dark .user-profile-avatar {
+    border-bottom: 1px solid #333;
+  }
+
+  .user-profile-details {
+    padding: 1.5rem;
+  }
+
+  .details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .edit-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .user-profile-container {
+    padding: 1rem;
+  }
+
+  .user-profile-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .avatar-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+
+  .user-profile-avatar h2 {
+    font-size: 1.8rem;
+  }
+
+  .user-email {
+    font-size: 1.4rem;
+  }
+
+  .edit-modal-content {
+    width: 95%;
+    padding: 15px 10px;
   }
 }
 
@@ -391,4 +597,60 @@
 
 #dark .save-button:hover {
   background-color: #4ba3f5;
+}
+
+/* Modal styles */
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.edit-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 522px;
+  text-align: left;
+  position: relative;
+}
+
+#dark .edit-modal-content {
+  background-color: #121212;
+  color: white;
+}
+
+.edit-modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.edit-modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.edit-modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+#dark .edit-modal-content input {
+  color: white;
+  background-color: #333;
+  border-color: #444;
 }

@@ -77,11 +77,24 @@ const SignUpForm = () => {
     }
 
     if (name === "dob") {
-      let calculateAge = ageCalculator(e.target.value);
-      calculateAge === null ? (calculateAge = "") : null;
-      setUserInfo((prev) => {
-        return { ...prev, age: calculateAge };
-      });
+      // Validate date format and restrict year to 4 digits
+      const dateValue = e.target.value;
+      const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+      if (dateValue && datePattern.test(dateValue)) {
+        const year = parseInt(dateValue.split('-')[0]);
+
+        // If year has more than 4 digits or is invalid, don't update
+        if (year > 9999 || year < 1900) {
+          return;
+        }
+
+        let calculateAge = ageCalculator(dateValue);
+        calculateAge === null ? (calculateAge = "") : null;
+        setUserInfo((prev) => {
+          return { ...prev, age: calculateAge };
+        });
+      }
     }
   });
 
@@ -396,6 +409,7 @@ const SignUpForm = () => {
                       value={userInfo.dob}
                       name="dob"
                       onChange={handleUserInfo}
+                      max="2099-12-31"
                       required
                     />
                     <FaBirthdayCake className="icons" />
@@ -477,7 +491,6 @@ const SignUpForm = () => {
                 </div>
               </div>
               <div id="captcha-container">
-                <label htmlFor="captcha">Captcha</label>
                 <div
                   className="flex flex-row gap-3 justify-center items-center"
                   id="captchaBox"

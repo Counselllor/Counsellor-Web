@@ -1,11 +1,11 @@
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState, useCallback, useContext } from "react";
 import Tilt from "react-parallax-tilt";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
 import hide from "../../assets/hide.png";
 import show from "../../assets/show.png";
-import { auth, googleAuthProvider, database } from "../../firebase/auth";
+import { auth, database } from "../../firebase/auth";
 import { ref, get, update } from "firebase/database";
 import "./Login.css";
 import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
@@ -161,17 +161,49 @@ export default function Login() {
     if (snapshot.exists()) {
       const userData = snapshot.val();
       localStorage.setItem("Userid", userData.id);
+      return userData; // Return the user data
     } else {
       console.error("No data available");
+      return null;
+    }
+  };
+
+  // Function to fetch user data by email
+  const fetchUserDataByEmail = async (email) => {
+    try {
+      // Get a reference to the users node in the database
+      const usersRef = ref(database, 'users');
+
+      // Get all users
+      const snapshot = await get(usersRef);
+
+      if (snapshot.exists()) {
+        const users = snapshot.val();
+
+        // Find the user with the matching email
+        for (const userId in users) {
+          if (users[userId].email === email) {
+            const userData = users[userId];
+            return userData;
+          }
+        }
+      }
+
+      console.error("No user found with that email");
+      return null;
+    } catch (error) {
+      console.error("Error fetching user data by email:", error);
+      return null;
     }
   };
 
   const dispatch = useDispatch();
 
   // if signin with EmailId/password success then navigate to dashboard based on user type
-  const handleSignIn = useCallback((e) => {
+  const handleSignIn = useCallback(async (e) => {
     e.preventDefault();
-    let submitable = true;
+
+    // Validate captcha
     if (captchaVal !== captchaText) {
       toast.error("Wrong Captcha", {
         className: "toast-message",
@@ -181,112 +213,109 @@ export default function Login() {
       return;
     }
 
+    // Check for validation errors
+    let hasErrors = false;
     Object.values(error).forEach((err) => {
       if (err !== false) {
-        submitable = false;
-        return;
+        hasErrors = true;
       }
     });
-    if (submitable) {
-      signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
-        .then(async () => {
-          setTimeout(async () => {
-            const user = localStorage.getItem("userUid");
-            const userData = await fetchUserData(user); // Fetch user data after login
-            console.log("response user", userData);
-            dispatch(loginSuccess(userData));
-            localStorage.setItem("login", true);
 
-            // Redirect based on user type
-            console.log("User data during login:", userData);
-
-            // Ensure user_type exists and is valid
-            let userType = userData.user_type;
-            if (!userType || (userType !== "student" && userType !== "counsellor")) {
-              console.warn("Invalid or missing user type:", userType, "defaulting to 'student'");
-              userType = "student";
-
-              // Update the user data in the database with the default user type
-              try {
-                const userRef = ref(database, `users/${userData.id}`);
-                await update(userRef, { user_type: userType });
-                console.log("Updated user with default user type");
-              } catch (updateError) {
-                console.error("Failed to update user type:", updateError);
-              }
-            }
-
-            console.log("User type during login:", userType);
-
-            if (userType === "counsellor") {
-              console.log("Redirecting to counsellor dashboard");
-              navigate("/counsellor/dashboard");
-            } else {
-              console.log("Redirecting to regular dashboard");
-              navigate("/dashboard");
-            }
-          }, 2000);
-        })
-        .catch((err) => {
-          if (err.code === "auth/wrong-password") {
-            toast.error("Incorrect Password!", {
-              className: "toast-message",
-            });
-          } else if (err.code === "auth/user-not-found") {
-            toast.error("This email is not registered", {
-              className: "toast-message",
-            });
-          } else {
-            console.error("Sign-in error", err);
-            toast.error("An error occurred. Please try again!", {
-              className: "toast-message",
-            });
-          }
-        });
-    } else {
-      toast.error("Please fill all Fields with Valid Data.", {
+    if (hasErrors) {
+      toast.error("Please fill all fields with valid data", {
         className: "toast-message",
       });
+      return;
     }
-  });
-  // Popup Google signin
-  const SignInGoogle = useCallback(() => {
-    signInWithPopup(auth, googleAuthProvider)
-      .then(async (result) => {
-        toast.success("Login successful !", {
+
+    try {
+      // Sign in with Firebase
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        loginInfo.email,
+        loginInfo.password
+      );
+
+      // Get the Firebase user
+      const firebaseUser = userCredential.user;
+      console.log("Firebase user:", firebaseUser);
+
+      // Get user data from database using email
+      const userData = await fetchUserDataByEmail(loginInfo.email);
+      console.log("User data from database:", userData);
+
+      if (!userData) {
+        console.error("Failed to fetch user data");
+        toast.error("Login failed. Please try again.", {
           className: "toast-message",
         });
+        return;
+      }
 
-        // Try to get user data to determine user type
+      // Store user ID in localStorage
+      localStorage.setItem("userUid", userData.id);
+      dispatch(loginSuccess(userData));
+      localStorage.setItem("login", true);
+
+      // Show success message
+      toast.success("Login successful!", {
+        className: "toast-message",
+      });
+
+      // Ensure user_type exists and is valid
+      let userType = userData.user_type;
+      if (!userType || (userType !== "student" && userType !== "counsellor")) {
+        console.warn("Invalid or missing user type:", userType, "defaulting to 'student'");
+        userType = "student";
+
+        // Update the user data in the database with the default user type
         try {
-          const userData = await fetchUserDataByEmail(result.user.email);
-          setTimeout(() => {
-            if (userData && userData.user_type === "counsellor") {
-              navigate("/counsellor/dashboard");
-            } else {
-              navigate("/dashboard");
-            }
-          }, 2000);
-        } catch (error) {
-          // If error or no user data, default to regular dashboard
-          setTimeout(() => {
-            navigate("/dashboard");
-          }, 2000);
+          const userRef = ref(database, `users/${userData.id}`);
+          await update(userRef, { user_type: userType });
+          console.log("Updated user with default user type");
+        } catch (updateError) {
+          console.error("Failed to update user type:", updateError);
         }
-      })
-      .catch((err) =>
-        toast.error(err.message, {
+      }
+
+      console.log("User type during login:", userType);
+
+      // Redirect based on user type after a short delay
+      setTimeout(() => {
+        if (userType === "counsellor") {
+          console.log("Redirecting to counsellor dashboard");
+          navigate("/counsellor/dashboard");
+        } else {
+          console.log("Redirecting to regular dashboard");
+          navigate("/dashboard");
+        }
+      }, 1000);
+
+    } catch (err) {
+      // Handle authentication errors
+      if (err.code === "auth/wrong-password") {
+        toast.error("Incorrect Password!", {
           className: "toast-message",
-        })
-      );
-  });
+        });
+      } else if (err.code === "auth/user-not-found") {
+        toast.error("This email is not registered", {
+          className: "toast-message",
+        });
+      } else {
+        console.error("Sign-in error", err);
+        toast.error("An error occurred. Please try again!", {
+          className: "toast-message",
+        });
+      }
+    }
+  }, [captchaVal, captchaText, error, loginInfo.email, loginInfo.password, generateCaptcha, dispatch, navigate]);
+
 
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   // Theme toggle function
   const handleThemeChange = () => {
     toggleTheme();
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (

@@ -216,7 +216,6 @@ const AdminLogin = () => {
             {/* Login form */}
             <form className="form" onSubmit={handleLogin}>
               <div>
-                <label htmlFor="email">Email</label>
                 <div className="iconContainer">
                   <input
                     id="email"
@@ -236,7 +235,6 @@ const AdminLogin = () => {
                 )}
               </div>
               <div>
-                <label htmlFor="password">Password</label>
                 <div className="password-input">
                   <div className="iconContainer">
                     <input
@@ -265,7 +263,6 @@ const AdminLogin = () => {
                 </div>
               </div>
               <div id="captcha-container">
-                <label htmlFor="captcha">Captcha</label>
                 <div
                   className="flex flex-row gap-3 justify-center items-center"
                   id="captchaBox"

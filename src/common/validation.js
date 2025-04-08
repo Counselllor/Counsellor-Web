@@ -35,6 +35,18 @@ const validate = {
                  { confirmPassword: false, confirmPasswordError: false }
       },
       dob: (value)=>{
+        // Check if the date format is valid
+        const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+        if (!datePattern.test(value)) {
+          return {dob: true, dobError: "Invalid date format."}
+        }
+
+        // Check if year is valid (4 digits between 1900-2099)
+        const year = parseInt(value.split('-')[0]);
+        if (year < 1900 || year > 2099) {
+          return {dob: true, dobError: "Year must be between 1900 and 2099."}
+        }
+
         const dob = new Date(value);
         const today = new Date();
 
