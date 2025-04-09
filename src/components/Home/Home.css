@@ -1,57 +1,81 @@
-
+/* Main container for home page content */
 #homeContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 4.79vw 3.85vw 0 5.83vw;
-  }
-  
-  #meetingImg {
-    height: 54%;
-    width: 37.3%;
-  }
-  
-  #homeTxt {
-    width: 39.06vw;
-    font-family: "ABeeZee";
-    font-size: 5.2vw;
-    font-weight: bold;
-    color: var(--white);
-  }
-  
-  #homeCircle {
-    position: absolute;
-    height: 52.08vw;
-    width: 52.08vw;
-    border-radius: 100%;
-    background-color: var(--secPageColor);
-    right: -10.41vw;
-    top: 10.41vw;
-    overflow: hidden;
-    z-index: -999;
-  }
-  
-  #homeCircleScnd {
-    position: absolute;
-    height: 52.08vw;
-    width: 52.08vw;
-    border-radius: 100%;
-    background-color: var(--secPageColor);
-    left: -20.83vw;
-    top: -3.17vw;
-    overflow: hidden;
-    z-index: -999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4.79vw 3.85vw 0 5.83vw;
+}
+
+/* Meeting image styling */
+#meetingImg {
+  height: 54%;
+  width: 37.3%;
+}
+
+/* Home text styling (not currently used) */
+#homeTxt {
+  width: 39.06vw;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 5.2vw;
+  font-weight: bold;
+  color: var(--white);
+}
+
+/* Decorative circle elements */
+#homeCircle {
+  position: absolute;
+  height: 52.08vw;
+  width: 52.08vw;
+  border-radius: 100%;
+  background-color: var(--secPageColor);
+  right: -10.41vw;
+  top: 10.41vw;
+  overflow: hidden;
+  z-index: -999;
+}
+
+#homeCircleScnd {
+  position: absolute;
+  height: 52.08vw;
+  width: 52.08vw;
+  border-radius: 100%;
+  background-color: var(--secPageColor);
+  left: -20.83vw;
+  top: -3.17vw;
+  overflow: hidden;
+  z-index: -999;
+}
+
+/* Typewriter effect text styling */
+.MainText {
+  width: 36vw;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 5.2vw;
+  font-weight: bold;
+  color: var(--white);
+  position: absolute;
+  top: 40vh;
+  right: 70px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  #homeContainer {
+    flex-direction: column;
+    margin: 2vw;
   }
 
-  /* For Typewriter effect */
-  .MainText{
-    width: 36vw;
-    font-family: 'ABeeZee';
-    font-size: 5.2vw;
-    font-weight: bold;
-    color: var(--white);
-    position:absolute;
-    top: 40vh;
-    right:70px;
-    }
+  #meetingImg {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .MainText {
+    width: 80vw;
+    font-size: 8vw;
+    position: static;
+    margin: 20px auto;
+    text-align: center;
+  }
+}

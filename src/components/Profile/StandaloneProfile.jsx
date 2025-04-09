@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./StandaloneProfile.css";
 import { auth, database, storage } from "../../firebase/auth";
 import { ref, get, update } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { FaEdit, FaSave, FaTimes, FaFileAlt, FaTrashAlt, FaEye, FaArrowLeft } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { FaEdit, FaSave, FaTimes, FaFileAlt, FaTrashAlt, FaEye, FaArrowLeft } from "react-icons/fa";
+import "react-toastify/dist/ReactToastify.css";
+import "./StandaloneProfile.css";
 
+/**
+ * StandaloneProfile Component
+ * Displays and allows editing of user profile information
+ */
 const StandaloneProfile = () => {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [editMode, setEditMode] = useState(false);
-  const [resumeFile, setResumeFile] = useState(null);
-  const [resumeLoading, setResumeLoading] = useState(false);
+  // State management
+  const [userData, setUserData] = useState(null);          // User data from database
+  const [loading, setLoading] = useState(true);            // Loading state
+  const [editMode, setEditMode] = useState(false);         // Edit mode toggle
+  const [resumeFile, setResumeFile] = useState(null);      // Resume file URL
+  const [resumeLoading, setResumeLoading] = useState(false); // Resume upload loading state
+
+  // Form data for editing profile
   const [formData, setFormData] = useState({
     firstname: "",
     surname: "",
@@ -27,7 +34,8 @@ const StandaloneProfile = () => {
     gender: "",
     dob: ""
   });
-  const navigate = useNavigate();
+
+  const navigate = useNavigate(); // Navigation hook
 
   useEffect(() => {
     // First try to get the user ID from localStorage (set during signup/login)
@@ -53,6 +61,11 @@ const StandaloneProfile = () => {
     return () => unsubscribe();
   }, [navigate]);
 
+  /**
+   * Fetches user data from Firebase database
+   * @param {string} uid - User ID to fetch data for
+   * @returns {Promise<void>}
+   */
   const fetchUserData = async (uid) => {
     try {
       setLoading(true);
@@ -102,7 +115,10 @@ const StandaloneProfile = () => {
     }
   };
 
-  // Handle input changes in the form
+  /**
+   * Handles input changes in the form fields
+   * @param {Object} e - Event object
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -111,7 +127,10 @@ const StandaloneProfile = () => {
     });
   };
 
-  // Handle save profile
+  /**
+   * Saves the updated profile information to the database
+   * @returns {Promise<void>}
+   */
   const handleSaveProfile = async () => {
     try {
       if (!auth.currentUser) {
@@ -153,7 +172,10 @@ const StandaloneProfile = () => {
     }
   };
 
-  // Toggle edit mode
+  /**
+   * Toggles between edit and view modes
+   * Resets form data when canceling edit mode
+   */
   const toggleEditMode = () => {
     if (editMode) {
       // If canceling edit, reset form data to original values
@@ -172,7 +194,11 @@ const StandaloneProfile = () => {
     setEditMode(!editMode);
   };
 
-  // Handle resume upload
+  /**
+   * Handles resume file upload
+   * @param {Object} e - Event object from file input
+   * @returns {Promise<void>}
+   */
   const handleResumeUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -242,14 +268,19 @@ const StandaloneProfile = () => {
     }
   };
 
-  // Handle view resume
+  /**
+   * Opens the resume file in a new tab
+   */
   const handleViewResume = () => {
     if (resumeFile) {
       window.open(resumeFile, "_blank");
     }
   };
 
-  // Handle delete resume
+  /**
+   * Deletes the resume file from storage and updates the database
+   * @returns {Promise<void>}
+   */
   const handleDeleteResume = async () => {
     try {
       setResumeLoading(true);
@@ -306,7 +337,7 @@ const StandaloneProfile = () => {
 
         {loading ? (
           <div className="loading-spinner">
-            <div className="spinner"></div>
+            <div className="spinner" />
             <p>Loading your profile...</p>
           </div>
         ) : (
@@ -526,7 +557,7 @@ const StandaloneProfile = () => {
                       onChange={handleInputChange}
                       rows="4"
                       placeholder="Tell us about yourself"
-                    ></textarea>
+                    />
                   </div>
                 ) : (
                   userData?.bio ? (
@@ -541,7 +572,7 @@ const StandaloneProfile = () => {
                 <h3>Resume</h3>
                 {resumeLoading ? (
                   <div className="resume-loading">
-                    <div className="spinner small"></div>
+                    <div className="spinner small" />
                     <p>Processing resume...</p>
                   </div>
                 ) : resumeFile ? (
