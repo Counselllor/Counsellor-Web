@@ -14,7 +14,12 @@
 
 
 #dark .navbar {
-  background-color: black;
+  background-color: #121212;
+}
+
+#dark main {
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 .logo img {
@@ -71,9 +76,20 @@
   margin-top: 10px;
   width: 100%;
   border-radius: 5px;
+  text-align: center;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .reset-button {
+  background-color: #0070f3;
+  color: white;
+}
+
+#dark .reset-button:hover {
+  background-color: #0060df;
 }
 #dark .modal-close{
-  color: #000000;
+  color: #e0e0e0;
 }
 .filter_icon{
   cursor: pointer;
@@ -101,9 +117,20 @@ width: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+
+#dark .modal-content {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
 .filter-section h2{
   font-size: 24px;
   margin-bottom: 20px;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .filter-section h2 {
+  color: #e0e0e0;
 }
 .modal-close {
   position: absolute;
@@ -124,11 +151,21 @@ width: 40px;
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .slider label {
+  color: #e0e0e0;
 }
 
 .slider p {
   margin-top: 10px;
   font-size: 14px;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .slider p {
+  color: #e0e0e0;
 }
 
 .filters-content {
@@ -280,8 +317,9 @@ width: 40px;
   background: linear-gradient(to right, rgba(0, 128, 255, 0.5), rgba(19, 191, 200, 0.5));
 }
 
-#dark .college:hover, .college.active {
-  background: linear-gradient(to right, rgba(37, 37, 37, 0.5), rgba(22, 21, 21, 0.5));
+#dark .college:hover, #dark .college.active {
+  background: linear-gradient(to right, rgba(0, 112, 243, 0.2), rgba(0, 96, 223, 0.2));
+  border: 1px solid #0070f3;
 }
 
 .college-content {
@@ -301,6 +339,7 @@ width: 40px;
 .college .up .context .college_name{
   width: 100%;
   font-size: 18px;
+  font-family: 'ABeeZee', sans-serif;
   /* margin: 0; */
   /* margin-bottom: 20px; */
 }
@@ -314,6 +353,7 @@ width: 40px;
 
 .college .up .context span {
   font-size: 14px;
+  font-family: 'ABeeZee', sans-serif;
   /* display: ruby; */
 }
 
@@ -445,7 +485,7 @@ width: 40px;
 
 .maintxt h1 {
   width: 66vw;
-  font-family: 'ABeeZee';
+  font-family: 'ABeeZee', sans-serif;
   font-size: 70px;
   color: #050A30;
   margin: 0 auto;
@@ -461,7 +501,7 @@ width: 40px;
 }
 .menu ul{gap: 40px;}
 .maintxt p {
-  font-family: 'ABeeZee';
+  font-family: 'ABeeZee', sans-serif;
   font-size: 22px;
   color: #050A30;
   text-align: center;
@@ -496,7 +536,7 @@ width: 40px;
   border-radius: 8px; */
   color: #333;
   text-align: center;
-  font-family: 'ABeeZee';
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .no-res-Found-cont h1 {
@@ -508,6 +548,14 @@ width: 40px;
 .no-res-Found-cont h2 {
   font-size: 1.2em;
   color: #00073e;
+}
+
+#dark .no-res-Found-cont h1 {
+  color: #0070f3;
+}
+
+#dark .no-res-Found-cont h2 {
+  color: #e0e0e0;
 }
 
 @media (max-width: 768px) {
@@ -554,7 +602,8 @@ width: 40px;
 
 
 #dark .search {
-  background-color: #3c38b9;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
 }
 
 .vl {
@@ -585,7 +634,7 @@ width: 40px;
   appearance: none;
   border: none;
   font-size: 25px;
-  font-family: 'ABeeZee';
+  font-family: 'ABeeZee', sans-serif;
   color: #F4F6FC;
   padding-left: 35px;
   margin-left: 40px;
@@ -593,9 +642,9 @@ width: 40px;
 }
 
 #dark .search input {
-  background-color: transparent;
-  color: black !important;
-  border: 1px solid black;
+  background-color: #2a2a2a;
+  color: white !important;
+  border: 1px solid #444;
 }
 
 #dark input::placeholder{
@@ -620,11 +669,12 @@ width: 40px;
 }
 
 #dark .search button {
-  background-color: black;
+  background-color: #0070f3;
+  color: white;
 }
 
 #dark .search button:hover {
-  background-color: rgb(37, 37, 37);
+  background-color: #0060df;
 }
 
 .search button:hover {
@@ -741,7 +791,9 @@ width: 40px;
 }
 
 #dark .college {
-  background-color: #2E2E2E;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .up {
@@ -845,7 +897,7 @@ width: 40px;
 }
 
 #dark .maintxt {
-  background-color: black;
+  background-color: #121212;
 }
 .btn1 {
   border-radius: .25rem;
@@ -873,11 +925,7 @@ width: 40px;
   padding-right: 30px;
   padding-left: 30px;
 }
-#dark .college{
-  border: white solid 2px;
-  box-shadow: 0px 0px 15px white ;
 
-}
 .college:hover{
   scale: 1.05;
  transition: scale 0.7s;
@@ -910,12 +958,12 @@ width: 40px;
   cursor: pointer;
   transition: all .3s;
  }
- 
+
  .click-btn2:active,
  .click-btn2:hover {
   outline: 0;
  }
- 
+
  .click-btn2 span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px !important;
@@ -924,7 +972,7 @@ width: 40px;
   height: 100%;
   transition: 300ms;
  }
- 
+
  .click-btn2:hover span {
   background: none;
  }
@@ -949,12 +997,26 @@ width: 40px;
   transition: background-color 0.3s ease;
 }
 
+#dark .pagination button {
+  background-color: #0070f3;
+  color: white;
+}
+
 .pagination button:hover {
   background-color: #4a9edc; /* Slightly darker shade for hover effect */
 }
 
+#dark .pagination button:hover {
+  background-color: #0060df;
+}
+
 .pagination button.active {
   background-color: #3a8cc1; /* Even darker shade for active button */
+}
+
+#dark .pagination button.active {
+  background-color: #0050c9;
+  box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
 }
 
 .pagination button:disabled {

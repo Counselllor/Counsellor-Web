@@ -10,6 +10,10 @@
   color: white;
 }
 
+#dark .parent {
+  background-color: #121212;
+}
+
 #dark .left, #dark .right {
   background: #121212;
 }
@@ -43,6 +47,10 @@
   background-color: #ffffff;
 }
 
+#dark .parent {
+  background-color: #121212;
+}
+
 .right {
   width: 50%;
   background-color: #ffffff;
@@ -68,6 +76,11 @@
   font-weight: bolder;
   margin-bottom: 5%;
   margin-top: 30px;
+  color: #333;
+}
+
+#dark .sign-in {
+  color: #fff;
 }
 
 .right .google {
@@ -131,6 +144,15 @@
   box-sizing: border-box;
   padding-left: 35px !important;
   background-color: #ffffff;
+  color: #333;
+}
+
+#dark .login-container input[type="email"],
+#dark .login-container input[type="password"],
+#dark .login-container input[type="text"] {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #fff;
 }
 
 .login-container input[type="checkbox"] {
@@ -139,6 +161,11 @@
 label {
   margin-top: 10px;
   font-size: 16px;
+  color: #333;
+}
+
+#dark label {
+  color: #fff;
 }
 
 .login-container .login_btn {
@@ -162,6 +189,10 @@ label {
   text-decoration: none;
   color: #1877f2;
   font-size: 15px;
+}
+
+#dark .login-container .forgot-password {
+  color: #6cbdfa;
 }
 
 .login-container .dont-have-account {
@@ -456,6 +487,10 @@ label {
   color: #737373;
 }
 
+#dark .icons {
+  color: #aaa;
+}
+
 #captcha-container {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -482,9 +517,20 @@ label {
   text-align: center;
 }
 
+#dark #captcha {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #ddd;
+}
+
 #captchaIcon{
   font-size: 3rem !important;
   cursor: pointer !important;
+  color: #333;
+}
+
+#dark #captchaIcon {
+  color: #aaa;
 }
 
 .remember-me {
@@ -503,6 +549,10 @@ label {
   cursor: pointer;
   color: #1877f2;
   font-size: 16px;
+}
+
+#dark .remember-me label {
+  color: #6cbdfa;
 }
 
 @media screen and (max-width: 768px) {
@@ -609,6 +659,10 @@ label {
   margin: auto;
 }
 
+#dark .errorShow {
+  color: #ff6b6b;
+}
+
 input.inputField,
 input.firstname-text.inputField,
 input.surname-text.inputField,
@@ -635,4 +689,14 @@ select.inputField {
   right: 0;
   width: 18vw;
   padding: 10px;
+}
+
+.counsellor {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#dark .counsellor {
+  color: #fff;
 }

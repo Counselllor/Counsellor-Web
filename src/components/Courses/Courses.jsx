@@ -21,10 +21,10 @@ const Courses = () => {
       } else {
 
           navigate('/');
-        
+
       }
     });
-  }, [navigate]); 
+  }, [navigate]);
 
 
 
@@ -35,7 +35,10 @@ const Courses = () => {
     <>
    <Navbar/>
       <div className="courses-container">
-        <h1 className="courses-title">Available Courses</h1>
+        <header className="courses-header">
+          <h1 className="courses-main-title">Available Courses</h1>
+          <p className="courses-subtitle">Enhance your skills with our expert-led courses</p>
+        </header>
         <div className="courses-list">
           {coursesData.map((course) => (
             <div className="course-card" key={course.id}>
@@ -56,6 +59,7 @@ const Courses = () => {
                 <p className="course-price">
                   <strong>Price:</strong> {course.price}
                 </p>
+                <button className="course-enroll-btn">Enroll Now</button>
               </div>
             </div>
           ))}

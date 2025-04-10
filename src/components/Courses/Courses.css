@@ -1,21 +1,57 @@
 /* Courses.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+:root {
+  --color-primary: #0070f3;
+  --color-primary-dark: #0060df;
+  --color-background: #cae7fe;
+  --color-text: #333;
+  --color-text-light: #fff;
+}
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .courses-container {
-  padding: 40px;
-  background-color: #CAE7FE;
+  background-color: var(--color-background);
+  font-family: 'ABeeZee', sans-serif;
+  color: var(--color-text);
+  min-height: 100vh;
 }
 
-.courses-title {
+#dark .courses-container {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+#dark .courses-header {
+  background: linear-gradient(135deg, #0070f3, #004a9f);
+}
+
+.courses-header {
+  background: linear-gradient(135deg, var(--color-primary), #76c6f5);
+  color: var(--color-text-light);
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 3em;
-  color: #0056b3;
+  padding: 6rem 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  margin-bottom: 2rem;
+}
+
+.courses-main-title {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.courses-subtitle {
+  font-size: 1.2rem;
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: 300;
+  opacity: 0.9;
 }
 
 .courses-list {
@@ -23,53 +59,173 @@ body {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  padding: 2rem;
 }
 
 .course-card {
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 350px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#dark .course-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .course-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary);
+}
+
+#dark .course-card:hover {
+  background: #2a2a2a;
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 30px rgba(0, 112, 243, 0.2);
 }
 
 .course-image {
-  width: 80%;
-  height: 250px;
-  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  margin: 20px auto 30px;
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0e0e0;
+}
+
+#dark .course-image {
+  background-color: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-color: #444;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 112, 243, 0.2);
+  background-color: #e8f4ff;
+  border-color: var(--color-primary);
+}
+
+#dark .course-card:hover .course-image {
+  background-color: #333;
+  box-shadow: 0 8px 20px rgba(0, 112, 243, 0.3);
+  border-color: var(--color-primary);
 }
 
 .course-info {
-  padding: 20px;
+  padding: 0 25px 25px;
+  font-family: 'ABeeZee', sans-serif;
+  text-align: center;
 }
 
 .course-title {
-  font-size: 2em; /* Larger course title font size */
-  margin: 0 0 10px;
-  color: #0056b3;
+  font-size: 1.5em;
+  margin: 0 0 15px;
+  color: var(--color-primary);
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.course-card:hover .course-title {
+  color: var(--color-primary-dark);
 }
 
 .course-description {
-  font-size: 1.4em; /* Larger course description font size */
+  font-size: 0.95em;
   color: #555;
   margin-bottom: 20px;
+  font-family: 'ABeeZee', sans-serif;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+#dark .course-description {
+  color: #aaa;
+}
+
+.course-card:hover .course-description {
+  color: #333;
+}
+
+#dark .course-card:hover .course-description {
+  color: #e0e0e0;
 }
 
 .course-instructor,
 .course-duration,
 .course-price {
-  font-size: 1.3em; /* Larger course info font size */
+  font-size: 0.9em;
+  margin-bottom: 12px;
   color: #333;
+  font-family: 'ABeeZee', sans-serif;
+  transition: color 0.3s ease;
+}
+
+#dark .course-instructor,
+#dark .course-duration,
+#dark .course-price {
+  color: #bbb;
+}
+
+.course-card:hover .course-instructor,
+.course-card:hover .course-duration,
+.course-card:hover .course-price {
+  color: #222;
+}
+
+#dark .course-card:hover .course-instructor,
+#dark .course-card:hover .course-duration,
+#dark .course-card:hover .course-price {
+  color: #e0e0e0;
 }
 
 .course-instructor {
   margin-bottom: 10px;
+}
+
+.course-enroll-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  font-family: 'ABeeZee', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-enroll-btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#dark .course-enroll-btn {
+  background-color: #6cbdfa;
+  color: #121212;
+}
+
+#dark .course-enroll-btn:hover {
+  background-color: #4ba3e3;
 }
 
 .course-duration {
@@ -87,8 +243,38 @@ body {
 }
 #dark .course-card{
   background: black !important;
-color: white !important;  
+color: white !important;
 }
 #dark .course-card p{
   color: white !important;
+}
+
+/* Responsive font sizes for mobile devices */
+@media (max-width: 768px) {
+  .courses-main-title {
+    font-size: 2rem;
+  }
+
+  .courses-subtitle {
+    font-size: 1rem;
+  }
+
+  .course-title {
+    font-size: 1.3em;
+  }
+
+  .course-description {
+    font-size: 0.9em;
+  }
+
+  .course-instructor,
+  .course-duration,
+  .course-price {
+    font-size: 0.85em;
+  }
+
+  .course-enroll-btn {
+    font-size: 0.85rem;
+    padding: 10px 15px;
+  }
 }

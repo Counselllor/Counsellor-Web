@@ -48,7 +48,7 @@ const Card = ({ className, heading, headingSpan, pictureClass, details, priceVal
 const SectionTours = () => (
   <section className="section-tours">
     <div className="u-center-text u-margin-bottom-large">
-      <h2 className="heading-secondary">Happy Statistics</h2>
+      <h2 className="heading-secondary">Our Educational Network</h2>
     </div>
 
     <div className="row">

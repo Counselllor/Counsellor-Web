@@ -10,11 +10,11 @@
 
 .jobsPage {
   background-color: var(--color-background);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   color: var(--color-text);
 }
 #dark .jobsPage{
-  background-color: #1f1f1f;
+  background-color: #121212;
 }
 .jobsPage-header {
   background: linear-gradient(135deg, var(--color-primary), var(--color-item));
@@ -32,12 +32,14 @@
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .jobsPage-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
   opacity: 0.9;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 
@@ -53,23 +55,32 @@
   margin: 0 auto;
 }
 #dark .jobsPage-card{
-  border: white solid 2px;
-    box-shadow: 0px 0px 10px white;
-    background-color: #151414;
+  border: 1px solid #444;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1e1e1e;
 }
 
 .jobsPage-card {
   background-color: var(--color-text-light);
   border-radius: 10px;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
   text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease;
 }
 
 .jobsPage-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 112, 243, 0.1);
+  border-color: #0070f3;
+}
+
+#dark .jobsPage-card:hover {
+  background-color: #2a2a2a;
+  border-color: #0070f3;
+  box-shadow: 0 15px 30px rgba(0, 112, 243, 0.2);
 }
 
 .jobsPage-title {
@@ -77,18 +88,38 @@
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
+  font-family: 'ABeeZee', sans-serif;
+  transition: color 0.3s ease;
 }
 #dark .jobsPage-title {
   color: #ffffff;
+}
+
+.jobsPage-card:hover .jobsPage-title {
+  color: #0070f3;
+}
+
+#dark .jobsPage-card:hover .jobsPage-title {
+  color: #0070f3;
 }
 
 .jobsPage-company {
   color: var(--color-item);
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: 'ABeeZee', sans-serif;
+  transition: color 0.3s ease;
 }
 #dark .jobsPage-company {
   color: #7a7a7a;
+}
+
+.jobsPage-card:hover .jobsPage-company {
+  color: #333;
+}
+
+#dark .jobsPage-card:hover .jobsPage-company {
+  color: #e0e0e0;
 }
 
 .jobsPage-description,
@@ -98,10 +129,30 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
+  font-family: 'ABeeZee', sans-serif;
+  transition: color 0.3s ease;
+}
+
+#dark .jobsPage-description,
+#dark .jobsPage-location,
+#dark .jobsPage-type {
+  color: #aaa;
+}
+
+.jobsPage-card:hover .jobsPage-description,
+.jobsPage-card:hover .jobsPage-location,
+.jobsPage-card:hover .jobsPage-type {
+  color: #333;
+}
+
+#dark .jobsPage-card:hover .jobsPage-description,
+#dark .jobsPage-card:hover .jobsPage-location,
+#dark .jobsPage-card:hover .jobsPage-type {
+  color: #e0e0e0;
 }
 
 .jobsPage-apply {
-  background-color: var(--color-primary);
+  background-color: #0070f3;
   color: var(--color-text-light);
   font-size: 1.1rem;
   font-weight: 600;
@@ -109,11 +160,22 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .jobsPage-apply:hover {
-  background-color: var(--color-item);
+  background-color: #0060df;
+  transform: translateY(-2px);
+}
+
+#dark .jobsPage-apply {
+  background-color: #6cbdfa;
+  color: #121212;
+}
+
+#dark .jobsPage-apply:hover {
+  background-color: #4ba3e3;
 }
 
 @media (max-width: 1200px) {
@@ -161,6 +223,41 @@
     font-size: 1.5rem;
   }
 }
+
+.post-job-container {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0 0 0;
+}
+
+.post-job-button {
+  cursor: pointer;
+  margin: auto;
+  padding: 12px 24px;
+  background-color: #0070f3;
+  border-radius: 8px;
+  color: white;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-job-button:hover {
+  background-color: #0060df;
+  transform: translateY(-2px);
+}
+
+#dark .post-job-button {
+  background-color: #6cbdfa;
+  color: #121212;
+}
+
+#dark .post-job-button:hover {
+  background-color: #4ba3e3;
+}
 .modal-jobs input, .modal-jobs textarea{
   width: 100% !important;
 }
@@ -205,8 +302,9 @@
   color: white !important;
 }
 #dark .modal-jobs{
-  background-color: black;
-  border: solid 1px white;
+  background-color: #1e1e1e;
+  border: solid 1px #444;
+  color: #e0e0e0;
 }
 @media only screen and (max-width:900px){
   .modal-jobs{
@@ -245,6 +343,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .modal-form .form-group input,
@@ -293,26 +392,26 @@
   left: 0px !important;
 } */
 .jobs-container{
-  max-width: 500px;
-  width:100%;
-  margin: auto ;
-  padding-top: 20px;
-  padding-bottom: 20px !important;
+  max-width: 550px;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
   z-index: 1000;
-
+  border-radius: 10px;
 }
 .modal-jobs {
   position: fixed;
   width: 50vw;
   left: 30%;
-  top: 70px !important;
+  top: 50px !important;
   height: 90vh;
-    max-width: 600px;
+  max-width: 650px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   padding: 20px;
+  transition: all 0.3s ease;
 }
 @media only screen and (max-width:900px){
   .modal-jobs{
@@ -339,52 +438,178 @@
 
 
 .jobs-container h1 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: center;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 2rem;
+  color: #0070f3;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.jobs-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #0070f3;
+  border-radius: 3px;
+}
+
+#dark .jobs-container h1 {
+  color: #6cbdfa;
+}
+
+#dark .jobs-container h1::after {
+  background-color: #6cbdfa;
 }
 
 .modal-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
 }
 
 .modal-form .form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+#dark .modal-form .form-group label {
+  color: #e0e0e0;
 }
 
 .modal-form .form-group input,
-.modal-form .form-group textarea {
-  width: 90%;
-  padding: 10px;
+.modal-form .form-group textarea,
+.modal-form .form-group select {
+  width: 100%;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.modal-form .form-group input:focus,
+.modal-form .form-group textarea:focus,
+.modal-form .form-group select:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+#dark .modal-form .form-group input:focus,
+#dark .modal-form .form-group textarea:focus,
+#dark .modal-form .form-group select:focus {
+  border-color: #6cbdfa;
+  box-shadow: 0 0 0 3px rgba(108, 189, 250, 0.2);
+}
+
+.modal-form .form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+#dark .modal-form .form-group select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0e0e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
 .modal-form .form-group textarea {
   resize: vertical;
-  height: 100px;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.form-helper-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #666;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+#dark .form-helper-text {
+  color: #aaa;
 }
 
 .submit-button1 {
   display: block;
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #0070f3;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .form-group{
   width: 105% !important;
 }
+
 .form-group input.form-group div{
   width: 105% !important;
 }
+
 .submit-button1:hover {
-  background-color: #0056b3;
+  background-color: #0060df;
+  transform: translateY(-2px);
+}
+
+#dark .submit-button1 {
+  background-color: #6cbdfa;
+  color: #121212;
+}
+
+#dark .submit-button1:hover {
+  background-color: #4ba3e3;
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  color: #333;
+}
+
+.modal-close-btn:hover {
+  background-color: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+#dark .modal-close-btn {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+#dark .modal-close-btn:hover {
+  background-color: #444;
 }
 
 .fixed-color2{
@@ -394,12 +619,22 @@
   background: #121212 !important;
 }
 
+#dark .modal-form .form-group input,
+#dark .modal-form .form-group textarea {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #e0e0e0;
+}
+
 .toast-message {
-  background: #12229d;
+  background: #0070f3;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   min-width: 200px;
   right: 0;
   width: 22vw;
-  padding: 10px;
+  padding: 12px;
+  font-family: 'ABeeZee', sans-serif;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

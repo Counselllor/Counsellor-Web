@@ -6,29 +6,28 @@ const SectionAbout = () => {
     <section className="section-about">
               <div className="u-center-text u-margin-bottom-large">
                 <h2 className="heading-secondary">
-                  Behold For What We Present You
+                  Discover Your Perfect Educational Path
                 </h2>
               </div>
 
               <div className="row">
                 <div className="col-1-of-2">
                   <h3 className="heading-tertiary u-margin-bottom-small">
-                    Our mission? To bestow upon students the gift of wisdom,
-                    aiding them in their quest for undergraduate enlightenment.
-                    Prepare to witness the extraordinary!
+                    Our mission is to empower students with knowledge and guidance,
+                    helping them make informed decisions about their educational journey
+                    and future career paths.
                   </h3>
                   <p className="paragraph">
-                    Within these virtual walls, students will uncover a treasure
-                    trove of streams and branches, carefully curated to match
-                    their very souls, their passions, and their wildest career
-                    aspirations. No stone shall be left unturned, no path left
-                    unexplored! But wait, dear traveler, there&apos;s more! We bring
-                    forth the whispers of the present, the tales of those who
-                    have embarked on this hallowed journey before you. Hear the
-                    unfiltered truths, the real-life sagas, as they guide you
-                    towards the perfect college. For in the realm of education,
-                    one size does not fit all. Let your desires and preferences
-                    reign supreme!
+                    Our platform offers a comprehensive collection of educational streams and career paths,
+                    carefully curated to match students' interests, aptitudes, and professional aspirations.
+                    We provide detailed information about colleges, courses, and career opportunities to help
+                    students make well-informed decisions about their future.
+                  </p>
+                  <p className="paragraph">
+                    We also feature authentic experiences and testimonials from current students and alumni,
+                    offering valuable insights into college life and career trajectories. We believe that
+                    education is a personal journey, and our goal is to help each student find the path that
+                    best suits their unique needs and ambitions.
                   </p>
                 </div>
 

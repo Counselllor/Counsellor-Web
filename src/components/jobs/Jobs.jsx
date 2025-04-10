@@ -86,7 +86,7 @@ const Jobs = () => {
 
     fetchJobs();
   }, [userId]);
-  
+
 
   const generateUUID = () => {
     var d = new Date().getTime();
@@ -125,20 +125,20 @@ const Jobs = () => {
       applicationDeadline: formData.applicationDeadline,
       createdAt: new Date().toISOString(),
     };
-  
+
     try {
       const db = getDatabase();
       await set(ref(db, `jobs/${jobId}`), newJob);
       await update(ref(db, `users/${userId}`), {
         jobsCreated: (user.jobsCreated ? user.jobsCreated + ',' : '') + jobId,
       });
-      
+
       setJobsData(prev => [newJob, ...prev]);
       setIsJobModal(false);
       toast.success("Job Listed Successfully 🚀", {
         className: "toast-message",
       });
-  
+
       setFormData({
         jobTitle: '',
         jobDescription: '',
@@ -198,7 +198,7 @@ useEffect(() => {
         <h1 className="jobsPage-main-title">Available Jobs</h1>
         <p className="jobsPage-subtitle">Explore exciting career opportunities</p>
       </header>
-      <div style={{width:"100vw",textAlign:"center"}}><button onClick={handlePostJob} style={{cursor:"pointer",margin:"auto",padding:"8px 17px",backgroundColor:"#12229d",borderRadius:"10px",color:"white"}}>Post Job</button></div>
+      <div className="post-job-container"><button onClick={handlePostJob} className="post-job-button">Post Job</button></div>
       <section className="jobsPage-content" style={{zIndex:10}}>
       { loading ? (
             <BlogsSkeleton count={JobsData.length} />) :    ( <div className="jobsPage-list">
@@ -213,8 +213,8 @@ useEffect(() => {
           ))}
         </div>)}
       </section>
-     
-     
+
+
     </div>
     <Footer/>
    {
@@ -236,7 +236,7 @@ isModal&&<>
       <label htmlFor="email">Email Address</label>
       <input
         type="email"
-      
+
         required
       />
     </div>
@@ -268,33 +268,37 @@ isModal&&<>
 </div>
 </div>
 <div className="blackb"></div></>
-   } 
+   }
      {isJobModal && (
         <>
           <div className="modal-jobs" style={{ overflowY: "scroll", overflowX: "hidden" }}>
-            <FaTimes onClick={handleJobClose} style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} size={'2rem'} />
+            <div className="modal-close-btn" onClick={handleJobClose}>
+              <FaTimes size={'1.5rem'} />
+            </div>
             <div className="jobs-container">
-              <h1 style={{ overflow: "scroll" }}>Add Job</h1>
+              <h1>Post a New Job</h1>
               <form className="modal-form" onSubmit={handleSubmitJob}>
                 <div className="form-group">
                   <label htmlFor="jobTitle">Job Title</label>
-                  <input type="text" id="jobTitle" name="jobTitle" value={formData.jobTitle} onChange={handleChange} required />
+                  <input type="text" id="jobTitle" name="jobTitle" value={formData.jobTitle} onChange={handleChange} required placeholder="e.g., Software Engineer, Product Manager" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="jobDescription">Job Description</label>
-                  <textarea id="jobDescription" name="jobDescription" rows="5" value={formData.jobDescription} onChange={handleChange} required></textarea>
+                  <textarea id="jobDescription" name="jobDescription" rows="5" value={formData.jobDescription} onChange={handleChange} required placeholder="Describe the job responsibilities, requirements, and benefits..."></textarea>
+                  <small className="form-helper-text">Provide a detailed description of the job to attract qualified candidates.</small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="companyName">Company Name</label>
-                  <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} required />
+                  <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} required placeholder="e.g., Acme Corporation" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="location">Location</label>
-                  <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} required />
+                  <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} required placeholder="e.g., San Francisco, CA or Remote" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="jobSalary">Job Salary</label>
-                  <input type="text" id="jobSalary" name="jobSalary" value={formData.jobSalary} onChange={handleChange} required />
+                  <input type="text" id="jobSalary" name="jobSalary" value={formData.jobSalary} onChange={handleChange} required placeholder="e.g., $50,000 - $70,000 per year" />
+                  <small className="form-helper-text">Specify salary range or compensation details.</small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="jobType">Job Type</label>
@@ -316,8 +320,9 @@ isModal&&<>
                 <div className="form-group">
                   <label htmlFor="applicationDeadline">Application Deadline</label>
                   <input type="date" id="applicationDeadline" name="applicationDeadline" value={formData.applicationDeadline} onChange={handleChange} required />
+                  <small className="form-helper-text">The last date candidates can apply for this position.</small>
                 </div>
-                <button type="submit" className="submit-button">Submit Job</button>
+                <button type="submit" className="submit-button1">Submit Job</button>
               </form>
             </div>
           </div>
