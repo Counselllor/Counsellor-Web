@@ -1,97 +1,117 @@
+/* CareerSupport.css */
+
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
 :root {
   --color-primary: #0070f3;
   --color-primary-dark: #0060df;
   --color-background: #cae7fe;
-  --color-item: #76c6f5;
   --color-text: #333;
   --color-text-light: #fff;
+}
+
+body {
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .career-support {
   background-color: var(--color-background);
   font-family: 'ABeeZee', sans-serif;
   color: var(--color-text);
+  min-height: 100vh;
 }
+
 #dark .career-support {
   background-color: #121212;
+  color: #e0e0e0;
 }
+
+#dark .career-support__header {
+  background: linear-gradient(135deg, #0070f3, #004a9f);
+}
+
 .career-support__header {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  background: linear-gradient(135deg, var(--color-primary), #76c6f5);
   color: var(--color-text-light);
   text-align: center;
   padding: 6rem 2rem;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  font-family: 'ABeeZee', sans-serif;
-}
-#dark .career-support__header{
-  background: linear-gradient(135deg, #0070f3, #004a9f);
+  margin-bottom: 2rem;
 }
 
 .career-support__main-title {
-  font-size: 3.5rem;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'ABeeZee', sans-serif;
 }
 
 .career-support__subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-family: 'ABeeZee', sans-serif;
   font-weight: 300;
   opacity: 0.9;
-  font-family: 'ABeeZee', sans-serif;
 }
 
 .career-support__content {
-  padding: 6rem 2rem;
+  padding: 2rem;
 }
 
 .career-support__title {
   color: var(--color-primary);
   font-size: 2.2rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   position: relative;
   font-family: 'ABeeZee', sans-serif;
+  font-weight: 600;
 }
 
 .career-support__title::after {
   content: '';
   display: block;
-  width: 50px;
+  width: 80px;
   height: 3px;
   background-color: var(--color-primary);
   margin: 1rem auto 0;
+  border-radius: 3px;
 }
-#dark .career-support__title{
+
+#dark .career-support__title {
   color: #e0e0e0;
 }
+
 #dark .career-support__title::after {
   background-color: var(--color-primary);
 }
+
 .career-support__services {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .service-card {
-  background-color: var(--color-text-light);
-  border-radius: 12px;
+  background: #fff;
   border: 1px solid #e0e0e0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  padding: 2rem;
   text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease;
 }
-#dark .service-card{
+
+#dark .service-card {
+  background: #1e1e1e;
   border: 1px solid #444;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #1e1e1e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service-card:hover {
@@ -101,7 +121,7 @@
 }
 
 #dark .service-card:hover {
-  background-color: #2a2a2a;
+  background: #2a2a2a;
   border-color: var(--color-primary);
   box-shadow: 0 15px 30px rgba(0, 112, 243, 0.2);
 }
@@ -109,16 +129,22 @@
 .service-card__icon {
   font-size: 3rem;
   color: var(--color-primary);
-  margin-bottom: 1.5rem;
+  margin: 1rem 0 1.5rem;
   transition: color 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 #dark .service-card__icon {
   color: var(--color-primary);
 }
 
+.service-card:hover .service-card__icon {
+  color: var(--color-primary-dark);
+}
+
 .service-card__title {
-  color: var(--color-primary);
+  color: var(--color-text);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
@@ -127,11 +153,15 @@
 }
 
 #dark .service-card__title {
+  color: #e0e0e0;
+}
+
+.service-card:hover .service-card__title {
   color: var(--color-primary);
 }
 
 .service-card__description {
-  color: var(--color-text);
+  color: #666;
   font-size: 0.95rem;
   line-height: 1.6;
   font-family: 'ABeeZee', sans-serif;
@@ -139,7 +169,7 @@
 }
 
 #dark .service-card__description {
-  color: #aaa;
+  color: #bbb;
 }
 
 .service-card:hover .service-card__description {
@@ -778,4 +808,76 @@
   font-size: 2.2rem;
   margin-bottom: 15px;
   z-index: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .career-support__main-title {
+    font-size: 2rem;
+  }
+
+  .career-support__subtitle {
+    font-size: 1rem;
+  }
+
+  .career-support__title {
+    font-size: 1.8rem;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .service-card__title {
+    font-size: 1.3rem;
+  }
+
+  .service-card__description {
+    font-size: 0.9rem;
+  }
+
+  .service-card__icon {
+    font-size: 2.5rem;
+  }
+
+  .career-support__content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-support__header {
+    padding: 4rem 1rem;
+  }
+
+  .career-support__main-title {
+    font-size: 1.8rem;
+  }
+
+  .career-support__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .career-support__title {
+    font-size: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-card__title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card__description {
+    font-size: 0.85rem;
+  }
+
+  .service-card__icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
 }

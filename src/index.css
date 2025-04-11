@@ -17,7 +17,7 @@ body, html{
     overflow-x: hidden;
 
     height: 100%;
-    
+
     width: 100%;
 }
 
@@ -26,13 +26,13 @@ body, html{
 }
 
 ::-webkit-scrollbar {
-    width: 10px; 
-    background-color: #f5f5f5; 
+    width: 10px;
+    background-color: #f5f5f5;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background-color: var(--btnColor); 
-    border-radius: 6px; 
+    background-color: var(--btnColor);
+    border-radius: 6px;
   }
   @media only screen and (max-width:900px) {
     .college{
@@ -49,5 +49,4 @@ body, html{
     width: 300px !important;
 }
 }
- 
-  
+

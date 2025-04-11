@@ -121,6 +121,32 @@
   margin-bottom: 20px;
 }
 
+.profile-avatar-container::after {
+  content: 'Click to edit';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 112, 243, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.profile-avatar-container:hover::after {
+  opacity: 1;
+}
+
+#dark .profile-avatar-container::after {
+  background-color: rgba(108, 189, 250, 0.9);
+  color: #1a1a1a;
+}
+
 .avatar-circle {
   width: 120px;
   height: 120px;
@@ -132,6 +158,14 @@
   justify-content: center;
   font-size: 42px;
   font-weight: bold;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 #dark .avatar-circle {
@@ -146,7 +180,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #12229d;
+  background-color: #0070f3;
   color: white;
   border: none;
   display: flex;
@@ -155,11 +189,24 @@
   cursor: pointer;
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.edit-avatar-btn:hover {
+  transform: scale(1.1);
+  background-color: #0060df;
 }
 
 #dark .edit-avatar-btn {
   background-color: #6cbdfa;
   color: #1a1a1a;
+  animation: pulse-dark 2s infinite;
+}
+
+#dark .edit-avatar-btn:hover {
+  background-color: #4ba3e3;
+  transform: scale(1.1);
 }
 
 .profile-left-section h2 {
@@ -187,6 +234,30 @@
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
+}
+
+.edit-instructions {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f0f7ff;
+  border-radius: 5px;
+  border-left: 3px solid #0070f3;
+}
+
+.edit-instructions p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+#dark .edit-instructions {
+  background-color: #1a2233;
+  border-left: 3px solid #6cbdfa;
+}
+
+#dark .edit-instructions p {
+  color: #e0e0e0;
 }
 
 #dark .user-college {
@@ -486,6 +557,20 @@
 .edit-profile-btn {
   background-color: #0070f3;
   color: white;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(0, 112, 243, 0.5);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 112, 243, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 112, 243, 0);
+  }
 }
 
 .edit-profile-btn:hover {
@@ -513,6 +598,20 @@
 #dark .edit-profile-btn {
   background-color: #6cbdfa;
   color: #fff;
+  animation: pulse-dark 2s infinite;
+  box-shadow: 0 0 10px rgba(108, 189, 250, 0.5);
+}
+
+@keyframes pulse-dark {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 189, 250, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 189, 250, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 189, 250, 0);
+  }
 }
 
 #dark .edit-profile-btn:hover {

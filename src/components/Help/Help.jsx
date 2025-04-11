@@ -28,10 +28,10 @@ const FAQItem = ({ question, answer }) => {
         <span className="faq-icon">{isOpen ? "−" : "+"}</span>
         {question}
       </div>
-      <div 
-        ref={contentRef} 
-        className="faq-answer" 
-        style={{ 
+      <div
+        ref={contentRef}
+        className="faq-answer"
+        style={{
           maxHeight: isOpen ? `${contentRef.current.scrollHeight}px` : "0px"
         }}
       >
@@ -42,10 +42,8 @@ const FAQItem = ({ question, answer }) => {
 };
 
 const Help = () => {
-
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
-  
- 
 
 
   let [isLoggedIn,setLogin]=useState(false)
@@ -58,7 +56,7 @@ const Help = () => {
     //   if (user) {
     //     // handle user logged in state
     //   } else {
-        
+
     //   }
     // });
   }, [navigate]);
@@ -146,6 +144,15 @@ const Help = () => {
             </ul>
           </section>
 
+          <section id="positionsnew">
+            <h2>Open Positions</h2>
+            <p>
+              We are always looking for talented individuals to join our team.
+              Check out our <Link to="/careers" style={{ color: theme === 'dark' ? '#6cbdfa' : '#0070f3', textDecoration: 'none', fontWeight: '600' }}>careers page</Link> for
+              current openings.
+            </p>
+          </section>
+
       <div id="faqsh" className="faqs-containerh">
       <h2>Frequently Asked Questions</h2>
       <div className="accordionh">
@@ -230,7 +237,7 @@ const Help = () => {
             </ul>
           </section> */}
 
-         
+
           {/* <section id="feedback">
             <h2>Feedback</h2>
             <p>
@@ -244,16 +251,25 @@ const Help = () => {
           </section> */}
         </div>
       </div>
-    
+
       <div style={{
-      maxWidth: '1000px',
-      margin: '40px auto',
+      maxWidth: '1200px',
+      margin: '60px auto',
       padding: '0 20px'
     }}>
+      <h2 style={{
+        fontSize: '2.2rem',
+        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
+        textAlign: 'center',
+        marginBottom: '40px',
+        fontWeight: '600',
+        fontFamily: "'ABeeZee', sans-serif"
+      }}>Support Resources</h2>
       <div style={{
         display: 'flex',
         justifyContent: 'center',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        gap: '20px'
       }}>
 
         <Box
@@ -298,7 +314,7 @@ const Help = () => {
         />
             <Box
             i="fas fa-wrench"
-            iconClass="fa-solid fa-phone" 
+            iconClass="fa-solid fa-phone"
           heading="Troubleshooting"
           text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
           contactInfo={[
@@ -317,6 +333,16 @@ const Help = () => {
             { type: 'text', value: 'Follow us on social media for the latest updates and news.' }
           ]}
         />
+        <Box
+            i="fas fa-briefcase"
+          heading="Careers"
+          text="We are always looking for talented individuals to join our team. Check out our current openings and apply today."
+          contactInfo={[
+            { type: 'text2', value: <span>View all open positions on our <Link to="/careers" style={{ color: theme === 'dark' ? '#6cbdfa' : '#0070f3', textDecoration: 'none', fontWeight: '600' }}>careers page</Link>.</span> },
+            { type: 'phone', value: 'Submit your resume and cover letter for consideration.' },
+            { type: 'text', value: 'Learn about our company culture and benefits.' }
+          ]}
+        />
       </div>
     </div>
 
@@ -326,44 +352,88 @@ const Help = () => {
     </>
   );
 };
-function Box({ i,heading, text, contactInfo }) {
+function Box({ i, heading, text, contactInfo }) {
+  const { theme } = useContext(ThemeContext);
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div style={{
-      width: '450px',
-      margin: '10px',
-      float: 'left',
-      border: '1px solid #0000FF',
-      padding: '20px'
-    }}>
-           <i className={i} style={{
-        fontSize: '50px',
-        color: '#0000FF',
-        marginRight: '10px'
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        width: '450px',
+        margin: '15px',
+        float: 'left',
+        border: theme === 'dark'
+          ? isHovered ? '1px solid rgba(108, 189, 250, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)'
+          : isHovered ? '1px solid rgba(0, 112, 243, 0.3)' : '1px solid rgba(0, 112, 243, 0.2)',
+        borderRadius: '12px',
+        padding: '25px',
+        boxShadow: isHovered
+          ? theme === 'dark' ? '0 15px 30px rgba(0, 112, 243, 0.2)' : '0 15px 30px rgba(0, 112, 243, 0.15)'
+          : theme === 'dark' ? '0 10px 20px rgba(0, 0, 0, 0.2)' : '0 10px 20px rgba(0, 0, 0, 0.1)',
+        backgroundColor: theme === 'dark'
+          ? isHovered ? '#2a2a2a' : '#1e1e1e'
+          : isHovered ? '#f8f8f8' : '#fff',
+        transition: 'all 0.3s ease',
+        fontFamily: "'ABeeZee', sans-serif",
+        transform: isHovered ? 'translateY(-10px)' : 'translateY(0)'
+      }}>
+
+      <i className={i} style={{
+        fontSize: '40px',
+        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
+        marginRight: '10px',
+        marginBottom: '15px',
+        display: 'block'
       }} />
 
-     <p style={{
-        fontSize: '30px',
-        marginTop:'7px',
-        marginBottom:'7px',
-        color: '#0000FF',
-        fontWeight: 'bold'
+      <h3 style={{
+        fontSize: '1.5rem',
+        marginTop: '10px',
+        marginBottom: '15px',
+        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
+        fontWeight: '600'
       }}>
         {heading}
-      </p>
+      </h3>
       <p style={{
-        fontSize: '15px',
-        margin:'10px',
-        color: '#666',
+        fontSize: '1rem',
+        margin: '0 0 20px 0',
+        color: theme === 'dark' ? '#e0e0e0' : '#555',
+        lineHeight: '1.6'
       }}>
         {text}
       </p>
-      <ul style={{ listStyle: 'disc', padding: 0, margin: 0,marginTop:'25px' }}>
-  {contactInfo.map((item, index) => (
-    <li key={index} style={{ textAlign: 'left', fontSize: '15px',marginLeft:'15px' }}>
-      {item.value}
-    </li>
-  ))}
-</ul>
+      <ul style={{
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        marginTop: '20px'
+      }}>
+        {contactInfo.map((item, index) => (
+          <li key={index} style={{
+            textAlign: 'left',
+            fontSize: '1rem',
+            marginBottom: '10px',
+            paddingLeft: '20px',
+            position: 'relative',
+            color: theme === 'dark' ? '#e0e0e0' : '#555',
+            lineHeight: '1.5'
+          }}>
+            <span style={{
+              position: 'absolute',
+              left: '0',
+              top: '8px',
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              backgroundColor: theme === 'dark' ? '#6cbdfa' : '#0070f3'
+            }}></span>
+            {item.value}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

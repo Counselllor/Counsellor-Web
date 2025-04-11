@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, database, storage } from "../../firebase/auth";
 import { ref, get, update } from "firebase/database";
@@ -21,6 +21,9 @@ const StandaloneProfile = () => {
   const [editMode, setEditMode] = useState(false);         // Edit mode toggle
   const [resumeFile, setResumeFile] = useState(null);      // Resume file URL
   const [resumeLoading, setResumeLoading] = useState(false); // Resume upload loading state
+  const [profilePicture, setProfilePicture] = useState(null); // Profile picture file for upload
+  const [profilePictureUrl, setProfilePictureUrl] = useState(""); // URL of the uploaded profile picture
+  const profilePictureInputRef = useRef(null);            // Reference to profile picture file input
 
   // Form data for editing profile
   const [formData, setFormData] = useState({
@@ -103,6 +106,11 @@ const StandaloneProfile = () => {
         if (data.resumeURL) {
           setResumeFile(data.resumeURL);
         }
+
+        // Check if user has a profile picture
+        if (data.profilePictureUrl) {
+          setProfilePictureUrl(data.profilePictureUrl);
+        }
       } else {
         console.error("No user data found for UID:", uid);
         toast.error("User data not found");
@@ -133,26 +141,42 @@ const StandaloneProfile = () => {
    */
   const handleSaveProfile = async () => {
     try {
-      if (!auth.currentUser) {
-        toast.error("You must be logged in to update your profile");
+      // Check if we have user data
+      if (!userData) {
+        toast.error("User data not loaded yet. Please try again.");
         return;
       }
 
-      const uid = auth.currentUser.uid;
+      // Validate required fields
+      if (!formData.firstname.trim()) {
+        toast.error("First name is required");
+        return;
+      }
+
+      // Get the user ID from localStorage
+      const uid = localStorage.getItem("userUid");
+      if (!uid) {
+        toast.error("User ID not found. Please try logging in again.");
+        return;
+      }
+
       const userRef = ref(database, `users/${uid}`);
 
       // Create updates object
       const updates = {
-        firstname: formData.firstname,
-        surname: formData.surname,
-        bio: formData.bio,
-        college: formData.college,
-        course: formData.course,
+        firstname: formData.firstname.trim(),
+        surname: formData.surname.trim(),
+        bio: formData.bio.trim(),
+        college: formData.college.trim(),
+        course: formData.course.trim(),
         year: formData.year,
-        phone: formData.phone,
+        phone: formData.phone.trim(),
         gender: formData.gender,
         dob: formData.dob
       };
+
+      // Show loading toast
+      toast.info("Saving your profile...");
 
       // Update the database
       await update(userRef, updates);
@@ -168,7 +192,87 @@ const StandaloneProfile = () => {
       toast.success("Profile updated successfully");
     } catch (error) {
       console.error("Error updating profile:", error);
-      toast.error("Failed to update profile");
+      toast.error("Failed to update profile: " + (error.message || "Unknown error"));
+    }
+  };
+
+  /**
+   * Handles clicking on the avatar edit button
+   * Opens the file picker to select a profile picture
+   */
+  const handleAvatarEdit = () => {
+    // Check if we have user data
+    if (!userData) {
+      toast.error("User data not loaded yet. Please try again.");
+      return;
+    }
+
+    // Trigger the hidden file input
+    if (profilePictureInputRef.current) {
+      profilePictureInputRef.current.click();
+    }
+  };
+
+  /**
+   * Handles profile picture file selection
+   * @param {Object} e - Event object from file input
+   */
+  const handleProfilePictureChange = async (e) => {
+    try {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      // Validate file type
+      const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!validTypes.includes(file.type)) {
+        toast.error("Please select a valid image file (JPEG, PNG, GIF, or WEBP)");
+        return;
+      }
+
+      // Validate file size (max 2MB)
+      const maxSize = 2 * 1024 * 1024; // 2MB
+      if (file.size > maxSize) {
+        toast.error("Image file size must be less than 2MB");
+        return;
+      }
+
+      // Get the user ID from localStorage
+      const uid = localStorage.getItem("userUid");
+      if (!uid) {
+        toast.error("User ID not found. Please try logging in again.");
+        return;
+      }
+
+      // Show loading toast
+      toast.info("Uploading profile picture...");
+
+      // Set the profile picture file
+      setProfilePicture(file);
+
+      // Create a reference to the storage location
+      const profilePicRef = storageRef(storage, `profile_pictures/${uid}`);
+
+      // Upload the file
+      await uploadBytes(profilePicRef, file);
+
+      // Get the download URL
+      const downloadURL = await getDownloadURL(profilePicRef);
+
+      // Update the profile picture URL in the database
+      const userRef = ref(database, `users/${uid}`);
+      await update(userRef, { profilePictureUrl: downloadURL });
+
+      // Update local state
+      setProfilePictureUrl(downloadURL);
+      setUserData({
+        ...userData,
+        profilePictureUrl: downloadURL
+      });
+
+      toast.success("Profile picture updated successfully");
+    } catch (error) {
+      console.error("Error uploading profile picture:", error);
+      toast.error("Failed to upload profile picture: " + (error.message || "Unknown error"));
     }
   };
 
@@ -177,6 +281,12 @@ const StandaloneProfile = () => {
    * Resets form data when canceling edit mode
    */
   const toggleEditMode = () => {
+    // Check if we have user data
+    if (!userData) {
+      toast.error("User data not loaded yet. Please try again.");
+      return;
+    }
+
     if (editMode) {
       // If canceling edit, reset form data to original values
       setFormData({
@@ -190,7 +300,11 @@ const StandaloneProfile = () => {
         gender: userData?.gender || "",
         dob: userData?.dob || ""
       });
+    } else {
+      // If enabling edit mode, show a toast message
+      toast.info("Edit mode enabled. Make your changes and click Save.");
     }
+
     setEditMode(!editMode);
   };
 
@@ -345,15 +459,38 @@ const StandaloneProfile = () => {
             <div className="profile-left-section">
               <div className="profile-avatar-container">
                 <div className="avatar-circle">
-                  {userData?.firstname ? userData.firstname.charAt(0).toUpperCase() : "U"}
+                  {userData?.profilePictureUrl ? (
+                    <img
+                      src={userData.profilePictureUrl}
+                      alt="Profile"
+                      className="profile-image"
+                    />
+                  ) : (
+                    userData?.firstname ? userData.firstname.charAt(0).toUpperCase() : "U"
+                  )}
                 </div>
-                <button className="edit-avatar-btn">
+                <button
+                  className="edit-avatar-btn"
+                  onClick={handleAvatarEdit}
+                  title="Change profile picture"
+                >
                   <FaEdit />
                 </button>
+                <input
+                  type="file"
+                  ref={profilePictureInputRef}
+                  onChange={handleProfilePictureChange}
+                  accept="image/jpeg,image/png,image/gif,image/webp"
+                  style={{ display: 'none' }}
+                />
               </div>
               <h2>{userData?.firstname} {userData?.surname}</h2>
               <p className="user-role">{userData?.user_type || ""}</p>
               <p className="user-college">{userData?.college || ""}</p>
+
+              <div className="edit-instructions">
+                <p>Click the Edit Profile button below to update your information</p>
+              </div>
 
               <button
                 className={`edit-profile-btn ${editMode ? 'active' : ''}`}
