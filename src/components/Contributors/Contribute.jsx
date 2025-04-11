@@ -283,11 +283,21 @@ let arr=[
         key={contributor.login}
         className="contributor-card"
         onClick={() => handleProfileClick(contributor.login)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && handleProfileClick(contributor.login)}
       >
         <img src={contributor.avatar_url} alt={contributor.login} />
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
           <p>{contributor.contributions} contributions</p>
+          {arr.find(item => item.username === contributor.login)?.college_name !== "Default College" && (
+            <p>{arr.find(item => item.username === contributor.login)?.college_name}</p>
+          )}
+          {arr.find(item => item.username === contributor.login)?.batch_year !== "Default Batch Year" && (
+            <p>{arr.find(item => item.username === contributor.login)?.batch_year}</p>
+          )}
+          <p>India</p>
         </div>
       </div>
     ));
@@ -295,17 +305,28 @@ let arr=[
 
   const displayContributors = () => {
     return contributors.slice(0, contributors.length).map((contributor,index) => (
-      <div key={contributor.login}  className="contributor-card" onClick={() => handleProfileClick(contributor.login)}>
+      <div
+        key={contributor.login}
+        className="contributor-card"
+        onClick={() => handleProfileClick(contributor.login)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && handleProfileClick(contributor.login)}
+      >
         <img src={contributor.avatar_url} alt={contributor.login} />
         <div className="contributor-info">
           <h3>{contributor.login}</h3>
           <p>{contributor.contributions} contributions</p>
-          <p>{arr[index].username==contributor.login&&arr[index].college_name}</p>
-          <p>{arr[index].username==contributor.login&&arr[index].social_links!=="Default Social Links"&&arr[index].social_links}</p>
-          <p>{arr[index].username==contributor.login&&arr[index].college_name!=="Default Social Links"&&arr[index].batch_year}</p>
-          <p>{"India"}</p>
-          <p></p>
-          <p></p>
+          {arr[index] && arr[index].username === contributor.login && arr[index].college_name && arr[index].college_name !== "Default College" && (
+            <p>{arr[index].college_name}</p>
+          )}
+          {arr[index] && arr[index].username === contributor.login && arr[index].social_links && arr[index].social_links !== "Default Social Links" && (
+            <p>{arr[index].social_links}</p>
+          )}
+          {arr[index] && arr[index].username === contributor.login && arr[index].batch_year && arr[index].batch_year !== "Default Batch Year" && (
+            <p>{arr[index].batch_year}</p>
+          )}
+          <p>India</p>
         </div>
       </div>
     ));
@@ -315,11 +336,13 @@ let arr=[
     return Array(count)
       .fill(0)
       .map((_, index) => (
-        <div className="contributor-card skeleton" key={index}>
-          <div className="skeleton-avatar"></div>
+        <div className="contributor-card skeleton" key={`skeleton-${index}`}>
+          <div className="skeleton-avatar" />
           <div className="skeleton-info">
-            <div className="skeleton-text skeleton-name"></div>
-            <div className="skeleton-text skeleton-contributions"></div>
+            <div className="skeleton-text skeleton-name" />
+            <div className="skeleton-text skeleton-contributions" />
+            <div className="skeleton-text" />
+            <div className="skeleton-text" />
           </div>
         </div>
       ));
@@ -351,9 +374,9 @@ let arr=[
           <h1>Our Top Contributors</h1>
           <div className="top-contri">
             {loading ? (
-              
+
               renderSkeletons(3)
-            
+
             ) : (
               displayTopContributors()
             )}
