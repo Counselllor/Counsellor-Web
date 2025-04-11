@@ -587,7 +587,7 @@ label {
   }
 
   .password-input .toggle-button {
-    right: 10px !important;
+    right: 15px !important;
   }
 
   #captchaBox {
@@ -611,7 +611,7 @@ label {
 
 @media screen and (max-width: 500px) {
   .password-input .toggle-button {
-    right: 10px !important;
+    right: 15px !important;
   }
 
   .login-container{
@@ -639,11 +639,13 @@ label {
 }
 
 .password-input .toggle-button {
+  color: #787878;
   position: absolute;
-  width: fit-content;
+  font-size: 20px;
   top: 50%;
-  right: 10px !important;
+  right: 15px !important;
   transform: translateY(-50%);
+  cursor: pointer;
   z-index: 1;
 }
 

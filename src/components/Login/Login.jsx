@@ -3,12 +3,10 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import Tilt from "react-parallax-tilt";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
-import hide from "../../assets/hide.png";
-import show from "../../assets/show.png";
 import { auth, database } from "../../firebase/auth";
 import { ref, get, update } from "firebase/database";
 import "./Login.css";
-import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus } from "react-icons/fa";
+import { FaSyncAlt, FaEnvelope, FaKey, FaShieldVirus, FaEye, FaEyeSlash } from "react-icons/fa";
 import validate from "../../common/validation";
 import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
@@ -70,6 +68,7 @@ const fetchUserData = async (userId) => {
 
 export default function Login() {
   const [error, setError] = useState({});
+  const [showErrors, setShowErrors] = useState(false);
   const [passwordType, setPasswordType] = useState("password");
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
@@ -100,6 +99,9 @@ export default function Login() {
         ...prev,
         ...errObj,
       }));
+
+      // Hide errors while typing
+      setShowErrors(false);
     },
     [validate]
   );
@@ -202,6 +204,9 @@ export default function Login() {
   // if signin with EmailId/password success then navigate to dashboard based on user type
   const handleSignIn = useCallback(async (e) => {
     e.preventDefault();
+
+    // Show errors on form submission
+    setShowErrors(true);
 
     // Validate captcha
     if (captchaVal !== captchaText) {
@@ -358,7 +363,7 @@ export default function Login() {
                   <FaEnvelope className="icons" />
                 </div>
 
-                {error.email && error.emailError && (
+                {showErrors && error.email && error.emailError && (
                   <p className="errorShow">{error.emailError}</p>
                 )}
               </div>
@@ -376,15 +381,18 @@ export default function Login() {
                       className={`${error.passwordError && "inputField"}`}
                     />
                     <FaKey className="icons" />
-                    <div onClick={passwordToggle} className="toggle-button">
-                      <img
-                        height={20}
-                        width={20}
-                        src={passwordType === "password" ? hide : show}
-                        alt="password-toggle"
+                    {passwordType === "password" ? (
+                      <FaEyeSlash
+                        className="toggle-button"
+                        onClick={passwordToggle}
                       />
-                    </div>
-                    {error.password && error.passwordError && (
+                    ) : (
+                      <FaEye
+                        className="toggle-button"
+                        onClick={passwordToggle}
+                      />
+                    )}
+                    {showErrors && error.password && error.passwordError && (
                       <p className="errorShow">{error.passwordError}</p>
                     )}
                   </div>

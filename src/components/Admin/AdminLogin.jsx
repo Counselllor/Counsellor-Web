@@ -3,12 +3,10 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import Tilt from "react-parallax-tilt";
 import { Link, useNavigate } from "react-router-dom";
 import meeting2 from "../../assets/meeting2.png";
-import hide from "../../assets/hide.png";
-import show from "../../assets/show.png";
 import { auth, database } from "../../firebase/auth";
 import { ref, get } from "firebase/database";
 import "../Login/Login.css";
-import { FaEnvelope, FaKey, FaShieldVirus, FaSyncAlt } from "react-icons/fa";
+import { FaEnvelope, FaKey, FaShieldVirus, FaSyncAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 import validate from "../../common/validation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +22,7 @@ const AdminLogin = () => {
     password: "",
   });
   const [error, setError] = useState({});
+  const [showErrors, setShowErrors] = useState(false);
   const [passwordType, setPasswordType] = useState("password");
   const [captchaVal, setCaptchaVal] = useState("");
   const [captchaText, setCaptchaText] = useState("");
@@ -43,6 +42,9 @@ const AdminLogin = () => {
     setError((prev) => {
       return { ...prev, ...errObj };
     });
+
+    // Hide errors while typing
+    setShowErrors(false);
   });
 
   const passwordToggle = useCallback(() => {
@@ -110,6 +112,9 @@ const AdminLogin = () => {
     async (e) => {
       e.preventDefault();
       let submitable = true;
+
+      // Show errors on form submission
+      setShowErrors(true);
 
       if (captchaVal !== captchaText) {
         toast.error("Invalid Captcha", {
@@ -230,7 +235,7 @@ const AdminLogin = () => {
                   <FaEnvelope className="icons" />
                 </div>
 
-                {error.email && error.emailError && (
+                {showErrors && error.email && error.emailError && (
                   <p className="errorShow">{error.emailError}</p>
                 )}
               </div>
@@ -248,15 +253,18 @@ const AdminLogin = () => {
                       className={`${error.passwordError && "inputField"}`}
                     />
                     <FaKey className="icons" />
-                    <div onClick={passwordToggle} className="toggle-button">
-                      <img
-                        height={20}
-                        width={20}
-                        src={passwordType === "password" ? hide : show}
-                        alt="password-toggle"
+                    {passwordType === "password" ? (
+                      <FaEyeSlash
+                        className="toggle-button"
+                        onClick={passwordToggle}
                       />
-                    </div>
-                    {error.password && error.passwordError && (
+                    ) : (
+                      <FaEye
+                        className="toggle-button"
+                        onClick={passwordToggle}
+                      />
+                    )}
+                    {showErrors && error.password && error.passwordError && (
                       <p className="errorShow">{error.passwordError}</p>
                     )}
                   </div>
