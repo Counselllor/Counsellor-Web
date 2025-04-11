@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { auth} from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -22,19 +22,19 @@ const Contact = () => {
   let lastname = useRef();
   let feedback = useRef();
   let email = useRef();
-  
+
   const navigate = useNavigate();
- 
-  
+
+
   let [isLoggedIn, setLogin] = useState(false);
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
-  
+
   let form = useRef();
-  
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,7 +46,7 @@ const Contact = () => {
       feedback: form.current.feedback.value,
       created_date: new Date().toISOString() // Adding created_date
     };
-    
+
     emailjs.send('service_kszura2', "template_u8shl9d", params, {
       publicKey: "rSYpY_RsF76o4MgcA",
     });
@@ -75,7 +75,7 @@ const Contact = () => {
 
   return (
     <main>
-   <Navbar/>
+
       <div className="contact1">
         <ToastContainer />
         <div className="left">
@@ -127,9 +127,9 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      
+
       <Footer />
-      
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

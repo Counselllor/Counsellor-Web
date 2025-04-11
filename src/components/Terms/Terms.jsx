@@ -5,7 +5,7 @@ import { FaHome, FaChevronRight } from "react-icons/fa";
 import { ThemeContext } from "../../App";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+
 
 
 const Terms = () => {
@@ -23,7 +23,7 @@ const Terms = () => {
   }, [navigate]);
   return (
     <div id={theme}>
-      <Navbar />
+
       <div className="terms-page">
         <div className="terms-container">
           {/* Breadcrumb navigation */}

@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollToTop from "react-scroll-to-top";
-import Navbar from "../Navbar/Navbar";
+
 
 const Contribute = () => {
   const owner = "Counselllor";
@@ -357,7 +357,7 @@ let arr=[
         color="white"
         style={{ backgroundColor: "#5CB6F9" }}
       />
-      <Navbar />
+
       <div className="contribute-container">
         <header className="contributor-header">
           <h1 className="contributor-heading">Our Amazing Contributors</h1>

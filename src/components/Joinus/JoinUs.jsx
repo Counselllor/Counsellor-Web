@@ -10,7 +10,7 @@ import { signOut} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 import { ThemeContext } from "../../App";
-import Navbar from "../Navbar/Navbar";
+
 import JoinStories from "./Jointestimonial";
 
 
@@ -30,14 +30,14 @@ let [isLoggedIn,setLogin]=useState(false)
     //   if (user) {
     //     // handle user logged in state
     //   } else {
-        
+
     //   }
     // });
   }, [navigate]);
 
   return (
     <>
-      <Navbar />
+
       <div>
         <div className="join-us-container">
           <div className="contents">

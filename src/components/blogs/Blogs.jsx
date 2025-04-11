@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"; // Import Link and useNavigate f
 import { getDatabase, ref, get } from "firebase/database";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
-import Navbar from "../Navbar/Navbar";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BlogsSkeleton from "./BlogsSkeleton"; // Import Skeleton component
@@ -108,7 +108,6 @@ const Blogs = () => {
 
   return (
     <>
-      <Navbar />
       <ToastContainer />
       <div className="blogs-container">
         <header className="blogs-header">

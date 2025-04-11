@@ -9,7 +9,7 @@ import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
 import { toast } from "react-toastify";
-import Navbar from "../Navbar/Navbar";
+
 
 const Breadcrumb = () => {
   return (
@@ -123,7 +123,7 @@ const Help = () => {
   ];
   return (
     <>
-    <Navbar/>
+
            <BackToHomeButton />
 
       <div className="help-container">

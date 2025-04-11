@@ -14,7 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ThemeContext } from '../../App';
-import Navbar from '../Navbar/Navbar';
+
 
 const BlogWrite = () => {
   const [title, setTitle] = useState('');
@@ -26,17 +26,17 @@ const BlogWrite = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
- 
+
   const handleThemeChange = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
-  
+
   useEffect(() => {
     if (localStorage.getItem('login')) {
       setLogin(true);
     }
   }, [navigate]);
-  
+
   const handleSignOut = useCallback(() => {
     signOut(auth)
       .then(() => {
@@ -55,7 +55,7 @@ const BlogWrite = () => {
       try {
         const db = getDatabase();
         const userRef = ref(db, 'users/' + userId);
-        
+
         const userSnap = await get(userRef);
         if (userSnap.exists()) {
           setUser(userSnap.val());
@@ -101,14 +101,14 @@ const BlogWrite = () => {
         className: "toast-message",
       });
       // toast.error("sdsdsd")
-      return 
+      return
     }
     if( tags.split(',').length>6){
       toast.error("Tags length should Not be Greater then 6!! 🚀",{
         className: "toast-message",
       });
       // toast.error("sdsdsd")
-      return 
+      return
     }
     const articleId = generateUUID();
     const newBlog = {
@@ -172,40 +172,40 @@ function checkLength(e){
 }
   return (
     <>
-       <Navbar/>
+
        <ToastContainer />
     <div className="blog-write-container">
       <h1>Create New Blog</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title:</label>
-          <input 
-            type="text" 
-            id="title" 
+          <input
+            type="text"
+            id="title"
             placeholder='Enter Blog Title'
-            value={title} 
+            value={title}
             onChange={checkLength}
-            required 
+            required
           />
         </div>
         <div>
           <label htmlFor="content">Content:</label>
-          <textarea 
-            id="content" 
+          <textarea
+            id="content"
              placeholder='Enter Blog Content'
-            value={content} 
-            onChange={(e) => setContent(e.target.value)} 
-            required 
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            required
           />
         </div>
         <div>
           <label htmlFor="tags">Tags </label>
-          <input 
-            type="text" 
-            id="tags" 
+          <input
+            type="text"
+            id="tags"
             placeholder='Enter Tags (comma-separated)'
-            value={tags} 
-            onChange={(e) => setTags(e.target.value)} 
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
           />
         </div>
         <button type="submit">Save</button>

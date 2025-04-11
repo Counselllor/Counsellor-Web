@@ -19,7 +19,7 @@ import { auth } from "../../firebase/auth";
 import { MdModeEdit, MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FaEnvelope, FaRegClipboard,  FaTimes,  FaWhatsapp } from "react-icons/fa";
 import { FaTrash, FaShareAlt , FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import Navbar from "../Navbar/Navbar";
+
 import Discussions from "./Discussions";
 
 const generateUUID = () => {
@@ -66,7 +66,7 @@ const BlogReadPage = () => {
       try {
         const db = getDatabase();
         const userRef = ref(db, 'users/' + userId);
-        
+
         const userSnap = await get(userRef);
         if (userSnap.exists()) {
           setUser(userSnap.val());
@@ -224,8 +224,8 @@ const BlogReadPage = () => {
   const handleCloseModal = () => {
     setIsModal(false);
   };
-  
-  
+
+
   const handleDelete = async (id) => {
     console.log(user)
       let isUser=true
@@ -249,13 +249,13 @@ const BlogReadPage = () => {
         await update(ref(db, 'users/' + userId), {
           articleCreated: updatedArticles,
         });
-    
+
         toast.success("Blog Deleted Successfully!! 🚀", {
           className: "toast-message",
         });
         const articlesRef = ref(db, 'articles');
         const snapshot = await get(articlesRef);
-    
+
         if (snapshot.exists()) {
           const data = snapshot.val();
           console.log(data)
@@ -264,14 +264,14 @@ const BlogReadPage = () => {
 
     return
           }
-        
+
           navigate('/blogs')
         } else {
           navigate('/blogs')
 
           console.log('No data available');
         }
-      
+
     };
     function handleCLoseModal(){
       setIsModal(false)
@@ -279,7 +279,7 @@ const BlogReadPage = () => {
     const handleShareClick = () => {
       setShareModalVisible(true);
     };
-  
+
     const handleShareModalClose = () => {
       setShareModalVisible(false);
     };
@@ -300,14 +300,14 @@ const BlogReadPage = () => {
     const closeModal = () => {
       setIsNotLoggedInModalVisible(false);
     };
-  
+
     const handleOkayClick = () => {
       navigate('/');
     };
  console.log()
   return (
     <>
-     <Navbar/>
+
       <div className="blog-read-page_container">
         <div className="blog-read-page">
           <div className="blog-header">
@@ -332,34 +332,34 @@ const BlogReadPage = () => {
                 ) : (
                   <MdFavoriteBorder size={18} />
                 )}<p>{blog.likeCount}</p>
-                </div>  
+                </div>
               </div>
               <div className="right_blog_icon" style={{display:"flex"}}>
               <div className="comment-button"  onClick={()=>setIsModal(true)}>
               <FaRegComment size={16} /><p>{Object.keys(comments).length}</p>
             </div>
-              
+
               <div className="share-button" onClick={handleShareClick}>
               <FaShareAlt size={16} />
             </div>
-       
+
               {/* <button style={{padding:"10px",border:"solid 1px black"}} onClick={()=>setIsModal(true)}>Comment</button> */}
               { isLoggedIn &&  blog.createdBy === userId && (
-              <>  
+              <>
               <div className="Edit_icon">
                   <MdModeEdit size={18} onClick={handleEditClick} />
                 </div>
-                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'1.5rem'} onClick={()=>handleDelete(blog.id)}/>}</div>        
+                <div className="flex justify-end" style={{display:'flex',justifyContent:"end"}}>{<FaTrash size={'1.5rem'} onClick={()=>handleDelete(blog.id)}/>}</div>
               </>
               )}
                  </div>
-             
+
               </div>
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={createMarkup(blog.content)}></div>
         </div>
-      
-    
+
+
       </div>
       <Footer />
       <Modal

@@ -8,7 +8,7 @@ import { Switch } from 'antd';
 import './BlogWrite.css';
 import { toast } from 'react-toastify';
 import { ThemeContext } from '../../App';
-import Navbar from '../Navbar/Navbar';
+
 
 const BlogEditPage = () => {
   const location = useLocation();
@@ -22,7 +22,7 @@ const BlogEditPage = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('userUid');
 
- 
+
 
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -30,7 +30,7 @@ const BlogEditPage = () => {
     }
   }, [navigate]);
 
- 
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,39 +58,39 @@ const BlogEditPage = () => {
 
   return (
     <>
-    <Navbar/>
+
       <div className="blog-write-container">
         <h1>Edit Blog</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="title">Title:</label>
-            <input 
-              type="text" 
-              id="title" 
+            <input
+              type="text"
+              id="title"
               placeholder='Enter Blog Title'
-              value={title} 
-              onChange={(e) => setTitle(e.target.value)} 
-              required 
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
             />
           </div>
           <div>
             <label htmlFor="content">Content:</label>
-            <textarea 
-              id="content" 
+            <textarea
+              id="content"
               placeholder='Enter Blog Content'
-              value={content} 
-              onChange={(e) => setContent(e.target.value)} 
-              required 
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
             />
           </div>
           <div>
             <label htmlFor="tags">Tags </label>
-            <input 
-              type="text" 
-              id="tags" 
+            <input
+              type="text"
+              id="tags"
               placeholder='Enter Tags (comma-separated)'
-              value={tags} 
-              onChange={(e) => setTags(e.target.value)} 
+              value={tags}
+              onChange={(e) => setTags(e.target.value)}
             />
           </div>
           <button type="submit">Update</button>

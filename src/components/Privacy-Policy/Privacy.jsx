@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import "./Privacy.css";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+
 import { ThemeContext } from "../../App";
 
 const Privacy = () => {
@@ -30,7 +30,7 @@ const Privacy = () => {
 
   return (
     <div id={theme}>
-      <Navbar />
+
       <div className="privacy-page">
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
