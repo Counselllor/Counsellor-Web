@@ -32,7 +32,7 @@
     "dompurify": "^3.1.7",
     "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "firebase": "^11.6.0",
     "jsonwebtoken": "^9.0.2",
     "marked": "^14.1.2",
