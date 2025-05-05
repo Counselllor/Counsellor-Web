@@ -126,7 +126,7 @@
 .jobsPage-location,
 .jobsPage-type {
   color: var(--color-text);
-  font-size: 1.1rem;
+  font-size: 1.3rem; /* Updated to match university page font size */
   line-height: 1.6;
   margin-bottom: 1rem;
   font-family: 'ABeeZee', sans-serif;
@@ -154,7 +154,7 @@
 .jobsPage-apply {
   background-color: #0070f3;
   color: var(--color-text-light);
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* Kept at 1.1rem to match university page */
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -222,6 +222,16 @@
   .jobsPage-title {
     font-size: 1.5rem;
   }
+
+  .jobsPage-description,
+  .jobsPage-location,
+  .jobsPage-type {
+    font-size: 1.1rem; /* Added to be consistent with university page */
+  }
+
+  .jobsPage-apply {
+    font-size: 1.1rem; /* Added to be consistent with university page */
+  }
 }
 
 .post-job-container {
@@ -238,7 +248,7 @@
   border-radius: 8px;
   color: white;
   font-family: 'ABeeZee', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Updated to match university page apply button */
   font-weight: 600;
   border: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -477,8 +487,9 @@
   margin-bottom: 8px;
   font-weight: 600;
   font-family: 'ABeeZee', sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem; /* Updated to be consistent with university page */
   color: #333;
+  line-height: 1.4;
 }
 
 #dark .modal-form .form-group label {
@@ -493,9 +504,10 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   font-family: 'ABeeZee', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.1rem; /* Updated to be consistent with university page */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+  line-height: 1.5;
 }
 
 .modal-form .form-group input:focus,
@@ -535,9 +547,10 @@
 .form-helper-text {
   display: block;
   margin-top: 6px;
-  font-size: 0.85rem;
+  font-size: 1rem; /* Updated to be consistent with university page */
   color: #666;
   font-family: 'ABeeZee', sans-serif;
+  line-height: 1.4;
 }
 
 #dark .form-helper-text {
@@ -552,7 +565,7 @@
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 1.1rem; /* Updated to match university page apply button */
   font-family: 'ABeeZee', sans-serif;
   font-weight: 600;
   cursor: pointer;

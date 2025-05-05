@@ -41,14 +41,14 @@ body {
 
 .courses-main-title {
   font-family: 'ABeeZee', sans-serif;
-  font-size: 3rem;
+  font-size: 4rem; /* Updated to match university page main title */
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .courses-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* Updated to match university page subtitle */
   font-family: 'ABeeZee', sans-serif;
   font-weight: 300;
   opacity: 0.9;
@@ -132,7 +132,7 @@ body {
 }
 
 .course-title {
-  font-size: 1.5em;
+  font-size: 1.75rem; /* Updated to match university page title font size */
   margin: 0 0 15px;
   color: var(--color-primary);
   font-family: 'ABeeZee', sans-serif;
@@ -145,11 +145,11 @@ body {
 }
 
 .course-description {
-  font-size: 0.95em;
+  font-size: 1.3rem; /* Updated to match university page font size */
   color: #555;
   margin-bottom: 20px;
   font-family: 'ABeeZee', sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   transition: color 0.3s ease;
 }
 
@@ -168,11 +168,12 @@ body {
 .course-instructor,
 .course-duration,
 .course-price {
-  font-size: 0.9em;
+  font-size: 1.3rem; /* Updated to match university page font size */
   margin-bottom: 12px;
   color: #333;
   font-family: 'ABeeZee', sans-serif;
   transition: color 0.3s ease;
+  line-height: 1.6;
 }
 
 #dark .course-instructor,
@@ -201,9 +202,9 @@ body {
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
-  font-size: 0.9rem;
+  border-radius: 5px; /* Updated to match university page button */
+  padding: 0.75rem 1.5rem; /* Updated to match university page button */
+  font-size: 1.1rem; /* Updated to match university page button font size */
   font-weight: 600;
   cursor: pointer;
   margin-top: 15px;
@@ -252,29 +253,44 @@ color: white !important;
 /* Responsive font sizes for mobile devices */
 @media (max-width: 768px) {
   .courses-main-title {
-    font-size: 2rem;
+    font-size: 3rem; /* Updated to match university page */
   }
 
   .courses-subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Updated to match university page */
   }
 
   .course-title {
-    font-size: 1.3em;
+    font-size: 1.5rem; /* Updated to match university page */
   }
 
   .course-description {
-    font-size: 0.9em;
+    font-size: 1.1rem; /* Updated to match university page */
   }
 
   .course-instructor,
   .course-duration,
   .course-price {
-    font-size: 0.85em;
+    font-size: 1.1rem; /* Updated to match university page */
   }
 
   .course-enroll-btn {
-    font-size: 0.85rem;
-    padding: 10px 15px;
+    font-size: 1.1rem; /* Updated to match university page */
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Additional responsive styles for smaller screens */
+@media (max-width: 480px) {
+  .courses-main-title {
+    font-size: 2.5rem; /* Updated to match university page */
+  }
+
+  .courses-subtitle {
+    font-size: 1rem; /* Updated to match university page */
+  }
+
+  .course-title {
+    font-size: 1.5rem; /* Updated to match university page */
   }
 }

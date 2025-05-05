@@ -1,0 +1,248 @@
+/* Profile Skeleton styles */
+.profile-skeleton-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  min-height: 80vh;
+  background-color: #f5f7fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-skeleton-header {
+  margin-bottom: 30px;
+}
+
+.profile-skeleton-title,
+.profile-skeleton-subtitle,
+.profile-skeleton-name,
+.profile-skeleton-role,
+.profile-skeleton-college,
+.profile-skeleton-button,
+.profile-skeleton-section-title,
+.profile-skeleton-label,
+.profile-skeleton-value,
+.profile-skeleton-about,
+.profile-skeleton-resume,
+.profile-skeleton-skill,
+.profile-skeleton-back-button {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.profile-skeleton-title {
+  width: 200px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+
+.profile-skeleton-subtitle {
+  width: 300px;
+  height: 20px;
+}
+
+.profile-skeleton-content {
+  display: flex;
+  gap: 30px;
+}
+
+.profile-skeleton-left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-skeleton-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-skeleton-name {
+  width: 180px;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-skeleton-role {
+  width: 120px;
+  height: 18px;
+  margin-bottom: 10px;
+}
+
+.profile-skeleton-college {
+  width: 160px;
+  height: 18px;
+  margin-bottom: 30px;
+}
+
+.profile-skeleton-button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.profile-skeleton-right {
+  width: 70%;
+}
+
+.profile-skeleton-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-skeleton-section-title {
+  width: 100px;
+  height: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-skeleton-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.profile-skeleton-info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-skeleton-label {
+  width: 80px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.profile-skeleton-value {
+  width: 100%;
+  height: 20px;
+}
+
+.profile-skeleton-about {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.profile-skeleton-resume {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.profile-skeleton-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-skeleton-skill {
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.profile-skeleton-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.profile-skeleton-back-button {
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-color: #e4e4e4;
+  }
+  50% {
+    background-color: #d1d1d1;
+  }
+  100% {
+    background-color: #e4e4e4;
+  }
+}
+
+/* Dark mode styles */
+#dark .profile-skeleton-container {
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid #333;
+}
+
+#dark .profile-skeleton-section {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#dark .profile-skeleton-title,
+#dark .profile-skeleton-subtitle,
+#dark .profile-skeleton-name,
+#dark .profile-skeleton-role,
+#dark .profile-skeleton-college,
+#dark .profile-skeleton-button,
+#dark .profile-skeleton-section-title,
+#dark .profile-skeleton-label,
+#dark .profile-skeleton-value,
+#dark .profile-skeleton-about,
+#dark .profile-skeleton-resume,
+#dark .profile-skeleton-skill,
+#dark .profile-skeleton-back-button {
+  background-color: #444;
+  animation: skeleton-pulse-dark 1.5s infinite;
+}
+
+@keyframes skeleton-pulse-dark {
+  0% {
+    background-color: #444;
+  }
+  50% {
+    background-color: #333;
+  }
+  100% {
+    background-color: #444;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .profile-skeleton-content {
+    flex-direction: column;
+  }
+  
+  .profile-skeleton-left,
+  .profile-skeleton-right {
+    width: 100%;
+  }
+  
+  .profile-skeleton-left {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-skeleton-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-skeleton-container {
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,144 @@
+/* Courses Skeleton styles */
+.courses-skeleton-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.course-skeleton-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 350px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.course-skeleton-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  margin: 20px auto 30px;
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.course-skeleton-info {
+  padding: 0 25px 25px;
+  text-align: center;
+}
+
+.course-skeleton-title,
+.course-skeleton-description,
+.course-skeleton-instructor,
+.course-skeleton-duration,
+.course-skeleton-price,
+.course-skeleton-button {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.course-skeleton-title {
+  width: 70%;
+  height: 24px;
+  margin: 0 auto 15px;
+}
+
+.course-skeleton-description {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.course-skeleton-meta {
+  margin-top: 20px;
+}
+
+.course-skeleton-instructor,
+.course-skeleton-duration,
+.course-skeleton-price {
+  width: 60%;
+  height: 16px;
+  margin: 0 auto 12px;
+}
+
+.course-skeleton-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-color: #e4e4e4;
+  }
+  50% {
+    background-color: #d1d1d1;
+  }
+  100% {
+    background-color: #e4e4e4;
+  }
+}
+
+/* Dark mode styles */
+#dark .course-skeleton-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#dark .course-skeleton-title,
+#dark .course-skeleton-description,
+#dark .course-skeleton-instructor,
+#dark .course-skeleton-duration,
+#dark .course-skeleton-price,
+#dark .course-skeleton-button,
+#dark .course-skeleton-image {
+  background-color: #444;
+  animation: skeleton-pulse-dark 1.5s infinite;
+}
+
+@keyframes skeleton-pulse-dark {
+  0% {
+    background-color: #444;
+  }
+  50% {
+    background-color: #333;
+  }
+  100% {
+    background-color: #444;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .course-skeleton-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .course-skeleton-title {
+    height: 20px;
+  }
+  
+  .course-skeleton-description {
+    height: 14px;
+  }
+  
+  .course-skeleton-instructor,
+  .course-skeleton-duration,
+  .course-skeleton-price {
+    height: 14px;
+  }
+  
+  .course-skeleton-button {
+    height: 36px;
+  }
+}

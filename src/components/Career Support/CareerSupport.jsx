@@ -11,19 +11,20 @@ import emailjs from 'emailjs-com';
 import { auth } from "../../firebase/auth";
 import Footer from '../Footer/Footer';
 import { toast } from 'react-toastify';
+import CareerSupportSkeleton from './CareerSupportSkeleton';
 
 const CareerSupport = () => {
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-
-const [showPopup,setShowPopup]=useState(false)
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
 
-  
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,15 +35,21 @@ const [showPopup,setShowPopup]=useState(false)
 
   };
   useEffect(() => {
+    // Check authentication
     auth.onAuthStateChanged((user) => {
       if (user) {
         // handle user logged in state
       } else {
-
-          navigate('/');
-        
+        navigate('/');
       }
     });
+
+    // Simulate loading delay to show skeleton
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // 1.5 seconds loading time
+
+    return () => clearTimeout(timer); // Clean up timer on unmount
   }, [navigate]);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -121,12 +128,16 @@ const [showPopup,setShowPopup]=useState(false)
     <>
       <div className="career-support">
         <Navbar />
-        <header className="career-support__header">
-          <h1 className="career-support__main-title">Elevate Your Career</h1>
-          <p className="career-support__subtitle">
-            Empowering professionals to reach new heights
-          </p>
-        </header>
+        {loading ? (
+          <CareerSupportSkeleton />
+        ) : (
+          <>
+            <header className="career-support__header">
+              <h1 className="career-support__main-title">Elevate Your Career</h1>
+              <p className="career-support__subtitle">
+                Empowering professionals to reach new heights
+              </p>
+            </header>
 
         <section className="career-support__content">
           <h2 className="career-support__title">Our Career Support Services</h2>
@@ -573,17 +584,19 @@ const [showPopup,setShowPopup]=useState(false)
           </button>
         </section>
 
-        {showPopup && (
-          <div className="popup">
-            <div className="popup-content">
-              <h2>Thank You!</h2>
-              <p>
-                Your message has been sent successfully. We will reach out to
-                you soon.
-              </p>
-              <button onClick={closePopup}>Close</button>
-            </div>
-          </div>
+            {showPopup && (
+              <div className="popup">
+                <div className="popup-content">
+                  <h2>Thank You!</h2>
+                  <p>
+                    Your message has been sent successfully. We will reach out to
+                    you soon.
+                  </p>
+                  <button onClick={closePopup}>Close</button>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
       <Footer />

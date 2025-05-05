@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FaEdit, FaSave, FaTimes, FaFileAlt, FaTrashAlt, FaEye, FaArrowLeft } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import ProfileSkeleton from "./ProfileSkeleton";
 import "react-toastify/dist/ReactToastify.css";
 import "./StandaloneProfile.css";
 
@@ -44,9 +45,13 @@ const StandaloneProfile = () => {
     // First try to get the user ID from localStorage (set during signup/login)
     const storedUserId = localStorage.getItem("userUid");
 
+    // Set a minimum loading time to show the skeleton
+    const minLoadingTime = 1500; // 1.5 seconds
+    const startTime = Date.now();
+
     if (storedUserId) {
       console.log("Found user ID in localStorage:", storedUserId);
-      fetchUserData(storedUserId);
+      fetchUserData(storedUserId, startTime, minLoadingTime);
       return;
     }
 
@@ -54,7 +59,7 @@ const StandaloneProfile = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         console.log("Found authenticated user:", user.uid);
-        fetchUserData(user.uid);
+        fetchUserData(user.uid, startTime, minLoadingTime);
       } else {
         console.log("No authenticated user found, redirecting to home");
         navigate("/");
@@ -67,9 +72,11 @@ const StandaloneProfile = () => {
   /**
    * Fetches user data from Firebase database
    * @param {string} uid - User ID to fetch data for
+   * @param {number} startTime - Time when the loading started
+   * @param {number} minLoadingTime - Minimum time to show loading state
    * @returns {Promise<void>}
    */
-  const fetchUserData = async (uid) => {
+  const fetchUserData = async (uid, startTime, minLoadingTime) => {
     try {
       setLoading(true);
       console.log("Fetching user data for UID:", uid);
@@ -119,7 +126,19 @@ const StandaloneProfile = () => {
       console.error("Error fetching user data:", error);
       toast.error("Failed to load user data");
     } finally {
-      setLoading(false);
+      // Calculate how much time has passed since loading started
+      const elapsedTime = Date.now() - startTime;
+
+      // If less than minLoadingTime has passed, wait the remaining time
+      if (elapsedTime < minLoadingTime) {
+        const remainingTime = minLoadingTime - elapsedTime;
+        setTimeout(() => {
+          setLoading(false);
+        }, remainingTime);
+      } else {
+        // If more than minLoadingTime has passed, stop loading immediately
+        setLoading(false);
+      }
     }
   };
 
@@ -450,10 +469,7 @@ const StandaloneProfile = () => {
         </div>
 
         {loading ? (
-          <div className="loading-spinner">
-            <div className="spinner" />
-            <p>Loading your profile...</p>
-          </div>
+          <ProfileSkeleton />
         ) : (
           <div className="modern-profile-content">
             <div className="profile-left-section">

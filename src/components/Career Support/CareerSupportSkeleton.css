@@ -1,0 +1,368 @@
+/* Career Support Skeleton styles */
+.career-support-skeleton {
+  background-color: var(--color-background);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Header Section Skeleton */
+.career-support-skeleton__header {
+  background: linear-gradient(135deg, var(--color-primary), #76c6f5);
+  padding: 6rem 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-support-skeleton__main-title,
+.career-support-skeleton__subtitle,
+.career-support-skeleton__title,
+.service-skeleton-card__icon,
+.service-skeleton-card__title,
+.service-skeleton-card__description,
+.career-support-skeleton__pricing-title,
+.pricing-skeleton-card__title,
+.pricing-skeleton-card__price,
+.pricing-skeleton-card__feature,
+.pricing-skeleton-card__button,
+.career-support-skeleton__form-title,
+.form-skeleton-label,
+.form-skeleton-input,
+.form-skeleton-textarea,
+.form-skeleton-submit,
+.career-support-skeleton__cta-title,
+.career-support-skeleton__cta-text,
+.career-support-skeleton__cta-button {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.career-support-skeleton__main-title {
+  width: 300px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.career-support-skeleton__subtitle {
+  width: 500px;
+  height: 24px;
+}
+
+/* Services Section Skeleton */
+.career-support-skeleton__content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-support-skeleton__title {
+  width: 400px;
+  height: 36px;
+  margin-bottom: 3rem;
+}
+
+.career-support-skeleton__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-skeleton-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-skeleton-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 1rem 0 1.5rem;
+}
+
+.service-skeleton-card__title {
+  width: 180px;
+  height: 24px;
+  margin-bottom: 1.25rem;
+}
+
+.service-skeleton-card__description {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+/* Pricing Section Skeleton */
+.career-support-skeleton__pricing {
+  background-color: var(--color-item);
+  padding: 6rem 2rem;
+  clip-path: polygon(0 2%, 100% 0, 100% 97%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-support-skeleton__pricing-title {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 4rem;
+}
+
+.pricing-skeleton-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-skeleton-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-skeleton-card__title {
+  width: 150px;
+  height: 28px;
+  margin-bottom: 1rem;
+}
+
+.pricing-skeleton-card__price {
+  width: 100px;
+  height: 40px;
+  margin-bottom: 2rem;
+}
+
+.pricing-skeleton-card__features {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.pricing-skeleton-card__feature {
+  width: 80%;
+  height: 16px;
+  margin: 0 auto 0.75rem;
+}
+
+.pricing-skeleton-card__button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+/* Form Section Skeleton */
+.career-support-skeleton__form-section {
+  background-color: var(--color-background);
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-support-skeleton__form-title {
+  width: 400px;
+  height: 40px;
+  margin-bottom: 3rem;
+}
+
+.career-support-skeleton__form {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-skeleton-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-skeleton-label {
+  width: 80px;
+  height: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.form-skeleton-input {
+  width: 100%;
+  height: 48px;
+  border-radius: 6px;
+}
+
+.form-skeleton-textarea {
+  width: 100%;
+  height: 150px;
+  border-radius: 6px;
+}
+
+.form-skeleton-submit {
+  width: 100%;
+  height: 48px;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+/* CTA Section Skeleton */
+.career-support-skeleton__cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-item));
+  padding: 6rem 2rem;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-support-skeleton__cta-title {
+  width: 350px;
+  height: 36px;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.career-support-skeleton__cta-text {
+  width: 600px;
+  height: 20px;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.career-support-skeleton__cta-button {
+  width: 180px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-color: #e4e4e4;
+  }
+  50% {
+    background-color: #d1d1d1;
+  }
+  100% {
+    background-color: #e4e4e4;
+  }
+}
+
+/* Dark mode styles */
+#dark .career-support-skeleton {
+  background-color: #121212;
+}
+
+#dark .service-skeleton-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#dark .pricing-skeleton-card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+#dark .career-support-skeleton__form {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+#dark .career-support-skeleton__main-title,
+#dark .career-support-skeleton__subtitle,
+#dark .career-support-skeleton__title,
+#dark .service-skeleton-card__icon,
+#dark .service-skeleton-card__title,
+#dark .service-skeleton-card__description,
+#dark .career-support-skeleton__pricing-title,
+#dark .pricing-skeleton-card__title,
+#dark .pricing-skeleton-card__price,
+#dark .pricing-skeleton-card__feature,
+#dark .pricing-skeleton-card__button,
+#dark .career-support-skeleton__form-title,
+#dark .form-skeleton-label,
+#dark .form-skeleton-input,
+#dark .form-skeleton-textarea,
+#dark .form-skeleton-submit {
+  background-color: #444;
+  animation: skeleton-pulse-dark 1.5s infinite;
+}
+
+@keyframes skeleton-pulse-dark {
+  0% {
+    background-color: #444;
+  }
+  50% {
+    background-color: #333;
+  }
+  100% {
+    background-color: #444;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .pricing-skeleton-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-skeleton-card {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-support-skeleton__header {
+    padding: 4rem 1rem;
+  }
+
+  .career-support-skeleton__main-title {
+    width: 250px;
+  }
+
+  .career-support-skeleton__subtitle {
+    width: 300px;
+  }
+
+  .career-support-skeleton__title,
+  .career-support-skeleton__form-title,
+  .career-support-skeleton__pricing-title {
+    width: 250px;
+  }
+
+  .career-support-skeleton__cta-title {
+    width: 250px;
+  }
+
+  .career-support-skeleton__cta-text {
+    width: 300px;
+  }
+
+  .service-skeleton-card {
+    width: 100%;
+  }
+}

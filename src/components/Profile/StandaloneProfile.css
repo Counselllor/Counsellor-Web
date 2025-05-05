@@ -3,14 +3,20 @@
   font-family: 'ABeeZee', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 30px; /* Increased horizontal padding for better spacing */
   min-height: 80vh;
   background-color: #f5f7fa;
+  border-radius: 15px; /* Added rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Added subtle shadow for depth */
+  margin-top: 20px; /* Added top margin for spacing from navbar */
+  margin-bottom: 20px; /* Added bottom margin for spacing from footer */
 }
 
 #dark .modern-profile-container {
   background-color: #1a1a1a;
   color: #f5f7fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for dark mode */
+  border: 1px solid #333; /* Subtle border for better definition in dark mode */
 }
 
 .profile-top-section {
@@ -44,6 +50,11 @@
 }
 
 @media (max-width: 992px) {
+  .modern-profile-container {
+    padding: 35px 25px;
+    border-radius: 12px; /* Adjusted border radius for medium screens */
+  }
+
   .modern-profile-content {
     flex-direction: column;
   }
@@ -59,6 +70,13 @@
 }
 
 @media (max-width: 576px) {
+  .modern-profile-container {
+    padding: 30px 20px;
+    border-radius: 10px; /* Smaller border radius on mobile */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .info-grid {
     grid-template-columns: 1fr;
   }
