@@ -198,8 +198,26 @@
   text-align: center;
 }
 
+/* Prevent hover line effect on profile and admin buttons */
+.profile-link a::before,
+.admin-link a::before {
+  display: none !important;
+}
+
 .profile_btn:hover {
   background-color: #050A30;
+}
+
+/* Ensure no hover line appears on the profile button */
+.profile_btn::before,
+.profile_btn:hover::before,
+.profile-link:hover::before,
+.admin-link:hover::before {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: none !important;
 }
 
 .menu a {
@@ -228,6 +246,19 @@
   top: 25px;
   transform: scaleX(0);
   transition: transform 0.3s ease;
+}
+
+/* Specifically target and disable the hover line for profile button */
+.menu li a.profile-link::before,
+.menu li a.admin-link::before,
+.menu li .profile-link::before,
+.menu li .admin-link::before,
+.profile-link::before,
+.admin-link::before {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 .menu a:hover::before {

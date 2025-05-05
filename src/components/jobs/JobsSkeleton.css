@@ -1,0 +1,113 @@
+/* Jobs Skeleton styles */
+.jobs-skeleton-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.jobs-skeleton-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.jobs-skeleton-title,
+.jobs-skeleton-company,
+.jobs-skeleton-description,
+.jobs-skeleton-location,
+.jobs-skeleton-button {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+.jobs-skeleton-title {
+  width: 70%;
+  height: 28px;
+  margin-bottom: 20px;
+}
+
+.jobs-skeleton-company {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.jobs-skeleton-description {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.jobs-skeleton-location {
+  width: 60%;
+  height: 16px;
+  margin-bottom: 25px;
+}
+
+.jobs-skeleton-button {
+  width: 40%;
+  height: 40px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e4e3e3;
+  }
+  50% {
+    background-color: #d1c9c9;
+  }
+  100% {
+    background-color: #e4e3e3;
+  }
+}
+
+/* Dark mode styles */
+#dark .jobs-skeleton-card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#dark .jobs-skeleton-title,
+#dark .jobs-skeleton-company,
+#dark .jobs-skeleton-description,
+#dark .jobs-skeleton-location,
+#dark .jobs-skeleton-button {
+  animation: skeleton-animation-dark 1.5s infinite ease-in-out;
+}
+
+@keyframes skeleton-animation-dark {
+  0% {
+    background-color: #524e4e;
+  }
+  50% {
+    background-color: #282727;
+  }
+  100% {
+    background-color: #524e4e;
+  }
+}
+
+/* Media query for responsive design */
+@media (max-width: 1200px) {
+  .jobs-skeleton-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .jobs-skeleton-container {
+    grid-template-columns: 1fr;
+  }
+}

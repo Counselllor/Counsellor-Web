@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getDatabase, ref, set, update, get } from 'firebase/database';
 
 import {FaTimes} from 'react-icons/fa'
-import BlogsSkeleton from "../blogs/BlogsSkeleton";
+import JobsSkeleton from "./JobsSkeleton";
 const Jobs = () => {
   let [isModal,setIsModal]=useState(false)
   const [jobs, setJobs] = useState([]); // State to store jobs data
@@ -201,7 +201,7 @@ useEffect(() => {
       <div className="post-job-container"><button onClick={handlePostJob} className="post-job-button">Post Job</button></div>
       <section className="jobsPage-content" style={{zIndex:10}}>
       { loading ? (
-            <BlogsSkeleton count={JobsData.length} />) :    ( <div className="jobsPage-list">
+            <JobsSkeleton count={JobsData.length} />) : (<div className="jobsPage-list">
               {  jobsData1.map((job) => (
             <div key={job.id} className="jobsPage-card">
               <h2 className="jobsPage-title">{job.jobTitle?job.jobTitle:job.title}</h2>
