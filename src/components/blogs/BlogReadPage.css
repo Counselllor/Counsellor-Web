@@ -27,6 +27,9 @@
   margin-bottom: 0px;
   padding-bottom: 10px;
   border-bottom: 2px solid rgba(0, 112, 243, 0.2);
+  width: 100%; /* Ensure the header takes full width of its container */
+  overflow: hidden; /* Prevent content from spilling out */
+  box-sizing: border-box; /* Include padding and border in the element's width */
 }
 
 #dark .blog-header {
@@ -41,6 +44,11 @@
   color: #333;
   font-family: 'ABeeZee', sans-serif;
   line-height: 1.3;
+  word-wrap: break-word; /* Ensures long words break and wrap */
+  overflow-wrap: break-word; /* Modern browsers */
+  max-width: 100%; /* Ensures the title doesn't exceed its container */
+  display: block; /* Makes the element respect width constraints */
+  hyphens: auto; /* Adds hyphens when breaking words if needed */
 }
 
 #dark .blog-title {
@@ -240,4 +248,25 @@
 .blog-read-page_container + footer {
   margin-top: 0;
   padding-top: 0;
+}
+
+/* Responsive styles for blog title */
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-read-page {
+    padding: 30px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-read-page {
+    padding: 20px 15px 15px;
+  }
 }
