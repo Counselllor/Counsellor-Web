@@ -95,7 +95,7 @@ body {
 .join-us-container > .contents > p,
 .join-us-container section > p {
   font-family: 'ABeeZee', sans-serif;
-  font-size: 1.2rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   color: #fff;
   display: flex;
   justify-content: center;
@@ -115,7 +115,7 @@ body {
 .join-us-container ul li {
   font-family: 'ABeeZee', sans-serif;
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   line-height: 1.6;
   color: #555;
   position: relative;
@@ -124,7 +124,7 @@ body {
 
 blockquote {
   margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   color: #555;
   font-family: 'ABeeZee', sans-serif;
   font-style: italic;
@@ -216,7 +216,7 @@ blockquote {
 
 .whynewbox p {
   font-family: 'ABeeZee', sans-serif;
-  font-size: 1rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   margin-top: 0;
   line-height: 1.6;
   color: #555;
@@ -318,7 +318,7 @@ blockquote {
 }
 
 #culturenew p {
-  font-size: 1.2rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   color: #fff;
   line-height: 1.7;
   font-family: 'ABeeZee', sans-serif;
@@ -334,7 +334,7 @@ blockquote {
 }
 
 .cultin {
-  font-size: 1.1rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   line-height: 1.7;
   list-style: none;
   display: flex;
@@ -350,7 +350,7 @@ blockquote {
   flex: 1 1 calc(50% - 1rem);
   box-sizing: border-box;
   padding: 1.5rem 1.5rem 1.5rem 3rem;
-  font-size: 1.1rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   color: #555;
   background-color: #f8f8f8;
   border-radius: 12px;
@@ -423,7 +423,7 @@ blockquote {
   .join-us-container p,
   .join-us-container ul li,
   blockquote {
-    font-size: 18px;
+    font-size: 16px; /* Maintained at 16px for consistent readability */
   }
 
   .abin {
@@ -437,7 +437,7 @@ blockquote {
   }
 
   #culturenew p {
-    font-size: 18px;
+    font-size: 16px; /* Maintained at 16px for consistent readability */
   }
 
   .cultin {
@@ -447,6 +447,6 @@ blockquote {
 
   .cultin .text {
     flex-basis: 100%;
-    font-size: 18px;
+    font-size: 16px; /* Maintained at 16px for consistent readability */
   }
 }

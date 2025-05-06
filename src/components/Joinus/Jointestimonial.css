@@ -1,7 +1,7 @@
 /* Jointestimonial.css */
 .section-stories {
     padding: 4rem 2rem;
-    background-color: #f8f8f8; /* Light grey background */
+    background-color: transparent; /* Removed light grey background */
 }
 .row {
     display: flex;
