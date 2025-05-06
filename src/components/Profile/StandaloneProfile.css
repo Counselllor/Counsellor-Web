@@ -7,15 +7,24 @@
   min-height: 80vh;
   background-color: #f5f7fa;
   border-radius: 10px; /* Slightly rounded corners as per user preference */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Added subtle shadow for depth */
+  /* Enhanced shadow effect with multiple layers for more depth */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 16px 32px rgba(0, 0, 0, 0.04);
   margin-top: 20px; /* Added top margin for spacing from navbar */
   margin-bottom: 20px; /* Added bottom margin for spacing from footer */
+  transition: box-shadow 0.3s ease; /* Smooth transition for any hover effects */
 }
 
 #dark .modern-profile-container {
   background-color: #1a1a1a;
   color: #f5f7fa;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for dark mode */
+  /* Enhanced shadow effect for dark mode with slightly higher opacity */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid #333; /* Subtle border for better definition in dark mode */
 }
 
@@ -107,12 +116,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Enhanced shadow effect with slightly less intensity than container */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
 }
 
 #dark .profile-left-section {
   background-color: #2a2a2a;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow effect for dark mode */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .profile-right-section {
@@ -126,12 +142,19 @@
   background-color: white;
   border-radius: 10px;
   padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Enhanced shadow effect with slightly less intensity than container */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
 }
 
 #dark .profile-section {
   background-color: #2a2a2a;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow effect for dark mode */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .profile-avatar-container {
@@ -472,12 +495,19 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Enhanced shadow effect to match other elements */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
 }
 
 #dark .edit-form {
   background-color: #2a2a2a;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow effect for dark mode */
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .form-row {

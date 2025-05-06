@@ -83,7 +83,10 @@ const Dashboard = () => {
           ratingValue >= ratingRange[0] &&
           ratingValue <= ratingRange[1]
         );
-      });
+      })
+      // Sort colleges alphabetically by name
+      .sort((a, b) => a.name.localeCompare(b.name));
+
     setFilteredColleges(results);
     setCurrentPage(1);
   }, [searchTerm, ctcRange, ratingRange]);

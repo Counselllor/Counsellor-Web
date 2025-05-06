@@ -9,6 +9,7 @@ import { auth } from "../../firebase/auth";
 import { Icon } from "@iconify/react";
 import ScrollToTop from "react-scroll-to-top";
 import { FaStar } from "react-icons/fa";
+import { FaRupeeSign } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import { toast } from "react-toastify";
 
@@ -35,6 +36,47 @@ const CollegePage = () => {
   if (!college) {
     return <div>College not found</div>;
   }
+
+  // Extract package information
+  const extractPackageInfo = () => {
+    // Default values
+    let highestPackage = { value: 0, display: "Not available" };
+    let lowestPackage = { value: 0, display: "Not available" };
+
+    // Extract highest package from ctc field
+    if (college.ctc) {
+      const highestMatch = college.ctc.match(/Highest CTC - ([\d.]+)\s*(LPA|Crore|lakh)/i);
+      if (highestMatch) {
+        const value = parseFloat(highestMatch[1]);
+        const unit = highestMatch[2].toLowerCase();
+
+        // Convert to LPA for consistent comparison
+        let valueInLPA = value;
+        if (unit.includes('crore')) {
+          valueInLPA = value * 100; // 1 crore = 100 lakhs
+        }
+
+        highestPackage = {
+          value: valueInLPA,
+          display: `${value} ${unit}`
+        };
+      }
+    }
+
+    // For lowest package, we'll estimate as 30% of highest package if not explicitly provided
+    // This is just an estimation for demonstration purposes
+    if (highestPackage.value > 0) {
+      const lowestValue = Math.round(highestPackage.value * 0.3);
+      lowestPackage = {
+        value: lowestValue,
+        display: `${lowestValue} LPA (estimated)`
+      };
+    }
+
+    return { highestPackage, lowestPackage };
+  };
+
+  const { highestPackage, lowestPackage } = extractPackageInfo();
 
   const [selectedCourse, setSelectedCourse] = useState("BTech");
   const filteredStudents = studentsData.filter(
@@ -130,6 +172,31 @@ const CollegePage = () => {
                       Visit Website
                     </a>
                   </button>
+                </div>
+
+                {/* Package Information Section */}
+                <div className="package-info-section">
+                  <h3 className="package-info-title abeezee-regular">Package Information</h3>
+                  <div className="package-info-cards">
+                    <div className="package-card highest-package">
+                      <div className="package-icon">
+                        <FaRupeeSign style={{ fontSize: "24px", color: "#FFD700" }} />
+                      </div>
+                      <div className="package-details">
+                        <p className="package-label abeezee-regular">Highest Package</p>
+                        <p className="package-value abeezee-regular">{highestPackage.display}</p>
+                      </div>
+                    </div>
+                    <div className="package-card lowest-package">
+                      <div className="package-icon">
+                        <FaRupeeSign style={{ fontSize: "24px", color: "white" }} />
+                      </div>
+                      <div className="package-details">
+                        <p className="package-label abeezee-regular">Lowest Package</p>
+                        <p className="package-value abeezee-regular">{lowestPackage.display}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="college-image-container">

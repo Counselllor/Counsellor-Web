@@ -103,6 +103,93 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Package Information Section Styles */
+.package-info-section {
+  width: 90%;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.package-info-title {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.package-info-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.package-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.highest-package {
+  border-left: 4px solid #FFD700;
+}
+
+.lowest-package {
+  border-left: 4px solid #ffffff;
+}
+
+.package-icon {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+.package-details {
+  flex: 1;
+}
+
+.package-label {
+  color: #f0f0f0;
+  font-size: 1.3rem;
+  margin: 0 0 5px 0;
+}
+
+.package-value {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Dark mode styles for package information */
+#dark .package-info-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+#dark .package-card {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
 .locationcoll {
   display: flex;
   flex-direction: row;
@@ -424,7 +511,6 @@
   .content {
     height: 100%;
     width: 100vw;
-
   }
 
   .image {
@@ -435,6 +521,28 @@
     width: 100vw;
     height: 50%;
     justify-content: start !important;
+  }
+
+  /* Responsive styles for package information */
+  .package-info-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .package-card {
+    width: 100%;
+  }
+
+  .package-info-title {
+    font-size: 1.6rem;
+  }
+
+  .package-label {
+    font-size: 1.2rem;
+  }
+
+  .package-value {
+    font-size: 1.3rem;
   }
 }
 
