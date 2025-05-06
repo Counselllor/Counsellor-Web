@@ -35,7 +35,7 @@ body {
   width: 100%;
   min-height: 100vh;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 0; /* Removed rounded edges */
   font-family: 'ABeeZee', sans-serif;
   transition: all 0.6s;
   text-align: start;
@@ -167,12 +167,63 @@ blockquote {
   color: #e0e0e0;
 }
 
+#dark #positionsnew p, #dark #applynew p, #dark #benefitsnew p, #dark #testimonialsnew p, #dark #culturenew p {
+  color: #e0e0e0;
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background for dark mode */
+}
+
 #dark .join-us-container li {
   color: #e0e0e0;
 }
 
-#positionsnew {
+#positionsnew, #applynew, #benefitsnew, #testimonialsnew, #culturenew {
   margin-top: 80px;
+  text-align: center; /* Center the content */
+  width: 100%; /* Full width */
+}
+
+/* Specific styling for the paragraph in all sections */
+#positionsnew p, #applynew p, #benefitsnew p, #testimonialsnew p, #culturenew p {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  padding: 10px 20px; /* Add some padding */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+  border-radius: 8px; /* Rounded corners */
+  display: inline-block; /* Keep it compact */
+}
+
+/* Styling for the links in the Open Positions and How to Apply sections */
+#positionsnew p a, #applynew p a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+#positionsnew p a:hover, #applynew p a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode styling for the links */
+#dark #positionsnew p a, #dark #applynew p a {
+  color: #6cbdfa;
+}
+
+#dark #positionsnew p a:hover, #dark #applynew p a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(108, 189, 250, 0.6);
+  background-color: rgba(108, 189, 250, 0.1);
 }
 
 .whynew {
@@ -317,21 +368,7 @@ blockquote {
   background-color: #fff;
 }
 
-#culturenew p {
-  font-size: 16px; /* Updated to 16px for better readability */
-  color: #fff;
-  line-height: 1.7;
-  font-family: 'ABeeZee', sans-serif;
-  margin-bottom: 2rem;
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#dark #culturenew p {
-  color: #fff;
-}
+/* Styling moved to the common paragraph styling above */
 
 .cultin {
   font-size: 16px; /* Updated to 16px for better readability */

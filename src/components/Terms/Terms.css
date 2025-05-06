@@ -1,28 +1,127 @@
-.terms-page {
-  font-family: 'ABeeZee', sans-serif;
-  background-color: #f5f7fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+html {
+  scroll-behavior: smooth;
 }
 
-.terms-container {
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #12229d;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+/* Firefox scrollbar */
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: #12229d #f5f5f5;
+}
+
+/* Header styling */
+.terms-header {
+  height: 95vh;
+  background-image: linear-gradient(135deg, #0070f3, #76c6f5);
+  background-size: cover;
+  background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+
+.terms-header__text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+
+.heading-primary__main {
+  display: block;
+  font-size: 5rem;
+  font-weight: 600;
+  letter-spacing: 1.2rem;
+  padding-left: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+.heading-primary__sub {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1.2rem;
+  animation: moveInRight 2s ease-out;
+  padding-left: 17.2px;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.terms-content {
+  width: 100%;
+  padding: 30px;
+  font-family: 'ABeeZee', sans-serif;
+  transition: all 0.6s;
+  text-align: start;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  flex-grow: 1;
+  padding: 8rem 2rem;
 }
 
-.terms-container h1, .terms-container h2, .terms-container h3 {
+.terms-content h1,
+.terms-content h2,
+.terms-content h3 {
   font-family: 'ABeeZee', sans-serif;
-  color: #12229d;
 }
 
-.terms-container p, .terms-container li {
+.terms-content p,
+.terms-content li {
   font-family: 'ABeeZee', sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -80,16 +179,18 @@
   cursor: default;
 }
 
-.terms-container h1 {
-  font-size: 32px;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #12229d;
+.terms-content h2 {
+  color: #0070f3;
+  font-size: 24px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 0.5rem;
+  text-align: center;
 }
 
-.terms-container h1::after {
+.terms-content h2::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -101,15 +202,7 @@
   border-radius: 3px;
 }
 
-.terms-container h2 {
-  color: #0070f3;
-  font-size: 24px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.terms-container h3 {
+.terms-content h3 {
   color: #0070f3;
   font-size: 20px;
   margin-top: 1.5rem;
@@ -117,18 +210,18 @@
   font-weight: 500;
 }
 
-.terms-container p {
+.terms-content p {
   margin-bottom: 1rem;
   line-height: 1.7;
 }
 
-.terms-container ul {
+.terms-content ul {
   list-style: disc outside;
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.terms-container ul li {
+.terms-content ul li {
   margin-bottom: 0.8rem;
   line-height: 1.6;
   position: relative;
@@ -168,30 +261,37 @@
 }
 
 /* Dark mode styles */
-#dark .terms-page {
+#dark .terms-header {
+  background-image: linear-gradient(135deg, #0070f3, #004a9f);
+}
+
+#dark .terms-content {
   background-color: #121212;
 }
 
-#dark .terms-container {
-  background-color: #1a1a1a;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-#dark .terms-container p,
-#dark .terms-container li {
+#dark .terms-content p,
+#dark .terms-content li {
   color: #e0e0e0;
 }
 
-#dark .terms-container h1 {
+#dark .heading-primary {
+  color: #fff;
+}
+
+#dark .heading-primary__main,
+#dark .heading-primary__sub {
+  color: #fff;
+}
+
+#dark .terms-content h2 {
   color: #6cbdfa;
 }
 
-#dark .terms-container h1::after {
+#dark .terms-content h2::after {
   background-color: #6cbdfa;
 }
 
-#dark .terms-container h2,
-#dark .terms-container h3 {
+#dark .terms-content h3 {
   color: #6cbdfa;
 }
 
@@ -223,52 +323,84 @@
   color: #6cbdfa;
 }
 
+/* Dark mode scrollbar */
+#dark ::-webkit-scrollbar {
+  background-color: #121212;
+}
+
+#dark ::-webkit-scrollbar-thumb {
+  background-color: #6cbdfa;
+}
+
+#dark ::-webkit-scrollbar-track {
+  background-color: #121212;
+}
+
+#dark html, #dark body {
+  scrollbar-color: #6cbdfa #121212;
+  background-color: #121212;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
-  .terms-container {
-    padding: 1.5rem;
+  .heading-primary__main {
+    font-size: 3.5rem;
+    letter-spacing: 0.8rem;
   }
 
-  .terms-container h1 {
-    font-size: 28px;
+  .heading-primary__sub {
+    font-size: 1.5rem;
+    letter-spacing: 0.8rem;
   }
 
-  .terms-container h2 {
+  .terms-content {
+    padding: 6rem 1.5rem;
+  }
+
+  .terms-content h2 {
     font-size: 22px;
   }
 
-  .terms-container h3 {
+  .terms-content h3 {
     font-size: 18px;
   }
 
-  .terms-container p,
-  .terms-container li {
+  .terms-content p,
+  .terms-content li {
     font-size: 15px;
   }
 
   .section-content {
     padding-left: 0.8rem;
   }
+
+  .breadcrumb {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 480px) {
-  .terms-page {
-    padding: 10px;
+  .heading-primary__main {
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    padding-left: 15px;
   }
 
-  .terms-container {
-    padding: 1.2rem;
+  .heading-primary__sub {
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    padding-left: 10px;
   }
 
-  .terms-container h1 {
-    font-size: 24px;
+  .terms-content {
+    padding: 4rem 1rem;
   }
 
-  .terms-container h2 {
+  .terms-content h2 {
     font-size: 20px;
   }
 
-  .terms-container h3 {
+  .terms-content h3 {
     font-size: 16px;
   }
 

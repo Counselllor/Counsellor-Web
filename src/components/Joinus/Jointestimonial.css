@@ -24,11 +24,26 @@
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     border: 1px solid #e0e0e0; /* Light border for definition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for story cards */
+.story:hover {
+    transform: translateY(-10px); /* Lift the card up slightly */
+    box-shadow: 0 15px 30px rgba(0, 112, 243, 0.15); /* More pronounced shadow with blue tint */
+    border-color: rgba(0, 112, 243, 0.3); /* Subtle blue border on hover */
 }
 
 #dark .story {
     background-color: #000; /* Darker background for dark mode */
     border: 1px solid #555; /* Darker border for dark mode */
+}
+
+/* Dark mode hover effect */
+#dark .story:hover {
+    transform: translateY(-10px); /* Lift the card up slightly */
+    box-shadow: 0 15px 30px rgba(0, 112, 243, 0.2); /* More pronounced shadow with blue tint for dark mode */
+    border-color: rgba(0, 112, 243, 0.4); /* Subtle blue border on hover for dark mode */
 }
 
 #dark .section-stories{
@@ -41,12 +56,24 @@
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 1.5rem; /* Increased spacing for a cleaner look */
+    border: 3px solid transparent; /* Transparent border for hover effect */
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.story:hover .story__shape {
+    border-color: rgba(0, 112, 243, 0.5); /* Blue border on hover */
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
 }
 
 .story__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth transition for hover */
+}
+
+.story:hover .story__img {
+    transform: scale(1.1); /* Zoom effect on hover */
 }
 
 .story__text {
@@ -58,10 +85,19 @@
     font-size: 2.2rem !important; /* Slightly larger for prominence */
     margin-bottom: -1.5rem;
     font-weight: 700; /* Bolder font weight */
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.story:hover .story__heading {
+    color: #0070f3; /* Change to blue on hover */
 }
 
 #dark .section-stories .story__heading {
     color: #ddd; /* Lighter color for dark mode */
+}
+
+#dark .story:hover .story__heading {
+    color: #6cbdfa; /* Lighter blue for dark mode on hover */
 }
 
 .story__role {

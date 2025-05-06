@@ -23,10 +23,17 @@ const Terms = () => {
     window.scrollTo(0, 0);
   }, [navigate]);
   return (
-    <div id={theme}>
+    <main id={theme}>
       <ConditionalNavbar />
-      <div className="terms-page">
-        <div className="terms-container">
+      <div className="terms-header">
+        <div className="terms-header__text-box">
+          <h1 className="heading-primary">
+            <span className="heading-primary__main">TERMS & CONDITIONS</span>
+            <span className="heading-primary__sub">Our Policies and Guidelines</span>
+          </h1>
+        </div>
+      </div>
+      <div className="terms-content">
           {/* Breadcrumb navigation */}
           <div className="breadcrumb">
             <Link to="/" className="breadcrumb-item">
@@ -37,8 +44,6 @@ const Terms = () => {
             </span>
             <span className="breadcrumb-item active">Terms & Conditions</span>
           </div>
-
-          <h1>Terms & Conditions</h1>
 
           <div className="terms-intro">
             <p>
@@ -137,10 +142,9 @@ const Terms = () => {
               <Link to="/help" className="terms-link">Help Center</Link>
             </p>
           </div>
-        </div>
       </div>
       <Footer />
-    </div>
+    </main>
   );
 
 };

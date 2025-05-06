@@ -35,12 +35,7 @@ const JoinUs = () => {
             <h1>Join Us</h1>
             <section id="benefitsnew" className="joinnew">
               <h2>Why Join Our Team?</h2>
-              <p>
-                At CounsellorsWeb, we are dedicated to fostering a work
-                environment that is inclusive, innovative, and conducive to
-                professional growth. Here are just a few reasons why you should
-                consider joining our team:
-              </p>
+              <p>At CounsellorsWeb, we are dedicated to fostering a work environment that is inclusive, innovative, and conducive to professional growth. Here are just a few reasons why you should consider joining our team:</p>
               <div className="whynew">
                 <div className="whynewbox">
                   <h3>🌟Innovative projects and cutting-edge technology</h3>
@@ -112,13 +107,7 @@ const JoinUs = () => {
             </section>
             <section id="culturenew">
               <h2>Our Culture</h2>
-              <p>
-                Our company culture is built on mutual respect, continuous
-                learning, and a passion for excellence. We believe that a
-                positive and supportive workplace leads to higher productivity
-                and job satisfaction. Here's what you can expect when you join
-                us:
-              </p>
+              <p>Our company culture is built on mutual respect, continuous learning, and a passion for excellence. We believe that a positive and supportive workplace leads to higher productivity and job satisfaction. Here's what you can expect when you join us:</p>
               <ol className="cultin">
                 <li className="text">Regular team - building activities</li>
                 <li className="text">Open-door policy and management</li>
@@ -134,29 +123,16 @@ const JoinUs = () => {
             </section>
             <section id="testimonialsnew">
               <h2>Employee Testimonials</h2>
-              <p>
-                Don't just take our word for it. Here's what some of our
-                employees have to say about working at CounsellorsWeb:
-              </p>
+              <p>Don't just take our word for it. Here's what some of our employees have to say about working at CounsellorsWeb:</p>
               <JoinStories />
             </section>
             <section id="positionsnew">
               <h2>Open Positions</h2>
-              <p>
-                We are always looking for talented individuals to join our team.
-                Check out our <Link to="/careers">careers page</Link> for
-                current openings.
-              </p>
+              <p>We are always looking for talented individuals to join our team. Check out our <Link to="/careers">careers page</Link> for current openings.</p>
             </section>
             <section id="applynew">
               <h2>How to Apply</h2>
-              <p>
-                Interested in joining us? Send your resume and a cover letter to{" "}
-                <a href="mailto:careers@counsellorsweb.com">
-                  careers@counsellorsweb.com
-                </a>
-                . In your cover letter, please include:
-              </p>
+              <p>Interested in joining us? Send your resume and a cover letter to <a href="mailto:careers@counsellorsweb.com">careers@counsellorsweb.com</a>. In your cover letter, please include:</p>
               <ol className="cultin">
                 <li className="text">A brief introduction about yourself</li>
                 <li className="text">
@@ -168,7 +144,6 @@ const JoinUs = () => {
             </section>
           </div>
         </div>
-        <hr />
         <Footer />
       </div>
     </>

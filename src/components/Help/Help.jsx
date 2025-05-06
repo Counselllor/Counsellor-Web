@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useContext, useCallback } from "rea
 import "./Help.css";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import BackToHomeButton from "../backtohome";
 import Logo from "../../assets/logo.webp";
 import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
@@ -123,15 +122,17 @@ const Help = () => {
     },
   ];
   return (
-    <>
+    <main id={theme}>
       <ConditionalNavbar />
-      <BackToHomeButton />
-
-      <div className="help-container">
-        <Breadcrumb />
-
-        <div className="contents">
-          <h1>Help & Support</h1>
+      <div className="help-header">
+        <div className="help-header__text-box">
+          <h1 className="heading-primary">
+            <span className="heading-primary__main">HELP & SUPPORT</span>
+            <span className="heading-primary__sub">Find the answers you need</span>
+          </h1>
+        </div>
+      </div>
+      <div className="help-content">
 
           <section id="getting-started">
             <h2>Getting Started</h2>
@@ -149,7 +150,7 @@ const Help = () => {
             <h2>Open Positions</h2>
             <p>
               We are always looking for talented individuals to join our team.
-              Check out our <Link to="/careers" style={{ color: theme === 'dark' ? '#6cbdfa' : '#0070f3', textDecoration: 'none', fontWeight: '600' }}>careers page</Link> for
+              Check out our <Link to="/careers" className="help-link">careers page</Link> for
               current openings.
             </p>
           </section>
@@ -250,192 +251,9 @@ const Help = () => {
               <li>Follow us on social media for the latest updates and news.</li>
             </ul>
           </section> */}
-        </div>
       </div>
-
-      <div style={{
-      maxWidth: '1200px',
-      margin: '60px auto',
-      padding: '0 20px'
-    }}>
-      <h2 style={{
-        fontSize: '2.2rem',
-        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
-        textAlign: 'center',
-        marginBottom: '40px',
-        fontWeight: '600',
-        fontFamily: "'ABeeZee', sans-serif"
-      }}>Support Resources</h2>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        gap: '20px'
-      }}>
-
-        <Box
-        i="fas fa-phone"
-          heading="Contact Support"
-          text="If you need further assistance, please do not hesitate to contact our support team. We are here to help you."
-          contactInfo={[
-            { type: 'text2', value: 'Email us at: support@example.com' },
-            { type: 'phone', value: 'Call us: 1-800-123-4567' },
-            { type: 'text', value: 'Live chat available 24/7 on our website' }
-          ]}
-        />
-        <Box
-        i="fas fa-user"
-          heading="Account Management"
-          text="Learn how to manage your account settings, update your information, and more."
-          contactInfo={[
-            { type: 'text2', value: 'Update your personal information in the "Profile" section.' },
-            { type: 'phone', value: 'Change your password under "Security Settings".' },
-            { type: 'text', value: 'Manage your subscriptions and notifications in the "Preferences" section.' }
-          ]}
-        />
-        <Box
-        i="fas fa-file-invoice-dollar"
-          heading="Billing and Payments"
-          text="Find information on how to handle your billing and payments, including how to update your payment methods and view your billing history."
-          contactInfo={[
-            { type: 'text2', value: 'View your billing history in the "Billing" section of your account.' },
-            { type: 'phone', value: 'Update your payment methods under "Payment Settings".' },
-            { type: 'text', value: 'Contact billing support for any discrepancies or issues.' }
-          ]}
-        />
-            <Box
-                    i="fas fa-lock"
-          heading="Security"
-          text="Your security is our priority. Learn about the measures we take to protect your data and how you can secure your account."
-          contactInfo={[
-            { type: 'text2', value: 'Enable two-factor authentication for added security.' },
-            { type: 'phone', value: 'Regularly update your password and avoid using the same password across multiple sites.' },
-            { type: 'text', value: 'Be aware of phishing scams and do not share your personal information.' }
-          ]}
-        />
-            <Box
-            i="fas fa-wrench"
-            iconClass="fa-solid fa-phone"
-          heading="Troubleshooting"
-          text="Encountering issues? Check our troubleshooting section for guidance on how to resolve common problems."
-          contactInfo={[
-            { type: 'text2', value: 'App not loading: Try clearing your browser cache or reinstalling the app.' },
-            { type: 'phone', value: 'Payment issues: Ensure your payment information is correct and up-to-date.' },
-            { type: 'text', value: 'Account locked: Contact support to regain access to your account.' }
-          ]}
-        />
-            <Box
-            i="fas fa-comments"
-          heading="Feedback"
-          text="We value your feedback. Please let us know how we can improve our services."
-          contactInfo={[
-            { type: 'text2', value: 'Submit your feedback through our online form.' },
-            { type: 'phone', value: 'Join our user community and participate in discussions.' },
-            { type: 'text', value: 'Follow us on social media for the latest updates and news.' }
-          ]}
-        />
-        <Box
-            i="fas fa-briefcase"
-          heading="Careers"
-          text="We are always looking for talented individuals to join our team. Check out our current openings and apply today."
-          contactInfo={[
-            { type: 'text2', value: <span>View all open positions on our <Link to="/careers" style={{ color: theme === 'dark' ? '#6cbdfa' : '#0070f3', textDecoration: 'none', fontWeight: '600' }}>careers page</Link>.</span> },
-            { type: 'phone', value: 'Submit your resume and cover letter for consideration.' },
-            { type: 'text', value: 'Learn about our company culture and benefits.' }
-          ]}
-        />
-      </div>
-    </div>
-
-      <hr />
-
       <Footer />
-    </>
+    </main>
   );
 };
-function Box({ i, heading, text, contactInfo }) {
-  const { theme } = useContext(ThemeContext);
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        width: '450px',
-        margin: '15px',
-        float: 'left',
-        border: theme === 'dark'
-          ? isHovered ? '1px solid rgba(108, 189, 250, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)'
-          : isHovered ? '1px solid rgba(0, 112, 243, 0.3)' : '1px solid rgba(0, 112, 243, 0.2)',
-        borderRadius: '12px',
-        padding: '25px',
-        boxShadow: isHovered
-          ? theme === 'dark' ? '0 15px 30px rgba(0, 112, 243, 0.2)' : '0 15px 30px rgba(0, 112, 243, 0.15)'
-          : theme === 'dark' ? '0 10px 20px rgba(0, 0, 0, 0.2)' : '0 10px 20px rgba(0, 0, 0, 0.1)',
-        backgroundColor: theme === 'dark'
-          ? isHovered ? '#2a2a2a' : '#1e1e1e'
-          : isHovered ? '#f8f8f8' : '#fff',
-        transition: 'all 0.3s ease',
-        fontFamily: "'ABeeZee', sans-serif",
-        transform: isHovered ? 'translateY(-10px)' : 'translateY(0)'
-      }}>
-
-      <i className={i} style={{
-        fontSize: '40px',
-        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
-        marginRight: '10px',
-        marginBottom: '15px',
-        display: 'block'
-      }} />
-
-      <h3 style={{
-        fontSize: '1.5rem',
-        marginTop: '10px',
-        marginBottom: '15px',
-        color: theme === 'dark' ? '#6cbdfa' : '#0070f3',
-        fontWeight: '600'
-      }}>
-        {heading}
-      </h3>
-      <p style={{
-        fontSize: '1rem',
-        margin: '0 0 20px 0',
-        color: theme === 'dark' ? '#e0e0e0' : '#555',
-        lineHeight: '1.6'
-      }}>
-        {text}
-      </p>
-      <ul style={{
-        listStyle: 'none',
-        padding: 0,
-        margin: 0,
-        marginTop: '20px'
-      }}>
-        {contactInfo.map((item, index) => (
-          <li key={index} style={{
-            textAlign: 'left',
-            fontSize: '1rem',
-            marginBottom: '10px',
-            paddingLeft: '20px',
-            position: 'relative',
-            color: theme === 'dark' ? '#e0e0e0' : '#555',
-            lineHeight: '1.5'
-          }}>
-            <span style={{
-              position: 'absolute',
-              left: '0',
-              top: '8px',
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: theme === 'dark' ? '#6cbdfa' : '#0070f3'
-            }}></span>
-            {item.value}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 export default Help;
