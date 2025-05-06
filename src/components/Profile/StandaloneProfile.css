@@ -6,7 +6,7 @@
   padding: 40px 30px; /* Increased horizontal padding for better spacing */
   min-height: 80vh;
   background-color: #f5f7fa;
-  border-radius: 15px; /* Added rounded corners */
+  border-radius: 10px; /* Slightly rounded corners as per user preference */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Added subtle shadow for depth */
   margin-top: 20px; /* Added top margin for spacing from navbar */
   margin-bottom: 20px; /* Added bottom margin for spacing from footer */
@@ -208,23 +208,20 @@
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  animation: pulse 2s infinite;
 }
 
+/* Removed hover line effect as per user preference */
 .edit-avatar-btn:hover {
-  transform: scale(1.1);
   background-color: #0060df;
 }
 
 #dark .edit-avatar-btn {
   background-color: #6cbdfa;
   color: #1a1a1a;
-  animation: pulse-dark 2s infinite;
 }
 
 #dark .edit-avatar-btn:hover {
   background-color: #4ba3e3;
-  transform: scale(1.1);
 }
 
 .profile-left-section h2 {
@@ -575,33 +572,26 @@
 .edit-profile-btn {
   background-color: #0070f3;
   color: white;
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 10px rgba(0, 112, 243, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Removed animation for stable appearance */
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(0, 112, 243, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 112, 243, 0);
-  }
-}
+/* Removed pulse animation for stable background */
 
 .edit-profile-btn:hover {
   background-color: #0060df;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .edit-profile-btn.active {
   background-color: #f44336;
   color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .edit-profile-btn.active:hover {
   background-color: #d32f2f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .save-profile-btn {
@@ -616,32 +606,25 @@
 #dark .edit-profile-btn {
   background-color: #6cbdfa;
   color: #fff;
-  animation: pulse-dark 2s infinite;
-  box-shadow: 0 0 10px rgba(108, 189, 250, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* Removed animation for stable appearance */
 }
 
-@keyframes pulse-dark {
-  0% {
-    box-shadow: 0 0 0 0 rgba(108, 189, 250, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(108, 189, 250, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(108, 189, 250, 0);
-  }
-}
+/* Removed pulse-dark animation for stable background */
 
 #dark .edit-profile-btn:hover {
   background-color: #4ba3e3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #dark .edit-profile-btn.active {
   background-color: #d32f2f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #dark .edit-profile-btn.active:hover {
   background-color: #c62828;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #dark .save-profile-btn {

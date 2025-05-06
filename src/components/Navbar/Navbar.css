@@ -198,6 +198,43 @@
   text-align: center;
 }
 
+/* Edit Avatar Button Styles */
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #12229d;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.edit-avatar-btn:hover {
+  transform: scale(1.1);
+  background-color: #0e1b7a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#dark .edit-avatar-btn {
+  background-color: #6cbdfa;
+  color: #121212;
+}
+
+#dark .edit-avatar-btn:hover {
+  background-color: #4ba3e3;
+  transform: scale(1.1);
+}
+
 /* Prevent hover line effect on profile and admin buttons */
 .profile-link a::before,
 .admin-link a::before {
