@@ -51,7 +51,7 @@
   align-items: center;
   margin-bottom: 20px;
   color: #666;
-  font-size: 0.85rem;
+  font-size: 16px; /* Updated to 16px for better readability */
   font-family: 'ABeeZee', sans-serif;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .blog-date {
-  font-size: 0.9em;
+  font-size: 16px; /* Updated to 16px for better readability */
   color: #777777;
   text-align: justify;
 }
@@ -148,9 +148,10 @@
 }
 
 .blog-content {
-  line-height: 1.6;
+  line-height: 1.7;
   margin-top: 20px;
   text-align: justify;
+  font-size: 16px; /* Maintained at 16px for readability */
 }
 #dark .blog-content * {
   color: white;
@@ -174,7 +175,7 @@
   gap: 2px;
 }
 .like_icon p {
-  font-size: 12px;
+  font-size: 16px; /* Updated to 16px for better readability */
 }
 .blog-content * {
   max-width: 100%;
@@ -187,8 +188,49 @@
 .blog-content h6 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.blog-content h1 {
+  font-size: 28px;
+}
+
+.blog-content h2 {
+  font-size: 24px;
+}
+
+.blog-content h3 {
+  font-size: 20px;
+}
+
+.blog-content h4 {
+  font-size: 18px;
+}
+
+.blog-content h5,
+.blog-content h6 {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .blog-content p {
   margin-bottom: 1em;
+  font-size: 16px; /* Maintained at 16px for readability */
+  line-height: 1.7;
+}
+
+.blog-content li {
+  font-size: 16px; /* Maintained at 16px for readability */
+  line-height: 1.7;
+  margin-bottom: 0.5em;
+}
+
+.blog-content a {
+  color: #0070f3;
+  text-decoration: underline;
+  font-size: 16px; /* Maintained at 16px for readability */
+}
+
+#dark .blog-content a {
+  color: #6cbdfa;
 }
