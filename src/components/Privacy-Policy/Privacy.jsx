@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import "./Privacy.css";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 import { ThemeContext } from "../../App";
 
@@ -30,7 +31,7 @@ const Privacy = () => {
 
   return (
     <div id={theme}>
-
+      <ConditionalNavbar />
       <div className="privacy-page">
         <div className="privacy-container">
           <h1>Privacy Policy</h1>

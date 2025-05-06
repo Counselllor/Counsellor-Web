@@ -5,6 +5,7 @@ import { FaHome, FaChevronRight } from "react-icons/fa";
 import { ThemeContext } from "../../App";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 
 
@@ -23,7 +24,7 @@ const Terms = () => {
   }, [navigate]);
   return (
     <div id={theme}>
-
+      <ConditionalNavbar />
       <div className="terms-page">
         <div className="terms-container">
           {/* Breadcrumb navigation */}

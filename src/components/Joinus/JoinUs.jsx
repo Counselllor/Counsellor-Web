@@ -8,6 +8,7 @@ import { auth } from "../../firebase/auth";
 import { Switch } from 'antd';
 import { signOut} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 import { ThemeContext } from "../../App";
 
@@ -37,7 +38,7 @@ let [isLoggedIn,setLogin]=useState(false)
 
   return (
     <>
-
+      <ConditionalNavbar />
       <div>
         <div className="join-us-container">
           <div className="contents">

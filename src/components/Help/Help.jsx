@@ -9,6 +9,7 @@ import { Switch } from 'antd';
 import { ThemeContext } from "../../App";
 import { signOut} from "firebase/auth";
 import { toast } from "react-toastify";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 
 const Breadcrumb = () => {
@@ -123,8 +124,8 @@ const Help = () => {
   ];
   return (
     <>
-
-           <BackToHomeButton />
+      <ConditionalNavbar />
+      <BackToHomeButton />
 
       <div className="help-container">
         <Breadcrumb />

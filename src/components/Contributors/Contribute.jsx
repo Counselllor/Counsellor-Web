@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollToTop from "react-scroll-to-top";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 
 const Contribute = () => {
@@ -350,6 +351,7 @@ let arr=[
 
   return (
     <>
+      <ConditionalNavbar />
       <ScrollToTop
         smooth
         viewBox="0 0 24 24"

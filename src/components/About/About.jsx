@@ -5,11 +5,13 @@ import SectionAbout from "./SectionAbout";
 import SectionFeatures from "./SectionFeatures";
 import SectionStories from "./SectionStories";
 import SectionTours from "./SectionTours";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 //About Us
 const About = () => {
   return (
     <main>
+      <ConditionalNavbar />
       <Banner/>
       <SectionAbout/>
       <SectionFeatures/>

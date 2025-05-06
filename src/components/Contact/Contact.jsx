@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { auth} from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import ConditionalNavbar from "../Navbar/ConditionalNavbar";
 
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
@@ -75,7 +76,7 @@ const Contact = () => {
 
   return (
     <main>
-
+      <ConditionalNavbar />
       <div className="contact1">
         <ToastContainer />
         <div className="left">
