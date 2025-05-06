@@ -1,16 +1,17 @@
 .blog-read-page_container {
   width: 100%;
-  min-height: 69vh;
+  min-height: calc(100vh - 100px); /* Adjusted to match dashboard page footer distance */
   background: linear-gradient(135deg, #0070f3, #76c6f5);
-  padding: 50px 20px;
+  padding: 30px 20px 0; /* Reduced top padding and removed bottom padding */
+  margin-bottom: 0; /* Remove bottom margin */
 }
 #dark .blog-read-page_container {
   background: linear-gradient(135deg, #0070f3, #004a9f);
 }
 .blog-read-page {
   max-width: 800px;
-  margin: 0px auto;
-  padding: 40px;
+  margin: 0px auto 20px; /* Added bottom margin */
+  padding: 40px 40px 30px; /* Reduced bottom padding */
   background-color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -233,4 +234,10 @@
 
 #dark .blog-content a {
   color: #6cbdfa;
+}
+
+/* Footer positioning for blog read page */
+.blog-read-page_container + footer {
+  margin-top: 0;
+  padding-top: 0;
 }
