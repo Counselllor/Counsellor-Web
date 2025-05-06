@@ -16,30 +16,20 @@ import JoinStories from "./Jointestimonial";
 
 
 const JoinUs = () => {
+  const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
+  const [isLoggedIn, setLogin] = useState(false);
 
-
-
-const navigate = useNavigate();
-
-let [isLoggedIn,setLogin]=useState(false)
   useEffect(() => {
     if(localStorage.getItem('login')){
-
       setLogin(true)
     }
-    // auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     // handle user logged in state
-    //   } else {
-
-    //   }
-    // });
   }, [navigate]);
 
   return (
     <>
       <ConditionalNavbar />
-      <div>
+      <div id={theme}>
         <div className="join-us-container">
           <div className="contents">
             <h1>Join Us</h1>
