@@ -1,25 +1,9 @@
-import Footer from "../Footer/Footer";
-import "./About.css";
-import Banner from "./Banner";
-import SectionAbout from "./SectionAbout";
-import SectionFeatures from "./SectionFeatures";
-import SectionStories from "./SectionStories";
-import SectionTours from "./SectionTours";
-import ConditionalNavbar from "../Navbar/ConditionalNavbar";
+import React from "react";
+import ModernAbout from "./ModernAbout";
 
-//About Us
+// About Us - Using the new modern design
 const About = () => {
-  return (
-    <main>
-      <ConditionalNavbar />
-      <Banner/>
-      <SectionAbout/>
-      <SectionFeatures/>
-      <SectionTours/>
-      <SectionStories/>
-      <Footer />
-    </main>
-  );
+  return <ModernAbout />;
 };
 
 export default About;
