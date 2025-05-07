@@ -11,7 +11,7 @@ const Banner = () => {
         </h1>
 
         <button className="btn_ btn--white btn--animated">
-         <a href="/">Discover Who We Are</a>
+         <a href="/">Log In</a>
         </button>
       </div>
     </header>

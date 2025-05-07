@@ -84,7 +84,7 @@ const AboutNavbar = () => {
               unCheckedChildren="Light"
             />
           </div>
-          <Link to="/login" className="login-btn">Log In</Link>
+          <Link to="/" className="login-btn">Log In</Link>
           <Link to="/signup" className="signup-btn">Sign Up</Link>
         </div>
       </div>
