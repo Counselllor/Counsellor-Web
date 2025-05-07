@@ -901,6 +901,7 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
+  margin-top: 90px; /* Add margin-top to accommodate the navbar with larger font */
 }
 
 #dark .header {
@@ -911,6 +912,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
   height: 95vh;
+  margin-top: 90px; /* Add margin-top to accommodate the navbar with larger font */
 }
 .header__logo-box {
   position: absolute;

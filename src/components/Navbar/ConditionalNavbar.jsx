@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { auth } from "../../firebase/auth";
 import Navbar from "./Navbar";
+import AboutNavbar from "../About/AboutNavbar";
 
 /**
  * ConditionalNavbar - Shows navbar only when user is logged in for specific pages
@@ -25,8 +26,8 @@ const ConditionalNavbar = () => {
   ];
 
   // Check if current path is in the conditional pages list
-  const isConditionalPage = conditionalPages.some(page => 
-    location.pathname === page || 
+  const isConditionalPage = conditionalPages.some(page =>
+    location.pathname === page ||
     location.pathname.startsWith(`${page}/`)
   );
 
@@ -46,12 +47,17 @@ const ConditionalNavbar = () => {
     return null;
   }
 
-  // If it's a conditional page and user is not logged in, don't show navbar
+  // If it's the About page and user is not logged in, show AboutNavbar
+  if (location.pathname === "/about" && !isLoggedIn) {
+    return <AboutNavbar />;
+  }
+
+  // If it's another conditional page and user is not logged in, don't show navbar
   if (isConditionalPage && !isLoggedIn) {
     return null;
   }
 
-  // Otherwise, show the navbar
+  // Otherwise, show the regular navbar
   return <Navbar />;
 };
 
