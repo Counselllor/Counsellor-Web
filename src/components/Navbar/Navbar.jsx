@@ -205,12 +205,12 @@ const MenuSection = ({ user, handleSignOut, menuOpen, toggleTheme, theme }) => {
           </>
         ) : (
           <>
-            <MenuItem>
+            {/* <MenuItem>
               <a href="/">Login</a>
             </MenuItem>
             <MenuItem>
               <a href="/admin/login" className="admin-link">Admin Login</a>
-            </MenuItem>
+            </MenuItem> */}
           </>
         )}
         <li>
