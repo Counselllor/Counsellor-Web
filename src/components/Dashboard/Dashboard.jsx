@@ -331,7 +331,7 @@ const Dashboard = () => {
                     />
                     <div className="context">
                       <p className="college_name">{college.name}</p>
-                      <button className="btn1">{college.location}</button>
+                      <span className="hero-cta">{college.location}</span>
                     </div>
                   </div>
                   <div className="down">
