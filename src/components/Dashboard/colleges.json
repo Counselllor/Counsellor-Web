@@ -49,7 +49,7 @@
     "exact-location": "Powai, Mumbai",
     "location": "Maharashtra",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1z90pacNUqq2ODR-2dV6Ay2rrTbOang5QNaOtOe9QPQ&s",
-    "ctc": "Highest CTC - 1.5 Crore per annum",
+    "ctc": "Highest CTC - 1.5 Crore",
     "description": "IIT Bombay is one of the premier engineering institutes in India, known for its rigorous academics and top-notch research facilities.",
     "rating": 9.5,
     "website":"https://www.iitb.ac.in/"
@@ -72,7 +72,7 @@
     "exact-location": "CV Raman Road, Bangalore",
     "location": "Karnataka",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47pHOiIzvSptCBeCbbG0eh9N0qM4OM1kSYfJiFnhXgw&s",
-    "ctc": "Highest CTC - 1.2 Crore per annum",
+    "ctc": "Highest CTC - 1.2 Crore",
     "description": "IISc is India's leading institution for research and higher learning in science and engineering.",
     "rating": 9.4,
     "website":"https://iisc.ac.in/"
@@ -116,7 +116,7 @@
     "exact-location": "Hauz Khas, New Delhi",
     "location": "Delhi",
     "imageURL": "https://home.iitd.ac.in/public/storage/uploads/itc_1651484470.jpg",
-    "ctc": "Highest CTC - 1.4 Crore per annum",
+    "ctc": "Highest CTC - 1.4 Crore",
     "description": "IIT Delhi is one of the premier engineering institutes in India, known for its strong industry connections and innovative research.",
     "rating": 9.3,
     "website":"https://home.iitd.ac.in/"
@@ -149,7 +149,7 @@
     "exact-location": "Chennai",
     "location": "TN",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAf7f1xc2jUNsoehzgZcXynM1JJ7kPaWvZXmH0JgOdQ&s",
-    "ctc": "Highest CTC - 1.3 Crore per annum",
+    "ctc": "Highest CTC - 1.3 Crore",
     "description": "IIT Madras is one of the premier engineering institutes in India, known for its strong emphasis on research and innovation.",
     "rating": 9.4,
     "website":"https://www.iitm.ac.in/"
@@ -182,7 +182,7 @@
     "exact-location": "Kanpur",
     "location": "UP",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjxodn89r8sy0YqzoVi_39GieXlWdLjlWAQcOTaM2tQ&s",
-    "ctc": "Highest CTC - 1.4 Crore per annum",
+    "ctc": "Highest CTC - 1.4 Crore",
     "description": "IIT Kanpur is one of the premier engineering institutes in India, known for its academic excellence and research contributions.",
     "rating": 9.3,
     "website":"https://www.iitk.ac.in/"
@@ -237,7 +237,7 @@
     "exact-location": "Baranagar, Kolkata",
     "location": "WB",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfUjeIFnz5xfEv2pCrnxvGucRXD5y23M4i2_zRMCjZYw&s",
-    "ctc": "Highest CTC - 1.2 Crore per annum",
+    "ctc": "Highest CTC - 1.2 Crore",
     "description": "ISI is a renowned institution for research, education, and training in statistics and related sciences.",
     "rating": 9.2,
     "website":"https://www.isical.ac.in/"
@@ -270,7 +270,7 @@
     "exact-location": "Roorkee",
     "location": "Uttarakhand",
     "imageURL": "https://www.iitr.ac.in/assets/56f4da26ed956730309fa1488611ee0f13b0ac95ebb1bc9b5d210e31ff70e79c_IITR12.jpg",
-    "ctc": "Highest CTC - 1.3 Crore per annum",
+    "ctc": "Highest CTC - 1.3 Crore",
     "description": "IIT Roorkee is one of the oldest and most prestigious technical institutions in India, known for its tradition of excellence in teaching and research.",
     "rating": 9.2,
     "website":"https://www.iitr.ac.in/"
@@ -281,7 +281,7 @@
     "exact-location": "Guwahati",
     "location": "Assam",
     "imageURL": "https://images.indianexpress.com/2024/03/IIT-Guwahati.jpg",
-    "ctc": "Highest CTC - 1.2 Crore per annum",
+    "ctc": "Highest CTC - 1.2 Crore",
     "description": "IIT Guwahati is one of the premier engineering institutes in India, known for its scenic campus and academic excellence.",
     "rating": 9.0,
     "website":"https://iitg.ac.in/"
@@ -292,7 +292,7 @@
     "exact-location": "Navy Nagar, Colaba, Mumbai",
     "location": "Maharashtra",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfxCELgEGhfApQNp_Wnqvx9l0-9BgqqcoQwN7vPuPGmg&s",
-    "ctc": "Highest CTC - 1.1 Crore per annum",
+    "ctc": "Highest CTC - 1.1 Crore",
     "description": "TIFR is a national centre of the Government of India, under the umbrella of the Department of Atomic Energy, as well as a deemed University awarding degrees for master's and doctoral programs.",
     "rating": 9.3,
     "website":"https://www.tifr.res.in/"
@@ -336,7 +336,7 @@
     "exact-location": "Bhubaneswar",
     "location": "Odisha",
     "imageURL": "https://www.collegebatch.com/static/clg-gallery/indian-institute-of-technology-bhubaneswar-238609.jpg",
-    "ctc": "Highest CTC - 1.1 Crore per annum",
+    "ctc": "Highest CTC - 1.1 Crore",
     "description": "IIT Bhubaneswar is one of the newer IITs in India, known for its state-of-the-art infrastructure and academic rigor.",
     "rating": 8.9,
     "website":"https://new.iitbbs.ac.in/"
@@ -380,7 +380,7 @@
     "exact-location": "Patna",
     "location": "Bihar",
     "imageURL": "https://images.shiksha.com/mediadata/images/articles/1714565177phpbVUDAS.jpeg",
-    "ctc": "Highest CTC - 1.0 Crore per annum",
+    "ctc": "Highest CTC - 1.0 Crore",
     "description": "IIT Patna is one of the premier technical institutes in India, known for its focus on cutting-edge research and innovation.",
     "rating": 8.7,
     "website":"https://www.iitp.ac.in/"
@@ -402,7 +402,7 @@
     "exact-location": "Mandi",
     "location": "HP",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjBhk4zZfoglzJdn1V18r6dTG5ybO3M4EpxAc6QsJdzg&s",
-    "ctc": "Highest CTC - 1.1 Crore per annum",
+    "ctc": "Highest CTC - 1.1 Cr",
     "description": "IIT Mandi is one of the newer IITs in India, known for its picturesque campus and strong academic programs.",
     "rating": 8.6,
     "website":"https://iimranchi.ac.in/"
@@ -446,7 +446,7 @@
     "exact-location": "Jodhpur",
     "location": "Rajasthan",
     "imageURL": "https://images.indianexpress.com/2023/10/IIT-Jodhpur-1.jpg",
-    "ctc": "Highest CTC - 1.0 Crore per annum",
+    "ctc": "Highest CTC - 1.0 Crore",
     "description": "IIT Jodhpur is one of the newer IITs in India, known for its focus on interdisciplinary research and innovation.",
     "rating": 8.5,
     "website":"https://www.iitj.ac.in/"
@@ -457,7 +457,7 @@
     "exact-location": "Bodh Gaya",
     "location": "Bihar",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdLMEv0YZxNx1PVIki_URcM1GbpxCSvVEeA1SWpArtA&s",
-    "ctc": "Highest CTC - 50 Lakhs per annum",
+    "ctc": "Highest CTC - 50 LPA",
     "description": "IIM Bodh Gaya is one of the newer IIMs in India, known for its focus on sustainable development and social entrepreneurship.",
     "rating": 8.6,
     "website":"https://iimbg.ac.in/"
@@ -468,7 +468,7 @@
     "exact-location": "Sangareddy district, Telangana",
     "location": "Telangana",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3c8nAu1A1UkF7fChjC3t8DbuyOigJY-72m6y6A1bZeQ&s",
-    "ctc": "Highest CTC - 1.2 Crore per annum",
+    "ctc": "Highest CTC - 1.2 Crore ",
     "description": "IIT Hyderabad is one of the premier technical institutes in India, known for its cutting-edge research and vibrant campus life.",
     "rating": 9.1,
     "website":"https://www.iith.ac.in/"

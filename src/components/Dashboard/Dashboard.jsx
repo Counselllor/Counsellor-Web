@@ -2,37 +2,30 @@ import React, {
   useEffect,
   useState,
   useCallback,
-  useContext,
   useRef,
 } from "react";
-import "./Dashboard.css";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import Logo from "../../assets/logo.webp";
+import { useNavigate, useLocation } from "react-router-dom";
 import SearchIcon from "../../assets/search_icon.png";
-import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/auth";
 import Footer from "../Footer/Footer";
 import collegesData from "./colleges.json";
 import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CollegeCard from "./CollegeCard";
 import ModernCollegeGrid from "./ModernCollegeGrid";
 import FAQs from '../FAQs/FAQs';
 import Testimonial from "../Testimonial/Testimonial";
-import { ThemeContext } from '../../App';
-import { Switch } from 'antd';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import Navbar from "../Navbar/Navbar";
+// Import Dashboard.css after ModernCollegeCard.css (which is imported in ModernCollegeGrid)
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredColleges, setFilteredColleges] = useState(collegesData);
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const mainRef = useRef(null);
 
   // Pagination state
@@ -119,6 +112,12 @@ const Dashboard = () => {
   }, [currentPage]);
 
 
+  // Calculate paginated colleges
+  const paginatedColleges = filteredColleges.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   const handleCollegeClick = useCallback(
     (college) => {
       window.location.href=`/college/${college.id}`;
@@ -126,45 +125,19 @@ const Dashboard = () => {
     [navigate]
   );
 
-
+  const handleCollegeGridClick = useCallback((e) => {
+    const collegeCard = e.target.closest('.college-card');
+    if (collegeCard) {
+      const index = Array.from(collegeCard.parentNode.children).indexOf(collegeCard);
+      if (index >= 0 && index < paginatedColleges.length) {
+        handleCollegeClick(paginatedColleges[index]);
+      }
+    }
+  }, [paginatedColleges, handleCollegeClick]);
 
   const handleSearchChange = useCallback((e) => {
     setSearchTerm(e.target.value);
   }, []);
-
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleTouchStart = (index) => {
-    setActiveIndex(index);
-  };
-
-  const handleTouchEnd = () => {
-    setActiveIndex(null);
-  };
-
-  const [fix, setFix] = useState(false);
-
-  const setFixed = useCallback(() => {
-    if (window.scrollY > 0) {
-      setFix(true);
-    } else {
-      setFix(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", setFixed);
-    return () => {
-      window.removeEventListener("scroll", setFixed);
-    };
-  }, [setFixed]);
-
-
-
-  const paginatedColleges = filteredColleges.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
   const handleResetFilters = () => {
     setCtcRange([0, 200]);
     setRatingRange([0, 10]);
@@ -189,7 +162,7 @@ const Dashboard = () => {
   };
 
   return (
-    <main ref={mainRef}>
+    <main ref={mainRef} style={{ marginTop: "60px" }}>
       <div className="scroll">
         <ScrollToTop
           smooth
@@ -270,11 +243,10 @@ const Dashboard = () => {
                     max={200}
                     value={ctcRange}
                     onChange={handleCtcRangeChange}
-                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
-                    handleStyle={[
-                      { backgroundColor: "#5CB6F9" },
-                      { backgroundColor: "#5CB6F9" },
-                    ]}
+                    styles={{
+                      track: { backgroundColor: "#5CB6F9" },
+                      handle: { backgroundColor: "#5CB6F9" }
+                    }}
                   />
                   <p>
                     {ctcRange[0]}L - {ctcRange[1]}L
@@ -288,11 +260,10 @@ const Dashboard = () => {
                     max={10}
                     value={ratingRange}
                     onChange={handleRatingRangeChange}
-                    trackStyle={[{ backgroundColor: "#5CB6F9" }]}
-                    handleStyle={[
-                      { backgroundColor: "#5CB6F9" },
-                      { backgroundColor: "#5CB6F9" },
-                    ]}
+                    styles={{
+                      track: { backgroundColor: "#5CB6F9" },
+                      handle: { backgroundColor: "#5CB6F9" }
+                    }}
                   />
                   <p>
                     {ratingRange[0]} - {ratingRange[1]}
@@ -312,15 +283,7 @@ const Dashboard = () => {
           <h2>We can't find any item matching your search</h2>
         </div>
       ) : (
-        <div className="modern-colleges-container" onClick={(e) => {
-          const collegeCard = e.target.closest('.college-card');
-          if (collegeCard) {
-            const index = Array.from(collegeCard.parentNode.children).indexOf(collegeCard);
-            if (index >= 0 && index < paginatedColleges.length) {
-              handleCollegeClick(paginatedColleges[index]);
-            }
-          }
-        }}>
+        <div className="modern-colleges-container" onClick={handleCollegeGridClick}>
           <ModernCollegeGrid colleges={paginatedColleges} />
         </div>
       )}

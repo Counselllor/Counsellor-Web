@@ -1,94 +1,108 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.webp";
 import { ThemeContext } from "../../App";
 import { Switch } from 'antd';
 import "./AboutNavbar.css";
 
+// Toggle menu function
+const toggleNavMenu = (setMenuOpen, menuOpen) => {
+  setMenuOpen(!menuOpen);
+};
+
 const AboutNavbar = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [fix, setFix] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // Handle scroll event to change navbar appearance
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const toggleMenuCallback = useCallback(() => {
+    toggleNavMenu(setMenuOpen, menuOpen);
+  }, [setMenuOpen, menuOpen]);
 
-    window.addEventListener("scroll", handleScroll);
+  const handleKeyPress = useCallback(
+    (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleMenuCallback();
+      }
+    },
+    [toggleMenuCallback]
+  );
+
+  const setFixed = () => {
+    if (window.scrollY > 0) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", setFixed);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", setFixed);
     };
   }, []);
 
-  // Toggle mobile menu
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
   return (
-    <nav className={`about-navbar ${scrolled ? "scrolled" : ""}`} id={theme}>
-      <div className="about-navbar__container">
-        {/* Logo */}
-        <div className="about-navbar__logo">
-          <Link to="/">
-            <img src={Logo} alt="Counsellor Logo" />
-            <span>Counsellor</span>
-          </Link>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <div className="about-navbar__mobile-toggle" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        {/* Navigation links - now in the center */}
-        <div className={`about-navbar__links ${menuOpen ? "active" : ""}`}>
-          <ul>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/blogs">Blog</Link>
-            </li>
-            <li>
-              <Link to="/contribute">Contributors</Link>
-            </li>
-            <li>
-              <Link to="/join-us">Join Us</Link>
-            </li>
-            <li>
-              <Link to="/help">Help</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Action buttons */}
-        <div className={`about-navbar__actions ${menuOpen ? "active" : ""}`}>
-          <div className="theme-toggle">
+    <nav className={`navbar ${fix ? "fixed" : ""}`}>
+      <div className="logo">
+        <Link to="/">
+          <img src={Logo} alt="Logo" />
+        </Link>
+      </div>
+      <div className={`menu ${menuOpen ? "show" : ""}`}>
+        <ul>
+          <MenuItem href="/about">About</MenuItem>
+          <MenuItem href="/blogs">Blog</MenuItem>
+          <MenuItem href="/contribute">Contributors</MenuItem>
+          <MenuItem href="/join-us">Join Us</MenuItem>
+          <MenuItem href="/help">Help</MenuItem>
+          <MenuItem href="/contact">Contact</MenuItem>
+          <li>
             <Switch
               style={{ backgroundColor: theme === "dark" ? "#000000" : "" }}
               onChange={toggleTheme}
               checked={theme === "dark"}
-              checkedChildren="Dark"
-              unCheckedChildren="Light"
+              checkedChildren="Dark Mode"
+              unCheckedChildren="Light Mode"
             />
-          </div>
-          <Link to="/" className="login-btn">Log In</Link>
-          <Link to="/signup" className="signup-btn">Sign Up</Link>
-        </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="hamburger"
+        onClick={toggleMenuCallback}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+        role="button"
+      >
+        {[1, 2, 3].map((index) => (
+          <div key={index} className={`bar ${menuOpen ? "open" : ""}`} />
+        ))}
       </div>
     </nav>
+  );
+};
+
+const MenuItem = ({ href, children }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    if (href) {
+      e.preventDefault();
+      navigate(href);
+    }
+  };
+
+  return (
+    <li>
+      {href ? (
+        <a href={href} onClick={handleClick}>{children}</a>
+      ) : (
+        children
+      )}
+    </li>
   );
 };
 
