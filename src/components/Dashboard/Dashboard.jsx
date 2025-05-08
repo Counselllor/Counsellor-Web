@@ -17,6 +17,7 @@ import ScrollToTop from "react-scroll-to-top";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CollegeCard from "./CollegeCard";
+import ModernCollegeGrid from "./ModernCollegeGrid";
 import FAQs from '../FAQs/FAQs';
 import Testimonial from "../Testimonial/Testimonial";
 import { ThemeContext } from '../../App';
@@ -311,40 +312,16 @@ const Dashboard = () => {
           <h2>We can't find any item matching your search</h2>
         </div>
       ) : (
-        <div className="grid-cont">
-          <div className="colleges1">
-            {paginatedColleges.map((college, index) => (
-              <div
-                className={`college ${activeIndex === index ? "active" : ""}`}
-                key={college.id}
-                onClick={() => handleCollegeClick(college)}
-                onTouchStart={() => handleTouchStart(index)}
-                onTouchEnd={handleTouchEnd}
-                style={{ height: "230px", width: "300px" }}
-              >
-                <div className="college-content">
-                  <div className="up">
-                    <img
-                      className="college-image"
-                      src={college.imageURL}
-                      alt="College Logo"
-                    />
-                    <div className="context">
-                      <p className="college_name">{college.name}</p>
-                      <span className="hero-cta">{college.location}</span>
-                    </div>
-                  </div>
-                  <div className="down">
-                    <div className="ctc">{college.ctc}</div>
-                    <div className="time">{college.time}</div>
-                  </div>
-                </div>
-                <button className="click-info-button click-btn2">
-                  <span className="text">Click for more info</span>
-                </button>
-              </div>
-            ))}
-          </div>
+        <div className="modern-colleges-container" onClick={(e) => {
+          const collegeCard = e.target.closest('.college-card');
+          if (collegeCard) {
+            const index = Array.from(collegeCard.parentNode.children).indexOf(collegeCard);
+            if (index >= 0 && index < paginatedColleges.length) {
+              handleCollegeClick(paginatedColleges[index]);
+            }
+          }
+        }}>
+          <ModernCollegeGrid colleges={paginatedColleges} />
         </div>
       )}
       <div className="pagination">
