@@ -33,7 +33,7 @@
     "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
     "express": "^4.21.2",
-    "firebase": "^11.6.0",
+    "firebase": "^11.7.1",
     "jsonwebtoken": "^9.0.2",
     "marked": "^14.1.2",
     "moment": "^2.30.1",
